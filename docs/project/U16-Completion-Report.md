@@ -1,6 +1,6 @@
 # NPCDex Durable Cloud Synchronization
 
-ROMDex 0.5.4 is installed and its genuine YouTrack connection and NPCDex cloud copy are verified. Private release publication and the final normal restart remain pending before U16 is checked off.
+**U16 is complete. ROMDex 0.5.4 is installed and running normally. NPCDex cloud synchronization is active** using the existing protected cloud credential. Source, pre-change snapshots and the verified installer are archived in the private development repository.
 
 ## Result
 
@@ -20,8 +20,10 @@ U16 conservatively preserves competing revisions and holds them for review. Auto
 - The packaged app passed six scenarios: both workspaces open, actual note input checkpoints while Off, full restart retains it, manual Save delivers it, legacy writes cannot bypass revision checks, and closed-to-tray delivery continues.
 - The native test inspector initially failed because of quoting in its own script. Correcting the harness allowed these checks to run; this was not an application startup failure.
 
-The final package passed 107 syntax checks and 226 file hashes. The actual installer preserved all 106 application Data files exactly. The whole NPCDex revision 73 document, ordering, selector images, saved parent statuses and all three encrypted credentials are preserved. Both workspaces opened; all 299 task fields match genuine YouTrack reads, NPCDex cloud is current with no pending operations or review, and private update access restored without token entry. Release delivery and the final normal restart remain to be recorded. No synthetic verification edits were made to production YouTrack tickets or the production cloud branch.
+The final package passed 107 syntax checks and 226 file hashes. The actual installer preserved all 106 application Data files exactly. The whole NPCDex revision 73 document, ordering, selector images, saved parent statuses and all three encrypted credentials are preserved. Both workspaces opened; all 299 task fields match genuine YouTrack reads, NPCDex cloud is current with no pending operations or review, and private update access restored without token entry. A normal restart resumed both providers, retained all saved credentials and closed the temporary diagnostic ports. The existing update token authenticated the current signed release without re-entry or downloading another installer. The privately published installer was downloaded independently and matched its verified hash. No synthetic verification edits were made to production YouTrack tickets or the production cloud branch.
+
+[Desktop verification](U16-Desktop-Verification.json), [application manifest](U16-Application-Manifest.json), [private release](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.4). The complete protected pre-upgrade Data backup remains local and is excluded from Git.
 
 ## Next Task
 
-After U16 acceptance: **U17 — Concurrent Edits and Conflict Review, Sol / Extra High**. A new PASSKEY is required. No U17 implementation is included here.
+**U17 — Concurrent Edits and Conflict Review, Sol / Extra High**. A new PASSKEY is required. No U17 implementation is included here.

@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** U15 is complete. [Initial cloud import report](U15-Completion-Report.md). **Next: U16 — Durable Incoming/Outgoing Sync, Sol / Extra High**, requiring a new PASSKEY. The accepted revision 73 is preserved in private GitHub; NPCDex continues saving locally until ongoing sync is implemented.
+**Current:** U16 is complete. [Cloud sync report](U16-Completion-Report.md). Installed ROMDex **0.5.4** has active NPCDex cloud synchronization and the existing native YouTrack sync. **Next: U17 — Concurrent Edits and Conflict Review, Sol / Extra High**, requiring a new PASSKEY.
 
 ## Completed Foundation
 
@@ -54,7 +54,7 @@
 
 - [x] **U14 — Private Cloud Storage and Access Rules** — Sol / High. Private GitHub setup, access separation, transport proof and protected credentials verified; YouTrack retains all agent handoff material. [Report](U14-Completion-Report.md).
 - [x] **U15 — Previewed NPCDex Cloud Import** — Sol / High. User-approved revision 73 and exact original bytes verified remotely and in a fresh Windows process. [Report](U15-Completion-Report.md).
-- [ ] **U16 — Durable Incoming/Outgoing Sync** — Sol / Extra High.
+- [x] **U16 — Durable Incoming/Outgoing Sync** — Sol / Extra High.
 - [ ] **U17 — Concurrent Edits and Conflict Review** — Sol / Extra High.
 - [ ] **U18 — ROMDex Workspace Metadata Sync** — Sol / High.
 - [ ] **U19 — Combined Sync Controls and Indicators** — Sol / High. Include header polish: reduce the circular workspace toggle diameter by 30% from its current size and remove its drop shadow; verify centering and workspace-menu behavior in both workspaces.
@@ -384,6 +384,6 @@ U15 import and recovery verification are complete. U15 does not activate continu
 - [x] Connect versioned editor checkpoints and protect typing against incoming updates.
 - [x] Complete full regression and native Windows/Electron checks.
 - [x] Validate the packaged desktop, upgrade preservation and live connection.
-- [ ] Archive source, publish the verified private build, update the checklist and stop before U17.
+- [x] Archive source, publish the verified private build, update the checklist and stop before U17.
 
-U16 is in progress. Installed 0.5.4 has passed current-data and genuine cloud/YouTrack verification. Private publication and the final normal restart remain before completion.
+U16 is complete in installed **0.5.4**. Passed 345 tests, forced process-kill recovery, actual two-client GitHub checks, packaged editing/restart/tray checks, 226 installed hashes, exact 106-file installer Data preservation and genuine YouTrack equality. All three credentials survived the final normal restart. Conflicting branches are retained for U17 review. **Next: U17 — Sol / Extra High; new PASSKEY required.**

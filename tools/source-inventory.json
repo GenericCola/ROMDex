@@ -1022,6 +1022,11 @@
       "sha256": "4e12644b616217e367cc096ac05cc60d53bcc15d28887b295301077cb51adaac"
     },
     {
+      "path": "tools/development/u16-finalize.mjs",
+      "bytes": 7219,
+      "sha256": "4f729ae68dd3435f98d564110e028645ecb8d4eda696ca43663bd037591a38bd"
+    },
+    {
       "path": "tools/development/u16-host.mjs",
       "bytes": 2752,
       "sha256": "31db4ba2224de1d52414cab561f0351fb8158d9935100a884937a00e2e19b476"
@@ -1037,6 +1042,11 @@
       "sha256": "376ba27420004bb91913be16106f06beca9243dd3dcb9c881f8c0b255176c680"
     },
     {
+      "path": "tools/development/u16-normal-relaunch.mjs",
+      "bytes": 4839,
+      "sha256": "df225ac561d6dad0466186aababe026682a3d1482d15b0473ebc4d8e46357469"
+    },
+    {
       "path": "tools/development/u16-package.mjs",
       "bytes": 5509,
       "sha256": "2f34c6de737e3b89e16747392bdc0e38620217f954956795fc9f9e6dbf9d905a"
@@ -1045,6 +1055,11 @@
       "path": "tools/development/u16-publish.mjs",
       "bytes": 11756,
       "sha256": "f49636f4cb46b1d0ef85509c47d24df0fa3db63961b6a0832340e5e828c9900b"
+    },
+    {
+      "path": "tools/development/u16-push-records.mjs",
+      "bytes": 2589,
+      "sha256": "b3f98a3e71a99a91e75c0133f808a90074d41ff29dc631aaee004e747dece3b9"
     },
     {
       "path": "tools/development/u16-resume-checks.mjs",
