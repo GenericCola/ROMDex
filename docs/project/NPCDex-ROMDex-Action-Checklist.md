@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** U19 is authorized and in progress. Complete shared sync controls, service-specific connection details and the smaller shadow-free workspace button. Installed baseline: **0.5.6**.
+**Current:** U19 is complete in installed ROMDex **0.5.7**. [Shared sync report](U19-Completion-Report.md). **Next: U20 — Change Request Workflow and User-Story Review, Sol / Medium**, requiring a new PASSKEY.
 
 ## Completed Foundation
 
@@ -57,7 +57,7 @@
 - [x] **U16 — Durable Incoming/Outgoing Sync** — Sol / Extra High.
 - [x] **U17 — Concurrent Edits and Conflict Review** — Sol / Extra High.
 - [x] **U18 — ROMDex Workspace Metadata Sync** — Sol / High.
-- [ ] **U19 — Combined Sync Controls and Indicators** — Sol / High. Correct stale Connection Details help that still describes NPCDex as local-only, and verify service-specific statuses. Include header polish: reduce the circular workspace toggle diameter by 30% from its current size and remove its drop shadow; verify centering and workspace-menu behavior in both workspaces.
+- [x] **U19 — Combined Sync Controls and Indicators** — Sol / High. Correct stale Connection Details help that still describes NPCDex as local-only, and verify service-specific statuses. Include header polish: reduce the circular workspace toggle diameter by 30% from its current size and remove its drop shadow; verify centering and workspace-menu behavior in both workspaces.
 
 ## Phase 4 — Requests and Tickets
 
@@ -417,5 +417,5 @@ U17 is complete in installed **0.5.5**. Passed 371 tests, eight final packaged d
 - [x] Implement shared health/attention reporting and truthful per-service Connection Details.
 - [x] Reduce the workspace toggle to 70% diameter, remove its shadow and preserve alignment/navigation.
 - [x] Verify mixed service failures, clean disconnects, conflicts, Off/manual cycles and recovery.
-- [ ] Verify the final packaged desktop, backed-up upgrade and all remembered credentials.
-- [ ] Archive the private release/evidence, check off U19 and stop before U20.
+- [x] Verify the final packaged desktop, backed-up upgrade and all remembered credentials.
+- [x] Archive the private release/evidence, check off U19 and stop before U20.

@@ -1,0 +1,236 @@
+{
+  "task": "U19",
+  "completedOn": "2026-10-16",
+  "version": "0.5.7",
+  "testsPassed": 426,
+  "syntaxChecks": 125,
+  "installedApplicationHashesVerified": 248,
+  "installerDataFilesPreservedExactly": 114,
+  "packagedUI": {
+    "task": "U19",
+    "startedAt": "2026-10-16T13:00:21.194Z",
+    "isolated": true,
+    "productionSaveWrites": false,
+    "youtrackWrites": false,
+    "checks": [
+      "Smaller Shadow-Free Workspace Button and All Header Lights/Controls Remain Centered",
+      "Workspace Switching Preserves View State; Escape Closes the Menu",
+      "Every Provider Independently Drives Connection Failure; Clean Failures Keep Save Green and Known Conflicts Keep Transport Blue",
+      "Shared Save Delivers Actual Metadata to the Verification Branch and Leaves Auto-Sync Off",
+      "Connection Details Shows Service Status Before the Token Form and Names All Providers and Shows Pending Counts, Remote Check Times and Recovery Guidance",
+      "Shared Off Switch Pauses Every Provider After a Successful Resume"
+    ],
+    "branch": "verification/u19-defc3901-2c7b-4f29-bb41-666d6b6c5fca",
+    "geometry": {
+      "width": 19.0390625,
+      "height": 19.0390625,
+      "shadow": "none",
+      "buttonCenter": 40.49609375,
+      "saveCenter": 40.5,
+      "autoCenter": 40.5,
+      "connectionCenter": 40.5,
+      "saveHeight": 34,
+      "autoHeight": 34
+    },
+    "controlledPresentationCases": [
+      {
+        "target": "youtrack",
+        "pending": 0,
+        "connection": "bulb red",
+        "save": "bulb save-light green"
+      },
+      {
+        "target": "youtrack",
+        "pending": 1,
+        "connection": "bulb red",
+        "save": "bulb save-light red"
+      },
+      {
+        "target": "npcdex",
+        "pending": 0,
+        "connection": "bulb red",
+        "save": "bulb save-light green"
+      },
+      {
+        "target": "npcdex",
+        "pending": 1,
+        "connection": "bulb red",
+        "save": "bulb save-light red"
+      },
+      {
+        "target": "metadata",
+        "pending": 0,
+        "connection": "bulb red",
+        "save": "bulb save-light green"
+      },
+      {
+        "target": "metadata",
+        "pending": 1,
+        "connection": "bulb red",
+        "save": "bulb save-light red"
+      },
+      {
+        "target": "conflict",
+        "connection": "bulb blue",
+        "save": "bulb save-light red"
+      }
+    ],
+    "status": "passed",
+    "version": "0.5.7",
+    "profile": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u19\\private-profile\\ui-ef4451fe-b3e7-4b42-9dec-56bdff00b774",
+    "finishedAt": "2026-10-16T13:00:57.792Z"
+  },
+  "current": {
+    "task": "U19",
+    "startedAt": "2026-10-16T13:02:11.947Z",
+    "status": "passed",
+    "header": {
+      "connection": "bulb blue",
+      "save": "bulb save-light green",
+      "workspaceButtonWidth": 19.0390625,
+      "shadow": "none"
+    },
+    "state": {
+      "version": "0.5.7",
+      "fixture": null,
+      "cloudBranch": null,
+      "npcCloud": {
+        "active": true,
+        "label": "NPCDex Cloud",
+        "cloud": true,
+        "automaticRemote": true,
+        "automaticSyncEnabled": true,
+        "pending": 0,
+        "syncing": false,
+        "review": null,
+        "connection": "connected",
+        "localError": null,
+        "attention": false,
+        "message": "NPCDex Cloud Copy Is Current.",
+        "lastSync": 1792155741617
+      },
+      "metadata": {
+        "active": true,
+        "projectedHead": "15d699309a8dbe8d4e5b71b9f2518839302839e39b5564b720e0df87e60c2ce1",
+        "label": "ROMDex Metadata",
+        "cloud": true,
+        "automaticRemote": true,
+        "automaticSyncEnabled": true,
+        "pending": 0,
+        "syncing": false,
+        "review": null,
+        "connection": "connected",
+        "localError": null,
+        "attention": false,
+        "lastSync": 1792155741011,
+        "message": "ROMDex Metadata Cloud Copy Is Current."
+      },
+      "views": 2,
+      "connected": true,
+      "remembered": true,
+      "items": 299,
+      "pending": 0,
+      "automatic": true,
+      "npcRevision": 73
+    },
+    "youtrack": {
+      "items": 299,
+      "allFieldsMatch": true
+    },
+    "metadata": {
+      "head": "15d699309a8dbe8d4e5b71b9f2518839302839e39b5564b720e0df87e60c2ce1",
+      "sha256": "5fcd94cc20913109865cafe84b2f112390041c752b89b56999ca31cad5b467f2",
+      "siblingLists": 22,
+      "images": 0,
+      "savedParentStatuses": 78
+    },
+    "wholeNPCDexPreserved": true,
+    "exactSparseOrderAndImagesPreserved": true,
+    "allAssignedValuesPreserved": true,
+    "allThreeEncryptedCredentialsPreserved": true,
+    "updater": {
+      "trusted": true,
+      "configured": true,
+      "accessReady": true
+    },
+    "installer": {
+      "task": "U19",
+      "startedAt": "2026-10-16T13:01:44.146Z",
+      "status": "installed",
+      "version": "0.5.7",
+      "exitCode": 0,
+      "filesPreservedExactly": 114,
+      "applicationHashesVerified": 248,
+      "backup": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\U19-Protected-Data-Backup",
+      "finishedAt": "2026-10-16T13:02:11.912Z"
+    },
+    "finishedAt": "2026-10-16T13:02:30.198Z"
+  },
+  "normalRelaunch": {
+    "task": "U19",
+    "status": "passed",
+    "startedAt": "2026-10-16T13:06:48.612Z",
+    "verifiedAt": "2026-10-16T13:07:30.344Z",
+    "version": "0.5.7",
+    "previousPid": 20928,
+    "normalPid": 3372,
+    "utilityPid": 9024,
+    "items": 299,
+    "nativePending": 0,
+    "cloudPending": 0,
+    "metadataCloud": {
+      "head": "15d699309a8dbe8d4e5b71b9f2518839302839e39b5564b720e0df87e60c2ce1",
+      "sha256": "5fcd94cc20913109865cafe84b2f112390041c752b89b56999ca31cad5b467f2",
+      "pending": 0,
+      "lastSync": 1792156049962
+    },
+    "npcdexRevision": 73,
+    "automaticSyncEnabled": true,
+    "youtrackLastSync": 1792156009432,
+    "cloudLastSync": 1792156021072,
+    "wholeNPCDexAndNativeMetadataPreserved": true,
+    "allSavedParentAssignmentsPreserved": true,
+    "allThreeEncryptedCredentialsPreserved": true,
+    "diagnosticPorts": {
+      "9257": "closed",
+      "9258": "closed",
+      "9266": "closed",
+      "9268": "closed",
+      "9269": "closed",
+      "9270": "closed",
+      "9273": "closed",
+      "9274": "closed"
+    },
+    "updateAccess": {
+      "phase": "current",
+      "accessReady": true,
+      "version": "0.5.7",
+      "installerDownloaded": false
+    }
+  },
+  "publication": {
+    "startedAt": "2026-10-16T13:03:40.544Z",
+    "status": "passed",
+    "repository": "GenericCola/ROMDex",
+    "private": true,
+    "commit": "579041e552a451ca54bc1f8ee7c479daff1e0b22",
+    "releaseId": "414971238",
+    "url": "https://github.com/GenericCola/ROMDex/releases/tag/v0.5.7",
+    "version": "0.5.7",
+    "installer": {
+      "bytes": 162380666,
+      "sha256": "8bab8e1253503f765b030f3079a6c7c480b8f628e69645c422af6dd8df1e7d83",
+      "assetId": "647358587"
+    },
+    "keyId": "6b407cf8c962677653659eab74772e72b92323f1e47c8c4c63bd6ea6eb17a49e",
+    "authenticatedRemoteDownloadVerified": true,
+    "publisherTokenStoredInApp": false,
+    "finishedAt": "2026-10-16T13:06:36.396Z"
+  },
+  "limitations": [
+    "Packaged mixed-failure display cases use controlled presentation injection; real cloud engines separately verify offline/recovery semantics in regression tests.",
+    "Packaged cloud delivery uses an isolated profile and separate GitHub verification branch; production checks do not create synthetic task or save edits.",
+    "Windows installers remain unsigned during private testing.",
+    "Change Request publishing, receipt integration and notifications retain their later approval gates."
+  ]
+}

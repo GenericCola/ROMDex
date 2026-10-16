@@ -2,7 +2,7 @@
 
 Private development home for ROMDex and its NPCDex add-on.
 
-Current release: [ROMDex 0.5.6](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.6). See the [metadata sync report](docs/project/U18-Completion-Report.md) and [release manifests](docs/releases/0.5.6/). NPCDex saves and ROMDex metadata synchronize privately, with preserved conflicts for human review. Combined sync controls and indicator polish remain the next separately approved task.
+Current release: [ROMDex 0.5.7](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.7). See the [shared sync report](docs/project/U19-Completion-Report.md) and [release manifests](docs/releases/0.5.7/). Shared indicators include every configured service. Change Request workflow design is the next separately approved task.
 
 - **apps/romdex/** — current application source, desktop host, web UI and tests.
 - **packages/tool-suite-ui/** — reusable suite assets, including the Standard Settings Icon.

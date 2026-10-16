@@ -1,6 +1,6 @@
 # Shared Sync Controls and Indicators
 
-U19 implementation and 426 regression tests are complete. Packaged Windows checks, the backed-up upgrade and private publication remain pending. U20 has not begun.
+**U19 is complete. ROMDex 0.5.7 is installed and running normally.** Shared controls now report all configured providers. U20 has not begun.
 
 Save Changes and the connection indicator now combine YouTrack Tasks, NPCDex Cloud and ROMDex Metadata. Healthy automatic delivery keeps Save green. A clean disconnected service flashes the connection lamp red without inventing an unsaved-data warning. Pending work that cannot be delivered, conflicts and local recovery problems require Save/review. Auto-Sync Off keeps the connection lamp static dark blue; a manual Save performs one cycle without enabling automatic sync.
 
@@ -12,7 +12,9 @@ The temporary red workspace button is 30% smaller in diameter (19.04 px rather t
 
 All 426 regression tests passed. New scenarios verify each provider's independent contribution to shared health, clean disconnects, queued failures, recovery, conflicts, unknown/local capabilities, desktop-service loss and independent manual-save results. Actual NPCDex/metadata journal engines were exercised through offline/recovery cycles. Packaged presentation tests distinguish controlled status injection from real verification-branch cloud delivery. Production verification performs no synthetic ticket or save edits.
 
-Final Windows, current-data, credential-preservation and release results will be recorded before completion. Application Data and encrypted credentials remain excluded from Git; full protected Data backups remain local.
+The final package passed 6 desktop scenarios, 125 syntax checks and 248 installed application hashes. Installation preserved all 114 Data files exactly before first launch. All 299 native tickets matched YouTrack, NPCDex revision 73 and the whole save remained intact, and ordering/images/saved parent statuses were preserved. Native and both cloud providers resumed after a normal restart with no pending work. All three encrypted credentials remained unchanged; the remembered download token verified the current signed release without re-entry. Temporary diagnostic ports are closed. Source, pre-change source and verified installer are archived privately; Application Data and encrypted credentials remain excluded from Git, with the complete protected Data backup retained locally.
+
+[Desktop evidence](U19-Desktop-Verification.json), [application manifest](U19-Application-Manifest.json), [private release](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.7).
 
 ## Next Task
 
