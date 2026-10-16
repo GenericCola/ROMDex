@@ -47,5 +47,5 @@
   nativeDesktop.onEvent(event=>{if(event.type!=='npcdex-cloud')return;state=event.detail.status;if(event.detail.head!==head&&!dirty&&!task)acceptIncoming();announce();});
   announce();
  });
- const originalStatus=workspace.status.bind(workspace);workspace.status=()=>cloud?{...state,label:'NPCDex',localCheckpoint:true,dirty,attention:!!error||!!state?.attention||!!legacyStatus().recoveryReview,error,message:error||state?.message||'NPCDex Cloud Is Starting.'}:error?{...originalStatus(),attention:true,error,message:error}:originalStatus();
+ const originalStatus=workspace.status.bind(workspace);workspace.status=()=>cloud?{...state,label:'NPCDex',localCheckpoint:true,dirty,localError:error||null,attention:!!error||!!state?.attention||!!legacyStatus().recoveryReview,error,message:error||state?.message||'NPCDex Cloud Is Starting.'}:error?{...originalStatus(),connection:'unavailable',localError:error,attention:true,error,message:error}:originalStatus();
 })();

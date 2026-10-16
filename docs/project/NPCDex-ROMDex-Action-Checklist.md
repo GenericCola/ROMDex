@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** U18 is complete in installed ROMDex **0.5.6**. [Metadata sync report](U18-Completion-Report.md). **Next: U19 — Combined Sync Controls and Indicators, Sol / High**, requiring a new PASSKEY.
+**Current:** U19 is authorized and in progress. Complete shared sync controls, service-specific connection details and the smaller shadow-free workspace button. Installed baseline: **0.5.6**.
 
 ## Completed Foundation
 
@@ -409,3 +409,13 @@ U17 is complete in installed **0.5.5**. Passed 371 tests, eight final packaged d
 - [x] Verify two clients, crashes, uncertain delivery, deleted/moved native items and metadata conflicts.
 - [x] Verify the packaged desktop and previewed, backed-up current-data upgrade.
 - [x] Archive the private release/evidence, mark U18 complete and stop before U19.
+
+
+## U19 — Implementation Checklist
+
+- [x] Preserve the accepted source baseline and confirm the approved indicator rules.
+- [x] Implement shared health/attention reporting and truthful per-service Connection Details.
+- [x] Reduce the workspace toggle to 70% diameter, remove its shadow and preserve alignment/navigation.
+- [x] Verify mixed service failures, clean disconnects, conflicts, Off/manual cycles and recovery.
+- [ ] Verify the final packaged desktop, backed-up upgrade and all remembered credentials.
+- [ ] Archive the private release/evidence, check off U19 and stop before U20.

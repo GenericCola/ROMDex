@@ -1,0 +1,1 @@
+import fs from 'node:fs/promises';import assert from 'node:assert/strict';const log=await fs.readFile('work/u19/regression-tests.log','utf8');assert(/tests 426\s/.test(log)&&/pass 426\s/.test(log)&&/fail 0\s/.test(log));await import('./u19-rebuild.mjs');await import('./u19-ui-verify.mjs');

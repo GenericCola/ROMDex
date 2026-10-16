@@ -1,0 +1,74 @@
+{
+  "task": "U19",
+  "startedAt": "2026-10-16T13:00:21.194Z",
+  "isolated": true,
+  "productionSaveWrites": false,
+  "youtrackWrites": false,
+  "checks": [
+    "Smaller Shadow-Free Workspace Button and All Header Lights/Controls Remain Centered",
+    "Workspace Switching Preserves View State; Escape Closes the Menu",
+    "Every Provider Independently Drives Connection Failure; Clean Failures Keep Save Green and Known Conflicts Keep Transport Blue",
+    "Shared Save Delivers Actual Metadata to the Verification Branch and Leaves Auto-Sync Off",
+    "Connection Details Shows Service Status Before the Token Form and Names All Providers and Shows Pending Counts, Remote Check Times and Recovery Guidance",
+    "Shared Off Switch Pauses Every Provider After a Successful Resume"
+  ],
+  "branch": "verification/u19-defc3901-2c7b-4f29-bb41-666d6b6c5fca",
+  "geometry": {
+    "width": 19.0390625,
+    "height": 19.0390625,
+    "shadow": "none",
+    "buttonCenter": 40.49609375,
+    "saveCenter": 40.5,
+    "autoCenter": 40.5,
+    "connectionCenter": 40.5,
+    "saveHeight": 34,
+    "autoHeight": 34
+  },
+  "controlledPresentationCases": [
+    {
+      "target": "youtrack",
+      "pending": 0,
+      "connection": "bulb red",
+      "save": "bulb save-light green"
+    },
+    {
+      "target": "youtrack",
+      "pending": 1,
+      "connection": "bulb red",
+      "save": "bulb save-light red"
+    },
+    {
+      "target": "npcdex",
+      "pending": 0,
+      "connection": "bulb red",
+      "save": "bulb save-light green"
+    },
+    {
+      "target": "npcdex",
+      "pending": 1,
+      "connection": "bulb red",
+      "save": "bulb save-light red"
+    },
+    {
+      "target": "metadata",
+      "pending": 0,
+      "connection": "bulb red",
+      "save": "bulb save-light green"
+    },
+    {
+      "target": "metadata",
+      "pending": 1,
+      "connection": "bulb red",
+      "save": "bulb save-light red"
+    },
+    {
+      "target": "conflict",
+      "connection": "bulb blue",
+      "save": "bulb save-light red"
+    }
+  ],
+  "status": "passed",
+  "version": "0.5.7",
+  "profile": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u19\\private-profile\\ui-ef4451fe-b3e7-4b42-9dec-56bdff00b774",
+  "finishedAt": "2026-10-16T13:00:57.792Z"
+}

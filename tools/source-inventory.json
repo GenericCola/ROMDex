@@ -1297,6 +1297,91 @@
       "sha256": "854494717bd589a3192fb30fbb71f4e9633a2a95c83cffc598f82c86bb205459"
     },
     {
+      "path": "tools/development/u19-artifact-audit.mjs",
+      "bytes": 2476,
+      "sha256": "9fb84ad746ac8ead68b6aae2e1105903a468150bf48125046810dea971a2b719"
+    },
+    {
+      "path": "tools/development/u19-build-and-audit.mjs",
+      "bytes": 126,
+      "sha256": "7036f5e3b1e6ac2f5c08395fb5175f21c8b01182ee6ea165fae05eb7415bf93c"
+    },
+    {
+      "path": "tools/development/u19-build.mjs",
+      "bytes": 1332,
+      "sha256": "99c1764498f20c6cc2440967f39e36f68bdd796ce48cda3974987b2634b35b50"
+    },
+    {
+      "path": "tools/development/u19-current-check.mjs",
+      "bytes": 5688,
+      "sha256": "a54005a19ead3dc032a2e30bbabc1d2605fa9a500b82d8b2d7bee9290bce175d"
+    },
+    {
+      "path": "tools/development/u19-deploy.mjs",
+      "bytes": 4769,
+      "sha256": "3d10b70f8c77ee6596d67cdc0575c3ee91bd3a556da6943ce98a9ebc18e8a606"
+    },
+    {
+      "path": "tools/development/u19-finalize.mjs",
+      "bytes": 6976,
+      "sha256": "959801932d860ed510f3b1adb8d7ee7e49a3a6c57aaad4510723e9afdc88af82"
+    },
+    {
+      "path": "tools/development/u19-host.mjs",
+      "bytes": 2791,
+      "sha256": "8755f9f4c8df4fe8d5266bac155f08c936cbecbcc1919f18121829680c2b1a54"
+    },
+    {
+      "path": "tools/development/u19-install-and-check.mjs",
+      "bytes": 253,
+      "sha256": "f05b559379ff412cf67d7b79efdf18a59a5b5373e49956ad3684e5459373f83f"
+    },
+    {
+      "path": "tools/development/u19-normal-relaunch.mjs",
+      "bytes": 6683,
+      "sha256": "8dfdb2940bd1d163834114de50ea181b717bc47b7fcc12d0f39b2683952fa768"
+    },
+    {
+      "path": "tools/development/u19-package.mjs",
+      "bytes": 5900,
+      "sha256": "666455f5c8c04b15cd3f3b9601af4174195debbbe79956df82aa01ed639b33df"
+    },
+    {
+      "path": "tools/development/u19-publish.mjs",
+      "bytes": 11651,
+      "sha256": "c0510e052ae42d96b7db9c56e4a2aa1bc293a2f46af221b32f50ad39cf1fa914"
+    },
+    {
+      "path": "tools/development/u19-push-records.mjs",
+      "bytes": 2589,
+      "sha256": "e595453fbb41da7d160c825b28dd8089e64c5a971b0e508b4e99cc5d8111ae12"
+    },
+    {
+      "path": "tools/development/u19-rebuild-and-ui.mjs",
+      "bytes": 291,
+      "sha256": "3278174fc16a0528acd48d784e0defd550cf4410078adb3c770023eb6a9466c4"
+    },
+    {
+      "path": "tools/development/u19-rebuild.mjs",
+      "bytes": 675,
+      "sha256": "f2c3f42da572b3a0923adae98939e7094744da3e1850d6dd4f7b713bfb08bd18"
+    },
+    {
+      "path": "tools/development/u19-stage-records.mjs",
+      "bytes": 3060,
+      "sha256": "4fde256605e10354a65f74ce2fc3c985427cdaf634fe904531e6748ff7f363c1"
+    },
+    {
+      "path": "tools/development/u19-ui-cloud.cjs",
+      "bytes": 3495,
+      "sha256": "dc86d2f041da2c8aed2f3a913b23c47468168f95df0518dbe1ea42ef00026efe"
+    },
+    {
+      "path": "tools/development/u19-ui-verify.mjs",
+      "bytes": 11803,
+      "sha256": "27f4375c9385386e501778cdb389745b8214a7be9081e4ae7cab4f36d733b23c"
+    },
+    {
       "path": "tools/installer-dependencies/package-lock.json",
       "bytes": 54386,
       "sha256": "508d914590885bb8db1d590645cdbae66fb22834e910813103bdbdcfc5f08cf3"
@@ -1385,6 +1470,11 @@
       "path": "tools/launchers/Launch-U18-Verification.cmd",
       "bytes": 380,
       "sha256": "a2946d203e9978fda87f1a5e1a13ebfe4449e1ba8434dce68742f5b1670f79da"
+    },
+    {
+      "path": "tools/launchers/Launch-U19-Verification.cmd",
+      "bytes": 380,
+      "sha256": "604a607012a62763d8c91bbc97dc271cb238ae1378950318b7979cd8f8da35da"
     },
     {
       "path": "tools/launchers/Show-U14-Cloud-Setup.cmd",

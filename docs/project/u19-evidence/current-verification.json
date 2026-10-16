@@ -1,0 +1,86 @@
+{
+  "task": "U19",
+  "startedAt": "2026-10-16T13:02:11.947Z",
+  "status": "passed",
+  "header": {
+    "connection": "bulb blue",
+    "save": "bulb save-light green",
+    "workspaceButtonWidth": 19.0390625,
+    "shadow": "none"
+  },
+  "state": {
+    "version": "0.5.7",
+    "fixture": null,
+    "cloudBranch": null,
+    "npcCloud": {
+      "active": true,
+      "label": "NPCDex Cloud",
+      "cloud": true,
+      "automaticRemote": true,
+      "automaticSyncEnabled": true,
+      "pending": 0,
+      "syncing": false,
+      "review": null,
+      "connection": "connected",
+      "localError": null,
+      "attention": false,
+      "message": "NPCDex Cloud Copy Is Current.",
+      "lastSync": 1792155741617
+    },
+    "metadata": {
+      "active": true,
+      "projectedHead": "15d699309a8dbe8d4e5b71b9f2518839302839e39b5564b720e0df87e60c2ce1",
+      "label": "ROMDex Metadata",
+      "cloud": true,
+      "automaticRemote": true,
+      "automaticSyncEnabled": true,
+      "pending": 0,
+      "syncing": false,
+      "review": null,
+      "connection": "connected",
+      "localError": null,
+      "attention": false,
+      "lastSync": 1792155741011,
+      "message": "ROMDex Metadata Cloud Copy Is Current."
+    },
+    "views": 2,
+    "connected": true,
+    "remembered": true,
+    "items": 299,
+    "pending": 0,
+    "automatic": true,
+    "npcRevision": 73
+  },
+  "youtrack": {
+    "items": 299,
+    "allFieldsMatch": true
+  },
+  "metadata": {
+    "head": "15d699309a8dbe8d4e5b71b9f2518839302839e39b5564b720e0df87e60c2ce1",
+    "sha256": "5fcd94cc20913109865cafe84b2f112390041c752b89b56999ca31cad5b467f2",
+    "siblingLists": 22,
+    "images": 0,
+    "savedParentStatuses": 78
+  },
+  "wholeNPCDexPreserved": true,
+  "exactSparseOrderAndImagesPreserved": true,
+  "allAssignedValuesPreserved": true,
+  "allThreeEncryptedCredentialsPreserved": true,
+  "updater": {
+    "trusted": true,
+    "configured": true,
+    "accessReady": true
+  },
+  "installer": {
+    "task": "U19",
+    "startedAt": "2026-10-16T13:01:44.146Z",
+    "status": "installed",
+    "version": "0.5.7",
+    "exitCode": 0,
+    "filesPreservedExactly": 114,
+    "applicationHashesVerified": 248,
+    "backup": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\U19-Protected-Data-Backup",
+    "finishedAt": "2026-10-16T13:02:11.912Z"
+  },
+  "finishedAt": "2026-10-16T13:02:30.198Z"
+}

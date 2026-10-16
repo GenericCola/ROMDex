@@ -1,0 +1,1 @@
+import fs from 'node:fs/promises';import assert from 'node:assert/strict';await import('./u19-deploy.mjs');assert.equal(JSON.parse(await fs.readFile('work/u19/deployment-result.json','utf8')).status,'installed');await import('./u19-current-check.mjs');

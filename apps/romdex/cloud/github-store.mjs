@@ -13,7 +13,7 @@ export class GitHubSaveStore {
   const b=connection?.bootstrap,p=b?.provider;
   requireThat(connection?.format==='ROMDexGitHubCloudConnection/1'&&p?.owner==='GenericCola'&&p.repository==='ROMDex-Data'&&p.repositoryId==='1421625633'&&p.ownerId==='32021766'&&p.branch==='main'&&b.owner?.githubUserId==='32021766'&&b.workspaceId==='1e267c45-75ae-48a9-b173-5ca3132bb121','The Approved Cloud Identity Is Missing.');
   requireThat(connection.bootstrapPath===`workspaces/${b.workspaceId}/bootstrap.json`&&connection.bootstrapSha256==='e47be8ff64715f5473289f1d1e336c4d7b512644660667e1b1ff1dd639bb25c4','The Cloud Bootstrap Pin Changed.');
-  requireThat(verificationBranch===null||/^verification\/u(?:16|17|18)-[a-f0-9-]{36}$/.test(verificationBranch),'Invalid Verification Branch.');
+  requireThat(verificationBranch===null||/^verification\/u(?:16|17|18|19)-[a-f0-9-]{36}$/.test(verificationBranch),'Invalid Verification Branch.');
   Object.assign(this,{connection,credential,fetch,requestOverride:request,progress,signal,writeInterval});this.branch=verificationBranch||'main';this.workspace=b.workspaceId;this.root=`workspaces/${this.workspace}`;this.prefix='/repos/GenericCola/ROMDex-Data';this.requests=0;this.writes=0;this.nextWrite=0;
  }
  async request(route,options={}){
