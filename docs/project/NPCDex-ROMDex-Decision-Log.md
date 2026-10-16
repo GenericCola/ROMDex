@@ -288,3 +288,13 @@ Installed ROMDex **0.5.3** adds approved private signed updates, separate downlo
 ## U14 Completed — Private GitHub Saves and YouTrack Agent Handoffs
 
 The user approved the hybrid provider revision: separate private GenericCola/ROMDex-Data for saves/assets/history and ROMDex metadata; YouTrack retains native tasks and every agent-required handoff dependency/receipt. Provisioned stable workspace identity with Actions disabled and no new collaborators. Passed nine focused tests, six live transport checks, anonymous/authenticated-unapproved access checks, separately scoped save-token write validation and protected restore in another Windows process. Both prior credentials and all 214 installed files remain unchanged. No real saves were uploaded and application cloud sync is not implemented. [Report](U14-Completion-Report.md), [evidence](U14-Storage-Verification.json). **Next: U15 — Previewed NPCDex Cloud Import, Sol / High**, requiring a new PASSKEY and preview acceptance before migration.
+
+
+## Workspace Toggle Polish — October 16, 2026
+
+Reduce the header workspace toggle diameter by 30% from its current size and remove its drop shadow. Scheduled with U19 shared header and sync-control work so it receives the same two-workspace layout review. Planning only; implementation awaits the U19 PASSKEY. U15 remains next.
+
+
+## U15 Completed — Approved Initial Cloud Copy
+
+The user approved the native preview of the current saved NPCDex revision 73. Exact original bytes, including 159 current/historical embedded image occurrences, are preserved in private ROMDex-Data and a checked application-folder backup. Passed 19 focused tests, accepted live publication/download verification and recovery in a fresh Windows process. All three credentials and 214 installed application files remain unchanged. Local saves remain primary; no continuous synchronization is active. [Report](U15-Completion-Report.md), [evidence](U15-Cloud-Import-Verification.json). **Next: U16 — Durable Incoming/Outgoing Sync, Sol / Extra High**, under a new PASSKEY.

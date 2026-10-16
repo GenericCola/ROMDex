@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** U14 is complete. [Cloud setup report](U14-Completion-Report.md). **Next: U15 — Previewed NPCDex Cloud Import, Sol / High**, requiring a new PASSKEY and migration preview acceptance. NPCDex still saves locally.
+**Current:** U15 is complete. [Initial cloud import report](U15-Completion-Report.md). **Next: U16 — Durable Incoming/Outgoing Sync, Sol / Extra High**, requiring a new PASSKEY. The accepted revision 73 is preserved in private GitHub; NPCDex continues saving locally until ongoing sync is implemented.
 
 ## Completed Foundation
 
@@ -53,11 +53,11 @@
 ## Phase 3 — Cloud Persistence
 
 - [x] **U14 — Private Cloud Storage and Access Rules** — Sol / High. Private GitHub setup, access separation, transport proof and protected credentials verified; YouTrack retains all agent handoff material. [Report](U14-Completion-Report.md).
-- [ ] **U15 — Previewed NPCDex Cloud Import** — Sol / High.
+- [x] **U15 — Previewed NPCDex Cloud Import** — Sol / High. User-approved revision 73 and exact original bytes verified remotely and in a fresh Windows process. [Report](U15-Completion-Report.md).
 - [ ] **U16 — Durable Incoming/Outgoing Sync** — Sol / Extra High.
 - [ ] **U17 — Concurrent Edits and Conflict Review** — Sol / Extra High.
 - [ ] **U18 — ROMDex Workspace Metadata Sync** — Sol / High.
-- [ ] **U19 — Combined Sync Controls and Indicators** — Sol / High.
+- [ ] **U19 — Combined Sync Controls and Indicators** — Sol / High. Include header polish: reduce the circular workspace toggle diameter by 30% from its current size and remove its drop shadow; verify centering and workspace-menu behavior in both workspaces.
 
 ## Phase 4 — Requests and Tickets
 
@@ -361,3 +361,16 @@ Installed ROMDex **0.5.3** adds approved private signed updates, separate downlo
 ## U14 Completed — Private GitHub Saves and YouTrack Agent Handoffs
 
 The user approved the hybrid provider revision: separate private GenericCola/ROMDex-Data for saves/assets/history and ROMDex metadata; YouTrack retains native tasks and every agent-required handoff dependency/receipt. Provisioned stable workspace identity with Actions disabled and no new collaborators. Passed nine focused tests, six live transport checks, anonymous/authenticated-unapproved access checks, separately scoped save-token write validation and protected restore in another Windows process. Both prior credentials and all 214 installed files remain unchanged. No real saves were uploaded and application cloud sync is not implemented. [Report](U14-Completion-Report.md), [evidence](U14-Storage-Verification.json). **Next: U15 — Previewed NPCDex Cloud Import, Sol / High**, requiring a new PASSKEY and preview acceptance before migration.
+
+
+## U15 — Import Acceptance Checklist
+
+- [x] Implement bounded, immutable GitHub import transport with pinned repository/workspace identity.
+- [x] Preserve exact original NPCDex bytes, IDs, legacy hashes, historical images and unknown fields; reject unresolved recovery copies.
+- [x] Verify 19 focused failure/recovery tests and a local round-trip of the current saved document.
+- [x] Obtain approval of the fresh native migration preview.
+- [x] Publish the accepted initial copy and verify exact downloaded bytes against originals.
+- [x] Verify recovery in a separate Windows process and preserve all existing credentials.
+- [x] Record acceptance, archive source/evidence privately, and stop before U16.
+
+U15 import and recovery verification are complete. U15 does not activate continuous synchronization; local saves remain authoritative until the later sync tasks. Source and evidence are archived with the private development records.

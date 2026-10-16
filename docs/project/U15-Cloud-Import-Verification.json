@@ -1,0 +1,106 @@
+{
+  "task": "U15",
+  "status": "complete",
+  "at": "2026-10-16T04:50:40.234Z",
+  "unitChecks": {
+    "passed": 19,
+    "failed": 0,
+    "scope": "Initial import, exact hydration, bounds, source/stage drift, response loss, marker-write failure, competing publication, rollback, access and credential handling"
+  },
+  "acceptedImport": {
+    "task": "U15",
+    "startedAt": "2026-10-16T04:43:11.300Z",
+    "status": "verified",
+    "actualSavesUploaded": true,
+    "automaticCloudSync": false,
+    "record": "90af156ca7819445a31dcdd394682722458281d5283e0b3cf0da3263d70f80d0",
+    "summary": {
+      "revision": 73,
+      "towns": 4,
+      "areas": 23,
+      "elements": 128,
+      "points": 193,
+      "blocks": 448,
+      "characters": 54,
+      "plans": 44,
+      "history": 145,
+      "receipts": 0,
+      "requests": 6,
+      "annotations": 85,
+      "embeddedImages": 159,
+      "imageBytes": 2961295
+    },
+    "sourceBytes": 9915302,
+    "backup": "C:\\Users\\mrgen\\AppData\\Local\\ROMDexDesktop\\Data\\thegobindsingh-PMON\\cloud\\imports\\u15-794c8603-96f4-4bd6-8df9-fbf4d15b9fc6",
+    "publicationAttempted": true,
+    "commit": "f973ef4c845b610a96e9925e009d4e995ebb55fd",
+    "exactSourceAndHydratedBytes": true,
+    "credentialsPreserved": true,
+    "primarySave": "local-service",
+    "requests": 89,
+    "writes": 25,
+    "finishedAt": "2026-10-16T04:44:35.607Z"
+  },
+  "separateProcessVerification": {
+    "task": "U15",
+    "startedAt": "2026-10-16T04:48:30.028Z",
+    "mode": "Read Only — New Windows Process",
+    "automaticCloudSync": false,
+    "status": "passed",
+    "record": "90af156ca7819445a31dcdd394682722458281d5283e0b3cf0da3263d70f80d0",
+    "commit": "f973ef4c845b610a96e9925e009d4e995ebb55fd",
+    "workspace": "1e267c45-75ae-48a9-b173-5ca3132bb121",
+    "summary": {
+      "revision": 73,
+      "towns": 4,
+      "areas": 23,
+      "elements": 128,
+      "points": 193,
+      "blocks": 448,
+      "characters": 54,
+      "plans": 44,
+      "history": 145,
+      "receipts": 0,
+      "requests": 6,
+      "annotations": 85,
+      "embeddedImages": 159,
+      "imageBytes": 2961295
+    },
+    "exactDownloadedAndOriginalBackupBytes": true,
+    "sourceHashes": [
+      {
+        "name": "npcdex-current.json",
+        "sha256": "2c50ee40f590eb1505a99922efa948db282fe46425bf640b5a0f69fc780c630c",
+        "bytes": 9915298
+      },
+      {
+        "name": "npcdex-recovery-draft.json",
+        "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "bytes": 4
+      }
+    ],
+    "currentLocalSaveMatchesImported": true,
+    "credentialsPreserved": true,
+    "installedFilesUnchanged": 214,
+    "restoredFromSavedCredentialInNewProcess": true,
+    "primarySave": "local-service",
+    "readRequests": 32,
+    "actualSavesUploaded": true,
+    "finishedAt": "2026-10-16T04:48:42.373Z"
+  },
+  "verifiedWindowCleanup": {
+    "task": "U15",
+    "at": "2026-10-16T04:48:27.863Z",
+    "status": "released-verified-import-only"
+  },
+  "isolatedSuccessWindow": {
+    "task": "U15",
+    "mode": "Isolated Hidden Window — No Data or Token",
+    "startedAt": "2026-10-16T04:49:54.890Z",
+    "status": "passed",
+    "nonModalSuccessClosedAutomatically": true,
+    "finishedAt": "2026-10-16T04:49:58.974Z"
+  },
+  "primarySave": "local-service",
+  "automaticCloudSync": false
+}

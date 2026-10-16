@@ -947,6 +947,51 @@
       "sha256": "b90d3b33c365c87225806337025be0610ff209c59affe8f45bc1d8fa1e6d626d"
     },
     {
+      "path": "tools/development/u15-finish-records.mjs",
+      "bytes": 9373,
+      "sha256": "c3d33315f8ed1399d229097b555a0193647c4e847633c517f3df28ac48d1468e"
+    },
+    {
+      "path": "tools/development/u15-finish-window.mjs",
+      "bytes": 2479,
+      "sha256": "3f95806dc1bdec19f85e1296f520669c80e3c32d440d7f07eb06c6c6f1d5bbec"
+    },
+    {
+      "path": "tools/development/u15-host.mjs",
+      "bytes": 2686,
+      "sha256": "6a47f3f950f51052612a5fedc456ebf25ab96c8154c0fc325964b8d692993e51"
+    },
+    {
+      "path": "tools/development/u15-import.cjs",
+      "bytes": 6644,
+      "sha256": "5443ce7ed5b94505c83dfe2a5e0b3f06ab38fc3f72173d0b62dfab379a57f3e3"
+    },
+    {
+      "path": "tools/development/u15-publish-records.mjs",
+      "bytes": 2589,
+      "sha256": "5c4191956b3e660ba705595cf200eda929d7740747565565d0c81873cd481270"
+    },
+    {
+      "path": "tools/development/u15-stage-records.mjs",
+      "bytes": 2945,
+      "sha256": "51d624570fb4fc510d1b89e1d892242c75f91c4e1da82788416655113572201b"
+    },
+    {
+      "path": "tools/development/u15-verify.cjs",
+      "bytes": 4926,
+      "sha256": "47cdf35765afda043045ab73b387dd2b9fe8da85f62974e0d37da9da0630eb01"
+    },
+    {
+      "path": "tools/development/u15-window-check.cjs",
+      "bytes": 1890,
+      "sha256": "2c760901c5fcc875f9724e08605bf9edbbd6cfb9ef4afe0759db4845461c1296"
+    },
+    {
+      "path": "tools/development/u15/import.html",
+      "bytes": 705,
+      "sha256": "13433f34669f8861a11c49e62d1e80333eb4f8a240b6eaf77b9fd71023c23562"
+    },
+    {
       "path": "tools/installer-dependencies/package-lock.json",
       "bytes": 54386,
       "sha256": "508d914590885bb8db1d590645cdbae66fb22834e910813103bdbdcfc5f08cf3"
@@ -955,6 +1000,11 @@
       "path": "tools/installer-dependencies/package.json",
       "bytes": 155,
       "sha256": "f62bfafeb01a91a3804b1a8edcc81c0812f37bf20f7c038204c3ad857ca1f089"
+    },
+    {
+      "path": "tools/launchers/Finish-U15-Verification.cmd",
+      "bytes": 389,
+      "sha256": "761e2605d7269f206a5457902e6f40348108f1dd15b9b6ec15b982d58586b98d"
     },
     {
       "path": "tools/launchers/Launch-Installed-ROMDex-Verification.cmd",
@@ -1005,6 +1055,11 @@
       "path": "tools/launchers/Launch-U14-Storage-Checks.cmd",
       "bytes": 380,
       "sha256": "07ff243ca2425b2ffd3e106dd6ccc98a5b4211a5636030734b2b4eb461a92dba"
+    },
+    {
+      "path": "tools/launchers/Launch-U15-Import.cmd",
+      "bytes": 380,
+      "sha256": "781b2f8700837e6fc0c8f17b62c6a2bd60365d1a94af547467b17ffef782511d"
     },
     {
       "path": "tools/launchers/Show-U14-Cloud-Setup.cmd",

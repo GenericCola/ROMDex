@@ -1,0 +1,31 @@
+{
+  "task": "U15",
+  "installedVersionUnchanged": "0.5.3",
+  "files": [
+    {
+      "path": "cloud/github-store.mjs",
+      "bytes": 9582,
+      "sha256": "853a3b02bd7995176d84effd00e629c23855844507b5c64d5cf0ef86958f2c79"
+    },
+    {
+      "path": "cloud/npcdex-import.mjs",
+      "bytes": 12825,
+      "sha256": "011c86aa4f18bd47c4f6e5c259c13da8ea4fcea9ce74302b740108d1f2dc5384"
+    },
+    {
+      "path": "cloud/bootstrap.json",
+      "bytes": 1103,
+      "sha256": "2c70bf222aa4ca54e8da2cc3df64952c5f23281f157704a21769c1f4bb6c8527"
+    },
+    {
+      "path": "cloud/README.md",
+      "bytes": 2957,
+      "sha256": "20dcf95bc16c3d51124e0054c34f05034f8031ce50fb85fd9442df3833a7ec43"
+    },
+    {
+      "path": "tests/cloud-import.test.mjs",
+      "bytes": 14939,
+      "sha256": "4011c28c2093b1c780b1711fbc1527c62e013025e22128e5e201430ee28d507c"
+    }
+  ]
+}

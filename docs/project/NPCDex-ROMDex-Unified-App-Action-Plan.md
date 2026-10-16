@@ -1,10 +1,10 @@
 # ROMDex — Desktop and Add-on Action Plan
 
 **Date:** October 14, 2026  
-**Status:** U01–U14 and the approved intervening tasks are complete. Installed ROMDex **0.5.3** is unchanged. The private GitHub save repository and protected access are configured; NPCDex saves remain local until the previewed U15 import and U16–U19 synchronization work.
+**Status:** U01–U15 and the approved intervening tasks are complete. Installed ROMDex **0.5.3** is unchanged. The user-approved initial NPCDex revision 73 is preserved and verified in private GitHub. Local saves remain primary; ongoing synchronization is U16–U19.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
-**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). Current application: installed ROMDex 0.5.3. [U14 setup report](U14-Completion-Report.md). **Next: U15 — Previewed NPCDex Cloud Import, Sol / High**, requiring a new PASSKEY and migration preview acceptance.
+**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). Current application: installed ROMDex 0.5.3. [U15 import report](U15-Completion-Report.md). **Next: U16 — Durable Incoming/Outgoing Sync, Sol / Extra High**, requiring a new PASSKEY.
 
 ## Working Agreement
 
@@ -130,7 +130,7 @@ Added by the user during U05; requires completed U05 design review and a separat
 | U16 | Implement local-first edits, a persisted outgoing queue, incoming revisions, retry, and catch-up across restart/offline periods. | Edits survive interrupted sends and crashes; changes from another authenticated client appear locally; retries do not duplicate operations. | Sol / Extra High |
 | U17 | Merge independent edits and present overlapping edits for review against known base revisions. | Two-device edits preserve both independent changes; conflicting updates cannot silently overwrite data or partially apply transactions. | Sol / Extra High |
 | U18 | Extend cloud synchronization to ROMDex tile images, manual order, and saved parent statuses. | Metadata follows the account across devices without overwriting YouTrack-owned fields; hierarchy/order validity survives native task changes. | Sol / High |
-| U19 | Complete the shared Save/Auto-Sync and indicator behavior for cloud plus YouTrack, including service-specific connection details. | Healthy syncing does not flash Save red; unsendable pending work requires attention; Off and manual one-cycle behavior match ROMDex. | Sol / High |
+| U19 | Complete the shared Save/Auto-Sync and indicator behavior for cloud plus YouTrack, including service-specific connection details. Include shared-header polish: reduce the circular workspace toggle diameter by 30% from its current size (to 70%) and remove its drop shadow. | Healthy syncing does not flash Save red; unsendable pending work requires attention; Off and manual one-cycle behavior match ROMDex. Verify the smaller shadow-free toggle remains centered, opens its menu and switches between both workspaces without losing view state. | Sol / High |
 
 **Milestone B:** Both workspaces have durable cloud-backed data and recovery. Confirm with controlled data and then a previewed real-workspace migration.
 
@@ -367,3 +367,8 @@ Installed ROMDex **0.5.3** adds approved private signed updates, separate downlo
 ## U14 Completed — Private GitHub Saves and YouTrack Agent Handoffs
 
 The user approved the hybrid provider revision: separate private GenericCola/ROMDex-Data for saves/assets/history and ROMDex metadata; YouTrack retains native tasks and every agent-required handoff dependency/receipt. Provisioned stable workspace identity with Actions disabled and no new collaborators. Passed nine focused tests, six live transport checks, anonymous/authenticated-unapproved access checks, separately scoped save-token write validation and protected restore in another Windows process. Both prior credentials and all 214 installed files remain unchanged. No real saves were uploaded and application cloud sync is not implemented. [Report](U14-Completion-Report.md), [evidence](U14-Storage-Verification.json). **Next: U15 — Previewed NPCDex Cloud Import, Sol / High**, requiring a new PASSKEY and preview acceptance before migration.
+
+
+## U15 Completed — Approved Initial Cloud Copy
+
+The user approved the native preview of the current saved NPCDex revision 73. Exact original bytes, including 159 current/historical embedded image occurrences, are preserved in private ROMDex-Data and a checked application-folder backup. Passed 19 focused tests, accepted live publication/download verification and recovery in a fresh Windows process. All three credentials and 214 installed application files remain unchanged. Local saves remain primary; no continuous synchronization is active. [Report](U15-Completion-Report.md), [evidence](U15-Cloud-Import-Verification.json). **Next: U16 — Durable Incoming/Outgoing Sync, Sol / Extra High**, under a new PASSKEY.
