@@ -1,13 +1,13 @@
-import {clone,indexTree,same} from './public/core.mjs';
+import {clone,indexTree,same,STATES} from './public/core.mjs';
 
 // An ordinary native State edit assigns a new own status. Our journaled rollup writes do not.
-export function observeAssignedStatus(item,previous,hasChildren=previous?.hasChildren??false) {
+export function observeAssignedStatus(item,previous,hasChildren=previous?.hasChildren??false,preserveAssigned=false) {
   const lastUpdated=Number.isFinite(item.updated)?item.updated:previous?.lastUpdated;
   if(!previous)return {assignedState:item.assignedState??item.state,lastState:item.state,lastUpdated,hasChildren,pendingState:null};
   if(Number.isFinite(item.updated)&&Number.isFinite(previous.lastUpdated)&&item.updated<previous.lastUpdated)return {...previous};
   const ours=previous.pendingState!==null&&previous.pendingState!==undefined&&item.state===previous.pendingState;
   const changed=!same(item.state,previous.lastState);
-  return {...previous,assignedState:changed&&!ours?item.state:previous.assignedState,lastState:item.state,lastUpdated,hasChildren,
+  return {...previous,assignedState:changed&&!ours&&!preserveAssigned?item.state:previous.assignedState,lastState:item.state,lastUpdated,hasChildren,
     pendingState:ours||changed?null:previous.pendingState??null};
 }
 
@@ -16,17 +16,17 @@ export class AssignedStatuses {
   annotate(item){return {...item,assignedState:this.records[item.id]?.assignedState??item.state};}
   async commit(next){await this.persist(clone(next));this.records=next;}
   async observe(item,hasChildren){
-    const next=observeAssignedStatus(item,this.records[item.id],hasChildren);
+    const previous=this.records[item.id],next=observeAssignedStatus(item,previous,hasChildren,!!(previous?.cloudManaged&&(hasChildren??previous.hasChildren)));
     if(!same(next,this.records[item.id]))await this.commit({...this.records,[item.id]:next});
     return this.annotate(item);
   }
   async observeAll(items){
-    const tree=indexTree(items),next={...this.records};
-    for(const item of items)next[item.id]=observeAssignedStatus(item,this.records[item.id],(tree.children.get(item.id)||[]).length>0);
+    const tree=indexTree(items.map(({assignedState,...item})=>item)),next={...this.records};
+    for(const item of items){const previous=this.records[item.id],parent=(tree.children.get(item.id)||[]).length>0,preserve=previous?.cloudManaged&&parent&&item.state===STATES[tree.colors.get(item.id)];next[item.id]=observeAssignedStatus(item,previous,parent,preserve);}
     if(!same(next,this.records))await this.commit(next);
     return items.map(item=>this.annotate(item));
   }
-  async assign(id,value){const previous=this.records[id];if(!previous)throw new Error('Read the item before assigning its status.');await this.commit({...this.records,[id]:{...previous,assignedState:value,pendingState:null}});}
+  async assign(id,value){const previous=this.records[id];if(!previous)throw new Error('Read the item before assigning its status.');await this.commit({...this.records,[id]:{...previous,assignedState:value,pendingState:null,explicitAssigned:!!(previous.hasChildren||previous.explicitAssigned||previous.cloudManaged)}});}
   async prepareWrite(id,state){await this.commit({...this.records,[id]:{...this.records[id],pendingState:state}});}
   async confirmWrite(id,state){await this.commit({...this.records,[id]:{...this.records[id],lastState:state,pendingState:null}});}
 }

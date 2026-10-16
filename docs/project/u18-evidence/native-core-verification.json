@@ -1,0 +1,30 @@
+{
+  "task": "U18",
+  "startedAt": "2026-10-16T12:13:39.860Z",
+  "productionSaveWrites": false,
+  "youtrackWrites": false,
+  "checks": [
+    "Independent Images, Sibling Order and Saved Parent Status Converge Through Real Private GitHub",
+    "Competing Sibling Lists Preserve Both Complete Versions and the Exact Review Choice",
+    "Unknown Accepted Resolution Retries Its Durable Operation Without Duplicate Publication",
+    "A Fresh Client Restores Metadata Without Publishing Local Defaults",
+    "A Later Offline Branch Is Held for Review Without Discarding Its Metadata"
+  ],
+  "sourceHashes": {
+    "metadata-core.mjs": "073d72d738d525162ca7489f80a6e69dbf82ac0e36493a6fae00476c33331a8a",
+    "metadata-sync.mjs": "58549798a7d9575d1e27c9d508420339910308a90cf314180f524567c7d3ac5c",
+    "github-store.mjs": "99e7bed26f59c318d380396fe02cbffe81b52bbebb8a40ed7c960548ddbe6db4",
+    "npcdex-journal.mjs": "8b0b4c4473924fb834dfded0d9898ce0d90d1e18ff95df8f78ea72e8b5a23149",
+    "npcdex-graph.mjs": "63962f1c882af185ce2059411f161c7d159446db1f11c1c464383892f84fc492"
+  },
+  "branch": "verification/u18-8395c9ab-87d0-4ed3-ad4a-ba75390858ca",
+  "status": "passed",
+  "electron": "44.7.2",
+  "node": "24.21.0",
+  "mainBranchUnchanged": true,
+  "credentialBytesPreserved": true,
+  "originalNPCDexAndBootstrapPathsPreserved": true,
+  "finalResolution": "ddf7b4ae6f76bc9cbfffe332cb5e98c47a56a2d42a071c833fe47635b6f195c9",
+  "requests": 405,
+  "finishedAt": "2026-10-16T12:15:43.354Z"
+}

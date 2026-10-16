@@ -28,6 +28,16 @@ const syncSettings=new SyncSettings(await readJSON('sync-settings.json',{}),valu
 let assignedRecords=await readJSON('assigned-statuses.json',null);
 if(!assignedRecords){const backup=await readJSON('workspace.json',null),remote=backup?.remote||[],tree=indexTree(remote);assignedRecords=Object.fromEntries(remote.filter(x=>typeof x.assignedState==='string').map(x=>[x.id,{assignedState:x.assignedState,lastState:x.state,lastUpdated:x.updated,hasChildren:(tree.children.get(x.id)||[]).length>0,pendingState:null}]));}
 const assignedStatuses=new AssignedStatuses(assignedRecords,records=>writeJSON('assigned-statuses.json',records));
+// Desktop-only metadata plumbing. No endpoint, raw IPC or YouTrack field write is exposed.
+export function desktopAssignedRecords(){return structuredClone(assignedStatuses.records);}
+export function applyDesktopAssignedMetadata(values,expected,removed=[]){return serialized(async()=>{
+ const next=structuredClone(assignedStatuses.records);for(const [id,value]of Object.entries(values)){
+  if(!/^PMON-[1-9]\d*$/.test(id)||typeof value!=='string'||!value.trim()||value.length>256||/[\u0000-\u001f]/.test(value))throw Error('Invalid Cloud Assigned Status.');
+  if(!next[id])continue;if(!same(next[id].assignedState,expected[id]?.assignedState)&&!same(next[id].assignedState,value))throw Error('A Native Status Changed While Applying Metadata. Retry Is Required.');
+  next[id]={...next[id],assignedState:value,cloudManaged:true};
+ }for(const id of removed){if(!/^PMON-[1-9]\d*$/.test(id))throw Error('Invalid Removed Metadata Identity.');if(!next[id])continue;if(!same(next[id].assignedState,expected[id]?.assignedState))throw Error('A Native Status Changed While Removing Metadata. Retry Is Required.');next[id]={...next[id],assignedState:next[id].lastState,explicitAssigned:false,cloudManaged:false};}
+ if(!same(next,assignedStatuses.records))await assignedStatuses.commit(next);return desktopAssignedRecords();
+});}
 
 function serialized(fn){const result=queue.then(fn);queue=result.catch(()=>{});return result;}
 const port=Number(process.env.ROMDEX_PORT||4322),origin=`http://127.0.0.1:${port}`;

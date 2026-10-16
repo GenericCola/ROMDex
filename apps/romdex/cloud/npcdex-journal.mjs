@@ -2,8 +2,9 @@ import {DatabaseSync} from 'node:sqlite';
 import fs from 'node:fs';import path from 'node:path';
 import {sha256} from './github-store.mjs';
 export class NPCDexJournal{
- constructor(directory,{fault=()=>{}}={}){
-  fs.mkdirSync(directory,{recursive:true});this.fault=fault;this.db=new DatabaseSync(path.join(directory,'npcdex.sqlite'));
+ constructor(directory,{fault=()=>{},filename='npcdex.sqlite'}={}){
+  if(!['npcdex.sqlite','romdex-metadata.sqlite'].includes(filename))throw Error('Unknown Cloud Journal.');
+  fs.mkdirSync(directory,{recursive:true});this.fault=fault;this.db=new DatabaseSync(path.join(directory,filename));
   this.db.exec('PRAGMA journal_mode=WAL; PRAGMA synchronous=FULL; PRAGMA foreign_keys=ON; PRAGMA busy_timeout=2000; CREATE TABLE IF NOT EXISTS meta(key TEXT PRIMARY KEY,value TEXT NOT NULL); CREATE TABLE IF NOT EXISTS documents(key TEXT PRIMARY KEY,bytes BLOB NOT NULL); CREATE TABLE IF NOT EXISTS blobs(hash TEXT PRIMARY KEY,bytes BLOB NOT NULL); CREATE TABLE IF NOT EXISTS records(id TEXT PRIMARY KEY,bytes BLOB NOT NULL); CREATE TABLE IF NOT EXISTS outbox(id TEXT PRIMARY KEY REFERENCES records(id),phase TEXT NOT NULL,attempts INTEGER NOT NULL DEFAULT 0);');
   if(this.db.prepare('PRAGMA quick_check').get().quick_check!=='ok')throw Error('The NPCDex Journal Needs Recovery.');
  }

@@ -1,0 +1,38 @@
+{
+  "format": "ROMDexGitHubCloudConnection/1",
+  "bootstrap": {
+    "format": "ROMDexCloudBootstrap/1",
+    "workspaceId": "1e267c45-75ae-48a9-b173-5ca3132bb121",
+    "provider": {
+      "kind": "github",
+      "owner": "GenericCola",
+      "repository": "ROMDex-Data",
+      "repositoryId": "1421625633",
+      "ownerId": "32021766",
+      "branch": "main"
+    },
+    "owner": {
+      "githubUserId": "32021766",
+      "youtrackUserId": "2-2"
+    },
+    "namespaces": [
+      "npcdex",
+      "romdex-metadata"
+    ],
+    "agentTransport": {
+      "kind": "youtrack",
+      "baseUrl": "https://thegobindsingh.youtrack.cloud",
+      "projectId": "0-1",
+      "projectKey": "PMON",
+      "requiredDependencies": "YouTrack Only"
+    },
+    "authorization": "Owner Only; Additional Writers Require Review",
+    "limits": {
+      "chunkBytes": 524288,
+      "descriptorBytes": 262144,
+      "expandedObjectBytes": 67108864
+    }
+  },
+  "bootstrapPath": "workspaces/1e267c45-75ae-48a9-b173-5ca3132bb121/bootstrap.json",
+  "bootstrapSha256": "e47be8ff64715f5473289f1d1e336c4d7b512644660667e1b1ff1dd639bb25c4"
+}

@@ -1,0 +1,22 @@
+{
+  "task": "U18",
+  "startedAt": "2026-10-16T12:29:32.468Z",
+  "isolatedCurrentDataCopy": true,
+  "productionSaveWrites": false,
+  "youtrackWrites": false,
+  "branch": "verification/u18-d11c5a63-c89c-4a6c-a163-c5dfbaf4f984",
+  "status": "passed",
+  "version": "0.5.6",
+  "profile": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u18\\private-profile\\rehearsal-b7f737b3-ee7c-45b0-9ea5-66236332c66e",
+  "items": 299,
+  "orderEntries": 104,
+  "siblingLists": 22,
+  "images": 0,
+  "savedParentStatuses": 78,
+  "metadataSha256": "5fcd94cc20913109865cafe84b2f112390041c752b89b56999ca31cad5b467f2",
+  "exactSparseRanksPreserved": true,
+  "nativeFieldsPreservedExactly": true,
+  "allSavedAssignmentsPreserved": true,
+  "sourceMetadataUnchanged": true,
+  "finishedAt": "2026-10-16T12:30:03.131Z"
+}

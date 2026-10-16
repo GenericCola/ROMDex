@@ -1,5 +1,7 @@
 # NPCDex Initial Cloud Import
 
+Current runtime: NPCDex uses its U16–U17 durable journal and validated merge/review engine. U18 adds an independent `romdex-metadata` namespace and SQLite journal for tile images, sibling lists and saved parent assignments. Both share the pinned private transport and remembered credential; ticket fields remain with YouTrack. See `U18-Metadata-Sync-Guide.md` in the application root. The import description below records the original U15 boundary.
+
 U15 creates a user-approved initial copy in the pinned private GitHub save repository. It does not activate ongoing edits, incoming synchronization, semantic merging or shared cloud indicators. The installed application's local service remains the primary save owner.
 
 `bootstrap.json` contains the approved public configuration and integrity pin, without a credential. Runtime access comes from the separately protected connection in application Data. The one-time Windows import helper holds the existing profile lease so the desktop cannot edit the source during review and publication.

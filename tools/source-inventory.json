@@ -1197,6 +1197,106 @@
       "sha256": "9ae5117b04b23b66fc89dcb5253ad226e5d53d21129e1cd4fc552c70f161bb44"
     },
     {
+      "path": "tools/development/u18-artifact-audit.mjs",
+      "bytes": 2476,
+      "sha256": "8efbc050c03e379906177719839a261ccc28690c89d4f2b656b6b21355c31511"
+    },
+    {
+      "path": "tools/development/u18-build.mjs",
+      "bytes": 1334,
+      "sha256": "504ef064d3e19b37bde6d470cb97fe829deb841ab4868b5f4afe0ab1f47a3b8e"
+    },
+    {
+      "path": "tools/development/u18-crash-check.mjs",
+      "bytes": 3312,
+      "sha256": "236b6aee6b87eceddffdf7c522a4a3ac352f8b466f843b462adcb62d0e2a41ac"
+    },
+    {
+      "path": "tools/development/u18-current-check.mjs",
+      "bytes": 5089,
+      "sha256": "b0c3c07fae04e037a952f41ef4fcc96722b3dd336a096989f37def21009683e2"
+    },
+    {
+      "path": "tools/development/u18-current-rehearsal.mjs",
+      "bytes": 6187,
+      "sha256": "7f83903f893436ad3aa2027bfced74fb1d683d52c019f772cd6653a958c7dd9e"
+    },
+    {
+      "path": "tools/development/u18-deploy.mjs",
+      "bytes": 4842,
+      "sha256": "d307d020cb98164677307ad3f93e9b8f9b0354635b361806c7f4d779c9e39b5f"
+    },
+    {
+      "path": "tools/development/u18-final-build.mjs",
+      "bytes": 2067,
+      "sha256": "39e97132ed966b667571ebbe4c85c8acc02e7e0de2988395838f79f74ea84f12"
+    },
+    {
+      "path": "tools/development/u18-finalize.mjs",
+      "bytes": 8140,
+      "sha256": "dbbe200a01e598266e0f2b96f9a9def9e3187538a694eb189a23731955f50469"
+    },
+    {
+      "path": "tools/development/u18-host.mjs",
+      "bytes": 2792,
+      "sha256": "49dfaa84b2628212ebfaf545efa8755396f947b441afccfbaf6951b29f5c1260"
+    },
+    {
+      "path": "tools/development/u18-install-and-check.mjs",
+      "bytes": 253,
+      "sha256": "73c617516428d2ffc6aee93c03b5009d420b80faceabea0aab12c623d26d2ef1"
+    },
+    {
+      "path": "tools/development/u18-native-check.cjs",
+      "bytes": 6320,
+      "sha256": "2f435037ff78bfa21f1e666c6544c727f2bda47917e05d25e77fefcc317a5768"
+    },
+    {
+      "path": "tools/development/u18-normal-relaunch.mjs",
+      "bytes": 6300,
+      "sha256": "5904b2f70c222fb9b2a46499d160a08e3e7b4762ee2b4b45a55b81fdcd2bdcd2"
+    },
+    {
+      "path": "tools/development/u18-package.mjs",
+      "bytes": 5863,
+      "sha256": "1d3f0a3f3034e593bdfb6ccb1d39ecd8ba162bc56986a6089f0e7b48b03144a7"
+    },
+    {
+      "path": "tools/development/u18-publish.mjs",
+      "bytes": 11810,
+      "sha256": "606841ddc13690930473c476ace1afcab2a3b74dd3eb983af9ed181702579459"
+    },
+    {
+      "path": "tools/development/u18-push-records.mjs",
+      "bytes": 2589,
+      "sha256": "f6a42772e996d0f7bc0e9cf527424c4ee20190dd65c811c768b32afc1b0a4f2f"
+    },
+    {
+      "path": "tools/development/u18-stage-records.mjs",
+      "bytes": 3148,
+      "sha256": "063f2f4575625dc89c439c70ef1be4e1233ead41566bfd741d8d0e9bf8134e28"
+    },
+    {
+      "path": "tools/development/u18-ui-cloud.cjs",
+      "bytes": 3495,
+      "sha256": "6854688be03040ceb2e916bb81a930cdcd193a7867f73d45e75cf29c2b612587"
+    },
+    {
+      "path": "tools/development/u18-ui-diagnose.mjs",
+      "bytes": 1933,
+      "sha256": "3b1b75a77aa85022a8541606f2c1ac2d131ffdfb43f927323bb8da65b6fee976"
+    },
+    {
+      "path": "tools/development/u18-ui-verify.mjs",
+      "bytes": 15090,
+      "sha256": "3068a76e13469d35e105e79cb7b526312bd72e055e84cd1fc11ad251178b1233"
+    },
+    {
+      "path": "tools/development/u18-verify-and-build.mjs",
+      "bytes": 1230,
+      "sha256": "854494717bd589a3192fb30fbb71f4e9633a2a95c83cffc598f82c86bb205459"
+    },
+    {
       "path": "tools/installer-dependencies/package-lock.json",
       "bytes": 54386,
       "sha256": "508d914590885bb8db1d590645cdbae66fb22834e910813103bdbdcfc5f08cf3"
@@ -1280,6 +1380,11 @@
       "path": "tools/launchers/Launch-U17-Verification.cmd",
       "bytes": 380,
       "sha256": "5dfaf05b8c94a01fae70863a80e2748d6fbd860f9fa78eae2c57cc5d7aebb7ca"
+    },
+    {
+      "path": "tools/launchers/Launch-U18-Verification.cmd",
+      "bytes": 380,
+      "sha256": "a2946d203e9978fda87f1a5e1a13ebfe4449e1ba8434dce68742f5b1670f79da"
     },
     {
       "path": "tools/launchers/Show-U14-Cloud-Setup.cmd",

@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** U17 is complete in installed ROMDex **0.5.5**. [Conflict review report](U17-Completion-Report.md). **Next: U18 — ROMDex Metadata Cloud Sync, Sol / High**, requiring a new PASSKEY.
+**Current:** U18 is authorized and in progress. Extend durable cloud synchronization to ROMDex metadata while preserving native YouTrack ownership and local view preferences. Installed baseline: **0.5.5**.
 
 ## Completed Foundation
 
@@ -57,7 +57,7 @@
 - [x] **U16 — Durable Incoming/Outgoing Sync** — Sol / Extra High.
 - [x] **U17 — Concurrent Edits and Conflict Review** — Sol / Extra High.
 - [ ] **U18 — ROMDex Workspace Metadata Sync** — Sol / High.
-- [ ] **U19 — Combined Sync Controls and Indicators** — Sol / High. Include header polish: reduce the circular workspace toggle diameter by 30% from its current size and remove its drop shadow; verify centering and workspace-menu behavior in both workspaces.
+- [ ] **U19 — Combined Sync Controls and Indicators** — Sol / High. Correct stale Connection Details help that still describes NPCDex as local-only, and verify service-specific statuses. Include header polish: reduce the circular workspace toggle diameter by 30% from its current size and remove its drop shadow; verify centering and workspace-menu behavior in both workspaces.
 
 ## Phase 4 — Requests and Tickets
 
@@ -399,3 +399,13 @@ U16 is complete in installed **0.5.4**. Passed 345 tests, forced process-kill re
 - [x] Archive the verified release and evidence, mark U17 complete and stop before U18.
 
 U17 is complete in installed **0.5.5**. Passed 371 tests, eight final packaged desktop scenarios, actual multi-client GitHub checks, forced process-kill recovery, 234 installed hashes, exact 109-file installer Data preservation and genuine YouTrack equality. All three credentials survived the final normal restart. **Next: U18 — Sol / High; new PASSKEY required.**
+
+
+## U18 — Implementation Checklist
+
+- [x] Preserve the installed baseline and define metadata ownership, ordered-list boundaries and recovery rules.
+- [x] Implement durable metadata revisions, incoming reconciliation, outgoing retry and conflict review.
+- [x] Integrate saved parent statuses and native hierarchy/order reconciliation without syncing device-local views.
+- [x] Verify two clients, crashes, uncertain delivery, deleted/moved native items and metadata conflicts.
+- [ ] Verify the packaged desktop and previewed, backed-up current-data upgrade.
+- [ ] Archive the private release/evidence, mark U18 complete and stop before U19.

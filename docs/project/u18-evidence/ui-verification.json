@@ -1,0 +1,26 @@
+{
+  "task": "U18",
+  "startedAt": "2026-10-16T12:22:02.190Z",
+  "fixtureOnly": true,
+  "checks": [
+    "Packaged Shared Save Delivers Images and Sibling Order Once While Auto-Sync Stays Off",
+    "Incoming Saved Parent Status and Order Appear Without Replacing Native Ticket Fields",
+    "An Actual Open Tile Dialog Holds Incoming Metadata Out of Its Editable View",
+    "A Competing Local Image Retains Its Base and Shared Save Opens Version-Guarded Review",
+    "Full Desktop Restart Retains the Exact Review Choice and Requires Fresh Confirmation",
+    "Bounded Metadata Image Preview Renders Without Exposing Encoded Image Text",
+    "A Newer Cloud Branch Invalidates an Open Approval Without Overwriting the Working Version",
+    "A Refreshed Explicit Choice Applies Completely and Pushes Once While Auto-Sync Stays Off",
+    "Status Resolution Supersedes Only the Old Pending Assignment and Preserves Unrelated Native Edits",
+    "Final Restart Retains Resolved Metadata and the Unrelated Native Outgoing Edit"
+  ],
+  "branch": "verification/u18-2bb1153a-ca22-4567-bb71-a1b44bf6710d",
+  "connectError": "fetch failed",
+  "status": "passed",
+  "version": "0.5.6",
+  "profile": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u18\\private-profile\\desktop-ee64d34a-3c4a-43c9-b2bd-10c0c04e736b",
+  "normalMainBranchUsed": false,
+  "sourceDataWrites": false,
+  "productionYouTrackWrites": false,
+  "finishedAt": "2026-10-16T12:25:17.317Z"
+}

@@ -8,6 +8,8 @@ import {validateCall,STORES} from './policy.mjs';
 import {chosenFiles,validateTicket} from './native-attachments.mjs';
 import {setDesktopProtector,protectCredential} from '../credential-protection.mjs';
 import {openNPCDexCloud} from '../cloud/desktop-provider.mjs';
+import {openMetadataCloud} from '../cloud/metadata-provider.mjs';
+import {MetadataProjection} from '../cloud/metadata-projection.mjs';
 const root=path.resolve(import.meta.dirname,'..'),profile=process.env.ROMDEX_DATA_DIR;
 if(!profile)throw Error('A Desktop Profile Is Required.');
 process.env.ROMDEX_DESKTOP='1';process.env.ROMDEX_PORT='0';delete process.env.YOUTRACK_TOKEN;
@@ -28,13 +30,15 @@ async function transport(route,body){
  const response=await backend.dispatchLocal(route,{method:body===undefined?'GET':'POST',bytes:body===undefined?undefined:Buffer.from(JSON.stringify(body)),headers:{'content-type':'application/json'}});
  const value=JSON.parse(response.bytes.toString());if(response.status>=400)throw Object.assign(Error(value.error||'Service Request Failed.'),{syncStatus:value});return value;
 }
-const engine=new WorkspaceEngine({transport,storage:new DurableJSONStorage(path.join(profile,'desktop-workspace.json')),files:{
+let metadata=null,metadataError=null;
+const metadataProjection=new MetadataProjection({storage:new DurableJSONStorage(path.join(profile,'desktop-workspace.json')),records:()=>backend.desktopAssignedRecords(),applyAssigned:(...args)=>backend.applyDesktopAssignedMetadata(...args)});
+const engine=new WorkspaceEngine({transport,storage:metadataProjection,files:{
  async set(id,file){await files.stage(id,{name:file.name,size:file.size,mimeType:file.type||'application/octet-stream'},Buffer.from(await file.arrayBuffer()));},
  async get(id){try{const file=await files.read(id);return new File([file.bytes],file.metadata.name,{type:file.metadata.mimeType});}catch(error){if(error.code==='ENOENT'||error.message.includes('Missing'))return null;throw error;}},
  remove:id=>files.release(id)
 },upload:async(id,file,name)=>{const form=new FormData();form.append('uploadId',id);form.append('file',file,name);const request=new Request('http://localhost/api/uploads',{method:'POST',body:form});const response=await backend.dispatchLocal('/api/uploads',{method:'POST',bytes:Buffer.from(await request.arrayBuffer()),headers:{'content-type':request.headers.get('content-type')}});const value=JSON.parse(response.bytes.toString());if(response.status>=400)throw Error(value.error);return value;}});
 const clock=new WorkspaceClock(engine,{online:null,visibility:null});let started=false;
-export function snapshot(){return Object.fromEntries(['state','busy','refreshing','connected','connection','rememberedConnection','mode','message','failures','pendingWrites','automaticSyncEnabled','youtrackAvailable','serviceAvailable','syncControl','settingBusy','manualSyncActive','lastAttempt'].map(k=>[k,engine[k]]).concat([['inflight',[...engine.inflight]]]));}
+export function snapshot(){return Object.fromEntries(['state','busy','refreshing','connected','connection','rememberedConnection','mode','message','failures','pendingWrites','automaticSyncEnabled','youtrackAvailable','serviceAvailable','syncControl','settingBusy','manualSyncActive','lastAttempt'].map(k=>[k,engine[k]]).concat([['inflight',[...engine.inflight]],['metadataCloud',metadata?metadata.status():{active:false,label:'ROMDex Metadata',cloud:false,attention:!!metadataError,message:metadataError||'ROMDex Metadata Uses Local Saves.'}]]));}
 const listeners=new Set();export function subscribe(listener){listeners.add(listener);return()=>listeners.delete(listener);}
 function send(event){process.parentPort?.postMessage(event);for(const listener of listeners)listener(event);}
 for(const type of ['change','mapping','refreshed','connectneeded','reviewneeded'])engine.addEventListener(type,e=>send(type==='change'?{type:'snapshot',value:snapshot()}:{type,detail:e.detail}));
@@ -49,25 +53,32 @@ async function attach(id,selection,options){validateTicket(id);if(!engine.items.
 export async function handle(command,args=[]){
  if(command==='verify-connection')return backend.verifyDesktopConnection();
  if(command==='release-delivery-settings')return backend.releaseDeliverySettings();
- if(command==='suspend'){suspended=true;clock.stop();await cloud?.stop();return handle('checkpoint');}
- if(command==='resume'){suspended=false;updatesQuiesced=false;if(started&&!closing){clock.start();cloud?.start();engine.tick(true).catch(()=>{});}return true;}
- if(command==='prepare-update'){clock.stop();updatesQuiesced=true;await cloud?.stop();const deadline=Date.now()+120000;while(engine.busy||engine.refreshing||engine.settingBusy||engine.statusTask||engine.staging||attachmentTasks.size){if(Date.now()>deadline){updatesQuiesced=false;if(!suspended&&started&&!closing)clock.start();throw Error('Wait for the Current Data Operation Before Updating.');}await new Promise(resolve=>setTimeout(resolve,100));}await handle('checkpoint');return true;}
+ if(command==='suspend'){suspended=true;clock.stop();await Promise.all([cloud?.stop(),metadata?.stop()]);return handle('checkpoint');}
+ if(command==='resume'){suspended=false;updatesQuiesced=false;if(started&&!closing){clock.start();cloud?.start();metadata?.start();engine.tick(true).catch(()=>{});}return true;}
+ if(command==='prepare-update'){clock.stop();updatesQuiesced=true;await Promise.all([cloud?.stop(),metadata?.stop()]);const deadline=Date.now()+120000;while(engine.busy||engine.refreshing||engine.settingBusy||engine.statusTask||engine.staging||attachmentTasks.size){if(Date.now()>deadline){updatesQuiesced=false;if(!suspended&&started&&!closing){clock.start();metadata?.start();}throw Error('Wait for the Current Data Operation Before Updating.');}await new Promise(resolve=>setTimeout(resolve,100));}await handle('checkpoint');return true;}
+ if(command==='metadataEditorState'){if(!metadata)return true;const value=args[0];if(!value||typeof value.active!=='boolean'||Object.keys(value).some(key=>!['active','head'].includes(key)))throw Error('Invalid Metadata Editor State.');if(value.active){if(updatesQuiesced||closing||suspended)throw Error('ROMDex Metadata Editing Is Paused for Desktop Lifecycle Work.');await engine.lock;await metadata.projectionTask;if(value.head!==(metadata.state.projectedTip??metadata.state.captureTip))throw Error('ROMDex Metadata Updated While Opening This Editor. Reopen It to Use the Current Version.');metadataProjection.held=true;}else{metadataProjection.held=false;if(!updatesQuiesced&&!closing&&!suspended)await metadata.projectCurrent();}return true;}
  if(command==='npcdexView')return cloud?cloud.view():{active:false,error:cloudError};
  if(command==='npcdexCheckpoint'){if(!cloud)throw Error(cloudError||'NPCDex Cloud Has Not Been Configured.');if(updatesQuiesced||closing)throw Error('The Desktop Is Checkpointing for an Update or Shutdown.');return cloud.stage(args[0],args[1]);}
  if(command==='npcdexSync'){if(updatesQuiesced||closing||suspended)throw Error('NPCDex Sync Is Paused for Desktop Lifecycle Work.');if(!cloud)throw Error(cloudError||'NPCDex Cloud Has Not Been Configured.');return cloud.cycle(true);}
  if(['npcdexReview','npcdexReviewDraft','npcdexReviewAsset','npcdexResolve'].includes(command)){if(!cloud)throw Error(cloudError||'NPCDex Cloud Has Not Been Configured.');if(command!=='npcdexReview'&&(updatesQuiesced||closing||suspended))throw Error('NPCDex Review Is Paused for Desktop Lifecycle Work.');if(command==='npcdexReview')return cloud.reviewView();if(command==='npcdexReviewDraft')return cloud.saveReviewDraft(args[0]);if(command==='npcdexReviewAsset')return cloud.reviewAsset(args[0]);return cloud.resolveReview(args[0]);}
+ if(['metadataView','metadataSync','metadataReview','metadataReviewDraft','metadataReviewAsset','metadataResolve'].includes(command)){
+  if(!metadata)throw Error(metadataError||'ROMDex Metadata Cloud Has Not Been Configured.');if(command==='metadataView')return metadata.view();if((updatesQuiesced||closing||suspended)&&command!=='metadataReview')throw Error('ROMDex Metadata Is Paused for Desktop Lifecycle Work.');
+  if(command==='metadataReview')return metadata.reviewView();if(command==='metadataReviewDraft')return metadata.saveReviewDraft(args[0]);if(command==='metadataReviewAsset')return metadata.reviewAsset(args[0]);if(command==='metadataResolve')return metadata.resolveReview(args[0]);await engine.lock;await metadata.cycle(true);return metadata.view();
+ }
  if(command==='storage')return storage(...args);
  if(command==='read')return read(args[0]);
  if(command==='attach'){const task=attach(...args);attachmentTasks.add(task);try{return await task;}finally{attachmentTasks.delete(task);}}
- if(command==='checkpoint'){await cloud?.local;cloud?.journal.checkpoint();await Promise.allSettled([...attachmentTasks]);await engine.lock;if(engine.state)await engine.persist(engine.state);await Promise.all([...stores.values()].map(x=>x.writes));return true;}
- if(command==='shutdown'){closing=true;clock.stop();await cloud?.stop();try{await handle('checkpoint');return true;}catch(error){closing=false;if(!suspended&&started)clock.start();throw error;}}
+ if(command==='checkpoint'){await cloud?.local;cloud?.journal.checkpoint();await metadata?.local;await metadata?.projectionTask;metadata?.journal.checkpoint();await Promise.allSettled([...attachmentTasks]);await engine.lock;if(engine.state)await engine.persist(engine.state);await Promise.all([...stores.values()].map(x=>x.writes));return true;}
+ if(command==='shutdown'){closing=true;clock.stop();await Promise.all([cloud?.stop(),metadata?.stop()]);try{await handle('checkpoint');return true;}catch(error){closing=false;if(!suspended&&started){clock.start();metadata?.start();}throw error;}}
  const {method}=validateCall(command,args);
  if(updatesQuiesced)throw Error('ROMDex Is Checkpointing for an Application Update.');
- if(method==='init'){await engine.init();if(!started){if(!suspended){clock.start();cloud?.start();}started=true;}return {snapshot:snapshot()};}
+ if(method==='init'){metadataProjection.held=false;await engine.init();if(!started){await metadata?.projectCurrent();if(!suspended){clock.start();cloud?.start();metadata?.start();}started=true;}return {snapshot:snapshot()};}
  if(!started)throw Error('Desktop Workspace Is Not Ready.');
- const value=await engine[method](...args);if(method==='setAutomaticSync'){if(engine.automaticSyncEnabled)cloud?.start();else await cloud?.stop();}return {value,snapshot:snapshot()};
+ const value=await engine[method](...args);if(method==='setAutomaticSync'){if(engine.automaticSyncEnabled){cloud?.start();metadata?.start();}else await Promise.all([cloud?.stop(),metadata?.stop()]);}return {value,snapshot:snapshot()};
 }
 process.parentPort?.on('message',async({data})=>{if(data.credentialReply)return;const {id,command,args}=data;try{send({reply:id,value:await handle(command,args)});}catch(error){send({reply:id,error:error.message,syncStatus:error.syncStatus});}});
 process.parentPort?.on('close',()=>{clock.stop();process.exit(0);});
 if(!fixture||(process.env.ROMDEX_QA==='1'&&process.env.ROMDEX_QA_CLOUD_BRANCH))try{cloud=await openNPCDexCloud({profile,protect:protectCredential,enabled:()=>engine.automaticSyncEnabled,changed:detail=>send({type:'npcdex-cloud',detail}),verificationBranch:process.env.ROMDEX_QA==='1'?process.env.ROMDEX_QA_CLOUD_BRANCH||null:null});}catch(error){cloudError='NPCDex Cloud Needs Recovery · '+error.message;}
+if(!fixture||(process.env.ROMDEX_QA==='1'&&process.env.ROMDEX_QA_CLOUD_BRANCH))try{metadata=await openMetadataCloud({profile,protect:protectCredential,enabled:()=>engine.automaticSyncEnabled,changed:()=>send({type:'snapshot',value:snapshot()}),current:await metadataProjection.load(),assigned:backend.desktopAssignedRecords(),project:manager=>metadataProjection.project(manager),verificationBranch:process.env.ROMDEX_QA==='1'?process.env.ROMDEX_QA_CLOUD_BRANCH||null:null});}catch(error){metadataError='ROMDex Metadata Cloud Needs Recovery · '+error.message;}
+metadataProjection.attach(engine,metadata);
 send({ready:true,versions:process.versions,fixture});
