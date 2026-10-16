@@ -2,6 +2,14 @@
 
 Started October 14, 2026. This records the discussion before the phased Action Plan. It does not authorize implementation.
 
+## Additional Feature Requests — October 15, 2026; Planning Only
+
+The user requested map-level NPCDex Change Requests as easy-to-map JSON attachments on YouTrack tickets, with instructions requiring an agent Integration Receipt, automatic receipt retrieval/reconciliation and visible updates in NPCDex. This extends the existing **U20–U27** workflow rather than creating a competing pipeline. U20 reviews package content, mapping and ticket selection; U21 implements the approved attachments and embedded instructions/receipt format; U23 confirms agent access and return transport; U24 automatically retrieves receipts; U25–U27 preserve validated automatic application, exception review and recovery. Existing receipt contracts, stable identities, publication/base evidence and the approved later-offline-conflict policy remain authoritative. Ticket grouping/creation is still a required discussion; adding map packages does not authorize automatic ticket creation.
+
+The user also requested ROMDex push notifications when an agent creates a ticket, comments or sends a message, and allowed development after principal work. Added **Phase 7 after U30**: **U31 — Notification Sources and Delivery Review (Sol / Medium)**, **U32 — Durable Agent Activity Retrieval (Sol / High)** and **U33 — Windows Notifications and Activity Access (Sol / High)**. U31 must resolve agent identification, message channels, relevance, preferences, Auto-Sync interaction and background/offline/fully-quit expectations before implementation. No external messaging service or always-on push mechanism is selected by this planning entry.
+
+The action plan and checklist contain these additions. Application source, installed build, live saves and credentials are unchanged. **Next remains U14 — Private YouTrack Storage and Access Rules, Sol / High**, requiring a separate PASSKEY.
+
 ## Confirmed Foundation
 
 - Combine NPCDex and ROMDex into one application with at-will switching.

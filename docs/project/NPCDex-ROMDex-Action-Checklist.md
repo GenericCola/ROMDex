@@ -59,15 +59,15 @@
 
 ## Phase 4 — Requests and Tickets
 
-- [ ] **U20 — Required User-Story and Ticket Workflow Review** — Sol / Medium. Grouping/creation policy remains deferred until this checkpoint.
-- [ ] **U21 — Approved Publishing and Linking Workflow** — Sol / High.
+- [ ] **U20 — Required User-Story and Ticket Workflow Review** — Sol / Medium. Include map-level JSON package/mapping and attachment preview; grouping/creation policy remains deferred until this checkpoint.
+- [ ] **U21 — Approved Publishing and Linking Workflow** — Sol / High. Attach versioned map-level JSON with stable target mapping, agent instructions and Integration Receipt format; preserve approved ticket grouping/linking and duplicate prevention.
 - [ ] **U22 — Linked Navigation and Native YouTrack Changes** — Sol / High.
 
 ## Phase 5 — Agent Delivery and Receipts
 
-- [ ] **U23 — Agent Access, Delivery, and Contract Review** — Sol / High.
-- [ ] **U24 — Request Retrieval and Durable Receipt Inbox** — Sol / High.
-- [ ] **U25 — Automatic Validated Receipt Reconciliation** — Astra / High.
+- [ ] **U23 — Agent Access, Delivery, and Contract Review** — Sol / High. Walk through the map JSON handoff, receipt instructions and approved return/discovery route.
+- [ ] **U24 — Request Retrieval and Durable Receipt Inbox** — Sol / High. Automatically pull returned receipts with durable discovery, authorization, deduplication and shared sync semantics.
+- [ ] **U25 — Automatic Validated Receipt Reconciliation** — Astra / High. Apply valid receipts once and reflect changes in NPCDex/cloud; send stale, conflicting or invalid receipts to review.
 - [ ] **U26 — Human Review and Controlled Resolution** — Sol / High.
 - [ ] **U27 — Undo, Reversal, and Approved Completion Policy** — Sol / High.
 
@@ -76,6 +76,14 @@
 - [ ] **U28 — Integrated Failure and Concurrency Review** — Astra / High.
 - [ ] **U29 — Guided Live-Workspace Acceptance** — Sol / High.
 - [ ] **U30 — Verified Installer and Handoff Documentation** — Sol / Medium.
+
+## Phase 7 — Agent Contact Notifications After the Principal Release
+
+- [ ] **U31 — Notification Sources and Delivery Review** — Sol / Medium. Define agent-created tickets/comments/messages, agent identity, relevant scope, preferences, Auto-Sync interaction and hidden/offline/fully-quit behavior; obtain design approval.
+- [ ] **U32 — Durable Agent Activity Retrieval** — Sol / High. Implement approved event discovery/unread storage, offline/restart catch-up and duplicate suppression.
+- [ ] **U33 — Windows Notifications and Activity Access** — Sol / High. Implement approved alerts and click-through; verify installed/tray behavior and deliver a tested release.
+
+**Planning update — October 15, 2026:** map-level JSON handoff/automatic receipt return is explicitly included in U20–U27; agent-contact notifications follow U30. Neither feature is implemented or checked off by this update. Next remains **U14 — Sol / High**, requiring a new PASSKEY.
 
 ## Completion Records
 

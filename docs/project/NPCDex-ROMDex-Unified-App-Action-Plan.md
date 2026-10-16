@@ -36,6 +36,8 @@ Keep the existing tools usable until the combined app passes migration and accep
 - ROMDex selectors now use Epic → Saga → Story → Verse; existing levels are relabeled without new parent issues. Only one branch per expandable tier can be open, and Verse does not expand. Lower levels remain Tasks in Work.
 - Valid matching receipts auto-apply; stale, conflicting, invalid, or unauthorized receipts enter review without partial application. Applying a receipt does not certify testing.
 - Ticket creation/grouping is deferred to user-story review near implementation. No automatic ticket-generation trigger or default grouping is assumed.
+- Package selected map-level NPCDex Change Requests as versioned JSON attachments on approved YouTrack tickets, with stable target mapping, agent instructions and the existing Integration Receipt contract. Automatically retrieve returned receipts and reflect validated reconciliation in NPCDex; exceptions retain human review. Detailed scope belongs to U20–U27.
+- After the principal release, scope and implement ROMDex notifications for agent-created tickets, comments and messages. Source/channel definitions, agent identification, background delivery and notification preferences require U31 review before implementation; see Phase 7.
 
 ## Models and Effort
 
@@ -138,13 +140,13 @@ Added by the user during U05; requires completed U05 design review and a separat
 
 | Task | Action and Deliverable | Completion Check | Model / Effort |
 | --- | --- | --- | --- |
-| U20 | Walk through realistic request publishing, grouping, existing-ticket linking, bulk selection, instruction updates, and retry use cases with the user. Define ticket preview/creation controls, shared-field ownership, and completion policy. | User approves the workflow and exact scope. No default grouping or automatic creation is carried forward without that decision. | Sol / Medium |
+| U20 | Walk through realistic request publishing, map-level JSON packaging, grouping, existing-ticket linking, bulk selection, instruction updates, and retry use cases with the user. Define the map/target mapping, included context, attachment preview, ticket creation controls, shared-field ownership and completion policy. | User approves the workflow and exact package scope. Demonstrate a map package linked to an existing ticket and an explicitly approved new ticket. No default grouping or automatic creation is carried forward without that decision. | Sol / Medium |
 
 ### 4B. Implement the Approved Workflow
 
 | Task | Action and Deliverable | Completion Check | Model / Effort |
 | --- | --- | --- | --- |
-| U21 | Implement approved publishing/linking controls, published request versions, durable mappings, and duplicate prevention. | Previewed requests produce only intended tickets/links; interrupted retries create no duplicates; existing ticket content remains intact. | Sol / High |
+| U21 | Implement approved publishing/linking controls and attach versioned map-level Change Request JSON files to the chosen YouTrack tickets. Reuse approved NPCDex contracts: include stable workspace/map/target identifiers, published request IDs/revisions, baseline evidence/hashes, exact changes and needed context, plus self-contained agent instructions and the required Integration Receipt format/example. Preserve durable ticket/package mappings and duplicate prevention. | An agent can locate the intended map and targets from the attachment without manually rebuilding the mapping. Previewed requests produce only intended tickets/links; interrupted attachment/ticket retries create no duplicates; existing content remains intact. No credentials or unrelated dataset are packaged. | Sol / High |
 | U22 | Add navigation between requests and ROMDex tasks, and synchronize approved shared fields/native YouTrack edits with explicit conflict handling. | Native edits return correctly; instruction changes invalidate older request versions; tester verification remains separate from task progress. | Sol / High |
 
 ## Phase 5 — Agent Delivery and Integration Receipts
@@ -153,14 +155,14 @@ Added by the user during U05; requires completed U05 design review and a separat
 
 | Task | Action and Deliverable | Completion Check | Model / Effort |
 | --- | --- | --- | --- |
-| U23 | Select the agent retrieval/return route using the approved cloud and ticket workflow. Define limited access, request versions, receipt contract compatibility, offline delivery, and correction/retry examples. | User approves the agent workflow before implementation; transport fits free hosting and preserves manual JSON fallback. | Sol / High |
-| U24 | Implement approved request retrieval and a durable receipt inbox, with recorded receipt IDs and authorization checks. | Authorized agents retrieve only eligible packages; repeated submissions are recognized; receipt intake does not grant unrestricted dataset edits. | Sol / High |
+| U23 | Review the ticket-attached map JSON handoff and select the agent receipt return/discovery route. Define limited access, stable map/target mapping, published request versions, existing receipt contract compatibility, instructions for producing and returning a receipt, offline delivery and correction/retry examples. | User approves a concrete ticket → agent → receipt → NPCDex walkthrough before implementation. The agent needs no manual reconstruction of target mapping; transport fits free hosting and preserves manual JSON fallback. | Sol / High |
+| U24 | Implement approved request retrieval and automatic receipt discovery/pull from linked tickets or the return route approved at U23 into a durable inbox. Record source ticket/package, receipt IDs, authorization and discovery progress; support restart, offline catch-up and uncertain retries. Follow shared Auto-Sync Off/manual one-cycle semantics. | Authorized agents retrieve only eligible packages; returned receipts arrive without a manual download/import step, including while ROMDex runs in the tray. Repeated discovery/submissions are recognized; receipt intake does not grant unrestricted dataset edits. | Sol / High |
 
 ### 5B. Reconcile, Review, and Recover
 
 | Task | Action and Deliverable | Completion Check | Model / Effort |
 | --- | --- | --- | --- |
-| U25 | Implement automatic validation/application against one current revision, preserving NPCDex's existing receipt semantics and history. | Matching receipts apply once and atomically; stale hashes/values/feedback, duplicate IDs, and concurrent edits cannot cause invalid application. | Astra / High |
+| U25 | Automatically validate and reconcile pulled receipts against one current revision, preserving NPCDex's existing receipt semantics and history. Reflect applied changes in NPCDex and queue their cloud synchronization without requiring manual JSON import. | Authorized matching receipts apply once and atomically to the correct map/targets; stale hashes/values/feedback, wrong-map packages, duplicate IDs and concurrent edits cannot cause invalid application. A later conflicting offline branch sends the whole receipt to review under U04. Application does not certify testing or itself modify the ROM. | Astra / High |
 | U26 | Add human receipt review with preview, conflicts, linked ticket, defer, reject/correction, and a controlled resolution path. | Failed receipts make no partial changes; resolved receipts still satisfy validation; applied work resets affected testing to Unreviewed. | Sol / High |
 | U27 | Integrate undo/archive/reversal history and the ticket-completion policy approved at U20. | Dataset undo is distinct from actual ROM reversal; reversal requests/receipts retain evidence and IDs; tickets close only under the approved policy. | Sol / High |
 
@@ -181,6 +183,16 @@ Added by the user during U05; requires completed U05 design review and a separat
 | --- | --- | --- | --- |
 | U30 | Produce the verified installer, release manifest, backup/restore guide, account setup instructions, agent integration contract, and QA report. | Installed release matches reviewed source; secrets and private working data are excluded; recovery and upgrade instructions are usable. | Sol / Medium |
 
+## Phase 7 — Agent Contact Notifications After the Principal Release
+
+Scheduled after U30 so notifications do not delay cloud persistence or the request/receipt workflow. This is a planning addition only; each task needs its own PASSKEY. Notifications are separate from application update notices. The app must not promise delivery while fully quit without an approved, verified delivery mechanism.
+
+| Task | Action and Deliverable | Completion Check | Model / Effort |
+| --- | --- | --- | --- |
+| U31 | Review notification user stories: agent creates a ticket, adds a comment or sends a message. Define which sources count as messages, how agents are identified, eligible projects/tickets, unread state, native Windows alerts versus in-app activity, quiet/mute preferences, Auto-Sync interaction and delivery while hidden, offline or fully quit. Compare routes within the existing free-only/no-billing constraints. | User approves concrete event examples, relevance rules and delivery expectations before implementation. No extra messaging service, broad polling scope or automatic agent outreach is assumed. | Sol / Medium |
+| U32 | Implement the approved activity retrieval and durable event/unread store, reusing existing YouTrack/service adapters where appropriate. Preserve source identity, ticket/comment/message references and discovery progress; distinguish incoming agent activity from the user's own actions and ROMDex's automation. | Catch-up after offline periods/restart loses no eligible events; repeated retrieval does not duplicate events. Access boundaries and the approved Auto-Sync policy hold. | Sol / High |
+| U33 | Add approved Windows notifications and in-app activity access with click-through to the relevant ticket, comment or message. Support the preferences approved at U31 and verify installed-app/tray behavior. | Test all three event types, hidden-window delivery, click-through, unread/read transitions, permissions, muted/burst activity, restart/catch-up and duplicate suppression. Report fully-quit behavior accurately; issue a tested release with retained saves/credentials. | Sol / High |
+
 ## Deferred Decisions and Explicit Gates
 
 | Decision | Resolve By |
@@ -191,6 +203,8 @@ Added by the user during U05; requires completed U05 design review and a separat
 | Exact minor redesign and switcher layout | U05, before interface changes. |
 | Ticket grouping, publishing triggers, shared editable fields, native instruction edits, completion policy | U20, immediately before ticket implementation. |
 | Agent delivery route and access setup | U23, before agent integration implementation. |
+| Map-package contents/target mapping and ticket attachment workflow | U20 before U21; agent receipt production/return reviewed at U23 before U24. |
+| Agent identity, message sources, notification preferences and background/quit delivery | U31 after the principal release; before U32/U33 implementation. |
 
 Tasks later in the plan are provisional until their design checkpoints are completed. This avoids pretending their exact implementation scope is already settled. Desktop and cloud milestones can be accepted independently while ticket workflow discussion remains deferred.
 
