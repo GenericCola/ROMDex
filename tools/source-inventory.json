@@ -1077,6 +1077,101 @@
       "sha256": "0ebcd06b0f0575390855f775537c44e0e909139be24e304cdca250ca2d64a61e"
     },
     {
+      "path": "tools/development/u17-artifact-audit.mjs",
+      "bytes": 2476,
+      "sha256": "657214f66a7a066da1e3a311f588a63248ec04ba23717204bceb1ef03150c00f"
+    },
+    {
+      "path": "tools/development/u17-build-and-audit.mjs",
+      "bytes": 320,
+      "sha256": "9fba014aa9a5e23fa775bebfd12603394d4f013687a0751f876502f9016a6d5f"
+    },
+    {
+      "path": "tools/development/u17-build.mjs",
+      "bytes": 1336,
+      "sha256": "1b0c51d2434dfdb4d156170225e8b8e47c2d740aa8aa820f4f417b00420b0c86"
+    },
+    {
+      "path": "tools/development/u17-checkpoint-race-check.mjs",
+      "bytes": 653,
+      "sha256": "16f2c1720c357e63eb8d3b1d1018eb823fa397597c73aaa25611922cc89f86e4"
+    },
+    {
+      "path": "tools/development/u17-crash-check.mjs",
+      "bytes": 3195,
+      "sha256": "e5d4e0bbe25c5aba8183e058bbeaa5a86fd5b7a10cddc79c4d6fa3063a9a31b1"
+    },
+    {
+      "path": "tools/development/u17-current-check.mjs",
+      "bytes": 4324,
+      "sha256": "adcc04c43020a9df0afed3b52e37abc3161739e8fb4361cab18ff57a705dd9a6"
+    },
+    {
+      "path": "tools/development/u17-deploy.mjs",
+      "bytes": 4399,
+      "sha256": "b52c5b1f9181765af421cb5571bf1ed1e68bf380572dd98b4f3dcd602d5d7117"
+    },
+    {
+      "path": "tools/development/u17-final-build.mjs",
+      "bytes": 992,
+      "sha256": "37fd9ab017ad382ac8745edf6b62015960df5473ba44ddb60d8fd04a25ec18b5"
+    },
+    {
+      "path": "tools/development/u17-final-ui-verify.mjs",
+      "bytes": 12026,
+      "sha256": "7fc3a3b9887a77615af3164e330508178dda5dae7d54419fcf91ca93aa62857b"
+    },
+    {
+      "path": "tools/development/u17-final-ui.mjs",
+      "bytes": 580,
+      "sha256": "3c9d4485bb53135446c9b5efda6dfb2af07f0fa82e05396b0dc44e3376e84d71"
+    },
+    {
+      "path": "tools/development/u17-host.mjs",
+      "bytes": 2752,
+      "sha256": "d20ede41ed11e08de5cdd8d74ddf5b343e37807f666619d521980eee2024dfe1"
+    },
+    {
+      "path": "tools/development/u17-install-and-check.mjs",
+      "bytes": 253,
+      "sha256": "77b7d8fdcf68e62092855d3af22590d377d15b6b16716051de6ba013002f0c76"
+    },
+    {
+      "path": "tools/development/u17-native-check.cjs",
+      "bytes": 5830,
+      "sha256": "4704a9db34b228631f96a2a5520e56d40dd3bd4cd64807bfc39cf467bfc4a7cb"
+    },
+    {
+      "path": "tools/development/u17-normal-relaunch.mjs",
+      "bytes": 4849,
+      "sha256": "65793c8bf0c4f89a7f5360197df501e43aa73d1c27faf4732c5bff2b0ec49376"
+    },
+    {
+      "path": "tools/development/u17-package.mjs",
+      "bytes": 5674,
+      "sha256": "f80b7ddc685f77f31e2b95c3796dd7cc17586838fc6259e8415a3db0ee92b2f6"
+    },
+    {
+      "path": "tools/development/u17-prepare-final-ui.cjs",
+      "bytes": 2735,
+      "sha256": "90b4cfb1ca87b3d7095a438f85f21abb33f50e3d2574b1b9eea6e0e9deccf67d"
+    },
+    {
+      "path": "tools/development/u17-publish.mjs",
+      "bytes": 11742,
+      "sha256": "55a4500c0472f0e0dab0c0969d2974ba5933a3438b14f01f2b43df1ca1d027c7"
+    },
+    {
+      "path": "tools/development/u17-stage-records.mjs",
+      "bytes": 3152,
+      "sha256": "6a2946c29d982a936c1276d0e7ab01aa9645abc7cd15261bd0d0dcc530c746b8"
+    },
+    {
+      "path": "tools/development/u17-ui-verify.mjs",
+      "bytes": 10218,
+      "sha256": "9ae5117b04b23b66fc89dcb5253ad226e5d53d21129e1cd4fc552c70f161bb44"
+    },
+    {
       "path": "tools/installer-dependencies/package-lock.json",
       "bytes": 54386,
       "sha256": "508d914590885bb8db1d590645cdbae66fb22834e910813103bdbdcfc5f08cf3"
@@ -1150,6 +1245,11 @@
       "path": "tools/launchers/Launch-U16-Verification.cmd",
       "bytes": 380,
       "sha256": "ce10b723fcfccf05dbb9433ad2ca8d967a2783385000cb4b3a4501a3b1aad345"
+    },
+    {
+      "path": "tools/launchers/Launch-U17-Verification.cmd",
+      "bytes": 380,
+      "sha256": "5dfaf05b8c94a01fae70863a80e2748d6fbd860f9fa78eae2c57cc5d7aebb7ca"
     },
     {
       "path": "tools/launchers/Show-U14-Cloud-Setup.cmd",

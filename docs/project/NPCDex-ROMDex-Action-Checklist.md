@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** U16 is complete. [Cloud sync report](U16-Completion-Report.md). Installed ROMDex **0.5.4** has active NPCDex cloud synchronization and the existing native YouTrack sync. **Next: U17 — Concurrent Edits and Conflict Review, Sol / Extra High**, requiring a new PASSKEY.
+**Current:** U17 is authorized and in progress. Its 0.5.5 candidate passed 371 tests and eight final packaged desktop checks; installed 0.5.4 awaits the backed-up upgrade. [U17 report](U17-Completion-Report.md). After completion: **U18 — ROMDex Metadata Cloud Sync, Sol / High**, under a new PASSKEY.
 
 ## Completed Foundation
 
@@ -387,3 +387,15 @@ U15 import and recovery verification are complete. U15 does not activate continu
 - [x] Archive source, publish the verified private build, update the checklist and stop before U17.
 
 U16 is complete in installed **0.5.4**. Passed 345 tests, forced process-kill recovery, actual two-client GitHub checks, packaged editing/restart/tray checks, 226 installed hashes, exact 106-file installer Data preservation and genuine YouTrack equality. All three credentials survived the final normal restart. Conflicting branches are retained for U17 review. **Next: U17 — Sol / Extra High; new PASSKEY required.**
+
+
+## U17 — Implementation Checklist
+
+- [x] Preserve the U16 source and define domain validation, revision-graph and derived merge-footprint rules.
+- [x] Implement durable automatic independent merges and explicit, version-guarded conflict resolutions.
+- [x] Add a cloud conflict review pane, retained review drafts and manual-Save entry points.
+- [x] Test concurrency, structural/receipt boundaries, interrupted resolution and editor races.
+- [ ] Verify the packaged Windows app and backed-up upgrade with real connections.
+- [ ] Archive the verified release and evidence, mark U17 complete and stop before U18.
+
+U17 is authorized and in progress. No U18 work is authorized.

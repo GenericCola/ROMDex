@@ -1,0 +1,10 @@
+{
+  "task": "U17",
+  "startedAt": "2026-10-16T06:19:34.567Z",
+  "status": "passed",
+  "branch": "verification/u17-5e975930-2b29-454f-9ed9-ade1924d91a1",
+  "linearHead": "50efcf3c65061925416f12703a0df144682eba101b6fb286139031fd878af5da",
+  "productionMainUnchanged": true,
+  "recordCount": 3,
+  "finishedAt": "2026-10-16T06:19:49.891Z"
+}

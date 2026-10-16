@@ -1,0 +1,9 @@
+{
+  "task": "U17",
+  "fixtureOnly": true,
+  "startedAt": "2026-10-16T06:16:54.530Z",
+  "uncommittedTransactionRolledBackAfterForcedProcessKill": true,
+  "committedDocumentDependenciesAndQueueSurvivedForcedProcessKill": true,
+  "status": "passed",
+  "finishedAt": "2026-10-16T06:16:55.918Z"
+}

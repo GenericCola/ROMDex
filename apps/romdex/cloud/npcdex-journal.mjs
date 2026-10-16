@@ -14,6 +14,7 @@ export class NPCDexJournal{
  setDocument(key,bytes){this.db.prepare('INSERT INTO documents(key,bytes) VALUES(?,?) ON CONFLICT(key) DO UPDATE SET bytes=excluded.bytes').run(key,bytes);}
  blob(id){const row=this.db.prepare('SELECT bytes FROM blobs WHERE hash=?').get(id);if(!row)return null;const b=Buffer.from(row.bytes);if(sha256(b)!==id)throw Error('A Local NPCDex Dependency Failed Its Integrity Check.');return b;}
  putBlob(id,bytes){if(sha256(bytes)!==id)throw Error('Invalid Local NPCDex Dependency.');const existing=this.blob(id);if(existing&&!existing.equals(bytes))throw Error('Immutable NPCDex Blob Changed.');this.db.prepare('INSERT OR IGNORE INTO blobs(hash,bytes) VALUES(?,?)').run(id,bytes);}
+ records(){return this.db.prepare('SELECT id,bytes FROM records ORDER BY rowid').all().map(row=>({id:row.id,bytes:Buffer.from(row.bytes)}));}
  record(id){const row=this.db.prepare('SELECT bytes FROM records WHERE id=?').get(id);if(!row)return null;const b=Buffer.from(row.bytes);if(sha256(b)!==id)throw Error('A Local NPCDex Record Failed Its Integrity Check.');return b;}
  putRecord(id,bytes){if(sha256(bytes)!==id)throw Error('Invalid NPCDex Record.');this.db.prepare('INSERT OR IGNORE INTO records(id,bytes) VALUES(?,?)').run(id,bytes);}
  enqueue(id){this.db.prepare("INSERT OR IGNORE INTO outbox(id,phase) VALUES(?,'queued')").run(id);}

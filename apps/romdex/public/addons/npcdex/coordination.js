@@ -29,12 +29,12 @@
   const view=await nativeDesktop.call('npcdexView',[]);if(view.error){error=view.error;announce();return;}if(!view.active)return;
   cloud=true;state=view.status;head=window.romdexNPCReadHead||view.head;
   if(!dirty){validate(view.snapshot);data=structuredClone(view.snapshot);head=view.head;reviewCache=null;render();updateSaveIndicator();}
-  const legacyWrite=writeDB;writeDB=async snapshot=>{if(!cloud)return legacyWrite(snapshot);const saved=await nativeDesktop.call('npcdexCheckpoint',[snapshot,head]);head=saved.head;state=saved.status;return true;};
+  const legacyWrite=writeDB;writeDB=async snapshot=>{if(!cloud)return legacyWrite(snapshot);const saved=await nativeDesktop.call('npcdexCheckpoint',[snapshot,head]);head=saved.editHead||saved.head;state=saved.status;return true;};
   const checkpoint=()=>{if(task)return task;task=(async()=>{
    if(legacyStatus().recoveryReview)throw Error('Review the Preserved Recovery Copy in Data First.');
    flushNote();flushPromptChange();if(!dirty&&!error)return;
    const epoch=editEpoch,snapshot=structuredClone(data);snapshot.revision=(data.revision||0)+1;snapshot.savedAt=new Date().toISOString();
-   try{const saved=await nativeDesktop.call('npcdexCheckpoint',[snapshot,head]);head=saved.head;state=saved.status;error=null;
+   try{const saved=await nativeDesktop.call('npcdexCheckpoint',[snapshot,head]);state=saved.status;error=null;head=editEpoch===epoch?saved.head:saved.editHead||saved.head;
     if(editEpoch===epoch){validate(saved.snapshot);data=structuredClone(saved.snapshot);dirty=false;}else{data.revision=Math.max(data.revision||0,snapshot.revision);data.savedAt=snapshot.savedAt;}
     await nativeDesktop.storage('save','npcdex-recovery-draft',null);updateSaveIndicator();$('save-status').textContent=dirty?'Newer Edits Await Local Checkpoint':'Saved Locally · '+state.message;
    }catch(e){error=e.message;throw e;}finally{announce();}
@@ -43,7 +43,7 @@
   workspace.manualSave=async()=>{await checkpoint();state=await nativeDesktop.call('npcdexSync',[]);announce();return {ok:!state.pending&&!state.review&&!state.attention,message:state.message};};
   $('save').onclick=()=>workspace.manualSave();
   const exportButton=document.createElement('button');exportButton.type='button';exportButton.textContent='Export Package Copy';exportButton.onclick=()=>legacyExport();$('data-dialog').querySelector('.dialog-scroll').append(exportButton);
-  const acceptIncoming=()=>{if(refresh)return refresh;const epoch=editEpoch;refresh=(async()=>{const latest=await nativeDesktop.call('npcdexView',[]);state=latest.status;if(dirty||task||editEpoch!==epoch)return;validate(latest.snapshot);data=structuredClone(latest.snapshot);head=latest.head;reviewCache=null;render();updateSaveIndicator();})().catch(e=>error=e.message).finally(()=>{refresh=null;announce();});return refresh;};
+  const acceptIncoming=()=>{if(refresh)return refresh;const epoch=editEpoch;refresh=(async()=>{const latest=await nativeDesktop.call('npcdexView',[]);state=latest.status;if(dirty||task||editEpoch!==epoch||document.querySelector('dialog[open]'))return;validate(latest.snapshot);data=structuredClone(latest.snapshot);head=latest.head;reviewCache=null;render();updateSaveIndicator();})().catch(e=>error=e.message).finally(()=>{refresh=null;announce();});return refresh;};
   nativeDesktop.onEvent(event=>{if(event.type!=='npcdex-cloud')return;state=event.detail.status;if(event.detail.head!==head&&!dirty&&!task)acceptIncoming();announce();});
   announce();
  });

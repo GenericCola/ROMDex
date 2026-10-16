@@ -1,0 +1,21 @@
+{
+  "task": "U17",
+  "startedAt": "2026-10-16T06:00:33.597Z",
+  "productionSaveWrites": false,
+  "checks": [
+    "Independent Edits Merge and Converge Through Real Private GitHub",
+    "Overlapping Edits Remain Separate and the Exact Review Choice Is Durable",
+    "One Human Resolution Survives an Unknown Accepted Response and Reaches the Other Client",
+    "A Later Offline Branch Requires Review Instead of Being Discarded"
+  ],
+  "branch": "verification/u17-a86cf61c-d97d-49ea-ba99-6dc5a372c0c6",
+  "status": "passed",
+  "electron": "44.7.2",
+  "node": "24.21.0",
+  "mainBranchUnchanged": true,
+  "credentialBytesPreserved": true,
+  "originalContentAndHistoricalImageRootsPreserved": true,
+  "finalResolution": "75027b7383572130a600de71114d0a6946b1dabf5129a8e47a566413747f0648",
+  "requests": 355,
+  "finishedAt": "2026-10-16T06:04:05.493Z"
+}

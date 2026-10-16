@@ -55,6 +55,7 @@ export async function handle(command,args=[]){
  if(command==='npcdexView')return cloud?cloud.view():{active:false,error:cloudError};
  if(command==='npcdexCheckpoint'){if(!cloud)throw Error(cloudError||'NPCDex Cloud Has Not Been Configured.');if(updatesQuiesced||closing)throw Error('The Desktop Is Checkpointing for an Update or Shutdown.');return cloud.stage(args[0],args[1]);}
  if(command==='npcdexSync'){if(updatesQuiesced||closing||suspended)throw Error('NPCDex Sync Is Paused for Desktop Lifecycle Work.');if(!cloud)throw Error(cloudError||'NPCDex Cloud Has Not Been Configured.');return cloud.cycle(true);}
+ if(['npcdexReview','npcdexReviewDraft','npcdexReviewAsset','npcdexResolve'].includes(command)){if(!cloud)throw Error(cloudError||'NPCDex Cloud Has Not Been Configured.');if(command!=='npcdexReview'&&(updatesQuiesced||closing||suspended))throw Error('NPCDex Review Is Paused for Desktop Lifecycle Work.');if(command==='npcdexReview')return cloud.reviewView();if(command==='npcdexReviewDraft')return cloud.saveReviewDraft(args[0]);if(command==='npcdexReviewAsset')return cloud.reviewAsset(args[0]);return cloud.resolveReview(args[0]);}
  if(command==='storage')return storage(...args);
  if(command==='read')return read(args[0]);
  if(command==='attach'){const task=attach(...args);attachmentTasks.add(task);try{return await task;}finally{attachmentTasks.delete(task);}}

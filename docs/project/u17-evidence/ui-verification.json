@@ -1,0 +1,23 @@
+{
+  "task": "U17",
+  "startedAt": "2026-10-16T06:19:50.096Z",
+  "fixtureOnly": true,
+  "checks": [
+    "The Final Packaged Service Preserves an Identical Stale Assignment from a Different Writer",
+    "Shared Save Opens the Native Conflict Review for Known Competing Versions",
+    "Review Later Preserves the Choice Without Applying Data and Confirmation Is Required",
+    "Full Desktop Restart Restores the Draft but Requires Fresh Confirmation",
+    "A Newer Edit Invalidates an Open Approval Without Overwriting Its Data",
+    "A Native Lifecycle Pause Preserves the Review Draft Without Committing It",
+    "An Explicit Refreshed Choice Applies Atomically and Syncs Once While Auto-Sync Stays Off",
+    "Image Conflicts Display the Reviewed Embedded Image Through the Bounded Native API"
+  ],
+  "branch": "verification/u17-5e975930-2b29-454f-9ed9-ade1924d91a1",
+  "connectError": "fetch failed",
+  "status": "passed",
+  "version": "0.5.5",
+  "profile": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u17\\private-profile\\desktop-bdd8096e-c1a3-4334-9121-e20bd4a41a13",
+  "normalMainBranchUsed": false,
+  "sourceDataWrites": false,
+  "finishedAt": "2026-10-16T06:25:21.009Z"
+}

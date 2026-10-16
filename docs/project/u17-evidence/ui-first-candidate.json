@@ -1,0 +1,21 @@
+{
+  "task": "U17",
+  "startedAt": "2026-10-16T06:06:20.136Z",
+  "fixtureOnly": true,
+  "checks": [
+    "Shared Save Opens the Native Conflict Review for Known Competing Versions",
+    "Review Later Preserves the Choice Without Applying Data and Confirmation Is Required",
+    "Full Desktop Restart Restores the Draft but Requires Fresh Confirmation",
+    "A Newer Edit Invalidates an Open Approval Without Overwriting Its Data",
+    "An Explicit Refreshed Choice Applies Atomically and Syncs Once While Auto-Sync Stays Off",
+    "Image Conflicts Display the Reviewed Embedded Image Through the Bounded Native API"
+  ],
+  "branch": "verification/u17-a86cf61c-d97d-49ea-ba99-6dc5a372c0c6",
+  "connectError": "fetch failed",
+  "status": "passed",
+  "version": "0.5.5",
+  "profile": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u17\\private-profile\\desktop-9cda99fe-8308-4ffb-912b-0addc30a7fbd",
+  "normalMainBranchUsed": false,
+  "sourceDataWrites": false,
+  "finishedAt": "2026-10-16T06:13:14.720Z"
+}

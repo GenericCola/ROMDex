@@ -1,0 +1,1 @@
+import fs from 'node:fs/promises';import assert from 'node:assert/strict';assert.equal(JSON.parse(await fs.readFile('work/u17/native-core-verification.json','utf8')).status,'passed');await import('./u17-build.mjs');if(process.exitCode)throw Error('The U17 Build Needs Review.');await import('./u17-artifact-audit.mjs');
