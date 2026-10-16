@@ -50,7 +50,7 @@ async function main(){
  async function runCommand(command,value){
   if(command==='show'){showWindow();return;}
   if(command==='updates'){if(updater)await updater.open();else await dialog.showMessageBox(win,{type:'info',title:'Application Updates Unavailable',message:updateState?.message||'Update Controls Are Still Starting.',detail:'Your Workspaces and Data Synchronization Continue Normally.'});return;}
-  if(command==='about'){showWindow();await dialog.showMessageBox(win,{type:'info',title:'About ROMDex',message:'ROMDex '+app.getVersion(),detail:'NPCDex Add-On\nYouTrack Tasks: Two-Way Sync\nNPCDex: Local Saves and Recovery; Cloud Sync Is Planned\n'+(qa?'Isolated Verification Profile':'Saves Are Stored in the Application’s Data Folder')});return;}
+  if(command==='about'){showWindow();await dialog.showMessageBox(win,{type:'info',title:'About ROMDex',message:'ROMDex '+app.getVersion(),detail:'NPCDex Add-On\nYouTrack Tasks: Two-Way Sync\nNPCDex: Local Checkpoints and Private Cloud Sync When Configured\n'+(qa?'Isolated Verification Profile':'Saves Are Stored in the Application’s Data Folder')});return;}
   if(['workspace','connections'].includes(command))showWindow();
   try{if(!shellReady)throw Error('The Workspace Is Still Opening.');const result=await win.webContents.executeJavaScript('window.romdexShell.desktopCommand('+JSON.stringify(command)+','+JSON.stringify(value??null)+')',true);if(result?.review)showWindow();}catch(error){showWindow();await dialog.showMessageBox(win,{type:'error',title:'ROMDex Needs Review',message:error.message});}
  }

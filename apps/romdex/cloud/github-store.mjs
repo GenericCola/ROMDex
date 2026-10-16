@@ -1,4 +1,5 @@
 import {createHash} from 'node:crypto';
+import {setTimeout as delay} from 'node:timers/promises';
 
 export const CHUNK_BYTES=512*1024, DESCRIPTOR_BYTES=256*1024;
 export const sha256=bytes=>createHash('sha256').update(bytes).digest('hex');
@@ -8,27 +9,29 @@ const requireThat=(test,message)=>{if(!test)throw Error(message);};
 
 // This initial store only appends an approved genesis import. Editing/merging is U16–U17.
 export class GitHubSaveStore {
- constructor({connection,credential,fetch=globalThis.fetch,request=null,progress=()=>{}}){
+ constructor({connection,credential,fetch=globalThis.fetch,request=null,progress=()=>{},signal=null,writeInterval=0,verificationBranch=null}){
   const b=connection?.bootstrap,p=b?.provider;
   requireThat(connection?.format==='ROMDexGitHubCloudConnection/1'&&p?.owner==='GenericCola'&&p.repository==='ROMDex-Data'&&p.repositoryId==='1421625633'&&p.ownerId==='32021766'&&p.branch==='main'&&b.owner?.githubUserId==='32021766'&&b.workspaceId==='1e267c45-75ae-48a9-b173-5ca3132bb121','The Approved Cloud Identity Is Missing.');
   requireThat(connection.bootstrapPath===`workspaces/${b.workspaceId}/bootstrap.json`&&connection.bootstrapSha256==='e47be8ff64715f5473289f1d1e336c4d7b512644660667e1b1ff1dd639bb25c4','The Cloud Bootstrap Pin Changed.');
-  Object.assign(this,{connection,credential,fetch,requestOverride:request,progress});this.workspace=b.workspaceId;this.root=`workspaces/${this.workspace}`;this.prefix='/repos/GenericCola/ROMDex-Data';this.requests=0;this.writes=0;
+  requireThat(verificationBranch===null||/^verification\/u16-[a-f0-9-]{36}$/.test(verificationBranch),'Invalid Verification Branch.');
+  Object.assign(this,{connection,credential,fetch,requestOverride:request,progress,signal,writeInterval});this.branch=verificationBranch||'main';this.workspace=b.workspaceId;this.root=`workspaces/${this.workspace}`;this.prefix='/repos/GenericCola/ROMDex-Data';this.requests=0;this.writes=0;this.nextWrite=0;
  }
  async request(route,options={}){
   this.requests++;if(options.method&&options.method!=='GET')this.writes++;
   if(this.requestOverride)return this.requestOverride(route,options);
+  if(options.method&&options.method!=='GET'&&this.writeInterval){const wait=Math.max(0,this.nextWrite-Date.now());this.nextWrite=Math.max(this.nextWrite,Date.now())+this.writeInterval;if(wait)await delay(wait,undefined,{signal:this.signal||undefined});}
   requireThat(route==='/user'||route===this.prefix||route.startsWith(this.prefix+'/'),'Unsupported Cloud Route.');
   let token=await this.credential();requireThat(typeof token==='string'&&token.length>=10&&token.length<=4096&&!/[\r\n]/.test(token),'Saved Cloud Access Is Unavailable.');
-  let response;try{response=await this.fetch('https://api.github.com'+route,{method:options.method||'GET',redirect:'error',headers:{Authorization:'Bearer '+token,Accept:'application/vnd.github+json','User-Agent':'ROMDex-Cloud-Import','X-GitHub-Api-Version':'2022-11-28',...(options.body?{'Content-Type':'application/json'}:{})},body:options.body?JSON.stringify(options.body):undefined,signal:AbortSignal.timeout(45000)});}catch{throw Error('Cloud Request Interrupted. The Import Is Retained for Review and Retry.');}finally{token=null;}
+  let response;try{const timeout=AbortSignal.timeout(45000);response=await this.fetch('https://api.github.com'+route,{method:options.method||'GET',redirect:'error',headers:{Authorization:'Bearer '+token,Accept:'application/vnd.github+json','User-Agent':'ROMDex-Cloud-Import','X-GitHub-Api-Version':'2022-11-28',...(options.body?{'Content-Type':'application/json'}:{})},body:options.body?JSON.stringify(options.body):undefined,signal:this.signal?AbortSignal.any([timeout,this.signal]):timeout});}catch{throw Error('Cloud Request Interrupted. Local Work Is Retained for Review and Retry.');}finally{token=null;}
   const limit=options.limit||2*1024*1024;let length=0;const chunks=[];
   if(Number(response.headers.get('content-length'))>limit){await response.body?.cancel();throw Error('Cloud Response Exceeds the Verified Limit.');}
   for await(const chunk of response.body){length+=chunk.length;if(length>limit){await response.body?.cancel().catch(()=>{});throw Error('Cloud Response Exceeds the Verified Limit.');}chunks.push(Buffer.from(chunk));}
   let data=null;try{data=length?JSON.parse(Buffer.concat(chunks).toString('utf8')):null;}catch{throw Error('Cloud Response Is Invalid.');}
-  return {status:response.status,data,next:!!response.headers.get('link')?.includes('rel="next"')};
+  return {status:response.status,data,next:!!response.headers.get('link')?.includes('rel="next"'),retryAfter:response.headers.get('retry-after'),rateReset:response.headers.get('x-ratelimit-reset')};
  }
- async call(route,options){const r=await this.request(this.prefix+route,options);if(![200,201,204].includes(r.status))throw Object.assign(Error(`Cloud Access Needs Review (HTTP ${r.status}).`),{status:r.status});return r.data;}
+ async call(route,options){const r=await this.request(this.prefix+route,options);if(![200,201,204].includes(r.status))throw Object.assign(Error(`Cloud Access Needs Review (HTTP ${r.status}).`),{status:r.status,retryAfter:r.retryAfter,rateReset:r.rateReset});return r.data;}
  async descendant(base,head){if(base===head)return;const d=await this.call('/compare/'+base+'...'+head);requireThat(['ahead','identical'].includes(d?.status)&&d.base_commit?.sha===base&&d.merge_base_commit?.sha===base,'Cloud History Changed. Restore Requires Review.');}
- async head(){const d=await this.call('/git/ref/heads/main');requireThat(gitSHA(d?.object?.sha)&&d.object.type==='commit','Invalid Cloud Branch Head.');if(this.lastHead)await this.descendant(this.lastHead,d.object.sha);this.lastHead=d.object.sha;return d.object.sha;}
+ async head(){const d=await this.call('/git/ref/heads/'+this.branch);requireThat(gitSHA(d?.object?.sha)&&d.object.type==='commit','Invalid Cloud Branch Head.');if(this.lastHead)await this.descendant(this.lastHead,d.object.sha);this.lastHead=d.object.sha;return d.object.sha;}
  async inventory(commit){
   requireThat(gitSHA(commit),'Invalid Cloud Commit.');const meta=await this.call('/git/commits/'+commit);requireThat(gitSHA(meta?.tree?.sha),'Invalid Cloud Tree.');
   const tree=await this.call('/git/trees/'+meta.tree.sha+'?recursive=1',{limit:8*1024*1024});
@@ -60,17 +63,24 @@ export class GitHubSaveStore {
   for(const name of inventory.entries.keys())if(name.startsWith(this.root+'/npcdex/'))requireThat(files.has(name),'The NPCDex Namespace Contains Other Data. Review Before Importing.');
  }
  async publishInitial(files){
+  return this.append(files,inventory=>this.assertGenesis(inventory,files));
+ }
+ async publishChanges(files,genesis){
+  return this.append(files,inventory=>{requireThat(inventory.entries.get(this.root+'/npcdex/genesis.json')===gitBlob(Buffer.from(JSON.stringify({format:'ROMDexNPCDexGenesis/1',workspace:this.workspace,record:genesis}))),'The NPCDex Genesis Changed.');},{inlineRecords:true});
+ }
+ async append(files,validateInventory,{inlineRecords=false}={}){
   await this.verifyAccess();
   for(let attempt=0;attempt<4;attempt++){
-   const inventory=await this.inventory(await this.head());this.assertGenesis(inventory,files);const additions=[];
+   const inventory=await this.inventory(await this.head());validateInventory(inventory);const additions=[];
    for(const [file,bytes]of files){
     const relative=file.slice(this.root.length);requireThat(file.startsWith(this.root+'/')&&/^(?:\/objects\/[a-f0-9]{2}\/[a-f0-9]{64}|\/npcdex\/records\/[a-f0-9]{64}\.json|\/npcdex\/genesis\.json)$/.test(relative)&&Buffer.isBuffer(bytes)&&bytes.length<=CHUNK_BYTES,'Invalid Import Publication Entry.');const expected=gitBlob(bytes),present=inventory.entries.get(file);requireThat(!present||present===expected,'An Immutable Cloud Path Changed.');if(present)continue;
-    const blob=await this.call('/git/blobs',{method:'POST',body:{encoding:'base64',content:bytes.toString('base64')}});requireThat(blob.sha===expected,'Uploaded Cloud Blob Differs.');additions.push({path:file,mode:'100644',type:'blob',sha:blob.sha});this.progress('Uploading Verified Import');
+    if(inlineRecords&&file.includes('/npcdex/records/'))additions.push({path:file,mode:'100644',type:'blob',content:bytes.toString('utf8')});
+    else{const blob=await this.call('/git/blobs',{method:'POST',body:{encoding:'base64',content:bytes.toString('base64')}});requireThat(blob.sha===expected,'Uploaded Cloud Blob Differs.');additions.push({path:file,mode:'100644',type:'blob',sha:blob.sha});}this.progress('Uploading Verified Data');
    }
    if(!additions.length){await this.verifyFiles(files,inventory);return {commit:inventory.commit,duplicate:true,attempts:attempt+1};}
    const tree=await this.call('/git/trees',{method:'POST',body:{base_tree:inventory.tree,tree:additions}});requireThat(gitSHA(tree?.sha),'Invalid New Cloud Tree.');
-   const commit=await this.call('/git/commits',{method:'POST',body:{message:'Initialize Approved NPCDex Cloud Import',tree:tree.sha,parents:[inventory.commit]}});requireThat(gitSHA(commit?.sha),'Invalid New Cloud Commit.');
-   const result=await this.request(this.prefix+'/git/refs/heads/main',{method:'PATCH',body:{sha:commit.sha,force:false}});
+   const commit=await this.call('/git/commits',{method:'POST',body:{message:inlineRecords?'Append NPCDex Cloud Changes':'Initialize Approved NPCDex Cloud Import',tree:tree.sha,parents:[inventory.commit]}});requireThat(gitSHA(commit?.sha),'Invalid New Cloud Commit.');
+   const result=await this.request(this.prefix+'/git/refs/heads/'+this.branch,{method:'PATCH',body:{sha:commit.sha,force:false}});
    if(result.status===200){requireThat(result.data?.object?.sha===commit.sha,'Cloud Publication Outcome Needs Review.');const published=await this.inventory(commit.sha);await this.verifyFiles(files,published);return {commit:commit.sha,duplicate:false,attempts:attempt+1};}
    if([409,422].includes(result.status)&&await this.head()!==inventory.commit)continue;
    throw Error('Cloud Publication Failed. Review Before Retrying.');

@@ -374,3 +374,16 @@ The user approved the hybrid provider revision: separate private GenericCola/ROM
 - [x] Record acceptance, archive source/evidence privately, and stop before U16.
 
 U15 import and recovery verification are complete. U15 does not activate continuous synchronization; local saves remain authoritative until the later sync tasks. Source and evidence are archived with the private development records.
+
+
+## U16 — Implementation Checklist
+
+- [x] Build a transactional local NPCDex journal and persistent outgoing operations.
+- [x] Implement bounded delta records, incoming discovery, retries and interrupted-delivery deduplication.
+- [x] Verify two-client catch-up and conservative conflict preservation.
+- [x] Connect versioned editor checkpoints and protect typing against incoming updates.
+- [x] Complete full regression and native Windows/Electron checks.
+- [x] Validate the packaged desktop, upgrade preservation and live connection.
+- [ ] Archive source, publish the verified private build, update the checklist and stop before U17.
+
+U16 is in progress. Installed 0.5.4 has passed current-data and genuine cloud/YouTrack verification. Private publication and the final normal restart remain before completion.

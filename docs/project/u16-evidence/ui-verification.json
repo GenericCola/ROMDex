@@ -1,0 +1,27 @@
+{
+  "task": "U16",
+  "startedAt": "2026-10-16T05:26:29.373Z",
+  "fixtureOnly": true,
+  "checks": [
+    "Packaged Main, SQLite Utility Service and Both Retained Workspaces Open",
+    "Actual Note Input Is Checkpointed Locally with Auto-Sync Off",
+    "A Full Desktop Restart Preserves the Checkpoint and Outgoing Operation",
+    "Shared Manual Save Sends the Preserved Operation While Auto-Sync Is Off",
+    "Unversioned Legacy Writes Cannot Bypass the Cloud Edit Boundary",
+    "Window Closed to Tray Continues Delivering NPCDex Operations"
+  ],
+  "branch": "verification/u16-6ff48458-4abc-4c52-93d5-e819209c187e",
+  "connectError": "fetch failed",
+  "lastStartup": {
+    "pid": 21808,
+    "profile": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u16\\private-profile\\desktop-5d3610d6-9d14-431d-999f-138ba295be3f",
+    "views": 2,
+    "cloud": true
+  },
+  "status": "passed",
+  "version": "0.5.4",
+  "profile": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u16\\private-profile\\desktop-5d3610d6-9d14-431d-999f-138ba295be3f",
+  "normalMainBranchUsed": false,
+  "lastSavedRecord": "dacdea09db976253d8b2b9c88f58029639d364a7b3c75186d0862aff84bd2570",
+  "finishedAt": "2026-10-16T05:28:58.814Z"
+}

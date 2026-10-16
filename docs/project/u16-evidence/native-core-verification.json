@@ -1,0 +1,22 @@
+{
+  "task": "U16",
+  "startedAt": "2026-10-16T05:12:02.284Z",
+  "productionSaveWrites": false,
+  "checks": [
+    "Offline Native SQLite Queue Retains the Assigned Operation",
+    "Real Accepted GitHub Delivery Rediscovered Without a Duplicate Commit",
+    "Second Native Client Pulls and Applies the Typed Delta",
+    "Manual Cycle Works After Automatic Scheduling Stops; Incoming Catch-Up Matches",
+    "Production Branch, Saved Credential and Original Content Roots Are Unchanged"
+  ],
+  "branch": "verification/u16-6ff48458-4abc-4c52-93d5-e819209c187e",
+  "status": "passed",
+  "electron": "44.7.2",
+  "node": "24.21.0",
+  "mainBranchUnchanged": true,
+  "credentialBytesPreserved": true,
+  "originalContentAndHistoricalImageRootsPreserved": true,
+  "finalRecord": "720e21c95e2f4bd0cc451b385b5671bc5ece25522fdaa19dfbe8281a4ded8897",
+  "requests": 132,
+  "finishedAt": "2026-10-16T05:13:03.516Z"
+}

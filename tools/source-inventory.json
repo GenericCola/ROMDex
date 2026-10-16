@@ -992,6 +992,76 @@
       "sha256": "13433f34669f8861a11c49e62d1e80333eb4f8a240b6eaf77b9fd71023c23562"
     },
     {
+      "path": "tools/development/u16-artifact-audit.mjs",
+      "bytes": 2476,
+      "sha256": "64c008791522685ba4798b62b890cd27cfa1c8c1d0be0f0506dd7645652d26e0"
+    },
+    {
+      "path": "tools/development/u16-build.mjs",
+      "bytes": 1331,
+      "sha256": "074f17d297873e4f0bc5f4e710ab7a1c89d4e6f06e627f33ae6489576abfb7cc"
+    },
+    {
+      "path": "tools/development/u16-crash-check.mjs",
+      "bytes": 3195,
+      "sha256": "7b2435965470d6f00cf525fca0ad57413acd41f48f93664954ab10be9b9a270a"
+    },
+    {
+      "path": "tools/development/u16-current-check.mjs",
+      "bytes": 4014,
+      "sha256": "54dfb67fda20782ef4d7266ec8608491d257fd78866383ffca30350b014cb117"
+    },
+    {
+      "path": "tools/development/u16-deploy.mjs",
+      "bytes": 4399,
+      "sha256": "40eede351f1de1ea74f1e7069b6794cb837ebd86da049ee98b10ff1b432070c1"
+    },
+    {
+      "path": "tools/development/u16-final-build.mjs",
+      "bytes": 889,
+      "sha256": "4e12644b616217e367cc096ac05cc60d53bcc15d28887b295301077cb51adaac"
+    },
+    {
+      "path": "tools/development/u16-host.mjs",
+      "bytes": 2752,
+      "sha256": "31db4ba2224de1d52414cab561f0351fb8158d9935100a884937a00e2e19b476"
+    },
+    {
+      "path": "tools/development/u16-install-and-check.mjs",
+      "bytes": 253,
+      "sha256": "1864d97e7fe7caabebf477eac236fd628b9e3d518860a8f7195defc5ae16e052"
+    },
+    {
+      "path": "tools/development/u16-native-check.cjs",
+      "bytes": 5722,
+      "sha256": "376ba27420004bb91913be16106f06beca9243dd3dcb9c881f8c0b255176c680"
+    },
+    {
+      "path": "tools/development/u16-package.mjs",
+      "bytes": 5509,
+      "sha256": "2f34c6de737e3b89e16747392bdc0e38620217f954956795fc9f9e6dbf9d905a"
+    },
+    {
+      "path": "tools/development/u16-publish.mjs",
+      "bytes": 11756,
+      "sha256": "f49636f4cb46b1d0ef85509c47d24df0fa3db63961b6a0832340e5e828c9900b"
+    },
+    {
+      "path": "tools/development/u16-resume-checks.mjs",
+      "bytes": 1054,
+      "sha256": "b80affcd3ddeee4c9117bca126d58d8e77fcd6cfce3db86ceb4bd56d436729be"
+    },
+    {
+      "path": "tools/development/u16-stage-records.mjs",
+      "bytes": 3103,
+      "sha256": "4e4ed159675bce7e716612fb1dd0684de7968af60e5dff276fbb12a3f831c357"
+    },
+    {
+      "path": "tools/development/u16-ui-verify.mjs",
+      "bytes": 8201,
+      "sha256": "0ebcd06b0f0575390855f775537c44e0e909139be24e304cdca250ca2d64a61e"
+    },
+    {
       "path": "tools/installer-dependencies/package-lock.json",
       "bytes": 54386,
       "sha256": "508d914590885bb8db1d590645cdbae66fb22834e910813103bdbdcfc5f08cf3"
@@ -1060,6 +1130,11 @@
       "path": "tools/launchers/Launch-U15-Import.cmd",
       "bytes": 380,
       "sha256": "781b2f8700837e6fc0c8f17b62c6a2bd60365d1a94af547467b17ffef782511d"
+    },
+    {
+      "path": "tools/launchers/Launch-U16-Verification.cmd",
+      "bytes": 380,
+      "sha256": "ce10b723fcfccf05dbb9433ad2ca8d967a2783385000cb4b3a4501a3b1aad345"
     },
     {
       "path": "tools/launchers/Show-U14-Cloud-Setup.cmd",
