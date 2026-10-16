@@ -2,6 +2,8 @@
 
 Private development home for ROMDex and its NPCDex add-on.
 
+Current release: [ROMDex 0.5.3](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.3). See the [verified rollout report](docs/project/U13B-Completion-Report.md) and [release manifests](docs/releases/0.5.3/). NPCDex cloud implementation is next; it has not been deployed.
+
 - **apps/romdex/** — current application source, desktop host, web UI and tests.
 - **packages/tool-suite-ui/** — reusable suite assets, including the Standard Settings Icon.
 - **docs/project/** — action plans, decisions, deferred features, completion reports and verification evidence. Historical reports retain their original filenames and may refer to local delivery artifacts.

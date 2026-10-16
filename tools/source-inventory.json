@@ -697,6 +697,11 @@
       "sha256": "015b5377effb71d746613a0cf219209ca9e52025e53af954497d51881bbdc21d"
     },
     {
+      "path": "tools/development/u13b-access-check.mjs",
+      "bytes": 1268,
+      "sha256": "53e44dd021c9c7e7ff34302e971912f5c2f60c307afc3947dc670f6dd336ec95"
+    },
+    {
       "path": "tools/development/u13b-artifact-audit.mjs",
       "bytes": 2479,
       "sha256": "78e3707047912a2496c8452845bc33eb1859b33e907eb897f711f572771c6551"
@@ -717,9 +722,19 @@
       "sha256": "90bba6dbf160f5504855edbc0a9b9b0aaf9146a8bf3d21da1afae6074ecc2971"
     },
     {
+      "path": "tools/development/u13b-extend-relaunch-check.mjs",
+      "bytes": 715,
+      "sha256": "49a16de2cebcbc31c138dd847f0a6d5d95ab9351f35d92edd3d4540af168e036"
+    },
+    {
       "path": "tools/development/u13b-final-doc-push.mjs",
       "bytes": 2249,
       "sha256": "7bf4944439c6432942e0f8f5c66c1ff8fef7988c1c0e49d60c917fe001ccf8a5"
+    },
+    {
+      "path": "tools/development/u13b-finalize.mjs",
+      "bytes": 11351,
+      "sha256": "13298bbc95d8c4517c23d2ea4990b3ced642c7c6e258f657a8a5f8ab81ea4eab"
     },
     {
       "path": "tools/development/u13b-fix-session-arg.mjs",
@@ -758,8 +773,8 @@
     },
     {
       "path": "tools/development/u13b-normal-relaunch.mjs",
-      "bytes": 2613,
-      "sha256": "3b01d15a8ea7faf6595e6ec965e7c15b583b4173081d80f75641c36efadf0717"
+      "bytes": 2928,
+      "sha256": "a4d7408960d26b3ae85558f67d94503ecdfc696f290b2d82aacbc2c6c0a94ab8"
     },
     {
       "path": "tools/development/u13b-package.mjs",

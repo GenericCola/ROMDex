@@ -37,3 +37,7 @@ Windows installers remain unsigned during private testing; release signing is a 
 NPCDex cloud persistence remains U14–U19. U13B does not create cloud save containers, migrate NPCDex into YouTrack or implement change-request/receipt reconciliation. The next task remains **U14 — Private YouTrack Storage and Access Rules, Sol / High**, under a new PASSKEY after U13B acceptance.
 
 The final publishing preflight also exposed a GitHub repository-root URL issue. The corrected provider uses the exact API path; the existing private-identity test now asserts that URL, and all 305 tests pass. The production installer was rebuilt and fully validated after that change. The native handoff source is unchanged from the successful genuine fixture upgrade. Packaged source-control dotfiles are included in the repository source binding. No release was uploaded before these corrections.
+
+## Final Acceptance
+
+All remaining gates passed, including private publication/download, live-data adoption, read-only update access and normal restart. The [completion report](U13B-Completion-Report.md) supersedes intermediate pending statements above. U14 requires its own PASSKEY.

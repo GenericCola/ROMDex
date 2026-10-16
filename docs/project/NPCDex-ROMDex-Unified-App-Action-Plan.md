@@ -1,10 +1,10 @@
 # ROMDex — Desktop and Add-on Action Plan
 
 **Date:** October 14, 2026  
-**Status:** U01–U13A and the approved intervening tasks are complete. Installed ROMDex **0.5.2** now owns current saves inside its retained Data folder. Originals remain preserved; NPCDex is still local-only. U13B is authorized and in verification; later tasks require separate PASSKEYs.
+**Status:** U01–U13B and the approved intervening tasks are complete. Installed ROMDex **0.5.3** owns current saves in its retained Data folder and supports approved private updates. NPCDex remains local-only; U14 and later tasks require separate PASSKEYs.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
-**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). Current application: [installed ROMDex 0.5.2](U13A-Completion-Report.md). Next: **U13B — Approved Update Notifications and Installation, Sol / High**, requiring a new PASSKEY. Cloud implementation remains U14–U19.
+**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). Current application: [installed ROMDex 0.5.3](U13B-Completion-Report.md). Next: **U14 — Private YouTrack Storage and Access Rules, Sol / High**, requiring a new PASSKEY. NPCDex cloud implementation remains U14–U19.
 
 ## Working Agreement
 
@@ -339,3 +339,8 @@ Passed **272 automated tests, 83 syntax checks, 194 delivered-file hashes**, gen
 ROMDex **0.5.2** is installed and running normally with current data, the remembered connection and diagnostic ports closed. Saves are inside the application Data folder and retained on uninstall, superseding the earlier external-profile/Squirrel design. Current data: **299 tasks, 104 order entries, no pending work, NPCDex revision 72**; exact original NPCDex/order/images/credential preservation and genuine YouTrack field equality verified. Passed **287 tests, 89 syntax checks, 200 final application hashes**, real Windows encryption migration, isolated MSI install/upgrade/uninstall/reinstall and current-data/normal relaunch checks. Original U12 delivery and source data remain preserved. [Completion report](U13A-Completion-Report.md), [desktop evidence](U13A-Desktop-Verification.json).
 
 Private delivery remains unprovisioned: YouTrack upload settings returned HTTP 404 and server capacity is unverified; no upload or global-limit change occurred. **Next: U13B — Approved Update Notifications and Installation, Sol / High**, under a new PASSKEY. NPCDex cloud remains U14–U19.
+
+
+## U13B — Completed October 15, 2026
+
+Installed ROMDex **0.5.3** adds approved private signed updates, separate download/install consent and a checkpointed Windows handoff. Private GenericCola/ROMDex now hosts organized source/history/deferred work and the verified installer. Passed **305 tests, 98 syntax checks, 214 installed hashes**, genuine isolated upgrade/reopen/uninstall, exact 96-file live Data preservation, genuine YouTrack equality, read-only private update access and normal automatic-sync relaunch with diagnostics closed. Current saves remain **299 tasks, 104 order entries, no pending work, NPCDex revision 72**. Credentials/private signing keys/live Data are excluded from Git. [Completion report](U13B-Completion-Report.md), [evidence](U13B-Desktop-Verification.json). NPCDex cloud remains U14–U19. **Next: U14 — Private YouTrack Storage and Access Rules, Sol / High**, requiring a new PASSKEY. No U14 work was performed.

@@ -1,11 +1,98 @@
 {
   "task": "U13B",
-  "completedOn": null,
-  "stage": "Production Candidate Verified; Private Publication and Current-Data Adoption Pending",
+  "completedOn": "2026-10-15",
   "version": "0.5.3",
   "testsPassed": 305,
   "syntaxChecks": 98,
-  "applicationFiles": 214,
+  "installedApplicationHashesVerified": 214,
+  "privatePublication": {
+    "startedAt": "2026-10-16T03:17:36.031Z",
+    "status": "passed",
+    "repository": "GenericCola/ROMDex",
+    "private": true,
+    "commit": "f41dd2f33fd7ab68dcca6703cde7ba68a57481df",
+    "releaseId": "414503165",
+    "url": "https://github.com/GenericCola/ROMDex/releases/tag/v0.5.3",
+    "version": "0.5.3",
+    "installer": {
+      "bytes": 162304000,
+      "sha256": "7413808d56a34a6965bfa10858ef7f7df75635438d4889eadb351dec53a25670",
+      "assetId": "645993918"
+    },
+    "keyId": "6b407cf8c962677653659eab74772e72b92323f1e47c8c4c63bd6ea6eb17a49e",
+    "authenticatedRemoteDownloadVerified": true,
+    "publisherTokenStoredInApp": false,
+    "finishedAt": "2026-10-16T03:24:18.069Z"
+  },
+  "currentData": {
+    "verifiedAt": "2026-10-16T03:26:00.366Z",
+    "version": "0.5.3",
+    "orderAndImagesPreserved": true,
+    "orderEntries": 104,
+    "wholeNPCDexPreserved": true,
+    "npcdexRevision": 72,
+    "rememberedConnectionBytesPreserved": true,
+    "installerDataPreservation": {
+      "startedAt": "2026-10-16T03:25:06.337Z",
+      "status": "installed",
+      "version": "0.5.3",
+      "exitCode": 0,
+      "filesPreservedExactly": 96,
+      "protectedBackup": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\U13B-Protected-Data-Backup",
+      "finishedAt": "2026-10-16T03:25:25.492Z"
+    },
+    "state": {
+      "pid": 18656,
+      "version": "0.5.3",
+      "views": 2,
+      "connected": true,
+      "remembered": true,
+      "items": 299,
+      "pending": 0,
+      "automatic": true,
+      "npcRevision": 72
+    },
+    "youtrack": {
+      "items": 299,
+      "allFieldsMatch": true
+    },
+    "updater": {
+      "trusted": true,
+      "configured": true,
+      "accessReady": false,
+      "phase": "error",
+      "repository": "GenericCola/ROMDex"
+    }
+  },
+  "githubAccess": {
+    "verifiedAt": "2026-10-16T03:44:22.515Z",
+    "version": "0.5.3",
+    "phase": "current",
+    "accessReady": true,
+    "protectedFilePresent": true,
+    "protectedCredentialSha256": "131808643adcc8e3f6367e65a552a23875c00703f69318d7a718f09198d49030",
+    "repository": "GenericCola/ROMDex",
+    "signedCurrentReleaseVerified": true,
+    "installerDownloaded": false
+  },
+  "normalRelaunch": {
+    "savedGitHubAccessPreserved": true,
+    "startedAt": "2026-10-16T03:44:44.948Z",
+    "verifiedAt": "2026-10-16T03:44:58.405Z",
+    "version": "0.5.3",
+    "previousPid": 18656,
+    "normalPid": 14064,
+    "utilityPid": 2052,
+    "items": 299,
+    "pending": 0,
+    "automaticSyncEnabled": true,
+    "lastSync": 1792122297838,
+    "diagnosticPorts": {
+      "9257": "closed",
+      "9258": "closed"
+    },
+    "orderAndImagesPreserved": true
+  },
   "windows": {
     "startedAt": "2026-10-16T03:03:55.883Z",
     "fixtureOnly": true,
@@ -125,15 +212,9 @@
     "uninstalledProfileRetained": true
   },
   "limitations": [
-    "Cancellation exit 1602 was injected after genuine release/MSI preflight; the upgrade itself used genuine Windows Installer.",
-    "The isolated baseline installation used the final handoff/main source files before upgrading to the fully validated target MSI.",
-    "The live user installation remains 0.5.2 until reviewed private publication and a user-coordinated installation.",
-    "NPCDex cloud persistence remains U14–U19."
-  ],
-  "providerRouteCorrection": {
-    "unitRegressionPassed": true,
-    "primaryHTTPRouteCheck": "U13B-Provider-Route-Verification.json",
-    "handoffSourceUnchanged": true,
-    "finalCandidateFullyValidated": true
-  }
+    "Windows installers remain unsigned during private testing; pinned release signatures are separate from Windows publisher signing.",
+    "Cancellation recovery used injected Windows exit 1602 after genuine signature/hash/MSI preflight. Upgrade and uninstall used Windows Installer.",
+    "The isolated baseline used final handoff/main files before the genuine target MSI upgrade. The later provider-only URL correction was regression-tested, fully rebuilt/validated and proved through authenticated private downloads and the installed app.",
+    "YouTrack upload ceiling/free capacity remain unverified; no global setting or billing change occurred. NPCDex cloud remains U14–U19."
+  ]
 }
