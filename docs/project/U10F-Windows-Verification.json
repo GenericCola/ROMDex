@@ -1,0 +1,17 @@
+{
+  "verifiedAt": "2026-10-15T19:56:26.471Z",
+  "checks": [
+    "Actual sandboxed Electron loads the new disk-backed File bridge without renderer Node access",
+    "Actual desktop file hover highlights the target and names its ticket",
+    "Disk-backed Files pass from the task iframe through the isolated preload and utility queue without opening Details or changing hierarchy/selection",
+    "Original drop bytes are durable and returned operation metadata contains no native source paths",
+    "Constructed browser Files and non-ticket destinations are rejected without extra attachments",
+    "Forced QA renderer reload retains the dropped queue and paused setting after source files have been removed",
+    "Existing native cancellation cleans up a dropped upload without touching the other",
+    "QA pending uploads are cancelled through the normal queue; no production upload occurs"
+  ],
+  "errors": [],
+  "fixtureOnly": true,
+  "source": "Disk-backed File input objects transferred through DataTransfer; actual preload/main/utility path",
+  "productionWrites": false
+}

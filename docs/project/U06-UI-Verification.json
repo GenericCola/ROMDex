@@ -1,0 +1,76 @@
+{
+  "checks": [
+    "27.2px circular switcher precedes 34px controls, vertically centered; header remains 84px",
+    "Decorative lamps are red, yellow, green",
+    "Connection and canonical settings geometry retained",
+    "Workspace placeholder, ESC focus restoration, and current-workspace selection preserve scope",
+    "Connection light, Settings Connections, and About open the correct dialogs",
+    "Auto-Sync toggle and one-time Save retain existing behavior",
+    "Menu stays within viewport and page has no horizontal overflow at five widths",
+    "Reusable header supports both active titles and supplied workspace callback",
+    "No browser script errors"
+  ],
+  "geometry": {
+    ".device-header": {
+      "x": 14,
+      "y": 0,
+      "width": 1252,
+      "height": 84
+    },
+    ".brand-title": {
+      "x": 89,
+      "y": 18.03125,
+      "width": 129.609375,
+      "height": 44.9375
+    },
+    ".lens": {
+      "x": 24,
+      "y": 16.5,
+      "width": 48,
+      "height": 48
+    },
+    ".lamps": {
+      "x": 225.171875,
+      "y": 21.5,
+      "width": 41,
+      "height": 9
+    },
+    "#workspace-switcher": {
+      "x": 861.890625,
+      "y": 26.90625,
+      "width": 27.1875,
+      "height": 27.1875
+    },
+    "#auto-sync": {
+      "x": 899.078125,
+      "y": 23.5,
+      "width": 141.078125,
+      "height": 34
+    },
+    "#save": {
+      "x": 1050.15625,
+      "y": 23.5,
+      "width": 131.84375,
+      "height": 34
+    },
+    "#connection-status": {
+      "x": 1188.5,
+      "y": 35,
+      "width": 11,
+      "height": 11
+    },
+    ".suite-settings-circle": {
+      "x": 1220,
+      "y": 31.5,
+      "width": 18,
+      "height": 18
+    },
+    ".standard-settings-icon": {
+      "x": 1223,
+      "y": 34.5,
+      "width": 12,
+      "height": 12
+    }
+  },
+  "errors": []
+}

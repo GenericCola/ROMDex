@@ -1,0 +1,92 @@
+{
+  "task": "U06",
+  "baseVersion": "0.4.1",
+  "patch": "U06 Shared Header",
+  "verifiedAt": "2026-10-15T15:52:48.799Z",
+  "testsPassed": 227,
+  "syntaxChecks": 319,
+  "uiChecks": 20,
+  "servedAssetsVerified": 7,
+  "serviceRestartRequired": false,
+  "serviceIdentityUnchanged": true,
+  "rememberedConnection": true,
+  "credentialCiphertextUnchanged": true,
+  "automaticSyncUnchanged": true,
+  "npcDexFilesUnchanged": true,
+  "originalReleaseZIPUnchanged": true,
+  "productionWrites": false,
+  "files": [
+    {
+      "path": "public/shared-ui/theme.css",
+      "bytes": 11722,
+      "beforeSHA256": null,
+      "sha256": "c551f17d2a5e45b93416305631c3e255130e2cdf49d4bee7644bcc9b5b32651b"
+    },
+    {
+      "path": "public/shared-ui/header.mjs",
+      "bytes": 6254,
+      "beforeSHA256": null,
+      "sha256": "9ddf885d95492d535610bd69acb617cb337aa2bb8440a28758e17646b076ba7a"
+    },
+    {
+      "path": "public/shared-ui/npcdex-pokeball.svg",
+      "bytes": 529,
+      "beforeSHA256": null,
+      "sha256": "8103c2ea8be0117dad79117f35e2645ad5c7eb4677cb9e521fdd60262d48082c"
+    },
+    {
+      "path": "public/shared-ui/standard-settings-icon.svg",
+      "bytes": 287,
+      "beforeSHA256": null,
+      "sha256": "d325db7223127962b009321ef76e958ba304d43a84c3dc9c5a8e6dad6db5e78d"
+    },
+    {
+      "path": "shared-ui/theme.css",
+      "bytes": 11722,
+      "beforeSHA256": null,
+      "sha256": "c551f17d2a5e45b93416305631c3e255130e2cdf49d4bee7644bcc9b5b32651b"
+    },
+    {
+      "path": "shared-ui/header.mjs",
+      "bytes": 6254,
+      "beforeSHA256": null,
+      "sha256": "9ddf885d95492d535610bd69acb617cb337aa2bb8440a28758e17646b076ba7a"
+    },
+    {
+      "path": "shared-ui/npcdex-pokeball.svg",
+      "bytes": 529,
+      "beforeSHA256": null,
+      "sha256": "8103c2ea8be0117dad79117f35e2645ad5c7eb4677cb9e521fdd60262d48082c"
+    },
+    {
+      "path": "shared-ui/standard-settings-icon.svg",
+      "bytes": 287,
+      "beforeSHA256": "d325db7223127962b009321ef76e958ba304d43a84c3dc9c5a8e6dad6db5e78d",
+      "sha256": "d325db7223127962b009321ef76e958ba304d43a84c3dc9c5a8e6dad6db5e78d"
+    },
+    {
+      "path": "shared-ui/README.md",
+      "bytes": 2649,
+      "beforeSHA256": "d7a71cf0a490e030c218e06a0177d29a502bf712f5a056457a0090174efb4ce2",
+      "sha256": "aa19e3e663ed32f5afd759423dd1c111da4dbd25eb3d6ab3f27ef9d5a3049abf"
+    },
+    {
+      "path": "public/app.mjs",
+      "bytes": 57223,
+      "beforeSHA256": "fd1f81b9cf0083cc9c5438f42ff845602bb7d9ff940297cd3324f148f575fe60",
+      "sha256": "c6b097c5dca2160a15a40ae229a740bd9724f3db8cd6acb2c78e18911dd73463"
+    },
+    {
+      "path": "public/styles.css",
+      "bytes": 31623,
+      "beforeSHA256": "bfc7f04250f7c416803b8cdfcf29f072867c3a0e869c61295063e62ef690a226",
+      "sha256": "72c15d8ee796ab296263f8ce7a26f1c27bd5206bfaf610bd5dc335e56eb32cf6"
+    },
+    {
+      "path": "public/index.html",
+      "bytes": 13751,
+      "beforeSHA256": "0d9e7fae06d8c776e178d2a6fbd0a85b8b6203e18f39f8e4bb85a0c4ebce666d",
+      "sha256": "15d8fbcf77f71a5b95d743e232127844aa25e593576300b92b93a83db4a2581b"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "verifiedAt": "2026-10-15T20:47:23.271Z",
+  "checks": [
+    "Native tray exists with approved groups and the shared paused setting; no updater placeholder",
+    "Tray Save invokes both providers and leaves automatic synchronization Off",
+    "Connection Details and About open through the tray command handlers with the installed version",
+    "Close hides the retained window, preserves active workspace and records the one-time tray notice",
+    "Show restores the existing window; explicit workspace switching retains search context",
+    "A real second launch restores the original window and does not create a second service",
+    "Incoming fixture changes arrive through the utility clock while the window is hidden",
+    "Forced utility interruption recovers the accepted pending edit and the shared paused setting without restarting the window",
+    "A forced renderer crash reloads accepted pending data and the paused setting while preserving the existing utility process",
+    "Suspend/resume commands keep pending data and Auto-Sync Off",
+    "Quit refuses an unfinished comment and restores the usable editor without discarding it",
+    "Explicit Quit checkpoints pending edits without network delivery, stops the utility and releases profile ownership"
+  ],
+  "errors": [],
+  "fixtureOnly": true,
+  "productionWrites": false,
+  "profile": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u11\\windows-qa",
+  "mainPID": 9172,
+  "utilityPID": 9312,
+  "rendererRecovery": {
+    "mainProcessUnchanged": true,
+    "utilityProcessUnchanged": true,
+    "acceptedOperationsPreserved": true,
+    "autoSyncRemainsOff": true
+  },
+  "postExitAudit": {
+    "mainProcessStopped": true,
+    "utilityProcessStopped": true,
+    "profileLeaseReleased": true,
+    "pendingEditDurable": true
+  },
+  "harnessNote": "The full current-build harness passed its first eight scenarios before Playwright failed on the intentional Chromium crash. A direct main-process audit confirmed recovery. This resumed pass detached browser testing for another intentional crash, verified recovery through the main inspector, reconnected browser testing, and passed the remaining scenarios. Quit was verified by bounded PID, lease and disk checks. No app relaunch was required for the resumed pass."
+}

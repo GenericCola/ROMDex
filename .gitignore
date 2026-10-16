@@ -1,0 +1,14 @@
+**/Data/
+**/Runtime/
+**/session/
+**/node_modules/
+**/*.encrypted
+**/connection.encrypted
+**/desktop-workspace.json
+**/npcdex-current.json
+**/.env*
+**/*.tmp
+*.msi
+*.exe
+*.dll
+work/

@@ -1,0 +1,68 @@
+{
+  "before": {
+    ".device-header": {
+      "x": 14,
+      "y": 0,
+      "width": 1252,
+      "height": 84
+    },
+    ".brand-title": {
+      "x": 89,
+      "y": 18.03125,
+      "width": 129.609375,
+      "height": 44.9375
+    },
+    ".lens": {
+      "x": 24,
+      "y": 16.5,
+      "width": 48,
+      "height": 48
+    },
+    ".lamps": {
+      "x": 225.171875,
+      "y": 21.5,
+      "width": 41,
+      "height": 9
+    },
+    "#save": {
+      "x": 1100.15625,
+      "y": 23.5,
+      "width": 131.84375,
+      "height": 34
+    }
+  },
+  "after": {
+    ".device-header": {
+      "x": 14,
+      "y": 0,
+      "width": 1252,
+      "height": 84
+    },
+    ".brand-title": {
+      "x": 89,
+      "y": 18.03125,
+      "width": 129.609375,
+      "height": 44.9375
+    },
+    ".lens": {
+      "x": 24,
+      "y": 16.5,
+      "width": 48,
+      "height": 48
+    },
+    ".lamps": {
+      "x": 225.171875,
+      "y": 21.5,
+      "width": 41,
+      "height": 9
+    },
+    "#save": {
+      "x": 1050.15625,
+      "y": 23.5,
+      "width": 131.84375,
+      "height": 34
+    }
+  },
+  "npcHeaderWithOriginalStyles": true,
+  "privateNPCDataLoaded": false
+}

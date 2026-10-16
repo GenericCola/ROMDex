@@ -1,0 +1,12 @@
+{
+  "verifiedAt": "2026-10-15T17:06:24.424Z",
+  "version": "0.4.3",
+  "installationIdentityMatches": true,
+  "serviceBuildMatches": true,
+  "rememberedConnection": true,
+  "credentialCiphertextUnchanged": true,
+  "automaticSyncUnchanged": true,
+  "servedAssetsVerified": 42,
+  "verificationUsedGETOnly": true,
+  "productionWrites": false
+}

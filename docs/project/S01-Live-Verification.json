@@ -1,0 +1,19 @@
+{
+  "verifiedAt": "2026-10-15T15:33:58.817Z",
+  "version": "0.4.1",
+  "installationIdentityMatches": true,
+  "serviceBuildMatches": true,
+  "connected": true,
+  "rememberedConnection": true,
+  "ciphertextUnchanged": true,
+  "automaticSyncUnchanged": true,
+  "servedAssetsVerified": 28,
+  "controlledAttachmentDeletion": true,
+  "replaySafe": true,
+  "neighborBytesPreserved": true,
+  "qaTicketCleaned": true,
+  "allOriginalIdsRetained": true,
+  "originalItemCount": 299,
+  "finalItemCount": 299,
+  "existingProductionFilesDeleted": false
+}

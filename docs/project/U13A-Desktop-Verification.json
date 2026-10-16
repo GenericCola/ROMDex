@@ -1,0 +1,100 @@
+{
+  "task": "U13A",
+  "completedOn": "2026-10-15",
+  "version": "0.5.2",
+  "at": "2026-10-16T01:31:57.137Z",
+  "sourceRetainedExactly": true,
+  "profile": "C:\\Users\\mrgen\\AppData\\Local\\ROMDexDesktop\\Data\\thegobindsingh-PMON",
+  "migrationSummary": {
+    "items": 299,
+    "pending": 0,
+    "orderKeys": 104,
+    "npcRevision": 72,
+    "npcTowns": 4,
+    "connectionVerified": true
+  },
+  "orderEntries": 104,
+  "npcRevision": 72,
+  "npcWholeDocumentMatches": true,
+  "protectedConnectionBytesPreserved": true,
+  "state": {
+    "version": "0.5.2",
+    "exe": "C:\\Users\\mrgen\\AppData\\Local\\ROMDexDesktop\\app-0.5.2\\ROMDex.exe",
+    "pid": 24484,
+    "views": 2,
+    "connected": true,
+    "remembered": true,
+    "items": 299,
+    "pending": 0,
+    "automatic": true,
+    "npcRevision": 72
+  },
+  "youtrack": {
+    "items": 299,
+    "allFieldsMatch": true
+  },
+  "deliverySettings": {
+    "maxUploadFileSize": null,
+    "status": 404,
+    "reason": "The Current Connection Cannot Read the Server Upload Setting.",
+    "storageCapacityVerified": false
+  },
+  "normalRelaunch": {
+    "startedAt": "2026-10-16T01:32:45.341Z",
+    "verifiedAt": "2026-10-16T01:32:58.221Z",
+    "previousPid": 24484,
+    "normalOwner": {
+      "version": 1,
+      "pid": 21056,
+      "utilityPid": 23848
+    },
+    "diagnosticPorts": {
+      "9247": "closed",
+      "9248": "closed"
+    },
+    "items": 299,
+    "pending": 0,
+    "lastSync": 1792114377921,
+    "automaticSyncEnabled": true,
+    "version": "0.5.2"
+  },
+  "keyMigration": [
+    {
+      "mode": "create",
+      "passed": true,
+      "restored": false
+    },
+    {
+      "mode": "unmigrated",
+      "passed": true,
+      "restored": false
+    },
+    {
+      "mode": "migrated",
+      "passed": true,
+      "restored": true,
+      "migration": {
+        "status": "copied",
+        "sha256": "7b405f0e8ab0c79a791c0672e2ddf3fd11c6f91479584f95ba2e3c2edcc03fd9"
+      }
+    }
+  ],
+  "installerTemplateMatchesLifecycleTestedVersion": true,
+  "testsPassed": 287,
+  "syntaxChecks": 89,
+  "applicationFiles": 200,
+  "artifact": {
+    "file": "outputs/ROMDex-Installer-0.5.2/ROMDex-0.5.2-x64.msi",
+    "installerBytes": 162275328,
+    "installerMiB": 154.7578125,
+    "programBytes": 396233550,
+    "programMiB": 377.8777599334717,
+    "sha256": "08509edd0aae65a8583187a88adb7c4635c9e5791f83696d5f87c1475dd66161"
+  },
+  "protectedFinalBackup": "U13A-Protected-Data-Backup/final-checkpoint",
+  "limitations": [
+    "Full install/upgrade/uninstall/reinstall lifecycle used 0.5.0/0.5.1 with isolated data. Final 0.5.2 uses the exact same installer template, passed full Windows validation and was installed over 0.5.1 before current-data adoption.",
+    "YouTrack upload limit returned HTTP 404; server free capacity remains unverified. No installer upload, global limit change or hosting provision occurred.",
+    "NPCDex cloud and approved updater remain separate future tasks."
+  ]
+}

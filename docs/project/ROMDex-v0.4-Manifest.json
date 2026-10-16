@@ -1,0 +1,382 @@
+{
+  "version": "0.4.0",
+  "createdAt": "2026-10-15T00:31:14.0471939Z",
+  "fileCount": 69,
+  "zipBytes": 258951,
+  "zipSHA256": "54b282257aa3454749ffbf4f60b2cdfd348d0ad449ae282572edc34e381d1c36",
+  "privateRuntimeExcluded": true,
+  "testsPassed": 207,
+  "testsFailed": 0,
+  "launcherParse": "Pass",
+  "extractedSmoke": {
+    "version": "0.4.0",
+    "syntaxModules": 51,
+    "extractedServiceStarts": true,
+    "isolatedNoTokenStartup": true,
+    "publicAssetsVerified": 28,
+    "privateLiveProfileUntouched": true
+  },
+  "files": [
+    {
+      "path": "ROMDex/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
+    },
+    {
+      "path": "ROMDex/CHANGELOG.md",
+      "bytes": 1835,
+      "sha256": "6570d61cd08f1470575b91d4d6ec119e1505b57eb596bc5141644e52bec67453"
+    },
+    {
+      "path": "ROMDex/Launch-ROMDex.ps1",
+      "bytes": 5038,
+      "sha256": "488e5165ec8396accb8e6043afab9ee285dc9da7868df1fb8a55d3b2b6caf6e6"
+    },
+    {
+      "path": "ROMDex/QA-Report.md",
+      "bytes": 7524,
+      "sha256": "0c5e17945319ea534140b8b269880ce03a025f3ecf7fe00dce65cca051d6596b"
+    },
+    {
+      "path": "ROMDex/README.md",
+      "bytes": 33050,
+      "sha256": "f374e0774811c55797150e19a6c4d2ce97e00b9b02af62d99144e1fde5e5c3fe"
+    },
+    {
+      "path": "ROMDex/Start-ROMDex.cmd",
+      "bytes": 209,
+      "sha256": "0bc4313d18e7a45125fe804874159d79079d89d50eab573dd132ee560bbd4948"
+    },
+    {
+      "path": "ROMDex/Stop-ROMDex.cmd",
+      "bytes": 414,
+      "sha256": "1aeb9d24ff772fb17aef3a49b08db3f082507b2b4248f79fffbc7114601fa009"
+    },
+    {
+      "path": "ROMDex/UPGRADE-AND-RECOVERY.md",
+      "bytes": 4296,
+      "sha256": "ce57cf2759d3b0ae25d9bc7ee5802f73b0933caea9f07186578546c618f11e5b"
+    },
+    {
+      "path": "ROMDex/assigned-statuses.mjs",
+      "bytes": 2577,
+      "sha256": "2ba59e8a89fe65b5e4a331b5ee2275ff1a8db086ce54af6e6fc2417d9b2f472c"
+    },
+    {
+      "path": "ROMDex/attachment-service.mjs",
+      "bytes": 3593,
+      "sha256": "055f0ac1b074cdf22d6096c2564e0327cab6443606cfbce20926f5cc44ac8661"
+    },
+    {
+      "path": "ROMDex/attachment-storage.mjs",
+      "bytes": 2957,
+      "sha256": "e544f1f93fda0b488d88a01b4b70e6ba07a5f72365ce6417f0a1c8ccda6d99f0"
+    },
+    {
+      "path": "ROMDex/complexity-field.mjs",
+      "bytes": 4027,
+      "sha256": "ea5ff1ab539004e6408ec894e82b6f93412fbbcacbe6126a2e27bd6b5ec7bc04"
+    },
+    {
+      "path": "ROMDex/package.json",
+      "bytes": 218,
+      "sha256": "d53d710acee77e99a4f0cd0050558ab7480639bdeb96dee44e8157ad53563dae"
+    },
+    {
+      "path": "ROMDex/preview.png",
+      "bytes": 80412,
+      "sha256": "75e338d37bd0895f10efd76452deeefe135f7ea2e383fece0d6beb1e3f7abaa8"
+    },
+    {
+      "path": "ROMDex/public/app.mjs",
+      "bytes": 56291,
+      "sha256": "29dc06f07584b20ca72c31c6a2a4ebb44377d8212899d81795c0c97c095d7d83"
+    },
+    {
+      "path": "ROMDex/public/attachment-core.mjs",
+      "bytes": 1371,
+      "sha256": "262ffc0d157c7452e4eede6df8950c1b40786a0f1712b140fae46c2721fe10f0"
+    },
+    {
+      "path": "ROMDex/public/attachment-files.mjs",
+      "bytes": 1437,
+      "sha256": "84adf62dd950b42f8c22e01699c943f57adb4ce0891ac775e40884110ecf9442"
+    },
+    {
+      "path": "ROMDex/public/attachment-view.mjs",
+      "bytes": 6022,
+      "sha256": "46d064d470d80454dc93de3669fc4215b29ccee2941ae3e37e654ca483afa365"
+    },
+    {
+      "path": "ROMDex/public/bulk-hierarchy.mjs",
+      "bytes": 4221,
+      "sha256": "d77aa957cb6dd68ea219cef89818b9d85fa150833c12f37316c2d8bf1e4755bf"
+    },
+    {
+      "path": "ROMDex/public/completed-control.mjs",
+      "bytes": 214,
+      "sha256": "a03f4b448b4fe3d490894690dcffb9b0183f72124076dc1d6d0d71525033c382"
+    },
+    {
+      "path": "ROMDex/public/core.mjs",
+      "bytes": 8582,
+      "sha256": "30f6f3c5805234882f1027a37f8c215251aab31309001a30433448bb49fdd9af"
+    },
+    {
+      "path": "ROMDex/public/custom-editor.mjs",
+      "bytes": 4838,
+      "sha256": "7f8e2d4f252e925ec31f1b8c92b2968a114f5c2a12a40dce14fd1c0b0b61c318"
+    },
+    {
+      "path": "ROMDex/public/detail-navigation.mjs",
+      "bytes": 674,
+      "sha256": "74f873fb0fe98ab7923f28850e29979fff9e2605468f2d75c6670dd60502832d"
+    },
+    {
+      "path": "ROMDex/public/drop-target.mjs",
+      "bytes": 1579,
+      "sha256": "93e667b3936c8417dd3ac4dca678d22d11ffe240689c71efbadc79b8e422ad06"
+    },
+    {
+      "path": "ROMDex/public/editor-view.mjs",
+      "bytes": 280,
+      "sha256": "88d9d00ff2420b17da4ccae2428c59762e51b25032e1f5b88f228aa5b49fec16"
+    },
+    {
+      "path": "ROMDex/public/field-tags.mjs",
+      "bytes": 790,
+      "sha256": "77694f69aa6c86f0d99d989d3978ff1c3c06d8517aa0d78ad853e622adae2de8"
+    },
+    {
+      "path": "ROMDex/public/icon.svg",
+      "bytes": 328,
+      "sha256": "490903debe3f322c90b56fe9e08659c2bc79fe2a334271d8e8907f5378de79b7"
+    },
+    {
+      "path": "ROMDex/public/index.html",
+      "bytes": 14081,
+      "sha256": "0d9e7fae06d8c776e178d2a6fbd0a85b8b6203e18f39f8e4bb85a0c4ebce666d"
+    },
+    {
+      "path": "ROMDex/public/item-editor-view.mjs",
+      "bytes": 11276,
+      "sha256": "2d3e0c2eeb10fbf49e271269bfb7e7698339e3cda123ebb03c292a1b91f686d1"
+    },
+    {
+      "path": "ROMDex/public/item-editor.mjs",
+      "bytes": 4279,
+      "sha256": "cb7c42641090cf1c06a5fb049f7ec2cdeff17579d7e85c9c1645b2ebdff05267"
+    },
+    {
+      "path": "ROMDex/public/npcdex-pokeball.svg",
+      "bytes": 529,
+      "sha256": "8103c2ea8be0117dad79117f35e2645ad5c7eb4677cb9e521fdd60262d48082c"
+    },
+    {
+      "path": "ROMDex/public/seed.json",
+      "bytes": 259971,
+      "sha256": "c6d32b203e8b8535b8d0f6c956e450da0d3b010fbca19c7728c38fb7a16ea691"
+    },
+    {
+      "path": "ROMDex/public/selector-state.mjs",
+      "bytes": 1555,
+      "sha256": "cc887541ec04592de48836625e5524e119195a1c5322e1d3072d7d69b330052b"
+    },
+    {
+      "path": "ROMDex/public/selector-view.mjs",
+      "bytes": 3312,
+      "sha256": "cb9e355532e45861bf0d858c2f3216622ffb83366e45d84f4658a852d6edd118"
+    },
+    {
+      "path": "ROMDex/public/split-pane.mjs",
+      "bytes": 7695,
+      "sha256": "0da675df44288ff5b38eda5903f95bcd7899a3a7f137714236b47b2fcb9d47ea"
+    },
+    {
+      "path": "ROMDex/public/standard-settings-icon.svg",
+      "bytes": 287,
+      "sha256": "d325db7223127962b009321ef76e958ba304d43a84c3dc9c5a8e6dad6db5e78d"
+    },
+    {
+      "path": "ROMDex/public/store.mjs",
+      "bytes": 18975,
+      "sha256": "980410ad49d1b1095f125a028b3d4d6354ab2b5603ecc66de48e554791b74907"
+    },
+    {
+      "path": "ROMDex/public/styles.css",
+      "bytes": 39368,
+      "sha256": "456384f303c0b338e4da35d48299f13bff57fad87be6dba05d59ef8ab18caf7b"
+    },
+    {
+      "path": "ROMDex/public/sync-control.mjs",
+      "bytes": 521,
+      "sha256": "c3e30c1200b306262c0e497d2af108dc692128b04eacc41387180d6491fee902"
+    },
+    {
+      "path": "ROMDex/public/work-selection.mjs",
+      "bytes": 941,
+      "sha256": "24b31b2519bcdfa2bad64efbd0b29f25eb86d005178c8cbfdc08bf6a965e496a"
+    },
+    {
+      "path": "ROMDex/public/work-view.mjs",
+      "bytes": 1032,
+      "sha256": "58f47e9b4eb0e3d948b910bf5e1eb56be15b1b3d9fc09a64561e91499ad9ab3c"
+    },
+    {
+      "path": "ROMDex/public/workspace-keyboard.mjs",
+      "bytes": 1878,
+      "sha256": "e399a95e6ab0159e70ad143c1f793b059f3976b67be102b641ded515ae068b1e"
+    },
+    {
+      "path": "ROMDex/runtime-profile.mjs",
+      "bytes": 5727,
+      "sha256": "3af6f5eac12b471fdde56dd7f966a9e1f91e5deab833bc2ed7ca9cf76ed2e42b"
+    },
+    {
+      "path": "ROMDex/server.mjs",
+      "bytes": 20656,
+      "sha256": "ba95a6086196802eb7ba64442fdfaacfe835f2e82e0e40b7352b6545424aeb53"
+    },
+    {
+      "path": "ROMDex/shared-ui/README.md",
+      "bytes": 921,
+      "sha256": "d7a71cf0a490e030c218e06a0177d29a502bf712f5a056457a0090174efb4ce2"
+    },
+    {
+      "path": "ROMDex/shared-ui/standard-settings-icon.svg",
+      "bytes": 287,
+      "sha256": "d325db7223127962b009321ef76e958ba304d43a84c3dc9c5a8e6dad6db5e78d"
+    },
+    {
+      "path": "ROMDex/sync-settings.mjs",
+      "bytes": 461,
+      "sha256": "94d2b036fc888b0a7b4db64c6a2953f62d6b63e14dd4da4041347939f120ceec"
+    },
+    {
+      "path": "ROMDex/tests/assigned-statuses.test.mjs",
+      "bytes": 4963,
+      "sha256": "cb65aba8e94fe3b0028ecac582d426cad6fb1bdaf47bf051ee036df35f520e94"
+    },
+    {
+      "path": "ROMDex/tests/attachments.test.mjs",
+      "bytes": 13721,
+      "sha256": "e54e21e8fd546c2b0ee7e54db16f4a8c23441e51a0b4471c0f6e35d1276efb85"
+    },
+    {
+      "path": "ROMDex/tests/bulk-hierarchy.test.mjs",
+      "bytes": 8410,
+      "sha256": "b4829a521b0053ff8d8e37163686d0c11b7795aeadde09c6b1c3ffb565cbfca8"
+    },
+    {
+      "path": "ROMDex/tests/complexity-setup.test.mjs",
+      "bytes": 3363,
+      "sha256": "6cf8b8116b14800ed054210830515fba5691e80035c9c6a0400aeed203635bfb"
+    },
+    {
+      "path": "ROMDex/tests/core.test.mjs",
+      "bytes": 8751,
+      "sha256": "b92b7f2c26efce54e7ce7cceea97565b31156c64afb539ffb07f6f7b3e0df8fd"
+    },
+    {
+      "path": "ROMDex/tests/detail-navigation.test.mjs",
+      "bytes": 1779,
+      "sha256": "9adab41139848772a3d5383304915f09d62756a7eeea3f2907c10358c0016d99"
+    },
+    {
+      "path": "ROMDex/tests/development-state.test.mjs",
+      "bytes": 1969,
+      "sha256": "20a5bdd61d7501ca99401f93b0b84b69c0b3c16fe56fc8a546eb909977a739a1"
+    },
+    {
+      "path": "ROMDex/tests/drop-target.test.mjs",
+      "bytes": 2789,
+      "sha256": "cc460710653a023e2be9079b793a215ca3f22a68b9e0fff48daebe05196753d6"
+    },
+    {
+      "path": "ROMDex/tests/editor-view.test.mjs",
+      "bytes": 1793,
+      "sha256": "af62b8b8369e6df54f049de784f57be8200701ad6898ab706149551fae175079"
+    },
+    {
+      "path": "ROMDex/tests/field-tags.test.mjs",
+      "bytes": 3576,
+      "sha256": "efc3433af90c81b22630bab332870157b042039028ee2128b649dc8771c60f47"
+    },
+    {
+      "path": "ROMDex/tests/integration.test.mjs",
+      "bytes": 42783,
+      "sha256": "fe7c29128e97be59034cdf72677f21d7101a2549555fadf780525b232102ad21"
+    },
+    {
+      "path": "ROMDex/tests/item-editor.test.mjs",
+      "bytes": 6778,
+      "sha256": "a88926094e7e7de17a632966d464b4c7ac597d0231b2dfb44d8c44eb7757f88c"
+    },
+    {
+      "path": "ROMDex/tests/runtime-profile.test.mjs",
+      "bytes": 6375,
+      "sha256": "1502c67b7f8d04686c41311219758616c159c027b16103b1f426ac63258a9382"
+    },
+    {
+      "path": "ROMDex/tests/save-indicator.test.mjs",
+      "bytes": 2104,
+      "sha256": "58a4dc700f2fe3807f8191ecc02d33399db8f6a07255c333240c365c1fb62537"
+    },
+    {
+      "path": "ROMDex/tests/selector-state.test.mjs",
+      "bytes": 4571,
+      "sha256": "269f7751eee877c011990f16790a977b39b976f05ecb4cdee09107683a48f521"
+    },
+    {
+      "path": "ROMDex/tests/split-pane.test.mjs",
+      "bytes": 2222,
+      "sha256": "063de4b43c8c6780ad1a22f5e9665f426f7df18e23922e061fabaa560128ebbd"
+    },
+    {
+      "path": "ROMDex/tests/sync-control.test.mjs",
+      "bytes": 10676,
+      "sha256": "a1f1a2592e6eae6ac25b81894666e1153b98d134fbe9522c9afc3f248c21ca71"
+    },
+    {
+      "path": "ROMDex/tests/sync-startup.test.mjs",
+      "bytes": 1461,
+      "sha256": "01f7feafb85546c065153da7e4335e43a8be074f0a81a003882e87800e9c53d5"
+    },
+    {
+      "path": "ROMDex/tests/work-selection.test.mjs",
+      "bytes": 2758,
+      "sha256": "90897ae4a94da1ac1a5433215e5bf4ffae1c0779bb4dae819b23433d86282434"
+    },
+    {
+      "path": "ROMDex/tests/work-view.test.mjs",
+      "bytes": 3614,
+      "sha256": "dc9afe2c3b32a65e1ab93a472c41de9fa6ab1b3f659bbf8e7a3c04ece37858bd"
+    },
+    {
+      "path": "ROMDex/tests/workspace-keyboard.test.mjs",
+      "bytes": 4707,
+      "sha256": "2ce30673a34ed6f2e2f93b8916476ecdf64fe755d2e5d0ed837368660bf6039a"
+    },
+    {
+      "path": "ROMDex/youtrack.mjs",
+      "bytes": 17395,
+      "sha256": "bed02ddd79fe54c69998e80ae276f8efa25f5610bc24774b06b278d8b282d43a"
+    }
+  ],
+  "liveRelease": {
+    "verifiedAt": "2026-10-15T00:30:30.969Z",
+    "version": "0.4.0",
+    "installationId": "f249431b535baca2f9c4a03f0d7386eb943474159f8cfc2dc99cab517a12c710",
+    "serviceBuild": "fad60c4758f3a02e777579797fec752d0acfcd294d7b4279c7c287ad652e9eb9",
+    "connected": true,
+    "rememberedConnection": true,
+    "automaticSyncEnabled": true,
+    "youtrackAvailable": true,
+    "credentialCiphertextUnchanged": true,
+    "originalIssueIdsRetained": 299,
+    "itemCount": 299,
+    "pendingOperations": 0,
+    "blockedAction": false,
+    "publicAssetsVerified": 28
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "checks": [
+    "One application-owned native engine loads both providers without restoring the removed header cog",
+    "Shared manual Save pulls YouTrack once while Off and does not prompt for an unchanged NPCDex export",
+    "Files chosen in the task view remain durable in the application-owned queue and upload once from another active workspace",
+    "NPCDex accepted edits recover from a local checkpoint after reload even with Auto-Sync Off",
+    "A native outage does not stop NPCDex recovery persistence or its existing destination workflow",
+    "NPCDex missing destination does not prevent confirmed native task delivery",
+    "Connection Details separates native YouTrack from NPCDex local-only capability",
+    "Retained workspace modal drafts survive the engine ownership change",
+    "Incoming native YouTrack edits reach the one engine while ROMDex is hidden; shared Off remains respected",
+    "Mismatched local checkpoint is held for review and requires explicit acknowledgement while preserving its copy",
+    "Successful shared Save awaits the NPCDex export and durable browser save, clears recovery work and remains Off",
+    "Edits accepted during a pending NPCDex export stay dirty and recover after reload",
+    "Blocked native workspace storage falls back to NPCDex and does not overwrite the native backup with an empty state",
+    "Header correction remains intact and no browser script errors occur"
+  ],
+  "errors": [],
+  "productionWrites": false
+}

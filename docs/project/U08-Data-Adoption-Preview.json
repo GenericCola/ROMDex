@@ -1,0 +1,11 @@
+{
+  "source": "C:/Users/mrgen/Downloads/npcdex-v2.42/npcdex-agent-export.json",
+  "revision": 72,
+  "contentRevision": 8,
+  "sha256": "7923531bac40b300137c270ce0a03f75b75a945693d4033263986775eff7ef51",
+  "towns": 4,
+  "annotations": 85,
+  "historyEntries": 145,
+  "adoption": "Exact current saved export as embedded first-launch baseline; originals retained; existing integrated browser save takes precedence on subsequent launches.",
+  "cloudMigration": false
+}

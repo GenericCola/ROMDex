@@ -1,0 +1,21 @@
+{
+  "checks": [
+    "Cold launch opens ROMDex with All Tasks under one visible shared header",
+    "Clicking inside a workspace dismisses the shared header menu",
+    "Menu ESC closes without clearing ROMDex selection or unfinished comment",
+    "NPCDex loads current saved revision 72 with relocated U07 controls",
+    "ROMDex scope, comment draft, cursor selection, selected item and scroll survive switching",
+    "NPCDex scope, gender, grouping preference, scroll and open dialog survive without reload",
+    "ROMDex modal editing remains open and uncommitted while away",
+    "NPCDex settings draft and native modal remain intact while away",
+    "Details pane expansion is retained across workspace changes",
+    "Search filter and multiple checkbox selections survive switching",
+    "Shared Auto-Sync reaches the same native queue from either workspace",
+    "Manual Save reaches loaded NPCDex destination flow and native YouTrack, leaving Auto-Sync Off",
+    "Connection light opens the existing YouTrack configuration without dropping NPCDex context",
+    "Header and workspace menu remain contained at five widths",
+    "No browser script errors"
+  ],
+  "errors": [],
+  "productionWrites": false
+}

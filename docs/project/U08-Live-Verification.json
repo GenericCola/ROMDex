@@ -1,0 +1,13 @@
+{
+  "verifiedAt": "2026-10-15T16:19:57.473Z",
+  "version": "0.4.2",
+  "installationIdentityMatches": true,
+  "serviceBuildMatches": true,
+  "connected": true,
+  "rememberedConnection": true,
+  "credentialCiphertextUnchanged": true,
+  "servedAssetsVerified": 38,
+  "npcSourceExportUnchanged": true,
+  "verificationUsedGETOnly": true,
+  "productionWrites": false
+}

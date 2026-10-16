@@ -1,0 +1,1 @@
+export function completedControl(hidden){return {label:hidden?'Show Completed':'Hide Completed',color:hidden?'red':'grey',pressed:!!hidden,title:hidden?'Completed Items Are Hidden':'Completed Items Are Visible'};}

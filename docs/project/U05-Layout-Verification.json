@@ -1,0 +1,126 @@
+{
+  "verifiedAt": "2026-10-15T14:49:57.503Z",
+  "variants": 2,
+  "widths": [
+    1280,
+    1024,
+    768,
+    600,
+    320
+  ],
+  "brandMatchesReleasedGeometry": true,
+  "brandStableOnToolSwitch": true,
+  "saveSizeMatchesRelease": true,
+  "headerControlHeight": 34,
+  "connectionCircleSize": 11,
+  "genderImmediatelyLeftOfInventoryCog": true,
+  "toolSwitching": true,
+  "connectionDetails": true,
+  "inventoryDataMenu": true,
+  "flagsAndNotes": true,
+  "manualSaveLeavesSyncOff": true,
+  "fontFamilies": [
+    {
+      "element": "rd-app rd-direct",
+      "font": "system-ui, sans-serif"
+    },
+    {
+      "element": "rd-save cursor-interaction",
+      "font": "system-ui, sans-serif"
+    },
+    {
+      "element": "rd-nav",
+      "font": "system-ui, sans-serif"
+    },
+    {
+      "element": "rd-fixture-tile",
+      "font": "system-ui, sans-serif"
+    },
+    {
+      "element": "rd-fixture-tile",
+      "font": "system-ui, sans-serif"
+    },
+    {
+      "element": "rd-fixture-tile",
+      "font": "system-ui, sans-serif"
+    },
+    {
+      "element": "rd-nav",
+      "font": "system-ui, sans-serif"
+    }
+  ],
+  "pageErrors": [],
+  "externalRequests": [],
+  "releaseFilesVerifiedInSourceAndInstallation": 69,
+  "productionChanged": false,
+  "geometry": {
+    "proposal": {
+      "lens": {
+        "x": 24,
+        "y": 16.5,
+        "width": 48,
+        "height": 48,
+        "cx": 48,
+        "cy": 40.5
+      },
+      "title": {
+        "x": 89,
+        "y": 18.03125,
+        "width": 119.171875,
+        "height": 44.9375,
+        "cx": 148.5859375,
+        "cy": 40.5
+      },
+      "lamps": {
+        "x": 225.171875,
+        "y": 21.5,
+        "width": 41,
+        "height": 9,
+        "cx": 245.671875,
+        "cy": 26
+      },
+      "save": {
+        "x": 1050.15625,
+        "y": 23.5,
+        "width": 131.84375,
+        "height": 34,
+        "cx": 1116.078125,
+        "cy": 40.5
+      }
+    },
+    "released": {
+      "lens": {
+        "x": 24,
+        "y": 16.5,
+        "width": 48,
+        "height": 48,
+        "cx": 48,
+        "cy": 40.5
+      },
+      "title": {
+        "x": 89,
+        "y": 18.03125,
+        "width": 119.171875,
+        "height": 44.9375,
+        "cx": 148.5859375,
+        "cy": 40.5
+      },
+      "lamps": {
+        "x": 225.171875,
+        "y": 21.5,
+        "width": 41,
+        "height": 9,
+        "cx": 245.671875,
+        "cy": 26
+      },
+      "save": {
+        "x": 1100.15625,
+        "y": 23.5,
+        "width": 131.84375,
+        "height": 34,
+        "cx": 1166.078125,
+        "cy": 40.5
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ProjectDex · Dashboard prototype</title><link rel="stylesheet" href="styles.css"><script src="app.js" defer></script></head>
+<body>
+<header><div class="lens" aria-hidden="true"></div><div><p class="eyebrow">Your workspace, your way</p><h1>ProjectDex</h1></div><span class="prototype">Prototype · sample data</span></header>
+<div class="layout"><aside><p class="eyebrow">Workspace</p><button class="active" data-project="All projects">◈ All projects</button><p class="eyebrow section-label">Spaces / projects</p><button data-project="Pokémon Daycare">● Pokémon Daycare</button><button data-project="Dashboard">● Dashboard</button><div class="aside-note">NPCDex theme<br><small>YouTrack integration planned</small></div></aside>
+<main><div class="page-head"><div><p class="eyebrow">A place for the bigger picture</p><h2 id="project-title">All projects</h2><p class="muted">A first look at your organized YouTrack workspace.</p></div><button id="scope-open">Plan the first version</button></div>
+<section class="stats" aria-label="Task summary"><article><small>Total tasks</small><strong id="total">0</strong></article><article><small>In progress</small><strong id="progress">0</strong></article><article><small>Completed</small><strong id="done">0</strong></article></section>
+<section class="panel"><div class="toolbar"><div class="views"><button id="list-view" class="active" aria-pressed="true">List</button><button id="board-view" aria-pressed="false">Board</button></div><label><span class="sr-only">Search sample tasks</span><input id="search" type="search" placeholder="Search tasks…"></label></div><div id="tasks"></div></section>
+<p class="footnote">These are example tasks. This prototype does not read or change your YouTrack account.</p></main></div>
+<dialog id="scope"><div class="dialog-head"><h2>Shape your workspace</h2><button id="scope-close" aria-label="Close scope notes">×</button></div><p>This is the project foundation. The feature scope is still open.</p><ul><li><b>Organization:</b> decide which spaces, folders, lists, and saved views you need.</li><li><b>Daily work:</b> choose list, board, personal home, and priority views.</li><li><b>YouTrack:</b> agree how projects, issues, custom fields, and searches power the interface.</li><li><b>Connection:</b> start with sample data or connect live tasks.</li></ul><p class="muted">The next version will follow your answers in chat.</p></dialog>
+</body></html>

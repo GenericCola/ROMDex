@@ -1,0 +1,25 @@
+{
+  "verifiedAt": "2026-10-15T19:15:46.731Z",
+  "checks": [
+    "Actual Electron custom-protocol window loads both sandboxed workspaces with one utility-backed engine",
+    "Actual preload/main bridge rejects raw requests, arbitrary execution, queue replacement and unknown storage paths",
+    "Desktop protocol refuses privileged API writes and filesystem traversal",
+    "Real shared Save completes through IPC and leaves Auto-Sync Off",
+    "Native NPCDex export writes the fixed JSON file and commits durable local data",
+    "Switching real desktop workspaces preserves view context",
+    "Incoming native fixture updates reach the actual utility bridge while NPCDex is active",
+    "Renderer reload reconnects to the existing utility owner and restores native NPCDex data",
+    "Desktop retains corrected header alignment and does not restore the removed cog",
+    "Packaged main and utility processes use bundled Electron/Node in a fixture-only profile",
+    "Utility clock automatically receives native fixture edits while NPCDex is active, then respects Auto-Sync Off"
+  ],
+  "errors": [],
+  "runtime": {
+    "electron": "44.7.2",
+    "node": "24.21.0",
+    "chrome": "152.0.7977.149"
+  },
+  "separateUtility": true,
+  "fixtureOnly": true,
+  "productionWrites": false
+}

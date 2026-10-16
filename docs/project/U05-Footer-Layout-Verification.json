@@ -1,0 +1,26 @@
+{
+  "verifiedAt": "2026-10-15T15:08:09.288Z",
+  "layout": "Footer Workspace Menu",
+  "visibleButtonLabel": false,
+  "accessibleButtonLabel": "Switch Workspace",
+  "workspaceLabels": [
+    "ROMDex",
+    "NPCDex"
+  ],
+  "escapeClosesAndRestoresFocus": true,
+  "selectionClosesMenu": true,
+  "workspaceGenderPreserved": true,
+  "arrowNavigation": true,
+  "outsideClickCloses": true,
+  "widths": [
+    1280,
+    1024,
+    768,
+    600,
+    320
+  ],
+  "pageErrors": [],
+  "externalRequests": [],
+  "productionChanged": false,
+  "limits": "Layout prototype demonstrates retained DOM/one workspace setting; complete selection, drafts, scroll, navigation and focus preservation remain U08 implementation checks."
+}

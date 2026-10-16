@@ -1,0 +1,15 @@
+{
+  "checks": [
+    "Multiple native drop files enter the existing durable queue while paused without changing hierarchy",
+    "Invalid or missing destinations and changed files add no partial batch",
+    "Cancellation uses existing cleanup; a concurrent local checkpoint waits for the accepted drop batch",
+    "Failed native delivery preserves queued files and paused synchronization",
+    "Outgoing task state contains file metadata only; original source files can be removed after local acceptance",
+    "A new process recovers the dropped-file queue after original files were removed",
+    "Manual Save confirms each recovered drop once through the existing adapter with exact bytes and keeps Auto-Sync Off",
+    "Repeated manual synchronization does not duplicate confirmed files"
+  ],
+  "runtime": "Electron 44.7.2 / Node 24.21.0",
+  "nativeAdapter": "Controlled YouTrack Fixture; No Production Requests",
+  "productionWrites": false
+}

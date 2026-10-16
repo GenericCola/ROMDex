@@ -1,0 +1,20 @@
+{
+  "realServiceIsolated": true,
+  "noToken": true,
+  "version": "0.4.2",
+  "policyVerified": [
+    "/",
+    "/tasks.html",
+    "/addons/npcdex/index.html",
+    "/addons/npcdex/workspace.js"
+  ],
+  "inlineScriptsNotEnabled": true,
+  "unavailableWorkspaceRetainsCurrentView": true,
+  "retryLoadsWorkspace": true,
+  "existingImageURLDownloadWorks": true,
+  "imageDownloadUsedInterceptedFixtureOnly": true,
+  "repeatedSwitchesRetainTwoDocuments": true,
+  "reloadStartsROMDexAllTasks": true,
+  "errors": [],
+  "productionWrites": false
+}

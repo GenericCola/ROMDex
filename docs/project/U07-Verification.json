@@ -1,0 +1,61 @@
+{
+  "verifiedAt": "2026-10-15T15:58:03.203Z",
+  "checks": [
+    "Latest saved revision 72 hydrates identically before and after control relocation",
+    "Controls have one copy each in their agreed tray/menu homes",
+    "Header/tray allocation retained; gender left of centered canonical 18px cog and 12px artwork",
+    "Inventory cog uses exact Standard Settings Icon bytes",
+    "Relocated Flags & Notes remains keyboard accessible and retains Change History",
+    "Male/Female still changes the player preference and active state",
+    "Inventory Sort by Sub-Area keeps its existing handler",
+    "Data closes Inventory Settings and retains import, receipt, snapshot, destination and history access",
+    "Existing first-save destination flow still opens Content & Saving without writing files",
+    "Relocated controls remain reachable at five widths",
+    "No browser script errors",
+    "Original package, all protected backup files, saved export and non-UI working files are byte-identical"
+  ],
+  "positions": {
+    ".header": {
+      "x": 14,
+      "y": 0,
+      "width": 1252,
+      "height": 84
+    },
+    ".inventory-tools .gender": {
+      "x": 1101.171875,
+      "y": 110,
+      "width": 115.828125,
+      "height": 34
+    },
+    "#inventory-settings": {
+      "x": 1226,
+      "y": 118,
+      "width": 18,
+      "height": 18
+    },
+    ".standard-settings-icon": {
+      "x": 1229,
+      "y": 121,
+      "width": 12,
+      "height": 12
+    },
+    "#flags": {
+      "x": 26,
+      "y": 130.9375,
+      "width": 196,
+      "height": 35.390625
+    },
+    "#maps": {
+      "x": 26,
+      "y": 176.328125,
+      "width": 196,
+      "height": 697.671875
+    }
+  },
+  "savedRevision": 72,
+  "fixtureUsesLatestSavedExport": true,
+  "packagedDataUnchanged": true,
+  "sourcePackageUnchanged": true,
+  "errors": [],
+  "productionWrites": false
+}

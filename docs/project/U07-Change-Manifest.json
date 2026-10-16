@@ -1,0 +1,33 @@
+{
+  "task": "U07",
+  "verifiedAt": "2026-10-15T15:59:46.311Z",
+  "protectedOriginalFiles": 39,
+  "sourcePackageUnchanged": true,
+  "sourcePackage": "C:/Users/mrgen/Downloads/npcdex-v2.42",
+  "workingCopy": "outputs/NPCDex",
+  "changed": [
+    {
+      "path": "npcdex-template.html",
+      "bytes": 109209,
+      "beforeSHA256": "faf824a89f4c984b9c2c135e9f1cb11f7c4abf4c0dd89caefee63d3b43b4d83b",
+      "sha256": "8b575f86a406e9820761b6f13586182e0830e44aff7e874d7f40bc6dd9fd376c"
+    },
+    {
+      "path": "npcdex.html",
+      "bytes": 9838470,
+      "beforeSHA256": "271e471c052f36238f2d31a8c18ee9360ffe090a57196c27ee898eda1675c8f4",
+      "sha256": "4e1a93975680424b4dda6f8479806694cf6116e8f39c73f6a3a5f6f29302d393"
+    },
+    {
+      "path": "ROMDex-Integration.md",
+      "bytes": 2064,
+      "beforeSHA256": null,
+      "sha256": "62cb0140b7e355acdd314e0862795e3ad4877bd175b38cab140186ea6c1d250c"
+    }
+  ],
+  "syntaxChecks": 8,
+  "uiChecks": 12,
+  "romDexInstallationUnchanged": true,
+  "credentialCiphertextUnchanged": true,
+  "productionWrites": false
+}

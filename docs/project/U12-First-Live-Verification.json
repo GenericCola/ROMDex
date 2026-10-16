@@ -1,0 +1,55 @@
+{
+  "at": "2026-10-16T00:16:19.578Z",
+  "checks": [
+    "Both Workspaces Loaded with Current Tasks and Remembered Connection",
+    "Manual Ordering and Selector Images Preserved Exactly",
+    "Entire NPCDex Snapshot Matches Preserved Revision 72",
+    "Genuine YouTrack Read Returned the Current Task Set",
+    "Desktop Credential Stored Only in Electron Protected Envelope",
+    "Original Web Profile and Verified Browser Backup Remain Unchanged",
+    "Workspace Switching Retains Task View"
+  ],
+  "state": {
+    "views": 2,
+    "connected": true,
+    "remembered": true,
+    "mode": "syncing",
+    "message": "Synchronizing with YouTrack…",
+    "items": 299,
+    "pending": 0,
+    "orderKeys": 104,
+    "automatic": true
+  },
+  "npc": {
+    "revision": 72,
+    "towns": 4,
+    "plans": 44,
+    "history": 145,
+    "semanticSHA256": "6052db6d143799fb8fdd9bb813aadb5f31ba0a521477c7c97741cd39b9c64bac"
+  },
+  "youtrack": {
+    "count": 299,
+    "idsMatch": true,
+    "fieldsMatch": true,
+    "available": true
+  },
+  "profile": "C:\\Users\\mrgen\\AppData\\Local\\ROMDexDesktopData\\thegobindsingh-PMON",
+  "captureSHA256": "6bce28aa839302eb5a369504f3c62bbfdb999e6a46bc9e74f4de9814378c3d72",
+  "markerSummary": {
+    "items": 299,
+    "pending": 0,
+    "images": 0,
+    "orderKeys": 104,
+    "files": 0,
+    "fileBytes": 0,
+    "npcRevision": 72,
+    "npcRecovery": false,
+    "npcHeld": false,
+    "npcTowns": 4,
+    "npcPlans": 44,
+    "npcHistory": 145,
+    "npcSource": "Preserved NPCDex Package",
+    "connectionMigrated": true,
+    "automaticSyncEnabled": true
+  }
+}

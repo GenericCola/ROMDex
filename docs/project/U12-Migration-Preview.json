@@ -1,0 +1,64 @@
+{
+  "at": "2026-10-16T00:10:46.920Z",
+  "capture": {
+    "path": "C:\\Users\\mrgen\\Downloads\\ROMDex-Web-Migration.rdx",
+    "sha256": "6bce28aa839302eb5a369504f3c62bbfdb999e6a46bc9e74f4de9814378c3d72",
+    "items": 299,
+    "pending": 0,
+    "images": 0,
+    "orderKeys": 104,
+    "files": 0,
+    "fileBytes": 0,
+    "npcRevision": null,
+    "npcRecovery": false,
+    "npcHeld": false
+  },
+  "npc": {
+    "revision": 72,
+    "towns": 4,
+    "plans": 44,
+    "history": 145,
+    "source": "C:\\Users\\mrgen\\Downloads\\npcdex-v2.42\\npcdex-agent-export.json"
+  },
+  "authoritative": "Downloaded Current Chrome Save; Preserved NPCDex Package",
+  "originalCredentialUnchanged": true,
+  "webStopped": true,
+  "finalProfileFiles": [
+    {
+      "path": "assigned-statuses.json",
+      "sha256": "dc7697d87f20636ae227b45528faa04f77d8256f624a312886bc05c8e358ecd3"
+    },
+    {
+      "path": "connection.encrypted",
+      "sha256": "619cfe70fe3ffc157f19df290594d753f59266495a2ae64b3d9c860255cb55bc"
+    },
+    {
+      "path": "journal.json",
+      "sha256": "575ec42ca21310210e95f481d3eade3a7fae3400a9f2842035609f1fde3589f2"
+    },
+    {
+      "path": "profile.json",
+      "sha256": "774c96819c8be2e436fd7ae15578327858250b57a9c01555dacb96f48ebf01e5"
+    },
+    {
+      "path": "sentinel",
+      "sha256": "0a9cae06c2039a35322c78297344fa2dbb85a118d2803e29fc2c01792b1f4ef7"
+    },
+    {
+      "path": "service-error.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "service.log",
+      "sha256": "262ab16e4d134803b38ebd8c099eb8044034828ea0a68612c7e8994a297f0812"
+    },
+    {
+      "path": "sync-settings.json",
+      "sha256": "26b3426b2593763c96d0890b4a77a0bbf66d13fc512b0c6b138a23c290f30a2a"
+    },
+    {
+      "path": "workspace.json",
+      "sha256": "cd1a22b6388dd90efdb8126d8883671af8a3b946ddd90f17bd97a91f650cb052"
+    }
+  ]
+}

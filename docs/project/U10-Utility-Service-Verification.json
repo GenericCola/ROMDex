@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "Service and domain engine run with the bundled runtime without opening an HTTP port",
+    "Unknown stores, raw requests and queue-replacement preferences are rejected",
+    "Manual sync pulls native fixture changes once while leaving Auto-Sync Off",
+    "Automatic setting and incoming native changes reach the utility-owned state",
+    "Accepted edits and attachment bytes are durable while automatic sync is disabled",
+    "Service and domain engine run with the bundled runtime without opening an HTTP port",
+    "Process restart recovers queued edits, attachment metadata/bytes, NPCDex recovery and paused setting"
+  ],
+  "bundledRuntime": "Electron 44.7.2 / Node 24.21.0",
+  "productionWrites": false
+}

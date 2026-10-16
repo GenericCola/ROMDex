@@ -1,0 +1,44 @@
+{
+  "patch": "Header Correction",
+  "baseVersion": "0.4.2",
+  "verifiedAt": "2026-10-15T16:28:59.435Z",
+  "files": [
+    {
+      "path": "public/shared-ui/header.mjs",
+      "beforeSHA256": "9ddf885d95492d535610bd69acb617cb337aa2bb8440a28758e17646b076ba7a",
+      "sha256": "ce73037a22a9b1b66ccafd6f0ec65a40ea42e8cc9c9001ec61f08b6ae4802779"
+    },
+    {
+      "path": "public/shared-ui/theme.css",
+      "beforeSHA256": "c551f17d2a5e45b93416305631c3e255130e2cdf49d4bee7644bcc9b5b32651b",
+      "sha256": "c38a1773b9aab5252a2e89ebd67a6dcc56e083841d3dad0d67e30de8c30f6fbb"
+    },
+    {
+      "path": "shared-ui/header.mjs",
+      "beforeSHA256": "9ddf885d95492d535610bd69acb617cb337aa2bb8440a28758e17646b076ba7a",
+      "sha256": "ce73037a22a9b1b66ccafd6f0ec65a40ea42e8cc9c9001ec61f08b6ae4802779"
+    },
+    {
+      "path": "shared-ui/theme.css",
+      "beforeSHA256": "c551f17d2a5e45b93416305631c3e255130e2cdf49d4bee7644bcc9b5b32651b",
+      "sha256": "c38a1773b9aab5252a2e89ebd67a6dcc56e083841d3dad0d67e30de8c30f6fbb"
+    },
+    {
+      "path": "shared-ui/README.md",
+      "beforeSHA256": "aa19e3e663ed32f5afd759423dd1c111da4dbd25eb3d6ab3f27ef9d5a3049abf",
+      "sha256": "f9a1acdcc3bfb02435f044572a76218ea3c5a4796d43f51c4d8d15f15ee4d59e"
+    },
+    {
+      "path": "U08-Workspace-Guide.md",
+      "beforeSHA256": "9b43a568621a6ffa2a121759879925718fa71b2926f4fdb00ec3514ff8efe6a7",
+      "sha256": "d85bf81cd9e2ce2f5651c155ad7bff561807f2b446f7f620f4e9c3bbd42a03a1"
+    }
+  ],
+  "servedAssetsVerified": 2,
+  "serviceRestartRequired": false,
+  "serviceIdentityUnchanged": true,
+  "credentialCiphertextUnchanged": true,
+  "automaticSyncUnchanged": true,
+  "originalZIPUnchanged": true,
+  "productionWrites": false
+}

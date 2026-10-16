@@ -1,0 +1,2 @@
+// Explicit domain commands; no eval, arbitrary transactions, filesystem paths or raw IPC.
+export const METHODS=['edit','create','comment','remove','preferences','move','moveMany','groupItems','connect','prepare','sync','resolve','setAutomaticSync','cancelAttachment','deleteAttachment','cancelAttachmentDeletion','loadComments','loadAttachments','loadEditOptions','setupComplexity','reviewAttachment','acknowledge','retryBlocked'];

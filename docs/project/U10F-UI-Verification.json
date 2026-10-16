@@ -1,0 +1,15 @@
+{
+  "checks": [
+    "External file hover highlights exactly the target row and identifies its ticket",
+    "Multiple-file drop queues only the pointed ticket and preserves checkboxes, Details layout, parents and order",
+    "Drops outside a task are rejected without navigation or changes",
+    "File attachment handling refuses to run during internal hierarchy dragging",
+    "Dropped uploads use the existing cancellable attachment queue",
+    "Manual Save confirms both dropped files through the existing native adapter fixture once and leaves Auto-Sync Off",
+    "Paperclip, file list and image preview update through existing controls",
+    "Existing same-parent bulk pointer dragging still moves selected tasks without becoming a file drop",
+    "Single-parent pointer dragging retains every descendant relationship after file-drop handlers are installed"
+  ],
+  "errors": [],
+  "productionWrites": false
+}

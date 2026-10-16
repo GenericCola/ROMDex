@@ -1,0 +1,49 @@
+# NPCDex · Version 2.29
+
+Open npcdex.html from the extracted package. New Bark Town, Route 29 and Cherrygrove City remain included, with their original dialogue and script IDs. The familiar map tray, tile inventory, dialogue pane and timeline remain in place.
+
+## Review and changes
+
+Each consecutive speaker prompt is the sole unit for dialogue Change Intent and Verified/Inaccessible status. Change status is edited inline beside Verified/Inaccessible. The prompt cog provides diagnostics and source references; Condition Notes is removed. Scroll through its passages; Previous/Next selects a different speaker turn. Flags and notes apply to the whole prompt by default; Selected Line Only narrows diagnostic feedback to a passage. Testing always covers the complete current speaker prompt.
+
+Use FINAL to keep current content, UPDATE for modification/replacement, and REMOVE for deletion. UPDATE/REMOVE require Change Instructions. Character tile decisions remain whole-character tickets within the Tier 1 map. More precise prompt decisions override inherited defaults. Dialogue scene/element tile settings do not offer a second whole-event Change Intent; use the individual prompt settings. Non-dialogue objects and location/character tickets retain their existing controls.
+
+Click Flag Prompt to choose Standard (yellow) or Critical (red). Critical means a blocker, whether an error or a required change. The chosen color appears on Flagged and the tile's flag icon. Clicking Flagged clears it; flagging again permits a new choice. A change ticket alone does not create a diagnostic flag. Tile flags also summarize flagged content within the displayed scope.
+
+Green readiness means all active local content is FINAL and Verified/Inaccessible without unresolved feedback. Yellow means in progress; red means pending removal or a Critical flag. Character/element lights in building/room views consider that location only; Tier 1 summarizes the map. Green is steadily illuminated, yellow gently fades on a four-second cycle, and red blinks on a 1.2-second cycle. Lights stay opaque; reduced-motion preferences disable animation.
+
+## Existing decisions and conflicts
+
+Older whole-event dialogue decisions migrate to individual speaker prompts. Original plans remain in legacyChangePlans, with before/after migration patches in Change History. Existing contradictory prompt decisions are never overwritten. Pending conflicts appear beside the prompt and in Flags, Notes & Changes → Decision Conflicts. Compare both decisions and keep the prompt decision or use the former event decision. You can instead write a current decision in that prompt's settings. Resolving conflicts is logged. Conflicted prompts remain in progress and are withheld from pending coding-agent change requests until resolved. Export always retains both conflict records for reconciliation.
+
+## NPCs and scenes
+
+NPC Name remains editable. Stable identities continue to share names and images across regions, with separate Lyra/Ethan profiles and regional overrides. Manual Link to Existing NPC is removed. Renaming changes the display name, not the stable identity or source IDs.
+
+Shared Scene Handling is removed. Character tickets can request broader scene changes in their instructions; no scope choice is required beforehand. The coding agent follows your explicit instructions case by case and preserves unaffected content. Historical scope fields remain evidence; editing a ticket uses instructions as its scope authority.
+
+## Saving and implementation
+
+Save Changes commits a browser snapshot and overwrites npcdex-agent-export.json in the selected package folder. Choose a dedicated extracted folder rather than Downloads itself. Check Data's destination when moving between package folders. Save errors retain edits; a manual download remains available. Content & Saving buttons now use even sizing and gaps, and wrap on narrow screens.
+
+The export contains source IDs, current content, tickets, instructions, hashes, feedback, images, conflicts and before/after history. Give the latest saved export to the coding agent, which also needs the ROM project. Saving does not write the ROM. Implemented changes return through a previewed implementation receipt, clear only explicitly reconciled matching feedback and reset affected testing. Undo logs a reversal and protects later conflicting edits; actual ROM reversal is a separate coding-agent operation.
+
+The revision-34 Elm note remains reconciled: first westward departure after Mom gives the Pokégear; confirmed timing; solo prompt. The FINAL decision is retained, feedback is cleared and testing is Unreviewed. Unrelated annotations/images remain intact.
+
+## Extension and packaging
+
+Use the latest complete export as the starting dataset. Keep existing IDs and source baselines intact. Tier 1 contains locations; Tier 2 locations group Tier 3 area IDs, and areas contain elements/points. All script records stay available for reconciliation. Double-click a dialogue-list label to rename it; Enter commits, Escape cancels, and the original label is retained.
+
+The HTML is self-contained. Accompanying template/modules are build sources. For code changes, update those sources and run node build-npcdex.cjs. To embed only new data, run node update-npcdex.cjs latest-export.json npcdex.html. Read NPCDex-Agent-Workflow.md for receipt contracts and ROM fallback.
+
+## Indicator alignment · 2.27
+
+Content lights now match the save light’s 7px lens and 1.5px ring thickness. The black 40%-opacity content ring is a fixed separate layer; the centered inner lens changes color/glow without changing the ring. Green stays steady, yellow retains its four-second fade and red its 1.2-second blink. Reduced-motion preferences remain supported. Content and review data are unchanged.
+
+## Inline prompt status · 2.28
+
+Final/Update/Remove sit to the right of Verified/Inaccessible. Clicking the active choice clears it and explicitly leaves that prompt unset; its lens is dark grey with no glow. Update and Remove show the change description below the status row, with optional proposed dialogue. Save Changes flushes pending description edits. Empty instruction drafts are retained in changePlans/changeDrafts but excluded from implementation requests. Critical flags retain red priority; Critical Update tags are red. Parent lights are grey when all contents are unset, yellow for mixed/unfinished contents and green only for Final/Reviewed content without unresolved feedback. Condition Notes is removed; the prompt cog retains diagnostic notes and source references without a duplicate status selector.
+
+## Standard Notes Suite · Default UI
+
+The shared suite renders Flagged/Standard/Critical, Add Note/Edit Note with an expandable editor, and Final/Update/Remove buttons. Dialogue and all applicable settings reuse the same renderers. In tile settings, suite actions are immediately recorded as pending changes; Close flushes pending descriptions/notes. Save Changes commits the export/browser snapshot. Apply Tile Changes handles images and NPC-name drafts. Verification remains prompt-only, and dialogue scene cogs do not add a second whole-event status. Critical Update tags are red. See Standard-Notes-Suite.md for default layout, scope rules and future implementation requirements.

@@ -1,0 +1,193 @@
+{
+  "startedAt": "2026-10-16T01:08:07.833Z",
+  "fixtureOnly": true,
+  "productionWrites": false,
+  "checks": [
+    "Both MSI Packages Passed Full Windows Installer Validation",
+    "Per-User Installation and Start Menu Shortcut Target the Installed Launcher",
+    "Installed Baseline Opens Without Browser/External Node and Checkpoints Paused Pending Work",
+    "Upgrade Preserves All Profile Bytes and Restores the Windows-Protected Credential",
+    "Uninstall Removes the Program and Shortcut but Retains Every Data File",
+    "Reinstall Reuses Retained Saves, Pending Operations, File Bytes and Protected Connection",
+    "Final Test Uninstall Leaves the Disposable Data in Its Application Folder"
+  ],
+  "uploadId": "23f4de0a-def8-43a3-b42b-fd4c0793a2c7",
+  "operationIds": [
+    "cdeb6695-0bed-48e9-a114-1da65e701198",
+    "7f5afb93-2235-48f5-833a-b539e6f2c280"
+  ],
+  "npcRevision": 72,
+  "launches": [
+    {
+      "pid": 23312,
+      "exe": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u13a\\installed-test\\app-0.5.0\\ROMDex.exe",
+      "version": "0.5.0",
+      "utility": 23748,
+      "views": 2,
+      "items": 287,
+      "pending": 2,
+      "enabled": false,
+      "startupMs": 6971
+    },
+    {
+      "pid": 8756,
+      "exe": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u13a\\installed-test\\app-0.5.1\\ROMDex.exe",
+      "version": "0.5.1",
+      "utility": 20868,
+      "views": 2,
+      "items": 287,
+      "pending": 2,
+      "enabled": false,
+      "startupMs": 10784
+    },
+    {
+      "pid": 10044,
+      "exe": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u13a\\installed-test\\app-0.5.1\\ROMDex.exe",
+      "version": "0.5.1",
+      "utility": 24484,
+      "views": 2,
+      "items": 287,
+      "pending": 2,
+      "enabled": false,
+      "startupMs": 10051
+    }
+  ],
+  "resources": {
+    "window": [
+      {
+        "type": "Browser",
+        "memory": {
+          "workingSetSize": 140188,
+          "peakWorkingSetSize": 167584,
+          "privateBytes": 103204
+        }
+      },
+      {
+        "type": "GPU",
+        "memory": {
+          "workingSetSize": 200988,
+          "peakWorkingSetSize": 200988,
+          "privateBytes": 156376
+        }
+      },
+      {
+        "type": "Utility",
+        "memory": {
+          "workingSetSize": 45296,
+          "peakWorkingSetSize": 45328,
+          "privateBytes": 11808
+        }
+      },
+      {
+        "type": "Utility",
+        "memory": {
+          "workingSetSize": 98080,
+          "peakWorkingSetSize": 148516,
+          "privateBytes": 95724
+        }
+      },
+      {
+        "type": "Tab",
+        "memory": {
+          "workingSetSize": 235956,
+          "peakWorkingSetSize": 243584,
+          "privateBytes": 174300
+        }
+      }
+    ],
+    "tray": {
+      "hidden": true,
+      "metrics": [
+        {
+          "type": "Browser",
+          "memory": {
+            "workingSetSize": 140308,
+            "peakWorkingSetSize": 167584,
+            "privateBytes": 103216
+          }
+        },
+        {
+          "type": "GPU",
+          "memory": {
+            "workingSetSize": 204584,
+            "peakWorkingSetSize": 204584,
+            "privateBytes": 159428
+          }
+        },
+        {
+          "type": "Utility",
+          "memory": {
+            "workingSetSize": 45304,
+            "peakWorkingSetSize": 45336,
+            "privateBytes": 11816
+          }
+        },
+        {
+          "type": "Utility",
+          "memory": {
+            "workingSetSize": 98280,
+            "peakWorkingSetSize": 148516,
+            "privateBytes": 95992
+          }
+        },
+        {
+          "type": "Tab",
+          "memory": {
+            "workingSetSize": 239572,
+            "peakWorkingSetSize": 243584,
+            "privateBytes": 177392
+          }
+        }
+      ]
+    }
+  },
+  "programBytes": 396227873,
+  "artifacts": [
+    {
+      "version": "0.5.0",
+      "syntax": 87,
+      "applicationDirectory": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u13a\\packages\\ROMDex-0.5.0",
+      "artifacts": [
+        {
+          "path": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u13a\\make-0.5.0\\wix\\x64\\ROMDex.msi",
+          "bytes": 162275328,
+          "sha256": "39d0ebe9f7144fc083f9b1bf821d979a30a295ca799aed0e4b70ee298ea08759"
+        }
+      ],
+      "identity": {
+        "name": "ROMDex",
+        "shortName": "ROMDexDesktop",
+        "appUserModelId": "ROMDexDesktop",
+        "upgradeCode": "C3861991-512B-4F7D-B1C1-9D8EC7230FDA",
+        "manufacturer": "ROMDex Project"
+      },
+      "installer": "Forge 8.0.1 / WiX 3.14.1",
+      "unsigned": true,
+      "savesIncluded": false
+    },
+    {
+      "version": "0.5.1",
+      "syntax": 87,
+      "applicationDirectory": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u13a\\packages\\ROMDex-0.5.1",
+      "artifacts": [
+        {
+          "path": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u13a\\make-0.5.1\\wix\\x64\\ROMDex.msi",
+          "bytes": 162271232,
+          "sha256": "13064a4a7b37c1b206fff591ef9c53ae752551482b087305cbe0ad10169b4de7"
+        }
+      ],
+      "identity": {
+        "name": "ROMDex",
+        "shortName": "ROMDexDesktop",
+        "appUserModelId": "ROMDexDesktop",
+        "upgradeCode": "C3861991-512B-4F7D-B1C1-9D8EC7230FDA",
+        "manufacturer": "ROMDex Project"
+      },
+      "installer": "Forge 8.0.1 / WiX 3.14.1",
+      "unsigned": true,
+      "savesIncluded": false
+    }
+  ],
+  "finishedAt": "2026-10-16T01:14:42.926Z",
+  "status": "passed"
+}

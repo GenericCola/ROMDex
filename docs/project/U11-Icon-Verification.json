@@ -1,0 +1,41 @@
+{
+  "source": "outputs/ROMDex/public/icon.svg",
+  "sourceSHA256": "490903debe3f322c90b56fe9e08659c2bc79fe2a334271d8e8907f5378de79b7",
+  "icoSHA256": "37fb0ca67ac3a429004677b9221e3e36c019e9a5356056759c6cfd12546479c1",
+  "executable": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\ROMDex-Desktop-U11\\ROMDex.exe",
+  "embeddedFramesMatchICO": true,
+  "frames": [
+    {
+      "size": 16,
+      "sha256": "039b6b21339ee688f4c483448b43d21ca911809649de2e2f5e5bba8d7f5866aa"
+    },
+    {
+      "size": 20,
+      "sha256": "f933e3a1e40a41d591de3de20f54a417b7adbc51457fbda4d6b64a9a7c4c214a"
+    },
+    {
+      "size": 24,
+      "sha256": "3d75271d3b69258b5c6180771d6efe27516c957100c2f8c617bdc3fc41feeebe"
+    },
+    {
+      "size": 32,
+      "sha256": "11506e44365b85e13d34fc4977b7639d715a241fd3c1daba205c8ff35081b73b"
+    },
+    {
+      "size": 48,
+      "sha256": "0c8e65569f8ae8c553726858af64dbc24cf9ff60def12a7804f4504518f7dca4"
+    },
+    {
+      "size": 64,
+      "sha256": "78990b95608cd1a28e3dbdcc6d5d4960580e72fbb8d2de2f84243e1f40347850"
+    },
+    {
+      "size": 128,
+      "sha256": "5d651826af89e80ecacf08e70e99b79277bbde46178a6068b2feed8fa9811207"
+    },
+    {
+      "size": 256,
+      "sha256": "442bd8c2b21ccb3d108b027744652fc672528388ce0570e5877d7da70ce8c1eb"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+const {app,BrowserWindow,protocol,ipcMain,utilityProcess,dialog,shell,session,Tray,Menu,powerMonitor}=require('electron');
+const path=require('node:path'),fs=require('node:fs/promises');
+protocol.registerSchemesAsPrivileged([{scheme:'romdex-app',privileges:{standard:true,secure:true,supportFetchAPI:true,corsEnabled:true,stream:true}}]);
+app.setName('ROMDex');app.setAppUserModelId('ROMDexDesktop');
+const qa=process.env.ROMDEX_QA==='1';
+const base=qa&&process.env.ROMDEX_DESKTOP_PROFILE?path.resolve(process.env.ROMDEX_DESKTOP_PROFILE):path.join(process.env.LOCALAPPDATA||app.getPath('appData'),'ROMDexDesktopData','preview-u10');
+app.setPath('userData',path.join(base,'session'));app.setPath('sessionData',path.join(base,'session'));
+let win,service,tray,lease,lifecycle,rendererRecovery,quitting=false,shellReady=false,firstClose=false;
+let trayState={active:'romdex',enabled:true,ready:false,busy:false};
+const rpc=(command,args=[])=>service?service.call(command,args):Promise.reject(Error('Desktop Service Is Starting.'));
+const hasInstance=app.requestSingleInstanceLock();
+function showWindow(){if(!win||win.isDestroyed())return;if(win.isMinimized())win.restore();win.show();win.focus();if(rendererRecovery?.failed)rendererRecovery.retry().catch(()=>{});}
+app.on('second-instance',showWindow);app.on('activate',showWindow);
+async function main(){
+ const {assetPath,trustedURL,contentPolicy,externalURL,validateCall,STORES,ORIGIN}=await import('./policy.mjs');
+ const {validateTicket,validateNativeSelection}=await import('./native-attachments.mjs');
+ const {ProfileLease,QuitController,RendererRecovery,trayTemplate}=await import('./lifecycle.mjs');
+ const {ServiceHost}=await import('./service-host.mjs');
+ await fs.mkdir(base,{recursive:true});
+ lease=new ProfileLease(base);lease.acquire();
+ // U10 uses a separate preview profile. No legacy credential/database adoption occurs here.
+ const marker=path.join(base,'desktop-preview.json');try{const m=JSON.parse(await fs.readFile(marker,'utf8'));if(m.version!==1||m.application!=='ROMDexDesktopPreview')throw Error('Unknown Desktop Profile.');}catch(error){if(error.code!=='ENOENT')throw error;await fs.writeFile(marker,JSON.stringify({version:1,application:'ROMDexDesktopPreview',migrationPending:true}));}
+ service=new ServiceHost({fork:()=>utilityProcess.fork(path.join(__dirname,'service.mjs'),[],{env:{...process.env,ROMDEX_DATA_DIR:path.join(base,'service'),ROMDEX_DESKTOP:'1',YOUTRACK_TOKEN:''},stdio:'pipe',serviceName:'ROMDex Save and Sync'}),onOwner:pid=>lease.utility(pid),onEvent:message=>{if(win&&!win.isDestroyed())win.webContents.send('romdex:event',message);if(message.type==='service-error'){trayState.ready=false;rebuildTray();}}});
+ const readyInfo=await service.start();
+ const mime={'.html':'text/html; charset=utf-8','.mjs':'text/javascript','.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.json':'application/json','.png':'image/png'};
+ const appSession=session.fromPartition('persist:romdex-desktop-v1');
+ await appSession.protocol.handle('romdex-app',async request=>{try{
+  if(!trustedURL(request.url)||request.method!=='GET')return new Response('Not Allowed',{status:403});
+  const url=new URL(request.url);if(url.pathname.startsWith('/api/')){const response=await rpc('read',[url.pathname+url.search]);return new Response(new Uint8Array(response.bytes),{status:response.status,headers:response.headers});}
+  const target=assetPath(path.join(__dirname,'../public'),request.url),data=await fs.readFile(target);
+  return new Response(data,{headers:{'Content-Type':mime[path.extname(target)]||'application/octet-stream','Content-Security-Policy':contentPolicy(request.url),'X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer','Cache-Control':'no-store'}});
+ }catch{return new Response('Application Resource Unavailable',{status:404});}});
+ win=new BrowserWindow({title:'ROMDex — Desktop Preview · Migration Pending',icon:path.join(__dirname,'app.ico'),width:1440,height:960,minWidth:840,minHeight:600,show:false,backgroundColor:'#a92032',autoHideMenuBar:true,webPreferences:{preload:path.join(__dirname,'preload.cjs'),contextIsolation:true,sandbox:true,nodeIntegration:false,nodeIntegrationInSubFrames:false,webSecurity:true,backgroundThrottling:false,partition:'persist:romdex-desktop-v1'}});
+ win.removeMenu();
+ function caller(event){if(event.sender!==win.webContents||event.senderFrame!==win.webContents.mainFrame||!trustedURL(event.senderFrame.url)||new URL(event.senderFrame.url).pathname!=='/')throw Error('Untrusted Desktop Caller.');}
+ ipcMain.handle('romdex:tray-state',(event,state)=>{caller(event);if(!state||!['romdex','npcdex'].includes(state.active)||['enabled','ready','busy'].some(k=>typeof state[k]!=='boolean'))throw Error('Invalid Tray State.');trayState={active:state.active,enabled:state.enabled,ready:state.ready,busy:state.busy};shellReady=true;if(state.ready)rendererRecovery?.ready();rebuildTray();});
+ function rebuildTray(){if(tray)tray.setContextMenu(Menu.buildFromTemplate(trayTemplate({...trayState,busy:trayState.busy||!!lifecycle?.busy,quitBusy:!!lifecycle?.busy,run:runCommand,quit:()=>lifecycle.request()})));}
+ async function runCommand(command,value){
+  if(command==='show'){showWindow();return;}
+  if(command==='about'){showWindow();await dialog.showMessageBox(win,{type:'info',title:'About ROMDex',message:'ROMDex '+app.getVersion(),detail:'NPCDex Add-On · Desktop Preview\nYouTrack Tasks: Two-Way Sync\nNPCDex: Local Saves and Recovery; Cloud Sync Is Planned\nCurrent Live Web Saves Will Be Migrated in U12.'});return;}
+  if(['workspace','connections'].includes(command))showWindow();
+  try{if(!shellReady)throw Error('The Workspace Is Still Opening.');const result=await win.webContents.executeJavaScript('window.romdexShell.desktopCommand('+JSON.stringify(command)+','+JSON.stringify(value??null)+')',true);if(result?.review)showWindow();}catch(error){showWindow();await dialog.showMessageBox(win,{type:'error',title:'ROMDex Needs Review',message:error.message});}
+ }
+ tray=new Tray(path.join(__dirname,'app.ico'));tray.setToolTip('ROMDex');tray.on('click',showWindow);rebuildTray();
+ const noticeFile=path.join(base,'tray-notice.json');try{firstClose=!!JSON.parse(await fs.readFile(noticeFile,'utf8')).shown;}catch{}
+ lifecycle=new QuitController({checkpoint:async()=>{if(!shellReady&&!rendererRecovery?.failed)throw Error('Wait Until the Workspaces Finish Opening Before Quitting.');if(!service.ready)await service.start(true);if(!rendererRecovery?.failed){const results=await win.webContents.executeJavaScript('window.romdexShell.desktopCheckpoint()',true);if(results?.some(x=>!x.ok))throw Error(results.filter(x=>!x.ok).map(x=>x.message).join(' · '));}await rpc('checkpoint');await exportConfig.writes;await Promise.all([...exportWrites.values()].map(x=>x.writes));},shutdown:()=>service.shutdown(),exit:()=>{quitting=true;app.quit();},onError:async error=>{await win.webContents.executeJavaScript('window.romdexShell?.desktopResume()',true).catch(()=>{});showWindow();await dialog.showMessageBox(win,{type:'error',title:'Local Save Needs Review',message:error.message});},onChange:rebuildTray});
+ rebuildTray();
+ ipcMain.handle('romdex:call',(event,method,args)=>{caller(event);validateCall(method,args);return rpc(method,args);});
+ ipcMain.handle('romdex:storage',(event,mode,key,value)=>{caller(event);if(!STORES.has(key)||!['load','save'].includes(mode)||JSON.stringify(value??null).length>16*1024*1024)throw Error('Invalid Storage Request.');return rpc('storage',[mode,key,value]);});
+ ipcMain.handle('romdex:attach',async(event,id)=>{caller(event);if(typeof id!=='string'||!/^((PMON-\d+)|(local-[-\w]+))$/.test(id))throw Error('Invalid Ticket.');const selection=await dialog.showOpenDialog(win,{title:'Attach Files to '+id,properties:['openFile','multiSelections']});if(selection.canceled)return [];if(selection.filePaths.length>10)throw Error('Choose Up to 10 Files.');return rpc('attach',[id,selection.filePaths]);});
+ ipcMain.handle('romdex:drop-files',(event,id,selection)=>{caller(event);validateTicket(id);validateNativeSelection(selection,{dropped:true});return rpc('attach',[id,selection,{dropped:true}]);});
+ const {DurableJSONStorage}=await import('../durable-json-storage.mjs'),exportConfig=new DurableJSONStorage(path.join(base,'export-destination.json'));
+ let exportDirectory=(await exportConfig.load())?.directory||path.join(base,'exports');
+ const exportStatus=()=>({name:path.basename(exportDirectory),desktop:true});
+ ipcMain.handle('romdex:export-status',event=>{caller(event);return exportStatus();});
+ ipcMain.handle('romdex:choose-export',async event=>{caller(event);const result=await dialog.showOpenDialog(win,{title:'Choose NPCDex Export Folder',properties:['openDirectory','createDirectory']});if(result.canceled)return null;exportDirectory=result.filePaths[0];await exportConfig.save({directory:exportDirectory});return exportStatus();});
+ const exportWrites=new Map();
+ ipcMain.handle('romdex:write-export',async(event,snapshot)=>{caller(event);if(snapshot?.version!==2||!Array.isArray(snapshot.towns)||JSON.stringify(snapshot).length>16*1024*1024)throw Error('Invalid NPCDex Export.');await fs.mkdir(exportDirectory,{recursive:true});const target=path.join(exportDirectory,'npcdex-agent-export.json');if(!exportWrites.has(target))exportWrites.set(target,new DurableJSONStorage(target));await exportWrites.get(target).save(snapshot);return true;});
+ appSession.setPermissionRequestHandler((_wc,_permission,callback)=>callback(false));
+ appSession.setPermissionCheckHandler(()=>false);
+ const contents=win.webContents;
+ rendererRecovery=new RendererRecovery({reload:()=>{if(!quitting&&!lifecycle.busy&&!win.isDestroyed())contents.reload();},onUnavailable:()=>tray.displayBalloon({title:'ROMDex Workspace Needs Review',content:'The save service is still separate from the window. Click the ROMDex tray icon to retry opening the workspace.',iconType:'warning'})});
+ contents.on('render-process-gone',()=>{if(quitting)return;shellReady=false;trayState.ready=false;rebuildTray();rendererRecovery.interrupted().catch(()=>{});});
+ contents.setWindowOpenHandler(({url})=>{try{shell.openExternal(externalURL(url)).catch(()=>{});}catch{}return {action:'deny'};});
+ contents.on('will-navigate',(event,url)=>{event.preventDefault();try{shell.openExternal(externalURL(url)).catch(()=>{});}catch{}});
+ contents.on('will-frame-navigate',(event,details)=>{const url=typeof details==='string'?details:details?.url||event.url;if(!trustedURL(url))event.preventDefault();});
+ app.on('web-contents-created',(_event,wc)=>{wc.on('will-attach-webview',event=>event.preventDefault());});
+ contents.on('will-prevent-unload',event=>{if(quitting)event.preventDefault();});
+ win.on('close',event=>{if(quitting)return;event.preventDefault();if(!tray){showWindow();return;}win.hide();if(!firstClose){firstClose=true;tray.displayBalloon({title:'ROMDex Is Still Running',content:'Sync follows your Auto-Sync setting. Click the ROMDex icon to return, or right-click it and choose Quit ROMDex to exit.',iconType:'info'});fs.writeFile(noticeFile,JSON.stringify({shown:true})).catch(()=>{});}if(shellReady)contents.executeJavaScript('window.romdexShell.desktopCheckpoint(false)',true).catch(()=>{});});
+ app.on('before-quit',event=>{if(!quitting){event.preventDefault();lifecycle.request();}});
+ app.on('will-quit',()=>{tray?.destroy();if(!service.worker||service.worker.romdexExited)lease?.release();});
+ powerMonitor.on('suspend',()=>{rpc('suspend').catch(()=>{});});
+ powerMonitor.on('resume',()=>{rpc('resume').catch(()=>{});});
+ await win.loadURL(ORIGIN+'/');win.setTitle('ROMDex — Desktop Preview · Migration Pending');win.show();
+ if(qa&&process.env.ROMDEX_QA_REPORT){global.romdexQA={get win(){return win;},get service(){return service;},get tray(){return tray;},runCommand,quit:()=>lifecycle.request(),trayTemplate:()=>trayTemplate({...trayState,run:runCommand,quit:()=>lifecycle.request()}),power:event=>powerMonitor.emit(event),stubMessages(){dialog.showMessageBox=async(_window,options)=>{this.lastMessage=options;return {response:0};};},forceExit(){service.worker?.kill();app.exit(1);},secondLaunch(){win.hide();return new Promise((resolve,reject)=>{const child=require('node:child_process').spawn(process.execPath,process.argv.slice(1).filter(x=>!x.startsWith('--inspect')&&!x.startsWith('--remote-debugging')),{env:process.env,windowsHide:true,stdio:'ignore'}),timer=setTimeout(()=>{child.kill();reject(Error('Second Instance Did Not Exit'));},10000);child.on('exit',code=>{clearTimeout(timer);setTimeout(()=>resolve({code,visible:win.isVisible(),utility:service.worker.pid}),100);});child.on('error',reject);});}};await fs.writeFile(process.env.ROMDEX_QA_REPORT,JSON.stringify({versions:process.versions,utilityVersions:readyInfo.versions,profile:base,pid:process.pid,utilityPid:service.worker.pid,fixture:readyInfo.fixture}));}
+}
+if(!hasInstance)app.quit();else app.whenReady().then(main).catch(async error=>{if(qa&&process.env.ROMDEX_QA_REPORT)await fs.writeFile(process.env.ROMDEX_QA_REPORT,JSON.stringify({error:error.message}));else dialog.showErrorBox('ROMDex Could Not Start',error.message);quitting=true;await service?.terminate().catch(()=>{});if(!service?.worker||service.worker.romdexExited)lease?.release();app.quit();});
+app.on('window-all-closed',()=>{if(quitting)app.quit();});

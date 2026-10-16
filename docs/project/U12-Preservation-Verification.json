@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-16T00:18:03.799Z",
+  "legacyReleaseOriginalFilesUnchanged": 91,
+  "legacyZIPUnchanged": true,
+  "legacyAdditions": [
+    "migration-format.mjs",
+    "migration-capture.html",
+    "migration-capture.css",
+    "migration-capture.mjs"
+  ],
+  "deliveryFilesVerified": 194,
+  "sourceMatchesDeliveryFiles": 119,
+  "privateCredentialsAndMigratedDataExcluded": true
+}

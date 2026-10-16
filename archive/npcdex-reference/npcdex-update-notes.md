@@ -1,0 +1,84 @@
+# NPCDex 2.42 · Clarified Review Category Rules
+
+A pending change with a flag but no note appears only in Changes. A flag/note without a pending change appears in Flags/Notes. A pending change with a note appears in both relevant categories, sharing one record. Critical flags remain visible on Changes cards. All pending tickets remain listed; underlying flags, notes and decisions are unchanged.
+
+# NPCDex 2.41 · Collapsible Review Menu and Rounded Dialog Bodies
+
+Review items are grouped under collapsed FLAGS/NOTES, CHANGES and FINALIZED, in that order; each category contains collapsed Tier 1 groups. FINALIZED reflects FINAL decisions separately from tester validation. Items with both feedback and a ticket appear as links in both relevant views. Prompt links navigate to inline controls; tile links open tile settings. Shared scrollable dialog bodies preserve rounded inner corners with inset scrollbar tracks. Data remains unchanged.
+
+# NPCDex 2.40 · Sequence Source References
+
+Removed the redundant dialogue-panel settings cog. Sequence Overview now ends with expandable Source / Script References, retaining sequence and selected-prompt targets, per-speaker prompt/block keys and original source/script metadata. Tile settings retain their scoped references. Prompt links from the review menu use the existing inline controls. Data is unchanged.
+
+# NPCDex 2.39 · Global Dialogue and Latest Review Reconciliation
+
+Shared messages now live under Global Dialogue once, with no regional duplicates. Stable IDs, review keys, source provenance, images and reversible history remain intact. Three review notes resolved; six ROM tickets and three Critical flags remain pending. Includes completed first-scene/Cameron corrections and offline Poké Ball favicon.
+
+# NPCDex 2.37 · Offline Poké Ball favicon
+
+Embedded a simple 16px pixel-art Poké Ball favicon directly in the HTML. No external asset or network request is needed. Dialogue data and review state are unchanged.
+
+# NPCDex 2.36 · Unset timeline-light contrast
+
+Unset timeline lights use lighter grey on red backgrounds, with a contrasting grey on the selected yellow background. Their 4px size, off state, status mapping and all other indicator colors/animations are preserved. Contrast is measured from browser-computed colors for normal, selected and hover states against a minimum 3:1 target.
+
+# NPCDex 2.35 · Timeline prompt status lights
+
+Existing 4px timeline dots now use the shared indicator primitive, status logic and animations, in dialogue/speaker order. Green requires FINAL and Verified/Inaccessible with no unresolved feedback; yellow fades, red blinks, grey is off. Other Conditions has a matching 4px aggregate light scoped to its available prompts. Updates refresh immediately after flags, notes, verification or status changes. Content and source data are unchanged.
+
+# NPCDex 2.34 · Latest tester export reconciliation
+
+Reclassified New Bark Town / Winds of a New Beginning under the Picture Sign using the tester’s notes. Archived the old unused reference, preserved source IDs and review identity, cleared two resolved annotations and reset affected validation. Retained all four unimplemented ROM tickets and their three Critical character flags. Includes 2.33 selector saturation reduction.
+
+# NPCDex 2.33 · Reduced saturation for inactive status choices
+
+Unselected FINAL/UPDATE/REMOVE selectors now use 50% saturation as well as 50% opacity when a choice is selected. Selected or unset choices retain full saturation. All choices remain clickable.
+
+# NPCDex 2.32 · Status selectors match tile tags
+
+FINAL/UPDATE/REMOVE choices now share the exact compact tag padding, height, typography, fill, border and radius. Selection leaves the active choice fully opaque and dims the other two to 50% while retaining click access. No selection restores all three. Critical UPDATE remains red. Control rows retain vertical alignment. Includes the completed 2.31 embedded receipt contract.
+
+# NPCDex 2.31 · Embedded agent handoff
+
+Exports now include the complete agent implementation-receipt contract, required schemas, examples, hash/patch rules, stable-ID/archive safeguards and ROM reversal instructions. Separate workflow handoff is optional. Existing receipt validation and reconciliation behavior are unchanged.
+
+# NPCDex 2.30 · Shared controls and aligned tile tags
+
+Consolidated status styles and common control dimensions. FINAL/UPDATE/REMOVE selectors use uppercase labels and the same color/typography tokens as frame tags. Tester and change-status controls align vertically. Tile tags anchor to the bottom with consistent padding. Tile settings actions, including Upload Image, share heights and styles. Scoped tile flag state is computed once per tile rather than repeatedly. Content, source IDs, images, feedback and change history are preserved.
+
+Validated computed control centers/heights, tag positioning, responsive widths 320–1440, flag/status behavior, exports and browser save/reopen.
+
+# NPCDex 2.29 · Standard Notes Suite
+
+Built after completed 2.28. Reusable shared flag/note/status renderers now drive dialogue and settings. Removed visible flag/Critical checkboxes, always-open Notes fields and status dropdowns from settings. Standard/Critical choices, expandable notes, Final/Update/Remove buttons and descriptions share one implementation. Edits update pending state immediately; closing retains typed notes/descriptions. Image/name drafts retain Apply Tile Changes. Verified/Inaccessible remains prompt-only. Critical Update tags/choices are red.
+
+Validated shared controls, prompt synchronization, immediate tile feedback, description exports, map scoping, pending-note retention, widths 320–1440, untouched production data and absence of script errors.
+
+# NPCDex 2.28 · Inline status and grey unset
+
+Moved prompt decisions beside verification. Description/proposal editors appear below Update/Remove. Added explicit unset/grey-off state. Removed Condition Notes and duplicate prompt-cog decisions. Critical Update tags/choices render red. Drafts without instructions remain saved but are not actionable implementation requests.
+
+# NPCDex 2.27 · Indicator size and centering
+
+Reduced content lenses from 9px to 7px to match the save indicator. The fixed 1.5px black/40% ring is separate from the animated lens and glow; both share one center. Colors, timing, full opacity and reduced-motion behavior are preserved. Content, script IDs, images, plans and annotations are unchanged.
+
+# NPCDex 2.26 · Sequential feature iterations
+
+2.19: Content & Saving layout.
+2.20: Settings/tag spacing.
+2.21: Remove manual linking and Shared Scene Handling.
+2.22: Prompt-only decisions, migration, conflict review and protected exports.
+2.23: Standard/Critical flag selection, colored flags and clear/reset behavior.
+2.24: Title Case button labels.
+2.25: Green/yellow/red light behavior and reduced-motion support.
+2.26: Combined validation, save/reopen checks and updated documentation.
+
+Existing content, images, source IDs and annotations are retained. See README for migration and review behavior.
+
+Final validation passed: source/index/images preservation, shared NPC names/images, matching prompt controls, migration conflicts and resolution history, colored flags and clearing, scroll retention, overwrite saving, browser reopening, export hashes, reduced-motion behavior, and dialogs at widths 320–1440. Clean previews are included.
+
+
+2.27 validation passed at display scales 1, 1.25 and 2: the 7px lenses match the save light, ring/lens centers remain identical in illuminated/off states, the fixed 1.5px ring does not animate, and reduced-motion support is intact. Content, annotations, images, plans, history and source IDs are unchanged.
+
+
+Final suite save/reopen check passed: flags, notes, instructions, hashes and red Critical Update styling persist. No unresolved build bug remains.

@@ -1,0 +1,14 @@
+{
+  "verifiedAt": "2026-10-15T20:16:22.853Z",
+  "checks": [
+    "Utility initialization opens no HTTP listener and restores Auto-Sync Off",
+    "Accepted notes, queued bytes and NPCDex recovery are durable independently of original attachment paths",
+    "Suspend/resume preserves the paused setting and pending operations",
+    "Orderly shutdown flushes local work without requiring successful remote synchronization",
+    "Utility initialization opens no HTTP listener and restores Auto-Sync Off",
+    "A fresh process restores pending notes, attachment bytes and NPCDex recovery"
+  ],
+  "bundledRuntime": "Electron 44.7.2 / Node 24.21.0",
+  "fixtureOnly": true,
+  "productionWrites": false
+}

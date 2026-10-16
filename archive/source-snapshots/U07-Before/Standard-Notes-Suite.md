@@ -1,0 +1,52 @@
+# Standard Notes Suite · Version 1
+
+This is the default UI for notes, flags and applicable change-status controls throughout NPCDex and future implementations of these features. Reuse `npcdex-standard-notes-suite.js`; do not reintroduce separate flag checkboxes, a Critical checkbox, always-open note fields, or a status dropdown.
+
+## Configuration
+
+1. **Feedback row:** Flag Prompt/Flag Item and Add Note/Edit Note. Optional Selected Line Only is available only where a passage can be selected.
+2. **Status row:** Verified/Inaccessible at the left where applicable; FINAL/UPDATE/REMOVE at the right. Tile/settings contexts without prompt verification show only change status. The selected status uses its corresponding color. Clicking it again clears it.
+3. **Change editor:** shown below the status row for Update/Remove. Use Change Description and optional Proposed Dialogue. Empty descriptions are saved as drafts, not actionable implementation requests.
+4. **Note editor:** Add Note/Edit Note expands a text box with Apply Note. Pending text is retained/flushed when moving away or closing settings.
+
+## Flags
+
+Click Flag Prompt/Flag Item to reveal the same two choices everywhere: Standard (yellow) and Critical (red). Choosing one replaces the button label with Flagged and applies the severity color to it and the corresponding tile icon. Clicking Flagged clears both the flag and its severity, permitting a fresh choice next time. A change ticket alone does not create a flag. Critical means work is blocked, for an error or a required change.
+
+An Update tag marked Critical is red. Its saved intent remains UPDATE; it is not a deletion. Controls and tags should use the same critical-update style.
+
+## Status and indicators
+
+FINAL/UPDATE/REMOVE are one mutually exclusive, toggleable choice. No selection is unset: dark-grey lens, no glow or animation. Inherited decisions and descendant readiness remain part of existing rollups. Critical flags and pending removals retain red priority. Green requires Final plus Verified/Inaccessible without unresolved feedback; unfinished/mixed content remains yellow. Grey is the default for entirely unset content.
+
+Prompt verification is independent of change intent and covers one consecutive speaker turn. Never add whole-event or whole-tile verification. Character/location/item tickets keep their existing scope; the suite must not silently convert them into prompt tickets. A scene's dialogue statuses are prompt-level, with no duplicate whole-event selector.
+
+## Persistence and layout
+
+Suite actions update pending data immediately and append history. Save Changes commits the browser snapshot and export. Settings' Close action retains suite text edits. Apply Tile Changes applies image/NPC-name drafts; it is not a second prerequisite for suite flags or notes.
+
+Reuse shared renderers: standardFlagControls, standardNoteButton, standardNoteEditor and standardStatusButtons; bind flag behavior with bindStandardFlagControls. Prefix component IDs to avoid collisions between dialogue and settings. Use common status-choice, flag-standard, flag-critical and critical-update classes. Use Title Case action labels; FINAL, UPDATE and REMOVE are always uppercase. Tags and selectors share status color/typography tokens. All settings actions share 34px control height, padding, border and alignment rules, including Upload Image. Tile tags anchor to the bottom of the tile. Use even gaps and responsive wrapping. Preserve scroll/focus during edits. Keep the 7px lens centered in its fixed 1.5px dark ring and honor reduced-motion preferences.
+
+Stable target IDs, script references, proposed text, drafts, conflict records and before/after history must remain intact. Presentation changes do not authorize ROM edits.
+
+## Compact status choices · 2.32
+
+Status choices reuse the frame-tag visual primitive, including its compact height and fill. The containing row supplies alignment space; selectors do not inherit the general action-button height. Selected choice is fully opaque; other choices are 50% opaque and remain interactive. Unset displays all at full opacity.
+
+Inactive status choices now use saturate(0.5) as well as opacity:0.5 when a status is selected. The selected choice stays fully saturated. Unset choices retain their standard full-color styling.
+
+## Timeline lights · 2.35
+
+Timeline lights use the shared content-light primitive with a 4px size, inset ring and restrained glow. Each light represents a consecutive speaker prompt in dialogue order for the current character/element, location and player gender. They follow the existing readiness rules: FINAL plus Verified/Inaccessible and clear feedback is green; unfinished is yellow; pending removal or Critical flags are red; unset is grey. Yellow fades, red blinks, green is steady, and reduced-motion settings disable animation. Other Conditions rolls up the same scoped prompts: red takes priority, entirely resolved is green, entirely unset is grey, mixed/unfinished is yellow. Counts on Other Conditions remain dialogue-condition counts, while lights represent speaker prompts.
+
+When no Additional Conditions apply, the aggregate light is green and the empty button remains disabled.
+
+Unset timeline lenses use #b8b8b8 on red buttons and #606060 on selected yellow buttons; other unset indicator lenses remain unchanged. The eight normal/selected/hover contrast checks range from 4.14:1 to 9.45:1; see npcdex-timeline-contrast-report.md.
+
+## Navigation and review index · 2.41
+
+The dialogue-panel settings cog is removed. Prompt feedback/status stays inline; expandable Source / Script References appears at the bottom of Sequence Overview. Tile Settings keeps its own scoped references. Review-menu headings FLAGS/NOTES, CHANGES and FINALIZED are collapsed by default, with collapsed Tier 1 groups inside each. FINALIZED means a FINAL decision, with tester status displayed separately. Feedback plus pending-ticket items may appear in both appropriate categories as links to the same record. Prompt links open inline controls; tile links open tile Settings. All modal content uses the shared rounded dialog-scroll body.
+
+## Review membership clarification · 2.42
+
+Pending CHANGE + FLAG without a diagnostic note appears only in CHANGES. FLAG + NOTE without a pending change appears in FLAGS/NOTES. FLAG + NOTE + CHANGE appears in both categories as views of one underlying record. Standalone flags and notes remain in FLAGS/NOTES. Line-only flags associated with their prompt change follow the same rule. Critical severity is visible on Changes cards. These rules supersede the broader dual-category behavior in 2.41; no saved data is duplicated or cleared.

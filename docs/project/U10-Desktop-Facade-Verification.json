@@ -1,0 +1,16 @@
+{
+  "checks": [
+    "Real desktop facade renders both retained workspaces from utility-owned durable state",
+    "Shared Save completes through desktop RPC while Auto-Sync remains Off",
+    "NPCDex accepted edits checkpoint through the native storage bridge",
+    "Desktop engine ownership preserves workspace switching context",
+    "Shared Save uses native NPCDex export and durable committed snapshot, then clears recovery",
+    "Incoming native updates reach the desktop facade while NPCDex is active",
+    "RPC edits persist before resolution and leave no phantom pending writes",
+    "Native selected attachment reaches the same durable queue without renderer filesystem paths",
+    "Renderer reload restores utility queue and native NPCDex committed data"
+  ],
+  "errors": [],
+  "verification": "Chromium UI with real service and native facade; graphical Electron acceptance remains separate",
+  "productionWrites": false
+}

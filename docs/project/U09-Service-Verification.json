@@ -1,0 +1,14 @@
+{
+  "version": "0.4.3",
+  "isolatedNoTokenStart": true,
+  "publicAssetsVerified": 42,
+  "oneEngineOwner": true,
+  "bothProvidersInitialized": true,
+  "localCheckpointWorks": true,
+  "manualFailureResultsIndependent": true,
+  "npcCloudReportedUnavailable": true,
+  "headerCorrectionPreserved": true,
+  "scriptPolicyPreserved": true,
+  "errors": [],
+  "productionWrites": false
+}

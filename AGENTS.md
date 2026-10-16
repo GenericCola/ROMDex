@@ -1,0 +1,3 @@
+# ROMDex Working Rules
+
+Follow the human-approved action checklist in docs/project. Complete one authorized task at a time and stop at the next PASSKEY boundary. Preserve current application Data, queued files and remembered credentials across builds. Never use archived seed/baseline data to overwrite newer saves. Keep credentials, live Data and private signing keys out of Git and release assets. Use the shared suite assets and keep NPCDex/ROMDex styling consistent. Run tests appropriate to each change, and record actual Windows/YouTrack checks separately from fixtures. Never enable Actions, billing, public release visibility or paid services without explicit authorization.

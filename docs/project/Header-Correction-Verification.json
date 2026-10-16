@@ -1,0 +1,392 @@
+{
+  "checks": [
+    "Global cog/menu removed; Save and connection move right by exactly the freed 36px, preserving brand/header/Save geometry",
+    "Reproduced baseline offset and verified centered 11px ring / 7px interior without optical offsets",
+    "Connection Details remains available from the light",
+    "Correct alignment and workspace switching work with either active title",
+    "Header remains aligned and contained at five viewport widths",
+    "Ring/lens and Save centers match at 100%, 125%, 150% and 200% CSS zoom"
+  ],
+  "geometries": [
+    {
+      "before": {
+        "save": {
+          "x": 1050.15625,
+          "y": 23.5,
+          "width": 131.84375,
+          "height": 34,
+          "cx": 1116.078125,
+          "cy": 40.5
+        },
+        "target": {
+          "x": 1182,
+          "y": 23.5,
+          "width": 24,
+          "height": 34,
+          "cx": 1194,
+          "cy": 40.5
+        },
+        "wrapper": {
+          "x": 1188.5,
+          "y": 35,
+          "width": 11,
+          "height": 11,
+          "cx": 1194,
+          "cy": 40.5
+        },
+        "light": {
+          "x": 1188.5,
+          "y": 38.25,
+          "width": 11,
+          "height": 11,
+          "cx": 1194,
+          "cy": 43.75
+        },
+        "border": [
+          "2px",
+          "2px",
+          "2px",
+          "2px"
+        ],
+        "fill": {
+          "width": "7px",
+          "height": "7px",
+          "top": "0px",
+          "left": "0px"
+        },
+        "header": {
+          "x": 14,
+          "y": 0,
+          "width": 1252,
+          "height": 84,
+          "cx": 640,
+          "cy": 42
+        },
+        "brand": {
+          "x": 89,
+          "y": 18.03125,
+          "width": 129.609375,
+          "height": 44.9375,
+          "cx": 153.8046875,
+          "cy": 40.5
+        }
+      },
+      "after": {
+        "save": {
+          "x": 1086.15625,
+          "y": 23.5,
+          "width": 131.84375,
+          "height": 34,
+          "cx": 1152.078125,
+          "cy": 40.5
+        },
+        "target": {
+          "x": 1218,
+          "y": 23.5,
+          "width": 24,
+          "height": 34,
+          "cx": 1230,
+          "cy": 40.5
+        },
+        "wrapper": {
+          "x": 1224.5,
+          "y": 35,
+          "width": 11,
+          "height": 11,
+          "cx": 1230,
+          "cy": 40.5
+        },
+        "light": {
+          "x": 1224.5,
+          "y": 35,
+          "width": 11,
+          "height": 11,
+          "cx": 1230,
+          "cy": 40.5
+        },
+        "border": [
+          "2px",
+          "2px",
+          "2px",
+          "2px"
+        ],
+        "fill": {
+          "width": "7px",
+          "height": "7px",
+          "top": "0px",
+          "left": "0px"
+        },
+        "header": {
+          "x": 14,
+          "y": 0,
+          "width": 1252,
+          "height": 84,
+          "cx": 640,
+          "cy": 42
+        },
+        "brand": {
+          "x": 89,
+          "y": 18.03125,
+          "width": 129.609375,
+          "height": 44.9375,
+          "cx": 153.8046875,
+          "cy": 40.5
+        }
+      }
+    },
+    {
+      "zoom": 1,
+      "save": {
+        "x": 1086.15625,
+        "y": 23.5,
+        "width": 131.84375,
+        "height": 34,
+        "cx": 1152.078125,
+        "cy": 40.5
+      },
+      "target": {
+        "x": 1218,
+        "y": 23.5,
+        "width": 24,
+        "height": 34,
+        "cx": 1230,
+        "cy": 40.5
+      },
+      "wrapper": {
+        "x": 1224.5,
+        "y": 35,
+        "width": 11,
+        "height": 11,
+        "cx": 1230,
+        "cy": 40.5
+      },
+      "light": {
+        "x": 1224.5,
+        "y": 35,
+        "width": 11,
+        "height": 11,
+        "cx": 1230,
+        "cy": 40.5
+      },
+      "border": [
+        "2px",
+        "2px",
+        "2px",
+        "2px"
+      ],
+      "fill": {
+        "width": "7px",
+        "height": "7px",
+        "top": "0px",
+        "left": "0px"
+      },
+      "header": {
+        "x": 14,
+        "y": 0,
+        "width": 1252,
+        "height": 84,
+        "cx": 640,
+        "cy": 42
+      },
+      "brand": {
+        "x": 89,
+        "y": 18.03125,
+        "width": 129.609375,
+        "height": 44.9375,
+        "cx": 153.8046875,
+        "cy": 40.5
+      }
+    },
+    {
+      "zoom": 1.25,
+      "save": {
+        "x": 1038.1875,
+        "y": 29.75,
+        "width": 164.3125,
+        "height": 42.5,
+        "cx": 1120.34375,
+        "cy": 51
+      },
+      "target": {
+        "x": 1202.5,
+        "y": 29.75,
+        "width": 30,
+        "height": 42.5,
+        "cx": 1217.5,
+        "cy": 51
+      },
+      "wrapper": {
+        "x": 1210.625,
+        "y": 44.125,
+        "width": 13.75,
+        "height": 13.75,
+        "cx": 1217.5,
+        "cy": 51
+      },
+      "light": {
+        "x": 1210.625,
+        "y": 44.125,
+        "width": 13.75,
+        "height": 13.75,
+        "cx": 1217.5,
+        "cy": 51
+      },
+      "border": [
+        "1.6px",
+        "1.6px",
+        "1.6px",
+        "1.6px"
+      ],
+      "fill": {
+        "width": "7.8px",
+        "height": "7.8px",
+        "top": "0px",
+        "left": "0px"
+      },
+      "header": {
+        "x": 17.5,
+        "y": 0,
+        "width": 1245,
+        "height": 105,
+        "cx": 640,
+        "cy": 52.5
+      },
+      "brand": {
+        "x": 111.25,
+        "y": 22.90625,
+        "width": 162,
+        "height": 56.1875,
+        "cx": 192.25,
+        "cy": 51
+      }
+    },
+    {
+      "zoom": 1.5,
+      "save": {
+        "x": 990.234375,
+        "y": 35.5,
+        "width": 196.765625,
+        "height": 51,
+        "cx": 1088.6171875,
+        "cy": 61
+      },
+      "target": {
+        "x": 1187,
+        "y": 35.5,
+        "width": 36,
+        "height": 51,
+        "cx": 1205,
+        "cy": 61
+      },
+      "wrapper": {
+        "x": 1196.75,
+        "y": 52.75,
+        "width": 16.5,
+        "height": 16.5,
+        "cx": 1205,
+        "cy": 61
+      },
+      "light": {
+        "x": 1196.75,
+        "y": 52.75,
+        "width": 16.5,
+        "height": 16.5,
+        "cx": 1205,
+        "cy": 61
+      },
+      "border": [
+        "2px",
+        "2px",
+        "2px",
+        "2px"
+      ],
+      "fill": {
+        "width": "7px",
+        "height": "7px",
+        "top": "0px",
+        "left": "0px"
+      },
+      "header": {
+        "x": 21,
+        "y": 0,
+        "width": 1238,
+        "height": 126,
+        "cx": 640,
+        "cy": 63
+      },
+      "brand": {
+        "x": 133.5,
+        "y": 27.28125,
+        "width": 194.40625,
+        "height": 67.421875,
+        "cx": 230.703125,
+        "cy": 60.9921875
+      }
+    },
+    {
+      "zoom": 2,
+      "save": {
+        "x": 948.890625,
+        "y": 47,
+        "width": 263.6875,
+        "height": 68,
+        "cx": 1080.734375,
+        "cy": 81
+      },
+      "target": {
+        "x": 1212.578125,
+        "y": 47,
+        "width": 48,
+        "height": 68,
+        "cx": 1236.578125,
+        "cy": 81
+      },
+      "wrapper": {
+        "x": 1225.578125,
+        "y": 70,
+        "width": 22,
+        "height": 22,
+        "cx": 1236.578125,
+        "cy": 81
+      },
+      "light": {
+        "x": 1225.578125,
+        "y": 70,
+        "width": 22,
+        "height": 22,
+        "cx": 1236.578125,
+        "cy": 81
+      },
+      "border": [
+        "2px",
+        "2px",
+        "2px",
+        "2px"
+      ],
+      "fill": {
+        "width": "7px",
+        "height": "7px",
+        "top": "0px",
+        "left": "0px"
+      },
+      "header": {
+        "x": 28,
+        "y": 0,
+        "width": 1224,
+        "height": 168,
+        "cx": 640,
+        "cy": 84
+      },
+      "brand": {
+        "x": 178,
+        "y": 36.046875,
+        "width": 259.203125,
+        "height": 89.890625,
+        "cx": 307.6015625,
+        "cy": 80.9921875
+      }
+    }
+  ],
+  "errors": [],
+  "productionWrites": false
+}

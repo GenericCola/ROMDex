@@ -1,0 +1,16 @@
+{
+  "verifiedAt": "2026-10-15T20:47:41.263Z",
+  "oldDesktopFilesUnchanged": 178,
+  "protectedBaselineFiles": 104,
+  "legacyWebReleaseFilesUnchanged": 91,
+  "legacyZIPUnchanged": true,
+  "newDeliveryFilesVerified": 184,
+  "sourceMatchesDeliveryFiles": 109,
+  "deliveryBytes": 396153838,
+  "rememberedCredentialCiphertextUnchanged": true,
+  "liveWebVersion": "0.4.3",
+  "liveWebConnectionRemembered": true,
+  "liveWebDataAuthoritative": true,
+  "noMigrationPerformed": true,
+  "productionWrites": false
+}

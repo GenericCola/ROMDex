@@ -1,0 +1,199 @@
+{
+  "capturedAt": "2026-10-15T03:44:41.013Z",
+  "npcdex": {
+    "revision": 72,
+    "format": 2,
+    "exportBytes": 13221699,
+    "exportSHA256": "7923531bac40b300137c270ce0a03f75b75a945693d4033263986775eff7ef51",
+    "compactJsonBytes": 9915298,
+    "gzipOriginalBytes": 3843217,
+    "gzipCompactBytes": 3751023,
+    "largestRecords": {
+      "towns": 555912,
+      "history": 2450359,
+      "annotations": 1457,
+      "changePlans": 17669,
+      "changeRequests": 18550,
+      "sourceBaselines": 364417
+    },
+    "topLevel": {
+      "version": {
+        "jsonBytes": 1,
+        "entries": null
+      },
+      "towns": {
+        "jsonBytes": 1331511,
+        "entries": 4
+      },
+      "stages": {
+        "jsonBytes": 752,
+        "entries": 10
+      },
+      "index": {
+        "jsonBytes": 91843,
+        "entries": 446
+      },
+      "sources": {
+        "jsonBytes": 192,
+        "entries": 6
+      },
+      "sourceBaseline": {
+        "jsonBytes": 170852,
+        "entries": 5
+      },
+      "provenance": {
+        "jsonBytes": 379,
+        "entries": 3
+      },
+      "app": {
+        "jsonBytes": 8,
+        "entries": null
+      },
+      "annotations": {
+        "jsonBytes": 56240,
+        "entries": 85
+      },
+      "preferences": {
+        "jsonBytes": 17,
+        "entries": 1
+      },
+      "annotationFormat": {
+        "jsonBytes": 554,
+        "entries": 6
+      },
+      "savedAt": {
+        "jsonBytes": 26,
+        "entries": null
+      },
+      "revision": {
+        "jsonBytes": 2,
+        "entries": null
+      },
+      "migrations": {
+        "jsonBytes": 70,
+        "entries": 3
+      },
+      "identificationCorrections": {
+        "jsonBytes": 361,
+        "entries": 1
+      },
+      "reconciliations": {
+        "jsonBytes": 83147,
+        "entries": 6
+      },
+      "sourceBaselines": {
+        "jsonBytes": 543866,
+        "entries": 2
+      },
+      "buildVersion": {
+        "jsonBytes": 6,
+        "entries": null
+      },
+      "contentRevision": {
+        "jsonBytes": 1,
+        "entries": null
+      },
+      "importedExportRevision": {
+        "jsonBytes": 2,
+        "entries": null
+      },
+      "characterImages": {
+        "jsonBytes": 63916,
+        "entries": 15
+      },
+      "changePlans": {
+        "jsonBytes": 63910,
+        "entries": 44
+      },
+      "history": {
+        "jsonBytes": 7440108,
+        "entries": 145
+      },
+      "implementationReceipts": {
+        "jsonBytes": 2,
+        "entries": 0
+      },
+      "liveMappings": {
+        "jsonBytes": 2,
+        "entries": 0
+      },
+      "characterNames": {
+        "jsonBytes": 2880,
+        "entries": 50
+      },
+      "changeFormat": {
+        "jsonBytes": 250,
+        "entries": 6
+      },
+      "romReversalResolutions": {
+        "jsonBytes": 2,
+        "entries": 0
+      },
+      "exportSchema": {
+        "jsonBytes": 21,
+        "entries": null
+      },
+      "changeRequests": {
+        "jsonBytes": 42637,
+        "entries": 6
+      },
+      "romReversalRequests": {
+        "jsonBytes": 2,
+        "entries": 0
+      },
+      "legacyChangePlans": {
+        "jsonBytes": 3023,
+        "entries": 2
+      },
+      "decisionConflicts": {
+        "jsonBytes": 2,
+        "entries": 0
+      },
+      "interfaceBuild": {
+        "jsonBytes": 6,
+        "entries": null
+      },
+      "promptStatusUnset": {
+        "jsonBytes": 2,
+        "entries": 0
+      },
+      "standardNotesSuite": {
+        "jsonBytes": 30,
+        "entries": 2
+      },
+      "changeDrafts": {
+        "jsonBytes": 2,
+        "entries": 0
+      },
+      "agentHandoff": {
+        "jsonBytes": 17625,
+        "entries": 6
+      },
+      "globalDialogue": {
+        "jsonBytes": 386,
+        "entries": 6
+      }
+    },
+    "embeddedFileReferences": 159,
+    "embeddedDecodedBytesIncludingDuplicates": 2961295,
+    "embeddedEncodedBytesIncludingDuplicates": 3952069,
+    "uniqueEmbeddedFiles": 39,
+    "uniqueEmbeddedDecodedBytes": 541023,
+    "largestEmbeddedFileBytes": 75755,
+    "mimeCounts": {
+      "image/png": 37,
+      "image/jpeg": 1,
+      "image/webp": 1
+    }
+  },
+  "romdex": {
+    "savedRemoteItems": 299,
+    "pendingOperations": 0,
+    "workspaceBytes": 1333153,
+    "metadataJsonBytes": 41639,
+    "orderKeys": 104,
+    "selectorImages": 0,
+    "assignedStatusEntries": 317
+  },
+  "sourceStable": true
+}

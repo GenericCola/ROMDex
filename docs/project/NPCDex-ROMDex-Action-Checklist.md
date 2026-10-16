@@ -1,0 +1,343 @@
+# ROMDex — Desktop and Add-on Action Checklist
+
+**Started:** October 14, 2026.  
+**Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
+**Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
+
+## Completed Foundation
+
+- [x] **U01 — Baseline Inventory and Protected Backups** — Sol / Medium. Completed October 14; [inventory and verification](U01-Baseline-Inventory.md).
+
+## ROMDex Enhancements Before Launcher Development
+
+- [x] **R01 — Details Opening and Context-Sensitive TAB** — Sol / Medium. Completed October 14; [completion report](R01-Completion-Report.md).
+- [x] **R02 — Compact Four-Tier Selector Tiles and Exclusive Expansion** — Sol / Medium. Completed October 14; [completion report](R02-Completion-Report.md).
+- [x] **R03 — Toolbar, ESC Behavior, and In Development Status** — Sol / Medium. Completed October 14; [completion report](R03-Completion-Report.md).
+- [x] **R04 — Dense Rows and Checkbox Selection** — Sol / High. Completed October 14; [completion report](R04-Completion-Report.md).
+- [x] **R05 — Same-Parent Grouping and Bulk Drag** — Sol / Extra High. Completed October 14; [completion report](R05-Completion-Report.md).
+- [x] **R06 — Full Edit Menu and All Editable PMON Fields, Including Tags** — Sol / High. Completed October 14; [completion report](R06-Completion-Report.md).
+- [x] **R07 — YouTrack Attachments and Previews** — Sol / High. Completed October 14; [completion report](R07-Completion-Report.md).
+- [x] **R08 — Enhancement QA and Release** — Sol / High. Completed October 14; [completion report](R08-Completion-Report.md).
+
+## Phase 0 — Remaining Architecture and Design
+
+- [x] **U02 — Desktop Host and Distribution Design** — Sol / High. Completed and user-approved October 14; [design](U02-Desktop-Host-and-Distribution-Design.md), [report](U02-Completion-Report.md).
+- [x] **U03 — Free Cloud Provider Comparison** — Sol / High. Completed and user-approved October 14; [YouTrack-first comparison](U03-Free-Cloud-and-YouTrack-Storage-Comparison.md), [report](U03-Completion-Report.md).
+- [x] **U04 — Data Ownership and Synchronization Contracts** — Astra / High. Completed and user-approved October 15; [contract](U04-Data-Ownership-and-Synchronization-Contracts.md), [report](U04-Review-Report.md).
+- [x] **U05 — Shared Header and Control Layout Review** — Sol / High. Completed and user-approved October 15; [footer placeholder and circle-order correction](U05-Review-Report.md).
+
+## Side Commit Before Phase 1
+
+- [x] **S01 — Attachment Controls and Startup Scope** — Sol / High. Completed October 15 in ROMDex 0.4.1; [report](S01-Completion-Report.md), [live verification](S01-Live-Verification.json).
+
+## Phase 1 — Combined Interfaces
+
+- [x] **U06 — Shared Theme and Approved Header** — Sol / Medium. Completed October 15; header workspace button at 80% control height, no footer, shared assets and red → yellow → green lamps. [Completion report](U06-Completion-Report.md).
+- [x] **U07 — Relocate NPCDex Controls** — Sol / Medium. Completed October 15; [report](U07-Completion-Report.md).
+- [x] **U08 — Tool Switching and Preserved Workspace Context** — Sol / High. Completed October 15 in ROMDex 0.4.2; [report](U08-Completion-Report.md).
+- [x] **H01 — Header Cog Removal and Connection Alignment** — Completed October 15; [report](Header-Correction-Report.md).
+- [x] **U09 — Shared Save and Auto-Sync Coordination** — Sol / High. Completed October 15 in ROMDex 0.4.3; [report](U09-Completion-Report.md).
+
+## Phase 2 — Windows Desktop
+
+- [x] **U10 — Native Desktop Window and Local Service** — Sol / High. Completed October 15; [desktop preview report](U10-Completion-Report.md).
+- [x] **U10F — Desktop File Drop Attachments** — Sol / High. Completed October 15; [report](U10F-Completion-Report.md). After U10, before U11; reuse the native adapters and existing upload queue. [Scope](Desktop-File-Drop-Attachments-Plan.md).
+- [x] **UX01 — Application Command Placement Review** — Sol / Medium. User-approved October 15; existing header retained, application commands assigned to the Windows tray menu. [Approved placement](UX01-Application-Command-Placement-Proposal.md), [report](UX01-Completion-Report.md).
+- [x] **U11 — Tray Lifecycle and Orderly Quit** — Sol / High. Completed October 15 in 0.5.0-preview.11; approved tray commands, renderer/utility recovery, profile ownership and original Pokédex app icon. [Report](U11-Completion-Report.md).
+- [x] **U12 — Persistent Profile and Current-Data Migration** — Sol / High. Completed October 15 in 0.5.0-preview.12; current saves and protected connection migrated, live and build-folder restart checks passed. [Report](U12-Completion-Report.md).
+- [x] **U13A — Windows Installer and Upgrade/Uninstall Preservation** — Sol / Medium. Completed October 15 in installed ROMDex 0.5.2; current saves and protected connection verified, Data retained on uninstall. [Completion report](U13A-Completion-Report.md).
+- [ ] **U13B — Approved Update Notifications and Installation** — Sol / High. Trusted release metadata/download verification and safe handoff; separate PASSKEY after U13A.
+
+## Phase 3 — Cloud Persistence
+
+- [ ] **U14 — Private YouTrack Storage and Access Rules** — Sol / High. Check actual plan/space/limits/permissions; no billing or unapproved global changes.
+- [ ] **U15 — Previewed NPCDex Cloud Import** — Sol / High.
+- [ ] **U16 — Durable Incoming/Outgoing Sync** — Sol / Extra High.
+- [ ] **U17 — Concurrent Edits and Conflict Review** — Sol / Extra High.
+- [ ] **U18 — ROMDex Workspace Metadata Sync** — Sol / High.
+- [ ] **U19 — Combined Sync Controls and Indicators** — Sol / High.
+
+## Phase 4 — Requests and Tickets
+
+- [ ] **U20 — Required User-Story and Ticket Workflow Review** — Sol / Medium. Grouping/creation policy remains deferred until this checkpoint.
+- [ ] **U21 — Approved Publishing and Linking Workflow** — Sol / High.
+- [ ] **U22 — Linked Navigation and Native YouTrack Changes** — Sol / High.
+
+## Phase 5 — Agent Delivery and Receipts
+
+- [ ] **U23 — Agent Access, Delivery, and Contract Review** — Sol / High.
+- [ ] **U24 — Request Retrieval and Durable Receipt Inbox** — Sol / High.
+- [ ] **U25 — Automatic Validated Receipt Reconciliation** — Astra / High.
+- [ ] **U26 — Human Review and Controlled Resolution** — Sol / High.
+- [ ] **U27 — Undo, Reversal, and Approved Completion Policy** — Sol / High.
+
+## Phase 6 — Final Review and Release
+
+- [ ] **U28 — Integrated Failure and Concurrency Review** — Astra / High.
+- [ ] **U29 — Guided Live-Workspace Acceptance** — Sol / High.
+- [ ] **U30 — Verified Installer and Handoff Documentation** — Sol / Medium.
+
+## Completion Records
+
+Record task deliverables, verification, limitations, and the next approval boundary here as tasks finish. Current application data must be refreshed at each later migration gate; this initial backup must never overwrite newer work automatically.
+
+### U01 — Completed October 14, 2026
+
+- [x] Created the 38-task checklist in approved execution order, including R01–R08 before launcher work.
+- [x] Identified NPCDex's authoritative Downloads package: saved revision 72; development revision 64 remains reference only.
+- [x] Identified the live ROMDex 0.3 release and shared persistent profile; recorded browser/local/server storage boundaries and existing receipt contracts.
+- [x] Captured protected source, working-data, profile, shared-asset, historical-selector, and release backups.
+- [x] Verified 165 file hashes, 15 JSON files, all 6 request hashes, stable profile capture, and all 49 ROMDex release ZIP contents.
+- [x] Documented recovery paths, DPAPI credential handling, and fresh-snapshot requirements for later migrations.
+
+U01's completion boundary was R01, subsequently authorized and completed below.
+
+### R01 — Completed October 14, 2026
+
+- [x] Automatic Details reopening from Work items and Notes.
+- [x] Context-sensitive TAB mode cycle, reachable in Expanded mode.
+- [x] New/existing inline-name nesting and outdenting with editor preservation.
+- [x] Normal TAB retained in forms, notes, and menus; multi-selection routing reserved for later tasks.
+- [x] Passed 127 tests, 27 module syntax checks, and focused isolated browser checks.
+- [x] Installed and hash-verified the frontend patch in the running build; connection preserved.
+
+R01's completion boundary was R02, subsequently authorized and completed below.
+
+### R02 — Completed October 14, 2026
+
+- [x] Removed picture areas; retained saved images and Tile Settings access.
+- [x] Reduced tiles to 48 px with single-line ellipsis and full-name tooltips.
+- [x] Added Saga and the confirmed existing-depth mapping; Tray 1 stops at Tier 4 Verse.
+- [x] Enforced one open Epic/Saga/Story path with stale-state normalization and persistent collapse.
+- [x] Preserved unrestricted Work Pane hierarchy and expansion.
+- [x] Passed 140 tests, 29 syntax checks, focused fixture checks, and live served-file verification.
+
+R02's completion boundary was R03, subsequently authorized and completed below. R04 remains unapproved.
+
+### R03 — Completed October 14, 2026
+
+- [x] Moved Add Item into the toolbar and completed filter to the right.
+- [x] Added yellow filter styling and grey/red filtering indicator; both controls are 29 px high.
+- [x] Added ESC clear-selection/focus and Collapsed ↔ Default behavior, preserving selector scope.
+- [x] Preserved notes and in-session per-item unsent comments when clearing selection.
+- [x] Added purple In Development, final menu order, and red-over-purple inheritance.
+- [x] Passed 149 tests, 31 syntax checks, and focused desktop/narrow-layout fixture checks.
+- [x] Restarted service; verified native In Development State, healthy connection, and remembered credentials.
+- [x] Finished the completion report and checked off R03. Next: R04 — Dense Rows and Checkbox Selection, Sol / High; await a new PASSKEY.
+
+
+### R04 — Completed October 14, 2026
+
+- [x] Fixed grab/checkbox gutter and ordered indented triangle, status, title, Notes and ID.
+- [x] Added toggle, Ctrl additive, Shift visible-range and Ctrl+Shift selection; checked boxes remain visible.
+- [x] Added single/multiple Details transitions and safe editor/draft handling.
+- [x] Integrated ESC and scope/filter/collapse/native visibility pruning with session-only selection.
+- [x] Adjusted nesting insertion-guide offset for the fixed gutter.
+- [x] Passed 156 tests, 33 syntax checks and focused desktop/narrow isolated browser checks.
+- [x] Delivered and HTTP/hash verified the frontend patch; live saved connection remains healthy.
+
+R04 is complete. Next: R05 — Same-Parent Grouping and Bulk Drag, Sol / Extra High. Await a new PASSKEY.
+
+### R05 — Completed October 14, 2026
+
+- [x] Corrected checkbox/background/Notes behavior: only names reopen collapsed Details.
+- [x] Added named TAB grouping with blank/cancel/repeated-submission protection.
+- [x] Added same-parent bulk dragging, stable ordering and destination-level feedback.
+- [x] Verified complete selected-parent subtrees retain descendant relationships and data.
+- [x] Added durable groups, native preflight, progress, mapping and partial-failure recovery.
+- [x] Preserved confirmed changes/unrelated notes when cancelling; guarded uncertain creation and queued/in-flight deletion.
+- [x] Added 1,000-operation batching and efficient local queue validation.
+- [x] Passed 170 tests, 36 syntax checks, actual isolated browser grouping/drag and final live build/file verification.
+- [x] Verified the final restart reused the saved connection and retained Auto-Sync.
+
+R05 is complete. Next: R06 — Full Edit Menu, Assignee and Due Date, Sol / High. Await a new PASSKEY.
+
+### R06 — Completed October 14, 2026
+
+- [x] Replaced hover Rename with full Edit Item; retained double-click/F2 inline rename.
+- [x] Added eligible Assignee, date-only Due Date, all editable PMON custom fields, and existing ticket tags.
+- [x] Preserved untouched native values, local parent assignment, typed input, form Tab, and collapsed Details.
+- [x] Added independent field reconciliation, nullable baselines, and recoverable partial tag updates.
+- [x] Protected calculated Spent Time, including the metadata variation found in live verification.
+- [x] Passed 184 automated tests, 42 syntax checks, and focused desktop/narrow isolated browser checks.
+- [x] Verified final running build identity, eight served files, actual PMON metadata, and remembered connection/Auto-Sync.
+- [x] Recorded the completion report and preserved original releases, profile, and protected baselines.
+
+R06 is complete. Next: R07 — YouTrack Attachments and Previews, Sol / High. Await a new PASSKEY.
+
+### R07 — Completed October 14, 2026
+
+- [x] Added the name-adjacent paperclip, Details/Edit attachment controls, file lists and raster previews.
+- [x] Verified original-byte downloads and pixelated image rendering.
+- [x] Added durable browser/disk staging, paused uploads, manual-save processing and new-ticket mapping.
+- [x] Added exact-content recovery, ambiguous/native-rename review and duplicate-safe journaling.
+- [x] Added queued-upload cancellation and durable cleanup without removing native files.
+- [x] Preserved name-only Details reopening; verified notes, checkbox and paperclip behavior.
+- [x] Passed 207 tests, 48 syntax checks and focused isolated desktop/narrow browser checks.
+- [x] Verified final running identity, eight served files, live attachment-list access, and preserved connection/Auto-Sync.
+- [x] Recorded the production upload/download verification limit: PMON has no existing attached tickets, and QA used controlled files.
+
+R07 is complete. Next: R08 — Enhancement QA and Release, Sol / High. Await a new PASSKEY.
+
+### R08 — Completed October 14, 2026
+
+- [x] Reviewed all eight enhancements and confirmed hierarchy, keyboard, selection and status clarifications together.
+- [x] Fixed late staging after upload cancellation and unified Work toolbar action heights.
+- [x] Passed 207 extracted-package tests, 51 module syntax checks, launcher parse and isolated startup/assets verification.
+- [x] Completed focused combined browser QA and controlled real YouTrack two-way field/file/conflict/subtree checks.
+- [x] Cleaned the four marked QA tickets; retained all 299 original issue IDs.
+- [x] Produced the 69-file 0.4 ZIP, independently verified hashes, manifest, QA report and recovery guide.
+- [x] Verified the new running installation/build and 28 served resources; saved credential ciphertext, connection and Auto-Sync retained, with no pending or blocked work.
+- [x] Refreshed and verified the protected 47-file checkpoint, including NPCDex saved revision 72; preserved immutable U01 backups.
+
+R01–R08 are complete. Next: **U02 — Desktop Host and Distribution Design, Sol / High**. Await a new PASSKEY; no U02 work has begun.
+
+
+### U02 — Completed October 14, 2026
+
+- [x] Compared desktop hosts against the actual HTML/CSS/JS and Node sources using official documentation.
+- [x] Obtained explicit approval for Electron/Forge/Squirrel, the background service and separate durable profile.
+- [x] Confirmed ROMDex branding, NPCDex as an add-on, Notify and Ask application updates and unsigned private testing.
+- [x] Defined tray lifecycle, scoped tool views, native access, credential/file migration and recovery boundaries.
+- [x] Added release-hosting analysis to U03 and separated U13A/U13B with individual PASSKEYs.
+- [x] Updated planning records and verified release-file hashes/local links without altering application data or code.
+
+Next: **U03 — Free Cloud Provider Comparison, Sol / High**. Await a new PASSKEY.
+
+
+### U03 — Completed October 14, 2026
+
+- [x] Measured current NPCDex/ROMDex data, historical images, compression and cloud metadata without upload.
+- [x] Compared free providers, actual inactivity/deletion policies, backup options and no-billing eligibility using official sources.
+- [x] Incorporated the user's YouTrack-storage proposal and one/two-user scale, ten at the extreme.
+- [x] Obtained explicit approval for YouTrack-first workspace storage and private release delivery, with private GitHub only as a conditional fallback.
+- [x] Recorded the U04 concurrency/publication proof and U14 plan/space/access/limit gates; no live provisioning assumed.
+- [x] Updated plans/scope and verified measurement round-trips, document links and unchanged release hashes.
+
+Next: **U04 — Data Ownership and Synchronization Contracts, Astra / High**. Await a new PASSKEY.
+
+
+### U04 — Completed and User-Approved, October 15, 2026
+
+- [x] Define ownership, identity, publication, discovery, durable queues, merge/receipt rules, limits, retention, access and migration gates.
+- [x] Exercise 43 local model scenarios, including 120 delivery permutations; verify six existing request/baseline hash pairs and unchanged released files.
+- [x] Produce the [contract](U04-Data-Ownership-and-Synchronization-Contracts.md) and [review report](U04-Review-Report.md); no live implementation or migration.
+- [x] Obtained explicit user acceptance of versioned saves, eventual consistency and whole-receipt review when later offline conflicts arrive.
+- [x] Marked U04 complete after user approval; recommended U05, Sol / High. Await its separate PASSKEY.
+
+
+### U05 — Completed and User-Approved, October 15, 2026
+
+- [x] Inspect existing NPCDex/ROMDex header assets and approved control placements.
+- [x] Produce initial comparison, then revise to the user-directed [Footer Workspace Menu](U05-Shared-Header-and-Control-Layout-Proposal.md); both header switchers are rejected.
+- [x] Verify geometry, original assets, fonts, controls and five responsive widths; confirm 69 release files unchanged.
+- [x] Add S01 before U06 for the three user-requested attachment/startup changes; record Sol / High and its separate approval gate.
+- [x] Confirm preserved view state means between workspaces in this app; verify footer menu dismissal, keyboard navigation and retained setting.
+- [x] Obtain approval of the footer menu as a development placeholder; record red → yellow → green decorative circles for U06 and mark U05 complete.
+- [x] Recommend S01, Sol / High. Await its PASSKEY; U06 follows S01 under another PASSKEY, Sol / Medium.
+
+
+### S01 — Completed October 15, 2026
+
+- [x] Lighten the paperclip and match the Notes icon footprint/color.
+- [x] Add named attachment Delete, durable queued/manual processing, cancellation and changed-file/interrupted-response recovery.
+- [x] Refresh attachment lists/paperclips and invalidate removed-file previews.
+- [x] Default fresh launches to All Tasks, preserving other preferences and in-session scope.
+- [x] Pass 227 tests, 52 syntax checks, 11 focused browser checks, 70 ZIP-entry checks and isolated startup/28 served-asset checks.
+- [x] User launched 0.4.1; verify running identity, saved connection, real disposable-file deletion/replay/neighbor bytes, QA cleanup and all original issue IDs.
+- [x] Preserve 0.4, protected baselines and credential ciphertext; record the [completion report](S01-Completion-Report.md).
+
+Next: **U06 — Shared Theme and Approved Header, Sol / Medium**. Await a new PASSKEY. No U06 implementation has begun.
+
+
+## U06 — Completed October 15, 2026; Header Placement Supersedes Footer
+
+The user authorized U06 and moved the placeholder workspace switcher into the header, immediately left of the top-right controls, at 80% of their height. This supersedes all earlier footer-only instructions and illustrations; no footer space is reserved. U06 is complete in **0.4.1 + U06**: shared theme/header/assets, red → yellow → green decorative lamps, connection-light access and capability-gated settings. Verified 227 tests, 319 syntax checks, 20 focused/regression browser checks, original brand/Save geometry and 7 live-served assets. Credentials, Auto-Sync, NPCDex files, protected baseline and original ZIP remain preserved; no production YouTrack writes. [Completion report](U06-Completion-Report.md), [patch manifest](U06-Patch-Manifest.json). NPCDex is listed but disabled until U08 supplies its workspace. Next: **U07 — Relocate NPCDex Controls, Sol / Medium**, under a new PASSKEY.
+
+
+
+## U07 — Completed October 15, 2026; File Drop Scheduled
+
+U07's PASSKEY authorized NPCDex control relocation. Flags & Notes is above Tray 1 selectors; Male/Female is immediately left of the Inventory cog in Tray 2; Data opens from Inventory Settings. The working source is **outputs/NPCDex**, staged for U08 integration. All 12 focused browser/preservation checks and 8 syntax checks passed; original Downloads files, current saved export and ROMDex credentials/installation remain unchanged. Current saved revision 72 was used only in isolated before/after QA; the packaged dataset remains untouched. [Report](U07-Completion-Report.md).
+
+The user requested Explorer/desktop file drops onto tickets, permitting deferral to avoid duplication. Schedule **U10F — Desktop File Drop Attachments, Sol / High**, immediately after U10's native host/file adapters and before U11. Reuse existing attachment queue and validation; preserve hierarchy dragging. [Feature scope](Desktop-File-Drop-Attachments-Plan.md). Separate PASSKEY required.
+
+Next: **U08 — Tool Switching and Preserved Workspace Context, Sol / High**, awaiting its own PASSKEY.
+
+
+## U08 — Completed October 15, 2026; Combined Browser Build 0.4.2
+
+The authorized task connected ROMDex and NPCDex through the red header menu. Separate retained documents preserve scopes, filters, scroll, checkbox selection, pane layout, cursor positions, unfinished text and open modal forms. Workspace switches do not commit drafts. NPCDex's embedded first-launch baseline exactly matches the current saved revision 72; the old standalone database, Downloads package and exported save remain preserved. A distinct integrated NPCDex browser database avoids silently adopting an unrelated old-origin save.
+
+The user launched **outputs/ROMDex-v0.4.2/ROMDex** and live GET-only verification confirmed version/build/installation identity, remembered YouTrack connection, unchanged credential ciphertext and 38 served assets. Passed 227 automated tests, 15 browser checks, 57 syntax checks, real-service content-policy/failure/retry/image-import checks and 84 package hashes. [Completion report](U08-Completion-Report.md), [live record](U08-Live-Verification.json).
+
+The header temporarily forwards existing manual save actions; NPCDex remains manual/local and its cloud connection is not claimed. U09 supplies the formal shared durable/headless coordinator. **Next: U09 — Shared Save and Auto-Sync Coordination, Sol / High**, under a new PASSKEY. U10F file-drop attachments remains after U10, before U11.
+
+
+## H01 — Header Correction, October 15, 2026
+
+The user directly requested removing the application header cog, documenting its commands for later placement, and correcting the connection light. Implemented in **0.4.2 + H01**: no cog/menu or reserved space, Save/connection shifted right 36 px, actual light/ring centered by eliminating a 3.25 px text-baseline displacement. Six focused browser checks passed; changed assets were verified from the running service. Refresh only; no restart or token entry. [Report](Header-Correction-Report.md), [command inventory](Deferred-Application-Commands.md), [patch overlay](Header-Correction-Patch-Manifest.json).
+
+This supersedes prior header-cog placement instructions. Connection Details remains on the light; no substitute home has been chosen for the other commands. **UX01 — Application Command Placement Review, Sol / Medium**, is pending before U11. U09 remains pending under a separate PASSKEY, Sol / High.
+
+
+## U09 — Completed October 15, 2026; Combined Build 0.4.3
+
+U09 was individually authorized and is complete. Shared Save coordinates both providers, coalesces repeated attempts and retains independent failure results; manual Save while Off leaves Auto-Sync Off. The shell owns one native engine/queue/clock. The engine and coordinator have injectable storage/runtime boundaries, with Node disk/restart tests preparing U10. NPCDex accepted edits/notes gain local recovery checkpoints, including while Auto-Sync is Off; export races preserve newer edits and mismatched copies remain available for review. Unapplied modal forms are not silently committed.
+
+Passed **237 automated tests, 14 focused browser checks, 63 syntax checks and 91 package integrity checks**. The user launched **outputs/ROMDex-v0.4.3/ROMDex**; live GET-only verification confirmed build/installation identity, 42 served assets, remembered connection, unchanged credential ciphertext and Auto-Sync. Protected baselines, prior installation/ZIPs and H01's header correction remain preserved. No production YouTrack writes were made by verification. [Completion report](U09-Completion-Report.md), [live evidence](U09-Live-Verification.json), [provider contract](U09-Engine-and-Provider-Contract.md).
+
+**NPCDex remains local-only; cloud persistence is U14–U19.** U14 storage, U15 current-data import and U16–U17 durable two-way sync/conflicts precede U18–U19 metadata/shared cloud controls. Browser closure still stops the runtime; Electron and tray behavior remain U10/U11. U12 must migrate latest working data and recovery records, never replace them with an older embedded baseline.
+
+Phase 1 is complete. **Next: U10 — Native Desktop Window and Local Service, Sol / High**, requiring a new PASSKEY. U10F file-drop attachments follows U10; UX01 command placement remains before U11. No U10 implementation has begun.
+
+
+## U10 — Completed October 15, 2026; Native Desktop Preview
+
+The task-specific PASSKEY authorized U10. **ROMDex 0.5.0-preview.10** now includes the Windows x64 Electron 44.7.2 runtime, a sandboxed custom-protocol window, finite validated bridge, utility-owned native queue/clock and durable stores, native attachment selection and NPCDex export adapters. Retained first-party documents preserve the existing editing/context interfaces inside the native window; the [host contract](U10-Host-and-Bridge-Contract.md) records this container choice. The desktop does not open the browser HTTP listener.
+
+The user launched the packaged preview normally. A custom-protocol registration on the wrong Electron session was corrected before successful graphical acceptance. Passed **240 tests under bundled Node 24.21.0, seven service/restart checks, nine desktop-facade checks, 14 browser regressions, eleven actual Electron checks, 70 syntax checks and 174 delivery hashes**. Automatic native fixture updates arrived through the utility clock while NPCDex was active. Native NPCDex export/reload, shared manual Save while Off, sandbox/bridge restrictions and the existing header correction passed. [Completion report](U10-Completion-Report.md), [Windows evidence](U10-Windows-Verification.json), [preservation](U10-Preservation-Verification.json).
+
+Delivery: **outputs/ROMDex-Desktop-U10/ROMDex.exe**. This is an independent development preview; continue using **0.4.3** for the live project until U12. No browser saves, remembered credentials or original NPCDex files were migrated/overwritten. The 91-file old installation/checkpoint, ZIP and credential ciphertext are verified unchanged. The fixture-only verification session made no production YouTrack writes. Normal preview data lives outside program files, under ROMDexDesktopData/preview-u10.
+
+U10 is complete; tray lifecycle, profile locking and supervised recovery remain U11, current-data handoff U12, installer U13A and NPCDex cloud U14–U19. **Next: U10F — Desktop File Drop Attachments, Sol / High**, requiring a new PASSKEY. UX01 command placement still precedes U11. No U10F work is included here.
+
+
+## U10F — Completed October 15, 2026; File Drops and Web-Data Authority
+
+The task-specific PASSKEY authorized desktop file drops. **0.5.0-preview.10f** highlights the pointed Work Pane row and attaches disk files through the isolated preload and existing native queue. The drop does not open Details, alter checkbox selection, or move tasks. Existing limits, paused/offline storage, cancellation, previews and duplicate-safe delivery remain in use. Unsupported/changed file batches add no partial attachments, and original source paths are not stored in outgoing ticket metadata.
+
+Passed **245 tests, nine UI scenarios, eight service/restart scenarios, eight actual Electron checks, 73 syntax checks and 178 delivery hashes**. File bytes survive source removal and reload/process restart. Internal bulk moves and parent/descendant relationships passed. The old U10 desktop, protected source, 0.4.3 web release/ZIP and credential ciphertext remain unchanged; verification made no production YouTrack writes. [Report](U10F-Completion-Report.md), [Windows evidence](U10F-Windows-Verification.json), [preservation](U10F-Preservation-Verification.json).
+
+The user explicitly confirms **the live web save is authoritative; the desktop baseline differs**. Preserve both. U12 must preview and migrate the latest web state, recovery records, queues/files and remembered connection; no packaged desktop baseline or QA fixture may replace it. No migration was performed in U10F. Continue using the live web release until that gate. Delivery: **outputs/ROMDex-Desktop-U10F/ROMDex.exe**; preview profile identity remains unchanged.
+
+**Next: UX01 — Application Command Placement Review, Sol / Medium**, requiring a new PASSKEY before U11. U11/U12/installer/cloud gates remain unchanged. No UX01 work is included here.
+
+
+## U11 — Completed October 15, 2026; Tray and Recovery
+
+**0.5.0-preview.11** implements the approved tray menu, close-to-tray/restoration, shared Save/Auto-Sync shortcuts, explicit local-checkpoint Quit, single-instance/profile ownership and bounded renderer/utility recovery. The original Pokédex SVG is now the window/tray/executable icon. The header is unchanged; updater controls remain U13B.
+
+Passed **258 automated tests, six service/restart scenarios, twelve desktop scenarios, 76 syntax checks and 184 delivery hashes**. Actual hidden incoming changes, a second launch, forced renderer/utility interruptions, pending-edit recovery, unfinished-comment protection and process exit were checked in isolated fixtures. The [report](U11-Completion-Report.md) and [desktop evidence](U11-Desktop-Verification.json) record harness limitations and the final resumed checks.
+
+The old U10F desktop, protected baseline, live web release/ZIP and credential ciphertext are unchanged. No migration or production writes occurred. **Continue live work in browser 0.4.3; its latest save remains authoritative.** The new preview does not replace it.
+
+**Next: U12 — Persistent Profile and Current-Data Migration, Sol / High**, requiring a new PASSKEY. Capture and preview the latest web state, recovery records, queues/files and remembered connection; never replace them with the older desktop baseline. NPCDex cloud persistence remains U14–U19.
+
+
+## U12 — Completed October 15, 2026; Current Saves Adopted by Desktop
+
+The user authorized U12 and reviewed/accepted the native migration preview. Desktop **0.5.0-preview.12** now owns the latest captured browser workspace: **299 tasks, 104 manual-order entries, no pending operations or queued files**, plus the complete preserved NPCDex **revision 72** document (4 towns, 44 plans, 145 history records). No browser NPCDex current/recovery/held record existed; the preview identified the preserved Downloads package as its source. The older packaged desktop baseline was not used as migration authority.
+
+The stable Windows-account profile is outside build folders at **%LOCALAPPDATA%/ROMDexDesktopData/thegobindsingh-PMON**. Original browser/package files and protected backups remain intact. The importer stages, hashes, reviews and atomically publishes the profile; missing established saves refuse baseline fallback. The remembered connection was converted through Windows protection to Electron safeStorage and verified after restart without token entry. Saved parent statuses and operation journal match their originals exactly.
+
+Passed **272 automated tests, 83 syntax checks, 194 delivered-file hashes**, genuine YouTrack reads matching all 299 task fields, exact whole-document NPCDex comparison, hidden automatic sync and a checkpointed relaunch from a separate build folder. ROMDex then returned to its normal delivery executable with verification endpoints closed. No synthetic production edits were made. [Report](U12-Completion-Report.md), [live/restart evidence](U12-Desktop-Verification.json), [preservation](U12-Preservation-Verification.json).
+
+**Use the desktop for current work; the old browser service is stopped. NPCDex remains local-only until U14–U19.** Installer upgrade/uninstall behavior remains U13A; update delivery U13B. **Next: U13A — Windows Installer and Upgrade/Uninstall Preservation, Sol / Medium**, requiring a new PASSKEY. No U13A implementation has begun.
+
+
+## U13A — Completed October 15, 2026
+
+ROMDex **0.5.2** is installed and running normally with current data, the remembered connection and diagnostic ports closed. Saves are inside the application Data folder and retained on uninstall, superseding the earlier external-profile/Squirrel design. Current data: **299 tasks, 104 order entries, no pending work, NPCDex revision 72**; exact original NPCDex/order/images/credential preservation and genuine YouTrack field equality verified. Passed **287 tests, 89 syntax checks, 200 final application hashes**, real Windows encryption migration, isolated MSI install/upgrade/uninstall/reinstall and current-data/normal relaunch checks. Original U12 delivery and source data remain preserved. [Completion report](U13A-Completion-Report.md), [desktop evidence](U13A-Desktop-Verification.json).
+
+Private delivery remains unprovisioned: YouTrack upload settings returned HTTP 404 and server capacity is unverified; no upload or global-limit change occurred. **Next: U13B — Approved Update Notifications and Installation, Sol / High**, under a new PASSKEY. NPCDex cloud remains U14–U19.
