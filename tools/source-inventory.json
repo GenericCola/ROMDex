@@ -713,8 +713,13 @@
     },
     {
       "path": "tools/development/u13b-deploy-host.mjs",
-      "bytes": 4155,
-      "sha256": "4d84b2d0a0814c641b863917e05b8b44608f2a82536b5bfac893c62c5336debb"
+      "bytes": 4388,
+      "sha256": "90bba6dbf160f5504855edbc0a9b9b0aaf9146a8bf3d21da1afae6074ecc2971"
+    },
+    {
+      "path": "tools/development/u13b-final-doc-push.mjs",
+      "bytes": 2249,
+      "sha256": "7bf4944439c6432942e0f8f5c66c1ff8fef7988c1c0e49d60c917fe001ccf8a5"
     },
     {
       "path": "tools/development/u13b-fix-session-arg.mjs",
@@ -752,6 +757,11 @@
       "sha256": "a9312e5da99606185e1d1d5f85e027fab64725ef669f47c40a371e5df8227748"
     },
     {
+      "path": "tools/development/u13b-normal-relaunch.mjs",
+      "bytes": 2613,
+      "sha256": "3b01d15a8ea7faf6595e6ec965e7c15b583b4173081d80f75641c36efadf0717"
+    },
+    {
       "path": "tools/development/u13b-package.mjs",
       "bytes": 5313,
       "sha256": "e208307901c3babba6839e35940aa3f824f351aecda7075718960aa6a842a0b3"
@@ -767,9 +777,14 @@
       "sha256": "d9ec82051912ecd7d6351c33e809e75c9f9db33b5f062e3bba0f399adb973a42"
     },
     {
+      "path": "tools/development/u13b-production-rebuild.mjs",
+      "bytes": 2863,
+      "sha256": "5d0bc3a22b7ced5834c961ed1b05329ef8646a8657ee7a56617e2f0237e92340"
+    },
+    {
       "path": "tools/development/u13b-publish-host.mjs",
-      "bytes": 11551,
-      "sha256": "c4304766fc6d194344e188517d4764bcd3f9da670c486dd3ae9e7adf5bd4983a"
+      "bytes": 11735,
+      "sha256": "8c4169f62be48212b19ada32b2ed5bad274f0ef7db87b9f9c719361be4877a63"
     },
     {
       "path": "tools/development/u13b-run-tests.mjs",
@@ -783,8 +798,8 @@
     },
     {
       "path": "tools/development/u13b-stage-repository.mjs",
-      "bytes": 8874,
-      "sha256": "5e1acb8521f1c22ff8a4de0f69ebd5c1a98c06e17e74edc03b4f1566a01ad8aa"
+      "bytes": 8931,
+      "sha256": "c76be335cf20aae5f7afd72f35757f6978cf3b34a9dd9268d47ea490a9bc609d"
     },
     {
       "path": "tools/development/u13b-stage-tools.mjs",

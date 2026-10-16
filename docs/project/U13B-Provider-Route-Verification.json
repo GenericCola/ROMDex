@@ -1,0 +1,9 @@
+{
+  "verifiedAt": "2026-10-16T03:16:41.793Z",
+  "noCredentialsUsed": true,
+  "primaryAPI": "https://api.github.com/repos/electron/electron",
+  "withoutTrailingSlash": 200,
+  "withTrailingSlash": 404,
+  "fix": "Normalize repository-root requests to the exact documented API path",
+  "regression": "Private identity check asserts the exact request URL"
+}

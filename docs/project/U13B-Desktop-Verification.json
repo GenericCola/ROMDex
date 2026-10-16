@@ -60,6 +60,32 @@
       "artifacts": [
         {
           "path": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u13b\\make-release-0.5.3\\wix\\x64\\ROMDex.msi",
+          "bytes": 162304000,
+          "sha256": "7413808d56a34a6965bfa10858ef7f7df75635438d4889eadb351dec53a25670"
+        }
+      ],
+      "installer": "Forge 8.0.1 / WiX 3.14.1",
+      "unsigned": true,
+      "savesIncluded": false
+    },
+    "status": "passed",
+    "finishedAt": "2026-10-16T03:11:09.141Z",
+    "initialProductionBuild": {
+      "version": "0.5.3",
+      "label": "release-0.5.3",
+      "fixture": false,
+      "syntax": 98,
+      "applicationDirectory": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u13b\\packages\\release-0.5.3",
+      "identity": {
+        "name": "ROMDex",
+        "shortName": "ROMDexDesktop",
+        "appUserModelId": "ROMDexDesktop",
+        "upgradeCode": "C3861991-512B-4F7D-B1C1-9D8EC7230FDA",
+        "manufacturer": "ROMDex Project"
+      },
+      "artifacts": [
+        {
+          "path": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u13b\\make-release-0.5.3\\wix\\x64\\ROMDex.msi",
           "bytes": 162308096,
           "sha256": "01a21f9f1629b9cbd7c7234e2aa963fc07b3f68fa34594c29ce3c8954d440f35"
         }
@@ -68,8 +94,11 @@
       "unsigned": true,
       "savesIncluded": false
     },
-    "status": "passed",
-    "finishedAt": "2026-10-16T03:11:09.141Z"
+    "providerCorrection": {
+      "reason": "Exact GitHub repository-root route; existing test now asserts the request URL",
+      "installerHandoffUnchanged": true,
+      "fixtureProviderWasInjected": true
+    }
   },
   "fixturePreservation": {
     "verifiedAt": "2026-10-16T03:11:41.620Z",
@@ -100,5 +129,11 @@
     "The isolated baseline installation used the final handoff/main source files before upgrading to the fully validated target MSI.",
     "The live user installation remains 0.5.2 until reviewed private publication and a user-coordinated installation.",
     "NPCDex cloud persistence remains U14–U19."
-  ]
+  ],
+  "providerRouteCorrection": {
+    "unitRegressionPassed": true,
+    "primaryHTTPRouteCheck": "U13B-Provider-Route-Verification.json",
+    "handoffSourceUnchanged": true,
+    "finalCandidateFullyValidated": true
+  }
 }

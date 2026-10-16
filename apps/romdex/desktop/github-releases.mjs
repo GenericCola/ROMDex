@@ -6,7 +6,8 @@ export class GitHubReleases {
   Object.assign(this,{owner,repository,repositoryId:String(repositoryId),credential,fetch});this.prefix='/repos/'+encodeURIComponent(owner)+'/'+encodeURIComponent(repository);this.configured=true;
  }
  async request(route,{binary=false,signal,timeout=30000}={}){
-  if(!/^\/(releases\/latest|releases\/assets\/[1-9]\d*)?$/.test(route))throw Error('Unsupported Private Release Request.');
+  if(route==='/')route='';
+  if(!/^(?:\/releases\/(?:latest|assets\/[1-9]\d*))?$/.test(route))throw Error('Unsupported Private Release Request.');
   let url=new URL('https://api.github.com'+this.prefix+route),token=await this.credential();if(typeof token!=='string'||token.length<10||token.length>4096||/[\r\n]/.test(token))throw Error('Set Up Private Update Download Access First.');
   const boundedSignal=signal?AbortSignal.any([signal,AbortSignal.timeout(timeout)]):AbortSignal.timeout(timeout);
   for(let redirects=0;redirects<4;redirects++){

@@ -25,7 +25,7 @@ The publisher obtains GitHub access through Windows Git Credential Manager. Its 
 - Repository audit also covers historical scripts and shared assets; final counts follow final staging.
 - Native update-window consent and unfinished-form blocking passed in the isolated installation.
 - Cancellation recovery, genuine MSI upgrade/reopen/uninstall and exact fixture-data preservation passed. Cancellation used injected exit 1602 after genuine preflight; upgrade/uninstall used Windows Installer.
-- Production: 98 syntax checks, 214 application-file hashes, 139 exact canonical source matches and one retained reference asset. MSI: 162,308,096 bytes; SHA-256 `01a21f9f1629b9cbd7c7234e2aa963fc07b3f68fa34594c29ce3c8954d440f35`.
+- Production: 98 syntax checks, 214 application-file hashes, 139 exact canonical source matches and one retained reference asset. MSI: 162,304,000 bytes; SHA-256 `7413808d56a34a6965bfa10858ef7f7df75635438d4889eadb351dec53a25670`.
 - Private publication/remote bytes and current-data adoption remain pending. [Windows evidence](U13B-Desktop-Verification.json), [fixture preservation](U13B-Fixture-Preservation.json), [application manifest](U13B-Application-Manifest.json).
 
 Earlier fixture runs exposed Windows helper launch/status handling and test-harness cleanup issues. Their diagnostics remain local. Final evidence must identify the corrected run and distinguish injected installer cancellation from a genuine MSI upgrade.
@@ -35,3 +35,5 @@ Earlier fixture runs exposed Windows helper launch/status handling and test-harn
 Windows installers remain unsigned during private testing; release signing is a separate integrity check, not Windows publisher certification. YouTrack's actual upload limit and remaining space could not be read with the current account, so the explicitly approved private GitHub fallback is used for installers. No YouTrack setting or billing configuration is changed.
 
 NPCDex cloud persistence remains U14–U19. U13B does not create cloud save containers, migrate NPCDex into YouTrack or implement change-request/receipt reconciliation. The next task remains **U14 — Private YouTrack Storage and Access Rules, Sol / High**, under a new PASSKEY after U13B acceptance.
+
+The final publishing preflight also exposed a GitHub repository-root URL issue. The corrected provider uses the exact API path; the existing private-identity test now asserts that URL, and all 305 tests pass. The production installer was rebuilt and fully validated after that change. The native handoff source is unchanged from the successful genuine fixture upgrade. Packaged source-control dotfiles are included in the repository source binding. No release was uploaded before these corrections.

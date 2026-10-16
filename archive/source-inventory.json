@@ -1,10 +1,10 @@
 {
   "format": "ROMDexDevelopmentArchive/1",
-  "at": "2026-10-16T03:12:36.737Z",
+  "at": "2026-10-16T03:20:55.713Z",
   "baselineVersion": "0.5.2",
   "currentSource": "ROMDex 0.5.3 — U13B Implementation",
-  "sourceFiles": 2283,
-  "sourceBytes": 326578808,
+  "sourceFiles": 2305,
+  "sourceBytes": 326579434,
   "snapshots": [
     "Header-Correction-Before",
     "R04-Before",
@@ -35,6 +35,11 @@
     "U13B-Before"
   ],
   "files": [
+    {
+      "path": "apps/romdex/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
+    },
     {
       "path": "apps/romdex/assigned-statuses.mjs",
       "bytes": 2577,
@@ -87,8 +92,8 @@
     },
     {
       "path": "apps/romdex/desktop/github-releases.mjs",
-      "bytes": 4115,
-      "sha256": "4ae9aeec8cb54520489c434ad21ea86d4c8437c75af4d0f45ca08f26ae107b0a"
+      "bytes": 4138,
+      "sha256": "b4670490a5dd398596019aa888f2c175a3595ff5bab0134bd9d15ce53f14084b"
     },
     {
       "path": "apps/romdex/desktop/install-layout.cjs",
@@ -622,8 +627,8 @@
     },
     {
       "path": "apps/romdex/tests/release-update.test.mjs",
-      "bytes": 15358,
-      "sha256": "161bee0c7df148fc345994fe6b7d8ebc976f0e2a6fc552fe493dc9173ba98c47"
+      "bytes": 15455,
+      "sha256": "f321eccf49dce60d7442a9f4ef1a023f50f50b314c852f55fbb4754c4bfd6fc2"
     },
     {
       "path": "apps/romdex/tests/runtime-profile.test.mjs",
@@ -1471,6 +1476,11 @@
       "sha256": "bed02ddd79fe54c69998e80ae276f8efa25f5610bc24774b06b278d8b282d43a"
     },
     {
+      "path": "archive/source-snapshots/S01-Before/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
+    },
+    {
       "path": "archive/source-snapshots/S01-Before/assigned-statuses.mjs",
       "bytes": 2577,
       "sha256": "2ba59e8a89fe65b5e4a331b5ee2275ff1a8db086ce54af6e6fc2417d9b2f472c"
@@ -1809,6 +1819,11 @@
       "path": "archive/source-snapshots/S01-Before/youtrack.mjs",
       "bytes": 17395,
       "sha256": "bed02ddd79fe54c69998e80ae276f8efa25f5610bc24774b06b278d8b282d43a"
+    },
+    {
+      "path": "archive/source-snapshots/U06-Before/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
     },
     {
       "path": "archive/source-snapshots/U06-Before/assigned-statuses.mjs",
@@ -2351,6 +2366,11 @@
       "sha256": "3bbca7880dfaebf2b9afbc6478bc883af82105c77aab4a340c52b40df257354d"
     },
     {
+      "path": "archive/source-snapshots/U08-Before/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
+    },
+    {
       "path": "archive/source-snapshots/U08-Before/assigned-statuses.mjs",
       "bytes": 2577,
       "sha256": "2ba59e8a89fe65b5e4a331b5ee2275ff1a8db086ce54af6e6fc2417d9b2f472c"
@@ -2729,6 +2749,11 @@
       "path": "archive/source-snapshots/U08-Before/youtrack.mjs",
       "bytes": 17673,
       "sha256": "0f65559c5569cdb229db430246eda10cca87952fd4a69051be342501aef58a04"
+    },
+    {
+      "path": "archive/source-snapshots/U09-Before/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
     },
     {
       "path": "archive/source-snapshots/U09-Before/assigned-statuses.mjs",
@@ -3144,6 +3169,11 @@
       "path": "archive/source-snapshots/U09-Before/youtrack.mjs",
       "bytes": 17673,
       "sha256": "0f65559c5569cdb229db430246eda10cca87952fd4a69051be342501aef58a04"
+    },
+    {
+      "path": "archive/source-snapshots/U10-Before/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
     },
     {
       "path": "archive/source-snapshots/U10-Before/assigned-statuses.mjs",
@@ -3594,6 +3624,11 @@
       "path": "archive/source-snapshots/U10-Before/youtrack.mjs",
       "bytes": 17673,
       "sha256": "0f65559c5569cdb229db430246eda10cca87952fd4a69051be342501aef58a04"
+    },
+    {
+      "path": "archive/source-snapshots/U10F-Before/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
     },
     {
       "path": "archive/source-snapshots/U10F-Before/assigned-statuses.mjs",
@@ -4089,6 +4124,11 @@
       "path": "archive/source-snapshots/U10F-Before/youtrack.mjs",
       "bytes": 17673,
       "sha256": "0f65559c5569cdb229db430246eda10cca87952fd4a69051be342501aef58a04"
+    },
+    {
+      "path": "archive/source-snapshots/U11-Before/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
     },
     {
       "path": "archive/source-snapshots/U11-Before/assigned-statuses.mjs",
@@ -4604,6 +4644,11 @@
       "path": "archive/source-snapshots/U11-Before/youtrack.mjs",
       "bytes": 17673,
       "sha256": "0f65559c5569cdb229db430246eda10cca87952fd4a69051be342501aef58a04"
+    },
+    {
+      "path": "archive/source-snapshots/U12-Before/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
     },
     {
       "path": "archive/source-snapshots/U12-Before/assigned-statuses.mjs",
@@ -5149,6 +5194,11 @@
       "path": "archive/source-snapshots/U12-Before/youtrack.mjs",
       "bytes": 17673,
       "sha256": "0f65559c5569cdb229db430246eda10cca87952fd4a69051be342501aef58a04"
+    },
+    {
+      "path": "archive/source-snapshots/U13A-Before/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
     },
     {
       "path": "archive/source-snapshots/U13A-Before/assigned-statuses.mjs",
@@ -5744,6 +5794,11 @@
       "path": "archive/source-snapshots/U13A-Before/youtrack.mjs",
       "bytes": 17673,
       "sha256": "0f65559c5569cdb229db430246eda10cca87952fd4a69051be342501aef58a04"
+    },
+    {
+      "path": "archive/source-snapshots/U13B-Before/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
     },
     {
       "path": "archive/source-snapshots/U13B-Before/assigned-statuses.mjs",
@@ -6371,6 +6426,11 @@
       "sha256": "0f65559c5569cdb229db430246eda10cca87952fd4a69051be342501aef58a04"
     },
     {
+      "path": "archive/source-snapshots/ROMDex-v0.2/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
+    },
+    {
       "path": "archive/source-snapshots/ROMDex-v0.2/assigned-statuses.mjs",
       "bytes": 2577,
       "sha256": "2ba59e8a89fe65b5e4a331b5ee2275ff1a8db086ce54af6e6fc2417d9b2f472c"
@@ -6539,6 +6599,11 @@
       "path": "archive/source-snapshots/ROMDex-v0.2/youtrack.mjs",
       "bytes": 10882,
       "sha256": "5141b978068d0331923e5595e440700cde9972997648aeac5860557b49234bf2"
+    },
+    {
+      "path": "archive/source-snapshots/ROMDex-v0.3/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
     },
     {
       "path": "archive/source-snapshots/ROMDex-v0.3/assigned-statuses.mjs",
@@ -6881,6 +6946,11 @@
       "sha256": "bed02ddd79fe54c69998e80ae276f8efa25f5610bc24774b06b278d8b282d43a"
     },
     {
+      "path": "archive/source-snapshots/ROMDex-v0.4/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
+    },
+    {
       "path": "archive/source-snapshots/ROMDex-v0.4/assigned-statuses.mjs",
       "bytes": 2577,
       "sha256": "2ba59e8a89fe65b5e4a331b5ee2275ff1a8db086ce54af6e6fc2417d9b2f472c"
@@ -7219,6 +7289,11 @@
       "path": "archive/source-snapshots/ROMDex-v0.4/youtrack.mjs",
       "bytes": 17395,
       "sha256": "bed02ddd79fe54c69998e80ae276f8efa25f5610bc24774b06b278d8b282d43a"
+    },
+    {
+      "path": "archive/source-snapshots/ROMDex-v0.4.1/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
     },
     {
       "path": "archive/source-snapshots/ROMDex-v0.4.1/assigned-statuses.mjs",
@@ -7599,6 +7674,11 @@
       "path": "archive/source-snapshots/ROMDex-v0.4.1/youtrack.mjs",
       "bytes": 17673,
       "sha256": "0f65559c5569cdb229db430246eda10cca87952fd4a69051be342501aef58a04"
+    },
+    {
+      "path": "archive/source-snapshots/ROMDex-v0.4.2/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
     },
     {
       "path": "archive/source-snapshots/ROMDex-v0.4.2/assigned-statuses.mjs",
@@ -8014,6 +8094,11 @@
       "path": "archive/source-snapshots/ROMDex-v0.4.2/youtrack.mjs",
       "bytes": 17673,
       "sha256": "0f65559c5569cdb229db430246eda10cca87952fd4a69051be342501aef58a04"
+    },
+    {
+      "path": "archive/source-snapshots/ROMDex-v0.4.3/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
     },
     {
       "path": "archive/source-snapshots/ROMDex-v0.4.3/assigned-statuses.mjs",
@@ -8484,6 +8569,11 @@
       "path": "archive/source-snapshots/ROMDex-v0.4.3/youtrack.mjs",
       "bytes": 17673,
       "sha256": "0f65559c5569cdb229db430246eda10cca87952fd4a69051be342501aef58a04"
+    },
+    {
+      "path": "archive/source-snapshots/ROMDex-Desktop-U10/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
     },
     {
       "path": "archive/source-snapshots/ROMDex-Desktop-U10/assigned-statuses.mjs",
@@ -8979,6 +9069,11 @@
       "path": "archive/source-snapshots/ROMDex-Desktop-U10/youtrack.mjs",
       "bytes": 17673,
       "sha256": "0f65559c5569cdb229db430246eda10cca87952fd4a69051be342501aef58a04"
+    },
+    {
+      "path": "archive/source-snapshots/ROMDex-Desktop-U10F/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
     },
     {
       "path": "archive/source-snapshots/ROMDex-Desktop-U10F/assigned-statuses.mjs",
@@ -9494,6 +9589,11 @@
       "path": "archive/source-snapshots/ROMDex-Desktop-U10F/youtrack.mjs",
       "bytes": 17673,
       "sha256": "0f65559c5569cdb229db430246eda10cca87952fd4a69051be342501aef58a04"
+    },
+    {
+      "path": "archive/source-snapshots/ROMDex-Desktop-U11/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
     },
     {
       "path": "archive/source-snapshots/ROMDex-Desktop-U11/assigned-statuses.mjs",
@@ -10039,6 +10139,11 @@
       "path": "archive/source-snapshots/ROMDex-Desktop-U11/youtrack.mjs",
       "bytes": 17673,
       "sha256": "0f65559c5569cdb229db430246eda10cca87952fd4a69051be342501aef58a04"
+    },
+    {
+      "path": "archive/source-snapshots/ROMDex-Desktop-U12/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
     },
     {
       "path": "archive/source-snapshots/ROMDex-Desktop-U12/assigned-statuses.mjs",
@@ -10634,6 +10739,11 @@
       "path": "archive/source-snapshots/ROMDex-Desktop-U12/youtrack.mjs",
       "bytes": 17673,
       "sha256": "0f65559c5569cdb229db430246eda10cca87952fd4a69051be342501aef58a04"
+    },
+    {
+      "path": "archive/source-snapshots/U01/ROMDex-source/.gitignore",
+      "bytes": 23,
+      "sha256": "83b4a86635f09040f602a8af513d3496fe6e41092d199dfbd1c254a5161d87b0"
     },
     {
       "path": "archive/source-snapshots/U01/ROMDex-source/assigned-statuses.mjs",
@@ -11452,7 +11562,6 @@
     }
   ],
   "excludedEntries": [
-    "current-source\\.gitignore",
     "current-source\\.romdex",
     "current-source\\task4-test.log",
     "current-source\\task5-test.log",
@@ -11465,27 +11574,6 @@
     "current-source\\work-task6-temp",
     "current-source\\work-task7-temp",
     "current-source\\work-title-fix-temp",
-    "S01-Before\\.gitignore",
-    "U06-Before\\.gitignore",
-    "U08-Before\\.gitignore",
-    "U09-Before\\.gitignore",
-    "U10-Before\\.gitignore",
-    "U10F-Before\\.gitignore",
-    "U11-Before\\.gitignore",
-    "U12-Before\\.gitignore",
-    "U13A-Before\\.gitignore",
-    "U13B-Before\\.gitignore",
-    "ROMDex-v0.2\\.gitignore",
-    "ROMDex-v0.2\\.romdex",
-    "ROMDex-v0.3\\.gitignore",
-    "ROMDex-v0.4\\.gitignore",
-    "ROMDex-v0.4.1\\.gitignore",
-    "ROMDex-v0.4.2\\.gitignore",
-    "ROMDex-v0.4.3\\.gitignore",
-    "ROMDex-Desktop-U10\\.gitignore",
-    "ROMDex-Desktop-U10F\\.gitignore",
-    "ROMDex-Desktop-U11\\.gitignore",
-    "ROMDex-Desktop-U12\\.gitignore",
-    "U01\\ROMDex-source\\.gitignore"
+    "ROMDex-v0.2\\.romdex"
   ]
 }

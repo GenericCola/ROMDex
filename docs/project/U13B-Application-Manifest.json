@@ -1,7 +1,7 @@
 {
   "task": "U13B",
   "version": "0.5.3",
-  "verifiedAt": "2026-10-16T03:11:45.233Z",
+  "verifiedAt": "2026-10-16T03:20:09.606Z",
   "testsPassed": 305,
   "syntaxChecks": 98,
   "releaseSourceFilesMatching": 139,
@@ -390,8 +390,8 @@
     },
     {
       "path": "resources/app/desktop/github-releases.mjs",
-      "bytes": 4115,
-      "sha256": "4ae9aeec8cb54520489c434ad21ea86d4c8437c75af4d0f45ca08f26ae107b0a"
+      "bytes": 4138,
+      "sha256": "b4670490a5dd398596019aa888f2c175a3595ff5bab0134bd9d15ce53f14084b"
     },
     {
       "path": "resources/app/desktop/install-layout.cjs",
@@ -930,8 +930,8 @@
     },
     {
       "path": "resources/app/tests/release-update.test.mjs",
-      "bytes": 15358,
-      "sha256": "161bee0c7df148fc345994fe6b7d8ebc976f0e2a6fc552fe493dc9173ba98c47"
+      "bytes": 15455,
+      "sha256": "f321eccf49dce60d7442a9f4ef1a023f50f50b314c852f55fbb4754c4bfd6fc2"
     },
     {
       "path": "resources/app/tests/runtime-profile.test.mjs",
@@ -1081,7 +1081,7 @@
   ],
   "installer": {
     "path": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u13b\\make-release-0.5.3\\wix\\x64\\ROMDex.msi",
-    "bytes": 162308096,
-    "sha256": "01a21f9f1629b9cbd7c7234e2aa963fc07b3f68fa34594c29ce3c8954d440f35"
+    "bytes": 162304000,
+    "sha256": "7413808d56a34a6965bfa10858ef7f7df75635438d4889eadb351dec53a25670"
   }
 }
