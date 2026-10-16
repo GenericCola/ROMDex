@@ -1,0 +1,19 @@
+{
+  "startedAt": "2026-10-16T11:02:34.624Z",
+  "status": "passed",
+  "repository": "GenericCola/ROMDex",
+  "private": true,
+  "commit": "4f9f84d1668f063ab53f68a5df565f0d31afa287",
+  "releaseId": "414866251",
+  "url": "https://github.com/GenericCola/ROMDex/releases/tag/v0.5.5",
+  "version": "0.5.5",
+  "installer": {
+    "bytes": 162345530,
+    "sha256": "47df98dba373cc6beda2e4c7d805757fda0658c92ade53770f6773b295b422e1",
+    "assetId": "647059972"
+  },
+  "keyId": "6b407cf8c962677653659eab74772e72b92323f1e47c8c4c63bd6ea6eb17a49e",
+  "authenticatedRemoteDownloadVerified": true,
+  "publisherTokenStoredInApp": false,
+  "finishedAt": "2026-10-16T11:04:18.431Z"
+}

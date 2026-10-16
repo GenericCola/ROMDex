@@ -1,6 +1,6 @@
 # NPCDex Concurrent Edits and Conflict Review
 
-ROMDex 0.5.5 is installed. The backed-up upgrade passed genuine YouTrack and NPCDex cloud verification, with existing data and all three encrypted credentials preserved. Private publication and the final normal restart remain pending; U17 is not yet checked off.
+**U17 is complete. ROMDex 0.5.5 is installed and running normally.** Independent NPCDex edits merge automatically; competing versions remain preserved for explicit review. Source, pre-change snapshots and the verified installer are archived privately.
 
 ## Behavior
 
@@ -17,10 +17,12 @@ Receipt effects and their validation reads remain indivisible. Competing receipt
 - **371 regression tests passed**, including 24 merge/review scenarios, editor races, invalid side-parents, forged merges, identical assignments, resolution rollback, unknown upload outcomes, stale approvals, drafts and lifecycle interruption.
 - Actual Windows/Electron clients verified independent convergence, explicit conflict review, lost-response resolution recovery and a later offline branch through a separate private GitHub verification branch. Production cloud data, original content/history/images and the saved credential remained unchanged.
 - Forced process termination verified rollback of an uncommitted SQLite transaction and survival of the committed document, dependencies and outgoing queue.
-- The initial packaged pane passed six desktop flows. Visual review identified encoded image text and a stretched preview button; both were corrected. The final package passed all eight desktop flows, including the added stale-assignment and native-pause guards, plus 113 syntax checks and 234 packaged hashes. The final visual review passed.
+- The final package passed all eight desktop flows, including stale assignments, retained drafts, stale approvals, native suspension, manual resolution with Auto-Sync Off and bounded image previews. All 113 syntax checks, 234 packaged hashes and visual review passed.
 
-Final packaged, live-connection, credential-preservation and private-delivery evidence will be recorded before completion. Verification uses isolated copies; it makes no synthetic production task or save edits.
+The installer preserved all 109 Data files exactly before first launch; all 234 installed application hashes matched the verified package. Genuine YouTrack fields matched the dashboard, and NPCDex revision 73, manual order, tile images and directly assigned parent statuses were preserved. Both providers resumed after a normal restart. All three encrypted credentials remained unchanged; the remembered download token verified the current signed release without re-entry. Temporary diagnostic ports are closed. Verification made no synthetic production task or save edits.
+
+[Desktop evidence](U17-Desktop-Verification.json), [application manifest](U17-Application-Manifest.json), [private release](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.5). The complete protected pre-upgrade Data backup remains local and excluded from Git.
 
 ## Next Task
 
-After U17 acceptance: **U18 — ROMDex Metadata Cloud Sync, Sol / High**. A new PASSKEY is required. No U18 implementation is included here. The workspace-toggle polish remains scheduled for U19.
+**U18 — ROMDex Metadata Cloud Sync, Sol / High**. A new PASSKEY is required. No U18 implementation is included here. The workspace-toggle polish remains scheduled for U19.

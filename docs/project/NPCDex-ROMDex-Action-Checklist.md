@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** U17 is in final acceptance. Installed ROMDex **0.5.5** passed its backed-up current-data upgrade, 371 tests and eight final packaged desktop checks. Private delivery and the final normal restart remain. [U17 report](U17-Completion-Report.md). Next: **U18 — ROMDex Metadata Cloud Sync, Sol / High**, requiring a new PASSKEY.
+**Current:** U17 is complete in installed ROMDex **0.5.5**. [Conflict review report](U17-Completion-Report.md). **Next: U18 — ROMDex Metadata Cloud Sync, Sol / High**, requiring a new PASSKEY.
 
 ## Completed Foundation
 
@@ -55,7 +55,7 @@
 - [x] **U14 — Private Cloud Storage and Access Rules** — Sol / High. Private GitHub setup, access separation, transport proof and protected credentials verified; YouTrack retains all agent handoff material. [Report](U14-Completion-Report.md).
 - [x] **U15 — Previewed NPCDex Cloud Import** — Sol / High. User-approved revision 73 and exact original bytes verified remotely and in a fresh Windows process. [Report](U15-Completion-Report.md).
 - [x] **U16 — Durable Incoming/Outgoing Sync** — Sol / Extra High.
-- [ ] **U17 — Concurrent Edits and Conflict Review** — Sol / Extra High.
+- [x] **U17 — Concurrent Edits and Conflict Review** — Sol / Extra High.
 - [ ] **U18 — ROMDex Workspace Metadata Sync** — Sol / High.
 - [ ] **U19 — Combined Sync Controls and Indicators** — Sol / High. Include header polish: reduce the circular workspace toggle diameter by 30% from its current size and remove its drop shadow; verify centering and workspace-menu behavior in both workspaces.
 
@@ -396,6 +396,6 @@ U16 is complete in installed **0.5.4**. Passed 345 tests, forced process-kill re
 - [x] Add a cloud conflict review pane, retained review drafts and manual-Save entry points.
 - [x] Test concurrency, structural/receipt boundaries, interrupted resolution and editor races.
 - [x] Verify the packaged Windows app and backed-up upgrade with real connections.
-- [ ] Archive the verified release and evidence, mark U17 complete and stop before U18.
+- [x] Archive the verified release and evidence, mark U17 complete and stop before U18.
 
-U17 is authorized and in progress. No U18 work is authorized.
+U17 is complete in installed **0.5.5**. Passed 371 tests, eight final packaged desktop scenarios, actual multi-client GitHub checks, forced process-kill recovery, 234 installed hashes, exact 109-file installer Data preservation and genuine YouTrack equality. All three credentials survived the final normal restart. **Next: U18 — Sol / High; new PASSKEY required.**

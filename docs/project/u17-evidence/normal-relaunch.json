@@ -1,0 +1,33 @@
+{
+  "task": "U17",
+  "status": "passed",
+  "startedAt": "2026-10-16T11:05:12.741Z",
+  "verifiedAt": "2026-10-16T11:05:29.614Z",
+  "version": "0.5.5",
+  "previousPid": 7152,
+  "normalPid": 22368,
+  "utilityPid": 7616,
+  "items": 299,
+  "nativePending": 0,
+  "cloudPending": 0,
+  "npcdexRevision": 73,
+  "automaticSyncEnabled": true,
+  "youtrackLastSync": 1792148728979,
+  "cloudLastSync": 1792148724196,
+  "wholeNPCDexAndNativeMetadataPreserved": true,
+  "allThreeEncryptedCredentialsPreserved": true,
+  "diagnosticPorts": {
+    "9257": "closed",
+    "9258": "closed",
+    "9266": "closed",
+    "9268": "closed",
+    "9269": "closed",
+    "9270": "closed"
+  },
+  "updateAccess": {
+    "phase": "current",
+    "accessReady": true,
+    "version": "0.5.5",
+    "installerDownloaded": false
+  }
+}
