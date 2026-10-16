@@ -1,0 +1,8 @@
+{
+  "name": "romdex-installer-build-tools",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "@electron-forge/maker-wix": "8.0.1"
+  }
+}

@@ -1,0 +1,880 @@
+{
+  "format": "ROMDexToolingArchive/1",
+  "files": [
+    {
+      "path": "tools/development/header-correction-deliver.mjs",
+      "bytes": 4394,
+      "sha256": "5868b08302016816d1a89f00c478da5e5dfb70e83356a9d9d024e782fc97c224"
+    },
+    {
+      "path": "tools/development/header-correction-finish.mjs",
+      "bytes": 6639,
+      "sha256": "35e870766fffec84e21c869d42f5c423bd331e9a12252817dce8bd0b4afa229c"
+    },
+    {
+      "path": "tools/development/header-correction-prepare.mjs",
+      "bytes": 2286,
+      "sha256": "db145c13f1f47f4143d6e10aa41e04250b7b4c9ab8bee565cee1c3337233be95"
+    },
+    {
+      "path": "tools/development/header-correction-qa.mjs",
+      "bytes": 4731,
+      "sha256": "ab825daffe1dc8fde07415124b6dfbd644ef4a230ba89803728cba41b0ad21a1"
+    },
+    {
+      "path": "tools/development/live-romdex.mjs",
+      "bytes": 3572,
+      "sha256": "6b5fceb1b50d712f4053e9eeaad8bd54029e35632fc16ced45ec4271a9ec1893"
+    },
+    {
+      "path": "tools/development/r04-edit.mjs",
+      "bytes": 6697,
+      "sha256": "f2bd60af5be463398aebabebd83473c2932d3d22bd178064e241e58c4033a188"
+    },
+    {
+      "path": "tools/development/r05-integration-edit.mjs",
+      "bytes": 4841,
+      "sha256": "e98f186a6c90406968278cc668b4907b1fbc61ef511ea54bd799c42b3c3abef1"
+    },
+    {
+      "path": "tools/development/r05-ui-edit.mjs",
+      "bytes": 8673,
+      "sha256": "099b59e8a39ed18eed1b0a6fbd6cc5109dc8831df58f17aa70b38b3970deba32"
+    },
+    {
+      "path": "tools/development/r06-integration-edit.mjs",
+      "bytes": 9299,
+      "sha256": "49c8832c48a0326814874b09658c0c46105c627fe585283ce350a98bcc97370f"
+    },
+    {
+      "path": "tools/development/r06-rowfix.mjs",
+      "bytes": 401,
+      "sha256": "dc7c7267d8a733c7900859d99d4a994c34c74107d88d19abc679c1276bf1573f"
+    },
+    {
+      "path": "tools/development/r06-ui-edit.mjs",
+      "bytes": 4510,
+      "sha256": "c01a05c9b75a1add6a5dc90e022f5546c4d86636304654116df2fc9b8598ef35"
+    },
+    {
+      "path": "tools/development/r07-doc-status.mjs",
+      "bytes": 1992,
+      "sha256": "2946be5a5533c7956fbb70517356e2b336da0fce94924d3da24d783233ffa2a3"
+    },
+    {
+      "path": "tools/development/r07-polish.mjs",
+      "bytes": 477,
+      "sha256": "fc26fd42f179fdb0eae27f51128a5ae3efaa5a7e41553bbdc4e36478bfda58a8"
+    },
+    {
+      "path": "tools/development/r07-review.mjs",
+      "bytes": 2450,
+      "sha256": "843f04d2a7dbddf5d957cc3aad7ba66f47eb5e4c55b592e3a84aaaa67626c9c0"
+    },
+    {
+      "path": "tools/development/r07-test-fixtures.mjs",
+      "bytes": 5707,
+      "sha256": "1eebd96260a93d1a29a8d8f83582f6fe86fdbc9b8955f307ce8a1c2221dabe9f"
+    },
+    {
+      "path": "tools/development/r07-ui.mjs",
+      "bytes": 3981,
+      "sha256": "49b8512c4925c8c8132e3639056275043f056f2830df321a9f323bc103ab765d"
+    },
+    {
+      "path": "tools/development/s01-backup.mjs",
+      "bytes": 1405,
+      "sha256": "2f6d1789855f67fcd6e794c8c6b1fa65b422987f078f5908eade6330845571f3"
+    },
+    {
+      "path": "tools/development/s01-build-ui-fixture.mjs",
+      "bytes": 1748,
+      "sha256": "290014e5c071e9cd0542b9e179d5a34a8163e85e5f846fa74d358214b60617b1"
+    },
+    {
+      "path": "tools/development/s01-finish-records.mjs",
+      "bytes": 7311,
+      "sha256": "8584a8099a3ef7c9c7665a663b267cba3866be769dccc37aa79f7a9b24553490"
+    },
+    {
+      "path": "tools/development/s01-http-tests.mjs",
+      "bytes": 2852,
+      "sha256": "6ae2a13d9201374ec18e8304c3599be4d98be05c3591ddd30c77d048346ce587"
+    },
+    {
+      "path": "tools/development/s01-live-qa.mjs",
+      "bytes": 6378,
+      "sha256": "e702f973593be25abfc74737ecadc4e3ebdbb073af3819a205c89159e3e34225"
+    },
+    {
+      "path": "tools/development/s01-package.py",
+      "bytes": 2384,
+      "sha256": "edd240c6d8daf59231c6eb66dbf4eb78a739908d99d3804ac9065236ad67cd75"
+    },
+    {
+      "path": "tools/development/s01-polish.mjs",
+      "bytes": 767,
+      "sha256": "6bdae101550202d58804adc3c4ac61a50ab5aac7be2039e6353a77fc78d39e48"
+    },
+    {
+      "path": "tools/development/s01-run-tests.mjs",
+      "bytes": 917,
+      "sha256": "f49560926e40ad58a6500632e6f5663e7b7af397de3704b74de2399a4fcf5d09"
+    },
+    {
+      "path": "tools/development/s01-smoke.mjs",
+      "bytes": 2241,
+      "sha256": "4fa10ecc951c656120f1444c10476d268f3daae9cae771d5c69c68a20022ab1e"
+    },
+    {
+      "path": "tools/development/s01-ui-qa.mjs",
+      "bytes": 5617,
+      "sha256": "759b4ac3efc29ec0ac4bed9583dc51b0613ccdf290032dd9c068e25febdcb9fe"
+    },
+    {
+      "path": "tools/development/u02-design-review.mjs",
+      "bytes": 4433,
+      "sha256": "6dde773fe79a262eb7be06b7e45a0d1fb77b537aa8fdf45e23a6df68a58d9702"
+    },
+    {
+      "path": "tools/development/u03-finish-records.mjs",
+      "bytes": 6426,
+      "sha256": "10407f223ea9c684d605795cffd67135da1d274a3efa02eebf370dc0a9003bfa"
+    },
+    {
+      "path": "tools/development/u03-inventory.mjs",
+      "bytes": 3171,
+      "sha256": "a08ea0709caf55626a8d2dffbd4e5fb36318473adf3f9453f6f3e47ade93b746"
+    },
+    {
+      "path": "tools/development/u04-approve-records.mjs",
+      "bytes": 6567,
+      "sha256": "8d15c497f96bf445e42314b3b101e6b281b43fb25424cae17cf92decfadf7f1d"
+    },
+    {
+      "path": "tools/development/u04-contract-proof.mjs",
+      "bytes": 15885,
+      "sha256": "ae82bbb557efed608fc3735d6df1d27d58dd98a358e0d26c06fa6a83393f31c0"
+    },
+    {
+      "path": "tools/development/u04-review-records.mjs",
+      "bytes": 4970,
+      "sha256": "351731c7c95a3c78690199ce286a9009b2858a054b5738abf692114f640804e8"
+    },
+    {
+      "path": "tools/development/u05-approve-records.mjs",
+      "bytes": 8617,
+      "sha256": "8f2791d879bed74eb46392f319a345be83f0ad3cc9f9a3e1a3a6b10811e2504d"
+    },
+    {
+      "path": "tools/development/u05-capture-options.mjs",
+      "bytes": 1578,
+      "sha256": "cefb61429223c964c7cb059633ea5aa4a0e8ca814406a3334e78d6f31b7a69db"
+    },
+    {
+      "path": "tools/development/u05-footer-qa.mjs",
+      "bytes": 3896,
+      "sha256": "53136ef3f9928dc7b98620080485a235396251a56480814ace5e0382b3e098af"
+    },
+    {
+      "path": "tools/development/u05-footer-records.mjs",
+      "bytes": 3348,
+      "sha256": "be1de216c8f7be89b59224ac22cd78e1fb0cb78409001616c68d679565b89b71"
+    },
+    {
+      "path": "tools/development/u05-inventory.mjs",
+      "bytes": 1482,
+      "sha256": "696a05fb26a98551a169b3dbe2b9f6d56a6135b2f86f1922fc56500341c84b19"
+    },
+    {
+      "path": "tools/development/u05-prepare-preview.mjs",
+      "bytes": 1181,
+      "sha256": "f53713334442a6f49e127bfb024d13874270dc9c736ec9efc677e94e3ea13676"
+    },
+    {
+      "path": "tools/development/u05-preview-qa.mjs",
+      "bytes": 7532,
+      "sha256": "718958d715522be3b936d46f6384758aabb861989095c657bb5848f9703e5f20"
+    },
+    {
+      "path": "tools/development/u05-record-review.mjs",
+      "bytes": 7948,
+      "sha256": "f781472a265c27d11aa23820edee1723f74c032ca4ac35ad97d657916e65a2c6"
+    },
+    {
+      "path": "tools/development/u06-backup.mjs",
+      "bytes": 1254,
+      "sha256": "bacb770c879f85f0130c9215096e293b0234cb396b2a03efd4c0d6593a76bbcb"
+    },
+    {
+      "path": "tools/development/u06-deliver.mjs",
+      "bytes": 4263,
+      "sha256": "f218d1aebae7ee055a3d36603f0f8c604089f748bb363499963d64f1d3c0899e"
+    },
+    {
+      "path": "tools/development/u06-extract-theme.mjs",
+      "bytes": 2309,
+      "sha256": "7598f9d44ed4fdfe25af1be252b8c17c4290c8f8b3d1d6d1204a3f104e49a471"
+    },
+    {
+      "path": "tools/development/u06-finish-docs.mjs",
+      "bytes": 9217,
+      "sha256": "037a9f7c3b7781076b8f48f9a6adf65d3b9938cf55bda90de8b4ec40654023d1"
+    },
+    {
+      "path": "tools/development/u06-reference-qa.mjs",
+      "bytes": 3095,
+      "sha256": "e08f31e9e1489631fcfdc3deab46708a451de16bc0a828ceb9108a895cd081a4"
+    },
+    {
+      "path": "tools/development/u06-run-tests.mjs",
+      "bytes": 919,
+      "sha256": "616736774221c56d3444cc84e566ace6c8eb2b0271357affa15253067ff81340"
+    },
+    {
+      "path": "tools/development/u06-sync-assets.mjs",
+      "bytes": 1689,
+      "sha256": "44bfc24e0f9d242ec1cb912a554c7ead92895924fe307affcfcb5b17d0300fd8"
+    },
+    {
+      "path": "tools/development/u06-ui-qa.mjs",
+      "bytes": 5888,
+      "sha256": "ae15287da273115ce47d8e474a68081e43d259dc8b0da12958c7745df533b314"
+    },
+    {
+      "path": "tools/development/u06-wire-header.mjs",
+      "bytes": 1914,
+      "sha256": "33c707a51d39e0969274f0017bd3e7c90838c4c8a3d20b2555de0a04b9b1cb57"
+    },
+    {
+      "path": "tools/development/u07-finish.mjs",
+      "bytes": 8209,
+      "sha256": "15ea713102d402725cf18e0c3b0c1422646f14dc151b1ad5fddd0142f3c8df6a"
+    },
+    {
+      "path": "tools/development/u07-prepare.mjs",
+      "bytes": 3794,
+      "sha256": "e7bb3f91f47fe14b81d68be8037a5b921bc5e1a0c9383e03b8df850a80210dca"
+    },
+    {
+      "path": "tools/development/u07-qa.mjs",
+      "bytes": 7516,
+      "sha256": "723f52d039d22dafb325af05713cb4ee7f43429fa5efc58be7550a4d1fec5382"
+    },
+    {
+      "path": "tools/development/u08-build.mjs",
+      "bytes": 6045,
+      "sha256": "4cbe3eb1962de72f86dcc72047cce8826af6cbe5ff38155e5cba67793244d3c8"
+    },
+    {
+      "path": "tools/development/u08-finish.mjs",
+      "bytes": 9325,
+      "sha256": "78ba886edf6a2693e6e0b4ed988faa55bd742475f6949d811ca6298a9293e801"
+    },
+    {
+      "path": "tools/development/u08-live-qa.mjs",
+      "bytes": 1921,
+      "sha256": "5f4bfc3b7e778c5110abf19a7959d8dbe93fd92dd9dc597625a87d77410e9241"
+    },
+    {
+      "path": "tools/development/u08-package.py",
+      "bytes": 2662,
+      "sha256": "cd179f1ca259e76f3946c473d0012129e9ab739bf61eebed8499e19051d4d58c"
+    },
+    {
+      "path": "tools/development/u08-prepare.mjs",
+      "bytes": 2051,
+      "sha256": "b963e9685b4a484167b5e5f64425d9b10083733d848a9d38440e2359c3feb7c3"
+    },
+    {
+      "path": "tools/development/u08-run-tests.mjs",
+      "bytes": 919,
+      "sha256": "04c53059a8bca0272ecd08461fd7c462a4ddfa6b00c50397696e789e1bed6eb4"
+    },
+    {
+      "path": "tools/development/u08-smoke.mjs",
+      "bytes": 4636,
+      "sha256": "001828f4787ffca1f6aa923b5d49a3b22a04ee0572a8fe38e01643ed30821299"
+    },
+    {
+      "path": "tools/development/u08-ui-qa.mjs",
+      "bytes": 8788,
+      "sha256": "8f2e09794a5546375e784ea634bd59995e71a24405cc5d4a501cddc9791fa7a4"
+    },
+    {
+      "path": "tools/development/u08-verify-package.mjs",
+      "bytes": 1887,
+      "sha256": "07867e574cdef093d32a1c9a8cae58d039a16b97a7385208eb3359cf496b414b"
+    },
+    {
+      "path": "tools/development/u09-finish-records.mjs",
+      "bytes": 4218,
+      "sha256": "9c8e09f4155e3da0f729f5c7dc379e8a64b4dadd1935c88980ad7818eab47eda"
+    },
+    {
+      "path": "tools/development/u09-live-qa.mjs",
+      "bytes": 1744,
+      "sha256": "bb735f9ec3299d086505bd66a97f7c619bc1a2ae1123f77c631df6e70f61acd4"
+    },
+    {
+      "path": "tools/development/u09-package.py",
+      "bytes": 2239,
+      "sha256": "b54099b2736aa340a31b5f6537891b34d6610da643c67f3fe5dfbebe230e450e"
+    },
+    {
+      "path": "tools/development/u09-prepare.mjs",
+      "bytes": 5172,
+      "sha256": "f2e70c07620613d707dfb3c8460dc8bfd4dad5f00ff91399dc074c035f60cd52"
+    },
+    {
+      "path": "tools/development/u09-release-prep.mjs",
+      "bytes": 2421,
+      "sha256": "b35058f08431fc669f6d31475722c90008635b68aee9e23bf01439aa1f87475f"
+    },
+    {
+      "path": "tools/development/u09-run-tests.mjs",
+      "bytes": 919,
+      "sha256": "6267516119dd6bb03a6585af45cc91ed200467726ecffe28db8dcf1d2a0a62e0"
+    },
+    {
+      "path": "tools/development/u09-smoke.mjs",
+      "bytes": 3807,
+      "sha256": "50e8e6e95d2fb94c22f785b66fd798dd532acd29d85525794eb2453b0a476c43"
+    },
+    {
+      "path": "tools/development/u09-ui-qa.mjs",
+      "bytes": 12651,
+      "sha256": "d4a3dea1213d5b4bca83b8adee9f6cd159b14daf583adee1512e42989ce65aa4"
+    },
+    {
+      "path": "tools/development/u09-verify-release.mjs",
+      "bytes": 1695,
+      "sha256": "ae7faba366d64d91cc3cf7f3c729f7522460939f3e889e672ddcf03e51863131"
+    },
+    {
+      "path": "tools/development/u09-wire.mjs",
+      "bytes": 6466,
+      "sha256": "a839102d9378ee232b960af4e0ce2dd2cd113b75bb4e8a5db2c8506e1e64696d"
+    },
+    {
+      "path": "tools/development/u10-background-qa.mjs",
+      "bytes": 2368,
+      "sha256": "877e6e6113b161b8db3d4b7972adc0623c74016b2f4972e35ad971f5e8b95079"
+    },
+    {
+      "path": "tools/development/u10-browser-qa.mjs",
+      "bytes": 12672,
+      "sha256": "fa9771e628e8a47439b759aaa622451c2d72894519ec48d7f0c82c5c550425c4"
+    },
+    {
+      "path": "tools/development/u10-desktop-qa.mjs",
+      "bytes": 1920,
+      "sha256": "bb284ff61dbfe17ed4e20eba5ab769d1033f8d2f8a6a85e061f0b35e9953d27d"
+    },
+    {
+      "path": "tools/development/u10-download-runtime.mjs",
+      "bytes": 1219,
+      "sha256": "930fe6e027bd55f557e38d9443bd5fc98f9951f43b510b1e3967114b00963e28"
+    },
+    {
+      "path": "tools/development/u10-finish-records.mjs",
+      "bytes": 4946,
+      "sha256": "8386b11efad77106dd5edc97bffa35a5232b27d0bd42d4a521ea474b6a47055b"
+    },
+    {
+      "path": "tools/development/u10-package.py",
+      "bytes": 2492,
+      "sha256": "190b4b31b9a336e9dd9a112e8b15d5041663e57ce3ac711ba0df0a7a4416d840"
+    },
+    {
+      "path": "tools/development/u10-prepare.py",
+      "bytes": 1112,
+      "sha256": "afbfe8c70e9938a27ff66433c53f3e8df804e5e9541f3199f2da8925dfd8da40"
+    },
+    {
+      "path": "tools/development/u10-preservation.mjs",
+      "bytes": 1702,
+      "sha256": "abcaea186b0384cc9aa18e489310b5a8e7f0795c35fb49ae956e0f711938a4f3"
+    },
+    {
+      "path": "tools/development/u10-proxy-ui-qa.mjs",
+      "bytes": 7155,
+      "sha256": "40ca2bdf5346e37905ce1b8f0b20c945de0c6edf93b0978e01f8ecfb4dce57e4"
+    },
+    {
+      "path": "tools/development/u10-run-tests.mjs",
+      "bytes": 959,
+      "sha256": "e020cf6ef26042b143f13533f8501473884a5f32984bd599e17f0395cfbdce18"
+    },
+    {
+      "path": "tools/development/u10-service-qa.mjs",
+      "bytes": 4396,
+      "sha256": "a74bd33c66ae958259e69f0d8c29779c97e1272adbce7b7e820bcb77bba4b4ec"
+    },
+    {
+      "path": "tools/development/u10-windows-qa.mjs",
+      "bytes": 6747,
+      "sha256": "6de5cb1c9e5af8222cd53643cc53edc574c4a59ce6e3647d11027911867c4ce0"
+    },
+    {
+      "path": "tools/development/u10-wire.mjs",
+      "bytes": 6368,
+      "sha256": "d7299101152a262eadf316a6a784f875675aaa3a66055a78dcacedae34cc8e65"
+    },
+    {
+      "path": "tools/development/u10f-finish-records.mjs",
+      "bytes": 4271,
+      "sha256": "ce2100796603c20978f14a87924798d91131add0a1466b39809c26985607c74b"
+    },
+    {
+      "path": "tools/development/u10f-inspect.mjs",
+      "bytes": 802,
+      "sha256": "ae94324e71a30b1b39fa31e5ff9a938786bbbb2c83fe617b4fe2982413befddb"
+    },
+    {
+      "path": "tools/development/u10f-package.py",
+      "bytes": 2268,
+      "sha256": "a9f4b477384a6644717c7281646b6264d2a2a1c0652b9c0caea3c41078a03f17"
+    },
+    {
+      "path": "tools/development/u10f-prepare.mjs",
+      "bytes": 960,
+      "sha256": "4eb0629569064d5a7fdea28219bf968584cc333c41b31a7cc352cc21247a2c24"
+    },
+    {
+      "path": "tools/development/u10f-preservation.mjs",
+      "bytes": 2113,
+      "sha256": "0f3f9c73fdba81e41ac5671535063bfba4baf4108b63b051c9f2b6bb0bb1bf4f"
+    },
+    {
+      "path": "tools/development/u10f-reload-inspect.mjs",
+      "bytes": 1038,
+      "sha256": "3d912263be735523b60a47b39d52a484a7d6a31829ba0f83be8bed3a65682fae"
+    },
+    {
+      "path": "tools/development/u10f-run-tests.mjs",
+      "bytes": 964,
+      "sha256": "5f67bb42402ce446c21238595759768ef151d4a309b4568a8b9edaf1ef30ed00"
+    },
+    {
+      "path": "tools/development/u10f-service-qa.mjs",
+      "bytes": 6075,
+      "sha256": "4e5212a50c58362430f287d471c16f05a0d45f924df5e82306623fb1abb93a3c"
+    },
+    {
+      "path": "tools/development/u10f-ui-qa.mjs",
+      "bytes": 8357,
+      "sha256": "7d40d42db3cbec4128a053ac4ab4045f7c216ef4c1b947d730a38baf934deaa9"
+    },
+    {
+      "path": "tools/development/u10f-windows-qa.mjs",
+      "bytes": 7882,
+      "sha256": "624b7320d1f8c2fedb955700ca7db59c09c0c496a0116c7eb575ab31c9b34b74"
+    },
+    {
+      "path": "tools/development/u10f-wire.mjs",
+      "bytes": 2239,
+      "sha256": "d4d6935e452dbbdffa4ff610367ba7c545a26e789219c6c301f699900aa270dd"
+    },
+    {
+      "path": "tools/development/u11-desktop-qa.mjs",
+      "bytes": 10930,
+      "sha256": "2b1c1d7e857334ab5af6e9cd5fb9c6785316472cf643a1fe52fed55e8a13d2f7"
+    },
+    {
+      "path": "tools/development/u11-finish-records.mjs",
+      "bytes": 4800,
+      "sha256": "4a24b688938f1374557e0a29188e4e20e47415a278777a0c6a57cf4152432fbc"
+    },
+    {
+      "path": "tools/development/u11-icon-verify.py",
+      "bytes": 1960,
+      "sha256": "ddeb1e51734c487a9bdfdbcd8703a300f83a96a6cdfa132b116c855456cf0bbd"
+    },
+    {
+      "path": "tools/development/u11-icon.mjs",
+      "bytes": 1108,
+      "sha256": "3112321eea4443ea39b5a6a58be0e937f6d9ece40dafbaaa22ae74343728d474"
+    },
+    {
+      "path": "tools/development/u11-inspector.mjs",
+      "bytes": 1238,
+      "sha256": "47593db4ec7521b86dd2e8a64d13158e2c865c3b67d3d7cd73b4bd4b6143e29b"
+    },
+    {
+      "path": "tools/development/u11-package.py",
+      "bytes": 4953,
+      "sha256": "0b76e954efce08e9fcf07ee060fb02fb7b2b7ca8f63f4365c72dfae860de003e"
+    },
+    {
+      "path": "tools/development/u11-post-exit-audit.mjs",
+      "bytes": 2037,
+      "sha256": "5298f7bcbbb496b15d0235292568d43065e674f401c8494342f6b93e788c3ef9"
+    },
+    {
+      "path": "tools/development/u11-prepare.mjs",
+      "bytes": 898,
+      "sha256": "619073e050d2b139f9e6e991e56a09f92124d188d677d8a53c1ff1c17270f908"
+    },
+    {
+      "path": "tools/development/u11-preservation.mjs",
+      "bytes": 2413,
+      "sha256": "08a8fd0c95c52fe7478fb4ae448dc0d6e5ca63fa381d8716663bde948ab5da45"
+    },
+    {
+      "path": "tools/development/u11-refresh-package.mjs",
+      "bytes": 1344,
+      "sha256": "de67accc3ca52846651b2c4c831bb817bcde30384efb0173ce19f9ec19728a07"
+    },
+    {
+      "path": "tools/development/u11-renderer-qa.mjs",
+      "bytes": 5403,
+      "sha256": "d40a4a4b21599061501ff7bed2661ae3a8610cedf9c7953a1afa6f0d2568e144"
+    },
+    {
+      "path": "tools/development/u11-reset-fixture.mjs",
+      "bytes": 732,
+      "sha256": "68975de8e87b162858e9de667782ce906d0627d18b7e27f9e58afc4f47ef2f14"
+    },
+    {
+      "path": "tools/development/u11-run-tests.mjs",
+      "bytes": 952,
+      "sha256": "b3772906738d38d6ea1e8a978cb0364bc9e8a60ad3222a0ca9fa889c17ddfe96"
+    },
+    {
+      "path": "tools/development/u11-service-qa.mjs",
+      "bytes": 3485,
+      "sha256": "a5bb0746152f740fff36e01fa1840139f1eaa89c3c2a5b2a61b889b7e018f7b0"
+    },
+    {
+      "path": "tools/development/u12-finalize-package.mjs",
+      "bytes": 1505,
+      "sha256": "a77026b5923f68ebcfdac567e7421a0b0a6cf786f832ae9000902b146e964625"
+    },
+    {
+      "path": "tools/development/u12-finish-records.mjs",
+      "bytes": 2975,
+      "sha256": "9490264cb82b650b1ea9d58791569944b257ca45fbb1fda4edbcbff0c2ffb8e1"
+    },
+    {
+      "path": "tools/development/u12-handoff.mjs",
+      "bytes": 3240,
+      "sha256": "97d5f5e776b94352c8ebde89987519298502c0f439d1a9225e1db2bb2396735d"
+    },
+    {
+      "path": "tools/development/u12-live-check.mjs",
+      "bytes": 5540,
+      "sha256": "4c6aa2b21ac2db7f195e5f3c222076b16a0772bab7d7e473df5d78d6d65c468c"
+    },
+    {
+      "path": "tools/development/u12-main-wire.mjs",
+      "bytes": 3439,
+      "sha256": "7a8a256398af843aaa2fb71e0af32d39241abc1cb6e22cf46cef912acd7b1318"
+    },
+    {
+      "path": "tools/development/u12-package.py",
+      "bytes": 2303,
+      "sha256": "51564d840f5968df1f8ec3f1d4d2fcf4603ece0508243ae6456d928ac44f08d6"
+    },
+    {
+      "path": "tools/development/u12-prepare.mjs",
+      "bytes": 3236,
+      "sha256": "2ae9bfa1d1a72b3974bf80ea9e43a4133e3826b681008680c8054aa3673c76d7"
+    },
+    {
+      "path": "tools/development/u12-restart-check.mjs",
+      "bytes": 4136,
+      "sha256": "d39b1f0537468c8a498fe25e5010922ccae6fb801ccc6547a9312484bc265c6e"
+    },
+    {
+      "path": "tools/development/u12-run-tests.mjs",
+      "bytes": 952,
+      "sha256": "2f375db08ade99a0a4dfbea0026f37af16837171a188d107178d6f25afcbf144"
+    },
+    {
+      "path": "tools/development/u12-wire.mjs",
+      "bytes": 1087,
+      "sha256": "d4cffa2356094d758f056735273c57a43f862c13b978cc4867ff284a8131dd32"
+    },
+    {
+      "path": "tools/development/u13a-archive-path-failure.mjs",
+      "bytes": 888,
+      "sha256": "daa2cd664dfb80989e03404785ae2506d3fe26374b90eff0e3bd5ea3b563553d"
+    },
+    {
+      "path": "tools/development/u13a-artifact-audit.mjs",
+      "bytes": 1829,
+      "sha256": "28e0cdbf6ef02b2e9d04857d891ded67048ff324e668d60b4c1399ceee7eccf0"
+    },
+    {
+      "path": "tools/development/u13a-cleanup-tests-update.mjs",
+      "bytes": 1111,
+      "sha256": "bd9df515070868fb050cc58a151584ad3aba03415d1ae96ba0dc556d8ef1cb13"
+    },
+    {
+      "path": "tools/development/u13a-credential-fix.mjs",
+      "bytes": 3912,
+      "sha256": "46e8b334d47b03513cfc8638a2296dcb8f5722db82a159d0b9beb2a164103f73"
+    },
+    {
+      "path": "tools/development/u13a-current-check.mjs",
+      "bytes": 4000,
+      "sha256": "a6d100f278819bcbc03a14a0fc51a64986c808d9ee76535b988784b7f560463c"
+    },
+    {
+      "path": "tools/development/u13a-final-source-backup.mjs",
+      "bytes": 1919,
+      "sha256": "a87f8ceeb09ba5ae102178f7b07164b9b0b99a18904baade98f073638bc08b3a"
+    },
+    {
+      "path": "tools/development/u13a-finalize.mjs",
+      "bytes": 10774,
+      "sha256": "f5e407066c4497f417de46534ad7407cbd23cd2c082482d5f3a110931d155631"
+    },
+    {
+      "path": "tools/development/u13a-fix-test.mjs",
+      "bytes": 592,
+      "sha256": "e4a0cf72d3b08d268151b5f8728ba0aa4c51ba39c683761e0b5ce0f0202ca0ac"
+    },
+    {
+      "path": "tools/development/u13a-key-probe.cjs",
+      "bytes": 1825,
+      "sha256": "ea610a89032e955b16052ec4af0dc9c6b20f7b62b286d9b5d9d89fe575a0f504"
+    },
+    {
+      "path": "tools/development/u13a-normal-relaunch.mjs",
+      "bytes": 2271,
+      "sha256": "2c722507b02b742f2bd7ab717f6fd6f0fec2de965a836d98f1e6d52e627781cf"
+    },
+    {
+      "path": "tools/development/u13a-package.mjs",
+      "bytes": 4267,
+      "sha256": "074ebd1cfaab12fc13faa8b0cefab16c603a71ea9e7efaa7133aaa8e295f9c5f"
+    },
+    {
+      "path": "tools/development/u13a-planning-status.mjs",
+      "bytes": 1715,
+      "sha256": "e0365aee4454de5df633676ae5358ff28ac29205d9ec9e2d43513b4d44c441c3"
+    },
+    {
+      "path": "tools/development/u13a-prepare.mjs",
+      "bytes": 1838,
+      "sha256": "77e505daa9e3865e950fec513a5d1abff92f8db3132f79111782889565f53b0d"
+    },
+    {
+      "path": "tools/development/u13a-publish-local.mjs",
+      "bytes": 1356,
+      "sha256": "3e067f209ef98f46e0cfe19ab0242bebe1bfd0ffae0b518e5711d63aeca59fc1"
+    },
+    {
+      "path": "tools/development/u13a-revise-052.mjs",
+      "bytes": 679,
+      "sha256": "9aa44bf37c0bd8f254a39fa067d6b01c0e76d9c67fa014eb42400af8d237e280"
+    },
+    {
+      "path": "tools/development/u13a-run-tests.mjs",
+      "bytes": 978,
+      "sha256": "dfb1bf9dccf090302cabcfc9ddcc3e4f5672d26c9b36665d6851332ea81a219a"
+    },
+    {
+      "path": "tools/development/u13a-template-test-update.mjs",
+      "bytes": 393,
+      "sha256": "fb5b69a7389a05796e58b2fd044d9a476c15d631c892f7e332e9ee98fe29711a"
+    },
+    {
+      "path": "tools/development/u13a-update-final-checks.mjs",
+      "bytes": 554,
+      "sha256": "d88c417db9a60afb3199d36ff77bfb5447162402ec6ad28c38e001db2615d4ad"
+    },
+    {
+      "path": "tools/development/u13a-windows-verifier.mjs",
+      "bytes": 13373,
+      "sha256": "c73e2ef715bb65f7ad857b5a90ec1b913c15075a0995fcb383c4d2d6f7224caa"
+    },
+    {
+      "path": "tools/development/u13a-wire.mjs",
+      "bytes": 811,
+      "sha256": "015b5377effb71d746613a0cf219209ca9e52025e53af954497d51881bbdc21d"
+    },
+    {
+      "path": "tools/development/u13b-artifact-audit.mjs",
+      "bytes": 2479,
+      "sha256": "78e3707047912a2496c8452845bc33eb1859b33e907eb897f711f572771c6551"
+    },
+    {
+      "path": "tools/development/u13b-audit-repository.mjs",
+      "bytes": 1887,
+      "sha256": "040168a3b5cc5d4fa22f755aa2c3bbfc5ab3811eac32c8dadc48c9a1f6f2f6af"
+    },
+    {
+      "path": "tools/development/u13b-current-check.mjs",
+      "bytes": 3375,
+      "sha256": "34c3e2dd35dc3827589a6604a23e4413c416f3baf92c45417b20872f9721b23a"
+    },
+    {
+      "path": "tools/development/u13b-deploy-host.mjs",
+      "bytes": 4155,
+      "sha256": "4d84b2d0a0814c641b863917e05b8b44608f2a82536b5bfac893c62c5336debb"
+    },
+    {
+      "path": "tools/development/u13b-fix-session-arg.mjs",
+      "bytes": 474,
+      "sha256": "04112bf17f01e0b0c54cd9db859e1f7133bda86e0b16ec8fd68fe259ea7306cc"
+    },
+    {
+      "path": "tools/development/u13b-fixture-preservation.mjs",
+      "bytes": 2338,
+      "sha256": "c5a9e308370ef8a15bd067e0fafd11c041d89fa54f16e25cb3478d04a5cc1003"
+    },
+    {
+      "path": "tools/development/u13b-git-byte-audit.mjs",
+      "bytes": 1227,
+      "sha256": "90478ac86872924c42d367996b68c39363a575cfc49d06d4d84c339731a2eedb"
+    },
+    {
+      "path": "tools/development/u13b-harden-main-startup.mjs",
+      "bytes": 926,
+      "sha256": "d19b3765c3da35867909754aebdb13d7847b31523ca7837f4d7b2fa09d911e6f"
+    },
+    {
+      "path": "tools/development/u13b-host-session.mjs",
+      "bytes": 2153,
+      "sha256": "323823f1389fe8106e26bddeac48740752951a7d9fc43d212097e34a387827bd"
+    },
+    {
+      "path": "tools/development/u13b-integrate-main.mjs",
+      "bytes": 1773,
+      "sha256": "912aa106cb458486121dc1e2bd8bf50931604f2c9e2ef0c77131657ea3a20b8f"
+    },
+    {
+      "path": "tools/development/u13b-native-continuation.mjs",
+      "bytes": 8848,
+      "sha256": "a9312e5da99606185e1d1d5f85e027fab64725ef669f47c40a371e5df8227748"
+    },
+    {
+      "path": "tools/development/u13b-package.mjs",
+      "bytes": 5313,
+      "sha256": "e208307901c3babba6839e35940aa3f824f351aecda7075718960aa6a842a0b3"
+    },
+    {
+      "path": "tools/development/u13b-prepare.mjs",
+      "bytes": 1349,
+      "sha256": "929b57913a0de3996e78b3fd89a71423d8af7d74a7f81ce17061ae8072bacfd3"
+    },
+    {
+      "path": "tools/development/u13b-preserve-git-bytes.mjs",
+      "bytes": 381,
+      "sha256": "d9ec82051912ecd7d6351c33e809e75c9f9db33b5f062e3bba0f399adb973a42"
+    },
+    {
+      "path": "tools/development/u13b-publish-host.mjs",
+      "bytes": 11551,
+      "sha256": "c4304766fc6d194344e188517d4764bcd3f9da670c486dd3ae9e7adf5bd4983a"
+    },
+    {
+      "path": "tools/development/u13b-run-tests.mjs",
+      "bytes": 980,
+      "sha256": "5d4ccac812a32be3c18995e53e056e20cc7d002ed8581e8b71afd49c8ba0eff4"
+    },
+    {
+      "path": "tools/development/u13b-setup-host.mjs",
+      "bytes": 4598,
+      "sha256": "f86c051e52111a0bf7786a1e5c06f4b6260e863b1dfc68893c597cc42037ff2c"
+    },
+    {
+      "path": "tools/development/u13b-stage-repository.mjs",
+      "bytes": 8874,
+      "sha256": "5e1acb8521f1c22ff8a4de0f69ebd5c1a98c06e17e74edc03b4f1566a01ad8aa"
+    },
+    {
+      "path": "tools/development/u13b-stage-tools.mjs",
+      "bytes": 2808,
+      "sha256": "bd75599d31ee5242a8420bd6ece12a7fddc72847122c64fec61781762927820e"
+    },
+    {
+      "path": "tools/development/u13b-version-and-crypto-check.mjs",
+      "bytes": 854,
+      "sha256": "276050b754acb7ef01d76bb7c165f417fe3176ef206b11963dd1e3bf978788e5"
+    },
+    {
+      "path": "tools/development/u13b-windows-final.mjs",
+      "bytes": 14444,
+      "sha256": "ab5d16f45bd183e2f14777a696c51d35ff61679e8ae7844dab7689b4987fe5e1"
+    },
+    {
+      "path": "tools/development/u13b-windows-resume.mjs",
+      "bytes": 12276,
+      "sha256": "5d90e67d0659665f92cc5dae38487fd986a0adb8e108a747dbfe91832a90c839"
+    },
+    {
+      "path": "tools/development/u13b-windows-retry.mjs",
+      "bytes": 11171,
+      "sha256": "d550dabfafba464806d0d607ed2197ab8f76aa3c35216f9485937f6b80122f94"
+    },
+    {
+      "path": "tools/development/u13b-windows-verify.mjs",
+      "bytes": 12143,
+      "sha256": "aa53aeea42858db2c6cb5311d836a2b1b3f7ca6d5e5443e0b6e10efb6eab20bb"
+    },
+    {
+      "path": "tools/development/u13b-wire-identity.mjs",
+      "bytes": 523,
+      "sha256": "1d53533102604c72a5a982477faa5f006f8093be9b60734be72d54ef1e5a158c"
+    },
+    {
+      "path": "tools/launchers/Launch-Installed-ROMDex-Verification.cmd",
+      "bytes": 358,
+      "sha256": "06a63b0563076fe2a0bd6e51b254b829edd4abc550871e7ec9b868a5ab09fda1"
+    },
+    {
+      "path": "tools/launchers/Launch-U10-Verification.cmd",
+      "bytes": 306,
+      "sha256": "3e41779b479c4ca94d9fe8e90759aca2105e41af7e54805143cd7bed8d9b5269"
+    },
+    {
+      "path": "tools/launchers/Launch-U10F-Verification.cmd",
+      "bytes": 309,
+      "sha256": "6724c752b53e781b025011cad80d7a80774ea6b6150cf45a81b213bc541315fd"
+    },
+    {
+      "path": "tools/launchers/Launch-U11-Verification.cmd",
+      "bytes": 331,
+      "sha256": "bf1f83ef22007ee9a6c7db3f8266df726ff6f6b1b68927af0950eb304d208d87"
+    },
+    {
+      "path": "tools/launchers/Launch-U12-Migration.cmd",
+      "bytes": 321,
+      "sha256": "c3d56b9bb90754aba0e706188790cab14e7b4340c4ffc55a09d9c2e4e8843d78"
+    },
+    {
+      "path": "tools/launchers/Launch-U13A-Credential-Fix.cmd",
+      "bytes": 391,
+      "sha256": "5eab77ad4cc7d9a43f27c6fb50a897c861eb22f30eaf4c6c4026c148ecffb0f1"
+    },
+    {
+      "path": "tools/launchers/Launch-U13A-Verification.cmd",
+      "bytes": 383,
+      "sha256": "988d4e13794c5614f134a28c7ecf4563d4788bd6124a0edcfcc69cf5041f96ec"
+    },
+    {
+      "path": "tools/launchers/Launch-U13B-Setup.cmd",
+      "bytes": 395,
+      "sha256": "d841ead31ce23b8b6dc8eaba24da73bd51050162fc6fc7d5b66966dec2d55ebf"
+    },
+    {
+      "path": "tools/launchers/Launch-U13B-Verification.cmd",
+      "bytes": 401,
+      "sha256": "1e6e0ce1c96457d24efb0668d57219833d281f776bd782eea91555e6873c3a56"
+    },
+    {
+      "path": "tools/installer-dependencies/package.json",
+      "bytes": 155,
+      "sha256": "f62bfafeb01a91a3804b1a8edcc81c0812f37bf20f7c038204c3ad857ca1f089"
+    },
+    {
+      "path": "tools/installer-dependencies/package-lock.json",
+      "bytes": 54386,
+      "sha256": "508d914590885bb8db1d590645cdbae66fb22834e910813103bdbdcfc5f08cf3"
+    }
+  ]
+}

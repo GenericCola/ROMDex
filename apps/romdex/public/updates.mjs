@@ -1,0 +1,9 @@
+const api=window.romdexUpdates,$=id=>document.getElementById(id);let state;
+function render(value){state=value;const busy=['checking','downloading','installing'].includes(value.phase);$('version').textContent='Installed Version: '+value.version;$('message').textContent=value.message;$('release').hidden=!value.available;$('progress').hidden=!value.progress;if(value.progress){$('progress').max=value.progress.total;$('progress').value=value.progress.bytes;}
+ if(value.available){$('release-title').textContent='ROMDex '+value.available.version;$('notes').textContent=value.available.notes;$('size').textContent='Installer: '+(value.available.size/1048576).toFixed(1)+' MiB';}
+ $('download').hidden=value.ready;$('download').disabled=busy||!value.configured;$('install').hidden=!value.ready;$('install').disabled=busy;$('later').disabled=busy;$('cancel').hidden=value.phase!=='downloading';$('check').disabled=busy||!value.configured;$('manual').disabled=busy||!value.trusted;$('save-access').disabled=busy;$('token-page').disabled=busy;$('repository').textContent='Private Repository: '+value.repository;$('access').textContent=value.accessReady?'Windows-Protected Download Access Is Saved.':'Download Access Has Not Been Saved.';
+}
+async function action(name){try{await api.action(name);}catch(error){$('message').textContent=error.message;}}
+for(const [id,name] of [['check','check'],['download','download'],['install','install'],['later','later'],['cancel','cancel'],['manual','manual'],['token-page','token-page']])$(id).onclick=()=>action(name);
+$('save-access').onclick=async()=>{const token=$('token').value;$('token').value='';try{await api.saveAccess(token);$('message').textContent='Download Access Saved and Verified.';}catch(error){$('message').textContent=error.message;}};
+api.onChange(render);render(await api.state());

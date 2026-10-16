@@ -1,10 +1,10 @@
 {
   "format": "ROMDexDevelopmentArchive/1",
-  "at": "2026-10-16T02:10:37.355Z",
+  "at": "2026-10-16T03:12:36.737Z",
   "baselineVersion": "0.5.2",
-  "currentSource": "Verified U13A Baseline",
-  "sourceFiles": 2269,
-  "sourceBytes": 326899838,
+  "currentSource": "ROMDex 0.5.3 — U13B Implementation",
+  "sourceFiles": 2283,
+  "sourceBytes": 326578808,
   "snapshots": [
     "Header-Correction-Before",
     "R04-Before",
@@ -86,6 +86,11 @@
       "sha256": "b35da8ad6634f1c360efd8d3586b579fcca7a2c23bd0f5756778cff4990e0a9a"
     },
     {
+      "path": "apps/romdex/desktop/github-releases.mjs",
+      "bytes": 4115,
+      "sha256": "4ae9aeec8cb54520489c434ad21ea86d4c8437c75af4d0f45ca08f26ae107b0a"
+    },
+    {
       "path": "apps/romdex/desktop/install-layout.cjs",
       "bytes": 1063,
       "sha256": "72c2613276ee4adcd17406d588a99017880791205762207a29b0ca4c5aec3912"
@@ -97,13 +102,13 @@
     },
     {
       "path": "apps/romdex/desktop/lifecycle.mjs",
-      "bytes": 3749,
-      "sha256": "a6731ebfbb197f9e18ca0a2ddf9701492d0fc461199e9899873b326a929cfdee"
+      "bytes": 3958,
+      "sha256": "e27b781705caf31f33a4e0d77be99c8e940db0124f7151cd16226f3dac9b7993"
     },
     {
       "path": "apps/romdex/desktop/main.cjs",
-      "bytes": 14852,
-      "sha256": "04432cd367bcee99df5cac7610780309458398714ab905e59b490951862d61d2"
+      "bytes": 16243,
+      "sha256": "7a169ad8159157c4e9cb2ab1939701b31a36606f68faf4ac90e5a1385a48a5ab"
     },
     {
       "path": "apps/romdex/desktop/migration.mjs",
@@ -131,6 +136,16 @@
       "sha256": "745756913266c388dba8b821632e232a8c6a2003a92acf84d8b712d990561913"
     },
     {
+      "path": "apps/romdex/desktop/release-core.mjs",
+      "bytes": 4927,
+      "sha256": "1a2759c6a90821f7708ca9d2941d9c9725d49a3a4a8958269733746495e06b59"
+    },
+    {
+      "path": "apps/romdex/desktop/release-download.mjs",
+      "bytes": 2870,
+      "sha256": "30785d449ff7eed94a26c1f2e5b1057721ab8222ffcb7989bd81541fbee0559e"
+    },
+    {
       "path": "apps/romdex/desktop/runtime-lock.json",
       "bytes": 371,
       "sha256": "4fd81ef107f98b7cbe47e65d248848e08c3f69243245f15aa6939587b00390bc"
@@ -142,13 +157,43 @@
     },
     {
       "path": "apps/romdex/desktop/service.mjs",
-      "bytes": 7822,
-      "sha256": "940e9373cea0ec316f7e4d3f12bbf0ba5f3c722b0f05e07d642c0ae268488328"
+      "bytes": 8423,
+      "sha256": "bc69ec4d6e749b4d92b7251a88e3cf2372867760db16d10938d1819620e74f21"
     },
     {
       "path": "apps/romdex/desktop/session-migration.cjs",
       "bytes": 2076,
       "sha256": "ba799f9aead464cb0df385635691a2cc1fb70f582316f35ff370d6712e4c1f09"
+    },
+    {
+      "path": "apps/romdex/desktop/update-config.json",
+      "bytes": 904,
+      "sha256": "eecdb77a4772fcc04ce8ceca9772dc15887ed980493d20138118174b421e6cc6"
+    },
+    {
+      "path": "apps/romdex/desktop/update-controller.mjs",
+      "bytes": 6245,
+      "sha256": "5396a7a8b25ea8acd2d0bceea9ca85ecd1083f2f5519803173c8155066f7daea"
+    },
+    {
+      "path": "apps/romdex/desktop/update-handoff.mjs",
+      "bytes": 5614,
+      "sha256": "e41aa0b41edd48f0d0a135b4dca02d17c57e0a70bd41824d2359242dec8c409e"
+    },
+    {
+      "path": "apps/romdex/desktop/update-handoff.ps1",
+      "bytes": 7460,
+      "sha256": "78c0fc5dae791ffc2561fa2b695822050716a50603d296691924322135439c6c"
+    },
+    {
+      "path": "apps/romdex/desktop/update-preload.cjs",
+      "bytes": 491,
+      "sha256": "283293b804866e101614e6942a523b1fe7c4ca483c763a271ae34f5d6dde5262"
+    },
+    {
+      "path": "apps/romdex/desktop/updater-window.mjs",
+      "bytes": 7205,
+      "sha256": "1d1673c4fa5028a0bdf91a7034055c6e93949c31e3faa6e7a4686ed214c71428"
     },
     {
       "path": "apps/romdex/durable-json-storage.mjs",
@@ -163,12 +208,7 @@
     {
       "path": "apps/romdex/package.json",
       "bytes": 531,
-      "sha256": "62dbe37ff4839761f6917ec163ac2956a72ef9b590986da7c6c5dce75faeec11"
-    },
-    {
-      "path": "apps/romdex/preview.png",
-      "bytes": 389406,
-      "sha256": "ec106d48449660aa764bf35a0187ac7462e45a2eff104c4bf4624617a96fcb01"
+      "sha256": "538e17629ab6441646dcadb466f5fa41bac5aa7a0bdefac12d2f04c917aeb462"
     },
     {
       "path": "apps/romdex/public/addons/npcdex/coordination.js",
@@ -268,7 +308,7 @@
     {
       "path": "apps/romdex/public/index.html",
       "bytes": 1357,
-      "sha256": "4e24ea7999d6586cc47e53eebb74c08dbf1e1dad43f6bccaafda4dbf97722e98"
+      "sha256": "27ed409e70c56c78c8be236b2499e916320acb7950511f8898a9bcf867e83c12"
     },
     {
       "path": "apps/romdex/public/item-editor-view.mjs",
@@ -384,6 +424,21 @@
       "path": "apps/romdex/public/tasks.html",
       "bytes": 13923,
       "sha256": "5638fc81323dd9f9915a9c4c2150c80204077797974b875c60f24efd5f861bc9"
+    },
+    {
+      "path": "apps/romdex/public/updates.css",
+      "bytes": 1297,
+      "sha256": "a4331860bc869f84ef1fd645c66ff3069f980e21e9e1772acfa2dde785def530"
+    },
+    {
+      "path": "apps/romdex/public/updates.html",
+      "bytes": 1625,
+      "sha256": "fc25e4d637b7c0365608407ec88c0098f8bd1d9c0f6106a6330d615ad88dcda2"
+    },
+    {
+      "path": "apps/romdex/public/updates.mjs",
+      "bytes": 1836,
+      "sha256": "d3efe48800b7a7dc456b94e7dc84abf8d25d5910c21570df1c3c4896c7a55664"
     },
     {
       "path": "apps/romdex/public/work-selection.mjs",
@@ -512,8 +567,8 @@
     },
     {
       "path": "apps/romdex/tests/desktop-lifecycle.test.mjs",
-      "bytes": 8743,
-      "sha256": "758db4f9095f5de7a056ece6862ec9c32734a385c678429188e4838d9f41d8c9"
+      "bytes": 9419,
+      "sha256": "36cd8b98d0de5bfaf287792fac10edc9dbf33f1e2ef58d8169b4007cf8ebeca0"
     },
     {
       "path": "apps/romdex/tests/desktop-migration.test.mjs",
@@ -564,6 +619,11 @@
       "path": "apps/romdex/tests/item-editor.test.mjs",
       "bytes": 6778,
       "sha256": "a88926094e7e7de17a632966d464b4c7ac597d0231b2dfb44d8c44eb7757f88c"
+    },
+    {
+      "path": "apps/romdex/tests/release-update.test.mjs",
+      "bytes": 15358,
+      "sha256": "161bee0c7df148fc345994fe6b7d8ebc976f0e2a6fc552fe493dc9173ba98c47"
     },
     {
       "path": "apps/romdex/tests/runtime-profile.test.mjs",
@@ -646,9 +706,19 @@
       "sha256": "003935d0138c35fbfef97f066443af93648331de11e9e18a89933c37dad4bea8"
     },
     {
+      "path": "apps/romdex/U12-Desktop-Guide.md",
+      "bytes": 2878,
+      "sha256": "c00af7f220bbadcf3fb681dc8d2f6509da4137c0407d8144101f511f373c3f77"
+    },
+    {
       "path": "apps/romdex/U13A-Desktop-Guide.md",
       "bytes": 2196,
       "sha256": "f2babba8ad03ddcc45860cd94fa91a7454a3073a4d83d22a059674be3cda9d2b"
+    },
+    {
+      "path": "apps/romdex/U13B-Update-Guide.md",
+      "bytes": 2674,
+      "sha256": "968ea9c1341d469543c701f1cc4049c2e2f038d385294e69dd7ac0d1353c3880"
     },
     {
       "path": "apps/romdex/UPGRADE-AND-RECOVERY.md",
@@ -11383,6 +11453,18 @@
   ],
   "excludedEntries": [
     "current-source\\.gitignore",
+    "current-source\\.romdex",
+    "current-source\\task4-test.log",
+    "current-source\\task5-test.log",
+    "current-source\\work-r01-tests",
+    "current-source\\work-r02-tests",
+    "current-source\\work-r03-tests",
+    "current-source\\work-rollup-fix-temp",
+    "current-source\\work-task4-temp",
+    "current-source\\work-task5-temp",
+    "current-source\\work-task6-temp",
+    "current-source\\work-task7-temp",
+    "current-source\\work-title-fix-temp",
     "S01-Before\\.gitignore",
     "U06-Before\\.gitignore",
     "U08-Before\\.gitignore",

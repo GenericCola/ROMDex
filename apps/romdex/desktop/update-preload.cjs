@@ -1,0 +1,2 @@
+const {contextBridge,ipcRenderer}=require('electron');
+contextBridge.exposeInMainWorld('romdexUpdates',Object.freeze({state:()=>ipcRenderer.invoke('romdex:updates-state'),action:name=>ipcRenderer.invoke('romdex:updates-action',name),saveAccess:token=>ipcRenderer.invoke('romdex:updates-access',token),onChange:callback=>{const listener=(_,value)=>callback(value);ipcRenderer.on('romdex:updates-changed',listener);return()=>ipcRenderer.removeListener('romdex:updates-changed',listener);}}));

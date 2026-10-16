@@ -1,0 +1,12 @@
+import fs from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+const hash=b=>createHash('sha256').update(b).digest('hex');
+const npc=await fs.readFile('C:/Users/mrgen/Downloads/npcdex-v2.42/npcdex-template.html','utf8');
+const favicon=Buffer.from(npc.match(/<link rel="icon"[^>]*href="data:image\/svg\+xml;base64,([^"]+)/)[1],'base64');
+if(!favicon.equals(await fs.readFile('outputs/ROMDex/public/npcdex-pokeball.svg')))throw Error('Favicon differs from NPCDex reference');
+await fs.writeFile('outputs/ROMDex/public/shared-ui/npcdex-pokeball.svg',favicon);
+await fs.copyFile('outputs/Tool-Suite-UI/standard-settings-icon.svg','outputs/ROMDex/public/shared-ui/standard-settings-icon.svg');
+for(const name of ['theme.css','header.mjs','npcdex-pokeball.svg','standard-settings-icon.svg'])for(const dir of ['outputs/ROMDex/shared-ui','outputs/Tool-Suite-UI'])await fs.copyFile('outputs/ROMDex/public/shared-ui/'+name,dir+'/'+name);
+const file='outputs/ROMDex/public/index.html';let s=await fs.readFile(file,'utf8');s=s.replace('href="icon.svg" type="image/svg+xml"','href="shared-ui/npcdex-pokeball.svg" type="image/svg+xml"');await fs.writeFile(file,s);
+const saved='C:/Users/mrgen/Downloads/npcdex-v2.42/npcdex-agent-export.json';await fs.writeFile('work/u06/reference-integrity.json',JSON.stringify({savedExport:{path:saved,sha256:hash(await fs.readFile(saved))},npcTemplate:{path:'C:/Users/mrgen/Downloads/npcdex-v2.42/npcdex-template.html',sha256:hash(npc)},sharedTheme:hash(await fs.readFile('outputs/Tool-Suite-UI/theme.css')),favicon:hash(favicon)},null,2));
+console.log('Canonical/public theme, header and original SVG assets match. NPCDex sources/saves are read-only.');

@@ -1,0 +1,2 @@
+import fs from 'node:fs/promises';
+for(const file of ['outputs/ROMDex/desktop/main.cjs','outputs/ROMDex/desktop/updater-window.mjs']){let text=await fs.readFile(file,'utf8');if(file.endsWith('main.cjs'))text=text.replace('upgradeCode:IDENTITY.upgradeCode,service','upgradeCode:IDENTITY.upgradeCode,shortName:IDENTITY.shortName,service');else text=text.replace('publicKey:config.publicKey,version,upgradeCode,utilityPid','publicKey:config.publicKey,version,upgradeCode,shortName,utilityPid');await fs.writeFile(file,text);}

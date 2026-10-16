@@ -1,7 +1,7 @@
 # ROMDex — Desktop and Add-on Action Plan
 
 **Date:** October 14, 2026  
-**Status:** U01–U13A and the approved intervening tasks are complete. Installed ROMDex **0.5.2** now owns current saves inside its retained Data folder. Originals remain preserved; NPCDex is still local-only. U13B and later tasks require separate PASSKEYs.
+**Status:** U01–U13A and the approved intervening tasks are complete. Installed ROMDex **0.5.2** now owns current saves inside its retained Data folder. Originals remain preserved; NPCDex is still local-only. U13B is authorized and in verification; later tasks require separate PASSKEYs.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
 **Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). Current application: [installed ROMDex 0.5.2](U13A-Completion-Report.md). Next: **U13B — Approved Update Notifications and Installation, Sol / High**, requiring a new PASSKEY. Cloud implementation remains U14–U19.

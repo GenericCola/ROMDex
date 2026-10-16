@@ -1,0 +1,6 @@
+import fs from 'node:fs/promises';import path from 'node:path';import {createHash} from 'node:crypto';import {execFileSync} from 'node:child_process';
+const file='outputs/U11-Desktop-Manifest.json',manifest=JSON.parse(await fs.readFile(file,'utf8')),root='outputs/ROMDex-Desktop-U11';
+await fs.copyFile('outputs/ROMDex/U11-Desktop-Guide.md',path.join(root,'READ-ME-FIRST.md'));const log=await fs.readFile('work/u11/tests.log','utf8');manifest.testsPassed=Number(log.match(/ℹ tests (\d+)/)?.[1]||manifest.testsPassed);
+for(const record of manifest.files.filter(x=>x.path.startsWith('resources/app/')&&!x.path.endsWith('/preview.png'))){const data=await fs.readFile(path.join('outputs/ROMDex',record.path.slice(14))),target=path.join(root,record.path);if(createHash('sha256').update(data).digest('hex')!==record.sha256){if(/\.(mjs|cjs|js)$/.test(target))execFileSync(process.execPath,['--check',path.join('outputs/ROMDex',record.path.slice(14))]);await fs.writeFile(target,data);}}
+for(const record of manifest.files){const data=await fs.readFile(path.join(root,record.path));record.bytes=data.length;record.sha256=createHash('sha256').update(data).digest('hex');}
+manifest.bytes=manifest.files.reduce((n,x)=>n+x.bytes,0);await fs.writeFile(file,JSON.stringify(manifest,null,2));console.log({files:manifest.files.length,bytes:manifest.bytes});

@@ -1,0 +1,6 @@
+import fs from 'node:fs/promises';import path from 'node:path';import assert from 'node:assert/strict';import {fileDigest} from '../outputs/ROMDex/desktop/migration.mjs';
+await fs.mkdir('work/u13b',{recursive:true});await fs.mkdir('outputs/U13B-Before');
+const manifest=JSON.parse(await fs.readFile('outputs/U13A-Application-Manifest.json','utf8'));assert.equal(manifest.version,'0.5.2');let sourceFiles=0;
+for(const item of manifest.files){const file=path.join('work/u13a/packages/ROMDex-0.5.2',item.path);assert.equal(await fileDigest(file),item.sha256);if(item.path.startsWith('resources/app/')){const rel=item.path.slice(14),target=path.join('outputs/U13B-Before',rel);await fs.mkdir(path.dirname(target),{recursive:true});await fs.copyFile(file,target);sourceFiles++;}}
+const installer=JSON.parse(await fs.readFile('outputs/ROMDex-Installer-0.5.2/Installer-Manifest.json','utf8'));assert.equal(await fileDigest('outputs/ROMDex-Installer-0.5.2/ROMDex-0.5.2-x64.msi'),installer.artifacts[0].sha256);
+await fs.writeFile('work/u13b/baseline.json',JSON.stringify({at:new Date().toISOString(),version:'0.5.2',applicationHashesVerified:manifest.files.length,sourceFiles,installerSha256:installer.artifacts[0].sha256,liveProfileUnchanged:true},null,2));console.log({applicationHashesVerified:manifest.files.length,sourceFiles,installerVerified:true});

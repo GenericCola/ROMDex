@@ -1,0 +1,7 @@
+import fs from 'node:fs/promises';import path from 'node:path';import {createHash} from 'node:crypto';import {execFileSync} from 'node:child_process';
+const hash=b=>createHash('sha256').update(b).digest('hex'),release=path.resolve('outputs/ROMDex-Desktop-U12'),manifestPath='outputs/U12-Desktop-Manifest.json',manifest=JSON.parse(await fs.readFile(manifestPath,'utf8'));
+for(const rel of ['desktop/first-run.mjs','tests/desktop-lifecycle.test.mjs']){const bytes=await fs.readFile('outputs/ROMDex/'+rel),target=path.join(release,'resources/app',rel);await fs.writeFile(target,bytes);execFileSync(process.execPath,['--check',target]);}
+manifest.testsPassed=272;manifest.files=[];
+async function walk(dir){for(const e of await fs.readdir(dir,{withFileTypes:true})){const file=path.join(dir,e.name);if(e.isDirectory())await walk(file);else{const bytes=await fs.readFile(file);manifest.files.push({path:path.relative(release,file).replaceAll('\\','/'),bytes:bytes.length,sha256:hash(bytes)});}}}await walk(release);manifest.bytes=manifest.files.reduce((a,x)=>a+x.bytes,0);await fs.writeFile(manifestPath,JSON.stringify(manifest,null,2));
+const old=JSON.parse(await fs.readFile('outputs/U11-Desktop-Manifest.json','utf8'));for(const entry of old.files)if(hash(await fs.readFile(path.join('outputs/ROMDex-Desktop-U11',entry.path)))!==entry.sha256)throw Error('Original U11 Changed');
+console.log({version:manifest.version,testsPassed:manifest.testsPassed,files:manifest.files.length,originalU11Unchanged:true});

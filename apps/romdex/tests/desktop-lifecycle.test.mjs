@@ -35,6 +35,7 @@ test('approved tray groups commands, uses shared state and omits unavailable upd
  const paused=trayTemplate({ready:false,run:()=>{},quit:()=>{}});assert.equal(paused.find(x=>x.label==='Save Changes').enabled,false);assert.equal(paused.at(-1).enabled,true);
  const syncing=trayTemplate({ready:true,busy:true,run:()=>{},quit:()=>{}});assert.equal(syncing.find(x=>x.label==='Save Changes').enabled,false);assert.equal(syncing.at(-1).enabled,true);assert.equal(trayTemplate({quitBusy:true}).at(-1).enabled,false);
 });
+test('tray update availability opens its own controls while project saving remains independent',()=>{const commands=[],items=trayTemplate({ready:true,updates:{phase:'error'},run:name=>commands.push(name)});items.find(x=>x.label==='Check for Updates…').click();assert.deepEqual(commands,['updates']);assert.equal(items.find(x=>x.label==='Save Changes').enabled,true);const available=trayTemplate({ready:true,updates:{phase:'ready',available:{version:'0.5.4'}}});assert(available.some(x=>x.label==='Update Available: 0.5.4…'));const installing=trayTemplate({updates:{phase:'installing'}});assert.equal(installing.find(x=>x.label==='Check for Updates…').enabled,false);});
 
 test('renderer recovery is bounded, allows manual retry and never claims readiness before load',async()=>{
  let reloads=0,reviews=0;const recovery=new RendererRecovery({reload:()=>reloads++,onUnavailable:()=>reviews++,delay:async()=>{}});

@@ -1,0 +1,3 @@
+import fs from 'node:fs/promises';
+for(const file of ['outputs/ROMDex/package.json','outputs/ROMDex/public/index.html']){let text=await fs.readFile(file,'utf8');text=text.replaceAll('0.5.1','0.5.2');await fs.writeFile(file,text);}
+const file='work/u13a-package.mjs';let text=await fs.readFile(file,'utf8');text=text.replace("['0.5.0','0.5.1'].includes(version)","['0.5.0','0.5.1','0.5.2'].includes(version)");text=text.replace("'desktop/install-layout.cjs',","'desktop/session-migration.cjs','tests/session-migration.test.mjs','desktop/install-layout.cjs',");text=text.replace("replace('ROMDex 0.5.1 · NPCDex'","replace('ROMDex 0.5.2 · NPCDex'");await fs.writeFile(file,text);

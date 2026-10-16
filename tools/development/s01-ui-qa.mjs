@@ -1,0 +1,32 @@
+import fs from 'node:fs/promises';
+import assert from 'node:assert/strict';
+import {once} from 'node:events';
+import {createRequire} from 'node:module';
+const {chromium}=createRequire(import.meta.url)('C:/Users/mrgen/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const {server,yt}=await import('./s01/ui-fixture.mjs');if(!server.listening)await once(server,'listening');
+const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});
+const checks=[];
+try{
+ const page=await browser.newPage({viewport:{width:1280,height:900}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('http://127.0.0.1:4341/');await page.locator('#all-items.active').waitFor();assert.equal(await page.locator('#work-title').textContent(),'All Tasks');checks.push('All Tasks selected over saved Verse at startup');
+ await page.locator('#selectors .selector-main').first().click();await page.waitForFunction(()=>document.getElementById('work-title').textContent!=='All Tasks');const chosen=await page.locator('#work-title').textContent();assert.notEqual(chosen,'All Tasks');await page.locator('#expand-all').click();assert.equal(await page.locator('#work-title').textContent(),chosen);checks.push('Ordinary rerenders preserve current scope');
+ await page.reload();await page.locator('#all-items.active').waitFor();assert.equal(await page.locator('#work-title').textContent(),'All Tasks');checks.push('Reload starts in All Tasks');
+ const clip=page.locator('[data-attachments="PMON-954"]').first();await clip.scrollIntoViewIfNeeded();
+ assert.equal(await clip.locator('path').getAttribute('stroke-width'),'1');const dims=await clip.locator('svg').boundingBox();assert.equal(dims.width,12);assert.equal(dims.height,14);checks.push('Paperclip is light and matches Notes footprint');
+ await page.locator('#auto-sync').click();await page.waitForFunction(()=>document.getElementById('auto-sync').getAttribute('aria-checked')==='true');
+ await clip.click();await page.locator('[data-view-file=native-preview]').click();await page.locator('#file-preview-dialog[open]').waitFor();
+ await yt.deleteAttachment('PMON-954','native-preview');await page.evaluate(()=>window.dispatchEvent(new Event('online')));
+ await page.locator('#file-preview-dialog[open]').waitFor({state:'hidden',timeout:20000});checks.push('Native removal refresh closes the stale raster preview');
+ await page.locator('[data-close=attachments-dialog]').first().click();await page.locator('#auto-sync').click();await page.waitForFunction(()=>document.getElementById('auto-sync').getAttribute('aria-checked')==='false');
+ await page.locator('[data-attachments="PMON-954"]').first().click();
+ page.once('dialog',d=>d.dismiss());await page.locator('[data-delete-file=native-image]').click();assert.equal((await yt.attachments('PMON-954')).length,2);await page.locator('[data-delete-file=native-image]').waitFor();checks.push('Dismissed confirmation keeps native files');
+ page.once('dialog',async d=>{assert.match(d.message(),/Original Sprite.png/);assert.match(d.message(),/PMON-954/);await d.accept();});await page.locator('[data-delete-file=native-image]').click();await page.locator('[data-cancel-attachment-delete]').waitFor();assert.equal((await yt.attachments('PMON-954')).length,2);checks.push('Paused deletion keeps both native files and shows queued state');
+ await page.locator('[data-cancel-attachment-delete]').click();await page.locator('[data-delete-file=native-image]').waitFor();checks.push('Cancel Deletion restores Delete control without native removal');
+ page.once('dialog',d=>d.accept());await page.locator('[data-delete-file=native-image]').click();await page.locator('[data-cancel-attachment-delete]').waitFor();await page.locator('[data-close=attachments-dialog]').first().click();await page.locator('#save').click();
+ await page.waitForFunction(()=>document.getElementById('auto-sync').getAttribute('aria-checked')==='false'&&document.querySelector('[data-attachments="PMON-954"]')?.title==='1 Attachment');
+ assert.deepEqual((await yt.attachments('PMON-954')).map(x=>x.id),['native-text']);checks.push('Manual Save deletes only the confirmed file and stays Off');
+ await page.locator('[data-attachments="PMON-954"]').first().click();await page.locator('[data-delete-file=native-text]').waitFor();await page.screenshot({path:'outputs/S01-Attachment-Delete-QA.png'});
+ page.once('dialog',d=>d.accept());await page.locator('[data-delete-file=native-text]').click();await page.locator('[data-cancel-attachment-delete]').waitFor();await page.locator('[data-close=attachments-dialog]').first().click();await page.locator('#save').click();await page.locator('[data-attachments="PMON-954"]').waitFor({state:'hidden'});assert.equal((await yt.attachments('PMON-954')).length,0);checks.push('Final deletion removes the row paperclip');
+ await page.setViewportSize({width:600,height:850});await page.locator('[data-open="PMON-954"]').click();await page.locator('#detail-attachments').waitFor();assert.equal(await page.locator('#detail-attachments').getByText('No Attachments').count(),1);checks.push('Details uses the same refreshed attachment list');
+ assert.deepEqual(errors,[]);const result={verifiedAt:new Date().toISOString(),checks,pageErrors:errors,provider:'Isolated fixture only',productionWrites:false};await fs.writeFile('work/s01/ui-verification.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result));
+}finally{await browser.close();server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}

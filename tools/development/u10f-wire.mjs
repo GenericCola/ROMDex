@@ -1,0 +1,11 @@
+import fs from 'node:fs/promises';
+const file='outputs/ROMDex/public/shell.mjs';let s=await fs.readFile(file,'utf8');
+s=s.replace("import {DesktopWorkspace} from './desktop-workspace.mjs';","import {DesktopWorkspace} from './desktop-workspace.mjs';\nimport {isFileDrag} from './file-drop.mjs';");
+const needle="onReady:(id,view)=>{view.doc.addEventListener('pointerdown',()=>header.close());";
+if(!s.includes(needle))throw Error('No shell view hook');
+s=s.replace(needle,needle+"if(desktop&&id==='npcdex')guardFileNavigation(view.doc);");
+const insert="function guardFileNavigation(doc){doc.addEventListener('dragover',event=>{if(isFileDrag(event.dataTransfer)){event.preventDefault();event.dataTransfer.dropEffect='none';}},true);doc.addEventListener('drop',event=>{event.preventDefault();if(isFileDrag(event.dataTransfer)){event.stopImmediatePropagation();tell('Drop Files onto a ROMDex Task in the Work Pane.');}},true);}\nif(desktop)guardFileNavigation(document);\n";
+const where="const coordinator=new SaveCoordinator";if(!s.includes(where))throw Error('No coordinator');s=s.replace(where,insert+where);await fs.writeFile(file,s);
+const plan='outputs/NPCDex-ROMDex-Unified-App-Action-Plan.md';s=await fs.readFile(plan,'utf8');s=s.replace('| U12 | Migrate current saves, ROMDex metadata, and the remembered connection into a persistent desktop profile, keeping original backups.','| U12 | Migrate current saves, ROMDex metadata, and the remembered connection into a persistent desktop profile, keeping original backups. **User-confirmed authority: the latest live web save is correct; the desktop baseline differs and must not overwrite it.**');await fs.writeFile(plan,s);
+await fs.appendFile('outputs/NPCDex-ROMDex-Decision-Log.md','\n\n## U10F Start — Web Save Is Authoritative, October 15, 2026\n\nThe user confirms desktop save data differs from the correct live web save and grants PASSKEY for the next task, U10F. Preserve both copies. U12 must capture and preview the latest live web state, queues and bytes before migration; no packaged baseline or desktop QA fixture may replace it. U10F adds file drops only and does not perform early data adoption.\n');
+console.log('Drop guards wired; U12 web-data authority recorded.');

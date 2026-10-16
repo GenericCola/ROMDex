@@ -1,0 +1,3 @@
+import fs from 'node:fs/promises';
+const file='outputs/ROMDex/public/app.mjs';let s=await fs.readFile(file,'utf8');s=s.replace("__missing__:'Deleted Item'","__attachment__:'Changed Attachment',__missing__:'Deleted Item'");s=s.replace("${c.field==='__delete__'?'This item changed", "${c.field==='__attachment__'?'This attachment changed after confirmation. Cancel the pending deletion, review the current file, and select Delete again if appropriate.':c.field==='__delete__'?'This item changed");await fs.writeFile(file,s);
+const css='outputs/ROMDex/public/styles.css';s=await fs.readFile(css,'utf8');s=s.replace('.attachment-button svg{display:block;width:14px;height:14px}', '.attachment-button svg{display:block;width:12px;height:14px}');await fs.writeFile(css,s);

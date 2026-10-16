@@ -1,0 +1,24 @@
+{
+  "verifiedAt": "2026-10-16T03:11:41.620Z",
+  "fixtureOnly": true,
+  "version": "0.5.4",
+  "allRemoteFieldsMatch": true,
+  "pendingOperationsMatchExactly": true,
+  "pending": 2,
+  "orderAndImagesMatchExactly": true,
+  "wholeNPCDexMatches": true,
+  "npcdexRevision": 72,
+  "encryptedFixtureCredentialUnchanged": true,
+  "automaticSyncEnabled": false,
+  "queuedFileBytes": [
+    {
+      "path": "uploads\\23f4de0a-def8-43a3-b42b-fd4c0793a2c7.bin",
+      "sha256": "ce5e7dea11d59007aae0a58a5ec0cdca6c711254ab0798b2aa0810da35ce184f"
+    },
+    {
+      "path": "uploads\\23f4de0a-def8-43a3-b42b-fd4c0793a2c7.json",
+      "sha256": "e2792f15f88c56f87a934e73e22d1d24da6935c311c621d2ed5889a735fd47cb"
+    }
+  ],
+  "uninstalledProfileRetained": true
+}

@@ -1,0 +1,12 @@
+import fs from 'node:fs/promises';
+let s=await fs.readFile('outputs/r08-ui-fixture.mjs','utf8');
+s=s.replaceAll("'./ROMDex/","'../../outputs/ROMDex/").replaceAll('4338','4341');
+s=s.replace("base=path.join(here,'ROMDex','public'),profile=path.join(here,'R08-fixture-profile')","base=path.resolve('outputs/ROMDex/public'),profile=path.resolve('work/s01/ui-profile')");
+s=s.replace("const contents=new Map", "const previewFile={...nativeFile,id:'native-preview',name:'Preview Sprite.png'};items.find(x=>x.id==='PMON-954').attachments.push(previewFile);\nconst contents=new Map");
+s=s.replace("[[nativeFile.id,png]", "[[previewFile.id,png],[nativeFile.id,png]");
+s=s.replace('uploadAttachment:async(id,file,bytes)=>', "deleteAttachment:async(id,key)=>{const item=await yt.require(id);item.attachments=item.attachments.filter(x=>x.id!==key);contents.delete(key);},uploadAttachment:async(id,file,bytes)=>");
+s=s.replace('http.createServer(async(req,res)=>', 'const server=http.createServer(async(req,res)=>');
+s=s.replace(" if(url.pathname==='/api/status')", " if(url.pathname==='/api/sync-settings'){status.automaticSyncEnabled=(await body(req)).enabled;return send(res,status);}\n if(url.pathname==='/api/attachment-deletes/cancel')return send(res,await attachments.cancelDeletion(await body(req)));\n if(url.pathname==='/api/status')");
+s=s.replace("else if(op.type==='edit')Object.assign", "else if(op.type==='attachment-delete'){const result=await attachments.delete(op);if(result.conflicts){blocked={opId:op.opId,...result};break;}}else if(op.type==='edit')Object.assign");
+s+='\nexport {server,yt,items,contents,status};\n';
+await fs.writeFile('work/s01/ui-fixture.mjs',s);console.log('S01 isolated fixture prepared; no production connection.');

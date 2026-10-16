@@ -1,0 +1,11 @@
+import fs from 'node:fs/promises';import path from 'node:path';import assert from 'node:assert/strict';import {inspector} from './u11-inspector.mjs';
+const root=path.join(process.env.USERPROFILE,'AppData/Local/ROMDexDesktop'),profile=path.join(root,'Data/thegobindsingh-PMON'),startedAt=new Date().toISOString();
+const main=await inspector(9248);
+const previous=await main.evaluate(()=>{const e=process.getBuiltinModule('module').createRequire(process.execPath)('electron'),path=process.getBuiltinModule('node:path'),pid=process.pid;delete process.env.ROMDEX_VERIFY;delete process.env.ROMDEX_QA_REPORT;delete process.env.ROMDEX_QA;delete process.env.ROMDEX_DESKTOP_FIXTURE;delete process.env.ROMDEX_DESKTOP_PROFILE;e.app.relaunch({execPath:path.join(path.dirname(path.dirname(process.execPath)),'ROMDex.exe'),args:[]});setTimeout(()=>global.romdexQA.quit(),100);return {pid};});main.close();
+const wait=ms=>new Promise(r=>setTimeout(r,ms));let owner,state;
+for(let i=0;i<90;i++){await wait(500);try{owner=JSON.parse(await fs.readFile(path.join(profile,'desktop-owner.json'),'utf8'));state=JSON.parse(await fs.readFile(path.join(profile,'service/desktop-workspace.json'),'utf8'));if(owner.pid!==previous.pid&&state.lastSync&&new Date(state.lastSync)>=new Date(startedAt))break;}catch{}}
+assert(owner&&owner.pid!==previous.pid,'Normal Installed Relaunch Did Not Establish a New Owner');
+const ports={};for(const port of [9247,9248]){try{await fetch('http://127.0.0.1:'+port+'/json/list',{signal:AbortSignal.timeout(1000)});ports[port]='open';}catch{ports[port]='closed';}assert.equal(ports[port],'closed');}
+assert.equal(state.remote.length,299);assert.equal(state.operations.length,0);assert(state.lastSync&&new Date(state.lastSync)>=new Date(startedAt),'Normal Relaunch Must Complete Automatic Synchronization');
+const report={startedAt,verifiedAt:new Date().toISOString(),previousPid:previous.pid,normalOwner:owner,diagnosticPorts:ports,items:state.remote.length,pending:state.operations.length,lastSync:state.lastSync,automaticSyncEnabled:state.automaticSyncEnabled,version:JSON.parse(await fs.readFile(path.join(root,'.installInfo.json'),'utf8')).installVersion};
+await fs.writeFile('work/u13a/normal-relaunch.json',JSON.stringify(report,null,2));console.log(report);

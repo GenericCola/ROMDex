@@ -1,0 +1,30 @@
+import fs from 'node:fs/promises';
+import assert from 'node:assert/strict';
+import {once} from 'node:events';
+import {createRequire} from 'node:module';
+const {chromium}=createRequire(import.meta.url)('C:/Users/mrgen/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const {server}=await import('./u06/ui-fixture.mjs');if(!server.listening)await once(server,'listening');
+const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});
+const checks=[],errors=[];
+try{
+ const page=await browser.newPage({viewport:{width:1280,height:900}});page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('http://127.0.0.1:4342/');await page.locator('#all-items.active').waitFor();
+ const geometry=await page.evaluate(()=>Object.fromEntries(['.device-header','.brand-title','.lens','.lamps','#workspace-switcher','#auto-sync','#save','#connection-status','.suite-settings-circle','.standard-settings-icon'].map(s=>{const r=document.querySelector(s).getBoundingClientRect();return [s,{x:r.x,y:r.y,width:r.width,height:r.height}];})));
+ assert.equal(geometry['.device-header'].height,84);assert.equal(geometry['#auto-sync'].height,34);assert.ok(Math.abs(geometry['#workspace-switcher'].height/34-.8)<.002);
+ const center=r=>r.y+r.height/2;assert.ok(Math.abs(center(geometry['#workspace-switcher'])-center(geometry['#auto-sync']))<.1);assert.ok(geometry['#workspace-switcher'].x<geometry['#auto-sync'].x);checks.push('27.2px circular switcher precedes 34px controls, vertically centered; header remains 84px');
+ assert.deepEqual(await page.locator('.lamps i').evaluateAll(es=>es.map(e=>getComputedStyle(e).backgroundColor)),['rgb(239, 130, 115)','rgb(246, 205, 97)','rgb(129, 199, 154)']);checks.push('Decorative lamps are red, yellow, green');
+ assert.equal(geometry['#connection-status'].width,11);assert.equal(geometry['.suite-settings-circle'].width,18);assert.equal(geometry['.standard-settings-icon'].width,12);checks.push('Connection and canonical settings geometry retained');
+ await page.locator('#selectors .selector-main').first().click();const scope=await page.locator('#work-title').textContent();
+ await page.locator('#workspace-switcher').click();await page.locator('#workspace-menu:not([hidden])').waitFor();assert.equal(await page.locator('[data-workspace=npcdex]').isDisabled(),true);
+ await page.keyboard.press('Escape');assert.equal(await page.locator('#workspace-menu').isHidden(),true);assert.equal(await page.locator('#workspace-switcher').evaluate(e=>e===document.activeElement),true);assert.equal(await page.locator('#work-title').textContent(),scope);
+ await page.locator('#workspace-switcher').click();await page.locator('[data-workspace=romdex]').click();assert.equal(await page.locator('#work-title').textContent(),scope);checks.push('Workspace placeholder, ESC focus restoration, and current-workspace selection preserve scope');
+ await page.locator('#connect-open').click();await page.locator('#connection-dialog[open]').waitFor();await page.locator('[data-close=connection-dialog]').first().click();
+ await page.locator('#app-settings').click();await page.locator('[data-app-action=connections]').click();await page.locator('#connection-dialog[open]').waitFor();await page.locator('[data-close=connection-dialog]').first().click();
+ await page.locator('#app-settings').click();await page.locator('[data-app-action=about]').click();await page.locator('#about-version').filter({hasText:'0.4.1'}).waitFor();await page.locator('[data-close=about-dialog]').first().click();checks.push('Connection light, Settings Connections, and About open the correct dialogs');
+ await page.locator('#auto-sync').click();await page.waitForFunction(()=>document.getElementById('auto-sync').getAttribute('aria-checked')==='true');await page.locator('#auto-sync').click();await page.waitForFunction(()=>document.getElementById('auto-sync').getAttribute('aria-checked')==='false');await page.locator('#save').click();await page.waitForTimeout(250);assert.equal(await page.locator('#auto-sync').getAttribute('aria-checked'),'false');checks.push('Auto-Sync toggle and one-time Save retain existing behavior');
+ for(const width of [1280,1024,768,600,320]){await page.setViewportSize({width,height:900});await page.locator('#workspace-switcher').click();const r=await page.locator('#workspace-menu').boundingBox();assert.ok(r.x>=11&&r.x+r.width<=width-11,JSON.stringify({width,r}));await page.keyboard.press('Escape');const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);assert.equal(overflow,false,'Page overflow at '+width);}checks.push('Menu stays within viewport and page has no horizontal overflow at five widths');
+ await page.setViewportSize({width:1280,height:900});await page.locator('#workspace-switcher').click();await page.screenshot({path:'outputs/U06-Header-QA.png'});await page.keyboard.press('Escape');
+ await page.evaluate(async()=>{const {mountHeader}=await import('/shared-ui/header.mjs');window.testHeader=mountHeader(document.querySelector('.device-header'),{active:'npcdex',npcdexAvailable:true,onWorkspace:async id=>window.lastWorkspace=id});});assert.equal(await page.locator('.brand-title').textContent(),'NPCDex');await page.locator('#workspace-switcher').click();await page.locator('[data-workspace=romdex]').click();assert.equal(await page.locator('.brand-title').textContent(),'ROMDex');assert.equal(await page.evaluate(()=>window.lastWorkspace),'romdex');checks.push('Reusable header supports both active titles and supplied workspace callback');
+ assert.deepEqual(errors,[]);checks.push('No browser script errors');
+ await fs.writeFile('outputs/U06-UI-Verification.json',JSON.stringify({checks,geometry,errors},null,2));console.log(checks.join('\n'));
+}finally{await browser.close();await new Promise(r=>server.close(r));}

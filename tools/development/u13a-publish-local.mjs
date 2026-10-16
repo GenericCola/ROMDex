@@ -1,0 +1,18 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+const read=async file=>JSON.parse(await fs.readFile(file,'utf8'));
+const report=await read('work/u13a/windows-verification.json');
+assert.equal(report.status,'passed');
+const build=await read('work/u13a/build-0.5.1.json'),artifact=build.artifacts[0];
+const folder=path.resolve('outputs/ROMDex-Installer-0.5.1');
+await fs.mkdir(folder,{recursive:true});
+const target=path.join(folder,'ROMDex-0.5.1-x64.msi');
+await fs.copyFile(artifact.path,target);
+const bytes=await fs.readFile(target),digest=createHash('sha256').update(bytes).digest('hex');
+assert.equal(digest,artifact.sha256);assert.equal(bytes.length,artifact.bytes);
+await fs.copyFile('outputs/ROMDex/U13A-Desktop-Guide.md',path.join(folder,'READ-ME-FIRST.md'));
+await fs.writeFile(path.join(folder,'Installer-Manifest.json'),JSON.stringify({...build,artifacts:[{file:path.basename(target),bytes:bytes.length,sha256:digest}],lifecycleVerified:true,privateLocalOnly:true},null,2));
+await fs.copyFile('work/u13a/windows-verification.json','outputs/U13A-Isolated-Installer-Verification.json');
+console.log({target,bytes:bytes.length,sha256:digest,checks:report.checks,programBytes:report.programBytes,launches:report.launches,resources:report.resources});

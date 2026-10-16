@@ -46,7 +46,7 @@ export class RendererRecovery {
  retry(){this.attempts=0;return this.interrupted();}
 }
 
-export function trayTemplate({active='romdex',enabled=true,ready=false,busy=false,quitBusy=false,run,quit}){
+export function trayTemplate({active='romdex',enabled=true,ready=false,busy=false,quitBusy=false,updates=null,run,quit}){
  return [
   {label:'Show ROMDex',click:()=>run('show')},
   {label:'Open Workspace',enabled:ready,submenu:['romdex','npcdex'].map(id=>({label:id==='romdex'?'ROMDex':'NPCDex',type:'radio',checked:active===id,click:()=>run('workspace',id)}))},
@@ -56,6 +56,7 @@ export function trayTemplate({active='romdex',enabled=true,ready=false,busy=fals
   {label:'Connection Details…',enabled:ready,click:()=>run('connections')},
   {type:'separator'},
   {label:'About ROMDex…',click:()=>run('about')},
+  ...(updates?[{label:updates.available?'Update Available: '+updates.available.version+'…':'Check for Updates…',enabled:!quitBusy&&updates.phase!=='installing',click:()=>run('updates')}]:[]),
   {type:'separator'},
   {label:'Quit ROMDex',enabled:!quitBusy,click:quit}
  ];

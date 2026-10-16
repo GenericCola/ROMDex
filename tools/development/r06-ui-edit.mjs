@@ -1,0 +1,22 @@
+import fs from 'node:fs';
+const html='outputs/ROMDex/public/index.html';let h=fs.readFileSync(html,'utf8');if(!h.includes("item-edit-dialog"))h=h.replace('<div id="toast"',`<dialog id="item-edit-dialog" aria-labelledby="item-edit-heading"><form id="item-edit-form"><div class="dialog-head"><h2 id="item-edit-heading">Edit Item</h2><button type="button" data-close="item-edit-dialog" aria-label="Close Edit Item">×</button></div><p id="edit-target" class="muted"></p><p id="edit-load-message" class="small muted" role="status"></p><div class="edit-grid"><label class="edit-field edit-wide">Name<input id="edit-name" type="text" required aria-label="Item Name"></label><label class="edit-field">Assigned Status<select id="edit-status" aria-label="Assigned Status"></select></label><label class="edit-field">Priority<select id="edit-priority" aria-label="Item Priority"></select></label><label class="edit-field">Complexity<select id="edit-complexity" aria-label="Item Complexity"></select></label><label class="edit-field">Assignee<select id="edit-assignee" aria-label="Item Assignee"></select><small id="edit-assignee-hint"></small></label><label class="edit-field">Due Date<input id="edit-due-date" type="date" aria-label="Item Due Date"><small id="edit-date-hint"></small></label></div><p id="edit-inherited-hint" class="small muted"></p><div id="edit-custom-fields" class="edit-grid"></div><fieldset class="edit-tags-field"><legend>Tags</legend><div id="edit-tags" class="edit-tag-options"></div><p id="edit-tags-hint" class="small muted"></p></fieldset><label class="edit-field">Notes &amp; Instructions<textarea id="edit-description" rows="6" aria-label="Item Notes and Instructions" spellcheck="true"></textarea></label><p id="edit-error" class="edit-error" role="alert"></p><div class="dialog-actions"><button type="button" data-close="item-edit-dialog">Cancel</button><button id="save-item-edit" type="submit" class="primary">Save Item Changes</button></div></form></dialog>
+<div id="toast"`);fs.writeFileSync(html,h);
+const file='outputs/ROMDex/public/app.mjs';let s=fs.readFileSync(file,'utf8');
+function change(a,b){if(!s.includes(a))throw Error('Missing '+a.slice(0,80));s=s.replace(a,b);}
+change("import {completedControl} from './completed-control.mjs';", "import {completedControl} from './completed-control.mjs';\nimport {ItemEditor} from './item-editor-view.mjs';\nimport {editorValues} from './item-editor.mjs';");
+change('const detailNavigation=new DetailNavigation();', "const detailNavigation=new DetailNavigation();\nconst itemEditor=new ItemEditor({ws,esc,onSaved:count=>{toast(count?'Item Changes Queued for YouTrack.':'No Changes to Save.');focusWorkspace();}});");
+change('data-rename="${esc(item.id)}" title="Rename" aria-label="Rename ${esc(item.summary)}"', 'data-edit="${esc(item.id)}" title="Edit Item" aria-label="Edit ${esc(item.summary)}"');
+change("if(b.dataset.rename){await beginRename(b.dataset.rename);return;}", "if(b.dataset.edit){await openItemEditor(b.dataset.edit);return;}");
+change('async function beginRename(id){', `async function openItemEditor(id){
+ await selectionQueue;await flushEditors();if(groupDraft||draft?.text?.trim()){toast('Finish or Cancel the Current New Row First.');return;}
+ if(renameId){const value=($('rename-input')?.value??renameText??'').trim();if(value)await ws.edit(renameId,{summary:value});renameId=null;renameText=null;}
+ draft=null;workSelection.clear();render();const item=tree.byId.get(id);if(!item)return;
+ await itemEditor.open(item,{displayStatus:STATUS[tree.colors.get(id)],parent:(tree.children.get(id)||[]).length>0});
+}
+async function beginRename(id){`);
+change('workSelection.remap(mapping);', 'itemEditor.remap(mapping);workSelection.remap(mapping);');
+change("${item.fields?.Assignee?`<span>Assignee: ${esc(item.fields.Assignee)}</span>`:''}", "<span>Assignee: ${esc(assigneeLabel(item))}</span><span>Due Date: ${esc(editorValues(item).dueDate||'Not Set')}</span>");
+change('function renderDetails(){', `function assigneeLabel(item){const value=editorValues(item).assignee;if(!value)return 'Unassigned';const option=ws.state.editOptions?.assignee?.options.find(x=>x.id===value);return option?.name||(item.assignee===undefined||item._custom?.find(x=>x.name==='Assignee')?.value?.id===value?item.assigneeName||item.fields?.Assignee:'Unlisted Assignee')||'Unlisted Assignee';}
+function renderDetails(){`);
+change("const signature=JSON.stringify(block);", "const signature=JSON.stringify(block);");
+fs.writeFileSync(file,s);

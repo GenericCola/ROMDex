@@ -1,0 +1,9 @@
+import fs from 'node:fs/promises';
+let file='outputs/ROMDex/public/index.html',s=await fs.readFile(file,'utf8');
+s=s.replace('<link rel="stylesheet" href="styles.css">','<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="shared-ui/theme.css">');
+s=s.replace(/<header class="device-header">[\s\S]*?<\/header>/,'<header class="device-header" aria-label="Application Header"></header>');
+s=s.replace('class="navigator"','class="navigator suite-selector-tray"').replace('class="workspace"','class="workspace suite-tray"').replace('class="details"','class="details suite-tray"');
+s=s.replace('</body>','<dialog id="about-dialog" aria-labelledby="about-title"><div class="dialog-head"><h2 id="about-title">About ROMDex</h2><button data-close="about-dialog" aria-label="Close About ROMDex">×</button></div><p>ROMDex · Pokémon Workspace</p><p id="about-version" class="muted">Version Unavailable</p><p class="small muted">NPCDex Add-On · Shared Workspace Interface</p><div class="dialog-actions"><button data-close="about-dialog">Close</button></div></dialog></body>');await fs.writeFile(file,s);
+file='outputs/ROMDex/public/app.mjs';s=await fs.readFile(file,'utf8');s="import {mountHeader} from './shared-ui/header.mjs';\n"+s;
+s=s.replace('const pencil=',`const sharedHeader=mountHeader(document.querySelector('.device-header'),{onConnection:()=>showConnection(),onError:error=>toast(error.message),onAbout:()=>safely(async()=>{show('about-dialog');$('about-version').textContent='Checking Version…';try{const status=await request('/api/status');$('about-version').textContent='Version '+status.version;}catch{$('about-version').textContent='Version Unavailable';}})});\nconst pencil=`);
+s=s.replace("$('connection-status').title=link.label;","$('connection-status').title=link.label;$('connect-open').setAttribute('aria-label','Connection Details · '+link.label);");await fs.writeFile(file,s);

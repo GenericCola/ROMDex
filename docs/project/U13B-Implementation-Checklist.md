@@ -2,18 +2,22 @@
 
 Authorized by PASSKEY October 15, 2026. Recommended **Sol / High**. Resume after the user's reasoning-level pause. One task at a time; U14 cloud provisioning remains separate.
 
-- [ ] Preserve the verified 0.5.2 source, installer and save boundaries; finalize the release trust and consent contract.
-- [ ] Implement signed release validation, approved private-provider reads and streamed download verification. Keep hosting unavailable until a private route is configured and proven.
-- [ ] Add tray update commands and non-interrupting notices; require approval before download and installation. Update failures must remain separate from data-sync indicators.
-- [ ] Implement durable checkpoint, installer handoff, restart/cancellation recovery and compatibility checks; retain Data and pending work.
-- [ ] Run targeted security/failure tests, full regression tests and isolated Windows installer/update checks.
+- [x] Preserve the verified 0.5.2 source, installer and save boundaries; finalize the release trust and consent contract.
+- [x] Implement signed release validation, approved private-provider reads and streamed download verification. Keep hosting unavailable until a private route is configured and proven.
+- [x] Add tray update commands and non-interrupting notices; require approval before download and installation. Update failures must remain separate from data-sync indicators.
+- [x] Implement durable checkpoint, installer handoff, restart/cancellation recovery and compatibility checks; retain Data and pending work.
+- [x] Run targeted security/failure tests, full regression tests and isolated Windows installer/update checks.
 - [ ] Verify the delivered build, current-data/credential preservation and normal restart; document hosting status and recovery.
 - [ ] Check off U13B only after its approved acceptance gates pass; report and stop before U14, naming its recommended model/effort.
 
 ## Hosting State
 
-The current YouTrack account's menu does not expose Server Settings; the read-only upload-setting request returned HTTP 404. The actual upload limit and remaining storage are unverified. No global settings will be changed. The approved fallback is private GitHub Releases; account availability has been requested. Nothing has been provisioned or uploaded.
+The current YouTrack account's menu does not expose Server Settings; the read-only upload-setting request returned HTTP 404. The actual upload limit and remaining storage are unverified. No global settings will be changed. The approved fallback is private GitHub Releases. The user created GenericCola/ROMDex and authorized it as the organized home for source, historical backups and deferred implementation work. Windows Git verified its exact private repository identity and prepared a Windows-protected RSA-3072 publisher key; its public key is pinned in the candidate. The historical baseline is committed locally with exact source bytes. Remote publication and real authenticated installer-byte verification are pending isolated upgrade acceptance. Current Data, protected credentials and the private signing key remain outside Git.
 
 ## Implementation Contract
 
 Checks may run at launch and at most once per day, plus a manual tray command. Checks fetch only bounded signed metadata. Download requires explicit Update Now approval; installation requires a successful local checkpoint and an explicit install/restart action. Feed errors do not affect shared Save/Auto-Sync health. Signed metadata binds application, channel, Windows x64 platform, stable increasing version, expiry, exact installer byte size/hash and provider artifact identity. Publishing keys remain outside application code, Data and cloud storage, protected to the publisher's Windows account. Missing trust/provider configuration shows Unavailable and retains an authenticated manual-install route.
+
+## Verified Candidate
+
+305 tests, 98 syntax checks and 214 application-file hashes passed. Genuine isolated MSI upgrade/reopen/uninstall passed with exact retained task fields, both operations, queued bytes, manual order, images, protected fixture credential and the entire NPCDex document. Installer cancellation recovery used injected exit 1602 after real preflight. Final production MSI is fully validated; its 139 source files match canonical source and one unchanged reference asset is preserved. Private publication and current-data adoption remain pending.

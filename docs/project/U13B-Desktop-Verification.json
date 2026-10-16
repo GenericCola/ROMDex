@@ -1,0 +1,104 @@
+{
+  "task": "U13B",
+  "completedOn": null,
+  "stage": "Production Candidate Verified; Private Publication and Current-Data Adoption Pending",
+  "version": "0.5.3",
+  "testsPassed": 305,
+  "syntaxChecks": 98,
+  "applicationFiles": 214,
+  "windows": {
+    "startedAt": "2026-10-16T03:03:55.883Z",
+    "fixtureOnly": true,
+    "productionWrites": false,
+    "checks": [
+      "Both Fixture Installers Fully Validated; Corrected Handoff Files Match Production Source",
+      "Actual Update Window Uses Verified Metadata; Later Does Not Download; Approved Download Stages Verified MSI",
+      "Open Edit Form Blocks Installation and Resumes Workspace Interaction",
+      "Canceled Installer Exit Preserves Pending Work and Reopens the Existing Version Without Auto-Retry",
+      "Genuine MSI Handoff Closes Both Owner Processes, Upgrades and Reopens with Paused Pending Work/NPCDex Retained",
+      "Final Isolated Uninstall Retains the Updated Profile and Leaves Production Installation Untouched"
+    ],
+    "baseline": {
+      "pid": 17296,
+      "version": "0.5.3",
+      "views": 2,
+      "items": 287,
+      "pending": 2,
+      "automatic": false
+    },
+    "cancellation": {
+      "pid": 20184,
+      "version": "0.5.3",
+      "views": 2,
+      "items": 287,
+      "pending": 2,
+      "automatic": false,
+      "exitCode": 1602,
+      "method": "Injected 1602 After Genuine Windows Signature, Hash and MSI Product Preflight"
+    },
+    "upgraded": {
+      "pid": 5252,
+      "version": "0.5.4",
+      "views": 2,
+      "items": 287,
+      "pending": 2,
+      "automatic": false
+    },
+    "productionBuild": {
+      "version": "0.5.3",
+      "label": "release-0.5.3",
+      "fixture": false,
+      "syntax": 98,
+      "applicationDirectory": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u13b\\packages\\release-0.5.3",
+      "identity": {
+        "name": "ROMDex",
+        "shortName": "ROMDexDesktop",
+        "appUserModelId": "ROMDexDesktop",
+        "upgradeCode": "C3861991-512B-4F7D-B1C1-9D8EC7230FDA",
+        "manufacturer": "ROMDex Project"
+      },
+      "artifacts": [
+        {
+          "path": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u13b\\make-release-0.5.3\\wix\\x64\\ROMDex.msi",
+          "bytes": 162308096,
+          "sha256": "01a21f9f1629b9cbd7c7234e2aa963fc07b3f68fa34594c29ce3c8954d440f35"
+        }
+      ],
+      "installer": "Forge 8.0.1 / WiX 3.14.1",
+      "unsigned": true,
+      "savesIncluded": false
+    },
+    "status": "passed",
+    "finishedAt": "2026-10-16T03:11:09.141Z"
+  },
+  "fixturePreservation": {
+    "verifiedAt": "2026-10-16T03:11:41.620Z",
+    "fixtureOnly": true,
+    "version": "0.5.4",
+    "allRemoteFieldsMatch": true,
+    "pendingOperationsMatchExactly": true,
+    "pending": 2,
+    "orderAndImagesMatchExactly": true,
+    "wholeNPCDexMatches": true,
+    "npcdexRevision": 72,
+    "encryptedFixtureCredentialUnchanged": true,
+    "automaticSyncEnabled": false,
+    "queuedFileBytes": [
+      {
+        "path": "uploads\\23f4de0a-def8-43a3-b42b-fd4c0793a2c7.bin",
+        "sha256": "ce5e7dea11d59007aae0a58a5ec0cdca6c711254ab0798b2aa0810da35ce184f"
+      },
+      {
+        "path": "uploads\\23f4de0a-def8-43a3-b42b-fd4c0793a2c7.json",
+        "sha256": "e2792f15f88c56f87a934e73e22d1d24da6935c311c621d2ed5889a735fd47cb"
+      }
+    ],
+    "uninstalledProfileRetained": true
+  },
+  "limitations": [
+    "Cancellation exit 1602 was injected after genuine release/MSI preflight; the upgrade itself used genuine Windows Installer.",
+    "The isolated baseline installation used the final handoff/main source files before upgrading to the fully validated target MSI.",
+    "The live user installation remains 0.5.2 until reviewed private publication and a user-coordinated installation.",
+    "NPCDex cloud persistence remains U14–U19."
+  ]
+}

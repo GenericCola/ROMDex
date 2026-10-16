@@ -1,0 +1,10 @@
+import fs from 'node:fs/promises';
+const file='outputs/ROMDex/desktop/main.cjs';let text=await fs.readFile(file,'utf8');
+text=text.replace('let win,service,tray,lease,lifecycle,rendererRecovery,','let updater,updateState;\nlet win,service,tray,lease,lifecycle,rendererRecovery,');
+text=text.replace('quitBusy:!!lifecycle?.busy,run:runCommand','quitBusy:!!lifecycle?.busy,updates:updateState,run:runCommand');
+text=text.replace("if(command==='show'){showWindow();return;}","if(command==='show'){showWindow();return;}\n  if(command==='updates'){await updater?.open();return;}");
+const anchor=" if(verify&&process.env.ROMDEX_QA_REPORT){global.romdexQA=";
+if(!text.includes(anchor))throw Error('Main Verification Hook Changed');
+text=text.replace(anchor," const {setupUpdater}=await import('./updater-window.mjs');\n const updateFixtureConfig=qa?await fs.readFile(path.join(base,'updates/test-update-config.json'),'utf8').then(JSON.parse).catch(()=>undefined):undefined;\n updater=await setupUpdater({electron:{app,BrowserWindow,ipcMain,dialog,safeStorage,shell},profile:base,root:applicationFolder(process.execPath,app.getVersion()),mainWindow:win,version:app.getVersion(),upgradeCode:IDENTITY.upgradeCode,service,qa,config:updateFixtureConfig,checkpoint:()=>lifecycle.checkpoint(),resume:async()=>{await rpc('resume').catch(()=>{});await win.webContents.executeJavaScript('window.romdexShell?.desktopResume()',true).catch(()=>{});},quit:()=>lifecycle.request(),changed:value=>{updateState=value;if(value.notice)tray.displayBalloon({title:'ROMDex Update Available',content:value.notice,iconType:'info'});rebuildTray();}});\n"+anchor);
+text=text.replace("global.romdexQA={get win()", "global.romdexQA={get updater(){return updater;},get win()");
+await fs.writeFile(file,text);

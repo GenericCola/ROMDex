@@ -1,0 +1,11 @@
+import fs from 'node:fs/promises';
+import assert from 'node:assert/strict';
+const target='C:/Users/mrgen/.codex/visualizations/2026/10/13/01a135f2-44b2-76d2-8bd4-062ec143dbd9/romdex-header-review.html';
+let s=await fs.readFile(target,'utf8');
+const settings=await fs.readFile('outputs/Tool-Suite-UI/standard-settings-icon.svg');
+const npc=await fs.readFile('C:/Users/mrgen/Downloads/npcdex-v2.42/npcdex-template.html','utf8');
+const ball=npc.match(/<link rel="icon"[^>]*href="([^"]+)"/)[1];
+assert.ok(Buffer.from(ball.split(',')[1],'base64').equals(await fs.readFile('outputs/ROMDex/public/npcdex-pokeball.svg')));
+s=s.replace('__GEAR_DATA_URL__','data:image/svg+xml;base64,'+settings.toString('base64')).replace('__BALL_DATA_URL__',ball);
+assert.ok(!s.includes('__GEAR_DATA_URL__'));assert.ok(!s.includes('__BALL_DATA_URL__'));assert.ok(Buffer.byteLength(s)<1000000);assert.ok(!/fetch\s*\(|XMLHttpRequest|WebSocket/.test(s));assert.ok(!/<!doctype|<html|<head>|<body>/i.test(s));assert.ok(!s.includes('\\"'));
+await fs.writeFile(target,s);console.log(JSON.stringify({preview:target,bytes:Buffer.byteLength(s),exactFavicon:true,exactStandardSettingsIcon:true,networkCalls:false}));

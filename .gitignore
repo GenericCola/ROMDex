@@ -2,6 +2,7 @@
 **/Runtime/
 **/session/
 **/node_modules/
+**/work-*/
 **/*.encrypted
 **/connection.encrypted
 **/desktop-workspace.json

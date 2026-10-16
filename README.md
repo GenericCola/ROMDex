@@ -8,6 +8,7 @@ Private development home for ROMDex and its NPCDex add-on.
 - **archive/source-snapshots/** — earlier source/patch checkpoints and pre-change backups; partial Before snapshots are historical references.
 - **archive/npcdex-reference/** — preserved NPCDex development reference.
 - **archive/selector-tiles-2026-10-13/** — preserved earlier tile design/data for possible future reuse.
+- **tools/** — preserved development, migration, verification and delivery scripts; review their original task-relative paths before reuse.
 - **GitHub Releases** — private Windows installers and signed release metadata; binaries do not belong in Git history.
 
 Current live saves, queued work, remembered credentials, private signing keys, dependency caches and bundled runtime binaries are excluded. Source snapshots may contain the original packaged project baseline; they must never replace newer application Data. Protected local save backups remain outside this repository.

@@ -41,20 +41,22 @@ const stores=new Map();function store(key){if(!STORES.has(key))throw Error('Unkn
 async function storage(mode,key,value){const target=store(key);if(mode==='load')return target.load();if(mode!=='save'||JSON.stringify(value??null).length>16*1024*1024)throw Error('Invalid Storage Request.');await target.save(value??null);return true;}
 const allowedReads=new Set(['/api/status','/api/attachments','/api/attachment-content','/api/attachment-review']);
 const attachmentTasks=new Set();
-let suspended=false,closing=false;
+let suspended=false,closing=false,updatesQuiesced=false;
 async function read(route){const url=new URL(route,'http://127.0.0.1');if(!allowedReads.has(url.pathname))throw Error('Unsupported Read Request.');return backend.dispatchLocal(url.pathname+url.search);}
 async function attach(id,selection,options){validateTicket(id);if(!engine.items.some(x=>x.id===id))throw Error('This Ticket Is No Longer Available.');return engine.attach(id,await chosenFiles(selection,options));}
 export async function handle(command,args=[]){
  if(command==='verify-connection')return backend.verifyDesktopConnection();
  if(command==='release-delivery-settings')return backend.releaseDeliverySettings();
  if(command==='suspend'){suspended=true;clock.stop();return handle('checkpoint');}
- if(command==='resume'){suspended=false;if(started&&!closing){clock.start();engine.tick(true).catch(()=>{});}return true;}
+ if(command==='resume'){suspended=false;updatesQuiesced=false;if(started&&!closing){clock.start();engine.tick(true).catch(()=>{});}return true;}
+ if(command==='prepare-update'){clock.stop();updatesQuiesced=true;const deadline=Date.now()+120000;while(engine.busy||engine.refreshing||engine.settingBusy||engine.statusTask||engine.staging||attachmentTasks.size){if(Date.now()>deadline){updatesQuiesced=false;if(!suspended&&started&&!closing)clock.start();throw Error('Wait for the Current Data Operation Before Updating.');}await new Promise(resolve=>setTimeout(resolve,100));}await handle('checkpoint');return true;}
  if(command==='storage')return storage(...args);
  if(command==='read')return read(args[0]);
  if(command==='attach'){const task=attach(...args);attachmentTasks.add(task);try{return await task;}finally{attachmentTasks.delete(task);}}
  if(command==='checkpoint'){await Promise.allSettled([...attachmentTasks]);await engine.lock;if(engine.state)await engine.persist(engine.state);await Promise.all([...stores.values()].map(x=>x.writes));return true;}
  if(command==='shutdown'){closing=true;clock.stop();try{await handle('checkpoint');return true;}catch(error){closing=false;if(!suspended&&started)clock.start();throw error;}}
  const {method}=validateCall(command,args);
+ if(updatesQuiesced)throw Error('ROMDex Is Checkpointing for an Application Update.');
  if(method==='init'){await engine.init();if(!started){if(!suspended)clock.start();started=true;}return {snapshot:snapshot()};}
  if(!started)throw Error('Desktop Workspace Is Not Ready.');
  const value=await engine[method](...args);return {value,snapshot:snapshot()};
