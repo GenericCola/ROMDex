@@ -852,6 +852,111 @@
       "sha256": "1d53533102604c72a5a982477faa5f006f8093be9b60734be72d54ef1e5a158c"
     },
     {
+      "path": "tools/development/u14-bootstrap.mjs",
+      "bytes": 3628,
+      "sha256": "50ed36c21c852bd85cad234e66f3ec0fc7394f5df7bfaec8ecb5dc9e1c74307d"
+    },
+    {
+      "path": "tools/development/u14-cloud-setup.cjs",
+      "bytes": 7171,
+      "sha256": "28b54fc46fb8c17179c27beb41dec79d4d6b1d9b655ff9aec3802da9eff5797c"
+    },
+    {
+      "path": "tools/development/u14-finish-records.mjs",
+      "bytes": 11497,
+      "sha256": "7da25ff7160191b8cb73391c94cdce8fdfd9117bc32bd8e8e9b91a7cb81efdda"
+    },
+    {
+      "path": "tools/development/u14-git-protocol.mjs",
+      "bytes": 6137,
+      "sha256": "b20838efaae85a941d50e2b2e15df1c1e855e508f7e005380e2dca8c8a70bdf1"
+    },
+    {
+      "path": "tools/development/u14-git-protocol.test.mjs",
+      "bytes": 3782,
+      "sha256": "98281615baa3f2496530e0b0d482a6f8a70aeb326ce1fba65660a5fd4ed82e8c"
+    },
+    {
+      "path": "tools/development/u14-github-proof.mjs",
+      "bytes": 5426,
+      "sha256": "c8fdcdcbb604a57fcbe1f7dabc52864e6546d7592b07488040f1beb928cecec3"
+    },
+    {
+      "path": "tools/development/u14-github-provision.mjs",
+      "bytes": 4643,
+      "sha256": "8fc5f67c90edc3599ee1e4e02940c62da053e315f68d7abf6648497f3b7cbbe3"
+    },
+    {
+      "path": "tools/development/u14-host.mjs",
+      "bytes": 2918,
+      "sha256": "6818e841c8965872c61497a61423ec39988dd20305d27ca51522046f25ef8da9"
+    },
+    {
+      "path": "tools/development/u14-negative-access.cjs",
+      "bytes": 2757,
+      "sha256": "4981dab99945ea409cae801f0038573c1568bc83c7ac4c11b6a4180a491a656d"
+    },
+    {
+      "path": "tools/development/u14-publish-records.mjs",
+      "bytes": 2589,
+      "sha256": "327e9e14e58c05939099d1beff2df5f45ddce21309da2f9e705cfba6ec189d1b"
+    },
+    {
+      "path": "tools/development/u14-readonly-probe.cjs",
+      "bytes": 4621,
+      "sha256": "bf890e7dbafb9938cc97759703294499a684eba23ba355524d3352c986fd9afc"
+    },
+    {
+      "path": "tools/development/u14-reset-setup.ps1",
+      "bytes": 831,
+      "sha256": "e0a23e5fa89e2efd52f8e96ae1ea1bc5a4a5d7bc787110e3f5ed4be3b752a8fe"
+    },
+    {
+      "path": "tools/development/u14-setup-preload.cjs",
+      "bytes": 258,
+      "sha256": "3c0cc051c8c81f329e0952f227d111177646fa03626ab468cbb605a82749e948"
+    },
+    {
+      "path": "tools/development/u14-show-setup.mjs",
+      "bytes": 1316,
+      "sha256": "aecd4aea6d2bdee0e50d9e92b8c398452befd524692226d8e06ecfa9a57fc2e8"
+    },
+    {
+      "path": "tools/development/u14-stage-records.mjs",
+      "bytes": 2722,
+      "sha256": "6f1d5f66c3e605a9f6847d9264b1c062ec87831f5bfa7b6bc465e91fef654f70"
+    },
+    {
+      "path": "tools/development/u14-verify-cloud-access.cjs",
+      "bytes": 4405,
+      "sha256": "80339afe9c37ff24292d44e588532ac8ad3958ddd9471fde0cd74dc15061967c"
+    },
+    {
+      "path": "tools/development/u14/setup.css",
+      "bytes": 856,
+      "sha256": "c1b1e2f0ff27d280c6c7c5639a4e519d8a48131027ee4aff6255b9e656067b2c"
+    },
+    {
+      "path": "tools/development/u14/setup.html",
+      "bytes": 1727,
+      "sha256": "7fdd07f2bbb53afa8f124e183239f29994aceeb24a6bbc3b501861b06ace19bc"
+    },
+    {
+      "path": "tools/development/u14/setup.mjs",
+      "bytes": 1107,
+      "sha256": "b90d3b33c365c87225806337025be0610ff209c59affe8f45bc1d8fa1e6d626d"
+    },
+    {
+      "path": "tools/installer-dependencies/package-lock.json",
+      "bytes": 54386,
+      "sha256": "508d914590885bb8db1d590645cdbae66fb22834e910813103bdbdcfc5f08cf3"
+    },
+    {
+      "path": "tools/installer-dependencies/package.json",
+      "bytes": 155,
+      "sha256": "f62bfafeb01a91a3804b1a8edcc81c0812f37bf20f7c038204c3ad857ca1f089"
+    },
+    {
       "path": "tools/launchers/Launch-Installed-ROMDex-Verification.cmd",
       "bytes": 358,
       "sha256": "06a63b0563076fe2a0bd6e51b254b829edd4abc550871e7ec9b868a5ab09fda1"
@@ -897,14 +1002,14 @@
       "sha256": "1e6e0ce1c96457d24efb0668d57219833d281f776bd782eea91555e6873c3a56"
     },
     {
-      "path": "tools/installer-dependencies/package.json",
-      "bytes": 155,
-      "sha256": "f62bfafeb01a91a3804b1a8edcc81c0812f37bf20f7c038204c3ad857ca1f089"
+      "path": "tools/launchers/Launch-U14-Storage-Checks.cmd",
+      "bytes": 380,
+      "sha256": "07ff243ca2425b2ffd3e106dd6ccc98a5b4211a5636030734b2b4eb461a92dba"
     },
     {
-      "path": "tools/installer-dependencies/package-lock.json",
-      "bytes": 54386,
-      "sha256": "508d914590885bb8db1d590645cdbae66fb22834e910813103bdbdcfc5f08cf3"
+      "path": "tools/launchers/Show-U14-Cloud-Setup.cmd",
+      "bytes": 386,
+      "sha256": "42c77d234a3c45f88da1815c5e1c9cd9324f2b6996937fba671c7cf0e1f5337c"
     }
   ]
 }

@@ -1,10 +1,10 @@
 # ROMDex — Desktop and Add-on Action Plan
 
 **Date:** October 14, 2026  
-**Status:** U01–U13B and the approved intervening tasks are complete. Installed ROMDex **0.5.3** owns current saves in its retained Data folder and supports approved private updates. NPCDex remains local-only; U14 and later tasks require separate PASSKEYs.
+**Status:** U01–U14 and the approved intervening tasks are complete. Installed ROMDex **0.5.3** is unchanged. The private GitHub save repository and protected access are configured; NPCDex saves remain local until the previewed U15 import and U16–U19 synchronization work.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
-**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). Current application: [installed ROMDex 0.5.3](U13B-Completion-Report.md). Next: **U14 — Private YouTrack Storage and Access Rules, Sol / High**, requiring a new PASSKEY. NPCDex cloud implementation remains U14–U19.
+**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). Current application: installed ROMDex 0.5.3. [U14 setup report](U14-Completion-Report.md). **Next: U15 — Previewed NPCDex Cloud Import, Sol / High**, requiring a new PASSKEY and migration preview acceptance.
 
 ## Working Agreement
 
@@ -27,8 +27,8 @@ Keep the existing tools usable until the combined app passes migration and accep
 - A failed connection does not stop healthy services from syncing.
 - Owner-only human access across computers; separately limited agent integration access.
 - Free hosting only. Provider selection must demonstrate a fit within free limits; no paid fallback is assumed.
-- U03 confirmed **no payment method or usage-based billing**, **private installers**, and **avoid weekly inactivity pauses**. The approved first-choice store is the existing **YouTrack** instance, with restricted versioned files/change batches. Actual permissions, plan/space and transfer limits are checked at setup; concurrency is proven before migration.
-- Scale: one owner initially, possibly a second person, ten at the extreme. Future access needs explicit approval; no team UI is added by this context. YouTrack's ten-account free allowance applies to the entire instance.
+- U03 confirmed **no payment method or usage-based billing**, **private installers**, and **avoid weekly inactivity pauses**. During U14 the user revised save storage to a separate private **GitHub** repository; **YouTrack** remains authoritative for tasks and every agent-required report/file/image/instruction/receipt. Actual access and transfer limits are checked at setup; concurrency is proven before migration. The revised U04 transport must preserve its domain/conflict safeguards.
+- Scale: one owner initially, possibly a second person, ten at the extreme. Future access needs explicit approval; no team UI is added by this context. U14 did not establish the actual YouTrack subscription/user/storage ceiling; do not assume capacity or add accounts from headline free-plan limits.
 - Private installer delivery uses YouTrack if the measured artifact/configuration fits; private GitHub Releases is a conditional approved direction only if needed. No repository/publication is created without its later task approval.
 - NPCDex data, images, history, and receipt records synchronize through the cloud with a durable local cache.
 - ROMDex tile images, manual order, and saved parent statuses also synchronize through that store, separately from YouTrack task fields.
@@ -120,8 +120,8 @@ Added by the user during U05; requires completed U05 design review and a separat
 
 | Task | Action and Deliverable | Completion Check | Model / Effort |
 | --- | --- | --- | --- |
-| U14 | Verify the existing YouTrack instance's actual plan/space, permissions and upload limits; configure the approved restricted storage area, namespace and access rules, with current tokens protected locally. Dedicated private project preferred; assess restricted-issue fallback if project administration is unavailable. | Controlled file/revision round-trip and unauthorized-access checks pass; system containers stay out of Work/selectors/rollups/deletion; no billing/global setting/app installation is silently enabled. Return for scope review if prerequisites fail. | Sol / High |
-| U15 | Add a previewed NPCDex import into the approved YouTrack-backed store from the latest working save, preserving IDs, source evidence, flags, plans, current/historical images and receipt contracts. | Compare counts/content hashes and hydrated export semantics; retain originals and prove recovery before changing the primary save destination. | Sol / High |
+| U14 | Configure the user-approved private GitHub save repository, stable workspace/namespace identity and owner-only access; retain YouTrack task/agent transport separately. Revise and prove U04's storage transport using immutable records and guarded Git publication, including concurrency, offline bases, uncertain outcomes, bounds and unauthorized access. Protect a separately scoped runtime save credential without changing existing update/YouTrack tokens. | Synthetic file/revision round-trip, competing writers, restart/discovery and anonymous/authenticated-unapproved access checks pass. No real save migration, paid feature, Actions, LFS or global YouTrack change. Required agent data must remain deliverable entirely through YouTrack. Return for review if prerequisites fail. | Sol / High |
+| U15 | Add a previewed NPCDex import into the approved private GitHub store from the latest working save, preserving IDs, source evidence, flags, plans, current/historical images and receipt contracts. | Compare counts/content hashes and hydrated export semantics; retain originals and prove recovery before changing the primary save destination. | Sol / High |
 
 ### 3B. Durable Synchronization
 
@@ -149,6 +149,8 @@ Added by the user during U05; requires completed U05 design review and a separat
 | U21 | Implement approved publishing/linking controls and attach versioned map-level Change Request JSON files to the chosen YouTrack tickets. Reuse approved NPCDex contracts: include stable workspace/map/target identifiers, published request IDs/revisions, baseline evidence/hashes, exact changes and needed context, plus self-contained agent instructions and the required Integration Receipt format/example. Preserve durable ticket/package mappings and duplicate prevention. | An agent can locate the intended map and targets from the attachment without manually rebuilding the mapping. Previewed requests produce only intended tickets/links; interrupted attachment/ticket retries create no duplicates; existing content remains intact. No credentials or unrelated dataset are packaged. | Sol / High |
 | U22 | Add navigation between requests and ROMDex tasks, and synchronize approved shared fields/native YouTrack edits with explicit conflict handling. | Native edits return correctly; instruction changes invalidate older request versions; tester verification remains separate from task progress. | Sol / High |
 
+**Agent-data boundary:** every required handoff dependency—including selected images, sprites, source/context and mapping evidence—must be attached to or otherwise accessible within the approved YouTrack ticket workflow. An agent must be able to complete a request and return its receipt without access to ROMDex-Data. Preview the exported scope and validate package completeness; private GitHub URLs are not sufficient dependencies. The bulk private save, unrelated images/history and credentials remain outside the handoff.
+
 ## Phase 5 — Agent Delivery and Integration Receipts
 
 ### 5A. Define and Build Delivery
@@ -157,6 +159,8 @@ Added by the user during U05; requires completed U05 design review and a separat
 | --- | --- | --- | --- |
 | U23 | Review the ticket-attached map JSON handoff and select the agent receipt return/discovery route. Define limited access, stable map/target mapping, published request versions, existing receipt contract compatibility, instructions for producing and returning a receipt, offline delivery and correction/retry examples. | User approves a concrete ticket → agent → receipt → NPCDex walkthrough before implementation. The agent needs no manual reconstruction of target mapping; transport fits free hosting and preserves manual JSON fallback. | Sol / High |
 | U24 | Implement approved request retrieval and automatic receipt discovery/pull from linked tickets or the return route approved at U23 into a durable inbox. Record source ticket/package, receipt IDs, authorization and discovery progress; support restart, offline catch-up and uncertain retries. Follow shared Auto-Sync Off/manual one-cycle semantics. | Authorized agents retrieve only eligible packages; returned receipts arrive without a manual download/import step, including while ROMDex runs in the tray. Repeated discovery/submissions are recognized; receipt intake does not grant unrestricted dataset edits. | Sol / High |
+
+The current trusted development GitHub connector is owner-authorized and can access ROMDex-Data; it is not an example of an isolated ticket agent credential. U23 must verify the specific execution identity used by ticket agents and avoid reusing broad owner/developer GitHub access. U14's denied-access test covers the separately scoped update token, not every owner-authorized application. No save-repository collaborator or dedicated agent grant was added.
 
 ### 5B. Reconcile, Review, and Recover
 
@@ -358,3 +362,8 @@ Private delivery remains unprovisioned: YouTrack upload settings returned HTTP 4
 ## U13B — Completed October 15, 2026
 
 Installed ROMDex **0.5.3** adds approved private signed updates, separate download/install consent and a checkpointed Windows handoff. Private GenericCola/ROMDex now hosts organized source/history/deferred work and the verified installer. Passed **305 tests, 98 syntax checks, 214 installed hashes**, genuine isolated upgrade/reopen/uninstall, exact 96-file live Data preservation, genuine YouTrack equality, read-only private update access and normal automatic-sync relaunch with diagnostics closed. Current saves remain **299 tasks, 104 order entries, no pending work, NPCDex revision 72**. Credentials/private signing keys/live Data are excluded from Git. [Completion report](U13B-Completion-Report.md), [evidence](U13B-Desktop-Verification.json). NPCDex cloud remains U14–U19. **Next: U14 — Private YouTrack Storage and Access Rules, Sol / High**, requiring a new PASSKEY. No U14 work was performed.
+
+
+## U14 Completed — Private GitHub Saves and YouTrack Agent Handoffs
+
+The user approved the hybrid provider revision: separate private GenericCola/ROMDex-Data for saves/assets/history and ROMDex metadata; YouTrack retains native tasks and every agent-required handoff dependency/receipt. Provisioned stable workspace identity with Actions disabled and no new collaborators. Passed nine focused tests, six live transport checks, anonymous/authenticated-unapproved access checks, separately scoped save-token write validation and protected restore in another Windows process. Both prior credentials and all 214 installed files remain unchanged. No real saves were uploaded and application cloud sync is not implemented. [Report](U14-Completion-Report.md), [evidence](U14-Storage-Verification.json). **Next: U15 — Previewed NPCDex Cloud Import, Sol / High**, requiring a new PASSKEY and preview acceptance before migration.

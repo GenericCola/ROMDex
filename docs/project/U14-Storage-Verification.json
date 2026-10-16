@@ -1,0 +1,134 @@
+{
+  "task": "U14",
+  "status": "complete",
+  "verifiedAt": "2026-10-16T04:28:29.169Z",
+  "repository": "GenericCola/ROMDex-Data",
+  "repositoryId": "1421625633",
+  "workspaceId": "1e267c45-75ae-48a9-b173-5ca3132bb121",
+  "private": true,
+  "actionsEnabled": false,
+  "actualSavesUploaded": false,
+  "productionSynchronizationImplemented": false,
+  "unitTests": {
+    "command": "node --test work/u14-git-protocol.test.mjs",
+    "passed": 9,
+    "failed": 0,
+    "scope": "Transport boundaries, hash/size validation, immutable paths, missing dependencies, truncated discovery, bounded contention and original semantic bases"
+  },
+  "liveTransport": {
+    "task": "U14",
+    "startedAt": "2026-10-16T04:13:25.706Z",
+    "repository": "GenericCola/ROMDex-Data",
+    "repositoryId": "1421625633",
+    "fixtureOnly": true,
+    "branch": "verification/u14-de312d68-ce55-4267-b710-313d37f611f4",
+    "workspace": "1e00324e-0fa9-4501-8e78-705ee77c801d",
+    "checks": [
+      {
+        "name": "Concurrent Publication Rejects One Competing Ref and Preserves Both Records on Retry",
+        "passed": true,
+        "statuses": [
+          200,
+          422
+        ]
+      },
+      {
+        "name": "Original Offline Semantic Bases Are Not Rewritten",
+        "passed": true
+      },
+      {
+        "name": "512 KiB Exact Binary Round-Trip",
+        "passed": true,
+        "bytes": 524288,
+        "sha256": "793ff2785c3dce1d45633ebe35de54682814dd062f834be03d23f1a8f7102f46"
+      },
+      {
+        "name": "Unrelated Existing Files Are Preserved",
+        "passed": true
+      },
+      {
+        "name": "Outcome Rediscovery Is Idempotent After an Intentionally Discarded Successful Ref Response",
+        "passed": true,
+        "qualifier": "Response loss was injected after the real server accepted publication; not a physical network interruption."
+      },
+      {
+        "name": "Tampered Bytes and Missing Record Paths Are Rejected",
+        "passed": true
+      }
+    ],
+    "requests": 71,
+    "contentRequests": 21,
+    "mainHeadUnchanged": true,
+    "status": "passed",
+    "finishedAt": "2026-10-16T04:13:45.708Z"
+  },
+  "accessSeparation": {
+    "task": "U14",
+    "startedAt": "2026-10-16T04:14:42.826Z",
+    "credential": "Existing Protected Read-Only Update Access",
+    "credentialValueLogged": false,
+    "requests": [
+      {
+        "method": "GET",
+        "route": "/repos/GenericCola/ROMDex",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "route": "/repos/GenericCola/ROMDex-Data",
+        "status": 404
+      },
+      {
+        "method": "POST",
+        "route": "/repos/GenericCola/ROMDex-Data/git/blobs",
+        "status": 404
+      }
+    ],
+    "actualSavesUploaded": false,
+    "savedCredentialBytesUnchanged": true,
+    "validAuthenticatedCredential": true,
+    "dataReadDenied": true,
+    "dataWriteDenied": true,
+    "status": "passed",
+    "finishedAt": "2026-10-16T04:14:44.083Z"
+  },
+  "protectedRuntimeAccess": {
+    "task": "U14",
+    "startedAt": "2026-10-16T04:26:24.059Z",
+    "actualSavesUploaded": false,
+    "mode": "Read Only; Separate Windows Process",
+    "status": "passed",
+    "workspaceId": "1e267c45-75ae-48a9-b173-5ca3132bb121",
+    "repositoryId": "1421625633",
+    "githubUserId": "32021766",
+    "savedCredentialRestored": true,
+    "protectedFileBytesPreserved": true,
+    "privateRepositoryRead": true,
+    "developmentRepositoryDenied": true,
+    "bootstrapHashVerified": true,
+    "applicationDataFolder": true,
+    "existingUpdateCredentialPreserved": true,
+    "existingYouTrackCredentialPreserved": true,
+    "installedFilesUnchanged": 214,
+    "observedLocalState": {
+      "items": 299,
+      "pending": 0,
+      "npcdexRevision": 72
+    },
+    "cloudSynchronizationImplemented": false,
+    "finishedAt": "2026-10-16T04:26:27.004Z"
+  },
+  "bootstrap": {
+    "path": "workspaces/1e267c45-75ae-48a9-b173-5ca3132bb121/bootstrap.json",
+    "sha256": "e47be8ff64715f5473289f1d1e336c4d7b512644660667e1b1ff1dd639bb25c4",
+    "commit": "d923d7546fb2ab968c89f4bc9e86c133a7bdc95f"
+  },
+  "ownerAuthorizedDevelopmentConnectorCanAccessDataRepository": true,
+  "limitations": [
+    "The Git transport is an isolated proof, not the application synchronization/merge/queue implementation. U15–U19 remain separate tasks.",
+    "Lost-response recovery intentionally discarded an accepted server response; this was not a physical network outage.",
+    "Owner-only repository access is the initial authorization model. Git commit author fields are not authenticated submitter evidence. Additional writers require review.",
+    "The current development connector is owner-authorized. The denied-access fixture uses the update token; future ticket-agent credentials require their own U23 isolation checks.",
+    "Actual YouTrack plan, upload ceiling and remaining capacity remain unverified. No YouTrack save containers or real cloud save uploads were created."
+  ]
+}

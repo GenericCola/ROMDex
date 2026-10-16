@@ -2,9 +2,25 @@
 
 **Reviewed:** October 14, 2026.  
 **Authorization:** U03 PASSKEY; research/design only.  
-**Status:** YouTrack-first direction explicitly approved by the user during U03. No account, project, storage issue, app, payment method or live upload has been created. Implementation and provisioning still require later task-specific PASSKEYs.
+**Status:** U03's original YouTrack-first direction is superseded by the user-approved hybrid storage revision during U14: private GitHub for bulk saves and metadata; YouTrack for tasks and all agent-required handoff material. U14 setup is complete; see [the report](U14-Completion-Report.md). No real cloud save migration is authorized until the later preview/acceptance gate.
 
 ## Recommendation
+
+**U14 revised decision, approved by the user:** private GitHub will hold bulk NPCDex saves/assets/history and substantive ROMDex metadata. YouTrack remains the task authority and must contain every file, image, report, mapping and instruction the agent needs for NPCDex → Ticket → Agent → Ticket → NPCDex. No agent access to the full save repository is required or granted. Live inspection confirms GenericCola is a PMON Project Admin, with issue/file permissions but no listed Create Project permission; Guest is banned and anonymous issue reads return 401. YouTrack upload configuration and remaining capacity remain unverified; these are later handoff-size gates, not a reason to claim all projects are public. No real cloud saves have been uploaded or migrated.
+
+### U14 Alternative — Private GitHub Save Repository
+
+For the current mostly single-user workload, use a separate private **GenericCola/ROMDex-Data** repository for NPCDex saves and substantive ROMDex metadata. Keep YouTrack authoritative for tickets, comments, issue attachments, published request packages and returned receipts. Keep the existing ROMDex development/releases repository separate, so development/agent access does not automatically expose saves. GitHub Free supports private repositories; no Actions, LFS, paid storage or billing is proposed. [Private repositories](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration).
+
+This trades YouTrack's existing issue/file adapter for a new Git-backed data adapter, in exchange for direct owner control, native version history and repository-level access separation. It is an ownership/versioning recommendation, not a claim that implementation is already done or cheaper. Existing protected download access is read-only and remains unchanged; save publication needs separately scoped Contents write access to the data repository. Never grant that credential or the full data repository to agents merely for ticket work. [Git reference permissions and updates](https://docs.github.com/en/rest/git/refs#update-a-reference).
+
+GitHub does not automatically merge NPCDex's semantic data or replace the local durable queue. If selected, revise U04/U14's transport/discovery proof: immutable objects and published versions, preserved offline bases, guarded non-forced reference updates, uncertain-outcome discovery, idempotency, whole-receipt conflict review and exact legacy hashes all remain requirements. Batch changes; do not commit an entire compressed export per keystroke. Retain an exact original import/recovery object, then avoid repeatedly duplicating unchanged assets/history. No automatic destructive history cleanup is approved.
+
+The last measured original export was 13.2 MB (3.84 MB gzip); distinct embedded images were only 0.54 MB, with most growth in history. That fits GitHub's per-file constraints today but is not a future capacity guarantee. GitHub documents file/repository and push-rate recommendations plus REST content-generation limits. U14 must validate the actual object layout, concurrency, request budget and growth before adopting this provider; reassess if the dataset becomes a large binary asset store. [Repository limits](https://docs.github.com/en/repositories/creating-and-managing-repositories/repository-limits), [REST limits](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api).
+
+**Decision gate:** the user has approved this provider separation as part of U14. Provision and validate the private save repository with synthetic records only; obtain separately scoped runtime write access without widening or replacing the saved read-only application-update token. Complete the revised U04 transport proof before adoption. U14 setup and verification are complete; U15's real-data migration remains separately gated.
+
+### Previously Approved Direction
 
 Use the **existing YouTrack instance as the first-choice cloud store** for NPCDex saves/assets/history and ROMDex workspace metadata. Reuse its authentication and attachment transport, with a dedicated restricted storage area and explicit version/conflict handling. This is a better fit for the stated scale than adding another cloud platform.
 

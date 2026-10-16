@@ -12,6 +12,8 @@ The action plan and checklist contain these additions. Application source, insta
 
 ## Confirmed Foundation
 
+**U14 completed — hybrid storage approved:** after read-only access checks and the GitHub comparison, the user explicitly accepted bulk saves on private GitHub provided all agent-required material lives on YouTrack and the NPCDex → Ticket → Agent → Ticket → NPCDex workflow remains intact. Use a separate owner-controlled **ROMDex-Data** repository for NPCDex saves/assets/history and substantive ROMDex metadata; keep development/releases in ROMDex. YouTrack retains native tasks and self-contained agent handoffs, required images/context and receipts. Do not grant agents full save-repository access or rely on private GitHub links as required handoff dependencies. This supersedes U03/U04's YouTrack save-container transport choice, preserving their domain validation, durability, offline-base, whole-receipt conflict, history and recovery requirements. Provisioning/synthetic access and concurrency proof belong to U14; separately scoped runtime write credentials must not replace the existing read-only update token. U14 setup and verification are complete; U15's actual-data import still needs a new PASSKEY and preview acceptance.
+
 - Combine NPCDex and ROMDex into one application with at-will switching.
 - Use an application window rather than Chrome for routine use.
 - Reconcile shared headers and find approved homes for NPCDex's existing controls.
@@ -281,3 +283,8 @@ Private delivery remains unprovisioned: YouTrack upload settings returned HTTP 4
 ## U13B — Completed October 15, 2026
 
 Installed ROMDex **0.5.3** adds approved private signed updates, separate download/install consent and a checkpointed Windows handoff. Private GenericCola/ROMDex now hosts organized source/history/deferred work and the verified installer. Passed **305 tests, 98 syntax checks, 214 installed hashes**, genuine isolated upgrade/reopen/uninstall, exact 96-file live Data preservation, genuine YouTrack equality, read-only private update access and normal automatic-sync relaunch with diagnostics closed. Current saves remain **299 tasks, 104 order entries, no pending work, NPCDex revision 72**. Credentials/private signing keys/live Data are excluded from Git. [Completion report](U13B-Completion-Report.md), [evidence](U13B-Desktop-Verification.json). NPCDex cloud remains U14–U19. **Next: U14 — Private YouTrack Storage and Access Rules, Sol / High**, requiring a new PASSKEY. No U14 work was performed.
+
+
+## U14 Completed — Private GitHub Saves and YouTrack Agent Handoffs
+
+The user approved the hybrid provider revision: separate private GenericCola/ROMDex-Data for saves/assets/history and ROMDex metadata; YouTrack retains native tasks and every agent-required handoff dependency/receipt. Provisioned stable workspace identity with Actions disabled and no new collaborators. Passed nine focused tests, six live transport checks, anonymous/authenticated-unapproved access checks, separately scoped save-token write validation and protected restore in another Windows process. Both prior credentials and all 214 installed files remain unchanged. No real saves were uploaded and application cloud sync is not implemented. [Report](U14-Completion-Report.md), [evidence](U14-Storage-Verification.json). **Next: U15 — Previewed NPCDex Cloud Import, Sol / High**, requiring a new PASSKEY and preview acceptance before migration.
