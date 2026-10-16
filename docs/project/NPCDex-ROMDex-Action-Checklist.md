@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** U17 is authorized and in progress. Its 0.5.5 candidate passed 371 tests and eight final packaged desktop checks; installed 0.5.4 awaits the backed-up upgrade. [U17 report](U17-Completion-Report.md). After completion: **U18 — ROMDex Metadata Cloud Sync, Sol / High**, under a new PASSKEY.
+**Current:** U17 is in final acceptance. Installed ROMDex **0.5.5** passed its backed-up current-data upgrade, 371 tests and eight final packaged desktop checks. Private delivery and the final normal restart remain. [U17 report](U17-Completion-Report.md). Next: **U18 — ROMDex Metadata Cloud Sync, Sol / High**, requiring a new PASSKEY.
 
 ## Completed Foundation
 
@@ -395,7 +395,7 @@ U16 is complete in installed **0.5.4**. Passed 345 tests, forced process-kill re
 - [x] Implement durable automatic independent merges and explicit, version-guarded conflict resolutions.
 - [x] Add a cloud conflict review pane, retained review drafts and manual-Save entry points.
 - [x] Test concurrency, structural/receipt boundaries, interrupted resolution and editor races.
-- [ ] Verify the packaged Windows app and backed-up upgrade with real connections.
+- [x] Verify the packaged Windows app and backed-up upgrade with real connections.
 - [ ] Archive the verified release and evidence, mark U17 complete and stop before U18.
 
 U17 is authorized and in progress. No U18 work is authorized.

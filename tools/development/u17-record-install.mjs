@@ -1,0 +1,13 @@
+import fs from 'node:fs/promises';
+import assert from 'node:assert/strict';
+const current=JSON.parse(await fs.readFile('work/u17/current-verification.json','utf8'));
+assert.equal(current.status,'passed');assert.equal(current.state.version,'0.5.5');
+let report=await fs.readFile('outputs/U17-Completion-Report.md','utf8');
+report=report.replace(/^U17 implementation.*$/m,'ROMDex 0.5.5 is installed. The backed-up upgrade passed genuine YouTrack and NPCDex cloud verification, with existing data and all three encrypted credentials preserved. Private publication and the final normal restart remain pending; U17 is not yet checked off.');
+await fs.writeFile('outputs/U17-Completion-Report.md',report);
+let checklist=await fs.readFile('outputs/NPCDex-ROMDex-Action-Checklist.md','utf8');
+checklist=checklist.replace(/^\*\*Current:\*\*.*$/m,'**Current:** U17 is in final acceptance. Installed ROMDex **0.5.5** passed its backed-up current-data upgrade, 371 tests and eight final packaged desktop checks. Private delivery and the final normal restart remain. [U17 report](U17-Completion-Report.md). Next: **U18 — ROMDex Metadata Cloud Sync, Sol / High**, requiring a new PASSKEY.').replace('- [ ] Verify the packaged Windows app and backed-up upgrade with real connections.','- [x] Verify the packaged Windows app and backed-up upgrade with real connections.');
+await fs.writeFile('outputs/NPCDex-ROMDex-Action-Checklist.md',checklist);
+let plan=await fs.readFile('outputs/NPCDex-ROMDex-Unified-App-Action-Plan.md','utf8');
+plan=plan.replace(/^\*\*Status:\*\*.*$/m,'**Status:** U01–U16 are complete; U17 is in final acceptance. Installed ROMDex **0.5.5** passed its backed-up current-data upgrade and genuine provider verification. Private delivery and normal restart remain. ROMDex metadata and final shared controls remain U18–U19.');
+await fs.writeFile('outputs/NPCDex-ROMDex-Unified-App-Action-Plan.md',plan);

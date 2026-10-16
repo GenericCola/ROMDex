@@ -1127,9 +1127,14 @@
       "sha256": "3c9d4485bb53135446c9b5efda6dfb2af07f0fa82e05396b0dc44e3376e84d71"
     },
     {
+      "path": "tools/development/u17-finalize.mjs",
+      "bytes": 8297,
+      "sha256": "77bcf83c9343b09142eef5ffc8e19da2802e7dab9a3f9600edd0a8c23d9a6504"
+    },
+    {
       "path": "tools/development/u17-host.mjs",
-      "bytes": 2752,
-      "sha256": "d20ede41ed11e08de5cdd8d74ddf5b343e37807f666619d521980eee2024dfe1"
+      "bytes": 2792,
+      "sha256": "1cdb9025354bb41cdb84fd5a9c4e44410d72835b49acbbed3b7ea7d3642caa99"
     },
     {
       "path": "tools/development/u17-install-and-check.mjs",
@@ -1162,9 +1167,29 @@
       "sha256": "55a4500c0472f0e0dab0c0969d2974ba5933a3438b14f01f2b43df1ca1d027c7"
     },
     {
+      "path": "tools/development/u17-push-checkpoint.mjs",
+      "bytes": 2260,
+      "sha256": "e26cf11968af82ce5e07b7a97e2fae5e7cdb9200b66c0fe4126dc7266c95dd54"
+    },
+    {
+      "path": "tools/development/u17-push-records.mjs",
+      "bytes": 2589,
+      "sha256": "8a701d61af5a3eacf226571c804df58281ac634cd5a0166f25de564a141b425e"
+    },
+    {
+      "path": "tools/development/u17-record-install.mjs",
+      "bytes": 1915,
+      "sha256": "a2182771c39a7ec50b823e8b5998351d759b1edcc2c7aa1be5dee8af23168912"
+    },
+    {
+      "path": "tools/development/u17-resume-host.mjs",
+      "bytes": 508,
+      "sha256": "84b7233ee5495f3aa44be100c09a21acad4099a64316564c208bb9af1c6a22cc"
+    },
+    {
       "path": "tools/development/u17-stage-records.mjs",
-      "bytes": 3152,
-      "sha256": "6a2946c29d982a936c1276d0e7ab01aa9645abc7cd15261bd0d0dcc530c746b8"
+      "bytes": 3192,
+      "sha256": "3ba9e2a9cd3d793db41cdfa7e12672a534f92d92b3322a14451c5ce45e47bb06"
     },
     {
       "path": "tools/development/u17-ui-verify.mjs",
@@ -1185,6 +1210,11 @@
       "path": "tools/launchers/Finish-U15-Verification.cmd",
       "bytes": 389,
       "sha256": "761e2605d7269f206a5457902e6f40348108f1dd15b9b6ec15b982d58586b98d"
+    },
+    {
+      "path": "tools/launchers/Finish-U17-Upgrade.cmd",
+      "bytes": 387,
+      "sha256": "18f7eccd40d016f56a39b4e841f93e3582baedb875741ba92439f4a4befe65bf"
     },
     {
       "path": "tools/launchers/Launch-Installed-ROMDex-Verification.cmd",

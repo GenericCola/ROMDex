@@ -1,6 +1,6 @@
 # NPCDex Concurrent Edits and Conflict Review
 
-U17 implementation and final 0.5.5 package verification are complete. The installed application remains 0.5.4. Current-data upgrade acceptance, private publication and the final normal restart are still pending; U17 is not yet checked off.
+ROMDex 0.5.5 is installed. The backed-up upgrade passed genuine YouTrack and NPCDex cloud verification, with existing data and all three encrypted credentials preserved. Private publication and the final normal restart remain pending; U17 is not yet checked off.
 
 ## Behavior
 
