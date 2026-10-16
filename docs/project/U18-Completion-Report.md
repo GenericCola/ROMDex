@@ -1,6 +1,6 @@
 # ROMDex Metadata Cloud Sync
 
-ROMDex 0.5.6 is installed. Implementation, isolated verification and the backed-up current-data upgrade have passed. Private publication and the final normal restart remain pending. No U19 work has begun.
+**U18 is complete. ROMDex 0.5.6 is installed and running normally.** Tile images, manual sibling order and saved parent statuses now synchronize through private ROMDex-Data. No U19 work has begun.
 
 ## Behavior
 
@@ -20,7 +20,9 @@ Auto-Sync Off pauses automatic delivery; Save Changes performs one synchronizati
 - The final packaged desktop passed **10 UI scenarios**, including editor holds, persistent review drafts, image previews, stale approval rejection, manual synchronization while Off and preserving unrelated native edits.
 - **123 syntax checks and 245 packaged application hashes** passed. The final private-test installer is ROMDex 0.5.6.
 
-Current-data rehearsal and installation preserved 299 tickets, 104 sparse order entries, 78 saved parent statuses and the whole NPCDex save at revision 73. All 111 Data files survived the installer exactly, and all 245 installed hashes matched. Genuine YouTrack fields match the dashboard; both cloud namespaces are current, with no queued work or conflicts. All three encrypted credentials remain unchanged. Private release publication and the final normal restart remain pending. Production verification makes no synthetic ticket or save edits. Full protected Data backups remain local and excluded from Git.
+The previewed current-data rehearsal preserved 299 tickets, 104 sparse order entries across 22 sibling lists, 78 saved parent statuses and all tile images. The installer preserved all 111 Data files exactly before first launch. All 245 installed application hashes matched. Genuine YouTrack fields matched the dashboard. NPCDex revision 73 and the whole NPCDex save remained intact. Native ticket sync and both cloud journals resumed after a normal restart; all three encrypted credentials remained unchanged. The saved update token verified the signed current release without re-entry, and temporary diagnostic ports are closed. Production verification made no synthetic ticket or save edits. Full protected Data backups remain local and excluded from Git.
+
+[Desktop evidence](U18-Desktop-Verification.json), [application manifest](U18-Application-Manifest.json), [private release](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.6).
 
 ## Practical Limits
 

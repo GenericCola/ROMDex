@@ -1253,8 +1253,8 @@
     },
     {
       "path": "tools/development/u18-normal-relaunch.mjs",
-      "bytes": 6300,
-      "sha256": "5904b2f70c222fb9b2a46499d160a08e3e7b4762ee2b4b45a55b81fdcd2bdcd2"
+      "bytes": 6683,
+      "sha256": "a69714029cfaf161c960c5361895b222b522ca57c296e0087ee0e82932e665dd"
     },
     {
       "path": "tools/development/u18-package.mjs",

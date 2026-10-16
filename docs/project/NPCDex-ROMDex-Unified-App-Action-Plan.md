@@ -1,10 +1,10 @@
 # ROMDex — Desktop and Add-on Action Plan
 
 **Date:** October 14, 2026  
-**Status:** U01–U17 and approved intervening tasks are complete. Installed ROMDex **0.5.5** synchronizes NPCDex through private GitHub, merges independent edits and preserves competing versions for human review. Native tickets retain two-way YouTrack sync. ROMDex metadata and final shared controls remain U18–U19.
+**Status:** U01–U18 and approved intervening tasks are complete. Installed ROMDex **0.5.6** synchronizes NPCDex saves and ROMDex metadata through private GitHub, with independent merges and preserved conflicts for human review. Native tickets retain two-way YouTrack sync. Final shared controls remain U19.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
-**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md), [U17 report](U17-Completion-Report.md). **Next: U18 — ROMDex Metadata Cloud Sync, Sol / High**, requiring a new PASSKEY.
+**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md), [U18 report](U18-Completion-Report.md). **Next: U19 — Combined Sync Controls and Indicators, Sol / High**, requiring a new PASSKEY.
 
 ## Working Agreement
 

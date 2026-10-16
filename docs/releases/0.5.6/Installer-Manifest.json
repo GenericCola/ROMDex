@@ -1,0 +1,24 @@
+{
+  "version": "0.5.6",
+  "label": "release-0.5.6",
+  "fixture": false,
+  "syntax": 123,
+  "applicationDirectory": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u18\\packages\\release-0.5.6",
+  "identity": {
+    "name": "ROMDex",
+    "shortName": "ROMDexDesktop",
+    "appUserModelId": "ROMDexDesktop",
+    "upgradeCode": "C3861991-512B-4F7D-B1C1-9D8EC7230FDA",
+    "manufacturer": "ROMDex Project"
+  },
+  "artifacts": [
+    {
+      "path": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u18\\make-release-0.5.6\\wix\\x64\\ROMDex.msi",
+      "bytes": 162371957,
+      "sha256": "07aa6e064f345e8df7395e2ae6840fce66d6456a9ccf38365408faf9011cb975"
+    }
+  ],
+  "installer": "Forge 8.0.1 / WiX 3.14.1",
+  "unsigned": true,
+  "savesIncluded": false
+}

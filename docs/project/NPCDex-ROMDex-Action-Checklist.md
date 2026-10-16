@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** U18 is authorized and in progress. Extend durable cloud synchronization to ROMDex metadata while preserving native YouTrack ownership and local view preferences. Installed baseline: **0.5.5**.
+**Current:** U18 is complete in installed ROMDex **0.5.6**. [Metadata sync report](U18-Completion-Report.md). **Next: U19 — Combined Sync Controls and Indicators, Sol / High**, requiring a new PASSKEY.
 
 ## Completed Foundation
 
@@ -56,7 +56,7 @@
 - [x] **U15 — Previewed NPCDex Cloud Import** — Sol / High. User-approved revision 73 and exact original bytes verified remotely and in a fresh Windows process. [Report](U15-Completion-Report.md).
 - [x] **U16 — Durable Incoming/Outgoing Sync** — Sol / Extra High.
 - [x] **U17 — Concurrent Edits and Conflict Review** — Sol / Extra High.
-- [ ] **U18 — ROMDex Workspace Metadata Sync** — Sol / High.
+- [x] **U18 — ROMDex Workspace Metadata Sync** — Sol / High.
 - [ ] **U19 — Combined Sync Controls and Indicators** — Sol / High. Correct stale Connection Details help that still describes NPCDex as local-only, and verify service-specific statuses. Include header polish: reduce the circular workspace toggle diameter by 30% from its current size and remove its drop shadow; verify centering and workspace-menu behavior in both workspaces.
 
 ## Phase 4 — Requests and Tickets
@@ -407,5 +407,5 @@ U17 is complete in installed **0.5.5**. Passed 371 tests, eight final packaged d
 - [x] Implement durable metadata revisions, incoming reconciliation, outgoing retry and conflict review.
 - [x] Integrate saved parent statuses and native hierarchy/order reconciliation without syncing device-local views.
 - [x] Verify two clients, crashes, uncertain delivery, deleted/moved native items and metadata conflicts.
-- [ ] Verify the packaged desktop and previewed, backed-up current-data upgrade.
-- [ ] Archive the private release/evidence, mark U18 complete and stop before U19.
+- [x] Verify the packaged desktop and previewed, backed-up current-data upgrade.
+- [x] Archive the private release/evidence, mark U18 complete and stop before U19.

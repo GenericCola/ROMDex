@@ -1,0 +1,42 @@
+{
+  "task": "U18",
+  "status": "passed",
+  "startedAt": "2026-10-16T12:36:42.240Z",
+  "verifiedAt": "2026-10-16T12:37:24.394Z",
+  "version": "0.5.6",
+  "previousPid": 9564,
+  "normalPid": 8004,
+  "utilityPid": 20648,
+  "items": 299,
+  "nativePending": 0,
+  "cloudPending": 0,
+  "metadataCloud": {
+    "head": "15d699309a8dbe8d4e5b71b9f2518839302839e39b5564b720e0df87e60c2ce1",
+    "sha256": "5fcd94cc20913109865cafe84b2f112390041c752b89b56999ca31cad5b467f2",
+    "pending": 0,
+    "lastSync": 1792154243425
+  },
+  "npcdexRevision": 73,
+  "automaticSyncEnabled": true,
+  "youtrackLastSync": 1792154232259,
+  "cloudLastSync": 1792154243857,
+  "wholeNPCDexAndNativeMetadataPreserved": true,
+  "allSavedParentAssignmentsPreserved": true,
+  "allThreeEncryptedCredentialsPreserved": true,
+  "diagnosticPorts": {
+    "9257": "closed",
+    "9258": "closed",
+    "9266": "closed",
+    "9268": "closed",
+    "9269": "closed",
+    "9270": "closed",
+    "9273": "closed",
+    "9274": "closed"
+  },
+  "updateAccess": {
+    "phase": "current",
+    "accessReady": true,
+    "version": "0.5.6",
+    "installerDownloaded": false
+  }
+}
