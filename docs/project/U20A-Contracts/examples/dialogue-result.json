@@ -1,0 +1,146 @@
+{
+  "schema": "NPCDexImplementationResult/1",
+  "workspaceId": "fixture:workspace",
+  "operationId": "fixture:result-dialogue",
+  "createdAt": "2026-10-16T12:00:00.000Z",
+  "actorClaim": "fixture:agent",
+  "resultId": "fixture:result-dialogue",
+  "packageDigest": "5b732ff0245877c8755615eee98fa102e0690b10bdccec945290ddc12ac2afdf",
+  "groupId": "fixture:group-dialogue",
+  "itemIds": [
+    "fixture:plan-dialogue"
+  ],
+  "readSet": [
+    {
+      "recordId": "fixture:guide",
+      "revisionId": "3a612eeb423506dd4c9590a8d8fd63b970f317d88b8349d0db3aa4ecf85ea169"
+    },
+    {
+      "recordId": "fixture:exterior",
+      "revisionId": "0699789b86454e697cec822dcf00424e513df95bb276e462fa502698174d1c8b"
+    },
+    {
+      "recordId": "fixture:map",
+      "revisionId": "6ea37dece030b51fe405b08f06b395ddbb723f2cecd5f5e2f8ee515fcbc991e3"
+    },
+    {
+      "recordId": "fixture:region",
+      "revisionId": "03907b24a8baf1b24b6e2534a1956284f38aedaa5feb3f723aa37a5ac0554542"
+    },
+    {
+      "recordId": "fixture:progression",
+      "revisionId": "b92fed7469c7a49a3c7d74489bf46bd48b7449da32a42784e34f1d1ffd69b5a3"
+    },
+    {
+      "recordId": "fixture:profile-guide",
+      "revisionId": "2f69db907444ec420b9825b96c4a41daa54cb69e216eb4b685465059435d5c1a"
+    }
+  ],
+  "recordUpdates": [
+    {
+      "before": {
+        "recordId": "fixture:guide",
+        "revisionId": "3a612eeb423506dd4c9590a8d8fd63b970f317d88b8349d0db3aa4ecf85ea169"
+      },
+      "after": {
+        "schema": "NPCDexContentRevision/1",
+        "workspaceId": "fixture:workspace",
+        "operationId": "fixture:apply-fixture:plan-dialogue",
+        "createdAt": "2026-10-16T12:00:00.000Z",
+        "actorClaim": "fixture:agent",
+        "recordId": "fixture:guide",
+        "kind": "appearance",
+        "parentRecordId": "fixture:exterior",
+        "parents": [
+          "3a612eeb423506dd4c9590a8d8fd63b970f317d88b8349d0db3aa4ecf85ea169"
+        ],
+        "current": {
+          "lifecycle": "active",
+          "payload": {
+            "name": "Guide",
+            "profileId": "fixture:profile-guide",
+            "profileByPlayerGender": {
+              "male": null,
+              "female": null
+            },
+            "sourceAreaKeys": [
+              "fixture-area"
+            ],
+            "sourceElementIds": [],
+            "points": {
+              "fixture:point-guide": {
+                "id": "fixture:point-guide",
+                "condition": "Always",
+                "stageIds": [
+                  "A"
+                ],
+                "sourceIds": [
+                  "fixture:source"
+                ],
+                "participantIds": [
+                  "fixture:guide"
+                ],
+                "evidence": [
+                  {
+                    "label": "Illustrative locator, not a real ROM finding",
+                    "sourceId": "fixture:source",
+                    "excerpt": "Synthetic contract example",
+                    "locator": null
+                  }
+                ],
+                "blocks": {
+                  "fixture:block-guide": {
+                    "id": "fixture:block-guide",
+                    "kind": "dialogue",
+                    "text": "The lab is east of here.",
+                    "speaker": "fixture:profile-guide",
+                    "gender": "both",
+                    "reviewKey": "fixture:prompt-guide",
+                    "sourceBlockId": null,
+                    "sourceIds": [],
+                    "rawMessageData": null,
+                    "legacyData": {},
+                    "archived": false
+                  }
+                },
+                "blockOrder": [
+                  "fixture:block-guide"
+                ],
+                "legacyData": {}
+              }
+            },
+            "pointOrder": [
+              "fixture:point-guide"
+            ],
+            "sceneIds": [
+              "fixture:scene"
+            ],
+            "overrides": {
+              "displayName": null,
+              "imageAssetId": null
+            }
+          }
+        },
+        "mappingRefs": [
+          "044e8d0c4186f09e802e82fbdc7d3620a7eaa215c253429eff5157cf03035a52"
+        ],
+        "legacyRefs": [],
+        "legacyData": {},
+        "revisionId": "7ef38ae5fa9f9033f0a249e89d36a5fcc514cd556f02cdc31f190bd2093fb77d"
+      }
+    }
+  ],
+  "resolvedReviewDigests": [],
+  "rom": {
+    "repositoryId": "fixture:rom",
+    "beforeRevision": "fixture-source-v1",
+    "afterRevision": "fixture-source-v2",
+    "beforeSha256": "56605143ac0166c5110dcc5171a1673d771988dc3df663a87c0c378fb012db36",
+    "afterSha256": "94828daf1a999228038b8b4fcaeb47f1944614d4088986b6f0ffecfbd97ac7e4",
+    "verification": "illustrative"
+  },
+  "checks": [
+    "Illustrative fixture only; no ROM was changed."
+  ],
+  "digest": "d4cf6b7dca836885d4d683e665f02808bdd5af390126ebcb76ceef22b58b1cf3"
+}

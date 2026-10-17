@@ -1,0 +1,17 @@
+{
+  "schema": "NPCDexTaskBinding/1",
+  "workspaceId": "fixture:workspace",
+  "operationId": "fixture:binding",
+  "createdAt": "2026-10-16T12:00:00.000Z",
+  "actorClaim": "fixture:owner",
+  "bindingId": "fixture:binding",
+  "packageDigest": "5b732ff0245877c8755615eee98fa102e0690b10bdccec945290ddc12ac2afdf",
+  "instanceKey": "fixture:youtrack",
+  "projectId": "fixture-project",
+  "issueId": "fixture-task",
+  "attachmentId": "fixture-attachment",
+  "verifiedAttachmentSha256": "f3c05a0b18eb2acc299092f7c7173560ad72da9df15c702a9788a3c537a6d29f",
+  "createdTask": false,
+  "dispatch": "none",
+  "digest": "33f469e0b942c75d79407a0778639531beffe5218b0f9421f29cd5518ddc8c24"
+}

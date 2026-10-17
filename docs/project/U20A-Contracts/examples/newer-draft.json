@@ -1,0 +1,73 @@
+{
+  "schema": "NPCDexPlanRevision/1",
+  "workspaceId": "fixture:workspace",
+  "operationId": "fixture:newer-draft",
+  "createdAt": "2026-10-16T12:00:00.000Z",
+  "actorClaim": "fixture:owner",
+  "planId": "fixture:plan-dialogue",
+  "version": 2,
+  "parents": [
+    "b1281f44f60b87b658c7e7abec870a60ad1b3ae9713c61ae10b5931cbbbb1bc5"
+  ],
+  "target": {
+    "recordId": "fixture:guide",
+    "pointId": "fixture:point-guide",
+    "blockIds": [
+      "fixture:block-guide"
+    ],
+    "promptKey": "fixture:prompt-guide",
+    "gender": "both"
+  },
+  "intent": "UPDATE",
+  "workflow": "draft",
+  "instructions": "Replace only this guide prompt; retain its identity and conditions.",
+  "proposedDialogue": "A newer unsubmitted idea.",
+  "baseline": {
+    "recordId": "fixture:guide",
+    "revisionId": "3a612eeb423506dd4c9590a8d8fd63b970f317d88b8349d0db3aa4ecf85ea169"
+  },
+  "readSet": [
+    {
+      "recordId": "fixture:guide",
+      "revisionId": "3a612eeb423506dd4c9590a8d8fd63b970f317d88b8349d0db3aa4ecf85ea169"
+    },
+    {
+      "recordId": "fixture:exterior",
+      "revisionId": "0699789b86454e697cec822dcf00424e513df95bb276e462fa502698174d1c8b"
+    },
+    {
+      "recordId": "fixture:map",
+      "revisionId": "6ea37dece030b51fe405b08f06b395ddbb723f2cecd5f5e2f8ee515fcbc991e3"
+    },
+    {
+      "recordId": "fixture:region",
+      "revisionId": "03907b24a8baf1b24b6e2534a1956284f38aedaa5feb3f723aa37a5ac0554542"
+    },
+    {
+      "recordId": "fixture:progression",
+      "revisionId": "b92fed7469c7a49a3c7d74489bf46bd48b7449da32a42784e34f1d1ffd69b5a3"
+    },
+    {
+      "recordId": "fixture:profile-guide",
+      "revisionId": "2f69db907444ec420b9825b96c4a41daa54cb69e216eb4b685465059435d5c1a"
+    }
+  ],
+  "changes": [
+    {
+      "recordId": "fixture:guide",
+      "path": "/payload/points/fixture:point-guide/blocks/fixture:block-guide/text",
+      "before": {
+        "exists": true,
+        "value": "Welcome."
+      },
+      "after": {
+        "exists": true,
+        "value": "A newer unsubmitted idea."
+      }
+    }
+  ],
+  "requiredAssetIds": [],
+  "reviewRefs": [],
+  "legacyRefs": [],
+  "digest": "5430adf91a425d54727cc1958c969ddeb187a3010324c767b403c3b4ee2709a1"
+}

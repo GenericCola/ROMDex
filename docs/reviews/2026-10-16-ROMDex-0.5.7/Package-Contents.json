@@ -1,0 +1,1958 @@
+{
+  "package": "ROMDex-Review-0.5.7-2026-10-16",
+  "version": "0.5.7",
+  "preparedOn": "2026-10-16",
+  "installerSha256": "8bab8e1253503f765b030f3079a6c7c480b8f628e69645c422af6dd8df1e7d83",
+  "releaseSignatureVerified": true,
+  "workingSavesIncluded": false,
+  "credentialsIncluded": false,
+  "privateSigningKeyIncluded": false,
+  "markdownDocuments": 131,
+  "htmlDocuments": 132,
+  "manifestExcludes": [
+    "PACKAGE-CONTENTS.json",
+    "SHA256SUMS.txt"
+  ],
+  "files": [
+    {
+      "path": "DEVELOPMENT-LOG.html",
+      "bytes": 3854,
+      "sha256": "4845481bc22e78d10cddb70946700de5a8306fa678bb364802f50fce4e30e4a1"
+    },
+    {
+      "path": "DEVELOPMENT-LOG.md",
+      "bytes": 2893,
+      "sha256": "6ffd5960bf376e7aafd3cb6ef4b16ef34011f61d731a711ba749fba201934660"
+    },
+    {
+      "path": "DOCUMENT-INDEX.html",
+      "bytes": 28102,
+      "sha256": "5d861c0e60cc54b699a2cb3a37efbc12fc8daaf456d8b4d6dc98cf53d1f38aaf"
+    },
+    {
+      "path": "DOCUMENT-INDEX.md",
+      "bytes": 22465,
+      "sha256": "10e0589c4333cdc107dab8b874e66ba250d02c212819425acd44692a5fac365a"
+    },
+    {
+      "path": "DOCUMENT-LINK-AUDIT.json",
+      "bytes": 19844,
+      "sha256": "7afb22e8ddf671a88c5ff1456c6cfe19daf14828e7ecd0c20987d8f3bdf4f355"
+    },
+    {
+      "path": "FEATURES.html",
+      "bytes": 6030,
+      "sha256": "8211f71325b3412bd0e12ebc3e84d8054c1380bc5515f924c404fdc97a4e3b60"
+    },
+    {
+      "path": "FEATURES.md",
+      "bytes": 5007,
+      "sha256": "d15520b3b5cb77656b43703209af7defb9b91d406e3c2d17f96e2c01b2a8ffac"
+    },
+    {
+      "path": "KNOWN-LIMITATIONS.html",
+      "bytes": 5557,
+      "sha256": "9351e030853df52a861b2d59bec71c3b4078d754aed15b3116ef2b82b2356550"
+    },
+    {
+      "path": "KNOWN-LIMITATIONS.md",
+      "bytes": 4676,
+      "sha256": "1ef62c56e4f3aabe273fed1c891770fe57a0d09e22c99c60acccaf43d7b8b4db"
+    },
+    {
+      "path": "PROJECT-STATUS.html",
+      "bytes": 4581,
+      "sha256": "ecc228d8c132ff21c5a0d3341ae4eac175f3d08c2eb5dd8c10c1d111fb2b330c"
+    },
+    {
+      "path": "PROJECT-STATUS.md",
+      "bytes": 3461,
+      "sha256": "471e7fdc4987cb70660086eaec89c7bffab5c7906ca58c689cb6df953701be4d"
+    },
+    {
+      "path": "README.html",
+      "bytes": 3815,
+      "sha256": "eb29145d92d33f656182b918fcfccf7c030184ea09a485c4ada4570200d17197"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2982,
+      "sha256": "048b95acf2bf6ca7bc0fac862bdcba68934bda820d110da3b1fda44f174dd172"
+    },
+    {
+      "path": "START-HERE.html",
+      "bytes": 2967,
+      "sha256": "10a1758963224e6c32cd641d18657934410f5b1c6be8cdf1a56d1f4229484ff4"
+    },
+    {
+      "path": "documentation/application-guides/CHANGELOG.html",
+      "bytes": 3666,
+      "sha256": "776d39e2ecc548d1b5b444e6987fa7da1e0b16434989ee5dd65cb4a39fd1c665"
+    },
+    {
+      "path": "documentation/application-guides/CHANGELOG.md",
+      "bytes": 2874,
+      "sha256": "f7ded23cd8b8371fceea9bbcbbeac2641f38b9e58c756fc09fc6757e99065025"
+    },
+    {
+      "path": "documentation/application-guides/QA-Report.html",
+      "bytes": 11044,
+      "sha256": "1c6f20e779c3d72e4cd4f2142828c8629c9c1c397eda477cf55473029ae027df"
+    },
+    {
+      "path": "documentation/application-guides/QA-Report.md",
+      "bytes": 9706,
+      "sha256": "d68e628248e8289c70c54c88a8ee1301ca90d839d7b709190fa8b0d19b9ee937"
+    },
+    {
+      "path": "documentation/application-guides/README.html",
+      "bytes": 37629,
+      "sha256": "1a9f5d5fcbc097a6de7fae30ed08dcf7f4079686e6d434556644a6dcd7ac4498"
+    },
+    {
+      "path": "documentation/application-guides/README.md",
+      "bytes": 34080,
+      "sha256": "479bb088328695e7f4379c18a18ab7a7d1d57dd1c867c0659ce274cd99379c01"
+    },
+    {
+      "path": "documentation/application-guides/U08-Workspace-Guide.html",
+      "bytes": 3527,
+      "sha256": "26f4c346dd540ab89672fb237782c7fc15885348263f8206af08264935ab031c"
+    },
+    {
+      "path": "documentation/application-guides/U08-Workspace-Guide.md",
+      "bytes": 2828,
+      "sha256": "01b684cbe927e18f7280f0e1f14522b42df5e269bfa628885684b310b67a423a"
+    },
+    {
+      "path": "documentation/application-guides/U09-Save-and-Recovery-Guide.html",
+      "bytes": 3875,
+      "sha256": "be42c43fb2c03421468cd263041748f5b16d70ee95a57c4f8f457febe65da982"
+    },
+    {
+      "path": "documentation/application-guides/U09-Save-and-Recovery-Guide.md",
+      "bytes": 3147,
+      "sha256": "c00e6166b094a40eec25398d8be1619fdbdcece6d15c021aab1330e8172298de"
+    },
+    {
+      "path": "documentation/application-guides/U10-Desktop-Preview-Guide.html",
+      "bytes": 4170,
+      "sha256": "40a58c43eed301c2a1e9ccf406d78d4a4a680922877e6f85e3ddfa98ecd29c46"
+    },
+    {
+      "path": "documentation/application-guides/U10-Desktop-Preview-Guide.md",
+      "bytes": 3266,
+      "sha256": "ff1fb02033f51faa54d842c9a2ccede7927a906f95cb9813f05c224998605868"
+    },
+    {
+      "path": "documentation/application-guides/U10F-File-Drop-Guide.html",
+      "bytes": 3341,
+      "sha256": "bbd94f1489c977ae3dd523c367e91c074b608685a1e8e758e2f8a4dad9f888bc"
+    },
+    {
+      "path": "documentation/application-guides/U10F-File-Drop-Guide.md",
+      "bytes": 2483,
+      "sha256": "73e5019743c7714d3c2eb91a1afde4197eec6ac734caca3800bd4628de36f929"
+    },
+    {
+      "path": "documentation/application-guides/U11-Desktop-Guide.html",
+      "bytes": 3683,
+      "sha256": "e817602664fca10cf67adff2fc252768f6580b6728295d1fcd7a5392347da01a"
+    },
+    {
+      "path": "documentation/application-guides/U11-Desktop-Guide.md",
+      "bytes": 2984,
+      "sha256": "93d96cf39df6409b6c553ac88df78b3cadae6e5c9bcb3449f32733a2ef579e9e"
+    },
+    {
+      "path": "documentation/application-guides/U12-Desktop-Guide.html",
+      "bytes": 3832,
+      "sha256": "72e3f8ea0036b7fa24046e23d3f0cd709f81c230823fe07909e03c0f4df04ce0"
+    },
+    {
+      "path": "documentation/application-guides/U12-Desktop-Guide.md",
+      "bytes": 3072,
+      "sha256": "2f54ab8d4a9781bade00f8373c2ffe387be80b161ff97046aa799e5aec237f54"
+    },
+    {
+      "path": "documentation/application-guides/U13A-Desktop-Guide.html",
+      "bytes": 3168,
+      "sha256": "4e019bb669adf432666de4331a5d0d5549ca4a3781311939d004f66becbd6f11"
+    },
+    {
+      "path": "documentation/application-guides/U13A-Desktop-Guide.md",
+      "bytes": 2390,
+      "sha256": "c36b1a84697067b5a9c7392bbd02ccab9ff2584ca6c820c224aa80c090326d99"
+    },
+    {
+      "path": "documentation/application-guides/U13B-Update-Guide.html",
+      "bytes": 3698,
+      "sha256": "14b1e13de801dc2c7ada70474755cef6d96e2d43dcce950086b3afc925063af0"
+    },
+    {
+      "path": "documentation/application-guides/U13B-Update-Guide.md",
+      "bytes": 2868,
+      "sha256": "9960551b83f796ac22624b64b9aea2219fced0d8d0632325cf1825fca3f864b6"
+    },
+    {
+      "path": "documentation/application-guides/U16-Cloud-Sync-Guide.html",
+      "bytes": 3040,
+      "sha256": "b3bc5a939d652ba447a310b6809bb89b49577c9d7a11d636ec16a481605b0b1c"
+    },
+    {
+      "path": "documentation/application-guides/U16-Cloud-Sync-Guide.md",
+      "bytes": 2391,
+      "sha256": "fa94704ffcc3befa1ea475ce374bc2c52e197b4d1203d10f20262c8ab1a99e46"
+    },
+    {
+      "path": "documentation/application-guides/U17-Conflict-Review-Guide.html",
+      "bytes": 3649,
+      "sha256": "4029177863bccf397ebb5cce223b4ccb712a9cad699118d9968a3ff023e39338"
+    },
+    {
+      "path": "documentation/application-guides/U17-Conflict-Review-Guide.md",
+      "bytes": 2943,
+      "sha256": "e67b071e90a4c1ae846576b2fb913de6e10ea75e4bedf53005c1345722e3f964"
+    },
+    {
+      "path": "documentation/application-guides/U18-Metadata-Sync-Guide.html",
+      "bytes": 4295,
+      "sha256": "5351f08485b4b3d1d955d05d0bd5d58513fd30e3f16a7a3a625faa14fd93acd4"
+    },
+    {
+      "path": "documentation/application-guides/U18-Metadata-Sync-Guide.md",
+      "bytes": 3613,
+      "sha256": "803076eb826360730b8930f6ff1903ac749893f9f598036ccef5bed09ec6e6a7"
+    },
+    {
+      "path": "documentation/application-guides/U19-Shared-Sync-Guide.html",
+      "bytes": 2734,
+      "sha256": "564fa85ced5090aefd118e11a57934b56880b6143d9cc547235224b01438f713"
+    },
+    {
+      "path": "documentation/application-guides/U19-Shared-Sync-Guide.md",
+      "bytes": 2078,
+      "sha256": "6e9e4d3aaee12d69ad5c25530effd1055321143fc22f4afb1581cf6f7f33347c"
+    },
+    {
+      "path": "documentation/application-guides/UPGRADE-AND-RECOVERY.html",
+      "bytes": 6059,
+      "sha256": "fef20a43e60ab503713697abdd97e3caf592cf4de9d9fcbb3225af2c61537102"
+    },
+    {
+      "path": "documentation/application-guides/UPGRADE-AND-RECOVERY.md",
+      "bytes": 5038,
+      "sha256": "f6d46613cc82ad4f595844281c7b1dc41121675f986411217ffde975ad8b62ad"
+    },
+    {
+      "path": "documentation/npcdex-reference/ITERATION.html",
+      "bytes": 1128,
+      "sha256": "2726566cfe50ba49252ab568cec8599dd7665c27b5dd74f965fccd697faef98f"
+    },
+    {
+      "path": "documentation/npcdex-reference/ITERATION.md",
+      "bytes": 527,
+      "sha256": "cec847833f92d44ceb1d4c0fead09e9bdaa225008b673c150c0f15e2851054b6"
+    },
+    {
+      "path": "documentation/npcdex-reference/NPCDex-Agent-Workflow.html",
+      "bytes": 14059,
+      "sha256": "36867d54fd43fe7b76f74d81f345bad264fff301b601e7e07080d970bf8738a7"
+    },
+    {
+      "path": "documentation/npcdex-reference/NPCDex-Agent-Workflow.md",
+      "bytes": 11893,
+      "sha256": "b8ba6d6236418f9d334fcf2f42eccecc1b29c1f0a9e63c6d60582458739a42aa"
+    },
+    {
+      "path": "documentation/npcdex-reference/NPCDex-README.html",
+      "bytes": 8510,
+      "sha256": "d70129f1b8d2c6f68df7acbceee415b3c713a480f4cafd19d6d3de8670a4c08f"
+    },
+    {
+      "path": "documentation/npcdex-reference/NPCDex-README.md",
+      "bytes": 7515,
+      "sha256": "a9e44d9ab8276e3bde5b3a651932ba748e4470c054b4af1b74b0b42212297980"
+    },
+    {
+      "path": "documentation/npcdex-reference/README.html",
+      "bytes": 8503,
+      "sha256": "0a1c30a06532645aae05097d36fba9779815efe5391d7ca7a6d10189a0c0d4ec"
+    },
+    {
+      "path": "documentation/npcdex-reference/README.md",
+      "bytes": 7515,
+      "sha256": "a9e44d9ab8276e3bde5b3a651932ba748e4470c054b4af1b74b0b42212297980"
+    },
+    {
+      "path": "documentation/npcdex-reference/ROMDex-Integration.html",
+      "bytes": 3011,
+      "sha256": "c3ef7e4bd63d403721308dfd60e1a10d68984c9302f5c354510d7ee0ced94324"
+    },
+    {
+      "path": "documentation/npcdex-reference/ROMDex-Integration.md",
+      "bytes": 2258,
+      "sha256": "61ad226ca7fa2b9164c0b19fe8bdaca194853bd52b0ef0dad994fe2c2bfc5416"
+    },
+    {
+      "path": "documentation/npcdex-reference/Standard-Notes-Suite.html",
+      "bytes": 7976,
+      "sha256": "0a7683ee16750a980da131ee150d87b4b74353ae94f5845428e1130ab667688f"
+    },
+    {
+      "path": "documentation/npcdex-reference/Standard-Notes-Suite.md",
+      "bytes": 6887,
+      "sha256": "33a659cdea73ebdff6ddfdbc118d196bdea8e690bfc31dbf50cfd70907faf2de"
+    },
+    {
+      "path": "documentation/npcdex-reference/cherrygrove_city_content_map.html",
+      "bytes": 435356,
+      "sha256": "9e6d1162e583f346d3707ae9df5af15b77dc51ebdf25027bd326b6cb2315b878"
+    },
+    {
+      "path": "documentation/npcdex-reference/cherrygrove_city_content_map.md",
+      "bytes": 321338,
+      "sha256": "a4947a4152dfb4d5ba4b148d0481a55f6ddb9cb29892f719d56e4af418d1f3f8"
+    },
+    {
+      "path": "documentation/npcdex-reference/cherrygrove_city_dialogue_guide.html",
+      "bytes": 29008,
+      "sha256": "eee38618ee3936da716584d0febe0fb12acc29982d8b4e798cdb26e0b858bdf6"
+    },
+    {
+      "path": "documentation/npcdex-reference/cherrygrove_city_dialogue_guide.md",
+      "bytes": 19947,
+      "sha256": "c4894ba59d0efd38ac7dfae0e6bcc1f6739119e644b708d70c3304f135b993ac"
+    },
+    {
+      "path": "documentation/npcdex-reference/new_bark_town_content_map.html",
+      "bytes": 1117010,
+      "sha256": "ac1439b64245bfa9fbe30698c2bc8da21fea62d30c54d26fbcd5a8dcd71f036e"
+    },
+    {
+      "path": "documentation/npcdex-reference/new_bark_town_content_map.md",
+      "bytes": 806737,
+      "sha256": "016313bd6fd64fe42500351a30186bb688c641850d61914e7fc7a9bbc4fbeb78"
+    },
+    {
+      "path": "documentation/npcdex-reference/new_bark_town_dialogue_guide.html",
+      "bytes": 95584,
+      "sha256": "a21c8171bdcfa09cee0c7663dc008b77ce49986375fd06d33e34a184a641d7fb"
+    },
+    {
+      "path": "documentation/npcdex-reference/new_bark_town_dialogue_guide.md",
+      "bytes": 58805,
+      "sha256": "16860fe5c4173aade2fb3911ace5725cede3dfa0c6d3fe3fc58422a17573c5f7"
+    },
+    {
+      "path": "documentation/npcdex-reference/npcdex-iteration-index.html",
+      "bytes": 4442,
+      "sha256": "3c15217816c7c24231cee286dcf6345679817984e24fc66ee66e71321ceb4425"
+    },
+    {
+      "path": "documentation/npcdex-reference/npcdex-iteration-index.md",
+      "bytes": 4002,
+      "sha256": "c3d8ec6f9708e4aa58e2c99af3c0b1e814f0aeb68661f433a96167a4219028f1"
+    },
+    {
+      "path": "documentation/npcdex-reference/npcdex-reconciliation-report.html",
+      "bytes": 2892,
+      "sha256": "0434014ae34242711600704e588cd3640dc89f4cf2b4f0d68538eb98fb152080"
+    },
+    {
+      "path": "documentation/npcdex-reference/npcdex-reconciliation-report.md",
+      "bytes": 2166,
+      "sha256": "6dbfa596e08b631bca0be22648911a8b236ed9556458430f6a95d867289bb5de"
+    },
+    {
+      "path": "documentation/npcdex-reference/npcdex-timeline-contrast-report.html",
+      "bytes": 1815,
+      "sha256": "350a75c2ee55894f715c0e0168c187396079e0259616735181d36c7540a50b62"
+    },
+    {
+      "path": "documentation/npcdex-reference/npcdex-timeline-contrast-report.md",
+      "bytes": 934,
+      "sha256": "24eae7663c87d5a37ee8a84b81d12e76835cb0230f01792ceff2eee49abdf319"
+    },
+    {
+      "path": "documentation/npcdex-reference/npcdex-update-notes.html",
+      "bytes": 9741,
+      "sha256": "46ef56756ef72c0f23fbe859e18954aa0993d3dd2cf2788fb0a21599f7c510ad"
+    },
+    {
+      "path": "documentation/npcdex-reference/npcdex-update-notes.md",
+      "bytes": 8114,
+      "sha256": "b72e727e3997583c64688c6b0954a5843ed18eace93d4448843f56ac2961aaf5"
+    },
+    {
+      "path": "documentation/npcdex-reference/route_29_content_map.html",
+      "bytes": 251443,
+      "sha256": "f87a9c144c4aee377e0ca0b8c8d2fa7635343cd4506c595a553ffa2073f0c5c3"
+    },
+    {
+      "path": "documentation/npcdex-reference/route_29_content_map.md",
+      "bytes": 188547,
+      "sha256": "a8c9f897c76acb8dc2c13ac1acc1cb59ff9ce09add7f422b648cb2f4112e9eda"
+    },
+    {
+      "path": "documentation/npcdex-reference/route_29_dialogue_guide.html",
+      "bytes": 21188,
+      "sha256": "4addde712366a0f99812637f44fa41975988b1489f8ba0b647f007ddc6f97e70"
+    },
+    {
+      "path": "documentation/npcdex-reference/route_29_dialogue_guide.md",
+      "bytes": 15043,
+      "sha256": "34b8b1aa345b30486058169c917c0d70bd33d0a6d605c86058a273303dd2c159"
+    },
+    {
+      "path": "documentation/project/Deferred-Application-Commands.html",
+      "bytes": 3626,
+      "sha256": "4b9492f1400932b56b54798efdbd9aa6d7af7485dbe06c3adabf6b95d506bc62"
+    },
+    {
+      "path": "documentation/project/Deferred-Application-Commands.md",
+      "bytes": 2664,
+      "sha256": "b8947d50f36ada908e939da2abbefa0b564f6c0ff55de3c16de6761188559d6e"
+    },
+    {
+      "path": "documentation/project/Desktop-File-Drop-Attachments-Plan.html",
+      "bytes": 2530,
+      "sha256": "55ed6327d18e03ebb14f0e8b3172c2ee9ea0ec851168556b3bc8999c4491dbda"
+    },
+    {
+      "path": "documentation/project/Desktop-File-Drop-Attachments-Plan.md",
+      "bytes": 1822,
+      "sha256": "436d65c372b93288ebeae4ecfbd8fd01ceb274be00370725dff4a9d184b05bfc"
+    },
+    {
+      "path": "documentation/project/Header-Correction-Patch-Manifest.json",
+      "bytes": 1714,
+      "sha256": "fa1d3b6de8abf65f2ea08bf63b7aa875e27ebe077bb6115f7992426991c041d8"
+    },
+    {
+      "path": "documentation/project/Header-Correction-Report.html",
+      "bytes": 3511,
+      "sha256": "8e9f8881440e22d286c335863c2c575278439cbcaa4e306bd4656026bfe2aa8d"
+    },
+    {
+      "path": "documentation/project/Header-Correction-Report.md",
+      "bytes": 2658,
+      "sha256": "a9b78a436b018dba7a5f8c60a3194110c482e5685fc5b630e605e0fbd71ae11b"
+    },
+    {
+      "path": "documentation/project/Header-Correction-Verification.json",
+      "bytes": 7836,
+      "sha256": "34434ac1b7725c7c9cc57cfb1f48304081352e09872ac7cafb30b413444fb094"
+    },
+    {
+      "path": "documentation/project/NPCDex-ROMDex-Action-Checklist.html",
+      "bytes": 54678,
+      "sha256": "38bab25a946abef5d38ae5d1fe7569a196186b9078e6c9d7b85948031d9d1f5e"
+    },
+    {
+      "path": "documentation/project/NPCDex-ROMDex-Action-Checklist.md",
+      "bytes": 47316,
+      "sha256": "42c864dcdf2027a164c937e3c54a80d33f179d574f9137d7bf00875cae05b8f0"
+    },
+    {
+      "path": "documentation/project/NPCDex-ROMDex-Decision-Log.html",
+      "bytes": 59758,
+      "sha256": "1951365f97d24a854fd87c81af76d5c5cddf8f836aff3e8c892250b9740e9cab"
+    },
+    {
+      "path": "documentation/project/NPCDex-ROMDex-Decision-Log.md",
+      "bytes": 53557,
+      "sha256": "674820167ec768f9d218dbaba4dba9aee35f88d5b3d32eb6f9bd5d6e726774dc"
+    },
+    {
+      "path": "documentation/project/NPCDex-ROMDex-Unified-App-Action-Plan.html",
+      "bytes": 67606,
+      "sha256": "ff8263119d92c304e8b758b17150670ac4af2ab06a9c7e673527294406e4cc52"
+    },
+    {
+      "path": "documentation/project/NPCDex-ROMDex-Unified-App-Action-Plan.md",
+      "bytes": 58969,
+      "sha256": "228c84b78174dc4c2dadee6ace7c60227991ae3f5825956b307ef2cfe6af4f6c"
+    },
+    {
+      "path": "documentation/project/NPCDex-ROMDex-Unified-App-Scope.html",
+      "bytes": 37665,
+      "sha256": "88ab5456759b014c1084b64935721a5552216b557dd85466d4df989899be0e86"
+    },
+    {
+      "path": "documentation/project/NPCDex-ROMDex-Unified-App-Scope.md",
+      "bytes": 34018,
+      "sha256": "a07668f4ae9b60ea73ee54c70b0a7dafe73c96fb44712b8ec5395f370063568e"
+    },
+    {
+      "path": "documentation/project/R01-Completion-Report.html",
+      "bytes": 5065,
+      "sha256": "2c94361b01a1553874fd2ca717ac8cd5cfdbcf5c248df7764d38b12c7b7fed90"
+    },
+    {
+      "path": "documentation/project/R01-Completion-Report.md",
+      "bytes": 3976,
+      "sha256": "a25e6157dbebbbba809c11d595445e180931ec7a95438fd88ea8bbd30540b647"
+    },
+    {
+      "path": "documentation/project/R02-Completion-Report.html",
+      "bytes": 5680,
+      "sha256": "127d70be5f679ed2bd175a7046c72898c24d285757a87d03e91377b97b294915"
+    },
+    {
+      "path": "documentation/project/R02-Completion-Report.md",
+      "bytes": 4487,
+      "sha256": "2d8e8b51e7d18c193c178b457071dbcca3843a2f7b47f52bffa30546f0e61c3e"
+    },
+    {
+      "path": "documentation/project/R03-Completion-Report.html",
+      "bytes": 5470,
+      "sha256": "14bb7dff3296432fb821cd4ee28f9eedaf5ee9ef81c678a5bd1a9fcea7aeed14"
+    },
+    {
+      "path": "documentation/project/R03-Completion-Report.md",
+      "bytes": 4296,
+      "sha256": "d13f4d0e10288637a5136f5b4c021ccda434ad0578f8ed25097226229e0484f8"
+    },
+    {
+      "path": "documentation/project/R04-Completion-Report.html",
+      "bytes": 5949,
+      "sha256": "65257a8361b540c778ba2a9c16d33d057b2dd71066518e8134a82bd3f93527cb"
+    },
+    {
+      "path": "documentation/project/R04-Completion-Report.md",
+      "bytes": 4781,
+      "sha256": "fb209417ab96497c97bbd2409253683fc21c035117100971f64f1fc51cc3caac"
+    },
+    {
+      "path": "documentation/project/R05-Completion-Report.html",
+      "bytes": 7242,
+      "sha256": "cf1babec95eccc1a0d867dfbd052c79e0fa26fe148fbc25e504e9337353b55aa"
+    },
+    {
+      "path": "documentation/project/R05-Completion-Report.md",
+      "bytes": 6076,
+      "sha256": "b01bb472c0528176daab1d84a8126cd15acb293afc9b9f4a2a59cc8070988458"
+    },
+    {
+      "path": "documentation/project/R06-Completion-Report.html",
+      "bytes": 7018,
+      "sha256": "ca197b0ea28bc0d79b721ca0b3c1aa7f528583b02b246cfbdcb11a67fd4a37b4"
+    },
+    {
+      "path": "documentation/project/R06-Completion-Report.md",
+      "bytes": 5926,
+      "sha256": "1362fa6fae453bbb76ff3d13118424b3a0a5a458f4722ab72d458cad412c0d7e"
+    },
+    {
+      "path": "documentation/project/R07-Completion-Report.html",
+      "bytes": 7976,
+      "sha256": "a4e43fe15adb0aa318f178ff696e2c1258e1d21aabe1aa0f8701e97c39ba9278"
+    },
+    {
+      "path": "documentation/project/R07-Completion-Report.md",
+      "bytes": 6753,
+      "sha256": "4ddd9cf9c16fbc8ef45f223394f722c875735aed57dccf342f1a8738f13564a5"
+    },
+    {
+      "path": "documentation/project/R08-Baseline-Update.html",
+      "bytes": 3721,
+      "sha256": "5cf83e8a2eb9c9dba78011bf2dec0733dd3ee933661ef2909d1caa512a05d16f"
+    },
+    {
+      "path": "documentation/project/R08-Baseline-Update.md",
+      "bytes": 2803,
+      "sha256": "ae32b43b9181c760dc80243852eb8e48b6da6113994079689ed26a891599926c"
+    },
+    {
+      "path": "documentation/project/R08-Completion-Report.html",
+      "bytes": 5985,
+      "sha256": "390cadeb56045d7a1ad496ce7fa89525f0d7547d79c54ac4b99be254b02c1ae9"
+    },
+    {
+      "path": "documentation/project/R08-Completion-Report.md",
+      "bytes": 4832,
+      "sha256": "4fc69bec72264e77589344b4ce9768efd6af94b6b3e7d0c34ebf3e9566ebc9ba"
+    },
+    {
+      "path": "documentation/project/ROMDex-Plan.html",
+      "bytes": 5666,
+      "sha256": "5b65dd6da579c29533dac4daae30b86284d0af30ea9761ae4cf5561c26c39bce"
+    },
+    {
+      "path": "documentation/project/ROMDex-Plan.md",
+      "bytes": 4741,
+      "sha256": "b1e1497d63149219a86670f31c62dc1d3b5634c90d6bcf585c91705edb0b6a05"
+    },
+    {
+      "path": "documentation/project/ROMDex-Pre-Launcher-Enhancement-Plan.html",
+      "bytes": 21938,
+      "sha256": "f0db8e4db895726e770b259cef06072f940b47036bebd4f3cf2c7498ef5de9ed"
+    },
+    {
+      "path": "documentation/project/ROMDex-Pre-Launcher-Enhancement-Plan.md",
+      "bytes": 19503,
+      "sha256": "0b8bb75308c67270ca0be3ef69f2b6e685ca1b7ae0e204b1e7adb82a8b535069"
+    },
+    {
+      "path": "documentation/project/ROMDex-Task-1-Review.html",
+      "bytes": 5124,
+      "sha256": "57dd0ededcd3350257426ce813fc7ff3e8aa50b5bf12a75a8142cf3ab8fcfede"
+    },
+    {
+      "path": "documentation/project/ROMDex-Task-1-Review.md",
+      "bytes": 4089,
+      "sha256": "d2e262d9b3cb58a2b73118ee270e6f3c7e6731a302c1a8159833138c3fe4bde2"
+    },
+    {
+      "path": "documentation/project/ROMDex-Task-10-Review.html",
+      "bytes": 2742,
+      "sha256": "5e02ea124e38587b7e47851e5ecede3fec73c6de5759c83270a7d5bafab9ae10"
+    },
+    {
+      "path": "documentation/project/ROMDex-Task-10-Review.md",
+      "bytes": 2000,
+      "sha256": "a260a5a440930f2439ee162d78bf98e7ecca09e0eb7c4657089e22e64745f387"
+    },
+    {
+      "path": "documentation/project/ROMDex-Task-2-Review.html",
+      "bytes": 8275,
+      "sha256": "0b283613c3ff247112903e08ccd880ec81c3c6036443f86ebd97e915de57653a"
+    },
+    {
+      "path": "documentation/project/ROMDex-Task-2-Review.md",
+      "bytes": 7124,
+      "sha256": "15af365e2e600907d15dc027660532eb2d4955218d637f1676a690eab50d99b9"
+    },
+    {
+      "path": "documentation/project/ROMDex-Task-3-Review.html",
+      "bytes": 4766,
+      "sha256": "38bd6e21712d83a0d424280f7a96b6c2df33b7bb22ff214989dac0c977f8e85c"
+    },
+    {
+      "path": "documentation/project/ROMDex-Task-3-Review.md",
+      "bytes": 3764,
+      "sha256": "c4a78f2eda2b6582fd8aeef06e78416071d8157a907dbb6b412a811626f9e365"
+    },
+    {
+      "path": "documentation/project/ROMDex-Task-4-Review.html",
+      "bytes": 5055,
+      "sha256": "f762777dd6b50598a58fb2a35c24f7abc129f8690ea7d37ec172a900c3e1d1f4"
+    },
+    {
+      "path": "documentation/project/ROMDex-Task-4-Review.md",
+      "bytes": 4109,
+      "sha256": "3aae56cf5b53808829968528b5b8993bca29d2bb66b429216420ba9bb8765202"
+    },
+    {
+      "path": "documentation/project/ROMDex-Task-5-Review.html",
+      "bytes": 7266,
+      "sha256": "6738ca9906456d0f59443d15e9126e1c2d2e0144a2004e184933c48db549a9ae"
+    },
+    {
+      "path": "documentation/project/ROMDex-Task-5-Review.md",
+      "bytes": 6227,
+      "sha256": "45a95458c013d5327444c5e757ce089cee1d715417b92ef59b2136fa8887a56c"
+    },
+    {
+      "path": "documentation/project/ROMDex-Task-6-Review.html",
+      "bytes": 6741,
+      "sha256": "c36a10321374facfd6eab94830fb31111f05958748b3b04b39268257faf77060"
+    },
+    {
+      "path": "documentation/project/ROMDex-Task-6-Review.md",
+      "bytes": 5835,
+      "sha256": "cd0166091a94ebfa875d145efe63c967fc831ff727ea0b2ae8c407ec23f772d8"
+    },
+    {
+      "path": "documentation/project/ROMDex-Task-7-Review.html",
+      "bytes": 8065,
+      "sha256": "8a4d1a55c592f9f4f43d9d4c32b97fdfefeff8734010dc3497eda0c8c6e70b75"
+    },
+    {
+      "path": "documentation/project/ROMDex-Task-7-Review.md",
+      "bytes": 6952,
+      "sha256": "18b05ba7c7344e901578e1eaa14f5da44c77202f822cc7e8616d107287190256"
+    },
+    {
+      "path": "documentation/project/ROMDex-Task-8-Review.html",
+      "bytes": 8149,
+      "sha256": "cf2cfbd2e1b377cbb96d561e162d112ce2beb9afde5451c50a443ab0c502e544"
+    },
+    {
+      "path": "documentation/project/ROMDex-Task-8-Review.md",
+      "bytes": 7068,
+      "sha256": "8b363e9794cd03c8aa54339d7ac40e2d669297e149f7b01e4da61c935fb1528a"
+    },
+    {
+      "path": "documentation/project/ROMDex-Task-9-Review.html",
+      "bytes": 4663,
+      "sha256": "c12f55b90a19a08234cb88116ad47c5796f3d265e366fd2ffa54e57c45431199"
+    },
+    {
+      "path": "documentation/project/ROMDex-Task-9-Review.md",
+      "bytes": 3882,
+      "sha256": "2969df7af659cfaa723e016f5659db61470d6b4751bda036498ab1db987f2c2c"
+    },
+    {
+      "path": "documentation/project/ROMDex-Visual-Revision-Plan.html",
+      "bytes": 26749,
+      "sha256": "f277d56ee9694eba244696b2ed9a63843089ddd1393ef36daf4c5ecc7d2472a5"
+    },
+    {
+      "path": "documentation/project/ROMDex-Visual-Revision-Plan.md",
+      "bytes": 23900,
+      "sha256": "300c19a4624cb49716cdcea1b7be83737c4602723290dfd94fbed564a3648971"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.2-QA-Report.html",
+      "bytes": 9508,
+      "sha256": "438f7e97a2f86fbf3f5e976fd0a908ee267f32025613b64f19e8ba971ada1633"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.2-QA-Report.md",
+      "bytes": 8387,
+      "sha256": "e689fd14eba6be33330740ccb03722683946e5a1c29818ab239f8f5943b1fc8d"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Commit-Proposals.html",
+      "bytes": 17766,
+      "sha256": "97a4850b0a499a04f0b4c9d04172c2d5e516ea51dac095bafe76f017bc8f9a61"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Commit-Proposals.md",
+      "bytes": 15471,
+      "sha256": "453298cbfc3aa92f0de2b1009e54b9c0d7b978baf1cf70194ff87b8ed631858c"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Package-Manifest.json",
+      "bytes": 218,
+      "sha256": "e0603517f6008e1057a52b7a0f21ea0cc17fbad700b238a12cef7836d22ecf5d"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Task-1-Review.html",
+      "bytes": 5142,
+      "sha256": "e0618cacf1c56959a2826f8db9fbb5bbde8f1338266785abf8897cf55312971c"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Task-1-Review.md",
+      "bytes": 4121,
+      "sha256": "1c82e714fbc28d0cad32dc432b69c3fd066f519e63737df76a87e263a979a380"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Task-2-Review.html",
+      "bytes": 4778,
+      "sha256": "3c6db23ae5499ec6f0b9414e1d26d1dfd696b34c006975361036b2f1be0f76ba"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Task-2-Review.md",
+      "bytes": 3790,
+      "sha256": "bf3e35fb08c81207c56daa958027dfc80e933603149f95cce664022fbe3f28f9"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Task-3-Review.html",
+      "bytes": 3137,
+      "sha256": "a7b90db6d1fcfc55a1db4a6ea81ecd445d03a3f6fbb4a28e4dd11bb49ec9c034"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Task-3-Review.md",
+      "bytes": 2181,
+      "sha256": "0fbd8533276fce2894ce5e134863e17bfc464b7efc5dca3091bdbd599a0c5bbf"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Task-4-Review.html",
+      "bytes": 4213,
+      "sha256": "222e919c4b2b659da720f49d1a05666f91152c215516a70b9c8172fe69b536dd"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Task-4-Review.md",
+      "bytes": 3316,
+      "sha256": "eb4c612adbe2d841b954e72480d7d603bed837e3d01e22e0a438674bc8d67e11"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Task-5-Review.html",
+      "bytes": 4240,
+      "sha256": "fe7a4fd0de29102f82ebea01b339aaeab85ddd1fc05338ee97123942e6d0568f"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Task-5-Review.md",
+      "bytes": 3280,
+      "sha256": "7833a7dd4ef1c856065af5aee790987a61d34479bbb75b0141ac2cd7f5826bf3"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Task-6-Review.html",
+      "bytes": 4437,
+      "sha256": "cb535e30b62a3dd3cc70907365a64d14d447d909ce947b26f51e4914dff5dd31"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Task-6-Review.md",
+      "bytes": 3520,
+      "sha256": "29bdc0f6c2289b5e7841e4bf661e7f62092c0036d2982b64deb54bb484b34fb1"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Task-7-Review.html",
+      "bytes": 4011,
+      "sha256": "5f6deb4ae6eb327e361cc6ba6f537117491b8be073d9e35d67156549c47bdb5d"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Task-7-Review.md",
+      "bytes": 3086,
+      "sha256": "97604d50f24285090d636b019b0b63e0c5445e6ce1ea1f597a28453079b5dfa6"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Task-8-Review.html",
+      "bytes": 3579,
+      "sha256": "2533165000d740ce9577fd2cc25dc02aa1c26eff9ef49873b960df729b78e367"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Task-8-Review.md",
+      "bytes": 2677,
+      "sha256": "51f9d667149309847e5786a089a7847aece224cf774694aab8858bd7611810d9"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Title-Editor-Fix.html",
+      "bytes": 3268,
+      "sha256": "5b86bb1e6b555c3a3ffaab32984aec65aec368154aea99f52b829af1de7fd3e1"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Title-Editor-Fix.md",
+      "bytes": 2354,
+      "sha256": "a99028aef51160c4adff7f8c5b490546407de28f9ea0796b6813e0541df10f69"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Untouched-Rollup-Fix.html",
+      "bytes": 3490,
+      "sha256": "e931b15d53d551615740e69f1386bf1c0a3500887a8a23639fd54b412f3bc08e"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.3-Untouched-Rollup-Fix.md",
+      "bytes": 2598,
+      "sha256": "18e5683aa9c3797df922773f72cf3473c1a63dee0e411447d61fb7a5596c203d"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.4-Manifest.json",
+      "bytes": 12848,
+      "sha256": "f4fa3b99567ad7dc755e7cb95c270cc290af6811976e4a1f9b4864ca487ab6e3"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.4.1-Manifest.json",
+      "bytes": 12122,
+      "sha256": "6c37c09a55489b91806dff58ec05233e7515f3cad7c682617dde092146cd67ad"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.4.2-Manifest.json",
+      "bytes": 14644,
+      "sha256": "0ddc977dcf95ef7e3a642a54bf49e08c92e22fd2d72008e60ab47bcf34222f09"
+    },
+    {
+      "path": "documentation/project/ROMDex-v0.4.3-Manifest.json",
+      "bytes": 15845,
+      "sha256": "d4a0bea8b5e9cc0d135ee5b4595fcd588fb19a0f384c1e72db532e71f8bcf892"
+    },
+    {
+      "path": "documentation/project/S01-Completion-Report.html",
+      "bytes": 6528,
+      "sha256": "c0cdf5b8caca53f35bcd976ea0000fda15ea48d01b0829a971b1fad7d5855483"
+    },
+    {
+      "path": "documentation/project/S01-Completion-Report.md",
+      "bytes": 5355,
+      "sha256": "ae8d7b2b976de7d73c8e32c1400146ac6027e3c46523556dde75e865308c9ace"
+    },
+    {
+      "path": "documentation/project/S01-Live-Verification.json",
+      "bytes": 539,
+      "sha256": "15d3fd51af2eb496c192b7e2c88f158a37674d9e83c931e37bd7409a644788bd"
+    },
+    {
+      "path": "documentation/project/U01-Baseline-Inventory.html",
+      "bytes": 12885,
+      "sha256": "034abf679cccd4ae2e5f65cb977d931fac690f025757995421bc0a09f21f23db"
+    },
+    {
+      "path": "documentation/project/U01-Baseline-Inventory.md",
+      "bytes": 10620,
+      "sha256": "c965bb945983bae478d3924869b61e2dcad9e892fc773ccae502252a8ef3d82a"
+    },
+    {
+      "path": "documentation/project/U02-Completion-Report.html",
+      "bytes": 4753,
+      "sha256": "75f6b4b0971ccd4c5c46914af24a156419e8a3b0f31ff10b717b762f2ae4aa4b"
+    },
+    {
+      "path": "documentation/project/U02-Completion-Report.md",
+      "bytes": 3685,
+      "sha256": "f344501768b38cbfa59e53cc37c3e556347f1a645080ecf72cf58880f45d653f"
+    },
+    {
+      "path": "documentation/project/U02-Desktop-Host-and-Distribution-Design.html",
+      "bytes": 26193,
+      "sha256": "71186531137d331ed4f7d65191c591a2e55709eef9e14cd348387115425feeeb"
+    },
+    {
+      "path": "documentation/project/U02-Desktop-Host-and-Distribution-Design.md",
+      "bytes": 22804,
+      "sha256": "6eab48cf261084987106b76c6ee472f74715d97bb9a1b4b0459165815d603bc5"
+    },
+    {
+      "path": "documentation/project/U03-Completion-Report.html",
+      "bytes": 5199,
+      "sha256": "a268cfcb2a2cc949fa54e4c5b4e20bb858aa54200ba68e52f1dca226888edf40"
+    },
+    {
+      "path": "documentation/project/U03-Completion-Report.md",
+      "bytes": 4107,
+      "sha256": "b54d8534971394035e68026e5dedb93f46f5412ace4f74d1b8ec25a496f68910"
+    },
+    {
+      "path": "documentation/project/U03-Data-and-Capacity-Inventory.json",
+      "bytes": 4327,
+      "sha256": "7bfde3c60049b647c41512c85d3336786c6db482eec97888567759ee408365a2"
+    },
+    {
+      "path": "documentation/project/U03-Free-Cloud-and-YouTrack-Storage-Comparison.html",
+      "bytes": 28395,
+      "sha256": "c23c5e12cb3604263d75034753e5f520570cb08fd2ecc3e612d9638dd1c4d0f2"
+    },
+    {
+      "path": "documentation/project/U03-Free-Cloud-and-YouTrack-Storage-Comparison.md",
+      "bytes": 25028,
+      "sha256": "9b7f58d9582eb2c6ddc778d850d3fc17181a1a6a9c32477089a04e08ddb46215"
+    },
+    {
+      "path": "documentation/project/U04-Contract-Proof-Results.json",
+      "bytes": 3310,
+      "sha256": "fcf5a82360bd3e989449c6436d03ddf7be7d4203dd132434c8873c3d5b31ccb3"
+    },
+    {
+      "path": "documentation/project/U04-Data-Ownership-and-Synchronization-Contracts.html",
+      "bytes": 40247,
+      "sha256": "60547f200a6f410515355c6ec1f993182d58d34ca8cb9e5214e44ca8c14d0920"
+    },
+    {
+      "path": "documentation/project/U04-Data-Ownership-and-Synchronization-Contracts.md",
+      "bytes": 36618,
+      "sha256": "0d43ee1870a055512b3977966bcdac308afa4d50c046f3a6ec217bcf76634d8f"
+    },
+    {
+      "path": "documentation/project/U04-Review-Report.html",
+      "bytes": 4608,
+      "sha256": "a51d652828eff707214302d428b80edcd345e1765196240d54db0a675869429d"
+    },
+    {
+      "path": "documentation/project/U04-Review-Report.md",
+      "bytes": 3668,
+      "sha256": "c0d4ad57480daa39f9cfd87889a2c606bdbc6a18cc286c618ec561aa9fedcf32"
+    },
+    {
+      "path": "documentation/project/U05-Footer-Layout-Verification.json",
+      "bytes": 706,
+      "sha256": "4eadcc23521acfb6b5aa5b4e9a3c0ebe4ea7c660a362c0dcafed45f2b30735c1"
+    },
+    {
+      "path": "documentation/project/U05-Layout-Verification.json",
+      "bytes": 2568,
+      "sha256": "3750105a19d52e15b3a661be179a65a4dee0f052f3bf2aaa0ffe3a9f42a3a1c3"
+    },
+    {
+      "path": "documentation/project/U05-Review-Report.html",
+      "bytes": 4734,
+      "sha256": "00f996909e56309c477cfccb22945ebcc4000dbdf1d2fbf6c09b62980a992037"
+    },
+    {
+      "path": "documentation/project/U05-Review-Report.md",
+      "bytes": 3797,
+      "sha256": "f9cddf22932da7d80e9fecb98f80a303ceb007cf0511f9a307fbab9a8a2680df"
+    },
+    {
+      "path": "documentation/project/U05-Shared-Header-and-Control-Layout-Proposal.html",
+      "bytes": 20978,
+      "sha256": "ddfb3abb94821cacbc1d33c3c9bd113302cb29e402ac371a699fd0877fc642d7"
+    },
+    {
+      "path": "documentation/project/U05-Shared-Header-and-Control-Layout-Proposal.md",
+      "bytes": 18076,
+      "sha256": "8d2040c320d53dd4fc254bdd0dcdb773f7c66b2232d7f49468de8048361bc51b"
+    },
+    {
+      "path": "documentation/project/U06-Completion-Report.html",
+      "bytes": 4383,
+      "sha256": "38570aa4ae6c31356f80f74c767c5d1cdff253868fa26ee383b3b80d8fae6b34"
+    },
+    {
+      "path": "documentation/project/U06-Completion-Report.md",
+      "bytes": 3413,
+      "sha256": "222654bbd913db36d849782633a15f7d6f91fc3d1026633b782730bbdee322a1"
+    },
+    {
+      "path": "documentation/project/U06-Patch-Manifest.json",
+      "bytes": 3078,
+      "sha256": "e7b17ea4923717163527a4849e5e745eeafa24e0946678759f42a8ce46032016"
+    },
+    {
+      "path": "documentation/project/U06-Reference-Verification.json",
+      "bytes": 1139,
+      "sha256": "1333c7682aae43c5c2722edc08372706b465099ba3f71f13ecee54e8b978d190"
+    },
+    {
+      "path": "documentation/project/U06-UI-Verification.json",
+      "bytes": 1794,
+      "sha256": "c5247f8c3ed37758592763f0c8344c8b09923e8ef7c2c4bde15d76e0e790f2ff"
+    },
+    {
+      "path": "documentation/project/U07-Change-Manifest.json",
+      "bytes": 1061,
+      "sha256": "4bf5e348bada9c9aaf9e0e9effbc0d2ed7363022a9bddcd9b5d50c0fd369ff9f"
+    },
+    {
+      "path": "documentation/project/U07-Completion-Report.html",
+      "bytes": 4480,
+      "sha256": "48182a0c2f39ba536a05bd738a713eb3cbfbc7f70139373753ded2ae62e3c297"
+    },
+    {
+      "path": "documentation/project/U07-Completion-Report.md",
+      "bytes": 3491,
+      "sha256": "12675d74b1c146556267d3c833cb7ede0261b92351f7ae33a9fb623b5ad6c11d"
+    },
+    {
+      "path": "documentation/project/U07-Verification.json",
+      "bytes": 1849,
+      "sha256": "ace2d4647ab8eccd6264504f10d612bba13a3dc5a3541a8963d9d2904169637a"
+    },
+    {
+      "path": "documentation/project/U08-Completion-Report.html",
+      "bytes": 6603,
+      "sha256": "f5636b4227cc7804ad8d4d4bc93a63608bd251f63fe1c019521c9852a20f63a0"
+    },
+    {
+      "path": "documentation/project/U08-Completion-Report.md",
+      "bytes": 5426,
+      "sha256": "f48e6b75123fb7342108e7bf8d519b49c3326e2ab813a6c4e3b326b9d437ac47"
+    },
+    {
+      "path": "documentation/project/U08-Data-Adoption-Preview.json",
+      "bytes": 462,
+      "sha256": "c1bcab8e88055ccba97f0388c40bb233f7ab420cf4bdb88895d00e9fca4ab0e3"
+    },
+    {
+      "path": "documentation/project/U08-Live-Verification.json",
+      "bytes": 362,
+      "sha256": "4d30caf077b992f2d63d5d00259a8b0403e543970c5ff1dd1f37642522db03f2"
+    },
+    {
+      "path": "documentation/project/U08-Preservation-Verification.json",
+      "bytes": 253,
+      "sha256": "1df16274a87b103d19947603fc970ff61fa79425167005036aa492f181116345"
+    },
+    {
+      "path": "documentation/project/U08-Service-Verification.json",
+      "bytes": 533,
+      "sha256": "dc8672398ffce57e468e2ca3c61b0e80bf0949586591dc7a81d5bef1333cd1bf"
+    },
+    {
+      "path": "documentation/project/U08-UI-Verification.json",
+      "bytes": 1208,
+      "sha256": "c157d886d91b2b4df39342f565393b6e9b913b960b7016c0c34df2314cc6c3c7"
+    },
+    {
+      "path": "documentation/project/U09-Completion-Report.html",
+      "bytes": 5849,
+      "sha256": "5ea4535d5a82d328bf5b5fd02667ffaef20c94780e69d13bfc22bafdf8692348"
+    },
+    {
+      "path": "documentation/project/U09-Completion-Report.md",
+      "bytes": 4723,
+      "sha256": "002885b906aede5fee4a0b518b47fd8ad64bede6b8caf924bf27c1e2f7b3ed7c"
+    },
+    {
+      "path": "documentation/project/U09-Engine-and-Provider-Contract.html",
+      "bytes": 6195,
+      "sha256": "4d82135911de510e5878a2b656de934ec9fb9d19750d54aea7875ec91a1b08c9"
+    },
+    {
+      "path": "documentation/project/U09-Engine-and-Provider-Contract.md",
+      "bytes": 5168,
+      "sha256": "9dc9324605fa00fda4a405a3db4d3cfa4ef9d7dc5c22b7368dc8064532390051"
+    },
+    {
+      "path": "documentation/project/U09-Live-Verification.json",
+      "bytes": 339,
+      "sha256": "2e4eb9a59ae312ca93e75c7663dcb1da9c2e44969a2c8796eb26581f1abaaad7"
+    },
+    {
+      "path": "documentation/project/U09-Preservation-Verification.json",
+      "bytes": 188,
+      "sha256": "a4a7c0c7bbb2fc4c66d96e1901bc5c95466e39e228b8d2dba2173d684d8d0d6c"
+    },
+    {
+      "path": "documentation/project/U09-Service-Verification.json",
+      "bytes": 377,
+      "sha256": "26150bdcab96e40c7a812b4c1d61eacd7e20092c74cebee8b06e5be2839f0feb"
+    },
+    {
+      "path": "documentation/project/U09-UI-Verification.json",
+      "bytes": 1483,
+      "sha256": "b359929d84f98eae54c7271b8acfe4d91be816009f74ed82320efbdbaf1741bd"
+    },
+    {
+      "path": "documentation/project/U10-Browser-Regression-Verification.json",
+      "bytes": 1483,
+      "sha256": "b359929d84f98eae54c7271b8acfe4d91be816009f74ed82320efbdbaf1741bd"
+    },
+    {
+      "path": "documentation/project/U10-Completion-Report.html",
+      "bytes": 7009,
+      "sha256": "55f017398aa95af03a0dc6725c796a47597ac3d185188c0b9e227b4a8c72b35a"
+    },
+    {
+      "path": "documentation/project/U10-Completion-Report.md",
+      "bytes": 5788,
+      "sha256": "885669d931790dbdc5134e1beab02e62784c8ffb69fef1decb4c5fcf6d8c3903"
+    },
+    {
+      "path": "documentation/project/U10-Desktop-Facade-Verification.json",
+      "bytes": 930,
+      "sha256": "83556c5c452daf280535d353d784256142aec17e1cae599d8a244c258a04014c"
+    },
+    {
+      "path": "documentation/project/U10-Desktop-Manifest.json",
+      "bytes": 28887,
+      "sha256": "cb99206bd71e9f87f81f0ea81153d15ee57294eb8a44c6fadf954d445e1f9043"
+    },
+    {
+      "path": "documentation/project/U10-Host-and-Bridge-Contract.html",
+      "bytes": 5759,
+      "sha256": "811094032424ce5e8d96f102d9e3098df00f1da639ba1c3bf71fd7c26d594010"
+    },
+    {
+      "path": "documentation/project/U10-Host-and-Bridge-Contract.md",
+      "bytes": 4786,
+      "sha256": "0e1c4a8bd539901b367731f9733c2ea777a61b2b154752691a8fe88c81bfb1a1"
+    },
+    {
+      "path": "documentation/project/U10-Implementation-Checklist.html",
+      "bytes": 2084,
+      "sha256": "f575a622dfa62c01404f03c76e1a00a0da933378aaa4e99821cf37f402f57a7f"
+    },
+    {
+      "path": "documentation/project/U10-Implementation-Checklist.md",
+      "bytes": 1324,
+      "sha256": "1b5422884796049e86ce941bb48f4ac9e16d08ffc5fbbbba3b0518abdc6c5bbd"
+    },
+    {
+      "path": "documentation/project/U10-Preservation-Verification.json",
+      "bytes": 380,
+      "sha256": "6501d4db7db861122ef96ba88dd84cce8ab6f392675a3a6ca9497a1862e92232"
+    },
+    {
+      "path": "documentation/project/U10-Utility-Service-Verification.json",
+      "bytes": 728,
+      "sha256": "4452c734df6a825809aa33aebd0650e25b3eeade96c00b0cb31d8b72251db853"
+    },
+    {
+      "path": "documentation/project/U10-Windows-Verification.json",
+      "bytes": 1278,
+      "sha256": "12418252e74a51a033f048a38d051c33466399eda378bebdc9df3c4605586bcb"
+    },
+    {
+      "path": "documentation/project/U10F-Completion-Report.html",
+      "bytes": 6457,
+      "sha256": "40019375fad7c62f3772bcefccf09cd1fcc18629e29fcfd5418bda2039ea5556"
+    },
+    {
+      "path": "documentation/project/U10F-Completion-Report.md",
+      "bytes": 5281,
+      "sha256": "b86112df985a32d233f807cabf8f8c352212971666ac86c30468311084156753"
+    },
+    {
+      "path": "documentation/project/U10F-Desktop-Manifest.json",
+      "bytes": 29583,
+      "sha256": "449782d6022dcb75333fd5859ad6eb3101330db29317bac3f6331b1156197735"
+    },
+    {
+      "path": "documentation/project/U10F-Implementation-Checklist.html",
+      "bytes": 2212,
+      "sha256": "c36d21e781bec7d33082b590b828c4cb8d63c315eb745bdd2b211dd6cb35709c"
+    },
+    {
+      "path": "documentation/project/U10F-Implementation-Checklist.md",
+      "bytes": 1457,
+      "sha256": "f9bfa1a93c15a3d7e05ca9b953def7e4cb82c17524c37c06bc4da39b9ef29b57"
+    },
+    {
+      "path": "documentation/project/U10F-Preservation-Verification.json",
+      "bytes": 463,
+      "sha256": "1617d7b9b50526df7a39b18fbe4bf4e61427212469ec6f454cab1509796eac94"
+    },
+    {
+      "path": "documentation/project/U10F-Service-Verification.json",
+      "bytes": 942,
+      "sha256": "01394d5c15534683406ab1dec0e95181480e94a0c7f3069815d22db0a2dd48d5"
+    },
+    {
+      "path": "documentation/project/U10F-UI-Verification.json",
+      "bytes": 912,
+      "sha256": "dcde5565d4ce9c2a05112bae9816d2011b1a561db7cc2b8e9a1930434d704224"
+    },
+    {
+      "path": "documentation/project/U10F-Windows-Verification.json",
+      "bytes": 1077,
+      "sha256": "fdd90bcb7d1d382daf5afc3d7a4a11f70845a5912a3825685e3067b6ceed2990"
+    },
+    {
+      "path": "documentation/project/U11-Completion-Report.html",
+      "bytes": 6705,
+      "sha256": "c25a635bd6d6feb72ee8ca0c92ef7218316fb386827fca66f39b49cbb397a9c2"
+    },
+    {
+      "path": "documentation/project/U11-Completion-Report.md",
+      "bytes": 5645,
+      "sha256": "a01a81212d83fdb05b4d82fc0e05e8327de16d460e41f192cd2b2f36890ba0b4"
+    },
+    {
+      "path": "documentation/project/U11-Desktop-Manifest.json",
+      "bytes": 30753,
+      "sha256": "54de5d08cbc517e76575969f5d9fb41106f8c311d40b12b21e6d071fd5f09adc"
+    },
+    {
+      "path": "documentation/project/U11-Desktop-Verification.json",
+      "bytes": 2291,
+      "sha256": "61d923ae992a65439af2370c6fc581f40de5ccc93c85685b734d24e9bd32b884"
+    },
+    {
+      "path": "documentation/project/U11-Icon-Verification.json",
+      "bytes": 1335,
+      "sha256": "13bf612c3404239bf4addfe8cc2b220edd99ad41f2b220dc33f15de7f2ca615e"
+    },
+    {
+      "path": "documentation/project/U11-Implementation-Checklist.html",
+      "bytes": 2032,
+      "sha256": "b24eab97a33d7dcd51ac337f965e2790f6798ca7f9648040e00ff404663b1a9a"
+    },
+    {
+      "path": "documentation/project/U11-Implementation-Checklist.md",
+      "bytes": 1273,
+      "sha256": "82a1f88f14f6fd8a033e4403b070a4156da8583fc6fd0d30276891e5bc322a98"
+    },
+    {
+      "path": "documentation/project/U11-Preservation-Verification.json",
+      "bytes": 502,
+      "sha256": "9b25b6ee3e1d8b42f1c03d8600d9df2d02f0e45c25b559aa73d1163493d7678d"
+    },
+    {
+      "path": "documentation/project/U11-Service-Verification.json",
+      "bytes": 694,
+      "sha256": "a155323f7d317cd5166829edbd60c3fd53e6ac671777f8130ba62b60d6679cb2"
+    },
+    {
+      "path": "documentation/project/U11-Verification-Status.html",
+      "bytes": 1342,
+      "sha256": "e2eee9566c3c9a70298396ed8d9dbb045ac7cca8b4a8c7c44e737e5e7f4eeec2"
+    },
+    {
+      "path": "documentation/project/U11-Verification-Status.md",
+      "bytes": 646,
+      "sha256": "895cd09fd61e1f1291570b3ef2bd6fcedbb7272a5432ec13e7f967202ed083d9"
+    },
+    {
+      "path": "documentation/project/U12-Completion-Report.html",
+      "bytes": 6485,
+      "sha256": "787fcdede3b5b50fc0e0d9b976acf7526f708b417b7b2e4bc6ac0d461b42057c"
+    },
+    {
+      "path": "documentation/project/U12-Completion-Report.md",
+      "bytes": 5412,
+      "sha256": "dc3da00804043e80428dfdf5611246c6159e19299501cff854d72008f62b997a"
+    },
+    {
+      "path": "documentation/project/U12-Desktop-Manifest.json",
+      "bytes": 32468,
+      "sha256": "dec370a4188abcc079dffdc19678f560231cf3afe26799635de4042b1f84aecf"
+    },
+    {
+      "path": "documentation/project/U12-Desktop-Verification.json",
+      "bytes": 2803,
+      "sha256": "d9ef0c207631d0c0718ba62746f58d834ae55758943c4665ce4af8b00a021948"
+    },
+    {
+      "path": "documentation/project/U12-First-Live-Verification.json",
+      "bytes": 1573,
+      "sha256": "2bba409931bc1c24a02b4753c897e19e3b4765b870e38d7b4b454fbda16546c3"
+    },
+    {
+      "path": "documentation/project/U12-Implementation-Checklist.html",
+      "bytes": 2464,
+      "sha256": "32ec019859679eeae0637615ce11322d2047d045cdde3233582b3bab4ee697fb"
+    },
+    {
+      "path": "documentation/project/U12-Implementation-Checklist.md",
+      "bytes": 1669,
+      "sha256": "dee01d7564dd66b3be59c5a7982d98c3472c341841f5bf638d9f22f4d0fd664e"
+    },
+    {
+      "path": "documentation/project/U12-Migration-Preview.json",
+      "bytes": 1894,
+      "sha256": "0ec54ac3e18959cc4786321bd4f20ac2fd428d02efbdcd74d8df5bf02115de0b"
+    },
+    {
+      "path": "documentation/project/U12-Preservation-Verification.json",
+      "bytes": 378,
+      "sha256": "12186ef6da05a7392e22599efa6f317f08d51f42edc3b1b4fd056c11d0e0bf0e"
+    },
+    {
+      "path": "documentation/project/U13A-Application-Manifest.json",
+      "bytes": 33350,
+      "sha256": "be34207431210c471914a15bf0ebe5eb5f7332d3b4600cc23b0b9db308d24a95"
+    },
+    {
+      "path": "documentation/project/U13A-Completion-Report.html",
+      "bytes": 6099,
+      "sha256": "14b8b50f39772c06f92ac34795a07be85afaf60e21293217e50a0ca886d3de5c"
+    },
+    {
+      "path": "documentation/project/U13A-Completion-Report.md",
+      "bytes": 4904,
+      "sha256": "5cc30c474fe66606faa6ce7c14378d42d5213254749a2bcbfcf6f7e350e058bb"
+    },
+    {
+      "path": "documentation/project/U13A-Desktop-Verification.json",
+      "bytes": 2926,
+      "sha256": "b38bc6faf50c37e0d5f47b467ee46eedd25767046d2a715643207b89979fac3b"
+    },
+    {
+      "path": "documentation/project/U13A-Implementation-Checklist.html",
+      "bytes": 2887,
+      "sha256": "de3f0b6d76ba6562d41ae2898c738387ec2c8d2fedeaa48e89d380e47c223367"
+    },
+    {
+      "path": "documentation/project/U13A-Implementation-Checklist.md",
+      "bytes": 2120,
+      "sha256": "384e41f6740e50379d79a95660f40f5f8b8c37616418eb9ffdc51b3ec84fe078"
+    },
+    {
+      "path": "documentation/project/U13A-Installer-Verification-Report.html",
+      "bytes": 6486,
+      "sha256": "e7f080851828fca3d4e203fffbd0c55618ad41233d1c32d9d122ecb9587e3e80"
+    },
+    {
+      "path": "documentation/project/U13A-Installer-Verification-Report.md",
+      "bytes": 5189,
+      "sha256": "1cedc4b0868bb482f8a55471cae52e91095611d48b466f194d676e1e347506f6"
+    },
+    {
+      "path": "documentation/project/U13A-Isolated-Installer-Verification.json",
+      "bytes": 5562,
+      "sha256": "a9fdd02c34db04986e7c0f8535aeec07723fcc9e10c4f3c37722857a6c74cc90"
+    },
+    {
+      "path": "documentation/project/U13A-Storage-and-Installer-Revision.html",
+      "bytes": 3338,
+      "sha256": "d7b45ea57f450e6ccca2fa16669ad2a077b7bcb3c5cf43edd806db7d4f277412"
+    },
+    {
+      "path": "documentation/project/U13A-Storage-and-Installer-Revision.md",
+      "bytes": 2598,
+      "sha256": "c9ed880aad329e3fdd484f18c8e477eac1758f18f3dbcf14518d6a29677ebba7"
+    },
+    {
+      "path": "documentation/project/U13B-Application-Manifest.json",
+      "bytes": 35980,
+      "sha256": "4102a3d6b40f1c6dfce9f941b653d600fd8cd19db6ed03104de99c7e6d64066c"
+    },
+    {
+      "path": "documentation/project/U13B-Completion-Report.html",
+      "bytes": 6517,
+      "sha256": "e217d87eb1e7152466c96abeaf499eb374cba6b3b776a71de6ba22a4363b1dc8"
+    },
+    {
+      "path": "documentation/project/U13B-Completion-Report.md",
+      "bytes": 5497,
+      "sha256": "4e592d97829f3058ad895a44c89fb9c0542832af672940066c54bd05f10ff14e"
+    },
+    {
+      "path": "documentation/project/U13B-Desktop-Verification.json",
+      "bytes": 7801,
+      "sha256": "44e8682b10a1e9053f63ff86866a8ac8e96b114672b77d492ef7126bd160e607"
+    },
+    {
+      "path": "documentation/project/U13B-Fixture-Preservation.json",
+      "bytes": 744,
+      "sha256": "f6227e272358e5147c0445eba4ce5d592ce9cb13a20a30a5a953b92cdfa872c3"
+    },
+    {
+      "path": "documentation/project/U13B-Implementation-Checklist.html",
+      "bytes": 4828,
+      "sha256": "94271c695f7c4411ac407f00f47574ebc23d2678901513a160f72d813c583937"
+    },
+    {
+      "path": "documentation/project/U13B-Implementation-Checklist.md",
+      "bytes": 3936,
+      "sha256": "06315f4cc4563d3b7ab618d4830f1b9a287a62dc893923e35cc462d3a868642a"
+    },
+    {
+      "path": "documentation/project/U13B-Provider-Route-Verification.json",
+      "bytes": 352,
+      "sha256": "ad969f92a10da248ba25028fd1ac8d48c086863f8b89ef1a336fa929399e93de"
+    },
+    {
+      "path": "documentation/project/U13B-Publication-Verification.json",
+      "bytes": 663,
+      "sha256": "1c58883b4c43f0273d1304780e6e9e67c824365f2f3f5009e207a159eef4fdd8"
+    },
+    {
+      "path": "documentation/project/U13B-Release-Review.html",
+      "bytes": 7049,
+      "sha256": "f94ed7996182d8203c7b23227fb81816ed4cd2e996ad9ad77e884897cbab2da8"
+    },
+    {
+      "path": "documentation/project/U13B-Release-Review.md",
+      "bytes": 6007,
+      "sha256": "6844884409871a31fd08decaf6eb557c291cc5dd65665c33499f337d6af05320"
+    },
+    {
+      "path": "documentation/project/U14-Completion-Report.html",
+      "bytes": 5396,
+      "sha256": "018c9404cbb29e164d15430d6a83bb74528258a6f434a12f2dafa17bbc1c2be9"
+    },
+    {
+      "path": "documentation/project/U14-Completion-Report.md",
+      "bytes": 4482,
+      "sha256": "b0a6722a6e1852868fe75780e702d0f2ab28c4b1d44b3e3b608c07fd141c1b03"
+    },
+    {
+      "path": "documentation/project/U14-Storage-Verification.json",
+      "bytes": 4935,
+      "sha256": "2ecd67a5d016c44a64feb94f6e4b04c0621009dba43085bcc1375c913a641d8e"
+    },
+    {
+      "path": "documentation/project/U15-Cloud-Import-Verification.json",
+      "bytes": 3320,
+      "sha256": "fb8cf53867047932a23268f017f598b5c8106a5b79d2ee8b17c2b75b9bdae971"
+    },
+    {
+      "path": "documentation/project/U15-Completion-Report.html",
+      "bytes": 4548,
+      "sha256": "cfd802f7ba782db9412a7db9524e0b92898cf90e6cc3aa930f44521367aa05b9"
+    },
+    {
+      "path": "documentation/project/U15-Completion-Report.md",
+      "bytes": 3570,
+      "sha256": "e86557a952e3a9adc1e9c151b9a6cf00259b8f2a3efec7eb5b64d23190fc31cc"
+    },
+    {
+      "path": "documentation/project/U15-Source-Manifest.json",
+      "bytes": 860,
+      "sha256": "3b5332045f7f540b4cc769fb6f77ffb78d74be001c4473b5bd47b78cb5c801da"
+    },
+    {
+      "path": "documentation/project/U16-Application-Manifest.json",
+      "bytes": 38050,
+      "sha256": "b5645389c73bd9cd05efe6c87c5e70e2796137f44e675a7827e0075181dcf0af"
+    },
+    {
+      "path": "documentation/project/U16-Completion-Report.html",
+      "bytes": 5432,
+      "sha256": "6f086b40f791f2a63e17317a074497704584daf91551b5bf6852f07eacc45852"
+    },
+    {
+      "path": "documentation/project/U16-Completion-Report.md",
+      "bytes": 4555,
+      "sha256": "2eadbb4f3692e4dd2c7eea7abb1f14fe44bb87ba94254f45ebc46da04bc77fa1"
+    },
+    {
+      "path": "documentation/project/U16-Desktop-Verification.json",
+      "bytes": 6499,
+      "sha256": "ec06cf0f6e8c01349e362389a9375921fc2a643b4728e769e6b757bb73c1bffc"
+    },
+    {
+      "path": "documentation/project/U16-Source-Manifest.json",
+      "bytes": 24220,
+      "sha256": "797f6a1990dd72b45ab0868319384b90670cbf765e4145214cbb21148c8fc648"
+    },
+    {
+      "path": "documentation/project/U17-Application-Manifest.json",
+      "bytes": 39441,
+      "sha256": "8f588fddb38e9a086b4502d9f5f267e7cc37fbe9e8aefb869223ad58ad3acb09"
+    },
+    {
+      "path": "documentation/project/U17-Completion-Report.html",
+      "bytes": 5271,
+      "sha256": "d62bb0f3cc628c547744f5a275bd95496dd085671533332ed1a0c3e815d2704b"
+    },
+    {
+      "path": "documentation/project/U17-Completion-Report.md",
+      "bytes": 4385,
+      "sha256": "05bfd6081395492298686f8c93b64c6018b59956d5613de8d4277c5bdbfb5237"
+    },
+    {
+      "path": "documentation/project/U17-Desktop-Verification.json",
+      "bytes": 6434,
+      "sha256": "7bff02b3f03cc41c809aa49bff1acb6157e6e4accb9e014a92d5fd5c1f400c56"
+    },
+    {
+      "path": "documentation/project/U17-Source-Manifest.json",
+      "bytes": 25499,
+      "sha256": "9735129f9d60affc47e1b66a65bbfe575172451dc14e23fa89a789d34084aabe"
+    },
+    {
+      "path": "documentation/project/U18-Application-Manifest.json",
+      "bytes": 41388,
+      "sha256": "e4b3df5e6fd615520b0e9db04194b3d52a54df5dab0b8412b78b2b8f99c3d6ba"
+    },
+    {
+      "path": "documentation/project/U18-Completion-Report.html",
+      "bytes": 5299,
+      "sha256": "ed3e6966f85fe5e5206d6b57232620bdfd6968aeb44f7b025429fc5ea0769273"
+    },
+    {
+      "path": "documentation/project/U18-Completion-Report.md",
+      "bytes": 4381,
+      "sha256": "6247b44222f8dc3265591837054fc6a537b165faca9ce617e2a08d41c85bb79d"
+    },
+    {
+      "path": "documentation/project/U18-Desktop-Verification.json",
+      "bytes": 9253,
+      "sha256": "5d8a53ac42d39a1bba0f4229a971a0289a0610cf2a55723468ee16c286610f95"
+    },
+    {
+      "path": "documentation/project/U18-Source-Manifest.json",
+      "bytes": 27292,
+      "sha256": "2831b2149b300397c2b3a43923db9e10783dcd69e1b774e3d4e70e138eec2d7a"
+    },
+    {
+      "path": "documentation/project/U19-Application-Manifest.json",
+      "bytes": 41921,
+      "sha256": "36f17d54be93ba548cdb8c495de44a731e8fb3e3fb0b40910a20b9b9e5e97de9"
+    },
+    {
+      "path": "documentation/project/U19-Completion-Report.html",
+      "bytes": 4107,
+      "sha256": "17ae77129e67f41acbf0cd1c75edcf1cadd1498c962980bc74fe31887f256d73"
+    },
+    {
+      "path": "documentation/project/U19-Completion-Report.md",
+      "bytes": 3307,
+      "sha256": "38cba7858d960c41219897e15d15fac58e6361e980db82031476b1659f46ce58"
+    },
+    {
+      "path": "documentation/project/U19-Desktop-Verification.json",
+      "bytes": 7632,
+      "sha256": "bac3c16b5b79b80e762c875c4bffc21a015dc10ea7d7337515bed7c225b6e550"
+    },
+    {
+      "path": "documentation/project/U19-Source-Manifest.json",
+      "bytes": 27783,
+      "sha256": "cd5c9f911eef55bfdda19baef4fa2c28bdbe4647edd77ad2ef3c9635252173fc"
+    },
+    {
+      "path": "documentation/project/U20-Architecture-Discussion.html",
+      "bytes": 17521,
+      "sha256": "cd9b743a6500bac12e340bc59f348d962bf5fa4aa304ed8f0bedcf1ab9423df1"
+    },
+    {
+      "path": "documentation/project/U20-Architecture-Discussion.md",
+      "bytes": 15582,
+      "sha256": "9cd4ed0c9a97468caf9eb12718e0067b1c4b94ebf2e0e232b31c17d98f0ba37c"
+    },
+    {
+      "path": "documentation/project/U20-Completion-Report.html",
+      "bytes": 3143,
+      "sha256": "308277f0ef80448a3d327fedfb445b66d039851c06700c20b4a61fa8f8609e3e"
+    },
+    {
+      "path": "documentation/project/U20-Completion-Report.md",
+      "bytes": 2275,
+      "sha256": "d25c4dbce3331b2b332da4a16e092f29c8add4a873dcd051a9ce56cdadfd8867"
+    },
+    {
+      "path": "documentation/project/U20-Consolidated-Architecture-and-Revised-Plan.html",
+      "bytes": 20684,
+      "sha256": "114c632932f1a92b32a1c741fe25f4196a549fba87f40f4c74b9c30071eb5bbc"
+    },
+    {
+      "path": "documentation/project/U20-Consolidated-Architecture-and-Revised-Plan.md",
+      "bytes": 18030,
+      "sha256": "499b6edcd0f8ebcf874664bcbc9cc1e13ed45fdd79000ad05c900e18d5be1c89"
+    },
+    {
+      "path": "documentation/project/U20-Previous-Future-Phase-Plan.html",
+      "bytes": 14781,
+      "sha256": "4cc5ab2c6b9b4de3b75c34769dff09d35e45efc8319a50f5ffb4f1c3ceee3506"
+    },
+    {
+      "path": "documentation/project/U20-Previous-Future-Phase-Plan.md",
+      "bytes": 12792,
+      "sha256": "b7e5da9a37c347f577d70dbb56c1dfd3038d030a77e2cf9196979f967c2c90cf"
+    },
+    {
+      "path": "documentation/project/U20A-Contracts/README.html",
+      "bytes": 26149,
+      "sha256": "8d1f4fe1bab7b35fd731db137bfb0928e098deb66650a3d5beeba5be8c733bd1"
+    },
+    {
+      "path": "documentation/project/U20A-Contracts/README.md",
+      "bytes": 23551,
+      "sha256": "33ddfc655fecf64c8be408b407df8cd30be7533444a407c7b78df374deb11c7e"
+    },
+    {
+      "path": "documentation/project/U20A-Contracts/ROM-Mapping-and-Import-Guide.html",
+      "bytes": 14998,
+      "sha256": "40f6e0ad281ce35ce66ebcd43589e99f1e608b6bdef158376b9f5d99832754dd"
+    },
+    {
+      "path": "documentation/project/U20A-Contracts/ROM-Mapping-and-Import-Guide.md",
+      "bytes": 13053,
+      "sha256": "5f923c2a033b642ef44aa358dbd22dc7608316600e9faf9e263443288eb112d8"
+    },
+    {
+      "path": "documentation/project/U20A-Contracts/examples/dependent-removal-result.json",
+      "bytes": 4672,
+      "sha256": "d0919e9bce57b2f141dbd9d79864b837963bb4a866e07846b6558a1cdbbaa47c"
+    },
+    {
+      "path": "documentation/project/U20A-Contracts/examples/dialogue-result.json",
+      "bytes": 4854,
+      "sha256": "5c474271bf150442100704c0566e7b579a01e01ecc3615b808c91334264e6d64"
+    },
+    {
+      "path": "documentation/project/U20A-Contracts/examples/documentation-correction.json",
+      "bytes": 3862,
+      "sha256": "2514bff1448a2db5157e46165845f8f4c09f97ba85dee3b476cf1577c80ffa9c"
+    },
+    {
+      "path": "documentation/project/U20A-Contracts/examples/group-publication.json",
+      "bytes": 1878,
+      "sha256": "fc1457f6e4d9419b6d032949067de93e1ef157ed23af599ffdc7ca993b3e22a0"
+    },
+    {
+      "path": "documentation/project/U20A-Contracts/examples/hash-vectors.json",
+      "bytes": 773,
+      "sha256": "6112084ad06a5b7d71007fea4e63f8c876a1afd2ba849eac65eb40e6f7fae2cd"
+    },
+    {
+      "path": "documentation/project/U20A-Contracts/examples/map-package.json",
+      "bytes": 26144,
+      "sha256": "f3c05a0b18eb2acc299092f7c7173560ad72da9df15c702a9788a3c537a6d29f"
+    },
+    {
+      "path": "documentation/project/U20A-Contracts/examples/newer-draft.json",
+      "bytes": 2182,
+      "sha256": "1ed2cd68858425d6b1344fb5a401eb620f4cd5d91b134a50daff87b8ca7dd841"
+    },
+    {
+      "path": "documentation/project/U20A-Contracts/examples/task-binding.json",
+      "bytes": 673,
+      "sha256": "026f7af46b644a109f94c4e310c1d880129f92bd0a9fe97bf5f3ce0d424eea49"
+    },
+    {
+      "path": "documentation/project/U20A-Contracts/npcdex-contracts.schema.json",
+      "bytes": 51409,
+      "sha256": "9e832db6bbc2126b4c9aae3316781c2e56e4b524864a2e4c0c7aa1725b5659d1"
+    },
+    {
+      "path": "documentation/project/U20A-Contracts/verification-report.json",
+      "bytes": 5264,
+      "sha256": "d0efeaed9d04b226d9383875e15d08ba92fc0036f6cd52564881f506fc2377b8"
+    },
+    {
+      "path": "documentation/project/U20A-Contracts/verify-contracts.mjs",
+      "bytes": 29928,
+      "sha256": "1906bd0334ea255545d81a344782528677ffdfe504bc083a26c94a85fc17deb7"
+    },
+    {
+      "path": "documentation/project/U20A-Review-Report.html",
+      "bytes": 6314,
+      "sha256": "c505c585aeece7d05d2c554403814dc54be8fe59772555150be581dee09bbbac"
+    },
+    {
+      "path": "documentation/project/U20A-Review-Report.md",
+      "bytes": 5093,
+      "sha256": "6d84f493269fdd6fea1f0816ecab9a36b1e8225c20e65103d1ff0e51ebae1e5b"
+    },
+    {
+      "path": "documentation/project/U20B-Evidence/connector-preflight.json",
+      "bytes": 486,
+      "sha256": "2ccbe7b82f24dd9125ebfb46c596ed4fb71721c2853eb504eabab8e4baa1467d"
+    },
+    {
+      "path": "documentation/project/U20B-Evidence/protected-inventory.json",
+      "bytes": 1418,
+      "sha256": "cb021b3f7d3ede09b861903b0e525072ecda1baeffc7bbaee3ed11fa08c7f5cd"
+    },
+    {
+      "path": "documentation/project/U20B-Evidence/transport-model.json",
+      "bytes": 1611,
+      "sha256": "fefee0137d8020f2070c213bee221959a7a01e25727939d461265ff1d44919eb"
+    },
+    {
+      "path": "documentation/project/U20B-Preflight-Evidence.json",
+      "bytes": 1404,
+      "sha256": "766aeffb744157051b4149cf9d7e44e5f6de70fd0d771a3bb7cac8753aabebf9"
+    },
+    {
+      "path": "documentation/project/U20B-Storage-Proof-Plan.html",
+      "bytes": 7986,
+      "sha256": "86226c896863f37e737c4d031c4edfff1d4542a3bb385c54853c0607834148d2"
+    },
+    {
+      "path": "documentation/project/U20B-Storage-Proof-Plan.md",
+      "bytes": 6758,
+      "sha256": "39fe4116935b029d1b27bd5345ed6bd8ae266d798a3677bafda34a481528837d"
+    },
+    {
+      "path": "documentation/project/U20C1-Independent-Reader-Plan.html",
+      "bytes": 5053,
+      "sha256": "94ba2a50c78a952c495c24ecda649e2112242576d052c87997936308e35d2db4"
+    },
+    {
+      "path": "documentation/project/U20C1-Independent-Reader-Plan.md",
+      "bytes": 4031,
+      "sha256": "fe34e1ebafc3e04cd75767514d25734aebeb1bf9558e69de946ffdd6084f4e52"
+    },
+    {
+      "path": "documentation/project/UX01-Application-Command-Placement-Proposal.html",
+      "bytes": 5967,
+      "sha256": "7fc2be66e39480e77df470933746f50295c5a4e2554b2b01e3f1ad1f0d938cd8"
+    },
+    {
+      "path": "documentation/project/UX01-Application-Command-Placement-Proposal.md",
+      "bytes": 4783,
+      "sha256": "ac8286e1d96b3e0089aa58b78d259827bd1550fb398b7ef734712497ab992d04"
+    },
+    {
+      "path": "documentation/project/UX01-Completion-Report.html",
+      "bytes": 2165,
+      "sha256": "9b972bd8828b9404edc332ad1ba6e1fc754c4e8babdc11a2a87462ce034e9b65"
+    },
+    {
+      "path": "documentation/project/UX01-Completion-Report.md",
+      "bytes": 1474,
+      "sha256": "672d13422ae1ff1bb3cbca7ab1fecc1b1ab755282c3d46b5dbd0f06973812bbe"
+    },
+    {
+      "path": "documentation/project/u16-evidence/build-release-0.5.4.json",
+      "bytes": 772,
+      "sha256": "4cc14236784ed6dfc4afef328ef5d30169cc7793ce75960d75646aa202dd0cf8"
+    },
+    {
+      "path": "documentation/project/u16-evidence/crash-verification.json",
+      "bytes": 291,
+      "sha256": "19409061a80538e324a326112c8ae651154dd083e25b4cfa915807fb5fdad4b8"
+    },
+    {
+      "path": "documentation/project/u16-evidence/current-verification.json",
+      "bytes": 1359,
+      "sha256": "b526b9304a402188924bbc08fc8363ae5ed2e97f55724cec78ebfcb1c9786d50"
+    },
+    {
+      "path": "documentation/project/u16-evidence/native-core-verification.json",
+      "bytes": 898,
+      "sha256": "e13da7c20dadc1827dd7b14568a478617d8c1e20a04193e394f273efa4bc570e"
+    },
+    {
+      "path": "documentation/project/u16-evidence/normal-relaunch.json",
+      "bytes": 749,
+      "sha256": "2d03fdb0caa4095737c14e97a39d306e5b59e37f956196ebb73eea5fd5adf150"
+    },
+    {
+      "path": "documentation/project/u16-evidence/publication-result.json",
+      "bytes": 663,
+      "sha256": "05bee54d1a59c49ced6f6369c78ccf4e60896fcb9e605de35abfec032c3c938a"
+    },
+    {
+      "path": "documentation/project/u16-evidence/ui-verification.json",
+      "bytes": 1221,
+      "sha256": "c6710e24edc5691bf9303043ac2ae23ed9636ce1fcf74fd16dfae6f210ef2bca"
+    },
+    {
+      "path": "documentation/project/u17-evidence/build-release-0.5.5.json",
+      "bytes": 772,
+      "sha256": "ea1e25b93094cb179ae4d37c4bfd4de5fb6ebd1e7ec94bc228bbe3e1caff7e33"
+    },
+    {
+      "path": "documentation/project/u17-evidence/crash-verification.json",
+      "bytes": 291,
+      "sha256": "2119f271e095acd4b0c6dd2b79e678931edc83d6bca7994875cf554188b33a99"
+    },
+    {
+      "path": "documentation/project/u17-evidence/current-verification.json",
+      "bytes": 1359,
+      "sha256": "170f7b0b9de548f0e7563eaac4b06087d215c55768cc9d88ae36e8154a1e2edf"
+    },
+    {
+      "path": "documentation/project/u17-evidence/final-ui-branch.json",
+      "bytes": 336,
+      "sha256": "ca3faf6e1b531f8ebedf6bf8855f91a5c72008b46fcfb7fb49479b4e6eba5564"
+    },
+    {
+      "path": "documentation/project/u17-evidence/native-core-verification.json",
+      "bytes": 847,
+      "sha256": "43599ce56bb45c076bb55a39edcd59d2bfc5df6487a75697d59872256b9ae4a1"
+    },
+    {
+      "path": "documentation/project/u17-evidence/normal-relaunch.json",
+      "bytes": 791,
+      "sha256": "24100e8d44d1f8a69edf27e89ab54a64206c99b73003c329def9c83801978c4c"
+    },
+    {
+      "path": "documentation/project/u17-evidence/publication-result.json",
+      "bytes": 663,
+      "sha256": "ab76fc98cf21f0f0dc8a24fb043932e5f78ab22a4621c0c28b9760260c0e229e"
+    },
+    {
+      "path": "documentation/project/u17-evidence/ui-first-candidate.json",
+      "bytes": 1014,
+      "sha256": "d83bbff43120504c2f425649f6cd56df5f1f20b30c6e31effe689588907e57dd"
+    },
+    {
+      "path": "documentation/project/u17-evidence/ui-verification.json",
+      "bytes": 1193,
+      "sha256": "6abcc7664184995e5918bf4d174946372a7613abbae7c2e769134004b24d4f8b"
+    },
+    {
+      "path": "documentation/project/u18-evidence/build-release-0.5.6.json",
+      "bytes": 772,
+      "sha256": "eb78bc6126e75b9d2f501f39eba8e217ba1f6c70c0a9c15ff75ae770b8405506"
+    },
+    {
+      "path": "documentation/project/u18-evidence/crash-verification.json",
+      "bytes": 291,
+      "sha256": "ec4ee8c2b72fc701d5455f60b047afaa23af6b9eb77f2f06e5c427643833408b"
+    },
+    {
+      "path": "documentation/project/u18-evidence/current-data-rehearsal.json",
+      "bytes": 803,
+      "sha256": "4720628b44151003389e30f141eef3fff38ba657385c224568d1dce0adf372be"
+    },
+    {
+      "path": "documentation/project/u18-evidence/current-verification.json",
+      "bytes": 2095,
+      "sha256": "5ab4257671391c300dcc52626bfa352253a1f989414959c4d1959f6662327376"
+    },
+    {
+      "path": "documentation/project/u18-evidence/native-core-verification.json",
+      "bytes": 1478,
+      "sha256": "8a8359d052b2e40dba7b48936b99dbc03fde4c4f540b6392b7c5f3bbf18e855e"
+    },
+    {
+      "path": "documentation/project/u18-evidence/normal-relaunch.json",
+      "bytes": 1117,
+      "sha256": "220e9eeefc2994e0bbf07656330cba8c77b15b9bbccc53ead9f04622107334af"
+    },
+    {
+      "path": "documentation/project/u18-evidence/publication-result.json",
+      "bytes": 663,
+      "sha256": "a3b1ab15d4f753e418c6f3485e8f230fc127c86a6466a9b2a5c0026d1f5f083b"
+    },
+    {
+      "path": "documentation/project/u18-evidence/ui-verification.json",
+      "bytes": 1454,
+      "sha256": "de023b911e11fb7f3bf2c7a4903cba5f47dbf65f42330a5bc9ff7f138954f48b"
+    },
+    {
+      "path": "documentation/project/u19-evidence/build-release-0.5.7.json",
+      "bytes": 772,
+      "sha256": "aeac3441ea8536966878a6fc19fa574afa7a6d0891aac10ab69c45bc91620c49"
+    },
+    {
+      "path": "documentation/project/u19-evidence/current-verification.json",
+      "bytes": 2361,
+      "sha256": "7600a7a666ee31ba12b875f8c02f35e855ec8275e7e0221ecc406c946d286e0f"
+    },
+    {
+      "path": "documentation/project/u19-evidence/normal-relaunch.json",
+      "bytes": 1117,
+      "sha256": "64599977981c22f07642e4c340020a3f97c3e546bfef21dfca0714e6693de674"
+    },
+    {
+      "path": "documentation/project/u19-evidence/publication-result.json",
+      "bytes": 663,
+      "sha256": "420de16cf1e4a176c519d3bf097995e0b88dbdb51cdb23bfd5232801e28eee05"
+    },
+    {
+      "path": "documentation/project/u19-evidence/ui-verification.json",
+      "bytes": 2253,
+      "sha256": "f65a7c8be092b395603f92ecb7bb247587ccfbcbec91e9bd861b1e4a3c2e3961"
+    },
+    {
+      "path": "documentation/releases/0.5.7/Installer-Manifest.json",
+      "bytes": 772,
+      "sha256": "aeac3441ea8536966878a6fc19fa574afa7a6d0891aac10ab69c45bc91620c49"
+    },
+    {
+      "path": "documentation/releases/0.5.7/READ-ME-FIRST.html",
+      "bytes": 2738,
+      "sha256": "f66aaacd8cf8fb87d5138dd665d1189b7c4cd0e9aa53555aea8c82a3b9f3ee61"
+    },
+    {
+      "path": "documentation/releases/0.5.7/READ-ME-FIRST.md",
+      "bytes": 2081,
+      "sha256": "6cfcb2f04d7f7d15538505e5cc0c305af405df8eae5ecd9c74270dc624780898"
+    },
+    {
+      "path": "documentation/releases/0.5.7/romdex-release-stable.json",
+      "bytes": 1366,
+      "sha256": "914e8bce49ee734a134ec9ee2913266df4a79078442faf3cf4e3c266f882c310"
+    },
+    {
+      "path": "documentation/shared-ui/README.html",
+      "bytes": 2404,
+      "sha256": "8e6c0e029e860ebca8e6caec2c417cf615332664e7c2c5cbc2534fe596c26457"
+    },
+    {
+      "path": "documentation/shared-ui/README.md",
+      "bytes": 1771,
+      "sha256": "57dc06b330e42ed92ee47d8f541ed8f8045c9d52d40a785174f06b47c7e70c38"
+    },
+    {
+      "path": "documentation/tool-suite-ui/README.html",
+      "bytes": 3524,
+      "sha256": "a261d833f060f9ffd61f32e9fccd7c8fd8fedcd3c12c4df56876b5db6b919f99"
+    },
+    {
+      "path": "documentation/tool-suite-ui/README.md",
+      "bytes": 2722,
+      "sha256": "79cf0352e52e41ec411d948504484afdd3df5abdd98edb6b4f1fcaedef883c3e"
+    },
+    {
+      "path": "documentation/tool-suite-ui/standard-settings-icon.svg",
+      "bytes": 287,
+      "sha256": "d325db7223127962b009321ef76e958ba304d43a84c3dc9c5a8e6dad6db5e78d"
+    },
+    {
+      "path": "installer/INSTALLER-IDENTITY.json",
+      "bytes": 422,
+      "sha256": "05b5b306f8643a3ac13b35c6f1dcbb2dd9e9ef001d8e53274e46eefd57994163"
+    },
+    {
+      "path": "installer/ROMDex-0.5.7-x64.msi",
+      "bytes": 162380666,
+      "sha256": "8bab8e1253503f765b030f3079a6c7c480b8f628e69645c422af6dd8df1e7d83"
+    },
+    {
+      "path": "installer/release-public-key.pem",
+      "bytes": 626,
+      "sha256": "4f8943baf473ce76765ecc6ebd86c946da3f3fdb7d41a0ff45db875036cd6a2e"
+    },
+    {
+      "path": "installer/romdex-release-stable.json",
+      "bytes": 1366,
+      "sha256": "914e8bce49ee734a134ec9ee2913266df4a79078442faf3cf4e3c266f882c310"
+    },
+    {
+      "path": "review-style.css",
+      "bytes": 996,
+      "sha256": "3980c7cc9d3bf633d95796185de7b5e363b581ef9b01ac5b8cdfd094322a3f0c"
+    },
+    {
+      "path": "screenshots/0.5.7-connection-details.png",
+      "bytes": 475829,
+      "sha256": "d743288792bd718b0b2e76f9376bf12b3cc55a1d169cc3d0d83cc85142aeae8d"
+    },
+    {
+      "path": "screenshots/historical-npcdex-workspace-u08.png",
+      "bytes": 405607,
+      "sha256": "6002c8b2e5448a9874c8c365e89df04755b565e58b9759ef19de7624eff25c93"
+    }
+  ]
+}

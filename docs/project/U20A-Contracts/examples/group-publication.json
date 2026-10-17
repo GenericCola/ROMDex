@@ -1,0 +1,52 @@
+{
+  "schema": "NPCDexPublication/1",
+  "workspaceId": "fixture:workspace",
+  "operationId": "fixture:publish-removal",
+  "createdAt": "2026-10-16T12:00:00.000Z",
+  "actorClaim": "fixture:agent",
+  "publicationId": "fixture:publish-removal",
+  "kind": "implementation",
+  "parentPublications": [],
+  "artifactDigests": [
+    "339cdd26719a0b7afdbfc8694140224796af7141fdb8ce41a5f608e93543d057",
+    "78aa280e259f8ad1326135c87df5a8eb8e168703a54847d0feef6db1b4f7d0b3",
+    "8f4ae56e8ba023785df7fd8273e2341eb972a3c47719e04102677a6a2433521e"
+  ],
+  "baseRevisions": [
+    {
+      "recordId": "fixture:visitor",
+      "revisionId": "8323188629ddad12fa0526933eac1156bcf81eee055e4680c6c9be407fe60c5a"
+    },
+    {
+      "recordId": "fixture:exterior",
+      "revisionId": "0699789b86454e697cec822dcf00424e513df95bb276e462fa502698174d1c8b"
+    },
+    {
+      "recordId": "fixture:map",
+      "revisionId": "6ea37dece030b51fe405b08f06b395ddbb723f2cecd5f5e2f8ee515fcbc991e3"
+    },
+    {
+      "recordId": "fixture:region",
+      "revisionId": "03907b24a8baf1b24b6e2534a1956284f38aedaa5feb3f723aa37a5ac0554542"
+    },
+    {
+      "recordId": "fixture:progression",
+      "revisionId": "b92fed7469c7a49a3c7d74489bf46bd48b7449da32a42784e34f1d1ffd69b5a3"
+    },
+    {
+      "recordId": "fixture:profile-visitor",
+      "revisionId": "1245c7db598d2dcbbba2b189a6a26289850a37aedab139909119504be280dde6"
+    },
+    {
+      "recordId": "fixture:scene",
+      "revisionId": "660ea5dd1340fa7e8ba25fc895de764e3179fcb11cb03091cd216433bcc38e87"
+    },
+    {
+      "recordId": "fixture:profile-guide",
+      "revisionId": "2f69db907444ec420b9825b96c4a41daa54cb69e216eb4b685465059435d5c1a"
+    }
+  ],
+  "resultDigest": "339cdd26719a0b7afdbfc8694140224796af7141fdb8ce41a5f608e93543d057",
+  "groupId": "fixture:group-removal",
+  "digest": "d50a33e0a75231c197422f2ccc48ed7a2ee4eb23aa83c9eae82d303cb336e33e"
+}
