@@ -1,0 +1,2824 @@
+TAP version 13
+# Subtest: installed versions share Data in the application root; standalone folders keep their own Data
+ok 1 - installed versions share Data in the application root; standalone folders keep their own Data
+  ---
+  duration_ms: 15.7096
+  type: 'test'
+  ...
+# Subtest: profile relocation preserves all bytes, operation IDs, files and original source while publishing atomically
+ok 2 - profile relocation preserves all bytes, operation IDs, files and original source while publishing atomically
+  ---
+  duration_ms: 1949.0643
+  type: 'test'
+  ...
+# Subtest: canceling a profile copy releases ownership and leaves the destination unpublished
+ok 3 - canceling a profile copy releases ownership and leaves the destination unpublished
+  ---
+  duration_ms: 703.7418
+  type: 'test'
+  ...
+# Subtest: source changes during review stop publication and retain the source
+ok 4 - source changes during review stop publication and retain the source
+  ---
+  duration_ms: 1489.0487
+  type: 'test'
+  ...
+# Subtest: staged changes or a newly created destination cannot replace user data
+ok 5 - staged changes or a newly created destination cannot replace user data
+  ---
+  duration_ms: 3432.0963
+  type: 'test'
+  ...
+# Subtest: a running source owner blocks relocation before staging
+ok 6 - a running source owner blocks relocation before staging
+  ---
+  duration_ms: 794.6612
+  type: 'test'
+  ...
+# Subtest: credential failure preserves the source and releases its lease
+ok 7 - credential failure preserves the source and releases its lease
+  ---
+  duration_ms: 1025.3985
+  type: 'test'
+  ...
+# Subtest: the installer template removes recursive uninstall cleanup and selects per-user LocalAppData
+ok 8 - the installer template removes recursive uninstall cleanup and selects per-user LocalAppData
+  ---
+  duration_ms: 4.3557
+  type: 'test'
+  ...
+# Subtest: atomic replacement retries brief Windows locks without removing the previous save
+ok 9 - atomic replacement retries brief Windows locks without removing the previous save
+  ---
+  duration_ms: 7.5677
+  type: 'test'
+  ...
+# Subtest: persistent locks and other atomic replacement errors remain explicit failures
+ok 10 - persistent locks and other atomic replacement errors remain explicit failures
+  ---
+  duration_ms: 13.4789
+  type: 'test'
+  ...
+# Subtest: uninstall cleanup targets only empty installed directories and refuses Data as installer payload
+ok 11 - uninstall cleanup targets only empty installed directories and refuses Data as installer payload
+  ---
+  duration_ms: 6.1795
+  type: 'test'
+  ...
+# Subtest: a saved parent status stays hidden until its final child moves away, including after restart
+ok 12 - a saved parent status stays hidden until its final child moves away, including after restart
+  ---
+  duration_ms: 105.6235
+  type: 'test'
+  ...
+# Subtest: inherited writes preserve grey own status and do not turn it into inherited green
+ok 13 - inherited writes preserve grey own status and do not turn it into inherited green
+  ---
+  duration_ms: 3.8084
+  type: 'test'
+  ...
+# Subtest: native State edits become the own assignment for both parents and leaves
+ok 14 - native State edits become the own assignment for both parents and leaves
+  ---
+  duration_ms: 1.0363
+  type: 'test'
+  ...
+# Subtest: an older issue snapshot cannot replace a more recent native assignment
+ok 15 - an older issue snapshot cannot replace a more recent native assignment
+  ---
+  duration_ms: 1.0011
+  type: 'test'
+  ...
+# Subtest: ambiguous rollup responses preserve intent while a different native edit is retained
+ok 16 - ambiguous rollup responses preserve intent while a different native edit is retained
+  ---
+  duration_ms: 0.8938
+  type: 'test'
+  ...
+# Subtest: a failed local disk commit does not replace the durable assignment
+ok 17 - a failed local disk commit does not replace the durable assignment
+  ---
+  duration_ms: 3.6478
+  type: 'test'
+  ...
+# Subtest: concurrent own assignments use the same three-way conflict rules
+ok 18 - concurrent own assignments use the same three-way conflict rules
+  ---
+  duration_ms: 2.2329
+  type: 'test'
+  ...
+# Subtest: legacy pending State edits retain their visible color after the new schema is loaded
+ok 19 - legacy pending State edits retain their visible color after the new schema is loaded
+  ---
+  duration_ms: 7.3112
+  type: 'test'
+  ...
+# Subtest: assigned status on an unsaved item survives ID remapping and later pending edits
+ok 20 - assigned status on an unsaved item survives ID remapping and later pending edits
+  ---
+  duration_ms: 6.6469
+  type: 'test'
+  ...
+# Subtest: deletion targets one stable attachment ID and preserves identical-name neighbors
+ok 21 - deletion targets one stable attachment ID and preserves identical-name neighbors
+  ---
+  duration_ms: 54.5409
+  type: 'test'
+  ...
+# Subtest: a restart after uncertain DELETE confirms absence without deleting another file
+ok 22 - a restart after uncertain DELETE confirms absence without deleting another file
+  ---
+  duration_ms: 4.7428
+  type: 'test'
+  ...
+# Subtest: permission rejection retains the queued target and existing files for retry
+ok 23 - permission rejection retains the queued target and existing files for retry
+  ---
+  duration_ms: 2.7344
+  type: 'test'
+  ...
+# Subtest: native rename or content metadata change requires renewed confirmation
+ok 24 - native rename or content metadata change requires renewed confirmation
+  ---
+  duration_ms: 2.3742
+  type: 'test'
+  ...
+# Subtest: an attachment already removed natively is acknowledged without issuing DELETE
+ok 25 - an attachment already removed natively is acknowledged without issuing DELETE
+  ---
+  duration_ms: 1.643
+  type: 'test'
+  ...
+# Subtest: a successful response without confirmed absence remains recoverable
+ok 26 - a successful response without confirmed absence remains recoverable
+  ---
+  duration_ms: 2.5312
+  type: 'test'
+  ...
+# Subtest: cancelled deletions are journaled and stale-window replay cannot delete the file
+ok 27 - cancelled deletions are journaled and stale-window replay cannot delete the file
+  ---
+  duration_ms: 1.7516
+  type: 'test'
+  ...
+# Subtest: cancelling after confirmed deletion does not pretend to restore the file
+ok 28 - cancelling after confirmed deletion does not pretend to restore the file
+  ---
+  duration_ms: 1.8865
+  type: 'test'
+  ...
+# Subtest: operation identity cannot be reused for a different attachment or baseline
+ok 29 - operation identity cannot be reused for a different attachment or baseline
+  ---
+  duration_ms: 2.5791
+  type: 'test'
+  ...
+# Subtest: untrusted issue/attachment paths fail validation before provider access
+ok 30 - untrusted issue/attachment paths fail validation before provider access
+  ---
+  duration_ms: 3.0931
+  type: 'test'
+  ...
+# Subtest: queued deletion remains visible until confirmed; the native metadata is not mutated
+ok 31 - queued deletion remains visible until confirmed; the native metadata is not mutated
+  ---
+  duration_ms: 2.3621
+  type: 'test'
+  ...
+# Subtest: paused client queues deletion once and a manual save commits without enabling Auto-Sync
+ok 32 - paused client queues deletion once and a manual save commits without enabling Auto-Sync
+  ---
+  duration_ms: 18.1832
+  type: 'test'
+  ...
+# Subtest: cancel intent survives local-service failure until its tombstone is durable
+ok 33 - cancel intent survives local-service failure until its tombstone is durable
+  ---
+  duration_ms: 5.0817
+  type: 'test'
+  ...
+# Subtest: a changed confirmation target cannot silently become a different queued deletion
+ok 34 - a changed confirmation target cannot silently become a different queued deletion
+  ---
+  duration_ms: 2.095
+  type: 'test'
+  ...
+# Subtest: cancelling after a lost completion clears a confirmed-removed file instead of pretending to undo
+ok 35 - cancelling after a lost completion clears a confirmed-removed file instead of pretending to undo
+  ---
+  duration_ms: 21.2132
+  type: 'test'
+  ...
+# Subtest: confirmed deletion updates cache even if the subsequent issue snapshot fails
+ok 36 - confirmed deletion updates cache even if the subsequent issue snapshot fails
+  ---
+  duration_ms: 0.8801
+  type: 'test'
+  ...
+# Subtest: discarding a changed-file conflict durably cancels without deleting native bytes
+ok 37 - discarding a changed-file conflict durably cancels without deleting native bytes
+  ---
+  duration_ms: 27.1774
+  type: 'test'
+  ...
+# Subtest: adapter uses the scoped attachment DELETE route, never the issue DELETE route
+ok 38 - adapter uses the scoped attachment DELETE route, never the issue DELETE route
+  ---
+  duration_ms: 8.1484
+  type: 'test'
+  ...
+# Subtest: a fresh workspace init selects All Tasks while retaining expansion, data and other preferences
+ok 39 - a fresh workspace init selects All Tasks while retaining expansion, data and other preferences
+  ---
+  duration_ms: 6.1219
+  type: 'test'
+  ...
+# Subtest: file validation and preview policy reject paths, oversized files and executable inline types
+ok 40 - file validation and preview policy reject paths, oversized files and executable inline types
+  ---
+  duration_ms: 14.2622
+  type: 'test'
+  ...
+# Subtest: private staging retains exact bytes/name across restart and is idempotent
+ok 41 - private staging retains exact bytes/name across restart and is idempotent
+  ---
+  duration_ms: 346.5812
+  type: 'test'
+  ...
+# Subtest: corrupted staging is detected before any remote upload
+ok 42 - corrupted staging is detected before any remote upload
+  ---
+  duration_ms: 117.0338
+  type: 'test'
+  ...
+# Subtest: confirmed uploads release local staging and repeat operations never create duplicates
+ok 43 - confirmed uploads release local staging and repeat operations never create duplicates
+  ---
+  duration_ms: 249.0094
+  type: 'test'
+  ...
+# Subtest: lost upload responses reconcile by exact new file contents after a journal restart
+ok 44 - lost upload responses reconcile by exact new file contents after a journal restart
+  ---
+  duration_ms: 278.1057
+  type: 'test'
+  ...
+# Subtest: same name and size with different contents never confirms an uncertain upload
+ok 45 - same name and size with different contents never confirms an uncertain upload
+  ---
+  duration_ms: 296.0918
+  type: 'test'
+  ...
+# Subtest: identical pre-existing files do not count as proof of a later upload
+ok 46 - identical pre-existing files do not count as proof of a later upload
+  ---
+  duration_ms: 291.1287
+  type: 'test'
+  ...
+# Subtest: a native rename during an uncertain upload can be reviewed without duplicating its contents
+ok 47 - a native rename during an uncertain upload can be reviewed without duplicating its contents
+  ---
+  duration_ms: 115.1169
+  type: 'test'
+  ...
+# Subtest: multiple identical new files require human selection and block blind retries
+ok 48 - multiple identical new files require human selection and block blind retries
+  ---
+  duration_ms: 203.678
+  type: 'test'
+  ...
+# Subtest: reviewed absent uploads can retry; permission failures retain their original bytes
+ok 49 - reviewed absent uploads can retry; permission failures retain their original bytes
+  ---
+  duration_ms: 653.9711
+  type: 'test'
+  ...
+# Subtest: pending file metadata follows new issue mapping and never alters descendants or native metadata
+ok 50 - pending file metadata follows new issue mapping and never alters descendants or native metadata
+  ---
+  duration_ms: 25.8036
+  type: 'test'
+  ...
+# Subtest: client queues multiple exact files while paused, stages locally, then one manual save uploads
+ok 51 - client queues multiple exact files while paused, stages locally, then one manual save uploads
+  ---
+  duration_ms: 44.5086
+  type: 'test'
+  ...
+# Subtest: disk-staged files can upload after browser file storage is unavailable
+ok 52 - disk-staged files can upload after browser file storage is unavailable
+  ---
+  duration_ms: 195.3674
+  type: 'test'
+  ...
+# Subtest: a lost sync response with an already-confirmed journal does not require old file bytes
+ok 53 - a lost sync response with an already-confirmed journal does not require old file bytes
+  ---
+  duration_ms: 4.4407
+  type: 'test'
+  ...
+# Subtest: multipart staging reads binary data and enforces file/field count
+ok 54 - multipart staging reads binary data and enforces file/field count
+  ---
+  duration_ms: 198.8986
+  type: 'test'
+  ...
+# Subtest: adapter sends original bytes as multipart and downloads signed files without a token
+ok 55 - adapter sends original bytes as multipart and downloads signed files without a token
+  ---
+  duration_ms: 13.7687
+  type: 'test'
+  ...
+# Subtest: attachment downloads verify issue membership and reject external addresses and oversized responses
+ok 56 - attachment downloads verify issue membership and reject external addresses and oversized responses
+  ---
+  duration_ms: 3.5039
+  type: 'test'
+  ...
+# Subtest: individual issue refreshes retain more than the nested attachment page and hide signed URLs
+ok 57 - individual issue refreshes retain more than the nested attachment page and hide signed URLs
+  ---
+  duration_ms: 7.2191
+  type: 'test'
+  ...
+# Subtest: cancelled uploads retain durable cleanup across service loss and never delete native attachments
+ok 58 - cancelled uploads retain durable cleanup across service loss and never delete native attachments
+  ---
+  duration_ms: 5.4793
+  type: 'test'
+  ...
+# Subtest: same-parent selection retains manual sibling order, including nonconsecutive items
+ok 59 - same-parent selection retains manual sibling order, including nonconsecutive items
+  ---
+  duration_ms: 101.7898
+  type: 'test'
+  ...
+# Subtest: bulk insertion is a stable block and handles an insertion boundary inside selection
+ok 60 - bulk insertion is a stable block and handles an insertion boundary inside selection
+  ---
+  duration_ms: 4.8727
+  type: 'test'
+  ...
+# Subtest: grouping creates one parent at first selected position and preserves subtrees, text and states
+ok 61 - grouping creates one parent at first selected position and preserves subtrees, text and states
+  ---
+  duration_ms: 11.661
+  type: 'test'
+  ...
+# Subtest: same-parent reorder is local only and does not stage needless YouTrack writes
+ok 62 - same-parent reorder is local only and does not stage needless YouTrack writes
+  ---
+  duration_ms: 2.8421
+  type: 'test'
+  ...
+# Subtest: new parent mapping reaches remaining group links, metadata, expansion and progress
+ok 63 - new parent mapping reaches remaining group links, metadata, expansion and progress
+  ---
+  duration_ms: 5.3415
+  type: 'test'
+  ...
+# Subtest: failure publishing a staged group leaves no local parent, links or order changes
+ok 64 - failure publishing a staged group leaves no local parent, links or order changes
+  ---
+  duration_ms: 40.4222
+  type: 'test'
+  ...
+# Subtest: cancelling an interrupted group keeps completed remote moves and unrelated note edits
+ok 65 - cancelling an interrupted group keeps completed remote moves and unrelated note edits
+  ---
+  duration_ms: 23.9775
+  type: 'test'
+  ...
+# Subtest: group metadata remapping and renewed validation reject native parent changes before local commit
+ok 66 - group metadata remapping and renewed validation reject native parent changes before local commit
+  ---
+  duration_ms: 2.3676
+  type: 'test'
+  ...
+# Subtest: deleting a queued offline parent removes its group links before confirmed subtree deletion
+ok 67 - deleting a queued offline parent removes its group links before confirmed subtree deletion
+  ---
+  duration_ms: 9.6469
+  type: 'test'
+  ...
+# Subtest: an in-flight group cannot be deleted or partly cancelled while YouTrack is processing it
+ok 68 - an in-flight group cannot be deleted or partly cancelled while YouTrack is processing it
+  ---
+  duration_ms: 10.5488
+  type: 'test'
+  ...
+# Subtest: a 1,000-item group crosses the service batch limit without losing mapping or progress
+ok 69 - a 1,000-item group crosses the service batch limit without losing mapping or progress
+  ---
+  duration_ms: 3706.1507
+  type: 'test'
+  ...
+# Subtest: initial import hydrates exact original whitespace, IDs, hashes, unknown fields and historical images
+ok 70 - initial import hydrates exact original whitespace, IDs, hashes, unknown fields and historical images
+  ---
+  duration_ms: 56.2071
+  type: 'test'
+  ...
+# Subtest: documents larger than one chunk preserve exact bytes and ordered chunk boundaries
+ok 71 - documents larger than one chunk preserve exact bytes and ordered chunk boundaries
+  ---
+  duration_ms: 137.1312
+  type: 'test'
+  ...
+# Subtest: malformed JSON, invalid UTF-8, duplicate IDs and ephemeral assets are blocked
+ok 72 - malformed JSON, invalid UTF-8, duplicate IDs and ephemeral assets are blocked
+  ---
+  duration_ms: 4.2768
+  type: 'test'
+  ...
+# Subtest: non-null recovery snapshots are not silently overridden by the current save
+ok 73 - non-null recovery snapshots are not silently overridden by the current save
+  ---
+  duration_ms: 7.8326
+  type: 'test'
+  ...
+# Subtest: missing, altered, cross-workspace and oversized descriptors cannot hydrate
+ok 74 - missing, altered, cross-workspace and oversized descriptors cannot hydrate
+  ---
+  duration_ms: 9.2521
+  type: 'test'
+  ...
+# Subtest: stage backups preserve exact source bytes and can reopen with the same operation and ID
+ok 75 - stage backups preserve exact source bytes and can reopen with the same operation and ID
+  ---
+  duration_ms: 328.4339
+  type: 'test'
+  ...
+# Subtest: publication requires approval for the exact preview and detects source drift before any write
+ok 76 - publication requires approval for the exact preview and detects source drift before any write
+  ---
+  duration_ms: 282.1902
+  type: 'test'
+  ...
+# Subtest: a changed staging backup blocks publication before remote writes
+ok 77 - a changed staging backup blocks publication before remote writes
+  ---
+  duration_ms: 543.0286
+  type: 'test'
+  ...
+# Subtest: verified cloud import preserves unrelated files and retains the local primary save
+ok 78 - verified cloud import preserves unrelated files and retains the local primary save
+  ---
+  duration_ms: 1226.2617
+  type: 'test'
+  ...
+# Subtest: unknown outcome is recoverable without new operation identity or duplicate commit
+ok 79 - unknown outcome is recoverable without new operation identity or duplicate commit
+  ---
+  duration_ms: 896.9572
+  type: 'test'
+  ...
+# Subtest: a competing unrelated publication is preserved using only non-force ref updates
+ok 80 - a competing unrelated publication is preserved using only non-force ref updates
+  ---
+  duration_ms: 17.4813
+  type: 'test'
+  ...
+# Subtest: a different initial NPCDex import cannot overwrite an existing genesis
+ok 81 - a different initial NPCDex import cannot overwrite an existing genesis
+  ---
+  duration_ms: 8.1576
+  type: 'test'
+  ...
+# Subtest: additional collaborators and truncated discovery stop import
+ok 82 - additional collaborators and truncated discovery stop import
+  ---
+  duration_ms: 5.0322
+  type: 'test'
+  ...
+# Subtest: pinned identity cannot be replaced by a similarly named repository or workspace
+ok 83 - pinned identity cannot be replaced by a similarly named repository or workspace
+  ---
+  duration_ms: 2.9137
+  type: 'test'
+  ...
+# Subtest: a source edit during cloud delivery prevents local adoption and retains both copies
+ok 84 - a source edit during cloud delivery prevents local adoption and retains both copies
+  ---
+  duration_ms: 673.0178
+  type: 'test'
+  ...
+# Subtest: remote corruption after acceptance cannot create a verified local import marker
+ok 85 - remote corruption after acceptance cannot create a verified local import marker
+  ---
+  duration_ms: 669.2152
+  type: 'test'
+  ...
+# Subtest: unknown outcome with a failed local marker write can be retried using the same record
+ok 86 - unknown outcome with a failed local marker write can be retried using the same record
+  ---
+  duration_ms: 2527.9202
+  type: 'test'
+  ...
+# Subtest: a branch rollback after a verified frontier is discovered requires review
+ok 87 - a branch rollback after a verified frontier is discovered requires review
+  ---
+  duration_ms: 7.4565
+  type: 'test'
+  ...
+# Subtest: HTTP authentication cannot follow redirects or leak credentials in errors
+ok 88 - HTTP authentication cannot follow redirects or leak credentials in errors
+  ---
+  duration_ms: 149.5603
+  type: 'test'
+  ...
+# Subtest: change publication appends inline records, preserves genesis and retries without duplication
+ok 89 - change publication appends inline records, preserves genesis and retries without duplication
+  ---
+  duration_ms: 52.1938
+  type: 'test'
+  ...
+# Subtest: independent notes merge and arrive on both devices
+ok 90 - independent notes merge and arrive on both devices
+  ---
+  duration_ms: 815.7972
+  type: 'test'
+  ...
+# Subtest: two clients derive the same automatic merge identity
+ok 91 - two clients derive the same automatic merge identity
+  ---
+  duration_ms: 737.6353
+  type: 'test'
+  ...
+# Subtest: overlapping edits preserve both full versions without partial materialization
+ok 92 - overlapping edits preserve both full versions without partial materialization
+  ---
+  duration_ms: 683.9909
+  type: 'test'
+  ...
+# Subtest: identical assignments from separate operations still require review
+ok 93 - identical assignments from separate operations still require review
+  ---
+  duration_ms: 501.7705
+  type: 'test'
+  ...
+# Subtest: history appends merge by immutable identity and causal order
+ok 94 - history appends merge by immutable identity and causal order
+  ---
+  duration_ms: 546.5595
+  type: 'test'
+  ...
+# Subtest: a confirmed resolution references every head and propagates to the other device
+ok 95 - a confirmed resolution references every head and propagates to the other device
+  ---
+  duration_ms: 603.3814
+  type: 'test'
+  ...
+# Subtest: a stale approval cannot overwrite a newer edit
+ok 96 - a stale approval cannot overwrite a newer edit
+  ---
+  duration_ms: 640.2235
+  type: 'test'
+  ...
+# Subtest: review drafts survive a full engine and journal restart
+ok 97 - review drafts survive a full engine and journal restart
+  ---
+  duration_ms: 749.922
+  type: 'test'
+  ...
+# Subtest: a late offline edit after a resolution returns to review even when it touches another note
+ok 98 - a late offline edit after a resolution returns to review even when it touches another note
+  ---
+  duration_ms: 1438.8468
+  type: 'test'
+  ...
+# Subtest: a structural edit conflicts with another edit in the same collection
+ok 99 - a structural edit conflicts with another edit in the same collection
+  ---
+  duration_ms: 531.3231
+  type: 'test'
+  ...
+# Subtest: receipt effects remain indivisible and cannot be automatically merged with other changes
+ok 100 - receipt effects remain indivisible and cannot be automatically merged with other changes
+  ---
+  duration_ms: 554.3507
+  type: 'test'
+  ...
+# Subtest: ongoing typing follows its own acknowledged edit before merging incoming content again
+ok 101 - ongoing typing follows its own acknowledged edit before merging incoming content again
+  ---
+  duration_ms: 573.8599
+  type: 'test'
+  ...
+# Subtest: a concurrent content edit invalidates a tester or feedback read of that dialogue
+ok 102 - a concurrent content edit invalidates a tester or feedback read of that dialogue
+  ---
+  duration_ms: 534.0172
+  type: 'test'
+  ...
+# Subtest: history identity collisions require review even when the entries look identical
+ok 103 - history identity collisions require review even when the entries look identical
+  ---
+  duration_ms: 412.1263
+  type: 'test'
+  ...
+# Subtest: a new third version invalidates a pending human approval
+ok 104 - a new third version invalidates a pending human approval
+  ---
+  duration_ms: 798.0506
+  type: 'test'
+  ...
+# Subtest: a resolution and its outgoing dependency transaction roll back together
+ok 105 - a resolution and its outgoing dependency transaction roll back together
+  ---
+  duration_ms: 692.4524
+  type: 'test'
+  ...
+# Subtest: an uncertain accepted resolution retry retains one resolution record
+ok 106 - an uncertain accepted resolution retry retains one resolution record
+  ---
+  duration_ms: 891.5715
+  type: 'test'
+  ...
+# Subtest: a preserved compatibility save can be reviewed without discarding either original
+ok 107 - a preserved compatibility save can be reviewed without discarding either original
+  ---
+  duration_ms: 407.0824
+  type: 'test'
+  ...
+# Subtest: image review reads only a reviewed embedded image and rejects arbitrary data paths
+ok 108 - image review reads only a reviewed embedded image and rejects arbitrary data paths
+  ---
+  duration_ms: 920.8646
+  type: 'test'
+  ...
+# Subtest: a forged automatic merge is rejected before the verified cloud frontier advances
+ok 109 - a forged automatic merge is rejected before the verified cloud frontier advances
+  ---
+  duration_ms: 757.069
+  type: 'test'
+  ...
+# Subtest: an identical snapshot from a stale different writer still requires review
+ok 110 - an identical snapshot from a stale different writer still requires review
+  ---
+  duration_ms: 663.4632
+  type: 'test'
+  ...
+# Subtest: a resolution cannot hide an invalid side-parent behind its valid chosen base
+ok 111 - a resolution cannot hide an invalid side-parent behind its valid chosen base
+  ---
+  duration_ms: 1347.6941
+  type: 'test'
+  ...
+# Subtest: shutdown during resolution discovery preserves the draft without committing a choice
+ok 112 - shutdown during resolution discovery preserves the draft without committing a choice
+  ---
+  duration_ms: 761.8644
+  type: 'test'
+  ...
+# Subtest: manual resolution remains available after automatic syncing has been stopped
+ok 113 - manual resolution remains available after automatic syncing has been stopped
+  ---
+  duration_ms: 847.2476
+  type: 'test'
+  ...
+# Subtest: a dirty editor retains its observed base when an incoming revision arrives
+ok 114 - a dirty editor retains its observed base when an incoming revision arrives
+  ---
+  duration_ms: 41.7894
+  type: 'test'
+  ...
+# Subtest: an editor that starts typing during an incoming read is not replaced
+ok 115 - an editor that starts typing during an incoming read is not replaced
+  ---
+  duration_ms: 22.6164
+  type: 'test'
+  ...
+# Subtest: a clean editor materializes incoming content without a manual import
+ok 116 - a clean editor materializes incoming content without a manual import
+  ---
+  duration_ms: 6.7967
+  type: 'test'
+  ...
+# Subtest: an open NPCDex form retains its observed model until its changes can be checkpointed
+ok 117 - an open NPCDex form retains its observed model until its changes can be checkpointed
+  ---
+  duration_ms: 9.1866
+  type: 'test'
+  ...
+# Subtest: typing during a merged checkpoint retains the acknowledged local edit as its next base
+ok 118 - typing during a merged checkpoint retains the acknowledged local edit as its next base
+  ---
+  duration_ms: 12.3561
+  type: 'test'
+  ...
+# Subtest: missing cloud configuration cannot reopen an established journal as a legacy workspace
+ok 119 - missing cloud configuration cannot reopen an established journal as a legacy workspace
+  ---
+  duration_ms: 330.7369
+  type: 'test'
+  ...
+# Subtest: delta encoding preserves root order, array edits and legacy data exactly
+ok 120 - delta encoding preserves root order, array edits and legacy data exactly
+  ---
+  duration_ms: 51.441
+  type: 'test'
+  ...
+# Subtest: an edit and its outgoing record roll back together on transaction failure
+ok 121 - an edit and its outgoing record roll back together on transaction failure
+  ---
+  duration_ms: 573.1532
+  type: 'test'
+  ...
+# Subtest: offline edits survive restart and send once after reconnection
+ok 122 - offline edits survive restart and send once after reconnection
+  ---
+  duration_ms: 582.4062
+  type: 'test'
+  ...
+# Subtest: a second authenticated client receives new revisions without a manual import
+ok 123 - a second authenticated client receives new revisions without a manual import
+  ---
+  duration_ms: 694.297
+  type: 'test'
+  ...
+# Subtest: uncertain accepted delivery retains the same operation and creates no duplicate commit
+ok 124 - uncertain accepted delivery retains the same operation and creates no duplicate commit
+  ---
+  duration_ms: 379.9836
+  type: 'test'
+  ...
+# Subtest: Auto-Sync Off retains edits and manual Save performs one cycle
+ok 125 - Auto-Sync Off retains edits and manual Save performs one cycle
+  ---
+  duration_ms: 550.7325
+  type: 'test'
+  ...
+# Subtest: both concurrent branches survive while automatic materialization is held for U17 review
+ok 126 - both concurrent branches survive while automatic materialization is held for U17 review
+  ---
+  duration_ms: 538.2163
+  type: 'test'
+  ...
+# Subtest: a stale renderer edit preserves the incoming revision and its own original base
+ok 127 - a stale renderer edit preserves the incoming revision and its own original base
+  ---
+  duration_ms: 522.5454
+  type: 'test'
+  ...
+# Subtest: newer local work on first activation becomes a queued change rather than being replaced
+ok 128 - newer local work on first activation becomes a queued change rather than being replaced
+  ---
+  duration_ms: 253.8464
+  type: 'test'
+  ...
+# Subtest: identical checkpoints do not create extra operations
+ok 129 - identical checkpoints do not create extra operations
+  ---
+  duration_ms: 311.3547
+  type: 'test'
+  ...
+# Subtest: missing remote dependencies do not advance the persisted frontier even when cached
+ok 130 - missing remote dependencies do not advance the persisted frontier even when cached
+  ---
+  duration_ms: 284.8358
+  type: 'test'
+  ...
+# Subtest: a corrupted local document cannot silently become the active save on restart
+ok 131 - a corrupted local document cannot silently become the active save on restart
+  ---
+  duration_ms: 200.7483
+  type: 'test'
+  ...
+# Subtest: network work is canceled before shutdown while local data stays queued
+ok 132 - network work is canceled before shutdown while local data stays queued
+  ---
+  duration_ms: 223.5469
+  type: 'test'
+  ...
+# Subtest: manual sync still runs after the service stops automatic scheduling
+ok 133 - manual sync still runs after the service stops automatic scheduling
+  ---
+  duration_ms: 356.7705
+  type: 'test'
+  ...
+# Subtest: incoming content keeps each device view preferences local
+ok 134 - incoming content keeps each device view preferences local
+  ---
+  duration_ms: 552.1865
+  type: 'test'
+  ...
+# Subtest: an unexpected compatibility save is preserved for review rather than replacing the journal
+ok 135 - an unexpected compatibility save is preserved for review rather than replacing the journal
+  ---
+  duration_ms: 346.9212
+  type: 'test'
+  ...
+# Subtest: creates a dedicated optional PMON field and is idempotent after setup
+ok 136 - creates a dedicated optional PMON field and is idempotent after setup
+  ---
+  duration_ms: 16.2553
+  type: 'test'
+  ...
+# Subtest: reuses a suitable global field without editing its defaults or attaching it elsewhere
+ok 137 - reuses a suitable global field without editing its defaults or attaching it elsewhere
+  ---
+  duration_ms: 2.9062
+  type: 'test'
+  ...
+# Subtest: an interrupted attachment retry reuses the prepared field and bundle
+ok 138 - an interrupted attachment retry reuses the prepared field and bundle
+  ---
+  duration_ms: 2.8597
+  type: 'test'
+  ...
+# Subtest: existing suitable project field is reused without mutation
+ok 139 - existing suitable project field is reused without mutation
+  ---
+  duration_ms: 1.4243
+  type: 'test'
+  ...
+# Subtest: required Complexity can become optional without changing its existing shared bundle
+ok 140 - required Complexity can become optional without changing its existing shared bundle
+  ---
+  duration_ms: 1.6811
+  type: 'test'
+  ...
+# Subtest: different shared values and incompatible field types are refused without mutation
+ok 141 - different shared values and incompatible field types are refused without mutation
+  ---
+  duration_ms: 4.5134
+  type: 'test'
+  ...
+# Subtest: Isolated NPCDex preview uses the existing UI without the coded baseline or save APIs
+ok 142 - Isolated NPCDex preview uses the existing UI without the coded baseline or save APIs
+  ---
+  duration_ms: 2715.7741
+  type: 'test'
+  ...
+# Subtest: Strict JSON preserves exact whitespace and Unicode and rejects lossy input
+ok 143 - Strict JSON preserves exact whitespace and Unicode and rejects lossy input
+  ---
+  duration_ms: 13.8762
+  type: 'test'
+  ...
+# Subtest: Pinned contract validation checks schema, workspace and digest
+ok 144 - Pinned contract validation checks schema, workspace and digest
+  ---
+  duration_ms: 171.6666
+  type: 'test'
+  ...
+# Subtest: Graph validation rejects cycles, wrong profiles and absent inverse membership
+ok 145 - Graph validation rejects cycles, wrong profiles and absent inverse membership
+  ---
+  duration_ms: 68.0474
+  type: 'test'
+  ...
+# Subtest: Unconfigured or production-profile cache paths cannot activate this preview
+ok 146 - Unconfigured or production-profile cache paths cannot activate this preview
+  ---
+  duration_ms: 11.061
+  type: 'test'
+  ...
+# Subtest: A complete baseline assembles a valid NPCDex view with stable IDs and proposals
+ok 147 - A complete baseline assembles a valid NPCDex view with stable IDs and proposals
+  ---
+  duration_ms: 952.8005
+  type: 'test'
+  ...
+# Subtest: Native titles changed outside the contract are visible review conditions
+ok 148 - Native titles changed outside the contract are visible review conditions
+  ---
+  duration_ms: 680.9705
+  type: 'test'
+  ...
+# Subtest: Incomplete dependent correction preserves the view through restart, then applies together
+ok 149 - Incomplete dependent correction preserves the view through restart, then applies together
+  ---
+  duration_ms: 1170.7623
+  type: 'test'
+  ...
+# Subtest: Two conflicting branches roll back to a common ancestor and preserve both heads
+ok 150 - Two conflicting branches roll back to a common ancestor and preserve both heads
+  ---
+  duration_ms: 966.211
+  type: 'test'
+  ...
+# Subtest: Missing history remains a warning across repeated discovery and restart
+ok 151 - Missing history remains a warning across repeated discovery and restart
+  ---
+  duration_ms: 1078.2417
+  type: 'test'
+  ...
+# Subtest: Unauthorized, null-author, corrupt bytes and unknown workflow do not replace accepted data
+ok 152 - Unauthorized, null-author, corrupt bytes and unknown workflow do not replace accepted data
+  ---
+  duration_ms: 1553.8923
+  type: 'test'
+  ...
+# Subtest: Tampering under a previously observed manifest ID is held even if the server size matches
+ok 153 - Tampering under a previously observed manifest ID is held even if the server size matches
+  ---
+  duration_ms: 429.5228
+  type: 'test'
+  ...
+# Subtest: Auto-Sync Off performs no reads; manual cycle is one pass and keeps Off
+ok 154 - Auto-Sync Off performs no reads; manual cycle is one pass and keeps Off
+  ---
+  duration_ms: 386.5296
+  type: 'test'
+  ...
+# Subtest: Offline reads retain the accepted snapshot across a new reader process boundary
+ok 155 - Offline reads retain the accepted snapshot across a new reader process boundary
+  ---
+  duration_ms: 494.1123
+  type: 'test'
+  ...
+# Subtest: SQLite transaction failure cannot acknowledge a new projection
+ok 156 - SQLite transaction failure cannot acknowledge a new projection
+  ---
+  duration_ms: 814.6553
+  type: 'test'
+  ...
+# Subtest: A cache quota failure retains the last accepted state
+ok 157 - A cache quota failure retains the last accepted state
+  ---
+  duration_ms: 634.975
+  type: 'test'
+  ...
+# Subtest: A cached byte-integrity failure is surfaced without deleting cache data
+ok 158 - A cached byte-integrity failure is surfaced without deleting cache data
+  ---
+  duration_ms: 178.7552
+  type: 'test'
+  ...
+# Subtest: A different bootstrap cannot reuse an existing isolated cache
+ok 159 - A different bootstrap cannot reuse an existing isolated cache
+  ---
+  duration_ms: 502.5545
+  type: 'test'
+  ...
+# Subtest: Projection resolves local player-gender profiles and resets stale testing display
+ok 160 - Projection resolves local player-gender profiles and resets stale testing display
+  ---
+  duration_ms: 34.0283
+  type: 'test'
+  ...
+# Subtest: Speaker profiles are mapped to the explicit local appearance without losing profile identity
+ok 161 - Speaker profiles are mapped to the explicit local appearance without losing profile identity
+  ---
+  duration_ms: 30.9036
+  type: 'test'
+  ...
+# Subtest: A changed content revision displays old verified testing as unreviewed
+ok 162 - A changed content revision displays old verified testing as unreviewed
+  ---
+  duration_ms: 64.5213
+  type: 'test'
+  ...
+# Subtest: A fresh client can show its verified baseline while a later publication is incomplete
+ok 163 - A fresh client can show its verified baseline while a later publication is incomplete
+  ---
+  duration_ms: 435.0344
+  type: 'test'
+  ...
+# Subtest: Chunked objects are assembled and verified before projection
+ok 164 - Chunked objects are assembled and verified before projection
+  ---
+  duration_ms: 609.1304
+  type: 'test'
+  ...
+# Subtest: Duplicate physical carriers with identical semantic bindings do not create competing versions
+ok 165 - Duplicate physical carriers with identical semantic bindings do not create competing versions
+  ---
+  duration_ms: 986.0864
+  type: 'test'
+  ...
+# Subtest: Unpublished owner files remain pending without replacing current content or flashing a review warning
+ok 166 - Unpublished owner files remain pending without replacing current content or flashing a review warning
+  ---
+  duration_ms: 696.7886
+  type: 'test'
+  ...
+# Subtest: Unpublished files from another actor are visible review conditions
+ok 167 - Unpublished files from another actor are visible review conditions
+  ---
+  duration_ms: 389.4689
+  type: 'test'
+  ...
+# Subtest: Deleting a published entity artifact remains a missing-history warning on every refresh
+ok 168 - Deleting a published entity artifact remains a missing-history warning on every refresh
+  ---
+  duration_ms: 367.6175
+  type: 'test'
+  ...
+# Subtest: Native descriptionSha256 changes require review and retain accepted content
+ok 169 - Native descriptionSha256 changes require review and retain accepted content
+  ---
+  duration_ms: 525.3371
+  type: 'test'
+  ...
+# Subtest: Native commentsSha256 changes require review and retain accepted content
+ok 170 - Native commentsSha256 changes require review and retain accepted content
+  ---
+  duration_ms: 590.6968
+  type: 'test'
+  ...
+# Subtest: Intentional stop pauses an incoming cycle and manual sync can resume while automatic sync is Off
+ok 171 - Intentional stop pauses an incoming cycle and manual sync can resume while automatic sync is Off
+  ---
+  duration_ms: 615.6273
+  type: 'test'
+  ...
+# Subtest: Pinned YouTrack reader sends only GET and never exposes signed URLs from discovery
+ok 172 - Pinned YouTrack reader sends only GET and never exposes signed URLs from discovery
+  ---
+  duration_ms: 225.9074
+  type: 'test'
+  ...
+# Subtest: Foreign attachment URLs are refused before credentials are sent there
+ok 173 - Foreign attachment URLs are refused before credentials are sent there
+  ---
+  duration_ms: 36.7474
+  type: 'test'
+  ...
+# Subtest: Redirect responses cannot forward the saved credential
+ok 174 - Redirect responses cannot forward the saved credential
+  ---
+  duration_ms: 32.6018
+  type: 'test'
+  ...
+# Subtest: Null or unexpected server author is not replaced by an artifact claim
+ok 175 - Null or unexpected server author is not replaced by an artifact claim
+  ---
+  duration_ms: 15.1162
+  type: 'test'
+  ...
+# Subtest: A cross-project issue cannot be used to substitute a content attachment
+ok 176 - A cross-project issue cannot be used to substitute a content attachment
+  ---
+  duration_ms: 3.1221
+  type: 'test'
+  ...
+# Subtest: Shifting and truncated pagination cannot declare discovery complete
+ok 177 - Shifting and truncated pagination cannot declare discovery complete
+  ---
+  duration_ms: 6.5078
+  type: 'test'
+  ...
+# Subtest: Stable discovery retries when a concurrent insertion changes an attachment sweep
+ok 178 - Stable discovery retries when a concurrent insertion changes an attachment sweep
+  ---
+  duration_ms: 29.0675
+  type: 'test'
+  ...
+# Subtest: Changed bytes under a valid attachment ID fail hash verification
+ok 179 - Changed bytes under a valid attachment ID fail hash verification
+  ---
+  duration_ms: 7.198
+  type: 'test'
+  ...
+# Subtest: Response streaming and request-count bounds are enforced
+ok 180 - Response streaming and request-count bounds are enforced
+  ---
+  duration_ms: 64.3527
+  type: 'test'
+  ...
+# Subtest: An interrupted connection error never includes a signed URL or credential
+ok 181 - An interrupted connection error never includes a signed URL or credential
+  ---
+  duration_ms: 2.8106
+  type: 'test'
+  ...
+# Subtest: A download is canceled by the lifecycle abort signal
+ok 182 - A download is canceled by the lifecycle abort signal
+  ---
+  duration_ms: 54.1157
+  type: 'test'
+  ...
+# Subtest: every status combination follows the agreed parent rules
+ok 183 - every status combination follows the agreed parent rules
+  ---
+  duration_ms: 10.4467
+  type: 'test'
+  ...
+# Subtest: development menu follows preparation, readiness, implementation, and completion order
+ok 184 - development menu follows preparation, readiness, implementation, and completion order
+  ---
+  duration_ms: 5.0429
+  type: 'test'
+  ...
+# Subtest: purple propagates recursively, red overrides it, and removing children restores the saved assignment
+ok 185 - purple propagates recursively, red overrides it, and removing children restores the saved assignment
+  ---
+  duration_ms: 78.3304
+  type: 'test'
+  ...
+# Subtest: red and all-grey descendants propagate through every ancestor
+ok 186 - red and all-grey descendants propagate through every ancestor
+  ---
+  duration_ms: 1.1838
+  type: 'test'
+  ...
+# Subtest: untouched children override retained parent assignments; mixed progress still rolls up yellow
+ok 187 - untouched children override retained parent assignments; mixed progress still rolls up yellow
+  ---
+  duration_ms: 2.3377
+  type: 'test'
+  ...
+# Subtest: moving parents prevents cycles but allows cross-epic and root moves
+ok 188 - moving parents prevents cycles but allows cross-epic and root moves
+  ---
+  duration_ms: 3.1979
+  type: 'test'
+  ...
+# Subtest: three-way merge preserves separate remote edits and detects overlapping edits
+ok 189 - three-way merge preserves separate remote edits and detects overlapping edits
+  ---
+  duration_ms: 5.1224
+  type: 'test'
+  ...
+# Subtest: remote deletion never silently resurrects an edited item
+ok 190 - remote deletion never silently resurrects an edited item
+  ---
+  duration_ms: 3.1804
+  type: 'test'
+  ...
+# Subtest: id remapping updates dependent child creation and parent edits
+ok 191 - id remapping updates dependent child creation and parent edits
+  ---
+  duration_ms: 11.6582
+  type: 'test'
+  ...
+# Subtest: pending creates, moves, deletes survive serialization in their original order
+ok 192 - pending creates, moves, deletes survive serialization in their original order
+  ---
+  duration_ms: 3.113
+  type: 'test'
+  ...
+# Subtest: migration metadata does not falsely indicate that an otherwise blank task has notes
+ok 193 - migration metadata does not falsely indicate that an otherwise blank task has notes
+  ---
+  duration_ms: 1.4392
+  type: 'test'
+  ...
+# Subtest: native YouTrack edits are visible while a different local field is pending
+ok 194 - native YouTrack edits are visible while a different local field is pending
+  ---
+  duration_ms: 2.2789
+  type: 'test'
+  ...
+# Subtest: native edits still arrive during a conflict and preserve both conflicting values
+ok 195 - native edits still arrive during a conflict and preserve both conflicting values
+  ---
+  duration_ms: 8.0299
+  type: 'test'
+  ...
+# Subtest: native creation, deletion and reparenting refresh the hierarchy
+ok 196 - native creation, deletion and reparenting refresh the hierarchy
+  ---
+  duration_ms: 1.3876
+  type: 'test'
+  ...
+# Subtest: a native move that invalidates a queued move leaves the visible tree usable and retains the queued intent
+ok 197 - a native move that invalidates a queued move leaves the visible tree usable and retains the queued intent
+  ---
+  duration_ms: 1.6512
+  type: 'test'
+  ...
+# Subtest: acknowledging an in-flight save preserves edits made after the request started
+ok 198 - acknowledging an in-flight save preserves edits made after the request started
+  ---
+  duration_ms: 5.2327
+  type: 'test'
+  ...
+# Subtest: server IDs replace temporary IDs everywhere without losing new child edits
+ok 199 - server IDs replace temporary IDs everywhere without losing new child edits
+  ---
+  duration_ms: 3.1964
+  type: 'test'
+  ...
+# Subtest: profile lease refuses another live application or orphan utility and releases only its own lease
+ok 200 - profile lease refuses another live application or orphan utility and releases only its own lease
+  ---
+  duration_ms: 492.8058
+  type: 'test'
+  ...
+# Subtest: dead-owner lease is reclaimed but corrupt ownership is never silently removed
+ok 201 - dead-owner lease is reclaimed but corrupt ownership is never silently removed
+  ---
+  duration_ms: 145.7903
+  type: 'test'
+  ...
+# Subtest: quit coalesces duplicate requests and checkpoints before stopping service or exiting
+ok 202 - quit coalesces duplicate requests and checkpoints before stopping service or exiting
+  ---
+  duration_ms: 7.3605
+  type: 'test'
+  ...
+# Subtest: local save failure prevents quit, restores review and permits a later retry
+ok 203 - local save failure prevents quit, restores review and permits a later retry
+  ---
+  duration_ms: 2.6832
+  type: 'test'
+  ...
+# Subtest: shutdown failure never exits and can be retried
+ok 204 - shutdown failure never exits and can be retried
+  ---
+  duration_ms: 2.2989
+  type: 'test'
+  ...
+# Subtest: approved tray groups commands, uses shared state and omits unavailable update placeholder
+ok 205 - approved tray groups commands, uses shared state and omits unavailable update placeholder
+  ---
+  duration_ms: 3.9267
+  type: 'test'
+  ...
+# Subtest: tray update availability opens its own controls while project saving remains independent
+ok 206 - tray update availability opens its own controls while project saving remains independent
+  ---
+  duration_ms: 3.6967
+  type: 'test'
+  ...
+# Subtest: renderer recovery is bounded, allows manual retry and never claims readiness before load
+ok 207 - renderer recovery is bounded, allows manual retry and never claims readiness before load
+  ---
+  duration_ms: 15.5899
+  type: 'test'
+  ...
+# Subtest: renderer retry budget resets after a stable minute
+ok 208 - renderer retry budget resets after a stable minute
+  ---
+  duration_ms: 5.17
+  type: 'test'
+  ...
+# Subtest: service restart reloads accepted disk state without replaying interrupted mutations
+ok 209 - service restart reloads accepted disk state without replaying interrupted mutations
+  ---
+  duration_ms: 107.1434
+  type: 'test'
+  ...
+# Subtest: interrupted RPCs reject explicitly and are never sent to the replacement worker
+ok 210 - interrupted RPCs reject explicitly and are never sent to the replacement worker
+  ---
+  duration_ms: 5.2303
+  type: 'test'
+  ...
+# Subtest: quit while recovery is delayed prevents a replacement utility from starting
+ok 211 - quit while recovery is delayed prevents a replacement utility from starting
+  ---
+  duration_ms: 34.0061
+  type: 'test'
+  ...
+# Subtest: service shutdown is acknowledged before the worker is terminated
+ok 212 - service shutdown is acknowledged before the worker is terminated
+  ---
+  duration_ms: 20.5532
+  type: 'test'
+  ...
+# Subtest: startup calls coalesce into one worker, including explicit recovery during backoff
+ok 213 - startup calls coalesce into one worker, including explicit recovery during backoff
+  ---
+  duration_ms: 5.1779
+  type: 'test'
+  ...
+# Subtest: credential replies stay on the private worker channel and failures disclose no credential
+ok 214 - credential replies stay on the private worker channel and failures disclose no credential
+  ---
+  duration_ms: 189.0255
+  type: 'test'
+  ...
+# Subtest: migration transfer validates exact bytes and rejects truncation, extra data and changed headers
+ok 215 - migration transfer validates exact bytes and rejects truncation, extra data and changed headers
+  ---
+  duration_ms: 830.4024
+  type: 'test'
+  ...
+# Subtest: migration transfer refuses damaged queued bytes
+ok 216 - migration transfer refuses damaged queued bytes
+  ---
+  duration_ms: 486.1255
+  type: 'test'
+  ...
+# Subtest: migration refuses other origins, path-like IDs, duplicate issues and cycles
+ok 217 - migration refuses other origins, path-like IDs, duplicate issues and cycles
+  ---
+  duration_ms: 59.9258
+  type: 'test'
+  ...
+# Subtest: atomic migration preserves native preferences, recovery, history, bytes and original ciphertext
+ok 218 - atomic migration preserves native preferences, recovery, history, bytes and original ciphertext
+  ---
+  duration_ms: 3376.239
+  type: 'test'
+  ...
+# Subtest: browser NPCDex wins explicitly over older package data and retains its exact fields
+ok 219 - browser NPCDex wins explicitly over older package data and retains its exact fields
+  ---
+  duration_ms: 4190.1317
+  type: 'test'
+  ...
+# Subtest: existing destinations are never merged or overwritten
+ok 220 - existing destinations are never merged or overwritten
+  ---
+  duration_ms: 532.8737
+  type: 'test'
+  ...
+# Subtest: interrupted publication retains originals and verified recovery staging
+ok 221 - interrupted publication retains originals and verified recovery staging
+  ---
+  duration_ms: 2425.6711
+  type: 'test'
+  ...
+# Subtest: changed source or NPC package after preview prevents publication
+ok 222 - changed source or NPC package after preview prevents publication
+  ---
+  duration_ms: 4991.3532
+  type: 'test'
+  ...
+# Subtest: modified staging and a raced destination cannot replace user data
+ok 223 - modified staging and a raced destination cannot replace user data
+  ---
+  duration_ms: 1735.7641
+  type: 'test'
+  ...
+# Subtest: missing pending attachment bytes block migration without dropping the operation
+ok 224 - missing pending attachment bytes block migration without dropping the operation
+  ---
+  duration_ms: 233.846
+  type: 'test'
+  ...
+# Subtest: credential conversion failure leaves original connection and destination unchanged
+ok 225 - credential conversion failure leaves original connection and destination unchanged
+  ---
+  duration_ms: 214.3601
+  type: 'test'
+  ...
+# Subtest: an established profile never falls back to a packaged seed when its task save is missing
+ok 226 - an established profile never falls back to a packaged seed when its task save is missing
+  ---
+  duration_ms: 476.8442
+  type: 'test'
+  ...
+# Subtest: Electron credential envelope delegates protection and refuses legacy/unknown formats
+ok 227 - Electron credential envelope delegates protection and refuses legacy/unknown formats
+  ---
+  duration_ms: 2.8477
+  type: 'test'
+  ...
+# Subtest: desktop origin and asset policy rejects other hosts, encoded paths and filesystem escape
+ok 228 - desktop origin and asset policy rejects other hosts, encoded paths and filesystem escape
+  ---
+  duration_ms: 12.6432
+  type: 'test'
+  ...
+# Subtest: desktop bridge has a finite domain command set with bounded data and no arbitrary state replacement
+ok 229 - desktop bridge has a finite domain command set with bounded data and no arbitrary state replacement
+  ---
+  duration_ms: 217.5234
+  type: 'test'
+  ...
+# Subtest: desktop external links and content policies keep privileges scoped to packaged code
+ok 230 - desktop external links and content policies keep privileges scoped to packaged code
+  ---
+  duration_ms: 2.3767
+  type: 'test'
+  ...
+# Subtest: Back follows visited children one level at a time and stops at the starting item
+ok 231 - Back follows visited children one level at a time and stops at the starting item
+  ---
+  duration_ms: 6.2926
+  type: 'test'
+  ...
+# Subtest: opening a Work item starts a fresh boundary even when it was visited previously
+ok 232 - opening a Work item starts a fresh boundary even when it was visited previously
+  ---
+  duration_ms: 0.8542
+  type: 'test'
+  ...
+# Subtest: native moves preserve the viewed trail and deleted destinations are skipped
+ok 233 - native moves preserve the viewed trail and deleted destinations are skipped
+  ---
+  duration_ms: 3.3015
+  type: 'test'
+  ...
+# Subtest: a created item can be revisited after YouTrack assigns its permanent ID
+ok 234 - a created item can be revisited after YouTrack assigns its permanent ID
+  ---
+  duration_ms: 5.6211
+  type: 'test'
+  ...
+# Subtest: same-item child openings and deleted entire trails cannot create a Back loop
+ok 235 - same-item child openings and deleted entire trails cannot create a Back loop
+  ---
+  duration_ms: 1.9849
+  type: 'test'
+  ...
+# Subtest: project setup adds In Development once as an unresolved State, preserving existing values
+ok 236 - project setup adds In Development once as an unresolved State, preserving existing values
+  ---
+  duration_ms: 33.2976
+  type: 'test'
+  ...
+# Subtest: native development assignment maps to purple without changing saved parent intent on inherited reads
+ok 237 - native development assignment maps to purple without changing saved parent intent on inherited reads
+  ---
+  duration_ms: 2.7835
+  type: 'test'
+  ...
+# Subtest: sibling insertion guide brackets the whole expanded branch, matching the committed order
+ok 238 - sibling insertion guide brackets the whole expanded branch, matching the committed order
+  ---
+  duration_ms: 12.5305
+  type: 'test'
+  ...
+# Subtest: nesting previews the new child level and appends beyond visible descendants
+ok 239 - nesting previews the new child level and appends beyond visible descendants
+  ---
+  duration_ms: 2.0114
+  type: 'test'
+  ...
+# Subtest: outdenting previews the ancestor boundary and actual root/sibling destination
+ok 240 - outdenting previews the ancestor boundary and actual root/sibling destination
+  ---
+  duration_ms: 1.4418
+  type: 'test'
+  ...
+# Subtest: selector scope makes the guide indentation relative to the displayed hierarchy
+ok 241 - selector scope makes the guide indentation relative to the displayed hierarchy
+  ---
+  duration_ms: 2.517
+  type: 'test'
+  ...
+# Subtest: self/descendant targets never produce a valid guide or move
+ok 242 - self/descendant targets never produce a valid guide or move
+  ---
+  duration_ms: 21.371
+  type: 'test'
+  ...
+# Subtest: leaf/root boundaries and filtered visible branches retain their actual insertion order
+ok 243 - leaf/root boundaries and filtered visible branches retain their actual insertion order
+  ---
+  duration_ms: 2.9804
+  type: 'test'
+  ...
+# Subtest: typing words across normalized autosaves preserves their separating spaces
+ok 244 - typing words across normalized autosaves preserves their separating spaces
+  ---
+  duration_ms: 6.6666
+  type: 'test'
+  ...
+# Subtest: an incoming refresh cannot erase a focused trailing space or reset a mid-title caret
+ok 245 - an incoming refresh cannot erase a focused trailing space or reset a mid-title caret
+  ---
+  duration_ms: 1.6224
+  type: 'test'
+  ...
+# Subtest: leaving the editor permits normalized or native text, while item navigation replaces the old draft
+ok 246 - leaving the editor permits normalized or native text, while item navigation replaces the old draft
+  ---
+  duration_ms: 1.1411
+  type: 'test'
+  ...
+# Subtest: an unchanged notes refresh preserves selection even without focus
+ok 247 - an unchanged notes refresh preserves selection even without focus
+  ---
+  duration_ms: 0.6835
+  type: 'test'
+  ...
+# Subtest: all priority tags use the approved labels, colors and native mappings
+ok 248 - all priority tags use the approved labels, colors and native mappings
+  ---
+  duration_ms: 9.0672
+  type: 'test'
+  ...
+# Subtest: Complexity maps each value without treating an unset value as LOW
+ok 249 - Complexity maps each value without treating an unset value as LOW
+  ---
+  duration_ms: 1.4706
+  type: 'test'
+  ...
+# Subtest: custom payload round-trips each Complexity value and clears it with null
+ok 250 - custom payload round-trips each Complexity value and clears it with null
+  ---
+  duration_ms: 8.9775
+  type: 'test'
+  ...
+# Subtest: unrelated edits preserve native Show-stopper and unknown native Complexity
+ok 251 - unrelated edits preserve native Show-stopper and unknown native Complexity
+  ---
+  duration_ms: 1.421
+  type: 'test'
+  ...
+# Subtest: Complexity uses three-way conflicts while unrelated native edits remain visible
+ok 252 - Complexity uses three-way conflicts while unrelated native edits remain visible
+  ---
+  duration_ms: 2.5849
+  type: 'test'
+  ...
+# Subtest: Complexity on a newly created item survives remapping and subsequent edits
+ok 253 - Complexity on a newly created item survives remapping and subsequent edits
+  ---
+  duration_ms: 4.8345
+  type: 'test'
+  ...
+# Subtest: external file recognition rejects text, folders, mixed drops and empty batches
+ok 254 - external file recognition rejects text, folders, mixed drops and empty batches
+  ---
+  duration_ms: 18.1154
+  type: 'test'
+  ...
+# Subtest: file drops enforce the existing count, filename and byte limits before calling native attachment code
+ok 255 - file drops enforce the existing count, filename and byte limits before calling native attachment code
+  ---
+  duration_ms: 1.9732
+  type: 'test'
+  ...
+# Subtest: native dropped metadata accepts only an actual path, valid ticket and matching file name
+ok 256 - native dropped metadata accepts only an actual path, valid ticket and matching file name
+  ---
+  duration_ms: 6.4313
+  type: 'test'
+  ...
+# Subtest: native file preflight preserves original bytes, detects changed files and rejects directory/oversized batches
+ok 257 - native file preflight preserves original bytes, detects changed files and rejects directory/oversized batches
+  ---
+  duration_ms: 145.1365
+  type: 'test'
+  ...
+# Subtest: sandbox preload resolves disk-backed File capabilities without exposing native paths or accepting path strings
+ok 258 - sandbox preload resolves disk-backed File capabilities without exposing native paths or accepting path strings
+  ---
+  duration_ms: 164.386
+  type: 'test'
+  ...
+# ROMDex ready: http://127.0.0.1:4399
+# Subtest: bidirectional service integration, conflicts, retry safety, comments and hierarchy
+    # Subtest: connection and missing status preparation
+    ok 1 - connection and missing status preparation
+      ---
+      duration_ms: 428.0328
+      type: 'test'
+      ...
+    # Subtest: Complexity setup attaches an optional field once and each value round-trips in both directions
+    ok 2 - Complexity setup attaches an optional field once and each value round-trips in both directions
+      ---
+      duration_ms: 2845.549
+      type: 'test'
+      ...
+    # Subtest: a native Complexity edit conflicts with pending work rather than being overwritten
+    ok 3 - a native Complexity edit conflicts with pending work rather than being overwritten
+      ---
+      duration_ms: 540.9496
+      type: 'test'
+      ...
+    # Subtest: Complexity survives creation and priority writes preserve unrelated fields and native Show-stopper
+    ok 4 - Complexity survives creation and priority writes preserve unrelated fields and native Show-stopper
+      ---
+      duration_ms: 2223.4931
+      type: 'test'
+      ...
+    # Subtest: optional remembered connection uses Windows encryption and can be restored
+    ok 5 - optional remembered connection uses Windows encryption and can be restored
+      ---
+      duration_ms: 8116.677
+      type: 'test'
+      ...
+    # Subtest: shared off switch blocks all automatic data routes, including stale windows, with zero provider calls
+    ok 6 - shared off switch blocks all automatic data routes, including stale windows, with zero provider calls
+      ---
+      duration_ms: 122.6138
+      type: 'test'
+      ...
+    # Subtest: manual sync while off pushes edits and pulls native data once without changing the shared preference
+    ok 7 - manual sync while off pushes edits and pulls native data once without changing the shared preference
+      ---
+      duration_ms: 160.4133
+      type: 'test'
+      ...
+    # Subtest: manual sync while off detects a native same-field conflict before writing
+    ok 8 - manual sync while off detects a native same-field conflict before writing
+      ---
+      duration_ms: 166.1712
+      type: 'test'
+      ...
+    # Subtest: connection health records provider loss and recovery independently of queued data
+    ok 9 - connection health records provider loss and recovery independently of queued data
+      ---
+      duration_ms: 45.7387
+      type: 'test'
+      ...
+    # Subtest: native provider edits, comments, creation and deletion appear in snapshots
+    ok 10 - native provider edits, comments, creation and deletion appear in snapshots
+      ---
+      duration_ms: 98.8811
+      type: 'test'
+      ...
+    # Subtest: dashboard edits push and subsequent native edits pull
+    ok 11 - dashboard edits push and subsequent native edits pull
+      ---
+      duration_ms: 117.5524
+      type: 'test'
+      ...
+    # Subtest: overlapping edits block writes but still return incoming provider data
+    ok 12 - overlapping edits block writes but still return incoming provider data
+      ---
+      duration_ms: 16.365
+      type: 'test'
+      ...
+    # Subtest: reparenting writes the relation and rollup follows the new tree
+    ok 13 - reparenting writes the relation and rollup follows the new tree
+      ---
+      duration_ms: 251.9407
+      type: 'test'
+      ...
+    # Subtest: own parent status is local, remains hidden, and restores after the last child moves
+    ok 14 - own parent status is local, remains hidden, and restores after the last child moves
+      ---
+      duration_ms: 424.1162
+      type: 'test'
+      ...
+    # Subtest: native parent edits update the saved assignment and conflict with a queued own edit
+    ok 15 - native parent edits update the saved assignment and conflict with a queued own edit
+      ---
+      duration_ms: 112.2512
+      type: 'test'
+      ...
+    # Subtest: native leaf edits stay visible and collide with pending own assignments
+    ok 16 - native leaf edits stay visible and collide with pending own assignments
+      ---
+      duration_ms: 51.8249
+      type: 'test'
+      ...
+    # Subtest: an ambiguous inherited write never replaces the saved own status
+    ok 17 - an ambiguous inherited write never replaces the saved own status
+      ---
+      duration_ms: 75.6138
+      type: 'test'
+      ...
+    # Subtest: all-untouched descendants write grey to both ancestor levels while native progress restores yellow
+    ok 18 - all-untouched descendants write grey to both ancestor levels while native progress restores yellow
+      ---
+      duration_ms: 440.9568
+      type: 'test'
+      ...
+    # Subtest: development assignments write through the service and native critical overrides purple ancestors
+    ok 19 - development assignments write through the service and native critical overrides purple ancestors
+      ---
+      duration_ms: 531.5609
+      type: 'test'
+      ...
+# Fixture operation error: Fixture interrupted parent attachment
+    # Subtest: bulk moves retain selected parent subtrees and recover after a detached link interruption
+    ok 20 - bulk moves retain selected parent subtrees and recover after a detached link interruption
+      ---
+      duration_ms: 421.8823
+      type: 'test'
+      ...
+    # Subtest: native parent drift rejects the whole grouping before parent creation
+    ok 21 - native parent drift rejects the whole grouping before parent creation
+      ---
+      duration_ms: 50.403
+      type: 'test'
+      ...
+# Fixture operation error: Fixture lost the creation response
+    # Subtest: ambiguous group parent creation is reconciled once before linking every selected child
+    ok 22 - ambiguous group parent creation is reconciled once before linking every selected child
+      ---
+      duration_ms: 478.8244
+      type: 'test'
+      ...
+    # Subtest: attachment staging is private, paused uploads wait, native files refresh and original bytes download
+    ok 23 - attachment staging is private, paused uploads wait, native files refresh and original bytes download
+      ---
+      duration_ms: 230.3488
+      type: 'test'
+      ...
+# Fixture operation error: Add Attachment Permission Required
+    # Subtest: lost multipart confirmation reconciles exactly once; permission failures keep the staged file
+    ok 24 - lost multipart confirmation reconciles exactly once; permission failures keep the staged file
+      ---
+      duration_ms: 223.5817
+      type: 'test'
+      ...
+    # Subtest: cancelling staged uploads removes local data, leaves native files intact and prevents stale replay
+    ok 25 - cancelling staged uploads removes local data, leaves native files intact and prevents stale replay
+      ---
+      duration_ms: 77.319
+      type: 'test'
+      ...
+    # Subtest: new issue creation precedes its attachment and maps the queued target
+    ok 26 - new issue creation precedes its attachment and maps the queued target
+      ---
+      duration_ms: 119.8196
+      type: 'test'
+      ...
+    # Subtest: full editor metadata exposes eligible users, project fields and calculated time
+    ok 27 - full editor metadata exposes eligible users, project fields and calculated time
+      ---
+      duration_ms: 8.7589
+      type: 'test'
+      ...
+    # Subtest: assignee/date/custom-field changes round trip independently with native edits and clearing
+    ok 28 - assignee/date/custom-field changes round trip independently with native edits and clearing
+      ---
+      duration_ms: 137.1159
+      type: 'test'
+      ...
+# Fixture operation error: Choose an Eligible Project Assignee.
+# Fixture operation error: Calculated from YouTrack Work Logs.
+# Fixture operation error: Fixture update permission denied
+    # Subtest: nullable native conflicts and invalid/read-only choices prevent unreviewed overwrites
+    ok 29 - nullable native conflicts and invalid/read-only choices prevent unreviewed overwrites
+      ---
+      duration_ms: 161.8263
+      type: 'test'
+      ...
+# Fixture operation error: Fixture interrupted tag update
+    # Subtest: tag add/remove, incoming tags and interrupted retries preserve confirmed changes
+    ok 30 - tag add/remove, incoming tags and interrupted retries preserve confirmed changes
+      ---
+      duration_ms: 379.2093
+      type: 'test'
+      ...
+    # Subtest: journaled comments are not duplicated by retry
+    ok 31 - journaled comments are not duplicated by retry
+      ---
+      duration_ms: 111.8984
+      type: 'test'
+      ...
+# Fixture operation error: Fixture lost the creation response
+    # Subtest: ambiguous task creation requires review instead of blindly replaying
+    ok 32 - ambiguous task creation requires review instead of blindly replaying
+      ---
+      duration_ms: 176.5872
+      type: 'test'
+      ...
+# Fixture operation error: This Operation ID Belongs to a Different Attachment Action.
+    # Subtest: attachment deletion honors paused/manual sync and cancellation survives stale replay
+    ok 33 - attachment deletion honors paused/manual sync and cancellation survives stale replay
+      ---
+      duration_ms: 196.7505
+      type: 'test'
+      ...
+    # Subtest: deleting a natively modified task requires renewed review
+    ok 34 - deleting a natively modified task requires renewed review
+      ---
+      duration_ms: 41.3011
+      type: 'test'
+      ...
+    1..34
+ok 259 - bidirectional service integration, conflicts, retry safety, comments and hierarchy
+  ---
+  duration_ms: 19626.6791
+  type: 'test'
+  ...
+# Subtest: date-only values use midday UTC and retain their day across DST and timezones
+ok 260 - date-only values use midday UTC and retain their day across DST and timezones
+  ---
+  duration_ms: 20.407
+  type: 'test'
+  ...
+# Subtest: legacy raw fields normalize stable assignee identity and due date without changing content
+ok 261 - legacy raw fields normalize stable assignee identity and due date without changing content
+  ---
+  duration_ms: 4.6669
+  type: 'test'
+  ...
+# Subtest: untouched fields remain untouched, including native Show-stopper and saved parent status
+ok 262 - untouched fields remain untouched, including native Show-stopper and saved parent status
+  ---
+  duration_ms: 4.5109
+  type: 'test'
+  ...
+# Subtest: eligible assignments, reassignment, unassignment and clearing dates are deliberate changes
+ok 263 - eligible assignments, reassignment, unassignment and clearing dates are deliberate changes
+  ---
+  duration_ms: 3.8649
+  type: 'test'
+  ...
+# Subtest: unsupported cardinalities and datetime fields do not masquerade as editable single/date-only fields
+ok 264 - unsupported cardinalities and datetime fields do not masquerade as editable single/date-only fields
+  ---
+  duration_ms: 1.2758
+  type: 'test'
+  ...
+# Subtest: custom fields remain separate conflict targets; unrelated native edits are preserved
+ok 265 - custom fields remain separate conflict targets; unrelated native edits are preserved
+  ---
+  duration_ms: 1.9177
+  type: 'test'
+  ...
+# Subtest: typed numeric, enum and period payloads use native field identities and reject calculated time
+ok 266 - typed numeric, enum and period payloads use native field identities and reject calculated time
+  ---
+  duration_ms: 6.2783
+  type: 'test'
+  ...
+# Subtest: tag choices are explicit sets and unchanged tags do not create edits
+ok 267 - tag choices are explicit sets and unchanged tags do not create edits
+  ---
+  duration_ms: 7.3376
+  type: 'test'
+  ...
+# Subtest: spent-time protection survives incomplete project settings and field identity variations
+ok 268 - spent-time protection survives incomplete project settings and field identity variations
+  ---
+  duration_ms: 1.7706
+  type: 'test'
+  ...
+# Subtest: nullable editor baselines survive coalescing with an earlier queued edit
+ok 269 - nullable editor baselines survive coalescing with an earlier queued edit
+  ---
+  duration_ms: 69.1006
+  type: 'test'
+  ...
+# Subtest: incoming organization metadata preserves native fields, native queue and local view
+ok 270 - incoming organization metadata preserves native fields, native queue and local view
+  ---
+  duration_ms: 478.5114
+  type: 'test'
+  ...
+# Subtest: local image edits are durably queued even when YouTrack is disconnected
+ok 271 - local image edits are durably queued even when YouTrack is disconnected
+  ---
+  duration_ms: 427.7848
+  type: 'test'
+  ...
+# Subtest: pending own parent assignments enter metadata without sending native task edits
+ok 272 - pending own parent assignments enter metadata without sending native task edits
+  ---
+  duration_ms: 231.6825
+  type: 'test'
+  ...
+# Subtest: the journal keeps an edit if its compatibility workspace write fails
+ok 273 - the journal keeps an edit if its compatibility workspace write fails
+  ---
+  duration_ms: 178.2049
+  type: 'test'
+  ...
+# Subtest: a local edit made after incoming acceptance retains its original observed base
+ok 274 - a local edit made after incoming acceptance retains its original observed base
+  ---
+  duration_ms: 495.1065
+  type: 'test'
+  ...
+# Subtest: new cloud history cannot silently replace a different native leaf status
+ok 275 - new cloud history cannot silently replace a different native leaf status
+  ---
+  duration_ms: 416.2404
+  type: 'test'
+  ...
+# Subtest: removing an image propagates as a durable tombstone without deleting its immutable history
+ok 276 - removing an image propagates as a durable tombstone without deleting its immutable history
+  ---
+  duration_ms: 467.7555
+  type: 'test'
+  ...
+# Subtest: saved status defaults do not create a new metadata operation on every projection
+ok 277 - saved status defaults do not create a new metadata operation on every projection
+  ---
+  duration_ms: 218.8272
+  type: 'test'
+  ...
+# Subtest: an open editor defers projection and keeps a competing edit on its observed base
+ok 278 - an open editor defers projection and keeps a competing edit on its observed base
+  ---
+  duration_ms: 321.8122
+  type: 'test'
+  ...
+# Subtest: a chosen cloud status supersedes only the pending assigned-status part of a native edit
+ok 279 - a chosen cloud status supersedes only the pending assigned-status part of a native edit
+  ---
+  duration_ms: 510.0176
+  type: 'test'
+  ...
+# Subtest: an editor is never offered a projected head before its workspace copy is durable
+ok 280 - an editor is never offered a projected head before its workspace copy is durable
+  ---
+  duration_ms: 178.9092
+  type: 'test'
+  ...
+# Subtest: a delayed native annotation cannot replace a newer cloud-owned parent assignment
+ok 281 - a delayed native annotation cannot replace a newer cloud-owned parent assignment
+  ---
+  duration_ms: 202.0597
+  type: 'test'
+  ...
+# Subtest: a matching inherited status written by another computer preserves the shared own status
+ok 282 - a matching inherited status written by another computer preserves the shared own status
+  ---
+  duration_ms: 12.0392
+  type: 'test'
+  ...
+# Subtest: a distinct native State edit still updates the shared parent assignment
+ok 283 - a distinct native State edit still updates the shared parent assignment
+  ---
+  duration_ms: 7.3722
+  type: 'test'
+  ...
+# Subtest: single-item reads defer cloud-managed parent inference until the hierarchy is available
+ok 284 - single-item reads defer cloud-managed parent inference until the hierarchy is available
+  ---
+  duration_ms: 2.4272
+  type: 'test'
+  ...
+# Subtest: an observed native leaf State edit remains authoritative after its parent loses children
+ok 285 - an observed native leaf State edit remains authoritative after its parent loses children
+  ---
+  duration_ms: 1.5959
+  type: 'test'
+  ...
+# Subtest: metadata publication requires the exact deterministic genesis and its record
+ok 286 - metadata publication requires the exact deterministic genesis and its record
+  ---
+  duration_ms: 15.8577
+  type: 'test'
+  ...
+# Subtest: metadata cannot replace a different existing namespace genesis
+ok 287 - metadata cannot replace a different existing namespace genesis
+  ---
+  duration_ms: 17.18
+  type: 'test'
+  ...
+# Subtest: a metadata append cannot cross into the NPCDex namespace
+ok 288 - a metadata append cannot cross into the NPCDex namespace
+  ---
+  duration_ms: 2.3272
+  type: 'test'
+  ...
+# Subtest: a valid-looking hashed path cannot publish different bytes
+ok 289 - a valid-looking hashed path cannot publish different bytes
+  ---
+  duration_ms: 17.591
+  type: 'test'
+  ...
+# Subtest: independent tile images and saved parent statuses merge and converge
+ok 290 - independent tile images and saved parent statuses merge and converge
+  ---
+  duration_ms: 893.5958
+  type: 'test'
+  ...
+# Subtest: overlapping statuses preserve both versions and a durable review draft
+ok 291 - overlapping statuses preserve both versions and a durable review draft
+  ---
+  duration_ms: 556.0796
+  type: 'test'
+  ...
+# Subtest: different devices making the same assignment still require review
+ok 292 - different devices making the same assignment still require review
+  ---
+  duration_ms: 328.634
+  type: 'test'
+  ...
+# Subtest: a complete human resolution reaches another client and retains both ancestors
+ok 293 - a complete human resolution reaches another client and retains both ancestors
+  ---
+  duration_ms: 460.5353
+  type: 'test'
+  ...
+# Subtest: a newer concurrent branch invalidates an old approval
+ok 294 - a newer concurrent branch invalidates an old approval
+  ---
+  duration_ms: 717.1074
+  type: 'test'
+  ...
+# Subtest: a manual resolution works while automatic synchronization remains off
+ok 295 - a manual resolution works while automatic synchronization remains off
+  ---
+  duration_ms: 394.4425
+  type: 'test'
+  ...
+# Subtest: sibling order is one conflict unit; other parent lists can merge
+ok 296 - sibling order is one conflict unit; other parent lists can merge
+  ---
+  duration_ms: 660.5319
+  type: 'test'
+  ...
+# Subtest: uncertain accepted delivery retries the exact same immutable operation
+ok 297 - uncertain accepted delivery retries the exact same immutable operation
+  ---
+  duration_ms: 179.6764
+  type: 'test'
+  ...
+# Subtest: offline changes survive restart and are sent once
+ok 298 - offline changes survive restart and are sent once
+  ---
+  duration_ms: 202.1664
+  type: 'test'
+  ...
+# Subtest: a fresh passive client adopts existing metadata without publishing default values
+ok 299 - a fresh passive client adopts existing metadata without publishing default values
+  ---
+  duration_ms: 268.3676
+  type: 'test'
+  ...
+# Subtest: an incomplete or deleted dependency cannot advance the incoming frontier
+ok 300 - an incomplete or deleted dependency cannot advance the incoming frontier
+  ---
+  duration_ms: 207.2604
+  type: 'test'
+  ...
+# Subtest: a previously accepted record disappearing is held for recovery
+ok 301 - a previously accepted record disappearing is held for recovery
+  ---
+  duration_ms: 166.4788
+  type: 'test'
+  ...
+# Subtest: a local SQLite transaction failure does not acknowledge or partially save metadata
+ok 302 - a local SQLite transaction failure does not acknowledge or partially save metadata
+  ---
+  duration_ms: 100.6617
+  type: 'test'
+  ...
+# Subtest: journaled metadata survives a failure before its compatibility workspace write
+ok 303 - journaled metadata survives a failure before its compatibility workspace write
+  ---
+  duration_ms: 128.1454
+  type: 'test'
+  ...
+# Subtest: native moves/deletions cannot be undone by a stale cloud sibling list
+ok 304 - native moves/deletions cannot be undone by a stale cloud sibling list
+  ---
+  duration_ms: 77.7387
+  type: 'test'
+  ...
+# Subtest: capture excludes local IDs, preserves dormant saved statuses, and defers incomplete hierarchy changes
+ok 305 - capture excludes local IDs, preserves dormant saved statuses, and defers incomplete hierarchy changes
+  ---
+  duration_ms: 2.8459
+  type: 'test'
+  ...
+# Subtest: metadata rejects external URLs, active image formats, arbitrary fields and duplicate sibling IDs
+ok 306 - metadata rejects external URLs, active image formats, arbitrary fields and duplicate sibling IDs
+  ---
+  duration_ms: 1.7363
+  type: 'test'
+  ...
+# Subtest: delta application verifies exact before-values and preserves unrelated keys
+ok 307 - delta application verifies exact before-values and preserves unrelated keys
+  ---
+  duration_ms: 1.1561
+  type: 'test'
+  ...
+# Subtest: a syntactically valid but forged automatic merge is held before frontier adoption
+ok 308 - a syntactically valid but forged automatic merge is held before frontier adoption
+  ---
+  duration_ms: 304.1851
+  type: 'test'
+  ...
+# Subtest: missing semantic parents cannot be hidden by an otherwise valid metadata descriptor
+ok 309 - missing semantic parents cannot be hidden by an otherwise valid metadata descriptor
+  ---
+  duration_ms: 132.5313
+  type: 'test'
+  ...
+# Subtest: suspending during a resolution preflight cancels the uncommitted choice
+ok 310 - suspending during a resolution preflight cancels the uncommitted choice
+  ---
+  duration_ms: 276.6414
+  type: 'test'
+  ...
+# Subtest: a conflict holds unrelated incoming changes with the whole metadata version
+ok 311 - a conflict holds unrelated incoming changes with the whole metadata version
+  ---
+  duration_ms: 307.5604
+  type: 'test'
+  ...
+# Subtest: a thousand-item sibling order round-trips without moving native items
+ok 312 - a thousand-item sibling order round-trips without moving native items
+  ---
+  duration_ms: 489.8544
+  type: 'test'
+  ...
+# Subtest: image MIME labels cannot disguise active non-raster bytes
+ok 313 - image MIME labels cannot disguise active non-raster bytes
+  ---
+  duration_ms: 2.4402
+  type: 'test'
+  ...
+# Subtest: applying an already matching order preserves its exact sparse rank map
+ok 314 - applying an already matching order preserves its exact sparse rank map
+  ---
+  duration_ms: 1.3846
+  type: 'test'
+  ...
+# Subtest: custom native State labels remain exact cloud data without blocking synchronization
+ok 315 - custom native State labels remain exact cloud data without blocking synchronization
+  ---
+  duration_ms: 407.717
+  type: 'test'
+  ...
+# Subtest: release identity is authenticated before trusting notes, version or artifact bytes
+ok 316 - release identity is authenticated before trusting notes, version or artifact bytes
+  ---
+  duration_ms: 79.149
+  type: 'test'
+  ...
+# Subtest: wrong platform, application, incompatible saves, stale dates and rollback feeds are rejected
+ok 317 - wrong platform, application, incompatible saves, stale dates and rollback feeds are rejected
+  ---
+  duration_ms: 144.1273
+  type: 'test'
+  ...
+# Subtest: unsafe artifact names, sizes, providers and weak signing keys fail closed
+ok 318 - unsafe artifact names, sizes, providers and weak signing keys fail closed
+  ---
+  duration_ms: 659.3035
+  type: 'test'
+  ...
+# Subtest: bounded metadata refuses declared or streamed oversized responses
+ok 319 - bounded metadata refuses declared or streamed oversized responses
+  ---
+  duration_ms: 323.1875
+  type: 'test'
+  ...
+# Subtest: download streams to a private staging file and publishes only verified complete bytes
+ok 320 - download streams to a private staging file and publishes only verified complete bytes
+  ---
+  duration_ms: 300.991
+  type: 'test'
+  ...
+# Subtest: download consent is mandatory and bad, oversized or interrupted bytes never become an installer
+ok 321 - download consent is mandatory and bad, oversized or interrupted bytes never become an installer
+  ---
+  duration_ms: 271.3084
+  type: 'test'
+  ...
+# Subtest: manual installer staging verifies copies and refuses a preexisting corrupted cached installer
+ok 322 - manual installer staging verifies copies and refuses a preexisting corrupted cached installer
+  ---
+  duration_ms: 974.9763
+  type: 'test'
+  ...
+# Subtest: private GitHub asset redirects never send credentials to the asset host and reject other hosts
+ok 323 - private GitHub asset redirects never send credentials to the asset host and reject other hosts
+  ---
+  duration_ms: 28.6577
+  type: 'test'
+  ...
+# Subtest: private hosting must match the pinned repository and cannot silently become public
+ok 324 - private hosting must match the pinned repository and cannot silently become public
+  ---
+  duration_ms: 4.5868
+  type: 'test'
+  ...
+# Subtest: daily checks fetch metadata only; Later and checks never download installer bytes
+ok 325 - daily checks fetch metadata only; Later and checks never download installer bytes
+  ---
+  duration_ms: 226.8378
+  type: 'test'
+  ...
+# Subtest: failed feed checks do not erase an already verified update and persisted rollback protection survives restart
+ok 326 - failed feed checks do not erase an already verified update and persisted rollback protection survives restart
+  ---
+  duration_ms: 83.5864
+  type: 'test'
+  ...
+# Subtest: tampered cached installers and expired metadata cannot reach installation
+ok 327 - tampered cached installers and expired metadata cannot reach installation
+  ---
+  duration_ms: 489.3701
+  type: 'test'
+  ...
+# Subtest: unconfigured delivery makes no network request and preserves the signed manual route
+ok 328 - unconfigured delivery makes no network request and preserves the signed manual route
+  ---
+  duration_ms: 692.7961
+  type: 'test'
+  ...
+# Subtest: update checkpoint retains queued files and encryption state while excluding updater recursion and browser cache
+ok 329 - update checkpoint retains queued files and encryption state while excluding updater recursion and browser cache
+  ---
+  duration_ms: 691.2969
+  type: 'test'
+  ...
+# Subtest: installer handoff checkpoints and quiesces before creating a durable plan and waiting for the helper
+ok 330 - installer handoff checkpoints and quiesces before creating a durable plan and waiting for the helper
+  ---
+  duration_ms: 850.7363
+  type: 'test'
+  ...
+# Subtest: checkpoint or helper preflight failure resumes current work and never approves quitting
+ok 331 - checkpoint or helper preflight failure resumes current work and never approves quitting
+  ---
+  duration_ms: 1409.7771
+  type: 'test'
+  ...
+# Subtest: a Windows helper that exits before its handshake resumes the active workspace
+ok 332 - a Windows helper that exits before its handshake resumes the active workspace
+  ---
+  duration_ms: 1340.6945
+  type: 'test'
+  ...
+# Subtest: build folders share one account profile while explicit test directories stay isolated
+ok 333 - build folders share one account profile while explicit test directories stay isolated
+  ---
+  duration_ms: 16.6793
+  type: 'test'
+  ...
+# Subtest: Windows sandbox and normal launches use the same granted account profile
+ok 334 - Windows sandbox and normal launches use the same granted account profile
+  ---
+  duration_ms: 1.5884
+  type: 'test'
+  ...
+# Subtest: migration preserves ciphertext and all private state byte-for-byte and leaves the legacy backup intact
+ok 335 - migration preserves ciphertext and all private state byte-for-byte and leaves the legacy backup intact
+  ---
+  duration_ms: 1218.1565
+  type: 'test'
+  ...
+# Subtest: a later build reuses the profile without overwriting it with an older local backup
+ok 336 - a later build reuses the profile without overwriting it with an older local backup
+  ---
+  duration_ms: 598.5686
+  type: 'test'
+  ...
+# Subtest: unknown destination and damaged legacy JSON are refused without replacing data
+ok 337 - unknown destination and damaged legacy JSON are refused without replacing data
+  ---
+  duration_ms: 589.5619
+  type: 'test'
+  ...
+# Subtest: explicit fixture directory never imports an adjacent connection or workspace
+ok 338 - explicit fixture directory never imports an adjacent connection or workspace
+  ---
+  duration_ms: 214.0116
+  type: 'test'
+  ...
+# Subtest: atomic protected-token replacement retains the previous file when publication fails
+ok 339 - atomic protected-token replacement retains the previous file when publication fails
+  ---
+  duration_ms: 203.4639
+  type: 'test'
+  ...
+# Subtest: build identity distinguishes folders and changed imported service code
+ok 340 - build identity distinguishes folders and changed imported service code
+  ---
+  duration_ms: 2530.3859
+  type: 'test'
+  ...
+# Subtest: headless native engine retains queued work across a real disk restart, pulls native edits on manual Save and remains Off
+ok 341 - headless native engine retains queued work across a real disk restart, pulls native edits on manual Save and remains Off
+  ---
+  duration_ms: 707.8555
+  type: 'test'
+  ...
+# Subtest: native manual calls coalesce without sending the same queued operation twice
+ok 342 - native manual calls coalesce without sending the same queued operation twice
+  ---
+  duration_ms: 6.7777
+  type: 'test'
+  ...
+# Subtest: manual Save requested during an automatic cycle runs one follow-up pull without replaying confirmed work
+ok 343 - manual Save requested during an automatic cycle runs one follow-up pull without replaying confirmed work
+  ---
+  duration_ms: 14.44
+  type: 'test'
+  ...
+# Subtest: runtime timers are injected, start once and can detach without changing queue data
+ok 344 - runtime timers are injected, start once and can detach without changing queue data
+  ---
+  duration_ms: 22.3538
+  type: 'test'
+  ...
+# Subtest: providers start in the initiating call, double-clicks coalesce and one provider failure does not block another
+ok 345 - providers start in the initiating call, double-clicks coalesce and one provider failure does not block another
+  ---
+  duration_ms: 14.7914
+  type: 'test'
+  ...
+# Subtest: shared records restore without replaying provider actions
+ok 346 - shared records restore without replaying provider actions
+  ---
+  duration_ms: 2.2089
+  type: 'test'
+  ...
+# Subtest: duplicate provider ownership is rejected and unavailable cloud is not treated as delivered data
+ok 347 - duplicate provider ownership is rejected and unavailable cloud is not treated as delivered data
+  ---
+  duration_ms: 3.8671
+  type: 'test'
+  ...
+# Subtest: checkpoint failures stay independent and do not invoke remote save
+ok 348 - checkpoint failures stay independent and do not invoke remote save
+  ---
+  duration_ms: 2.3449
+  type: 'test'
+  ...
+# Subtest: failed coordinator metadata persistence remains visible instead of reporting an unqualified successful save
+ok 349 - failed coordinator metadata persistence remains visible instead of reporting an unqualified successful save
+  ---
+  duration_ms: 2.6016
+  type: 'test'
+  ...
+# Subtest: unknown coordinator format is preserved and never overwritten
+ok 350 - unknown coordinator format is preserved and never overwritten
+  ---
+  duration_ms: 7.4087
+  type: 'test'
+  ...
+# Subtest: queued edits do not turn the lamp red during healthy automatic synchronization
+ok 351 - queued edits do not turn the lamp red during healthy automatic synchronization
+  ---
+  duration_ms: 7.6119
+  type: 'test'
+  ...
+# Subtest: disabled synchronization needs manual saving only if data is queued
+ok 352 - disabled synchronization needs manual saving only if data is queued
+  ---
+  duration_ms: 1.0368
+  type: 'test'
+  ...
+# Subtest: lost connection and failed retries flag unsaved data
+ok 353 - lost connection and failed retries flag unsaved data
+  ---
+  duration_ms: 0.9867
+  type: 'test'
+  ...
+# Subtest: connection loss alone does not label a clean workspace as unsaved
+ok 354 - connection loss alone does not label a clean workspace as unsaved
+  ---
+  duration_ms: 1.1691
+  type: 'test'
+  ...
+# Subtest: conflicts, uncertain operations and unavailable project states require attention
+ok 355 - conflicts, uncertain operations and unavailable project states require attention
+  ---
+  duration_ms: 1.5755
+  type: 'test'
+  ...
+# Subtest: editor changes stay green when sync is healthy and red when sending is blocked
+ok 356 - editor changes stay green when sync is healthy and red when sending is blocked
+  ---
+  duration_ms: 2.4208
+  type: 'test'
+  ...
+# Subtest: four selector tiers relabel existing levels without changing parent links
+ok 357 - four selector tiers relabel existing levels without changing parent links
+  ---
+  duration_ms: 15.0767
+  type: 'test'
+  ...
+# Subtest: Verse is selectable depth four but only Epic/Saga/Story belong to disclosure state
+ok 358 - Verse is selectable depth four but only Epic/Saga/Story belong to disclosure state
+  ---
+  duration_ms: 3.9533
+  type: 'test'
+  ...
+# Subtest: opening a different Epic discards the old Saga and Story state
+ok 359 - opening a different Epic discards the old Saga and Story state
+  ---
+  duration_ms: 2.7713
+  type: 'test'
+  ...
+# Subtest: opening another Saga keeps the Epic and discards the prior Saga/Story
+ok 360 - opening another Saga keeps the Epic and discards the prior Saga/Story
+  ---
+  duration_ms: 1.4793
+  type: 'test'
+  ...
+# Subtest: opening another Story keeps its Epic and Saga but replaces the prior Story
+ok 361 - opening another Story keeps its Epic and Saga but replaces the prior Story
+  ---
+  duration_ms: 1.5826
+  type: 'test'
+  ...
+# Subtest: opening a Story in another Epic reveals exactly its new ancestor path
+ok 362 - opening a Story in another Epic reveals exactly its new ancestor path
+  ---
+  duration_ms: 1.029
+  type: 'test'
+  ...
+# Subtest: collapse prunes all descendants rather than retaining hidden expansion
+ok 363 - collapse prunes all descendants rather than retaining hidden expansion
+  ---
+  duration_ms: 1.607
+  type: 'test'
+  ...
+# Subtest: old multi-expanded preferences choose one path containing the selected item
+ok 364 - old multi-expanded preferences choose one path containing the selected item
+  ---
+  duration_ms: 1.6544
+  type: 'test'
+  ...
+# Subtest: empty preferences stay collapsed and missing selected items are safe
+ok 365 - empty preferences stay collapsed and missing selected items are safe
+  ---
+  duration_ms: 1.3929
+  type: 'test'
+  ...
+# Subtest: native reparenting repairs the path and deleted nodes vanish
+ok 366 - native reparenting repairs the path and deleted nodes vanish
+  ---
+  duration_ms: 6.3065
+  type: 'test'
+  ...
+# Subtest: branches without children never get disclosure state
+ok 367 - branches without children never get disclosure state
+  ---
+  duration_ms: 1.7294
+  type: 'test'
+  ...
+# Subtest: a parent outside the imported project does not make its visible root unexpandable
+ok 368 - a parent outside the imported project does not make its visible root unexpandable
+  ---
+  duration_ms: 1.7276
+  type: 'test'
+  ...
+# Subtest: selector normalization does not alter images or unrestricted Work expansion
+ok 369 - selector normalization does not alter images or unrestricted Work expansion
+  ---
+  duration_ms: 7.1448
+  type: 'test'
+  ...
+# Subtest: moving to application Data preserves original encrypted session key and backs up a failed-launch key
+ok 370 - moving to application Data preserves original encrypted session key and backs up a failed-launch key
+  ---
+  duration_ms: 302.2287
+  type: 'test'
+  ...
+# Subtest: an established Data profile never has its credential key replaced by an older copy
+ok 371 - an established Data profile never has its credential key replaced by an older copy
+  ---
+  duration_ms: 206.2677
+  type: 'test'
+  ...
+# Subtest: a missing original key stops credential migration before replacing destination state
+ok 372 - a missing original key stops credential migration before replacing destination state
+  ---
+  duration_ms: 115.6043
+  type: 'test'
+  ...
+# Subtest: profiles without a remembered connection need no original session key
+ok 373 - profiles without a remembered connection need no original session key
+  ---
+  duration_ms: 84.8956
+  type: 'test'
+  ...
+# Subtest: served header assets match their canonical suite copies
+ok 374 - served header assets match their canonical suite copies
+  ---
+  duration_ms: 105.0728
+  type: 'test'
+  ...
+# Subtest: every configured service contributes to connection health without inventing unsaved work
+ok 375 - every configured service contributes to connection health without inventing unsaved work
+  ---
+  duration_ms: 5.1956
+  type: 'test'
+  ...
+# Subtest: ordinary flowing edits remain green across all providers; Off requires a manual save only for pending work
+ok 376 - ordinary flowing edits remain green across all providers; Off requires a manual save only for pending work
+  ---
+  duration_ms: 1.895
+  type: 'test'
+  ...
+# Subtest: known conflicts require review while a healthy transport remains blue
+ok 377 - known conflicts require review while a healthy transport remains blue
+  ---
+  duration_ms: 1.4161
+  type: 'test'
+  ...
+# Subtest: checking and local-only providers are truthful; local recovery and coordinator errors stay visible
+ok 378 - checking and local-only providers are truthful; local recovery and coordinator errors stay visible
+  ---
+  duration_ms: 1.1615
+  type: 'test'
+  ...
+# Subtest: service interruption overrides stale cloud status, including when no view is currently active
+ok 379 - service interruption overrides stale cloud status, including when no view is currently active
+  ---
+  duration_ms: 1.1529
+  type: 'test'
+  ...
+# Subtest: Metadata clean offline check uses the connection lamp; queued work requires Save and recovery clears it
+ok 380 - Metadata clean offline check uses the connection lamp; queued work requires Save and recovery clears it
+  ---
+  duration_ms: 312.1331
+  type: 'test'
+  ...
+# Subtest: NPCDex clean offline check uses the connection lamp; queued work requires Save and recovery clears it
+ok 381 - NPCDex clean offline check uses the connection lamp; queued work requires Save and recovery clears it
+  ---
+  duration_ms: 565.2197
+  type: 'test'
+  ...
+# Subtest: one failed provider does not block successful one-cycle saves and never enables automatic sync
+ok 382 - one failed provider does not block successful one-cycle saves and never enables automatic sync
+  ---
+  duration_ms: 9.889
+  type: 'test'
+  ...
+# Subtest: the NPCDex default leaves the former dialogue and timeline space for details
+ok 383 - the NPCDex default leaves the former dialogue and timeline space for details
+  ---
+  duration_ms: 7.0426
+  type: 'test'
+  ...
+# Subtest: collapse removes details space without changing the remembered open size
+ok 384 - collapse removes details space without changing the remembered open size
+  ---
+  duration_ms: 6.4219
+  type: 'test'
+  ...
+# Subtest: full-height Details uses the divider and Work space even below the normal Work minimum
+ok 385 - full-height Details uses the divider and Work space even below the normal Work minimum
+  ---
+  duration_ms: 5.8067
+  type: 'test'
+  ...
+# Subtest: resizing the viewport retains proportional intent and keeps both trays reachable
+ok 386 - resizing the viewport retains proportional intent and keeps both trays reachable
+  ---
+  duration_ms: 2.2406
+  type: 'test'
+  ...
+# Subtest: damaged saved ratios fall back or clamp without producing invalid geometry
+ok 387 - damaged saved ratios fall back or clamp without producing invalid geometry
+  ---
+  duration_ms: 1.851
+  type: 'test'
+  ...
+# Subtest: connection lens separates healthy, lost and disabled states from unsaved work
+ok 388 - connection lens separates healthy, lost and disabled states from unsaved work
+  ---
+  duration_ms: 7.6851
+  type: 'test'
+  ...
+# Subtest: shared setting is durable before it becomes active and manual permission is explicit
+ok 389 - shared setting is durable before it becomes active and manual permission is explicit
+  ---
+  duration_ms: 8.2308
+  type: 'test'
+  ...
+# Subtest: failed settings persistence preserves the previous choice
+ok 390 - failed settings persistence preserves the previous choice
+  ---
+  duration_ms: 4.4989
+  type: 'test'
+  ...
+# Subtest: disabled workspace keeps edits locally and blocks outgoing, incoming and comment requests
+ok 391 - disabled workspace keeps edits locally and blocks outgoing, incoming and comment requests
+  ---
+  duration_ms: 54.8952
+  type: 'test'
+  ...
+# Subtest: disabled initialization, online events and page-return events never refresh YouTrack
+ok 392 - disabled initialization, online events and page-return events never refresh YouTrack
+  ---
+  duration_ms: 11.0086
+  type: 'test'
+  ...
+# Subtest: manual Save performs one cycle while off, pulls native changes, and does not resume
+ok 393 - manual Save performs one cycle while off, pulls native changes, and does not resume
+  ---
+  duration_ms: 54.7783
+  type: 'test'
+  ...
+# Subtest: one-time sync reads conflicting native values before committing and preserves the pending edit
+ok 394 - one-time sync reads conflicting native values before committing and preserves the pending edit
+  ---
+  duration_ms: 7.2803
+  type: 'test'
+  ...
+# Subtest: resolving a paused conflict commits one explicit cycle and leaves automatic sync off
+ok 395 - resolving a paused conflict commits one explicit cycle and leaves automatic sync off
+  ---
+  duration_ms: 29.3527
+  type: 'test'
+  ...
+# Subtest: a second window observes the shared off switch before sending its stale queued edit
+ok 396 - a second window observes the shared off switch before sending its stale queued edit
+  ---
+  duration_ms: 5.7127
+  type: 'test'
+  ...
+# Subtest: a server-side off decision during an automatic request does not consume pending operations
+ok 397 - a server-side off decision during an automatic request does not consume pending operations
+  ---
+  duration_ms: 4.8022
+  type: 'test'
+  ...
+# Subtest: re-enabling runs reconciliation, then follows new native snapshots automatically
+ok 398 - re-enabling runs reconciliation, then follows new native snapshots automatically
+  ---
+  duration_ms: 22.8188
+  type: 'test'
+  ...
+# Subtest: another window sees re-enablement and resumes rather than retaining its local pause
+ok 399 - another window sees re-enablement and resumes rather than retaining its local pause
+  ---
+  duration_ms: 16.0051
+  type: 'test'
+  ...
+# Subtest: lost service marks the connection unavailable without discarding local work
+ok 400 - lost service marks the connection unavailable without discarding local work
+  ---
+  duration_ms: 4.181
+  type: 'test'
+  ...
+# Subtest: failed YouTrack sync turns connection red; the next successful cycle restores blue
+ok 401 - failed YouTrack sync turns connection red; the next successful cycle restores blue
+  ---
+  duration_ms: 6.0552
+  type: 'test'
+  ...
+# Subtest: a stale status response cannot undo a newer explicit switch change
+ok 402 - a stale status response cannot undo a newer explicit switch change
+  ---
+  duration_ms: 2.7293
+  type: 'test'
+  ...
+# Subtest: shared setting checks do not overwrite another window’s workspace queue
+ok 403 - shared setting checks do not overwrite another window’s workspace queue
+  ---
+  duration_ms: 3.4983
+  type: 'test'
+  ...
+# Subtest: a local save failure does not claim the healthy YouTrack connection is lost
+ok 404 - a local save failure does not claim the healthy YouTrack connection is lost
+  ---
+  duration_ms: 8.9145
+  type: 'test'
+  ...
+# ROMDex ready: http://127.0.0.1:4398
+# Subtest: a restarted service with sync disabled restores credentials without contacting YouTrack
+ok 405 - a restarted service with sync disabled restores credentials without contacting YouTrack
+  ---
+  duration_ms: 1316.4589
+  type: 'test'
+  ...
+# Subtest: checkbox toggles and Ctrl-click preserve nonconsecutive selections
+ok 406 - checkbox toggles and Ctrl-click preserve nonconsecutive selections
+  ---
+  duration_ms: 14.5459
+  type: 'test'
+  ...
+# Subtest: Shift ranges use visible order in both directions and retain the anchor
+ok 407 - Shift ranges use visible order in both directions and retain the anchor
+  ---
+  duration_ms: 0.9906
+  type: 'test'
+  ...
+# Subtest: Ctrl Shift extends a range while ordinary Shift replaces prior selection
+ok 408 - Ctrl Shift extends a range while ordinary Shift replaces prior selection
+  ---
+  duration_ms: 1.1911
+  type: 'test'
+  ...
+# Subtest: range excludes collapsed, filtered, and out-of-scope rows
+ok 409 - range excludes collapsed, filtered, and out-of-scope rows
+  ---
+  duration_ms: 117.2025
+  type: 'test'
+  ...
+# Subtest: native deletion, filtering, and collapse prune selection and invalid anchors
+ok 410 - native deletion, filtering, and collapse prune selection and invalid anchors
+  ---
+  duration_ms: 3.2065
+  type: 'test'
+  ...
+# Subtest: scope clearing resets range anchor; unknown click cannot select hidden item
+ok 411 - scope clearing resets range anchor; unknown click cannot select hidden item
+  ---
+  duration_ms: 0.9147
+  type: 'test'
+  ...
+# Subtest: local issue ID replacement preserves checkbox identity and range anchor
+ok 412 - local issue ID replacement preserves checkbox identity and range anchor
+  ---
+  duration_ms: 0.9468
+  type: 'test'
+  ...
+# Subtest: completed items start visible; hiding uses inherited status and retains unfinished ancestors
+ok 413 - completed items start visible; hiding uses inherited status and retains unfinished ancestors
+  ---
+  duration_ms: 15.4622
+  type: 'test'
+  ...
+# Subtest: completion filtering respects selector scope and saved expansion state
+ok 414 - completion filtering respects selector scope and saved expansion state
+  ---
+  duration_ms: 1.0582
+  type: 'test'
+  ...
+# Subtest: search includes context for unfinished matches but excludes completed-only matches
+ok 415 - search includes context for unfinished matches but excludes completed-only matches
+  ---
+  duration_ms: 1.7187
+  type: 'test'
+  ...
+# Subtest: active editing and draft insertion paths stay reachable without revealing completed siblings
+ok 416 - active editing and draft insertion paths stay reachable without revealing completed siblings
+  ---
+  duration_ms: 1.0873
+  type: 'test'
+  ...
+# Subtest: native completion and reopening immediately update the filtered view without rewriting saved statuses
+ok 417 - native completion and reopening immediately update the filtered view without rewriting saved statuses
+  ---
+  duration_ms: 2.579
+  type: 'test'
+  ...
+# Subtest: toggling preserves hierarchy, manual order and full-tree colors
+ok 418 - toggling preserves hierarchy, manual order and full-tree colors
+  ---
+  duration_ms: 2.3168
+  type: 'test'
+  ...
+# Subtest: filtered drag guides retain the real hidden sibling boundary used by the committed move
+ok 419 - filtered drag guides retain the real hidden sibling boundary used by the committed move
+  ---
+  duration_ms: 3.4887
+  type: 'test'
+  ...
+# Subtest: a normal workspace cycles default, full, collapsed, then default
+ok 420 - a normal workspace cycles default, full, collapsed, then default
+  ---
+  duration_ms: 10.1882
+  type: 'test'
+  ...
+# Subtest: cycling a custom split returns to the default after collapsed mode
+ok 421 - cycling a custom split returns to the default after collapsed mode
+  ---
+  duration_ms: 1.1682
+  type: 'test'
+  ...
+# Subtest: workspace TAB cycles but ordinary form focus does not
+ok 422 - workspace TAB cycles but ordinary form focus does not
+  ---
+  duration_ms: 1.0645
+  type: 'test'
+  ...
+# Subtest: inline name editing takes precedence over pane cycling and grouping
+ok 423 - inline name editing takes precedence over pane cycling and grouping
+  ---
+  duration_ms: 0.8647
+  type: 'test'
+  ...
+# Subtest: multi-selection reserves TAB for grouping without intercepting forms
+ok 424 - multi-selection reserves TAB for grouping without intercepting forms
+  ---
+  duration_ms: 0.9223
+  type: 'test'
+  ...
+# Subtest: modifier keys, composition and non-TAB keys do not cycle
+ok 425 - modifier keys, composition and non-TAB keys do not cycle
+  ---
+  duration_ms: 1.2201
+  type: 'test'
+  ...
+# Subtest: modal menus and active drag/resize suppress list shortcuts
+ok 426 - modal menus and active drag/resize suppress list shortcuts
+  ---
+  duration_ms: 0.9077
+  type: 'test'
+  ...
+# Subtest: existing names indent under the preceding sibling, not its descendant
+ok 427 - existing names indent under the preceding sibling, not its descendant
+  ---
+  duration_ms: 86.3319
+  type: 'test'
+  ...
+# Subtest: outdent inserts after the original parent and before its next sibling
+ok 428 - outdent inserts after the original parent and before its next sibling
+  ---
+  duration_ms: 1.6348
+  type: 'test'
+  ...
+# Subtest: unavailable nesting targets leave the hierarchy unchanged
+ok 429 - unavailable nesting targets leave the hierarchy unchanged
+  ---
+  duration_ms: 4.6851
+  type: 'test'
+  ...
+# Subtest: ESC clears a selected item or field before it is allowed to toggle panes
+ok 430 - ESC clears a selected item or field before it is allowed to toggle panes
+  ---
+  duration_ms: 0.9998
+  type: 'test'
+  ...
+# Subtest: ESC leaves modal dismissal, composition, drag/resize and modified shortcuts alone
+ok 431 - ESC leaves modal dismissal, composition, drag/resize and modified shortcuts alone
+  ---
+  duration_ms: 1.156
+  type: 'test'
+  ...
+# Subtest: ESC with no selection toggles Collapsed and Default, resetting a custom split
+ok 432 - ESC with no selection toggles Collapsed and Default, resetting a custom split
+  ---
+  duration_ms: 0.8569
+  type: 'test'
+  ...
+# Subtest: ESC from Expanded with no selection collapses before restoring Default
+ok 433 - ESC from Expanded with no selection collapses before restoring Default
+  ---
+  duration_ms: 0.6864
+  type: 'test'
+  ...
+1..433
+# tests 467
+# suites 0
+# pass 467
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 33453.7301

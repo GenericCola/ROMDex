@@ -1,0 +1,9 @@
+{
+  "task": "U20C",
+  "scope": "Independent PowerShell Test-Json schema evaluation of U20A synthetic artifacts",
+  "powershell": "7.6.5",
+  "positiveArtifacts": 24,
+  "rejectedInvalidArtifacts": 4,
+  "status": "passed",
+  "doesNotProve": "Hardened production parsing, live server behavior, actual actor grants or ROM extraction"
+}

@@ -4,7 +4,7 @@
 **Status:** U01–U20 and approved intervening tasks are complete. Installed ROMDex **0.5.7** has private NPCDex/metadata cloud sync, native two-way YouTrack sync and shared controls/indicators. U20's content-registry and package/backend-result design is user-approved; later task-specific approvals and technical proof gates remain required.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
-**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md), [U20 accepted design](U20-Consolidated-Architecture-and-Revised-Plan.md). U20A is approved and complete. **U20B is complete** after NPCD provisioning and isolated live storage/restart/cleanup proof; [report and limits](U20B-Completion-Report.md). **Next: U20C — Sol / High**, requiring a new PASSKEY. Later tasks remain gated.
+**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md), [U20 accepted design](U20-Consolidated-Architecture-and-Revised-Plan.md). U20A is approved and complete. **U20B is complete** after NPCD provisioning and isolated live storage/restart/cleanup proof; [report and limits](U20B-Completion-Report.md). **U20C is complete** after isolated dynamic reader/cache/projection implementation, 467 tests and live YouTrack attachment/restart/cleanup proof. [Report and limits](U20C-Completion-Report.md). Installed 0.5.7 and the existing GitHub-backed NPCDex remain authoritative. **Next: U20D — Backend Planning and Documentation Corrections, Sol / High; new PASSKEY required.**
 
 ## Working Agreement
 
@@ -219,7 +219,7 @@ Scheduled after U30 so notifications do not delay cloud persistence or the packa
 
 Tasks later in the plan are provisional until their design checkpoints are completed. Current desktop/cloud behavior remains available while the content architecture is reviewed and proved. Earlier completion narratives below are historical checkpoints; the status and checklist at the top control current execution.
 
-**Current boundary:** U20/U20A designs are accepted and **U20B is complete**. **U20C — Sol / High** is next and needs a new PASSKEY; no U20C implementation or migration is authorized yet. NPCDex's existing GitHub provider remains authoritative.
+**Current boundary:** **U20C is complete** after isolated dynamic reader/cache/projection implementation, 467 tests and live YouTrack attachment/restart/cleanup proof. [Report and limits](U20C-Completion-Report.md). Installed 0.5.7 and the existing GitHub-backed NPCDex remain authoritative. **Next: U20D — Backend Planning and Documentation Corrections, Sol / High; new PASSKEY required.**
 
 
 ## R08 — Release Completed, October 14, 2026

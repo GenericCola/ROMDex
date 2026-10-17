@@ -1,0 +1,12 @@
+const fs=require('node:fs/promises'),path=require('node:path');
+require('./u20c-live-support.cjs').start(async({api,state,save,work,root,report,assert})=>{
+ for(const name of ['live-prepare','live-baseline','live-update','live-interrupted','live-recovery']){const result=JSON.parse(await fs.readFile(path.join(work,name+'.json'),'utf8'));assert.equal(result.status,'passed',name);}
+ assert.equal(state.content.readProcesses.recovery.head,state.content.update.pub.digest);state.deleted=state.deleted||[];
+ const all=Object.values(state.issues),known=new Set(all.map(i=>i.id));for(const issue of all.filter(i=>!state.deleted.includes(i.id))){const value=await api.requireFixture(issue.id);assert(value.links.every(l=>l.issues.every(i=>known.has(i.id))));assert.equal((await api.list('/api/issues/'+issue.id+'/comments?fields=id')).length,0);assert.deepEqual(value.visibility.permittedUsers.map(u=>u.id),['2-2']);const allowed=new Set(Object.values(state.uploads).filter(a=>a.issueId===issue.id).map(a=>a.id));assert((await api.attachments(issue.id)).every(a=>allowed.has(a.id)&&a.author?.id==='2-2'));}
+ const pkg=JSON.parse(await fs.readFile(path.join(root,'outputs/U20A-Contracts/examples/map-package.json'),'utf8')),byId=new Map(pkg.recordSnapshots.map(r=>[r.recordId,r])),depth=id=>{let n=0,r=byId.get(id);while(r?.parentRecordId){n++;r=byId.get(r.parentRecordId);}return n;};
+ const order=[...state.content.bindings].sort((a,b)=>depth(b.recordId)-depth(a.recordId)).map(b=>all.find(i=>i.id===b.issueId));order.push(state.issues.registry);
+ for(const issue of order){if(state.deleted.includes(issue.id))continue;await api.requireFixture(issue.id);await api.request('DELETE','/api/issues/'+issue.id);state.deleted.push(issue.id);await save();let status;try{await api.request('GET','/api/issues/'+issue.id+'?fields=id');}catch(e){status=e.status;}assert.equal(status,404);}
+ const remaining=await api.list('/api/issues?query='+encodeURIComponent('"'+state.marker+'"')+'&fields=id,description');assert(!remaining.some(i=>i.description?.includes(state.marker)));
+ const content=await api.list('/api/issues?query='+encodeURIComponent('project: NPCD')+'&fields=id'),tasks=await api.list('/api/issues?query='+encodeURIComponent('project: PMON')+'&fields=id',{pageSize:50});
+ state.stage='cleaned';await save();report.checks.push({label:'Only marked NPCD fixture issues removed and verified absent',deleted:state.deleted.length,activeRunFixtures:0,visibleContentIssues:content.length,visiblePMONIssues:tasks.length,PMONWrites:0});
+});

@@ -1,0 +1,3 @@
+# U20C Evidence
+
+Synthetic isolated content only. All marked issues were deleted. Live stage reports contain API paths/statuses and checks, never credentials or signed URLs. Separate Electron processes exercised the actual runtime reader/cache. The HTTP 503 was deliberately injected client-side. Full real-data migration and agent identity/authorization remain later gates. Regression TEMP/TMP was workspace-local. Development helpers are historical scripts intended to run from the original task workspace with explicit reviewed fixture state; they are not an installer or a production content writer. Protected Windows session, cache databases, raw live Data and full saves are excluded.

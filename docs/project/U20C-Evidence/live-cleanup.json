@@ -1,0 +1,633 @@
+{
+  "task": "U20C",
+  "startedAt": "2026-10-17T21:19:33.254Z",
+  "checks": [
+    {
+      "label": "Only marked NPCD fixture issues removed and verified absent",
+      "deleted": 12,
+      "activeRunFixtures": 0,
+      "visibleContentIssues": 0,
+      "visiblePMONIssues": 299,
+      "PMONWrites": 0
+    }
+  ],
+  "credentialsLogged": false,
+  "runId": "3371d9a7-108f-4b8b-8d03-c9f2a76c914f",
+  "project": {
+    "id": "0-2",
+    "key": "NPCD",
+    "name": "NPCD",
+    "leader": "thegobindsingh"
+  },
+  "allThreeCredentialFilesUnchanged": true,
+  "status": "passed",
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/users/me",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-349",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-349/comments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-349",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-349/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-349/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-349/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-349/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-350",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-350/comments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-350",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-350/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-351",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-351/comments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-351",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-351/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-352",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-352/comments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-352",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-352/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-353",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-353/comments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-353",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-353/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-354",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-354/comments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-354",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-354/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-355",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-355/comments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-355",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-355/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-356",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-356/comments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-356",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-356/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-357",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-357/comments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-357",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-357/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-357/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-357/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-358",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-358/comments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-358",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-358/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-358/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-359",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-359/comments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-359",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-359/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-359/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-360",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-360/comments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-360",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-360/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-360/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-357",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-357",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-357",
+      "status": 404,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-358",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-358",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-358",
+      "status": 404,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-359",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-359",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-359",
+      "status": 404,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-360",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-360",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-360",
+      "status": 404,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-352",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-352",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-352",
+      "status": 404,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-351",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-351",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-351",
+      "status": 404,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-350",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-350",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-350",
+      "status": 404,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-353",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-353",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-353",
+      "status": 404,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-354",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-354",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-354",
+      "status": 404,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-355",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-355",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-355",
+      "status": 404,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-356",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-356",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-356",
+      "status": 404,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-349",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-349",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-349",
+      "status": 404,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    }
+  ],
+  "finishedAt": "2026-10-17T21:20:15.452Z"
+}

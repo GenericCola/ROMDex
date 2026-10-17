@@ -1,0 +1,37 @@
+{
+  "task": "U20C",
+  "startedAt": "2026-10-17T21:18:26.229Z",
+  "checks": [
+    {
+      "label": "Read-only production module exercised against real YouTrack fixture attachments",
+      "mode": "recovery",
+      "head": "2a023d6aa3724a7247f357efd9bcabbcd2bb59e16867346ebd1ac22612637bd3",
+      "GETRequests": 98,
+      "remoteWritesByReader": 0,
+      "injectedResponses": 0,
+      "manualCycleKeptAutomaticSyncOff": true,
+      "plansPreserved": 4,
+      "priorCacheHead": "ec276962cba91a0acc9bdc1ef25823f020b058c8fe4d735a35b090416b161b4d",
+      "readProcess": 15140
+    }
+  ],
+  "credentialsLogged": false,
+  "runId": "3371d9a7-108f-4b8b-8d03-c9f2a76c914f",
+  "project": {
+    "id": "0-2",
+    "key": "NPCD",
+    "name": "NPCD",
+    "leader": "thegobindsingh"
+  },
+  "allThreeCredentialFilesUnchanged": true,
+  "status": "passed",
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/users/me",
+      "status": 200,
+      "anonymous": false
+    }
+  ],
+  "finishedAt": "2026-10-17T21:19:08.007Z"
+}

@@ -1,0 +1,8 @@
+import fs from 'node:fs/promises';import path from 'node:path';
+import {FixtureContentTransport} from '../outputs/ROMDex/tests/content-fixture.mjs';
+import {ContentCache} from '../outputs/ROMDex/content/cache.mjs';import {ContentReader} from '../outputs/ROMDex/content/reader.mjs';import {createContentPreview} from '../outputs/ROMDex/content/preview-server.mjs';
+const transport=new FixtureContentTransport(),seed=transport.seed(),directory=path.resolve('work/u20c/browser-preview');await fs.mkdir(directory,{recursive:true});const cache=new ContentCache({directory,workspace:'fixture:workspace',isolation:true});
+const reader=new ContentReader({transport,cache,workspace:'fixture:workspace',bootstrapPublication:seed.pub.digest});await reader.cycle(true);const preview=await createContentPreview({reader,port:4330});
+await fs.writeFile('work/u20c/preview-state.json',JSON.stringify({origin:preview.origin,pid:process.pid,readOnly:true,tokenUsed:false}));console.log(preview.origin);
+let commandId=null,handling=false;setInterval(async()=>{if(handling)return;handling=true;try{const command=JSON.parse(await fs.readFile('work/u20c/preview-command.json','utf8'));if(command.id!==commandId&&command.type==='publish-correction'&&typeof command.text==='string'){const update=transport.correction(seed.pub.digest,command.text,'browser');commandId=command.id;await fs.writeFile('work/u20c/preview-command-result.json',JSON.stringify({id:commandId,publication:update.pub.digest,automaticSync:reader.enabled(),publishedOnly:true}));}}catch(error){if(error.code!=='ENOENT')console.error('Fixture command needs review.');}finally{handling=false;}},500).unref();
+process.on('SIGTERM',async()=>{await preview.close();cache.close();process.exit(0);});

@@ -1,0 +1,3725 @@
+{
+  "task": "U20C",
+  "stage": "Read-only content-project inspection",
+  "startedAt": "2026-10-17T21:10:16.357Z",
+  "base": "https://thegobindsingh.youtrack.cloud",
+  "remoteWrites": 0,
+  "credentialLogged": false,
+  "requests": [
+    {
+      "route": "/api/users/me?fields=id,login,guest,banned",
+      "anonymous": false,
+      "status": 200,
+      "data": {
+        "guest": false,
+        "banned": false,
+        "login": "GenericCola",
+        "id": "2-2",
+        "$type": "Me"
+      }
+    },
+    {
+      "route": "/api/admin/projects?fields=id,name,shortName,description,leader(id,login),team(id,name,usersCount)&$top=50&$skip=0",
+      "anonymous": false,
+      "status": 200,
+      "data": [
+        {
+          "leader": {
+            "login": "thegobindsingh",
+            "id": "2-1",
+            "$type": "User"
+          },
+          "shortName": "PMON",
+          "team": {
+            "usersCount": 2,
+            "name": "Pokemon Team",
+            "id": "5-1",
+            "$type": "ProjectTeam"
+          },
+          "description": null,
+          "name": "Pokemon",
+          "id": "0-1",
+          "$type": "Project"
+        },
+        {
+          "leader": {
+            "login": "thegobindsingh",
+            "id": "2-1",
+            "$type": "User"
+          },
+          "shortName": "NPCD",
+          "team": {
+            "usersCount": 2,
+            "name": "NPCD Team",
+            "id": "5-2",
+            "$type": "ProjectTeam"
+          },
+          "description": null,
+          "name": "NPCD",
+          "id": "0-2",
+          "$type": "Project"
+        }
+      ]
+    },
+    {
+      "route": "/api/assignedRoles?fields=id,holder(id,login,name),role(id,name,permissions(id,name)),scope(id,$type,project(id,shortName))&query=holder%3A2-2&$top=50&$skip=0",
+      "anonymous": false,
+      "status": 200,
+      "data": [
+        {
+          "holder": {
+            "login": "GenericCola",
+            "name": "James Loder",
+            "id": "2-2",
+            "$type": "User"
+          },
+          "role": {
+            "name": "Project Admin",
+            "permissions": [
+              {
+                "name": "Add Attachment",
+                "id": "JetBrains.YouTrack.CREATE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Attachment",
+                "id": "JetBrains.YouTrack.UPDATE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Attachment",
+                "id": "JetBrains.YouTrack.DELETE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Issue Comment",
+                "id": "JetBrains.YouTrack.CREATE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue Comment",
+                "id": "JetBrains.YouTrack.READ_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue Comment",
+                "id": "JetBrains.YouTrack.UPDATE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Issue Comment",
+                "id": "JetBrains.YouTrack.DELETE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Work Item",
+                "id": "JetBrains.YouTrack.READ_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Work Item",
+                "id": "JetBrains.YouTrack.UPDATE_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Not Own Work Item",
+                "id": "JetBrains.YouTrack.UPDATE_NOT_OWN_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Not Own Work Item",
+                "id": "JetBrains.YouTrack.CREATE_NOT_OWN_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Work Item",
+                "id": "JetBrains.YouTrack.CREATE_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Project Full",
+                "id": "jetbrains.jetpass.project-read",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Project",
+                "id": "jetbrains.jetpass.project-update",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read App Content",
+                "id": "JetBrains.YouTrack.READ_APP_CONTENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update App Content",
+                "id": "JetBrains.YouTrack.UPDATE_APP_CONTENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Not Own Issue Comment",
+                "id": "JetBrains.YouTrack.UPDATE_NOT_OWN_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Not Own Comment and Permanent Comment Delete",
+                "id": "JetBrains.YouTrack.DELETE_NOT_OWN_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Issue",
+                "id": "JetBrains.YouTrack.CREATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue",
+                "id": "JetBrains.YouTrack.UPDATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Issue",
+                "id": "JetBrains.YouTrack.DELETE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue",
+                "id": "JetBrains.YouTrack.READ_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue Private Fields",
+                "id": "JetBrains.YouTrack.PRIVATE_READ_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue Private Fields",
+                "id": "JetBrains.YouTrack.PRIVATE_UPDATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Link Issues",
+                "id": "JetBrains.YouTrack.LINK_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "View Voters",
+                "id": "JetBrains.YouTrack.VIEW_VOTERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "View Watchers",
+                "id": "JetBrains.YouTrack.VIEW_WATCHERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Watchers",
+                "id": "JetBrains.YouTrack.UPDATE_WATCHERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Project Basic",
+                "id": "jetbrains.jetpass.project-read-basic",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Article",
+                "id": "JetBrains.YouTrack.READ_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Article",
+                "id": "JetBrains.YouTrack.CREATE_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Article",
+                "id": "JetBrains.YouTrack.UPDATE_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Article",
+                "id": "JetBrains.YouTrack.DELETE_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Article Comment",
+                "id": "JetBrains.YouTrack.READ_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Article Comment",
+                "id": "JetBrains.YouTrack.CREATE_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Article Comment",
+                "id": "JetBrains.YouTrack.UPDATE_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Article Comment",
+                "id": "JetBrains.YouTrack.DELETE_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Apply Commands Silently",
+                "id": "JetBrains.YouTrack.APPLY_COMMANDS_SILENTLY",
+                "$type": "Permission"
+              }
+            ],
+            "id": "17-2",
+            "$type": "Role"
+          },
+          "scope": {
+            "project": {
+              "shortName": "PMON",
+              "id": "0-1",
+              "$type": "Project"
+            },
+            "id": "188-1",
+            "$type": "ProjectScope"
+          },
+          "id": "149-6",
+          "$type": "AssignedRole"
+        },
+        {
+          "holder": {
+            "login": "GenericCola",
+            "name": "James Loder",
+            "id": "2-2",
+            "$type": "User"
+          },
+          "role": {
+            "name": "Project Admin",
+            "permissions": [
+              {
+                "name": "Add Attachment",
+                "id": "JetBrains.YouTrack.CREATE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Attachment",
+                "id": "JetBrains.YouTrack.UPDATE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Attachment",
+                "id": "JetBrains.YouTrack.DELETE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Issue Comment",
+                "id": "JetBrains.YouTrack.CREATE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue Comment",
+                "id": "JetBrains.YouTrack.READ_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue Comment",
+                "id": "JetBrains.YouTrack.UPDATE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Issue Comment",
+                "id": "JetBrains.YouTrack.DELETE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Work Item",
+                "id": "JetBrains.YouTrack.READ_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Work Item",
+                "id": "JetBrains.YouTrack.UPDATE_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Not Own Work Item",
+                "id": "JetBrains.YouTrack.UPDATE_NOT_OWN_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Not Own Work Item",
+                "id": "JetBrains.YouTrack.CREATE_NOT_OWN_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Work Item",
+                "id": "JetBrains.YouTrack.CREATE_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Project Full",
+                "id": "jetbrains.jetpass.project-read",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Project",
+                "id": "jetbrains.jetpass.project-update",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read App Content",
+                "id": "JetBrains.YouTrack.READ_APP_CONTENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update App Content",
+                "id": "JetBrains.YouTrack.UPDATE_APP_CONTENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Not Own Issue Comment",
+                "id": "JetBrains.YouTrack.UPDATE_NOT_OWN_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Not Own Comment and Permanent Comment Delete",
+                "id": "JetBrains.YouTrack.DELETE_NOT_OWN_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Issue",
+                "id": "JetBrains.YouTrack.CREATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue",
+                "id": "JetBrains.YouTrack.UPDATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Issue",
+                "id": "JetBrains.YouTrack.DELETE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue",
+                "id": "JetBrains.YouTrack.READ_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue Private Fields",
+                "id": "JetBrains.YouTrack.PRIVATE_READ_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue Private Fields",
+                "id": "JetBrains.YouTrack.PRIVATE_UPDATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Link Issues",
+                "id": "JetBrains.YouTrack.LINK_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "View Voters",
+                "id": "JetBrains.YouTrack.VIEW_VOTERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "View Watchers",
+                "id": "JetBrains.YouTrack.VIEW_WATCHERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Watchers",
+                "id": "JetBrains.YouTrack.UPDATE_WATCHERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Project Basic",
+                "id": "jetbrains.jetpass.project-read-basic",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Article",
+                "id": "JetBrains.YouTrack.READ_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Article",
+                "id": "JetBrains.YouTrack.CREATE_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Article",
+                "id": "JetBrains.YouTrack.UPDATE_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Article",
+                "id": "JetBrains.YouTrack.DELETE_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Article Comment",
+                "id": "JetBrains.YouTrack.READ_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Article Comment",
+                "id": "JetBrains.YouTrack.CREATE_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Article Comment",
+                "id": "JetBrains.YouTrack.UPDATE_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Article Comment",
+                "id": "JetBrains.YouTrack.DELETE_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Apply Commands Silently",
+                "id": "JetBrains.YouTrack.APPLY_COMMANDS_SILENTLY",
+                "$type": "Permission"
+              }
+            ],
+            "id": "17-2",
+            "$type": "Role"
+          },
+          "scope": {
+            "project": {
+              "shortName": "NPCD",
+              "id": "0-2",
+              "$type": "Project"
+            },
+            "id": "188-2",
+            "$type": "ProjectScope"
+          },
+          "id": "149-11",
+          "$type": "AssignedRole"
+        },
+        {
+          "holder": {
+            "name": "Pokemon Team",
+            "id": "5-1",
+            "$type": "ProjectTeam"
+          },
+          "role": {
+            "name": "Contributor",
+            "permissions": [
+              {
+                "name": "Add Attachment",
+                "id": "JetBrains.YouTrack.CREATE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Attachment",
+                "id": "JetBrains.YouTrack.UPDATE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Attachment",
+                "id": "JetBrains.YouTrack.DELETE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Issue Comment",
+                "id": "JetBrains.YouTrack.CREATE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue Comment",
+                "id": "JetBrains.YouTrack.READ_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue Comment",
+                "id": "JetBrains.YouTrack.UPDATE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Issue Comment",
+                "id": "JetBrains.YouTrack.DELETE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Work Item",
+                "id": "JetBrains.YouTrack.READ_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Work Item",
+                "id": "JetBrains.YouTrack.UPDATE_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Work Item",
+                "id": "JetBrains.YouTrack.CREATE_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Issue",
+                "id": "JetBrains.YouTrack.CREATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue",
+                "id": "JetBrains.YouTrack.UPDATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Issue",
+                "id": "JetBrains.YouTrack.DELETE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue",
+                "id": "JetBrains.YouTrack.READ_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue Private Fields",
+                "id": "JetBrains.YouTrack.PRIVATE_READ_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue Private Fields",
+                "id": "JetBrains.YouTrack.PRIVATE_UPDATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Link Issues",
+                "id": "JetBrains.YouTrack.LINK_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "View Voters",
+                "id": "JetBrains.YouTrack.VIEW_VOTERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "View Watchers",
+                "id": "JetBrains.YouTrack.VIEW_WATCHERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Watchers",
+                "id": "JetBrains.YouTrack.UPDATE_WATCHERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Project Basic",
+                "id": "jetbrains.jetpass.project-read-basic",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Article",
+                "id": "JetBrains.YouTrack.READ_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Article",
+                "id": "JetBrains.YouTrack.CREATE_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Article Comment",
+                "id": "JetBrains.YouTrack.READ_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Article Comment",
+                "id": "JetBrains.YouTrack.CREATE_ARTICLE_COMMENT",
+                "$type": "Permission"
+              }
+            ],
+            "id": "17-1",
+            "$type": "Role"
+          },
+          "scope": {
+            "project": {
+              "shortName": "PMON",
+              "id": "0-1",
+              "$type": "Project"
+            },
+            "id": "188-1",
+            "$type": "ProjectScope"
+          },
+          "id": "149-4",
+          "$type": "AssignedRole"
+        },
+        {
+          "holder": {
+            "name": "NPCD Team",
+            "id": "5-2",
+            "$type": "ProjectTeam"
+          },
+          "role": {
+            "name": "Contributor",
+            "permissions": [
+              {
+                "name": "Add Attachment",
+                "id": "JetBrains.YouTrack.CREATE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Attachment",
+                "id": "JetBrains.YouTrack.UPDATE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Attachment",
+                "id": "JetBrains.YouTrack.DELETE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Issue Comment",
+                "id": "JetBrains.YouTrack.CREATE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue Comment",
+                "id": "JetBrains.YouTrack.READ_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue Comment",
+                "id": "JetBrains.YouTrack.UPDATE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Issue Comment",
+                "id": "JetBrains.YouTrack.DELETE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Work Item",
+                "id": "JetBrains.YouTrack.READ_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Work Item",
+                "id": "JetBrains.YouTrack.UPDATE_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Work Item",
+                "id": "JetBrains.YouTrack.CREATE_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Issue",
+                "id": "JetBrains.YouTrack.CREATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue",
+                "id": "JetBrains.YouTrack.UPDATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Issue",
+                "id": "JetBrains.YouTrack.DELETE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue",
+                "id": "JetBrains.YouTrack.READ_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue Private Fields",
+                "id": "JetBrains.YouTrack.PRIVATE_READ_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue Private Fields",
+                "id": "JetBrains.YouTrack.PRIVATE_UPDATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Link Issues",
+                "id": "JetBrains.YouTrack.LINK_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "View Voters",
+                "id": "JetBrains.YouTrack.VIEW_VOTERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "View Watchers",
+                "id": "JetBrains.YouTrack.VIEW_WATCHERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Watchers",
+                "id": "JetBrains.YouTrack.UPDATE_WATCHERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Project Basic",
+                "id": "jetbrains.jetpass.project-read-basic",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Article",
+                "id": "JetBrains.YouTrack.READ_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Article",
+                "id": "JetBrains.YouTrack.CREATE_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Article Comment",
+                "id": "JetBrains.YouTrack.READ_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Article Comment",
+                "id": "JetBrains.YouTrack.CREATE_ARTICLE_COMMENT",
+                "$type": "Permission"
+              }
+            ],
+            "id": "17-1",
+            "$type": "Role"
+          },
+          "scope": {
+            "project": {
+              "shortName": "NPCD",
+              "id": "0-2",
+              "$type": "Project"
+            },
+            "id": "188-2",
+            "$type": "ProjectScope"
+          },
+          "id": "149-9",
+          "$type": "AssignedRole"
+        },
+        {
+          "holder": {
+            "name": "Registered Users",
+            "id": "6-0",
+            "$type": "RegisteredUsersGroup"
+          },
+          "role": {
+            "name": "Observer",
+            "permissions": [
+              {
+                "name": "Update Self",
+                "id": "jetbrains.jetpass.profile-updateSelf",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read User Basic",
+                "id": "jetbrains.jetpass.user-read-basic",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read User Details",
+                "id": "jetbrains.jetpass.user-read",
+                "$type": "Permission"
+              }
+            ],
+            "id": "17-0",
+            "$type": "Role"
+          },
+          "scope": {
+            "id": "93-0",
+            "$type": "GlobalScope"
+          },
+          "id": "149-0",
+          "$type": "AssignedRole"
+        }
+      ]
+    },
+    {
+      "route": "/api/assignedRoles?fields=id,holder(id,login,name),role(id,name,permissions(id,name)),scope(id,$type,project(id,shortName))&query=scope%3A0-2&$top=50&$skip=0",
+      "anonymous": false,
+      "status": 200,
+      "data": [
+        {
+          "holder": {
+            "name": "Registered Users",
+            "id": "6-0",
+            "$type": "RegisteredUsersGroup"
+          },
+          "role": {
+            "name": "Observer",
+            "permissions": [
+              {
+                "name": "Update Self",
+                "id": "jetbrains.jetpass.profile-updateSelf",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read User Basic",
+                "id": "jetbrains.jetpass.user-read-basic",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read User Details",
+                "id": "jetbrains.jetpass.user-read",
+                "$type": "Permission"
+              }
+            ],
+            "id": "17-0",
+            "$type": "Role"
+          },
+          "scope": {
+            "id": "93-0",
+            "$type": "GlobalScope"
+          },
+          "id": "149-0",
+          "$type": "AssignedRole"
+        },
+        {
+          "holder": {
+            "login": "thegobindsingh",
+            "name": "Gobind Singh",
+            "id": "2-1",
+            "$type": "User"
+          },
+          "role": {
+            "name": "System Admin",
+            "permissions": [
+              {
+                "name": "Read Project Basic",
+                "id": "jetbrains.jetpass.project-read-basic",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Project",
+                "id": "jetbrains.jetpass.project-create",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Project Full",
+                "id": "jetbrains.jetpass.project-read",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Project",
+                "id": "jetbrains.jetpass.project-update",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Project",
+                "id": "jetbrains.jetpass.project-delete",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Organization",
+                "id": "jetbrains.jetpass.organization-read",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Organization",
+                "id": "jetbrains.jetpass.organization-update",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Organization",
+                "id": "jetbrains.jetpass.organization-create",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Organization",
+                "id": "jetbrains.jetpass.organization-delete",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Self",
+                "id": "jetbrains.jetpass.profile-updateSelf",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read User Basic",
+                "id": "jetbrains.jetpass.user-read-basic",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read User Details",
+                "id": "jetbrains.jetpass.user-read",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update User",
+                "id": "jetbrains.jetpass.user-update",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create User",
+                "id": "jetbrains.jetpass.user-create",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete User",
+                "id": "jetbrains.jetpass.user-delete",
+                "$type": "Permission"
+              },
+              {
+                "name": "Low-level Admin Read",
+                "id": "jetbrains.jetpass.low-level-read",
+                "$type": "Permission"
+              },
+              {
+                "name": "Low-level Admin Write",
+                "id": "jetbrains.jetpass.low-level",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue",
+                "id": "JetBrains.YouTrack.READ_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue Private Fields",
+                "id": "JetBrains.YouTrack.PRIVATE_READ_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue",
+                "id": "JetBrains.YouTrack.UPDATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Issue",
+                "id": "JetBrains.YouTrack.CREATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Issue",
+                "id": "JetBrains.YouTrack.DELETE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Link Issues",
+                "id": "JetBrains.YouTrack.LINK_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue Private Fields",
+                "id": "JetBrains.YouTrack.PRIVATE_UPDATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Apply Commands Silently",
+                "id": "JetBrains.YouTrack.APPLY_COMMANDS_SILENTLY",
+                "$type": "Permission"
+              },
+              {
+                "name": "View Watchers",
+                "id": "JetBrains.YouTrack.VIEW_WATCHERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Watchers",
+                "id": "JetBrains.YouTrack.UPDATE_WATCHERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "View Voters",
+                "id": "JetBrains.YouTrack.VIEW_VOTERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "Add Attachment",
+                "id": "JetBrains.YouTrack.CREATE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Attachment",
+                "id": "JetBrains.YouTrack.UPDATE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Attachment",
+                "id": "JetBrains.YouTrack.DELETE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Issue Comment",
+                "id": "JetBrains.YouTrack.CREATE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue Comment",
+                "id": "JetBrains.YouTrack.READ_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue Comment",
+                "id": "JetBrains.YouTrack.UPDATE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Issue Comment",
+                "id": "JetBrains.YouTrack.DELETE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Not Own Issue Comment",
+                "id": "JetBrains.YouTrack.UPDATE_NOT_OWN_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Not Own Comment and Permanent Comment Delete",
+                "id": "JetBrains.YouTrack.DELETE_NOT_OWN_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Override Visibility Restrictions",
+                "id": "JetBrains.YouTrack.READ_HIDDEN_STUFF",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Work Item",
+                "id": "JetBrains.YouTrack.READ_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Work Item",
+                "id": "JetBrains.YouTrack.UPDATE_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Not Own Work Item",
+                "id": "JetBrains.YouTrack.UPDATE_NOT_OWN_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Work Item",
+                "id": "JetBrains.YouTrack.CREATE_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Not Own Work Item",
+                "id": "JetBrains.YouTrack.CREATE_NOT_OWN_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Article",
+                "id": "JetBrains.YouTrack.READ_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Article",
+                "id": "JetBrains.YouTrack.CREATE_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Article",
+                "id": "JetBrains.YouTrack.UPDATE_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Article",
+                "id": "JetBrains.YouTrack.DELETE_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Article Comment",
+                "id": "JetBrains.YouTrack.READ_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Article Comment",
+                "id": "JetBrains.YouTrack.CREATE_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Article Comment",
+                "id": "JetBrains.YouTrack.UPDATE_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Article Comment",
+                "id": "JetBrains.YouTrack.DELETE_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read App Content",
+                "id": "JetBrains.YouTrack.READ_APP_CONTENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update App Content",
+                "id": "JetBrains.YouTrack.UPDATE_APP_CONTENT",
+                "$type": "Permission"
+              }
+            ],
+            "id": "17-5",
+            "$type": "Role"
+          },
+          "scope": {
+            "id": "93-0",
+            "$type": "GlobalScope"
+          },
+          "id": "149-1",
+          "$type": "AssignedRole"
+        },
+        {
+          "holder": {
+            "name": "NPCD Team",
+            "id": "5-2",
+            "$type": "ProjectTeam"
+          },
+          "role": {
+            "name": "Contributor",
+            "permissions": [
+              {
+                "name": "Add Attachment",
+                "id": "JetBrains.YouTrack.CREATE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Attachment",
+                "id": "JetBrains.YouTrack.UPDATE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Attachment",
+                "id": "JetBrains.YouTrack.DELETE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Issue Comment",
+                "id": "JetBrains.YouTrack.CREATE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue Comment",
+                "id": "JetBrains.YouTrack.READ_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue Comment",
+                "id": "JetBrains.YouTrack.UPDATE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Issue Comment",
+                "id": "JetBrains.YouTrack.DELETE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Work Item",
+                "id": "JetBrains.YouTrack.READ_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Work Item",
+                "id": "JetBrains.YouTrack.UPDATE_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Work Item",
+                "id": "JetBrains.YouTrack.CREATE_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Issue",
+                "id": "JetBrains.YouTrack.CREATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue",
+                "id": "JetBrains.YouTrack.UPDATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Issue",
+                "id": "JetBrains.YouTrack.DELETE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue",
+                "id": "JetBrains.YouTrack.READ_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue Private Fields",
+                "id": "JetBrains.YouTrack.PRIVATE_READ_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue Private Fields",
+                "id": "JetBrains.YouTrack.PRIVATE_UPDATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Link Issues",
+                "id": "JetBrains.YouTrack.LINK_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "View Voters",
+                "id": "JetBrains.YouTrack.VIEW_VOTERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "View Watchers",
+                "id": "JetBrains.YouTrack.VIEW_WATCHERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Watchers",
+                "id": "JetBrains.YouTrack.UPDATE_WATCHERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Project Basic",
+                "id": "jetbrains.jetpass.project-read-basic",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Article",
+                "id": "JetBrains.YouTrack.READ_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Article",
+                "id": "JetBrains.YouTrack.CREATE_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Article Comment",
+                "id": "JetBrains.YouTrack.READ_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Article Comment",
+                "id": "JetBrains.YouTrack.CREATE_ARTICLE_COMMENT",
+                "$type": "Permission"
+              }
+            ],
+            "id": "17-1",
+            "$type": "Role"
+          },
+          "scope": {
+            "project": {
+              "shortName": "NPCD",
+              "id": "0-2",
+              "$type": "Project"
+            },
+            "id": "188-2",
+            "$type": "ProjectScope"
+          },
+          "id": "149-9",
+          "$type": "AssignedRole"
+        },
+        {
+          "holder": {
+            "login": "thegobindsingh",
+            "name": "Gobind Singh",
+            "id": "2-1",
+            "$type": "User"
+          },
+          "role": {
+            "name": "Project Admin",
+            "permissions": [
+              {
+                "name": "Add Attachment",
+                "id": "JetBrains.YouTrack.CREATE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Attachment",
+                "id": "JetBrains.YouTrack.UPDATE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Attachment",
+                "id": "JetBrains.YouTrack.DELETE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Issue Comment",
+                "id": "JetBrains.YouTrack.CREATE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue Comment",
+                "id": "JetBrains.YouTrack.READ_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue Comment",
+                "id": "JetBrains.YouTrack.UPDATE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Issue Comment",
+                "id": "JetBrains.YouTrack.DELETE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Work Item",
+                "id": "JetBrains.YouTrack.READ_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Work Item",
+                "id": "JetBrains.YouTrack.UPDATE_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Not Own Work Item",
+                "id": "JetBrains.YouTrack.UPDATE_NOT_OWN_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Not Own Work Item",
+                "id": "JetBrains.YouTrack.CREATE_NOT_OWN_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Work Item",
+                "id": "JetBrains.YouTrack.CREATE_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Project Full",
+                "id": "jetbrains.jetpass.project-read",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Project",
+                "id": "jetbrains.jetpass.project-update",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read App Content",
+                "id": "JetBrains.YouTrack.READ_APP_CONTENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update App Content",
+                "id": "JetBrains.YouTrack.UPDATE_APP_CONTENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Not Own Issue Comment",
+                "id": "JetBrains.YouTrack.UPDATE_NOT_OWN_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Not Own Comment and Permanent Comment Delete",
+                "id": "JetBrains.YouTrack.DELETE_NOT_OWN_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Issue",
+                "id": "JetBrains.YouTrack.CREATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue",
+                "id": "JetBrains.YouTrack.UPDATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Issue",
+                "id": "JetBrains.YouTrack.DELETE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue",
+                "id": "JetBrains.YouTrack.READ_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue Private Fields",
+                "id": "JetBrains.YouTrack.PRIVATE_READ_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue Private Fields",
+                "id": "JetBrains.YouTrack.PRIVATE_UPDATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Link Issues",
+                "id": "JetBrains.YouTrack.LINK_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "View Voters",
+                "id": "JetBrains.YouTrack.VIEW_VOTERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "View Watchers",
+                "id": "JetBrains.YouTrack.VIEW_WATCHERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Watchers",
+                "id": "JetBrains.YouTrack.UPDATE_WATCHERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Project Basic",
+                "id": "jetbrains.jetpass.project-read-basic",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Article",
+                "id": "JetBrains.YouTrack.READ_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Article",
+                "id": "JetBrains.YouTrack.CREATE_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Article",
+                "id": "JetBrains.YouTrack.UPDATE_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Article",
+                "id": "JetBrains.YouTrack.DELETE_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Article Comment",
+                "id": "JetBrains.YouTrack.READ_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Article Comment",
+                "id": "JetBrains.YouTrack.CREATE_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Article Comment",
+                "id": "JetBrains.YouTrack.UPDATE_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Article Comment",
+                "id": "JetBrains.YouTrack.DELETE_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Apply Commands Silently",
+                "id": "JetBrains.YouTrack.APPLY_COMMANDS_SILENTLY",
+                "$type": "Permission"
+              }
+            ],
+            "id": "17-2",
+            "$type": "Role"
+          },
+          "scope": {
+            "project": {
+              "shortName": "NPCD",
+              "id": "0-2",
+              "$type": "Project"
+            },
+            "id": "188-2",
+            "$type": "ProjectScope"
+          },
+          "id": "149-10",
+          "$type": "AssignedRole"
+        },
+        {
+          "holder": {
+            "login": "GenericCola",
+            "name": "James Loder",
+            "id": "2-2",
+            "$type": "User"
+          },
+          "role": {
+            "name": "Project Admin",
+            "permissions": [
+              {
+                "name": "Add Attachment",
+                "id": "JetBrains.YouTrack.CREATE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Attachment",
+                "id": "JetBrains.YouTrack.UPDATE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Attachment",
+                "id": "JetBrains.YouTrack.DELETE_ATTACHMENT_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Issue Comment",
+                "id": "JetBrains.YouTrack.CREATE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue Comment",
+                "id": "JetBrains.YouTrack.READ_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue Comment",
+                "id": "JetBrains.YouTrack.UPDATE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Issue Comment",
+                "id": "JetBrains.YouTrack.DELETE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Work Item",
+                "id": "JetBrains.YouTrack.READ_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Work Item",
+                "id": "JetBrains.YouTrack.UPDATE_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Not Own Work Item",
+                "id": "JetBrains.YouTrack.UPDATE_NOT_OWN_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Not Own Work Item",
+                "id": "JetBrains.YouTrack.CREATE_NOT_OWN_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Work Item",
+                "id": "JetBrains.YouTrack.CREATE_WORK_ITEM",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Project Full",
+                "id": "jetbrains.jetpass.project-read",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Project",
+                "id": "jetbrains.jetpass.project-update",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read App Content",
+                "id": "JetBrains.YouTrack.READ_APP_CONTENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update App Content",
+                "id": "JetBrains.YouTrack.UPDATE_APP_CONTENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Not Own Issue Comment",
+                "id": "JetBrains.YouTrack.UPDATE_NOT_OWN_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Not Own Comment and Permanent Comment Delete",
+                "id": "JetBrains.YouTrack.DELETE_NOT_OWN_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Issue",
+                "id": "JetBrains.YouTrack.CREATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue",
+                "id": "JetBrains.YouTrack.UPDATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Issue",
+                "id": "JetBrains.YouTrack.DELETE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue",
+                "id": "JetBrains.YouTrack.READ_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Issue Private Fields",
+                "id": "JetBrains.YouTrack.PRIVATE_READ_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Issue Private Fields",
+                "id": "JetBrains.YouTrack.PRIVATE_UPDATE_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Link Issues",
+                "id": "JetBrains.YouTrack.LINK_ISSUE",
+                "$type": "Permission"
+              },
+              {
+                "name": "View Voters",
+                "id": "JetBrains.YouTrack.VIEW_VOTERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "View Watchers",
+                "id": "JetBrains.YouTrack.VIEW_WATCHERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Watchers",
+                "id": "JetBrains.YouTrack.UPDATE_WATCHERS",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Project Basic",
+                "id": "jetbrains.jetpass.project-read-basic",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Article",
+                "id": "JetBrains.YouTrack.READ_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Article",
+                "id": "JetBrains.YouTrack.CREATE_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Article",
+                "id": "JetBrains.YouTrack.UPDATE_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Article",
+                "id": "JetBrains.YouTrack.DELETE_ARTICLE",
+                "$type": "Permission"
+              },
+              {
+                "name": "Read Article Comment",
+                "id": "JetBrains.YouTrack.READ_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Create Article Comment",
+                "id": "JetBrains.YouTrack.CREATE_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Update Article Comment",
+                "id": "JetBrains.YouTrack.UPDATE_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Delete Article Comment",
+                "id": "JetBrains.YouTrack.DELETE_ARTICLE_COMMENT",
+                "$type": "Permission"
+              },
+              {
+                "name": "Apply Commands Silently",
+                "id": "JetBrains.YouTrack.APPLY_COMMANDS_SILENTLY",
+                "$type": "Permission"
+              }
+            ],
+            "id": "17-2",
+            "$type": "Role"
+          },
+          "scope": {
+            "project": {
+              "shortName": "NPCD",
+              "id": "0-2",
+              "$type": "Project"
+            },
+            "id": "188-2",
+            "$type": "ProjectScope"
+          },
+          "id": "149-11",
+          "$type": "AssignedRole"
+        }
+      ]
+    },
+    {
+      "route": "/api/admin/projects/0-2/team/users?fields=id,login&$top=50&$skip=0",
+      "anonymous": false,
+      "status": 200,
+      "data": [
+        {
+          "login": "thegobindsingh",
+          "id": "2-1",
+          "$type": "User"
+        },
+        {
+          "login": "GenericCola",
+          "id": "2-2",
+          "$type": "User"
+        }
+      ]
+    },
+    {
+      "route": "/api/groups?fields=id,name,allUsersGroup&$top=50&$skip=0",
+      "anonymous": false,
+      "status": 200,
+      "data": [
+        {
+          "allUsersGroup": false,
+          "name": "Demo project Team",
+          "id": "4-0",
+          "$type": "NestedGroup"
+        },
+        {
+          "allUsersGroup": false,
+          "name": "Pokemon Team",
+          "id": "5-1",
+          "$type": "ProjectTeam"
+        },
+        {
+          "allUsersGroup": false,
+          "name": "NPCD Team",
+          "id": "5-2",
+          "$type": "ProjectTeam"
+        },
+        {
+          "allUsersGroup": false,
+          "name": "Registered Users",
+          "id": "6-0",
+          "$type": "RegisteredUsersGroup"
+        },
+        {
+          "allUsersGroup": true,
+          "name": "All Users",
+          "id": "103-0",
+          "$type": "AllUsersGroup"
+        }
+      ]
+    },
+    {
+      "route": "/api/groups/4-0/users?fields=id,login&$top=50&$skip=0",
+      "anonymous": false,
+      "status": 200,
+      "data": [
+        {
+          "login": "thegobindsingh",
+          "id": "2-1",
+          "$type": "User"
+        }
+      ]
+    },
+    {
+      "route": "/api/groups/5-1/users?fields=id,login&$top=50&$skip=0",
+      "anonymous": false,
+      "status": 200,
+      "data": [
+        {
+          "login": "thegobindsingh",
+          "id": "2-1",
+          "$type": "User"
+        },
+        {
+          "login": "GenericCola",
+          "id": "2-2",
+          "$type": "User"
+        }
+      ]
+    },
+    {
+      "route": "/api/groups/5-2/users?fields=id,login&$top=50&$skip=0",
+      "anonymous": false,
+      "status": 200,
+      "data": [
+        {
+          "login": "thegobindsingh",
+          "id": "2-1",
+          "$type": "User"
+        },
+        {
+          "login": "GenericCola",
+          "id": "2-2",
+          "$type": "User"
+        }
+      ]
+    },
+    {
+      "route": "/api/groups/6-0/users?fields=id,login&$top=50&$skip=0",
+      "anonymous": false,
+      "status": 200,
+      "data": [
+        {
+          "login": "thegobindsingh",
+          "id": "2-1",
+          "$type": "User"
+        },
+        {
+          "login": "GenericCola",
+          "id": "2-2",
+          "$type": "User"
+        }
+      ]
+    },
+    {
+      "route": "/api/groups/103-0/users?fields=id,login&$top=50&$skip=0",
+      "anonymous": false,
+      "status": 200,
+      "data": [
+        {
+          "login": "guest",
+          "id": "2-0",
+          "$type": "User"
+        },
+        {
+          "login": "thegobindsingh",
+          "id": "2-1",
+          "$type": "User"
+        },
+        {
+          "login": "GenericCola",
+          "id": "2-2",
+          "$type": "User"
+        }
+      ]
+    },
+    {
+      "route": "/api/issues?query=project%3A%20NPCD&fields=id,idReadable,summary,reporter(id,login),visibility(permittedUsers(id,login),permittedGroups(id,name))&$top=50&$skip=0",
+      "anonymous": false,
+      "status": 200,
+      "data": []
+    },
+    {
+      "route": "/api/admin/globalSettings?fields=id,systemSettings(maxUploadFileSize,isApplicationReadOnly),license(id,error)",
+      "anonymous": false,
+      "status": 200,
+      "data": {
+        "license": {
+          "error": null,
+          "id": "133-0",
+          "$type": "License"
+        },
+        "id": "GlobalSettings",
+        "$type": "GlobalSettings"
+      }
+    },
+    {
+      "route": "/api/admin/projects/0-2?fields=id,name,shortName",
+      "anonymous": true,
+      "status": 401,
+      "reason": "You are not logged in."
+    }
+  ],
+  "owner": {
+    "id": "2-2",
+    "login": "GenericCola"
+  },
+  "project": {
+    "leader": {
+      "login": "thegobindsingh",
+      "id": "2-1",
+      "$type": "User"
+    },
+    "shortName": "NPCD",
+    "team": {
+      "usersCount": 2,
+      "name": "NPCD Team",
+      "id": "5-2",
+      "$type": "ProjectTeam"
+    },
+    "description": null,
+    "name": "NPCD",
+    "id": "0-2",
+    "$type": "Project"
+  },
+  "pmon": {
+    "leader": {
+      "login": "thegobindsingh",
+      "id": "2-1",
+      "$type": "User"
+    },
+    "shortName": "PMON",
+    "team": {
+      "usersCount": 2,
+      "name": "Pokemon Team",
+      "id": "5-1",
+      "$type": "ProjectTeam"
+    },
+    "description": null,
+    "name": "Pokemon",
+    "id": "0-1",
+    "$type": "Project"
+  },
+  "projectId": "0-2",
+  "ownerEffectiveVisibleRoles": {
+    "complete": true,
+    "items": [
+      {
+        "holder": {
+          "login": "GenericCola",
+          "name": "James Loder",
+          "id": "2-2",
+          "$type": "User"
+        },
+        "role": {
+          "name": "Project Admin",
+          "permissions": [
+            {
+              "name": "Add Attachment",
+              "id": "JetBrains.YouTrack.CREATE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Attachment",
+              "id": "JetBrains.YouTrack.UPDATE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Attachment",
+              "id": "JetBrains.YouTrack.DELETE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Issue Comment",
+              "id": "JetBrains.YouTrack.CREATE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue Comment",
+              "id": "JetBrains.YouTrack.READ_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue Comment",
+              "id": "JetBrains.YouTrack.UPDATE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Issue Comment",
+              "id": "JetBrains.YouTrack.DELETE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Work Item",
+              "id": "JetBrains.YouTrack.READ_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Work Item",
+              "id": "JetBrains.YouTrack.UPDATE_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Not Own Work Item",
+              "id": "JetBrains.YouTrack.UPDATE_NOT_OWN_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Not Own Work Item",
+              "id": "JetBrains.YouTrack.CREATE_NOT_OWN_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Work Item",
+              "id": "JetBrains.YouTrack.CREATE_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Project Full",
+              "id": "jetbrains.jetpass.project-read",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Project",
+              "id": "jetbrains.jetpass.project-update",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read App Content",
+              "id": "JetBrains.YouTrack.READ_APP_CONTENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update App Content",
+              "id": "JetBrains.YouTrack.UPDATE_APP_CONTENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Not Own Issue Comment",
+              "id": "JetBrains.YouTrack.UPDATE_NOT_OWN_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Not Own Comment and Permanent Comment Delete",
+              "id": "JetBrains.YouTrack.DELETE_NOT_OWN_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Issue",
+              "id": "JetBrains.YouTrack.CREATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue",
+              "id": "JetBrains.YouTrack.UPDATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Issue",
+              "id": "JetBrains.YouTrack.DELETE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue",
+              "id": "JetBrains.YouTrack.READ_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue Private Fields",
+              "id": "JetBrains.YouTrack.PRIVATE_READ_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue Private Fields",
+              "id": "JetBrains.YouTrack.PRIVATE_UPDATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Link Issues",
+              "id": "JetBrains.YouTrack.LINK_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "View Voters",
+              "id": "JetBrains.YouTrack.VIEW_VOTERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "View Watchers",
+              "id": "JetBrains.YouTrack.VIEW_WATCHERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Watchers",
+              "id": "JetBrains.YouTrack.UPDATE_WATCHERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Project Basic",
+              "id": "jetbrains.jetpass.project-read-basic",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Article",
+              "id": "JetBrains.YouTrack.READ_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Article",
+              "id": "JetBrains.YouTrack.CREATE_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Article",
+              "id": "JetBrains.YouTrack.UPDATE_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Article",
+              "id": "JetBrains.YouTrack.DELETE_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Article Comment",
+              "id": "JetBrains.YouTrack.READ_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Article Comment",
+              "id": "JetBrains.YouTrack.CREATE_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Article Comment",
+              "id": "JetBrains.YouTrack.UPDATE_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Article Comment",
+              "id": "JetBrains.YouTrack.DELETE_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Apply Commands Silently",
+              "id": "JetBrains.YouTrack.APPLY_COMMANDS_SILENTLY",
+              "$type": "Permission"
+            }
+          ],
+          "id": "17-2",
+          "$type": "Role"
+        },
+        "scope": {
+          "project": {
+            "shortName": "PMON",
+            "id": "0-1",
+            "$type": "Project"
+          },
+          "id": "188-1",
+          "$type": "ProjectScope"
+        },
+        "id": "149-6",
+        "$type": "AssignedRole"
+      },
+      {
+        "holder": {
+          "login": "GenericCola",
+          "name": "James Loder",
+          "id": "2-2",
+          "$type": "User"
+        },
+        "role": {
+          "name": "Project Admin",
+          "permissions": [
+            {
+              "name": "Add Attachment",
+              "id": "JetBrains.YouTrack.CREATE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Attachment",
+              "id": "JetBrains.YouTrack.UPDATE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Attachment",
+              "id": "JetBrains.YouTrack.DELETE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Issue Comment",
+              "id": "JetBrains.YouTrack.CREATE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue Comment",
+              "id": "JetBrains.YouTrack.READ_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue Comment",
+              "id": "JetBrains.YouTrack.UPDATE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Issue Comment",
+              "id": "JetBrains.YouTrack.DELETE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Work Item",
+              "id": "JetBrains.YouTrack.READ_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Work Item",
+              "id": "JetBrains.YouTrack.UPDATE_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Not Own Work Item",
+              "id": "JetBrains.YouTrack.UPDATE_NOT_OWN_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Not Own Work Item",
+              "id": "JetBrains.YouTrack.CREATE_NOT_OWN_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Work Item",
+              "id": "JetBrains.YouTrack.CREATE_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Project Full",
+              "id": "jetbrains.jetpass.project-read",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Project",
+              "id": "jetbrains.jetpass.project-update",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read App Content",
+              "id": "JetBrains.YouTrack.READ_APP_CONTENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update App Content",
+              "id": "JetBrains.YouTrack.UPDATE_APP_CONTENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Not Own Issue Comment",
+              "id": "JetBrains.YouTrack.UPDATE_NOT_OWN_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Not Own Comment and Permanent Comment Delete",
+              "id": "JetBrains.YouTrack.DELETE_NOT_OWN_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Issue",
+              "id": "JetBrains.YouTrack.CREATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue",
+              "id": "JetBrains.YouTrack.UPDATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Issue",
+              "id": "JetBrains.YouTrack.DELETE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue",
+              "id": "JetBrains.YouTrack.READ_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue Private Fields",
+              "id": "JetBrains.YouTrack.PRIVATE_READ_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue Private Fields",
+              "id": "JetBrains.YouTrack.PRIVATE_UPDATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Link Issues",
+              "id": "JetBrains.YouTrack.LINK_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "View Voters",
+              "id": "JetBrains.YouTrack.VIEW_VOTERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "View Watchers",
+              "id": "JetBrains.YouTrack.VIEW_WATCHERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Watchers",
+              "id": "JetBrains.YouTrack.UPDATE_WATCHERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Project Basic",
+              "id": "jetbrains.jetpass.project-read-basic",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Article",
+              "id": "JetBrains.YouTrack.READ_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Article",
+              "id": "JetBrains.YouTrack.CREATE_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Article",
+              "id": "JetBrains.YouTrack.UPDATE_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Article",
+              "id": "JetBrains.YouTrack.DELETE_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Article Comment",
+              "id": "JetBrains.YouTrack.READ_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Article Comment",
+              "id": "JetBrains.YouTrack.CREATE_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Article Comment",
+              "id": "JetBrains.YouTrack.UPDATE_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Article Comment",
+              "id": "JetBrains.YouTrack.DELETE_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Apply Commands Silently",
+              "id": "JetBrains.YouTrack.APPLY_COMMANDS_SILENTLY",
+              "$type": "Permission"
+            }
+          ],
+          "id": "17-2",
+          "$type": "Role"
+        },
+        "scope": {
+          "project": {
+            "shortName": "NPCD",
+            "id": "0-2",
+            "$type": "Project"
+          },
+          "id": "188-2",
+          "$type": "ProjectScope"
+        },
+        "id": "149-11",
+        "$type": "AssignedRole"
+      },
+      {
+        "holder": {
+          "name": "Pokemon Team",
+          "id": "5-1",
+          "$type": "ProjectTeam"
+        },
+        "role": {
+          "name": "Contributor",
+          "permissions": [
+            {
+              "name": "Add Attachment",
+              "id": "JetBrains.YouTrack.CREATE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Attachment",
+              "id": "JetBrains.YouTrack.UPDATE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Attachment",
+              "id": "JetBrains.YouTrack.DELETE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Issue Comment",
+              "id": "JetBrains.YouTrack.CREATE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue Comment",
+              "id": "JetBrains.YouTrack.READ_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue Comment",
+              "id": "JetBrains.YouTrack.UPDATE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Issue Comment",
+              "id": "JetBrains.YouTrack.DELETE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Work Item",
+              "id": "JetBrains.YouTrack.READ_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Work Item",
+              "id": "JetBrains.YouTrack.UPDATE_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Work Item",
+              "id": "JetBrains.YouTrack.CREATE_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Issue",
+              "id": "JetBrains.YouTrack.CREATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue",
+              "id": "JetBrains.YouTrack.UPDATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Issue",
+              "id": "JetBrains.YouTrack.DELETE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue",
+              "id": "JetBrains.YouTrack.READ_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue Private Fields",
+              "id": "JetBrains.YouTrack.PRIVATE_READ_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue Private Fields",
+              "id": "JetBrains.YouTrack.PRIVATE_UPDATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Link Issues",
+              "id": "JetBrains.YouTrack.LINK_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "View Voters",
+              "id": "JetBrains.YouTrack.VIEW_VOTERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "View Watchers",
+              "id": "JetBrains.YouTrack.VIEW_WATCHERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Watchers",
+              "id": "JetBrains.YouTrack.UPDATE_WATCHERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Project Basic",
+              "id": "jetbrains.jetpass.project-read-basic",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Article",
+              "id": "JetBrains.YouTrack.READ_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Article",
+              "id": "JetBrains.YouTrack.CREATE_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Article Comment",
+              "id": "JetBrains.YouTrack.READ_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Article Comment",
+              "id": "JetBrains.YouTrack.CREATE_ARTICLE_COMMENT",
+              "$type": "Permission"
+            }
+          ],
+          "id": "17-1",
+          "$type": "Role"
+        },
+        "scope": {
+          "project": {
+            "shortName": "PMON",
+            "id": "0-1",
+            "$type": "Project"
+          },
+          "id": "188-1",
+          "$type": "ProjectScope"
+        },
+        "id": "149-4",
+        "$type": "AssignedRole"
+      },
+      {
+        "holder": {
+          "name": "NPCD Team",
+          "id": "5-2",
+          "$type": "ProjectTeam"
+        },
+        "role": {
+          "name": "Contributor",
+          "permissions": [
+            {
+              "name": "Add Attachment",
+              "id": "JetBrains.YouTrack.CREATE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Attachment",
+              "id": "JetBrains.YouTrack.UPDATE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Attachment",
+              "id": "JetBrains.YouTrack.DELETE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Issue Comment",
+              "id": "JetBrains.YouTrack.CREATE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue Comment",
+              "id": "JetBrains.YouTrack.READ_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue Comment",
+              "id": "JetBrains.YouTrack.UPDATE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Issue Comment",
+              "id": "JetBrains.YouTrack.DELETE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Work Item",
+              "id": "JetBrains.YouTrack.READ_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Work Item",
+              "id": "JetBrains.YouTrack.UPDATE_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Work Item",
+              "id": "JetBrains.YouTrack.CREATE_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Issue",
+              "id": "JetBrains.YouTrack.CREATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue",
+              "id": "JetBrains.YouTrack.UPDATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Issue",
+              "id": "JetBrains.YouTrack.DELETE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue",
+              "id": "JetBrains.YouTrack.READ_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue Private Fields",
+              "id": "JetBrains.YouTrack.PRIVATE_READ_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue Private Fields",
+              "id": "JetBrains.YouTrack.PRIVATE_UPDATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Link Issues",
+              "id": "JetBrains.YouTrack.LINK_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "View Voters",
+              "id": "JetBrains.YouTrack.VIEW_VOTERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "View Watchers",
+              "id": "JetBrains.YouTrack.VIEW_WATCHERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Watchers",
+              "id": "JetBrains.YouTrack.UPDATE_WATCHERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Project Basic",
+              "id": "jetbrains.jetpass.project-read-basic",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Article",
+              "id": "JetBrains.YouTrack.READ_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Article",
+              "id": "JetBrains.YouTrack.CREATE_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Article Comment",
+              "id": "JetBrains.YouTrack.READ_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Article Comment",
+              "id": "JetBrains.YouTrack.CREATE_ARTICLE_COMMENT",
+              "$type": "Permission"
+            }
+          ],
+          "id": "17-1",
+          "$type": "Role"
+        },
+        "scope": {
+          "project": {
+            "shortName": "NPCD",
+            "id": "0-2",
+            "$type": "Project"
+          },
+          "id": "188-2",
+          "$type": "ProjectScope"
+        },
+        "id": "149-9",
+        "$type": "AssignedRole"
+      },
+      {
+        "holder": {
+          "name": "Registered Users",
+          "id": "6-0",
+          "$type": "RegisteredUsersGroup"
+        },
+        "role": {
+          "name": "Observer",
+          "permissions": [
+            {
+              "name": "Update Self",
+              "id": "jetbrains.jetpass.profile-updateSelf",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read User Basic",
+              "id": "jetbrains.jetpass.user-read-basic",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read User Details",
+              "id": "jetbrains.jetpass.user-read",
+              "$type": "Permission"
+            }
+          ],
+          "id": "17-0",
+          "$type": "Role"
+        },
+        "scope": {
+          "id": "93-0",
+          "$type": "GlobalScope"
+        },
+        "id": "149-0",
+        "$type": "AssignedRole"
+      }
+    ]
+  },
+  "projectVisibleRoles": {
+    "complete": true,
+    "items": [
+      {
+        "holder": {
+          "name": "Registered Users",
+          "id": "6-0",
+          "$type": "RegisteredUsersGroup"
+        },
+        "role": {
+          "name": "Observer",
+          "permissions": [
+            {
+              "name": "Update Self",
+              "id": "jetbrains.jetpass.profile-updateSelf",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read User Basic",
+              "id": "jetbrains.jetpass.user-read-basic",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read User Details",
+              "id": "jetbrains.jetpass.user-read",
+              "$type": "Permission"
+            }
+          ],
+          "id": "17-0",
+          "$type": "Role"
+        },
+        "scope": {
+          "id": "93-0",
+          "$type": "GlobalScope"
+        },
+        "id": "149-0",
+        "$type": "AssignedRole"
+      },
+      {
+        "holder": {
+          "login": "thegobindsingh",
+          "name": "Gobind Singh",
+          "id": "2-1",
+          "$type": "User"
+        },
+        "role": {
+          "name": "System Admin",
+          "permissions": [
+            {
+              "name": "Read Project Basic",
+              "id": "jetbrains.jetpass.project-read-basic",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Project",
+              "id": "jetbrains.jetpass.project-create",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Project Full",
+              "id": "jetbrains.jetpass.project-read",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Project",
+              "id": "jetbrains.jetpass.project-update",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Project",
+              "id": "jetbrains.jetpass.project-delete",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Organization",
+              "id": "jetbrains.jetpass.organization-read",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Organization",
+              "id": "jetbrains.jetpass.organization-update",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Organization",
+              "id": "jetbrains.jetpass.organization-create",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Organization",
+              "id": "jetbrains.jetpass.organization-delete",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Self",
+              "id": "jetbrains.jetpass.profile-updateSelf",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read User Basic",
+              "id": "jetbrains.jetpass.user-read-basic",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read User Details",
+              "id": "jetbrains.jetpass.user-read",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update User",
+              "id": "jetbrains.jetpass.user-update",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create User",
+              "id": "jetbrains.jetpass.user-create",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete User",
+              "id": "jetbrains.jetpass.user-delete",
+              "$type": "Permission"
+            },
+            {
+              "name": "Low-level Admin Read",
+              "id": "jetbrains.jetpass.low-level-read",
+              "$type": "Permission"
+            },
+            {
+              "name": "Low-level Admin Write",
+              "id": "jetbrains.jetpass.low-level",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue",
+              "id": "JetBrains.YouTrack.READ_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue Private Fields",
+              "id": "JetBrains.YouTrack.PRIVATE_READ_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue",
+              "id": "JetBrains.YouTrack.UPDATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Issue",
+              "id": "JetBrains.YouTrack.CREATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Issue",
+              "id": "JetBrains.YouTrack.DELETE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Link Issues",
+              "id": "JetBrains.YouTrack.LINK_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue Private Fields",
+              "id": "JetBrains.YouTrack.PRIVATE_UPDATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Apply Commands Silently",
+              "id": "JetBrains.YouTrack.APPLY_COMMANDS_SILENTLY",
+              "$type": "Permission"
+            },
+            {
+              "name": "View Watchers",
+              "id": "JetBrains.YouTrack.VIEW_WATCHERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Watchers",
+              "id": "JetBrains.YouTrack.UPDATE_WATCHERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "View Voters",
+              "id": "JetBrains.YouTrack.VIEW_VOTERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "Add Attachment",
+              "id": "JetBrains.YouTrack.CREATE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Attachment",
+              "id": "JetBrains.YouTrack.UPDATE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Attachment",
+              "id": "JetBrains.YouTrack.DELETE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Issue Comment",
+              "id": "JetBrains.YouTrack.CREATE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue Comment",
+              "id": "JetBrains.YouTrack.READ_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue Comment",
+              "id": "JetBrains.YouTrack.UPDATE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Issue Comment",
+              "id": "JetBrains.YouTrack.DELETE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Not Own Issue Comment",
+              "id": "JetBrains.YouTrack.UPDATE_NOT_OWN_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Not Own Comment and Permanent Comment Delete",
+              "id": "JetBrains.YouTrack.DELETE_NOT_OWN_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Override Visibility Restrictions",
+              "id": "JetBrains.YouTrack.READ_HIDDEN_STUFF",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Work Item",
+              "id": "JetBrains.YouTrack.READ_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Work Item",
+              "id": "JetBrains.YouTrack.UPDATE_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Not Own Work Item",
+              "id": "JetBrains.YouTrack.UPDATE_NOT_OWN_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Work Item",
+              "id": "JetBrains.YouTrack.CREATE_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Not Own Work Item",
+              "id": "JetBrains.YouTrack.CREATE_NOT_OWN_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Article",
+              "id": "JetBrains.YouTrack.READ_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Article",
+              "id": "JetBrains.YouTrack.CREATE_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Article",
+              "id": "JetBrains.YouTrack.UPDATE_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Article",
+              "id": "JetBrains.YouTrack.DELETE_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Article Comment",
+              "id": "JetBrains.YouTrack.READ_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Article Comment",
+              "id": "JetBrains.YouTrack.CREATE_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Article Comment",
+              "id": "JetBrains.YouTrack.UPDATE_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Article Comment",
+              "id": "JetBrains.YouTrack.DELETE_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read App Content",
+              "id": "JetBrains.YouTrack.READ_APP_CONTENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update App Content",
+              "id": "JetBrains.YouTrack.UPDATE_APP_CONTENT",
+              "$type": "Permission"
+            }
+          ],
+          "id": "17-5",
+          "$type": "Role"
+        },
+        "scope": {
+          "id": "93-0",
+          "$type": "GlobalScope"
+        },
+        "id": "149-1",
+        "$type": "AssignedRole"
+      },
+      {
+        "holder": {
+          "name": "NPCD Team",
+          "id": "5-2",
+          "$type": "ProjectTeam"
+        },
+        "role": {
+          "name": "Contributor",
+          "permissions": [
+            {
+              "name": "Add Attachment",
+              "id": "JetBrains.YouTrack.CREATE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Attachment",
+              "id": "JetBrains.YouTrack.UPDATE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Attachment",
+              "id": "JetBrains.YouTrack.DELETE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Issue Comment",
+              "id": "JetBrains.YouTrack.CREATE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue Comment",
+              "id": "JetBrains.YouTrack.READ_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue Comment",
+              "id": "JetBrains.YouTrack.UPDATE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Issue Comment",
+              "id": "JetBrains.YouTrack.DELETE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Work Item",
+              "id": "JetBrains.YouTrack.READ_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Work Item",
+              "id": "JetBrains.YouTrack.UPDATE_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Work Item",
+              "id": "JetBrains.YouTrack.CREATE_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Issue",
+              "id": "JetBrains.YouTrack.CREATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue",
+              "id": "JetBrains.YouTrack.UPDATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Issue",
+              "id": "JetBrains.YouTrack.DELETE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue",
+              "id": "JetBrains.YouTrack.READ_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue Private Fields",
+              "id": "JetBrains.YouTrack.PRIVATE_READ_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue Private Fields",
+              "id": "JetBrains.YouTrack.PRIVATE_UPDATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Link Issues",
+              "id": "JetBrains.YouTrack.LINK_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "View Voters",
+              "id": "JetBrains.YouTrack.VIEW_VOTERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "View Watchers",
+              "id": "JetBrains.YouTrack.VIEW_WATCHERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Watchers",
+              "id": "JetBrains.YouTrack.UPDATE_WATCHERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Project Basic",
+              "id": "jetbrains.jetpass.project-read-basic",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Article",
+              "id": "JetBrains.YouTrack.READ_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Article",
+              "id": "JetBrains.YouTrack.CREATE_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Article Comment",
+              "id": "JetBrains.YouTrack.READ_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Article Comment",
+              "id": "JetBrains.YouTrack.CREATE_ARTICLE_COMMENT",
+              "$type": "Permission"
+            }
+          ],
+          "id": "17-1",
+          "$type": "Role"
+        },
+        "scope": {
+          "project": {
+            "shortName": "NPCD",
+            "id": "0-2",
+            "$type": "Project"
+          },
+          "id": "188-2",
+          "$type": "ProjectScope"
+        },
+        "id": "149-9",
+        "$type": "AssignedRole"
+      },
+      {
+        "holder": {
+          "login": "thegobindsingh",
+          "name": "Gobind Singh",
+          "id": "2-1",
+          "$type": "User"
+        },
+        "role": {
+          "name": "Project Admin",
+          "permissions": [
+            {
+              "name": "Add Attachment",
+              "id": "JetBrains.YouTrack.CREATE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Attachment",
+              "id": "JetBrains.YouTrack.UPDATE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Attachment",
+              "id": "JetBrains.YouTrack.DELETE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Issue Comment",
+              "id": "JetBrains.YouTrack.CREATE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue Comment",
+              "id": "JetBrains.YouTrack.READ_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue Comment",
+              "id": "JetBrains.YouTrack.UPDATE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Issue Comment",
+              "id": "JetBrains.YouTrack.DELETE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Work Item",
+              "id": "JetBrains.YouTrack.READ_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Work Item",
+              "id": "JetBrains.YouTrack.UPDATE_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Not Own Work Item",
+              "id": "JetBrains.YouTrack.UPDATE_NOT_OWN_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Not Own Work Item",
+              "id": "JetBrains.YouTrack.CREATE_NOT_OWN_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Work Item",
+              "id": "JetBrains.YouTrack.CREATE_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Project Full",
+              "id": "jetbrains.jetpass.project-read",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Project",
+              "id": "jetbrains.jetpass.project-update",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read App Content",
+              "id": "JetBrains.YouTrack.READ_APP_CONTENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update App Content",
+              "id": "JetBrains.YouTrack.UPDATE_APP_CONTENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Not Own Issue Comment",
+              "id": "JetBrains.YouTrack.UPDATE_NOT_OWN_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Not Own Comment and Permanent Comment Delete",
+              "id": "JetBrains.YouTrack.DELETE_NOT_OWN_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Issue",
+              "id": "JetBrains.YouTrack.CREATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue",
+              "id": "JetBrains.YouTrack.UPDATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Issue",
+              "id": "JetBrains.YouTrack.DELETE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue",
+              "id": "JetBrains.YouTrack.READ_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue Private Fields",
+              "id": "JetBrains.YouTrack.PRIVATE_READ_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue Private Fields",
+              "id": "JetBrains.YouTrack.PRIVATE_UPDATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Link Issues",
+              "id": "JetBrains.YouTrack.LINK_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "View Voters",
+              "id": "JetBrains.YouTrack.VIEW_VOTERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "View Watchers",
+              "id": "JetBrains.YouTrack.VIEW_WATCHERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Watchers",
+              "id": "JetBrains.YouTrack.UPDATE_WATCHERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Project Basic",
+              "id": "jetbrains.jetpass.project-read-basic",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Article",
+              "id": "JetBrains.YouTrack.READ_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Article",
+              "id": "JetBrains.YouTrack.CREATE_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Article",
+              "id": "JetBrains.YouTrack.UPDATE_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Article",
+              "id": "JetBrains.YouTrack.DELETE_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Article Comment",
+              "id": "JetBrains.YouTrack.READ_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Article Comment",
+              "id": "JetBrains.YouTrack.CREATE_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Article Comment",
+              "id": "JetBrains.YouTrack.UPDATE_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Article Comment",
+              "id": "JetBrains.YouTrack.DELETE_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Apply Commands Silently",
+              "id": "JetBrains.YouTrack.APPLY_COMMANDS_SILENTLY",
+              "$type": "Permission"
+            }
+          ],
+          "id": "17-2",
+          "$type": "Role"
+        },
+        "scope": {
+          "project": {
+            "shortName": "NPCD",
+            "id": "0-2",
+            "$type": "Project"
+          },
+          "id": "188-2",
+          "$type": "ProjectScope"
+        },
+        "id": "149-10",
+        "$type": "AssignedRole"
+      },
+      {
+        "holder": {
+          "login": "GenericCola",
+          "name": "James Loder",
+          "id": "2-2",
+          "$type": "User"
+        },
+        "role": {
+          "name": "Project Admin",
+          "permissions": [
+            {
+              "name": "Add Attachment",
+              "id": "JetBrains.YouTrack.CREATE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Attachment",
+              "id": "JetBrains.YouTrack.UPDATE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Attachment",
+              "id": "JetBrains.YouTrack.DELETE_ATTACHMENT_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Issue Comment",
+              "id": "JetBrains.YouTrack.CREATE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue Comment",
+              "id": "JetBrains.YouTrack.READ_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue Comment",
+              "id": "JetBrains.YouTrack.UPDATE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Issue Comment",
+              "id": "JetBrains.YouTrack.DELETE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Work Item",
+              "id": "JetBrains.YouTrack.READ_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Work Item",
+              "id": "JetBrains.YouTrack.UPDATE_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Not Own Work Item",
+              "id": "JetBrains.YouTrack.UPDATE_NOT_OWN_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Not Own Work Item",
+              "id": "JetBrains.YouTrack.CREATE_NOT_OWN_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Work Item",
+              "id": "JetBrains.YouTrack.CREATE_WORK_ITEM",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Project Full",
+              "id": "jetbrains.jetpass.project-read",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Project",
+              "id": "jetbrains.jetpass.project-update",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read App Content",
+              "id": "JetBrains.YouTrack.READ_APP_CONTENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update App Content",
+              "id": "JetBrains.YouTrack.UPDATE_APP_CONTENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Not Own Issue Comment",
+              "id": "JetBrains.YouTrack.UPDATE_NOT_OWN_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Not Own Comment and Permanent Comment Delete",
+              "id": "JetBrains.YouTrack.DELETE_NOT_OWN_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Issue",
+              "id": "JetBrains.YouTrack.CREATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue",
+              "id": "JetBrains.YouTrack.UPDATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Issue",
+              "id": "JetBrains.YouTrack.DELETE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue",
+              "id": "JetBrains.YouTrack.READ_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Issue Private Fields",
+              "id": "JetBrains.YouTrack.PRIVATE_READ_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Issue Private Fields",
+              "id": "JetBrains.YouTrack.PRIVATE_UPDATE_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Link Issues",
+              "id": "JetBrains.YouTrack.LINK_ISSUE",
+              "$type": "Permission"
+            },
+            {
+              "name": "View Voters",
+              "id": "JetBrains.YouTrack.VIEW_VOTERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "View Watchers",
+              "id": "JetBrains.YouTrack.VIEW_WATCHERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Watchers",
+              "id": "JetBrains.YouTrack.UPDATE_WATCHERS",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Project Basic",
+              "id": "jetbrains.jetpass.project-read-basic",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Article",
+              "id": "JetBrains.YouTrack.READ_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Article",
+              "id": "JetBrains.YouTrack.CREATE_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Article",
+              "id": "JetBrains.YouTrack.UPDATE_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Article",
+              "id": "JetBrains.YouTrack.DELETE_ARTICLE",
+              "$type": "Permission"
+            },
+            {
+              "name": "Read Article Comment",
+              "id": "JetBrains.YouTrack.READ_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Create Article Comment",
+              "id": "JetBrains.YouTrack.CREATE_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Update Article Comment",
+              "id": "JetBrains.YouTrack.UPDATE_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Delete Article Comment",
+              "id": "JetBrains.YouTrack.DELETE_ARTICLE_COMMENT",
+              "$type": "Permission"
+            },
+            {
+              "name": "Apply Commands Silently",
+              "id": "JetBrains.YouTrack.APPLY_COMMANDS_SILENTLY",
+              "$type": "Permission"
+            }
+          ],
+          "id": "17-2",
+          "$type": "Role"
+        },
+        "scope": {
+          "project": {
+            "shortName": "NPCD",
+            "id": "0-2",
+            "$type": "Project"
+          },
+          "id": "188-2",
+          "$type": "ProjectScope"
+        },
+        "id": "149-11",
+        "$type": "AssignedRole"
+      }
+    ]
+  },
+  "team": {
+    "complete": true,
+    "items": [
+      {
+        "login": "thegobindsingh",
+        "id": "2-1",
+        "$type": "User"
+      },
+      {
+        "login": "GenericCola",
+        "id": "2-2",
+        "$type": "User"
+      }
+    ]
+  },
+  "groupsComplete": true,
+  "groupMembership": [
+    {
+      "group": {
+        "allUsersGroup": false,
+        "name": "Demo project Team",
+        "id": "4-0",
+        "$type": "NestedGroup"
+      },
+      "complete": true,
+      "userIds": [
+        "2-1"
+      ]
+    },
+    {
+      "group": {
+        "allUsersGroup": false,
+        "name": "Pokemon Team",
+        "id": "5-1",
+        "$type": "ProjectTeam"
+      },
+      "complete": true,
+      "userIds": [
+        "2-1",
+        "2-2"
+      ]
+    },
+    {
+      "group": {
+        "allUsersGroup": false,
+        "name": "NPCD Team",
+        "id": "5-2",
+        "$type": "ProjectTeam"
+      },
+      "complete": true,
+      "userIds": [
+        "2-1",
+        "2-2"
+      ]
+    },
+    {
+      "group": {
+        "allUsersGroup": false,
+        "name": "Registered Users",
+        "id": "6-0",
+        "$type": "RegisteredUsersGroup"
+      },
+      "complete": true,
+      "userIds": [
+        "2-1",
+        "2-2"
+      ]
+    },
+    {
+      "group": {
+        "allUsersGroup": true,
+        "name": "All Users",
+        "id": "103-0",
+        "$type": "AllUsersGroup"
+      },
+      "complete": true,
+      "userIds": [
+        "2-0",
+        "2-1",
+        "2-2"
+      ]
+    }
+  ],
+  "visibleExistingIssues": {
+    "complete": true,
+    "items": []
+  },
+  "credentialBytesUnchanged": true,
+  "status": "inspected",
+  "finishedAt": "2026-10-17T21:10:23.202Z"
+}

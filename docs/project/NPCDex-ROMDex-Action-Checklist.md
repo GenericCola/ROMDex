@@ -463,3 +463,16 @@ U20A is complete. The user approved the contracts and then separately authorized
 - [x] Record the demonstrated carrier/limits/access boundary, check off U20B and stop before U20C (new PASSKEY required). No backend substitution or additional design change was needed; actual agent grants remain U23, configured quota remains unknown.
 
 The [U20C1/U20C2 scheduling contingency](U20C1-Independent-Reader-Plan.md) was not adopted: the user reported that owner setup is underway. Continue the original U20B → U20C sequence; no independent-reader implementation began. A separate request authorizes packaging the existing installer and documentation for owner review while setup proceeds.
+
+
+## U20C — Reader and Cache Checklist
+
+- [x] Implement bounded parsing, pinned schema/hash/graph checks and read-only physical carriers.
+- [x] Implement durable verified cache, complete publication selection, review retention and restart recovery.
+- [x] Project dynamic NPCDex content with current/proposed separation and preserve navigation across refresh.
+- [x] Verify automatic/manual/Off semantics and isolated browser presentation.
+- [x] Pass full regression, independent schema and real YouTrack fixture interruption/recovery checks.
+- [x] Delete only marked fixtures, preserve credentials/installed app and archive source/evidence.
+- [x] Stop before U20D; request its separate PASSKEY.
+
+**U20C is complete** after isolated dynamic reader/cache/projection implementation, 467 tests and live YouTrack attachment/restart/cleanup proof. [Report and limits](U20C-Completion-Report.md). Installed 0.5.7 and the existing GitHub-backed NPCDex remain authoritative. **Next: U20D — Backend Planning and Documentation Corrections, Sol / High; new PASSKEY required.**

@@ -1,0 +1,119 @@
+{
+  "schema": "NPCDexDocumentationCorrection/1",
+  "workspaceId": "fixture:workspace",
+  "operationId": "fixture:correction",
+  "createdAt": "2026-10-16T12:00:00.000Z",
+  "actorClaim": "fixture:owner",
+  "correctionId": "fixture:correction",
+  "reason": "Illustrative correction of documentation; actual ROM requires no change.",
+  "evidence": [
+    {
+      "label": "Illustrative locator, not a real ROM finding",
+      "sourceId": "fixture:source",
+      "excerpt": "Synthetic contract example",
+      "locator": null
+    }
+  ],
+  "readSet": [
+    {
+      "recordId": "fixture:guide",
+      "revisionId": "3a612eeb423506dd4c9590a8d8fd63b970f317d88b8349d0db3aa4ecf85ea169"
+    }
+  ],
+  "recordUpdates": [
+    {
+      "before": {
+        "recordId": "fixture:guide",
+        "revisionId": "3a612eeb423506dd4c9590a8d8fd63b970f317d88b8349d0db3aa4ecf85ea169"
+      },
+      "after": {
+        "schema": "NPCDexContentRevision/1",
+        "workspaceId": "fixture:workspace",
+        "operationId": "fixture:correct-documentation",
+        "createdAt": "2026-10-16T12:00:00.000Z",
+        "actorClaim": "fixture:owner",
+        "recordId": "fixture:guide",
+        "kind": "appearance",
+        "parentRecordId": "fixture:exterior",
+        "parents": [
+          "3a612eeb423506dd4c9590a8d8fd63b970f317d88b8349d0db3aa4ecf85ea169"
+        ],
+        "current": {
+          "lifecycle": "active",
+          "payload": {
+            "name": "Guide",
+            "profileId": "fixture:profile-guide",
+            "profileByPlayerGender": {
+              "male": null,
+              "female": null
+            },
+            "sourceAreaKeys": [
+              "fixture-area"
+            ],
+            "sourceElementIds": [],
+            "points": {
+              "fixture:point-guide": {
+                "id": "fixture:point-guide",
+                "condition": "Always",
+                "stageIds": [
+                  "A"
+                ],
+                "sourceIds": [
+                  "fixture:source"
+                ],
+                "participantIds": [
+                  "fixture:guide"
+                ],
+                "evidence": [
+                  {
+                    "label": "Illustrative locator, not a real ROM finding",
+                    "sourceId": "fixture:source",
+                    "excerpt": "Synthetic contract example",
+                    "locator": null
+                  }
+                ],
+                "blocks": {
+                  "fixture:block-guide": {
+                    "id": "fixture:block-guide",
+                    "kind": "dialogue",
+                    "text": "Correctly documented original text.",
+                    "speaker": "fixture:profile-guide",
+                    "gender": "both",
+                    "reviewKey": "fixture:prompt-guide",
+                    "sourceBlockId": null,
+                    "sourceIds": [],
+                    "rawMessageData": null,
+                    "legacyData": {},
+                    "archived": false
+                  }
+                },
+                "blockOrder": [
+                  "fixture:block-guide"
+                ],
+                "legacyData": {}
+              }
+            },
+            "pointOrder": [
+              "fixture:point-guide"
+            ],
+            "sceneIds": [
+              "fixture:scene"
+            ],
+            "overrides": {
+              "displayName": null,
+              "imageAssetId": null
+            }
+          }
+        },
+        "mappingRefs": [
+          "044e8d0c4186f09e802e82fbdc7d3620a7eaa215c253429eff5157cf03035a52"
+        ],
+        "legacyRefs": [],
+        "legacyData": {},
+        "revisionId": "495db276fc7e87d75c351d010895424de797662c8f7acd2843fbae3b3bb17bc3"
+      }
+    }
+  ],
+  "romChangeRequested": false,
+  "digest": "85bce6361e6c0fe4f5a9ce69072a20374645df03a26ae476e63976ff1c21e0cb"
+}

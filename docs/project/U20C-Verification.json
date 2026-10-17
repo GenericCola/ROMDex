@@ -1,0 +1,265 @@
+{
+  "task": "U20C",
+  "completedAt": "2026-10-17T21:21:27.126Z",
+  "status": "passed",
+  "isolated": true,
+  "installedVersion": "0.5.7",
+  "installedProviderChanged": false,
+  "realSavesMigrated": false,
+  "agentDispatched": false,
+  "PMONWrites": 0,
+  "tests": {
+    "passed": 467,
+    "failed": 0,
+    "newChecks": 41
+  },
+  "syntax": {
+    "files": 21,
+    "failed": []
+  },
+  "independentSchema": {
+    "task": "U20C",
+    "scope": "Independent PowerShell Test-Json schema evaluation of U20A synthetic artifacts",
+    "powershell": "7.6.5",
+    "positiveArtifacts": 24,
+    "rejectedInvalidArtifacts": 4,
+    "status": "passed",
+    "doesNotProve": "Hardened production parsing, live server behavior, actual actor grants or ROM extraction"
+  },
+  "acceptedSchemaSha256": "9e832db6bbc2126b4c9aae3316781c2e56e4b524864a2e4c0c7aa1725b5659d1",
+  "liveStages": {
+    "live-prepare": {
+      "status": "passed",
+      "startedAt": "2026-10-17T21:13:42.960Z",
+      "finishedAt": "2026-10-17T21:15:06.960Z",
+      "checks": [
+        {
+          "label": "Owner-only marked NPCD fixtures and domain/native hierarchy seeded",
+          "projectId": "0-2",
+          "issues": 12,
+          "recordBindings": 11,
+          "artifacts": 17,
+          "bootstrap": "ec276962cba91a0acc9bdc1ef25823f020b058c8fe4d735a35b090416b161b4d",
+          "PMONWrites": 0
+        }
+      ],
+      "allThreeCredentialFilesUnchanged": true
+    },
+    "live-baseline": {
+      "status": "passed",
+      "startedAt": "2026-10-17T21:15:25.606Z",
+      "finishedAt": "2026-10-17T21:16:05.404Z",
+      "checks": [
+        {
+          "label": "Read-only production module exercised against real YouTrack fixture attachments",
+          "mode": "baseline",
+          "head": "ec276962cba91a0acc9bdc1ef25823f020b058c8fe4d735a35b090416b161b4d",
+          "GETRequests": 84,
+          "remoteWritesByReader": 0,
+          "injectedResponses": 0,
+          "manualCycleKeptAutomaticSyncOff": true,
+          "plansPreserved": 4,
+          "priorCacheHead": null,
+          "readProcess": 19680
+        }
+      ],
+      "allThreeCredentialFilesUnchanged": true
+    },
+    "live-update": {
+      "status": "passed",
+      "startedAt": "2026-10-17T21:16:34.260Z",
+      "finishedAt": "2026-10-17T21:17:05.546Z",
+      "checks": [
+        {
+          "label": "Two-record synthetic documentation correction published, manifest last",
+          "records": 2,
+          "publication": "2a023d6aa3724a7247f357efd9bcabbcd2bb59e16867346ebd1ac22612637bd3",
+          "actualROMModified": false,
+          "agentDispatched": false
+        }
+      ],
+      "allThreeCredentialFilesUnchanged": true
+    },
+    "live-interrupted": {
+      "status": "passed",
+      "startedAt": "2026-10-17T21:17:26.475Z",
+      "finishedAt": "2026-10-17T21:18:07.451Z",
+      "checks": [
+        {
+          "label": "Read-only production module exercised against real YouTrack fixture attachments",
+          "mode": "interrupted",
+          "head": "ec276962cba91a0acc9bdc1ef25823f020b058c8fe4d735a35b090416b161b4d",
+          "GETRequests": 97,
+          "remoteWritesByReader": 0,
+          "injectedResponses": 1,
+          "manualCycleKeptAutomaticSyncOff": true,
+          "plansPreserved": 4,
+          "priorCacheHead": "ec276962cba91a0acc9bdc1ef25823f020b058c8fe4d735a35b090416b161b4d",
+          "readProcess": 4168
+        }
+      ],
+      "allThreeCredentialFilesUnchanged": true
+    },
+    "live-recovery": {
+      "status": "passed",
+      "startedAt": "2026-10-17T21:18:26.229Z",
+      "finishedAt": "2026-10-17T21:19:08.007Z",
+      "checks": [
+        {
+          "label": "Read-only production module exercised against real YouTrack fixture attachments",
+          "mode": "recovery",
+          "head": "2a023d6aa3724a7247f357efd9bcabbcd2bb59e16867346ebd1ac22612637bd3",
+          "GETRequests": 98,
+          "remoteWritesByReader": 0,
+          "injectedResponses": 0,
+          "manualCycleKeptAutomaticSyncOff": true,
+          "plansPreserved": 4,
+          "priorCacheHead": "ec276962cba91a0acc9bdc1ef25823f020b058c8fe4d735a35b090416b161b4d",
+          "readProcess": 15140
+        }
+      ],
+      "allThreeCredentialFilesUnchanged": true
+    },
+    "live-cleanup": {
+      "status": "passed",
+      "startedAt": "2026-10-17T21:19:33.254Z",
+      "finishedAt": "2026-10-17T21:20:15.452Z",
+      "checks": [
+        {
+          "label": "Only marked NPCD fixture issues removed and verified absent",
+          "deleted": 12,
+          "activeRunFixtures": 0,
+          "visibleContentIssues": 0,
+          "visiblePMONIssues": 299,
+          "PMONWrites": 0
+        }
+      ],
+      "allThreeCredentialFilesUnchanged": true
+    }
+  },
+  "installedPreservation": {
+    "changedFiles": [],
+    "matchedFiles": 248,
+    "sourceManifest": "U19-Application-Manifest.json",
+    "task": "U20C",
+    "checkedAt": "2026-10-17T21:20:18.1506388Z",
+    "liveDataCompared": false,
+    "installedVersion": "0.5.7",
+    "status": "passed"
+  },
+  "preview": {
+    "image": "U20C-Preview.png",
+    "synthetic": true,
+    "manualRefreshPreservedSelection": true,
+    "automaticSyncRemainedOff": true
+  },
+  "limits": {
+    "chunkBytes": 524288,
+    "carrierBytes": 262144,
+    "objectBytes": 16777216,
+    "cycleBytes": 67108864,
+    "cachePayloadBytes": 268435456,
+    "publications": 1000,
+    "uploadCeilingKnown": false,
+    "remainingServerCapacityKnown": false
+  },
+  "productionGates": [
+    "U20D isolated editing",
+    "U20E previewed real-data migration",
+    "U20F installed acceptance",
+    "U23 actual agent access",
+    "U25 implementation-result authorization"
+  ],
+  "source": [
+    {
+      "path": "content/cache.mjs",
+      "bytes": 3721,
+      "sha256": "497827bbf343e9dd0fd11548b621a11b405ed4aeb6cfb51a5fcf16d3d827635f"
+    },
+    {
+      "path": "content/carrier.mjs",
+      "bytes": 3169,
+      "sha256": "bf68cf8ca2295e622273db169230c992c9fb42e7c45420ac84e3cac9608c08b4"
+    },
+    {
+      "path": "content/contracts.mjs",
+      "bytes": 10161,
+      "sha256": "e8ababa7b595cc46f025c6b6595643198d7ed799bb739e0719e49693e8b80e9c"
+    },
+    {
+      "path": "content/contracts.schema.json",
+      "bytes": 51409,
+      "sha256": "9e832db6bbc2126b4c9aae3316781c2e56e4b524864a2e4c0c7aa1725b5659d1"
+    },
+    {
+      "path": "content/materialize.mjs",
+      "bytes": 6541,
+      "sha256": "39c8afe85e87a82d33daf882780f5427c29b89d772f72cbc7573de31a42fff46"
+    },
+    {
+      "path": "content/preview-server.mjs",
+      "bytes": 6543,
+      "sha256": "eab83cc1d39453670567e83dc272be4f727e4d6ab0e90a01001b32cca566946d"
+    },
+    {
+      "path": "content/preview.js",
+      "bytes": 4996,
+      "sha256": "62db58aba334d9d0a3a7dae57439378826cd4b630291577ca47e79285ef774ca"
+    },
+    {
+      "path": "content/projection.mjs",
+      "bytes": 5760,
+      "sha256": "449e240ded5fa6405b7f66672338b1c9f523bfd968acade4fbbc449d84a25c98"
+    },
+    {
+      "path": "content/reader.mjs",
+      "bytes": 13601,
+      "sha256": "2384e5b1fc9b2c1e7d5a7fc18a9d76e7391c3e1e1ae8dc0e47d6cec6378a6d35"
+    },
+    {
+      "path": "content/README.md",
+      "bytes": 5935,
+      "sha256": "b0db4993f4afa04c188b4aeb06f41dfc945d4b17e4d454a23d32f06f401cb7b3"
+    },
+    {
+      "path": "content/youtrack-reader.mjs",
+      "bytes": 5977,
+      "sha256": "2be998b94bca4c705be6ace205676e36da25460d774d1d2a3c4e0a1debf7ff7d"
+    },
+    {
+      "path": "tests/content-fixture.mjs",
+      "bytes": 4539,
+      "sha256": "c096ee4d3cbb185575fd0a980d07ae9d4f23b7c9cd9146a32147fa9e2c7cc4ac"
+    },
+    {
+      "path": "tests/content-reader.test.mjs",
+      "bytes": 16580,
+      "sha256": "2969dd682b02dd17071e97cf78dc1b6d3ac286e2eba41be18f0bce748573c75d"
+    },
+    {
+      "path": "tests/content-transport.test.mjs",
+      "bytes": 5230,
+      "sha256": "4f48ebfebfb12603f4d810669b147228bc4c4ce8be85cff6b8c8143ff9411d87"
+    },
+    {
+      "path": "tests/content-preview.test.mjs",
+      "bytes": 2933,
+      "sha256": "e94855064f9d41eaa9c75b2313d00c61bfc5907e16c945ffb88810ad0349fc53"
+    },
+    {
+      "path": "tests/fixtures/content/dialogue-result.json",
+      "bytes": 4854,
+      "sha256": "5c474271bf150442100704c0566e7b579a01e01ecc3615b808c91334264e6d64"
+    },
+    {
+      "path": "tests/fixtures/content/documentation-correction.json",
+      "bytes": 3862,
+      "sha256": "2514bff1448a2db5157e46165845f8f4c09f97ba85dee3b476cf1577c80ffa9c"
+    },
+    {
+      "path": "tests/fixtures/content/map-package.json",
+      "bytes": 26144,
+      "sha256": "f3c05a0b18eb2acc299092f7c7173560ad72da9df15c702a9788a3c537a6d29f"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+import {requireThat,sha,validateArtifact,same,isHash,MAX_MANIFEST_BYTES,canonical} from './contracts.mjs';
+import {MANIFEST_NAME,validateCarrier} from './carrier.mjs';
+import {applyPublication} from './materialize.mjs';
+import {projectNPCDex,PROJECTION_VERSION} from './projection.mjs';
+
+export class ContentReader{
+ constructor({transport,cache,workspace,bootstrapPublication,ownerId='2-2',enabled=()=>true,changed=()=>{},interval=60000}){
+  requireThat(workspace===cache.workspace&&workspace.startsWith('fixture:')&&isHash(bootstrapPublication)&&ownerId==='2-2','Explicit Preview Root and Owner Pins Are Required.');
+  requireThat(Number.isInteger(interval)&&interval>=1000,'Invalid Content Poll Interval.');Object.assign(this,{transport,cache,workspace,bootstrapPublication,ownerId,enabled,changed,interval});this.task=null;this.timer=null;this.status={connection:'cached',attention:false,message:'Showing the Verified Content Cache.'};
+  const binding={workspace,bootstrapPublication,registryIssueId:transport.registryIssueId,projectId:transport.projectId,ownerId};const previous=cache.get('binding');requireThat(!previous||same(previous,binding),'The Preview Registry Binding Changed.');if(!previous)cache.set('binding',binding);
+ }
+ view(){const accepted=this.cache.get('accepted');return {active:!!accepted,readOnly:true,head:accepted?.head||null,snapshot:accepted?.snapshot||null,status:{...this.status,automaticRemote:!!this.enabled(),pendingWrites:0,label:'NPCDex Content Preview'},review:this.cache.get('review')||[]};}
+ async object(descriptor){this.cycleBytes+=descriptor.bytes;requireThat(this.cycleBytes<=64*1024*1024,'Content Cycle Transfer Budget Exceeded.');const chunks=[];for(const ref of descriptor.chunks){const bytes=await this.transport.download(ref.issueId,ref);requireThat(bytes.length===ref.bytes&&sha(bytes)===ref.sha256,'Content Chunk Differs.');this.cache.putObject(bytes);chunks.push(bytes);}const bytes=Buffer.concat(chunks);requireThat(bytes.length===descriptor.bytes&&sha(bytes)===descriptor.sha256,'Assembled Content Object Differs.');this.cache.putObject(bytes);return bytes;}
+ cycle(manual=false){
+  if(!manual&&!this.enabled())return Promise.resolve(this.view());if(this.task)return this.task;
+  this.lifecyclePaused=false;this.abort=new AbortController();this.task=this.pull().catch(error=>{this.status=this.lifecyclePaused&&this.abort.signal.aborted?{connection:'paused',attention:!!this.cache.get('review')?.length,message:'Automatic Content Sync Is Paused; the Verified Cache Is Retained.'}:{connection:'unavailable',attention:true,message:error.message};this.changed(this.view());return this.view();}).finally(()=>{this.task=null;this.abort=null;});return this.task;
+ }
+ async pull(){
+  this.status={connection:'syncing',attention:false,message:'Reading Content Publications.'};this.changed(this.view());this.cycleBytes=0;this.transport.begin(AbortSignal.any([this.abort.signal,AbortSignal.timeout(120000)]));
+  const listing=await this.transport.discover(),review=[],entries=[],operations=new Map(),artifactOperations=new Map(),seenBindings=new Map(),observed=new Map(),referenced=new Set();let rootBindings=null;
+  const candidates=listing.filter(a=>a.name===MANIFEST_NAME);requireThat(candidates.length<=1000,'Content Publication Count Exceeds the Preview Bound.');const known=this.cache.get('discovered')||[];
+  for(const meta of candidates){
+   this.abort.signal.throwIfAborted();
+   try{
+    requireThat(meta.name===MANIFEST_NAME,'Unexpected Registry Attachment Needs Review.');requireThat(meta.authorId===this.ownerId&&meta.size<=MAX_MANIFEST_BYTES,'Registry Attachment Author or Size Is Not Approved.');
+    const bytes=await this.transport.download(this.transport.registryIssueId,{attachmentId:meta.id,bytes:meta.size});const byteHash=sha(bytes),old=known.find(a=>a.id===meta.id&&(a.issueId||this.transport.registryIssueId)===this.transport.registryIssueId);requireThat(!old?.byteHash||old.byteHash===byteHash,'A Previously Observed Manifest Changed Bytes.');observed.set(meta.id,{...meta,byteHash,issueId:this.transport.registryIssueId});const carrier=validateCarrier(bytes,this.workspace);this.cache.putObject(bytes);
+    for(const object of [carrier.publication,...carrier.artifacts.map(a=>a.object),...carrier.assets.map(a=>a.object)])for(const ref of object.chunks)referenced.add(ref.issueId+'/'+ref.attachmentId);
+    requireThat(carrier.publication.chunks.every(c=>c.issueId===this.transport.registryIssueId),'Publication Must Be Bound to Its Registry.');const pub=validateArtifact(await this.object(carrier.publication),this.workspace);requireThat(pub.schema==='NPCDexPublication/1'&&pub.operationId===carrier.operationId,'Carrier Publication Identity Differs.');
+    const previous=operations.get(carrier.operationId);requireThat(!previous||previous===pub.digest,'Operation Identity Was Reused for Different Content.');operations.set(carrier.operationId,pub.digest);
+    const artifacts=[];for(const item of carrier.artifacts){const a=validateArtifact(await this.object(item.object),this.workspace);requireThat((a.revisionId||a.digest)===item.digest,'Pinned Artifact Digest Differs.');const opKey=a.schema+':'+a.operationId,opDigest=artifactOperations.get(opKey);requireThat(!opDigest||opDigest===item.digest,'Artifact Operation Identity Was Reused.');artifactOperations.set(opKey,item.digest);const recordId=a.recordId||a.target?.recordId,issueId=recordId?carrier.bindings.find(b=>b.recordId===recordId)?.issueId:this.transport.registryIssueId;requireThat(issueId&&item.object.chunks.every(c=>c.issueId===issueId),'Artifact Is Bound to the Wrong Content Issue.');artifacts.push(a);}
+    const assets=[];for(const item of carrier.assets){const bytes=await this.object(item.object);assets.push({assetId:item.assetId,mime:item.mime,sha256:sha(bytes),bytes:bytes.length});}
+    for(const pin of carrier.nativeMetadata)await this.transport.issue(pin.issueId);
+    const bindingKey=pub.digest,bindings=canonical({bindings:[...carrier.bindings].sort((a,b)=>a.recordId.localeCompare(b.recordId)),nativeMetadata:[...carrier.nativeMetadata].sort((a,b)=>a.issueId.localeCompare(b.issueId)),assets:assets.slice().sort((a,b)=>a.assetId.localeCompare(b.assetId))});requireThat(!seenBindings.has(bindingKey)||seenBindings.get(bindingKey)===bindings,'Publication Record Bindings Differ.');seenBindings.set(bindingKey,bindings);
+    entries.push({pub,artifacts,assets,carrier,attachmentId:meta.id});if(pub.digest===this.bootstrapPublication)rootBindings=carrier.bindings;
+   }catch(error){review.push({kind:'publication-needs-review',attachmentId:meta.id,message:error.message});}
+  }
+  const inventory=listing.map(meta=>({...meta,issueId:this.transport.registryIssueId}));
+  if(rootBindings)for(const issueId of new Set(rootBindings.map(b=>b.issueId)))for(const meta of await this.transport.inventory(issueId))inventory.push({...meta,issueId});
+  this.abort.signal.throwIfAborted();const currentIds=new Set(inventory.map(a=>a.issueId+'/'+a.id));for(const old of known)if(!currentIds.has((old.issueId||this.transport.registryIssueId)+'/'+old.id))review.push({kind:'missing-history',attachmentId:old.id,message:'A Previously Observed Published Attachment Is Missing.'});
+  const unpublished=inventory.filter(a=>!referenced.has(a.issueId+'/'+a.id)&&!(a.issueId===this.transport.registryIssueId&&a.name===MANIFEST_NAME));
+  for(const meta of unpublished)if(meta.authorId!==this.ownerId)review.push({kind:'unapproved-file',attachmentId:meta.id,message:'An Unpublished File Has an Unapproved or Missing Author.'});
+  const byHash=new Map(entries.map(e=>[e.pub.digest,e])),root=byHash.get(this.bootstrapPublication),states=new Map(),invalid=new Set();
+  if(root){
+   const pins=new Map(rootBindings.map(b=>[b.recordId,b.issueId]));
+   requireThat(rootBindings.length===root.artifacts.filter(a=>a.schema==='NPCDexContentRevision/1').length,'Initial Record Bindings Are Incomplete.');
+   for(const entry of entries){
+    if(entry.carrier.bindings.some(b=>pins.get(b.recordId)!==b.issueId)){invalid.add(entry.pub.digest);review.push({kind:'binding-changed',attachmentId:entry.attachmentId,message:'Record Rebinding Needs Explicit Review.'});}
+    for(const a of entry.artifacts)if(a.schema==='NPCDexContentRevision/1'){const issueId=pins.get(a.recordId);if(!issueId||!entry.carrier.bindings.some(b=>b.recordId===a.recordId&&b.issueId===issueId)){invalid.add(entry.pub.digest);review.push({kind:'binding-missing',attachmentId:entry.attachmentId,message:'Content Record Binding Is Missing.'});}}
+   }
+   const visiting=new Set();let materializedBytes=0,materializationExhausted=false;
+   const visit=hash=>{if(states.has(hash))return states.get(hash);requireThat(!materializationExhausted,'Content Materialization Budget Exceeded.');requireThat(!visiting.has(hash),'Publication Ancestry Cycle.');const entry=byHash.get(hash);requireThat(entry&&!invalid.has(hash),'Publication Dependency Is Missing or Invalid.');visiting.add(hash);let parent=null;
+    if(hash===this.bootstrapPublication)requireThat(entry.pub.kind==='bootstrap'&&entry.pub.parentPublications.length===0,'Pinned Initial Publication Is Invalid.');
+    else{requireThat(entry.pub.parentPublications.length===1,'Publication Needs a Single Validated Parent in This Phase.');parent=visit(entry.pub.parentPublications[0]);}
+    const domain=applyPublication(parent,entry.pub,entry.artifacts,entry.assets);materializedBytes+=Buffer.byteLength(JSON.stringify(domain));if(materializedBytes>64*1024*1024){materializationExhausted=true;throw Error('Content Materialization Budget Exceeded.');}states.set(hash,domain);visiting.delete(hash);return domain;
+   };
+   for(const entry of entries)try{visit(entry.pub.digest);}catch(error){visiting.clear();invalid.add(entry.pub.digest);review.push({kind:'domain-needs-review',attachmentId:entry.attachmentId,message:error.message});}
+  }else review.push({kind:'missing-root',message:'The Pinned Initial Publication Is Unavailable.'});
+  let selected=null;
+  if(states.has(this.bootstrapPublication)){
+   selected=this.bootstrapPublication;for(;;){const children=[...states.keys()].filter(hash=>byHash.get(hash).pub.parentPublications.includes(selected));if(children.length===1){selected=children[0];continue;}if(children.length>1)review.push({kind:'competing-publications',heads:children.sort(),message:'Competing Content Versions Are Preserved for Review.'});break;}
+  }
+  if(selected){const domain=states.get(selected),entry=byHash.get(selected),pins=new Map(rootBindings.map(b=>[b.recordId,b.issueId]));for(const record of domain.records){const issueId=pins.get(record.recordId),pin=entry.carrier.nativeMetadata.find(m=>m.issueId===issueId);requireThat(pin,'Current Native Metadata Pin Is Missing.');requireThat(pin.parentIssueId===(pins.get(record.parentRecordId)||null),'Native Metadata Parent Does Not Match Content.');}for(const pin of entry.carrier.nativeMetadata){const native=await this.transport.issue(pin.issueId);if(native.summary!==pin.summary||native.parentIssueId!==pin.parentIssueId||native.descriptionSha256!==pin.descriptionSha256||native.commentsSha256!==pin.commentsSha256)review.push({kind:'native-metadata-changed',issueId:pin.issueId,message:'Native Metadata Changed Without a Validated Content Event.'});}}
+  // Uncertain, missing or malformed data never silently replaces the last good view.
+  const prior=this.cache.get('accepted');const mayRollbackToCommon=review.some(r=>r.kind==='competing-publications')&&!review.some(r=>r.kind!=='competing-publications');
+  if(!prior&&review.length&&states.has(this.bootstrapPublication))selected=this.bootstrapPublication;
+  const accept=selected&&(!review.length||mayRollbackToCommon||!prior&&selected===this.bootstrapPublication);
+  this.abort.signal.throwIfAborted();this.cache.transaction(()=>{
+   for(const [head,domain]of states)this.cache.set('domain:'+head,domain);
+   const union=new Map(known.map(x=>[(x.issueId||this.transport.registryIssueId)+'/'+x.id,x]));for(const meta of inventory){const key=meta.issueId+'/'+meta.id;if(!referenced.has(key)&&!(meta.issueId===this.transport.registryIssueId&&meta.name===MANIFEST_NAME))continue;if(!union.has(key))union.set(key,meta.issueId===this.transport.registryIssueId?observed.get(meta.id)||meta:meta);else if(!union.get(key).byteHash&&meta.issueId===this.transport.registryIssueId&&observed.has(meta.id))union.set(key,observed.get(meta.id));}this.cache.set('discovered',[...union.values()]);
+   this.cache.set('review',review);
+   if(accept&&(!prior||prior.head!==selected||prior.projectionVersion!==PROJECTION_VERSION)){const domain=states.get(selected),snapshot=projectNPCDex(domain,{revision:(prior?.snapshot.revision||0)+1,assetBytes:hash=>this.cache.object(hash)});this.cache.set('accepted',{head:selected,snapshot,projectionVersion:PROJECTION_VERSION});}
+  });
+  this.status={connection:'connected',attention:review.length>0,pendingIncomingFiles:unpublished.length,message:review.length?'Content Needs Review · the Verified View Is Retained.':unpublished.length?'Waiting for Unpublished Content Files to Join a Complete Publication.':'Content Is Up to Date.'};this.changed(this.view());return this.view();
+ }
+ start(){if(this.timer||!this.enabled())return;const tick=async()=>{try{await this.cycle();}finally{if(this.timer&&this.enabled()){this.timer=setTimeout(tick,this.interval);this.timer.unref?.();}else this.timer=null;}};this.timer=setTimeout(tick,0);this.timer.unref?.();}
+ async stop(){if(this.timer)clearTimeout(this.timer);this.timer=null;this.lifecyclePaused=true;this.abort?.abort();await this.task;this.cache.checkpoint();}
+}
