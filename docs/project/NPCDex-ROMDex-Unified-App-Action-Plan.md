@@ -1,10 +1,10 @@
 # ROMDex — Desktop and Add-on Action Plan
 
 **Date:** October 14, 2026  
-**Status:** U01–U19 and approved intervening tasks are complete. Installed ROMDex **0.5.7** has private NPCDex/metadata cloud sync, native two-way YouTrack sync and shared controls/indicators. Request/receipt workflows remain later individually approved tasks.
+**Status:** U01–U20 and approved intervening tasks are complete. Installed ROMDex **0.5.7** has private NPCDex/metadata cloud sync, native two-way YouTrack sync and shared controls/indicators. U20's content-registry and package/backend-result design is user-approved; later task-specific approvals and technical proof gates remain required.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
-**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md), [U19 report](U19-Completion-Report.md). **Next: U20 — Change Request Workflow and User-Story Review, Sol / Medium**, requiring a new PASSKEY.
+**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md), [U20 accepted design](U20-Consolidated-Architecture-and-Revised-Plan.md). U20A is approved and complete. **U20B is complete** after NPCD provisioning and isolated live storage/restart/cleanup proof; [report and limits](U20B-Completion-Report.md). **Next: U20C — Sol / High**, requiring a new PASSKEY. Later tasks remain gated.
 
 ## Working Agreement
 
@@ -12,7 +12,7 @@ Execute the tasks below in order, one at a time. Each task requires a new PASSKE
 
 Use browser checks sparingly: focused visual verification for changed interfaces, automated checks for data and synchronization behavior, and a final integrated review. Preserve current working data and remembered credentials across every build. Never migrate an old packaged export over newer working data.
 
-Keep the existing tools usable until the combined app passes migration and acceptance checks. U01/R08 backups, R01–R08 enhancements and U02–U04 designs are complete; desktop implementation, infrastructure provisioning, ticket publishing and live-data migration have not begun.
+Keep the installed tools usable throughout the proposed content-backend work. Completed desktop/cloud migrations and their protected backups remain intact; U20 has not begun content-project provisioning, content migration or map-package publishing.
 
 ## Confirmed Requirements
 
@@ -29,15 +29,15 @@ Keep the existing tools usable until the combined app passes migration and accep
 - Free hosting only. Provider selection must demonstrate a fit within free limits; no paid fallback is assumed.
 - U03 confirmed **no payment method or usage-based billing**, **private installers**, and **avoid weekly inactivity pauses**. During U14 the user revised save storage to a separate private **GitHub** repository; **YouTrack** remains authoritative for tasks and every agent-required report/file/image/instruction/receipt. Actual access and transfer limits are checked at setup; concurrency is proven before migration. The revised U04 transport must preserve its domain/conflict safeguards.
 - Scale: one owner initially, possibly a second person, ten at the extreme. Future access needs explicit approval; no team UI is added by this context. U14 did not establish the actual YouTrack subscription/user/storage ceiling; do not assume capacity or add accounts from headline free-plan limits.
-- Private installer delivery uses YouTrack if the measured artifact/configuration fits; private GitHub Releases is a conditional approved direction only if needed. No repository/publication is created without its later task approval.
+- Private installer delivery now uses the approved private GitHub repository/releases established in U13B. Preserve private visibility, protected credentials and existing update consent.
 - NPCDex data, images, history, and receipt records synchronize through the cloud with a durable local cache.
 - ROMDex tile images, manual order, and saved parent statuses also synchronize through that store, separately from YouTrack task fields.
 - Native YouTrack task edits continue to flow back to ROMDex. Shared fields linked into NPCDex require an explicit mapping.
 - ROMDex selectors now use Epic → Saga → Story → Verse; existing levels are relabeled without new parent issues. Only one branch per expandable tier can be open, and Verse does not expand. Lower levels remain Tasks in Work.
-- Valid matching receipts auto-apply; stale, conflicting, invalid, or unauthorized receipts enter review without partial application. Applying a receipt does not certify testing.
-- Ticket creation/grouping is deferred to user-story review near implementation. No automatic ticket-generation trigger or default grouping is assumed.
-- Package selected map-level NPCDex Change Requests as versioned JSON attachments on approved YouTrack tickets, with stable target mapping, agent instructions and the existing Integration Receipt contract. Automatically retrieve returned receipts and reflect validated reconciliation in NPCDex; exceptions retain human review. Detailed scope belongs to U20–U27.
-- After the principal release, scope and implement ROMDex notifications for agent-created tickets, comments and messages. Source/channel definitions, agent identification, background delivery and notification preferences require U31 review before implementation; see Phase 7.
+- Preserve existing receipt/history compatibility. The U20 proposal uses validated direct content-record updates as the normal result route; stale, conflicting, invalid or unauthorized results enter review. Independent results can apply separately; dependent groups apply together. Acceptance never certifies in-game testing.
+- The user confirmed choosing an existing task or explicitly creating one for a map package. No automatic per-entity execution tickets, assignment or agent dispatch. NPCDex remains a planning/staging tool.
+- Package selected map-level proposals as one fixed, versioned JSON document attached to a chosen YouTrack task, with stable target mapping, necessary assets/context and agent instructions. Preserve newer drafts when an older package is implemented. The U20 design and revised Phases 4–6 are accepted; implementation remains separately authorized per task.
+- After the principal release, scope and implement ROMDex notifications for agent-created tickets, comments and messages. Source/channel definitions, agent identification, background delivery and notification preferences require U31 review before implementation; see Phase 8.
 
 ## Models and Effort
 
@@ -134,62 +134,69 @@ Added by the user during U05; requires completed U05 design review and a separat
 
 **Milestone B:** Both workspaces have durable cloud-backed data and recovery. Confirm with controlled data and then a previewed real-workspace migration.
 
-## Phase 4 — Change Requests and YouTrack
+## Phase 4 — Approved Content Architecture Revision
 
-### 4A. Required User-Story Checkpoint
+**U20 design approved October 16, 2026.** [Consolidated architecture and revised plan](U20-Consolidated-Architecture-and-Revised-Plan.md) replaces the earlier future ticket/receipt sequence, preserved in [the prior future-phase plan](U20-Previous-Future-Phase-Plan.md). The confirmed individual decisions are recorded in [the discussion log](U20-Architecture-Discussion.md). No U20A–U33 implementation or migration is authorized. Current NPCDex saves remain GitHub-backed until a previewed, accepted cutover.
+
+### 4A–4G. Review, Prove and Migrate the Content Backend
+
+| Phase | Task | Deliverable and acceptance gate | Model / Effort |
+| --- | --- | --- | --- |
+| 4A — Finish design | U20 | Complete: user approved the consolidated behavior/ownership/roadmap October 16, 2026. No application or live-system changes. | Sol / Medium |
+| 4B — Define records | U20A | Complete and user-approved October 16: [contract/schema/examples and extraction guide](U20A-Review-Report.md), 45 isolated model/legacy checks passed. | Sol / High |
+| 4C — Prove YouTrack storage | U20B | Complete October 17. Owner-created NPCD, private fixture transfers/links, competing versions, separate-process interrupted-group recovery and cleanup proved. [Measured limits](U20B-Completion-Report.md); actual agent grants remain U23. No migration. | Sol / High |
+| 4D — Read and assemble | U20C | Background registry reader, durable cache/recovery and dynamic NPCDex projection in an isolated profile. Preserve the familiar interface, shared Save/Auto-Sync semantics and separate content/work views. No live source switch. | Sol / High |
+| 4E — Plan and correct | U20D | Backend planning/correction writes, shared profiles/local overrides, planned additions and archival lifecycle. Prove draft/current separation, offline writes and conflict recovery using isolated data. No implicit execution task or handoff. | Sol / High |
+| 4F — Migrate safely | U20E | Preview the latest real dataset, preserve complete originals, validate mappings/assets/history and activate one authoritative provider only after the user's migration acceptance. Define GitHub backup behavior and recovery without enabling a second editable master. | Sol / High |
+| 4G — Accept content backend | U20F | Installed-app acceptance, dynamic add/update from YouTrack, native edit/conflict/offline cases, exact save/credential preservation, backup restoration and verified private release. Stop for review before packaging implementation. | Sol / High |
+
+**Milestone C:** The content-backed NPCDex has passed isolated proof, a previewed real migration and installed-app acceptance; task execution still requires explicit user handoff.
+
+**Scheduling contingency — October 16, not adopted:** [U20C1 — Independent Content Reader, Cache and Preview](U20C1-Independent-Reader-Plan.md) was proposed while the instance owner was unavailable. The user then reported that owner setup is underway and withdrew the diversion. Retain the split as reference only; current execution returns to U20B, then the original U20C scope under its separate PASSKEY. No U20C1 work began.
+
+## Phase 5 — Map Documents and Actionable Tasks
+
+| Phase | Task | Deliverable and acceptance gate | Model / Effort |
+| --- | --- | --- | --- |
+| 5A — Package and attach | U21 | One map document, whole-map selection preview, existing/new PMON task chooser, explicit attach, immutable versions and duplicate-safe retry. Preserve unrelated task content and expose newer-draft/superseded-package state. | Sol / High |
+| 5B — Navigate and track | U22 | Task/content/package links and per-package/item/group progress. Match attached package versions; no implicit dispatch or task completion. | Sol / High |
+
+**Planning boundary:** NPCDex produces a single fixed map-change document, with whole-map/sub-zone pending plans, flags and notes preselected and preview exclusions. The user selects an existing PMON task or explicitly creates one, then confirms attachment. No automatic agent dispatch, assignment or task-state advance. Current content remains primary with proposals appended; older implemented packages preserve newer drafts. All agent-required mappings/context/assets must be accessible on YouTrack without private GitHub save access.
+
+## Phase 6 — Direct Backend Results, Review and Testing
+
+| Phase | Task | Deliverable and acceptance gate | Model / Effort |
+| --- | --- | --- | --- |
+| 6A — Approve agent contract | U23 | Concrete ROM mapping/execution/update walkthrough, verified execution identity/grants, versioned direct content-update format, partial/group handling and readiness notice. Review before enabling agent updates. | Sol / High |
+| 6B — Discover results | U24 | Durable discovery of agent-authored backend content revisions and package/group completion evidence, with restart, replay, offline/manual-cycle and uncertainty recovery. | Sol / High |
+| 6C — Validate and apply | U25 | Validate and automatically project completed independent results or full dependent groups. Preserve newer drafts, validate authorization/baselines, reset testing and retain conflict alternatives. A separate receipt file is not the normal return route. | Astra / High |
+| 6D — Review exceptions | U26 | Human review for incomplete/stale/conflicting results, corrections and mismatched groups, with previews, defer/reject/retry and no partial dependent-group application. | Sol / High |
+| 6E — History and verification | U27 | Undo/archive/reversal evidence, task testing checklist and readiness/completion gates. User verification remains necessary; no automatic ROM reversal or premature closure. | Sol / High |
+
+**Result boundary:** The normal return is a versioned update to the relevant content records, not a separate receipt file for the user to import. Preserve the validation/evidence function and legacy recovery compatibility. Apply completed independent items; dependent edits update as a complete validated group. Reset affected testing to Unreviewed. The agent announces readiness for testing; tasks stay open until user verification. A PMON task comment is the proposed initial notice route; desktop push delivery remains Phase 8.
+
+**Actor/access gate:** Existing broad owner/developer connectors do not establish a restricted ticket-agent identity. Verify the actual execution identity and available project/issue/attachment permissions at U20B/U23; claimed JSON actor labels are not authentication. Do not grant owner credentials or private save-repository access for convenience.
+
+**Milestone D:** Approved map work can move from a PMON task to ROM implementation and validated content-record updates, with incremental progress, retained drafts and human verification.
+
+## Phase 7 — Final Quality Review and Release
+
+### 7A. Integrated Review
 
 | Task | Action and Deliverable | Completion Check | Model / Effort |
 | --- | --- | --- | --- |
-| U20 | Walk through realistic request publishing, map-level JSON packaging, grouping, existing-ticket linking, bulk selection, instruction updates, and retry use cases with the user. Define the map/target mapping, included context, attachment preview, ticket creation controls, shared-field ownership and completion policy. | User approves the workflow and exact package scope. Demonstrate a map package linked to an existing ticket and an explicitly approved new ticket. No default grouping or automatic creation is carried forward without that decision. | Sol / Medium |
-
-### 4B. Implement the Approved Workflow
-
-| Task | Action and Deliverable | Completion Check | Model / Effort |
-| --- | --- | --- | --- |
-| U21 | Implement approved publishing/linking controls and attach versioned map-level Change Request JSON files to the chosen YouTrack tickets. Reuse approved NPCDex contracts: include stable workspace/map/target identifiers, published request IDs/revisions, baseline evidence/hashes, exact changes and needed context, plus self-contained agent instructions and the required Integration Receipt format/example. Preserve durable ticket/package mappings and duplicate prevention. | An agent can locate the intended map and targets from the attachment without manually rebuilding the mapping. Previewed requests produce only intended tickets/links; interrupted attachment/ticket retries create no duplicates; existing content remains intact. No credentials or unrelated dataset are packaged. | Sol / High |
-| U22 | Add navigation between requests and ROMDex tasks, and synchronize approved shared fields/native YouTrack edits with explicit conflict handling. | Native edits return correctly; instruction changes invalidate older request versions; tester verification remains separate from task progress. | Sol / High |
-
-**Agent-data boundary:** every required handoff dependency—including selected images, sprites, source/context and mapping evidence—must be attached to or otherwise accessible within the approved YouTrack ticket workflow. An agent must be able to complete a request and return its receipt without access to ROMDex-Data. Preview the exported scope and validate package completeness; private GitHub URLs are not sufficient dependencies. The bulk private save, unrelated images/history and credentials remain outside the handoff.
-
-## Phase 5 — Agent Delivery and Integration Receipts
-
-### 5A. Define and Build Delivery
-
-| Task | Action and Deliverable | Completion Check | Model / Effort |
-| --- | --- | --- | --- |
-| U23 | Review the ticket-attached map JSON handoff and select the agent receipt return/discovery route. Define limited access, stable map/target mapping, published request versions, existing receipt contract compatibility, instructions for producing and returning a receipt, offline delivery and correction/retry examples. | User approves a concrete ticket → agent → receipt → NPCDex walkthrough before implementation. The agent needs no manual reconstruction of target mapping; transport fits free hosting and preserves manual JSON fallback. | Sol / High |
-| U24 | Implement approved request retrieval and automatic receipt discovery/pull from linked tickets or the return route approved at U23 into a durable inbox. Record source ticket/package, receipt IDs, authorization and discovery progress; support restart, offline catch-up and uncertain retries. Follow shared Auto-Sync Off/manual one-cycle semantics. | Authorized agents retrieve only eligible packages; returned receipts arrive without a manual download/import step, including while ROMDex runs in the tray. Repeated discovery/submissions are recognized; receipt intake does not grant unrestricted dataset edits. | Sol / High |
-
-The current trusted development GitHub connector is owner-authorized and can access ROMDex-Data; it is not an example of an isolated ticket agent credential. U23 must verify the specific execution identity used by ticket agents and avoid reusing broad owner/developer GitHub access. U14's denied-access test covers the separately scoped update token, not every owner-authorized application. No save-repository collaborator or dedicated agent grant was added.
-
-### 5B. Reconcile, Review, and Recover
-
-| Task | Action and Deliverable | Completion Check | Model / Effort |
-| --- | --- | --- | --- |
-| U25 | Automatically validate and reconcile pulled receipts against one current revision, preserving NPCDex's existing receipt semantics and history. Reflect applied changes in NPCDex and queue their cloud synchronization without requiring manual JSON import. | Authorized matching receipts apply once and atomically to the correct map/targets; stale hashes/values/feedback, wrong-map packages, duplicate IDs and concurrent edits cannot cause invalid application. A later conflicting offline branch sends the whole receipt to review under U04. Application does not certify testing or itself modify the ROM. | Astra / High |
-| U26 | Add human receipt review with preview, conflicts, linked ticket, defer, reject/correction, and a controlled resolution path. | Failed receipts make no partial changes; resolved receipts still satisfy validation; applied work resets affected testing to Unreviewed. | Sol / High |
-| U27 | Integrate undo/archive/reversal history and the ticket-completion policy approved at U20. | Dataset undo is distinct from actual ROM reversal; reversal requests/receipts retain evidence and IDs; tickets close only under the approved policy. | Sol / High |
-
-**Milestone C:** Approved work can move from NPCDex to YouTrack and back through validated agent receipts with human review for exceptions.
-
-## Phase 6 — Final Quality Review and Release
-
-### 6A. Integrated Review
-
-| Task | Action and Deliverable | Completion Check | Model / Effort |
-| --- | --- | --- | --- |
-| U28 | Review the full implementation and run integrated failure/concurrency scenarios across switching, desktop lifecycle, cloud, YouTrack, requests, and receipts. | No unresolved data-loss or reconciliation failures; installer/upgrade retains saves and credentials; targeted fixes receive their own scoped follow-up if needed. | Astra / High |
+| U28 | Review the full implementation and run integrated failure/concurrency scenarios across switching, desktop lifecycle, cloud, YouTrack, requests, and backend results. | No unresolved data-loss or reconciliation failures; installer/upgrade retains saves and credentials; targeted fixes receive their own scoped follow-up if needed. | Astra / High |
 | U29 | Conduct a guided real-workspace acceptance pass with previewed migration and deliberately isolated QA records. | User confirms UI/workflow; native YouTrack edits and cross-device updates are visible; QA artifacts are cleaned without restoring stale real data. | Sol / High |
 
-### 6B. Release and Handoff
+### 7B. Release and Handoff
 
 | Task | Action and Deliverable | Completion Check | Model / Effort |
 | --- | --- | --- | --- |
 | U30 | Produce the verified installer, release manifest, backup/restore guide, account setup instructions, agent integration contract, and QA report. | Installed release matches reviewed source; secrets and private working data are excluded; recovery and upgrade instructions are usable. | Sol / Medium |
 
-## Phase 7 — Agent Contact Notifications After the Principal Release
+## Phase 8 — Agent Contact Notifications After the Principal Release
 
-Scheduled after U30 so notifications do not delay cloud persistence or the request/receipt workflow. This is a planning addition only; each task needs its own PASSKEY. Notifications are separate from application update notices. The app must not promise delivery while fully quit without an approved, verified delivery mechanism.
+Scheduled after U30 so notifications do not delay cloud persistence or the package/backend-result workflow. This is a planning addition only; each task needs its own PASSKEY. Notifications are separate from application update notices. The app must not promise delivery while fully quit without an approved, verified delivery mechanism.
 
 | Task | Action and Deliverable | Completion Check | Model / Effort |
 | --- | --- | --- | --- |
@@ -201,18 +208,18 @@ Scheduled after U30 so notifications do not delay cloud persistence or the reque
 
 | Decision | Resolve By |
 | --- | --- |
-| Desktop host, launcher name, signing, application updates | U02, before desktop implementation. |
-| Free cloud provider, account ownership/login, operational limits | U03, before provisioning. |
-| Receipt/data contracts and synchronization ownership | U04, before storage/sync implementation. |
-| Exact minor redesign and switcher layout | U05, before interface changes. |
-| Ticket grouping, publishing triggers, shared editable fields, native instruction edits, completion policy | U20, immediately before ticket implementation. |
-| Agent delivery route and access setup | U23, before agent integration implementation. |
-| Map-package contents/target mapping and ticket attachment workflow | U20 before U21; agent receipt production/return reviewed at U23 before U24. |
+| Existing desktop, cloud and header foundations | U02–U19 complete; retain their accepted behavior and preservation requirements. |
+| Content ownership, staging/package behavior and revised roadmap | U20 consolidated design review, before U20A. |
+| Versioned content/plan/result contracts, ROM mapping and representative documents | U20A schema review, before storage implementation. |
+| Content project identity, actual permissions/capacity, actor attribution and transport safety | U20B isolated proof, before content migration; owner assistance if required. |
+| Latest real-data preview, one authoritative provider, backup and rollback | U20E migration acceptance and U20F installed-app acceptance. |
+| Package preview, existing/new task defaults, attachment/replacement and retry behavior | U21, under the confirmed planning-only boundary. |
+| Agent execution identity, direct-update protocol, grouped results and readiness notice | U23 review before enabling U24/U25 agent-result discovery/application. |
 | Agent identity, message sources, notification preferences and background/quit delivery | U31 after the principal release; before U32/U33 implementation. |
 
-Tasks later in the plan are provisional until their design checkpoints are completed. This avoids pretending their exact implementation scope is already settled. Desktop and cloud milestones can be accepted independently while ticket workflow discussion remains deferred.
+Tasks later in the plan are provisional until their design checkpoints are completed. Current desktop/cloud behavior remains available while the content architecture is reviewed and proved. Earlier completion narratives below are historical checkpoints; the status and checklist at the top control current execution.
 
-**U01, R01–R08 and U02–U03 are complete. Next task:** U04 — Data Ownership and Synchronization Contracts, using **Astra / High**. Await a new PASSKEY before beginning it. U13A/U13B each require separate approval. Use the checklist for current execution status.
+**Current boundary:** U20/U20A designs are accepted and **U20B is complete**. **U20C — Sol / High** is next and needs a new PASSKEY; no U20C implementation or migration is authorized yet. NPCDex's existing GitHub provider remains authoritative.
 
 
 ## R08 — Release Completed, October 14, 2026

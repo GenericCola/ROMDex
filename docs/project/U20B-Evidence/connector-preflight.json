@@ -1,0 +1,16 @@
+{
+  "task": "U20B",
+  "recordedAt": "2026-10-16T16:47:59.3325362Z",
+  "source": "Connected YouTrack MCP read-only tools",
+  "authenticatedLogin": "GenericCola",
+  "visiblePmon": {
+    "key": "PMON",
+    "name": "Pokemon",
+    "leader": "thegobindsingh",
+    "teamUsersCount": 2
+  },
+  "visibleNpcProjects": [],
+  "projectSearch": "NPC",
+  "mutationCalls": 0,
+  "limitation": "MCP tools do not expose actual role grants, project creation or attachment byte transport."
+}

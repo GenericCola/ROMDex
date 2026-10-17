@@ -1,0 +1,7 @@
+{
+  "validator": "PowerShell Test-Json",
+  "scope": "Actual YouTrack-downloaded bytes, schema only",
+  "status": "passed",
+  "artifacts": 5,
+  "task": "U20B"
+}

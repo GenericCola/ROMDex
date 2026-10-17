@@ -1,0 +1,31 @@
+{
+  "task": "U20B",
+  "scope": "Local attachment/publication assumption model only",
+  "passed": 16,
+  "failed": 0,
+  "checks": [
+    "Duplicate filenames are not attachment identity",
+    "Complete paginated enumeration includes every fixture attachment",
+    "Different records append concurrently without overwriting each other",
+    "Competing semantic heads survive rather than choosing a timestamp winner",
+    "An offline semantic base is not rewritten to a newer delivery head",
+    "Uncertain accepted upload is rediscovered using operation and exact bytes",
+    "A physically repeated identical upload is semantically idempotent",
+    "Changed bytes under one operation identity require review",
+    "Incomplete group publication retains all previously accepted records",
+    "Full verified group becomes visible together",
+    "Attachment tampering cannot silently replace current data",
+    "Native attachment deletion is missing-history recovery, not content removal",
+    "Null or unauthorized attachment author is not accepted from a JSON role claim",
+    "Pinned issue binding rejects a cross-issue substitution",
+    "A record on a page shifted by concurrent insertion appears on a later full sweep",
+    "A nonterminating or unstable listing stops at a bound without declaring complete"
+  ],
+  "notProven": [
+    "Live pagination ordering and complete discovery",
+    "Actual author/visibility grants or separate execution identity",
+    "Configured upload/storage ceilings",
+    "Actual transport concurrency, persistence or restart",
+    "Project provisioning or production migration"
+  ]
+}

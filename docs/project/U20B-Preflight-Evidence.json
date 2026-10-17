@@ -1,0 +1,44 @@
+{
+  "task": "U20B",
+  "recordedAt": "2026-10-16T16:53:03.9205222Z",
+  "status": "needs-instance-owner",
+  "complete": false,
+  "owner": {
+    "id": "2-2",
+    "login": "GenericCola"
+  },
+  "projectTarget": {
+    "name": "NPCDex Content",
+    "key": "NPCD",
+    "proposedOwner": "GenericCola",
+    "created": false
+  },
+  "actualProjectCreationHttpStatus": 403,
+  "projectMutationAttempts": 1,
+  "successfulRemoteMutations": 0,
+  "issuesCreated": 0,
+  "attachmentsUploaded": 0,
+  "credentialBytesUnchanged": true,
+  "visibleGroupMembershipInspectionComplete": true,
+  "configuredUploadLimit": "not exposed to this credential",
+  "remainingInstanceStorage": "not exposed to this credential",
+  "localAssumptionModelChecks": 16,
+  "liveStorageProofComplete": false,
+  "currentSaveAuthority": "Existing private GitHub-backed NPCDex; unchanged",
+  "remoteCreationAttempt": [
+    {
+      "method": "POST",
+      "route": "/api/admin/projects?fields=id,name,shortName,description,leader(id,login),team(id,name,usersCount)",
+      "status": 403,
+      "reason": "HTTP 403 Forbidden"
+    }
+  ],
+  "pendingChecks": [
+    "Content-project private IDs/grants",
+    "Actual attachment bytes/author/visibility",
+    "Cross-project access",
+    "Concurrent/disconnected publication and discovery",
+    "Restricted execution identity",
+    "Measured operational limits"
+  ]
+}

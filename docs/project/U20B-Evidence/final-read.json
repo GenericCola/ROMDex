@@ -1,0 +1,99 @@
+{
+  "task": "U20B",
+  "startedAt": "2026-10-17T18:02:06.853Z",
+  "checks": [
+    {
+      "label": "Final project and issue inventory after fixture cleanup",
+      "contentProject": {
+        "leader": {
+          "login": "thegobindsingh",
+          "id": "2-1",
+          "$type": "User"
+        },
+        "shortName": "NPCD",
+        "team": {
+          "usersCount": 2,
+          "id": "5-2",
+          "$type": "ProjectTeam"
+        },
+        "name": "NPCD",
+        "id": "0-2",
+        "$type": "Project"
+      },
+      "visibleContentIssues": 0,
+      "visiblePMONIssues": 299,
+      "fixtureIdsAbsent": true
+    }
+  ],
+  "credentialsLogged": false,
+  "runId": "c218676d-57c1-42a3-9faf-f85ba5b6eb6b",
+  "project": {
+    "id": "0-2",
+    "key": "NPCD",
+    "name": "NPCD",
+    "leader": "thegobindsingh"
+  },
+  "applicationVersion": "0.5.7",
+  "productionProviderChanged": false,
+  "liveSaveImported": false,
+  "permissionsChanged": false,
+  "allThreeCredentialFilesUnchanged": true,
+  "status": "passed",
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/users/me",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/projects/0-2",
+      "status": 200,
+      "anonymous": false
+    }
+  ],
+  "finishedAt": "2026-10-17T18:02:11.131Z"
+}

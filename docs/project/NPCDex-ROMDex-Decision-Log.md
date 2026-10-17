@@ -2,6 +2,14 @@
 
 Started October 14, 2026. This records the discussion before the phased Action Plan. It does not authorize implementation.
 
+## Current Design Checkpoint — October 17, 2026
+
+The user approved the [U20 content-registry and revised workflow baseline](U20-Consolidated-Architecture-and-Revised-Plan.md). Permanent content is planned for a separate YouTrack project; actionable work remains PMON. NPCDex stages only; fixed map documents attach by explicit choice, direct versioned backend updates preserve newer drafts, and testing remains human-controlled. Explicit documentation corrections retain history without requesting ROM work.
+
+The user authorized **U20A** with PASSKEY and subsequently selected **“Approve U20A Contracts.”** Its [record/mapping contracts, examples and extraction guide](U20A-Review-Report.md) are accepted with 45 passing isolated model/legacy checks. No content project, access change, live upload, migration, application update or actual ROM edit occurred in U20A. The user's subsequent **PASSKEY** authorizes **U20B — Sol / High**. Earlier entries below remain historical decisions and completed milestones.
+
+U20B initially established **HTTP 403** for project creation on October 16. The instance owner subsequently created **NPCD / 0-2**, retaining their leader role and granting GenericCola direct Project Admin access. On October 17 the private fixture transfer/link/concurrent-append/restart proof passed; all four QA issues were deleted and all three credentials preserved. **U20B is complete.** [Carrier, evidence and limits](U20B-Completion-Report.md): signed download URLs must not be exported, configured quota remains unknown, and actual authenticated agent grants remain U23. No provider switch, live save import, ROM edit or app update occurred. **Next: U20C, Sol / High, new PASSKEY required.**
+
 ## Additional Feature Requests — October 15, 2026; Planning Only
 
 The user requested map-level NPCDex Change Requests as easy-to-map JSON attachments on YouTrack tickets, with instructions requiring an agent Integration Receipt, automatic receipt retrieval/reconciliation and visible updates in NPCDex. This extends the existing **U20–U27** workflow rather than creating a competing pipeline. U20 reviews package content, mapping and ticket selection; U21 implements the approved attachments and embedded instructions/receipt format; U23 confirms agent access and return transport; U24 automatically retrieves receipts; U25–U27 preserve validated automatic application, exception review and recovery. Existing receipt contracts, stable identities, publication/base evidence and the approved later-offline-conflict policy remain authoritative. Ticket grouping/creation is still a required discussion; adding map packages does not authorize automatic ticket creation.

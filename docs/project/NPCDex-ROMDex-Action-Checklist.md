@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** U19 is complete in installed ROMDex **0.5.7**. [Shared sync report](U19-Completion-Report.md). **Next: U20 — Change Request Workflow and User-Story Review, Sol / Medium**, requiring a new PASSKEY.
+**Current:** **U20B is complete** following the owner-created NPCD project and verified isolated live storage/restart/cleanup checks. [Completion and limitations](U20B-Completion-Report.md). Installed ROMDex remains **0.5.7**, with the existing GitHub-backed NPCDex authoritative; no save migration or application change occurred. **Next: U20C — Dynamic Registry Reader and Durable Cache, Sol / High; new PASSKEY required.**
 
 ## Completed Foundation
 
@@ -59,33 +59,42 @@
 - [x] **U18 — ROMDex Workspace Metadata Sync** — Sol / High.
 - [x] **U19 — Combined Sync Controls and Indicators** — Sol / High. Correct stale Connection Details help that still describes NPCDex as local-only, and verify service-specific statuses. Include header polish: reduce the circular workspace toggle diameter by 30% from its current size and remove its drop shadow; verify centering and workspace-menu behavior in both workspaces.
 
-## Phase 4 — Requests and Tickets
+## Phase 4 — Content Architecture Revision (Design Approved)
 
-- [ ] **U20 — Required User-Story and Ticket Workflow Review** — Sol / Medium. Include map-level JSON package/mapping and attachment preview; grouping/creation policy remains deferred until this checkpoint.
-- [ ] **U21 — Approved Publishing and Linking Workflow** — Sol / High. Attach versioned map-level JSON with stable target mapping, agent instructions and Integration Receipt format; preserve approved ticket grouping/linking and duplicate prevention.
-- [ ] **U22 — Linked Navigation and Native YouTrack Changes** — Sol / High.
+- [x] **U20 — Content Architecture and Workflow Review** — Sol / Medium. User-approved October 16; [accepted design](U20-Consolidated-Architecture-and-Revised-Plan.md), [completion report](U20-Completion-Report.md). Later tasks remain separately gated.
+- [x] **U20A — Content Contracts and ROM Mapping Design** — Sol / High. User-approved October 16; contracts/schema/examples and extraction guide accepted, 45 checks pass. [Review report](U20A-Review-Report.md).
+- [x] **U20B — Content Project Access and Isolated Storage Proof** — Sol / High. Completed October 17. NPCD access, exact transfers, concurrent appends, separate-process recovery, complete groups and cleanup verified. [Report and limits](U20B-Completion-Report.md).
+- [ ] **U20C — Dynamic Registry Reader and Durable Cache** — Sol / High.
+- [ ] **U20D — Planning, Corrections and Content Lifecycle** — Sol / High.
+- [ ] **U20E — Previewed Content Migration and Provider Cutover** — Sol / High.
+- [ ] **U20F — Content Backend Acceptance and Private Release** — Sol / High.
 
-## Phase 5 — Agent Delivery and Receipts
+## Phase 5 — Map Packages and Tasks
 
-- [ ] **U23 — Agent Access, Delivery, and Contract Review** — Sol / High. Walk through the map JSON handoff, receipt instructions and approved return/discovery route.
-- [ ] **U24 — Request Retrieval and Durable Receipt Inbox** — Sol / High. Automatically pull returned receipts with durable discovery, authorization, deduplication and shared sync semantics.
-- [ ] **U25 — Automatic Validated Receipt Reconciliation** — Astra / High. Apply valid receipts once and reflect changes in NPCDex/cloud; send stale, conflicting or invalid receipts to review.
+- [ ] **U21 — Map Document Preview and Task Attachment** — Sol / High. Existing/new task chooser, explicit attach, immutable versions, no agent dispatch.
+- [ ] **U22 — Linked Navigation and Package Progress** — Sol / High.
+
+## Phase 6 — Backend Results and Human Verification
+
+- [ ] **U23 — Agent Access and Direct Update Contract Review** — Sol / High.
+- [ ] **U24 — Durable Backend Result Discovery** — Sol / High.
+- [ ] **U25 — Validated Independent/Grouped Result Application** — Astra / High. Preserve newer drafts; a separate receipt file is not the normal return route.
 - [ ] **U26 — Human Review and Controlled Resolution** — Sol / High.
-- [ ] **U27 — Undo, Reversal, and Approved Completion Policy** — Sol / High.
+- [ ] **U27 — History, Reversal and Verification-Gated Completion** — Sol / High.
 
-## Phase 6 — Final Review and Release
+## Phase 7 — Final Review and Release
 
 - [ ] **U28 — Integrated Failure and Concurrency Review** — Astra / High.
 - [ ] **U29 — Guided Live-Workspace Acceptance** — Sol / High.
 - [ ] **U30 — Verified Installer and Handoff Documentation** — Sol / Medium.
 
-## Phase 7 — Agent Contact Notifications After the Principal Release
+## Phase 8 — Agent Contact Notifications After the Principal Release
 
 - [ ] **U31 — Notification Sources and Delivery Review** — Sol / Medium. Define agent-created tickets/comments/messages, agent identity, relevant scope, preferences, Auto-Sync interaction and hidden/offline/fully-quit behavior; obtain design approval.
 - [ ] **U32 — Durable Agent Activity Retrieval** — Sol / High. Implement approved event discovery/unread storage, offline/restart catch-up and duplicate suppression.
 - [ ] **U33 — Windows Notifications and Activity Access** — Sol / High. Implement approved alerts and click-through; verify installed/tray behavior and deliver a tested release.
 
-**Planning update — October 15, 2026:** map-level JSON handoff/automatic receipt return is explicitly included in U20–U27; agent-contact notifications follow U30. Neither feature is implemented or checked off by this update. Next remains **U14 — Sol / High**, requiring a new PASSKEY.
+**Historical planning update — October 15, 2026:** map-level JSON handoff/automatic receipt return was added to U20–U27; agent-contact notifications follow U30. Its then-next task was U14. U20 now proposes direct content-record results instead of a separate receipt-file return; the current review boundary and active task list above supersede that earlier future-work outline.
 
 ## Completion Records
 
@@ -419,3 +428,38 @@ U17 is complete in installed **0.5.5**. Passed 371 tests, eight final packaged d
 - [x] Verify mixed service failures, clean disconnects, conflicts, Off/manual cycles and recovery.
 - [x] Verify the final packaged desktop, backed-up upgrade and all remembered credentials.
 - [x] Archive the private release/evidence, check off U19 and stop before U20.
+
+
+## U20 — Workflow Review Checklist
+
+- [x] Review existing ownership, Change Request and Integration Receipt contracts.
+- [x] Review the user’s proposed architecture changes and record tradeoffs/decisions.
+- [x] Walk through map-level publishing to an existing ticket and explicitly creating a new ticket; decide grouping and bulk selection.
+- [x] Define package mapping/context/assets, preview, instruction ownership and changed-request behavior at product level; exact schema/transport remains U20A–U20B.
+- [x] Define direct backend-result reconciliation, testing versus task completion, fixed-package revision and retry behavior; technical proofs remain explicit later gates.
+- [x] Review the consolidated workflow/revised phase scope with the user, record the design decision and stop before U20A (new PASSKEY required).
+
+U20 is complete. The user approved the design baseline on October 16, 2026. Application code, live data and credentials are unchanged. **Next: U20A — Content Contracts and ROM Mapping Design, Sol / High; await a new PASSKEY.**
+
+## U20A — Contract Review Checklist
+
+- [x] Inspect the accepted architecture and existing NPCDex identity, prompt, history and hash contracts.
+- [x] Define versioned content, mapping, proposal, review, package, direct result, correction, binding and publication artifacts.
+- [x] Document ROM extraction/target mapping, source evidence, compatibility preservation and previewed import requirements.
+- [x] Produce fictional map/package/result/correction examples and hash vectors.
+- [x] Verify independent/dependent results, scope, stale baselines, newer drafts/notes, replay, testing reset and legacy hashes in an isolated model (45 checks).
+- [x] Obtain user acceptance of these contracts, check off U20A and stop before U20B (new PASSKEY required).
+
+U20A is complete. The user approved the contracts and then separately authorized U20B with PASSKEY. No application code, live save or credential changes occurred in U20A.
+
+## U20B — Access and Storage Proof Checklist
+
+- [x] Recheck authenticated account, visible projects, group membership and role scope using current server reads.
+- [x] Reuse the protected credential in memory and verify its saved bytes remain unchanged.
+- [x] Review the exact empty content-project target and record the server's creation denial (403); no project was created.
+- [x] Measure the protected checkpoint and run the isolated attachment/publication assumption model (16 checks).
+- [x] Obtain the separately scoped content project from the instance owner, then verify its actual IDs/private grants (NPCD / 0-2; GenericCola Project Admin).
+- [x] Prove actual attachment bytes/author/access, cross-project references, pagination/concurrent publication, uncertain-response recovery and complete dependent groups; clean up all four marked issues.
+- [x] Record the demonstrated carrier/limits/access boundary, check off U20B and stop before U20C (new PASSKEY required). No backend substitution or additional design change was needed; actual agent grants remain U23, configured quota remains unknown.
+
+The [U20C1/U20C2 scheduling contingency](U20C1-Independent-Reader-Plan.md) was not adopted: the user reported that owner setup is underway. Continue the original U20B → U20C sequence; no independent-reader implementation began. A separate request authorizes packaging the existing installer and documentation for owner review while setup proceeds.

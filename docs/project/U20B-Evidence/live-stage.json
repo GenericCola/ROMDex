@@ -1,0 +1,706 @@
+{
+  "task": "U20B",
+  "startedAt": "2026-10-17T17:59:16.262Z",
+  "checks": [
+    {
+      "label": "Fresh NPCD identity and visible grant boundary inspected",
+      "detail": {
+        "owner": "2-2",
+        "trustedTeam": [
+          "2-1",
+          "2-2"
+        ],
+        "noGlobalGrantsChanged": true
+      }
+    },
+    {
+      "label": "Four fixture issues created with explicit LimitedVisibility",
+      "detail": {
+        "registry": "NPCD-1",
+        "record-a": "NPCD-2",
+        "record-b": "NPCD-3",
+        "task-binding": "PMON-324"
+      }
+    },
+    {
+      "label": "Anonymous issue read denied",
+      "detail": {
+        "issue": "NPCD-1",
+        "status": 401
+      }
+    },
+    {
+      "label": "Anonymous issue read denied",
+      "detail": {
+        "issue": "PMON-324",
+        "status": 401
+      }
+    },
+    {
+      "label": "Exact JSON, PNG and 512 KiB byte round trips",
+      "detail": {
+        "largestMeasuredBytes": 524288,
+        "configuredCeiling": "unknown",
+        "remainingStorage": "unknown"
+      }
+    },
+    {
+      "label": "Concurrent same-name append preserves both competing versions",
+      "detail": {
+        "attachmentIds": [
+          "12-36",
+          "12-37"
+        ],
+        "chosenWinner": null,
+        "pageSize": 2,
+        "listed": 3
+      }
+    },
+    {
+      "label": "Accepted write with deliberately discarded response rediscovered exactly",
+      "detail": {
+        "injection": "Client discarded successful response; not a physical network failure",
+        "matchingPhysicalAttachments": 1
+      }
+    },
+    {
+      "label": "Stable cross-project and parent/child issue bindings read back",
+      "detail": {
+        "task": "PMON-324",
+        "registry": "NPCD-1",
+        "child": "NPCD-2"
+      }
+    },
+    {
+      "label": "Interrupted dependent group leaves last accepted projection intact",
+      "detail": {
+        "status": "pending",
+        "missing": "NPCD-3",
+        "visibleState": "fixture:last-good",
+        "resumeRequiresNewProcess": true
+      }
+    },
+    {
+      "label": "Signed attachment capability access observed",
+      "detail": {
+        "status": 200,
+        "matchingBytes": true,
+        "urlLogged": false,
+        "interpretation": "Anyone possessing a fresh signed URL can read its bytes; never publish these URLs."
+      }
+    }
+  ],
+  "credentialsLogged": false,
+  "runId": "c218676d-57c1-42a3-9faf-f85ba5b6eb6b",
+  "project": {
+    "id": "0-2",
+    "key": "NPCD",
+    "name": "NPCD",
+    "leader": "thegobindsingh"
+  },
+  "allThreeCredentialFilesUnchanged": true,
+  "status": "passed",
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/users/me",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-345",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-347",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-348",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-345",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-347",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-348",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-345",
+      "status": 401,
+      "anonymous": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-348",
+      "status": 401,
+      "anonymous": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-348",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues/3-348/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-348",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-348/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-345",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues/3-345/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-345",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-345/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-345",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues/3-345/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-345",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-345/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-345/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-345",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues/3-345/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-345",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-345/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-345/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issueLinkTypes",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues/3-346/links/173-3t/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-348",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues/3-348/links/173-0/issues",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-348",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-345",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues/3-345/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-345",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-345/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-345/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-345/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-347",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-347/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-346/attachments",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200,
+      "anonymous": true
+    }
+  ],
+  "finishedAt": "2026-10-17T17:59:58.560Z"
+}

@@ -1,0 +1,229 @@
+{
+  "task": "U20B",
+  "status": "complete",
+  "completedAt": "2026-10-17T18:02:11.131Z",
+  "applicationVersion": "0.5.7",
+  "productionProviderChanged": false,
+  "liveSaveImported": false,
+  "permissionsChanged": false,
+  "base": "https://thegobindsingh.youtrack.cloud",
+  "project": {
+    "leader": {
+      "login": "thegobindsingh",
+      "id": "2-1",
+      "$type": "User"
+    },
+    "shortName": "NPCD",
+    "team": {
+      "usersCount": 2,
+      "name": "NPCD Team",
+      "id": "5-2",
+      "$type": "ProjectTeam"
+    },
+    "description": null,
+    "name": "NPCD",
+    "id": "0-2",
+    "$type": "Project"
+  },
+  "owner": {
+    "id": "2-2",
+    "login": "GenericCola"
+  },
+  "trustedVisibleIssueReaders": [
+    "2-1",
+    "2-2"
+  ],
+  "anonymousProjectStatus": 401,
+  "anonymousIssueStatus": 401,
+  "maximumDemonstratedAttachmentBytes": 524288,
+  "configuredUploadCeiling": "unknown",
+  "remainingInstanceStorage": "unknown",
+  "credentialFilesPreserved": 3,
+  "fixtureIssues": {
+    "registry": {
+      "id": "3-345",
+      "idReadable": "NPCD-1",
+      "projectId": "0-2"
+    },
+    "record-a": {
+      "id": "3-346",
+      "idReadable": "NPCD-2",
+      "projectId": "0-2"
+    },
+    "record-b": {
+      "id": "3-347",
+      "idReadable": "NPCD-3",
+      "projectId": "0-2"
+    },
+    "task-binding": {
+      "id": "3-348",
+      "idReadable": "PMON-324",
+      "projectId": "0-1"
+    }
+  },
+  "attachmentsUploaded": 12,
+  "cleanup": {
+    "allFourDeleted": true,
+    "verified404": true,
+    "activeFixtureIssues": 0,
+    "visibleContentIssues": 0,
+    "visiblePMONIssues": 299
+  },
+  "checks": {
+    "localTransportModel": 16,
+    "fixtureTransportGuards": 11,
+    "independentAcceptedArtifacts": 24,
+    "independentInvalidArtifactsRejected": 4,
+    "downloadedContractArtifacts": 5,
+    "liveStage": [
+      {
+        "label": "Fresh NPCD identity and visible grant boundary inspected",
+        "detail": {
+          "owner": "2-2",
+          "trustedTeam": [
+            "2-1",
+            "2-2"
+          ],
+          "noGlobalGrantsChanged": true
+        }
+      },
+      {
+        "label": "Four fixture issues created with explicit LimitedVisibility",
+        "detail": {
+          "registry": "NPCD-1",
+          "record-a": "NPCD-2",
+          "record-b": "NPCD-3",
+          "task-binding": "PMON-324"
+        }
+      },
+      {
+        "label": "Anonymous issue read denied",
+        "detail": {
+          "issue": "NPCD-1",
+          "status": 401
+        }
+      },
+      {
+        "label": "Anonymous issue read denied",
+        "detail": {
+          "issue": "PMON-324",
+          "status": 401
+        }
+      },
+      {
+        "label": "Exact JSON, PNG and 512 KiB byte round trips",
+        "detail": {
+          "largestMeasuredBytes": 524288,
+          "configuredCeiling": "unknown",
+          "remainingStorage": "unknown"
+        }
+      },
+      {
+        "label": "Concurrent same-name append preserves both competing versions",
+        "detail": {
+          "attachmentIds": [
+            "12-36",
+            "12-37"
+          ],
+          "chosenWinner": null,
+          "pageSize": 2,
+          "listed": 3
+        }
+      },
+      {
+        "label": "Accepted write with deliberately discarded response rediscovered exactly",
+        "detail": {
+          "injection": "Client discarded successful response; not a physical network failure",
+          "matchingPhysicalAttachments": 1
+        }
+      },
+      {
+        "label": "Stable cross-project and parent/child issue bindings read back",
+        "detail": {
+          "task": "PMON-324",
+          "registry": "NPCD-1",
+          "child": "NPCD-2"
+        }
+      },
+      {
+        "label": "Interrupted dependent group leaves last accepted projection intact",
+        "detail": {
+          "status": "pending",
+          "missing": "NPCD-3",
+          "visibleState": "fixture:last-good",
+          "resumeRequiresNewProcess": true
+        }
+      },
+      {
+        "label": "Signed attachment capability access observed",
+        "detail": {
+          "status": 200,
+          "matchingBytes": true,
+          "urlLogged": false,
+          "interpretation": "Anyone possessing a fresh signed URL can read its bytes; never publish these URLs."
+        }
+      }
+    ],
+    "liveRestart": [
+      {
+        "label": "Separate-process restart rediscovers exact bindings and incomplete group",
+        "detail": {
+          "oldProcess": 23388,
+          "newProcess": 18240,
+          "visible": "fixture:last-good",
+          "missingMember": "3-347"
+        }
+      },
+      {
+        "label": "Independent process stale-base append preserves all heads",
+        "detail": {
+          "processes": 2,
+          "serverIdentity": "2-2",
+          "versions": 3,
+          "winnerChosen": false,
+          "notProven": "Separate authenticated agent isolation"
+        }
+      },
+      {
+        "label": "Injected altered download bytes rejected by pinned digest",
+        "detail": {
+          "injection": true,
+          "serverBytesUnmodified": true
+        }
+      },
+      {
+        "label": "All members verified before replacing the local fixture projection",
+        "detail": {
+          "records": 2,
+          "serverTransactionClaimed": false,
+          "actualROMModified": false
+        }
+      },
+      {
+        "label": "Server author recorded separately from untrusted artifact actorClaim",
+        "detail": {
+          "observedAuthor": "2-2",
+          "jsonActorClaim": "fixture:agent",
+          "authenticatedAgentRoute": "Deferred to U23; this is an owner-only fixture"
+        }
+      }
+    ]
+  },
+  "futureGates": [
+    "U20C hardened reader/cache/projection, queueing and complete recovery",
+    "U20E latest-data migration preview and acceptance",
+    "U23 actual authenticated agent visibility and action grants"
+  ],
+  "signedAttachmentURLs": {
+    "anonymousPossessorRead": 200,
+    "logged": false,
+    "mayBeExported": false
+  },
+  "limitations": [
+    "All authenticated live operations used owner identity 2-2; no independent authenticated agent tested",
+    "Physical network outage was not induced; lost response and byte tampering were injected",
+    "Append-only behavior is client discipline, not immutable server storage",
+    "No multi-issue server transaction or generic compare-and-swap assumed",
+    "No full save import, production cutover, installer, actual ROM edit or in-game testing"
+  ]
+}

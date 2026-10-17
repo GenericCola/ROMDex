@@ -1,0 +1,75 @@
+{
+  "recordedAt": "2026-10-17T17:56:39.297Z",
+  "project": {
+    "leader": {
+      "login": "thegobindsingh",
+      "id": "2-1",
+      "$type": "User"
+    },
+    "shortName": "NPCD",
+    "team": {
+      "usersCount": 2,
+      "name": "NPCD Team",
+      "id": "5-2",
+      "$type": "ProjectTeam"
+    },
+    "description": null,
+    "name": "NPCD",
+    "id": "0-2",
+    "$type": "Project"
+  },
+  "owner": {
+    "id": "2-2",
+    "login": "GenericCola"
+  },
+  "team": {
+    "complete": true,
+    "items": [
+      {
+        "login": "thegobindsingh",
+        "id": "2-1",
+        "$type": "User"
+      },
+      {
+        "login": "GenericCola",
+        "id": "2-2",
+        "$type": "User"
+      }
+    ]
+  },
+  "roles": [
+    {
+      "holder": "6-0",
+      "role": "Observer",
+      "scope": "global",
+      "issueRead": false
+    },
+    {
+      "holder": "2-1",
+      "role": "System Admin",
+      "scope": "global",
+      "issueRead": true
+    },
+    {
+      "holder": "5-2",
+      "role": "Contributor",
+      "scope": "0-2",
+      "issueRead": true
+    },
+    {
+      "holder": "2-1",
+      "role": "Project Admin",
+      "scope": "0-2",
+      "issueRead": true
+    },
+    {
+      "holder": "2-2",
+      "role": "Project Admin",
+      "scope": "0-2",
+      "issueRead": true
+    }
+  ],
+  "allEnumerationsComplete": true,
+  "anonymousProjectStatus": 401,
+  "credentialsUnchanged": true
+}

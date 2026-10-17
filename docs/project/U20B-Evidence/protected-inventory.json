@@ -1,0 +1,52 @@
+{
+  "task": "U20B",
+  "scope": "Protected U19 checkpoint sizing only; actual latest inventory/migration and server quotas remain later checks",
+  "sourceSha256": "2c50ee40f590eb1505a99922efa948db282fe46425bf640b5a0f69fc780c630c",
+  "sourceBytes": 9915298,
+  "sourceGzipBytes": 3751027,
+  "revision": 73,
+  "towns": [
+    {
+      "id": "new-bark-town",
+      "serializedBytes": 555912,
+      "locations": 8,
+      "aliases": 1,
+      "characters": 14,
+      "elements": 47
+    },
+    {
+      "id": "route-29",
+      "serializedBytes": 308634,
+      "locations": 2,
+      "aliases": 0,
+      "characters": 9,
+      "elements": 17
+    },
+    {
+      "id": "cherrygrove-city",
+      "serializedBytes": 440551,
+      "locations": 6,
+      "aliases": 0,
+      "characters": 30,
+      "elements": 60
+    },
+    {
+      "id": "global-dialogue",
+      "serializedBytes": 26409,
+      "locations": 4,
+      "aliases": 0,
+      "characters": 1,
+      "elements": 4
+    }
+  ],
+  "imageOccurrences": 159,
+  "embeddedImageBytes": 2961295,
+  "uniqueImageByteObjects": 39,
+  "uniqueImageBytes": 541023,
+  "largestImageBytes": 75755,
+  "largestHistoryEntryBytes": 2450359,
+  "projectedIssueCount": "Not derived from raw legacy nested identity count; aliases, shared definitions and entity projection require explicit mapping.",
+  "configuredServerLimit": "unknown",
+  "remainingInstanceStorage": "unknown",
+  "sourceUnchanged": true
+}

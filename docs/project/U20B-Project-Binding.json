@@ -1,0 +1,29 @@
+{
+  "schema": "U20BProjectCandidate/1",
+  "recordedAt": "2026-10-17T18:02:11.131Z",
+  "instance": "https://thegobindsingh.youtrack.cloud",
+  "projectId": "0-2",
+  "projectKey": "NPCD",
+  "projectName": "NPCD",
+  "leaderId": "2-1",
+  "ownerWriterId": "2-2",
+  "taskProjectId": "0-1",
+  "taskProjectKey": "PMON",
+  "productionRegistryIssueId": null,
+  "status": "validated-project-candidate-only",
+  "activeProvider": "existing-github-npcdex",
+  "fixtureRegistryDeleted": true,
+  "carrier": "versioned attachments and explicit manifests; readable issue metadata for discovery",
+  "fixtureTransferBoundBytes": 524288,
+  "configuredUploadCeiling": null,
+  "availableStorage": null,
+  "requiredPolicies": [
+    "Never persist/export signed attachment download URLs",
+    "Validate pinned IDs, exact bytes, workspace, operation, semantic base and observed author",
+    "No timestamp/filename current-version selection",
+    "Preserve last accepted projection and pending operations across missing history/offline/restart",
+    "Resolve full dependent group before projection",
+    "Explicit production registry setup and latest-data migration remain separately gated",
+    "Actual agent grants must be proved at U23"
+  ]
+}
