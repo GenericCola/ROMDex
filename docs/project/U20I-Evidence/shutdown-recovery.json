@@ -1,0 +1,13 @@
+{
+  "task": "U20I",
+  "at": "2026-10-18T17:30:49.656Z",
+  "userRequestedQuit": true,
+  "source": "User reported selecting Quit ROMDex and the application stalling",
+  "status": "stopped",
+  "stoppedOwnerPid": 23052,
+  "stoppedUtilityPid": 13204,
+  "persistedPendingEdits": 49,
+  "verifiedRescue": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u20i\\private-profile\\shutdown-rescue-1792344555267",
+  "ownershipFileRetained": true,
+  "otherApplicationsUntouched": true
+}

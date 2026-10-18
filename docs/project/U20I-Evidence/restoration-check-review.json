@@ -1,0 +1,8 @@
+{
+  "task": "U20I",
+  "at": "2026-10-18T17:32:02.481Z",
+  "issue": "Previous acceptance asserted that working head equals accepted head, which is incorrect with queued edits.",
+  "correction": "Verify the restored working head including retained pending edits; record accepted head separately.",
+  "originalDataAndBackupUntouched": true,
+  "firstRestorationRetained": true
+}
