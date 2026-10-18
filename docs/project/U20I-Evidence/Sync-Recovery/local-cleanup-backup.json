@@ -1,0 +1,17 @@
+{
+  "task": "U20I",
+  "purpose": "User-authorized local cleanup backup",
+  "startedAt": "2026-10-18T18:39:52.607Z",
+  "status": "passed",
+  "commit": "c60cbf9e6438206c109189e839cc1393e7db9a57",
+  "privateRepository": "GenericCola/ROMDex",
+  "privateRepositoryVerified": true,
+  "remoteHeadVerified": true,
+  "authenticatedCommitReadbackVerified": true,
+  "sourceEntriesVerified": 5391,
+  "archiveIndexSHA256": "5bc164200aa31feff2a9972e0fd45ebb3608b6d7e049fa4c9182bc01b688b508",
+  "plannedTargets": 69,
+  "plannedReclaimedBytes": 15864931080,
+  "saveDataCredentialsAndPrivateKeysExcluded": true,
+  "finishedAt": "2026-10-18T18:40:07.287Z"
+}

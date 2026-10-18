@@ -14,11 +14,13 @@ The installed 0.5.12 reader allowed 120 seconds for a full content-history cycle
 
 - 87 focused reader/editor/transport/catalog-storage tests passed, including interrupted published readback across restart, no duplicate uploads, preserved publication identity, timeout recovery, and genuine conflict/integrity protection.
 - The earlier U20I full regression run passed 596 tests. Its unchanged native UI reviews remain applicable; this correction changes no layout or interaction controls.
-- Package/source audit, bundled-runtime checks and fresh read-only live-history verification are pending for the final candidate.
+- Final r2 passed exact package/source auditing (243 source files and one retained reference asset), 182 syntax checks and 17 bundled-runtime checks. The corrected live-history reader completed in 139,356 ms with 911 requests, 15,135,262 response bytes, no review findings and no production writes.
 - Complete Data backup/restoration, credential preservation, installation, approved-transition delivery and final native/remote readback must pass before U20I is checked off.
 
 No production data was overwritten or queue operations cancelled to bypass delivery. The isolated diagnostic wrote only its own cache copy.
 
 ## Packaging Checkpoint
+
+**Recovery update:** Unique source from obsolete generated builds was backed up and verified in private GitHub commit `c60cbf9e6438206c109189e839cc1393e7db9a57`. The user deleted the collected build output, restoring sufficient disk space. Final candidate r2 built successfully and passed exact package/source auditing, 182 syntax checks and 17 packaged-runtime checks. Its live-history read is being verified before upgrade.
 
 The final source correction passes all 87 focused tests. The first candidate was correctly rejected by the source audit because the final timeout classification correction landed after its copy was built. That candidate was never published or installed. Its replacement stopped during copying with `ENOSPC`; the C: drive had approximately 106 MB free. Superseded unpublished package folders have been identified for cleanup. Automatic approval review rejected deletion commands despite a narrowly granted folder permission, so the user has been asked to remove only those disposable build folders in File Explorer. Final packaging, publication and upgrade remain pending. The installed 0.5.12 application and its queue remain unchanged.
