@@ -1,0 +1,23 @@
+{
+  "task": "U20I",
+  "mode": "Read-only installed acceptance",
+  "startedAt": "2026-10-18T18:55:07.293Z",
+  "remoteWrites": 0,
+  "version": "0.5.13",
+  "tasks": 299,
+  "orderEntries": 104,
+  "savedParentStatuses": 78,
+  "priorOperationsPreserved": 51,
+  "priorObjectHashesPreserved": true,
+  "originalDraftPreserved": true,
+  "pending": 27,
+  "review": 9,
+  "nativeTree": false,
+  "head": "a8ac3625869b387b056d5dcef9f9dd4c6851e664c4de330015564404dd59574f",
+  "threeCredentialCiphertextsUnchanged": true,
+  "threeCredentialsUnlockedWithoutEntry": true,
+  "status": "passed",
+  "liveYouTrackOwnerAndRestrictedRegistryVerified": true,
+  "privateUpdateAccessVerified": true,
+  "finishedAt": "2026-10-18T18:55:11.388Z"
+}

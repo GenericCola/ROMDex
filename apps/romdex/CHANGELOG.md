@@ -1,3 +1,9 @@
+## 0.5.14 — U20I Read-Budget Recovery
+
+- Checkpoint cumulative read-budget exhaustion without raising individual-response, request or transfer limits.
+- Resume the original blocked legacy read-bound intent only against its verified unchanged parent; retain structured hard-limit failures for review.
+- Preserve all publication identities, queued content and remembered connections.
+
 ## 0.5.13 — U20I Sync Recovery
 
 - Allow up to ten minutes for a verified full-history content read, retaining the existing request, transfer, ownership and integrity bounds.

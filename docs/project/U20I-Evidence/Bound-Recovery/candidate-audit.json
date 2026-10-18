@@ -1,0 +1,18 @@
+{
+  "task": "U20I",
+  "startedAt": "2026-10-18T20:22:52.277Z",
+  "sourceMatches": 243,
+  "referenceAssets": 1,
+  "status": "passed",
+  "version": "0.5.14",
+  "syntaxChecks": 182,
+  "installer": {
+    "path": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\ROMDex-Installer-0.5.14\\ROMDex-0.5.14-x64.msi",
+    "bytes": 162581156,
+    "sha256": "646cc81992e7b0ce1145bed1624ab0be903d2a49e0cfd9abb0b92386a8710f7b"
+  },
+  "originalContractsPreservedWithExplicitAdditions": true,
+  "originalRendererAndCSSUnchanged": true,
+  "dataAndCredentialsExcluded": true,
+  "finishedAt": "2026-10-18T20:22:55.346Z"
+}

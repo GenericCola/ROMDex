@@ -1,6 +1,6 @@
 # U20I Native Content Compatibility Review
 
-**Status:** ROMDex 0.5.12 is published privately, installed and verified with current data preserved. The user accepted and saved the refreshed live transition. Normal tray Quit/reopen passed, preserving all 50 prior edits and the approved transition. Cloud delivery and final readback remain pending; 33 operations were outstanding at 18:19 UTC on October 18, without review errors or blocked operations after automatic retry recovered. U20I is not complete and U21 remains blocked.
+**Status:** ROMDex 0.5.13 is installed and verified. The user accepted the native transition; normal Quit/reopen, fresh complete Data restoration, private release readback and all credential checks passed. Final queue delivery and native/remote verification remain pending. U20I is not complete.
 
 ## Queue Readback Timing Check
 

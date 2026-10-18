@@ -1,0 +1,4 @@
+// Continue only after the signed private publication and current backup pass.
+import fs from 'node:fs/promises';import path from 'node:path';import assert from 'node:assert/strict';import {spawn} from 'node:child_process';
+async function run(file,electron=false){const env={...process.env};delete env.ELECTRON_RUN_AS_NODE;const log=await fs.open('work/u20i-bound/upgrade-check.log','a');try{const c=spawn(electron?path.resolve('work/u10/runtime/electron/electron.exe'):process.execPath,[path.resolve(file)],{cwd:process.cwd(),env,windowsHide:true,stdio:['ignore',log.fd,log.fd]});assert.equal(await new Promise((resolve,reject)=>{c.on('error',reject);c.on('close',resolve);}),0,file+' needs review');}finally{await log.close();}}
+await run('work/u20i-bound-backup-restore.cjs',true);await run('work/u20i-bound-publish.mjs');await run('work/u20i-bound-deploy.mjs');await run('work/u20i-bound-installed-check.cjs',true);

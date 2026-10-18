@@ -1,0 +1,15 @@
+{
+  "task": "U20I",
+  "startedAt": "2026-10-18T20:13:42.938Z",
+  "remoteWrites": 0,
+  "productionCacheWrites": 0,
+  "failures": [],
+  "operationId": "content:operation-06c99403-3d14-432a-a415-4e6ce0903b6f",
+  "publication": "31c1ea2418280fe6f8c918e20eadd680a430639f64c95f04ebe6c8ab6c040c42",
+  "status": "reads-passed-to-first-upload",
+  "message": "Read-Only Upload Boundary Reached",
+  "requests": 430,
+  "responseBytes": 657150,
+  "writes": 0,
+  "finishedAt": "2026-10-18T20:14:30.022Z"
+}

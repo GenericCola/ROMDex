@@ -1,1 +1,22 @@
-{"task":"U20I","status":"stopped-verification-only","at":"2026-10-18T18:21:25.414Z"}
+{
+  "task": "U20I",
+  "status": "needs-review",
+  "startedAt": "2026-10-18T18:57:34.945Z",
+  "at": "2026-10-18T20:10:45.688Z",
+  "pending": 2,
+  "committedRetained": 32,
+  "activeState": "blocked",
+  "activeKind": "planning",
+  "activeVerifiedFiles": 0,
+  "transitionState": "queued",
+  "nativeAccepted": false,
+  "acceptedHead": "8dc430d3fd89950e1bee9fe58305036ab819af004bc74b176a1aacdbb92e45c3",
+  "reviewKinds": [],
+  "blocked": [
+    {
+      "id": "content:operation-06c99403-3d14-432a-a415-4e6ce0903b6f",
+      "error": "Content Response Exceeds Its Bound."
+    }
+  ],
+  "remoteWritesByVerifier": 0
+}

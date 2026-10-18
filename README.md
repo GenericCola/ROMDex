@@ -2,7 +2,7 @@
 
 Private development home for ROMDex and its NPCDex add-on.
 
-Latest published private release: [ROMDex 0.5.12](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.12). It is installed with current saves and remembered connections preserved. U20I is authorized and in progress: the user accepted the native transition and normal Quit/reopen passed; queued delivery and final readback remain pending. The 0.5.13 correction passes 87 focused tests, 182 syntax checks, 17 packaged-runtime checks and fresh live-history verification; private publication and installation are next. See the [sync recovery report](docs/project/U20I-Sync-Recovery-Report.md). U21 depends on U20I completion and a new PASSKEY.
+Latest published private release: [ROMDex 0.5.13](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.13). U20I remains in progress with two original operations pending. The 0.5.14 read-budget recovery candidate passes 92 focused tests, 182 syntax checks, 17 packaged-runtime checks and fresh live-history verification; its fresh backup, private publication and installation are next. It retains hard response limits and retries the original legacy intent only against a verified unchanged parent. See [bounded read recovery](docs/project/U20I-Bounded-Read-Recovery.md). U21 remains separately gated.
 
 - **apps/romdex/** — current application source, desktop host, web UI and tests.
 - **packages/tool-suite-ui/** — reusable suite assets, including the Standard Settings Icon.

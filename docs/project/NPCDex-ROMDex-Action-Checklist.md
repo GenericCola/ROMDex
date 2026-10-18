@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** **U20I — Complete the Native Content Tree** is authorized and in progress. [Task checklist](U20I-Native-Content-Tree-Plan.md). ROMDex **0.5.12** is installed. The user accepted and saved the refreshed native transition, and normal tray Quit/reopen passed with all 50 prior edits and the approved transition retained. Cloud delivery and final remote readback remain the completion gate: at 18:19 UTC on October 18, 33 operations remained, with no review errors or blocked operations. An automatic retry recovered from the earlier connection-interruption errors. All remembered connections remain preserved. U21 remains unstarted and needs its own PASSKEY.
+**Current:** **U20I is in progress.** ROMDex **0.5.13** is installed and verified with all current Data, 51 prior operations (including the accepted transition), original drafts and all three remembered credentials preserved. Backup/restoration, private release readback and installed checks passed. Queue delivery and final native/remote verification remain open; U21 is unstarted and requires a new PASSKEY.
 
 ## Completed Foundation
 

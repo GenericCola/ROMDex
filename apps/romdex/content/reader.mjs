@@ -3,7 +3,7 @@ import {MANIFEST_NAME,validateCarrier} from './carrier.mjs';
 import {applyPublication,resolvePublication} from './materialize.mjs';
 import {projectNPCDex,PROJECTION_VERSION} from './projection.mjs';
 import {workspaceAllowed} from './authorization.mjs';
-const connectionFailure=error=>error.code==='CONTENT_CONNECTION'||error.status||['AbortError','TimeoutError'].includes(error.name);
+const connectionFailure=error=>['CONTENT_CONNECTION','CONTENT_READ_CHECKPOINT'].includes(error.code)||error.status||['AbortError','TimeoutError'].includes(error.name);
 async function mapReads(values,fn){const results=new Array(values.length);let next=0,failure;await Promise.all(Array.from({length:Math.min(4,values.length)},async()=>{for(;;){if(failure)return;const i=next++;if(i>=values.length)return;try{results[i]=await fn(values[i]);}catch(error){failure||=error;}}}));if(failure)throw failure;return results;}
 
 export class ContentReader{

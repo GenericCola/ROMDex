@@ -1,0 +1,19 @@
+{
+  "task": "U20I",
+  "startedAt": "2026-10-18T18:54:36.089Z",
+  "status": "installed",
+  "version": "0.5.13",
+  "exitCode": 0,
+  "filesPreservedExactly": 121,
+  "bytesPreserved": 189878773,
+  "applicationHashesVerified": 318,
+  "backup": "outputs/U20I-Timeout-Protected-Data-Backup",
+  "startupReport": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u20i-timeout\\current-startup-1792349701787.json",
+  "pid": 17084,
+  "utilityPid": 18300,
+  "fixture": false,
+  "contentProvider": true,
+  "inspectorEnabled": false,
+  "privateReleaseUrl": "https://github.com/GenericCola/ROMDex/releases/tag/v0.5.13",
+  "finishedAt": "2026-10-18T18:55:07.012Z"
+}
