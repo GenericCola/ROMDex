@@ -1,0 +1,71 @@
+{
+  "task": "U20E",
+  "status": "verified",
+  "at": "2026-10-18T01:53:25.057Z",
+  "source": {
+    "revision": 73,
+    "sha256": "2c50ee40f590eb1505a99922efa948db282fe46425bf640b5a0f69fc780c630c",
+    "head": "90af156ca7819445a31dcdd394682722458281d5283e0b3cf0da3263d70f80d0",
+    "bytes": 9915298
+  },
+  "summary": {
+    "revision": 73,
+    "towns": 4,
+    "areas": 23,
+    "elements": 128,
+    "points": 193,
+    "blocks": 448,
+    "characters": 54,
+    "plans": 44,
+    "history": 145,
+    "receipts": 0,
+    "requests": 6,
+    "annotations": 85,
+    "embeddedImages": 159,
+    "imageBytes": 2961295,
+    "legacyIdentities": 870,
+    "records": 211,
+    "byKind": {
+      "shared": 7,
+      "region": 1,
+      "profile": 50,
+      "map": 3,
+      "subzone": 15,
+      "scene": 10,
+      "appearance": 68,
+      "interactive": 57
+    },
+    "normalizedPlans": 44,
+    "normalizedReviews": 85,
+    "uniqueAssets": 40,
+    "imageOccurrences": 159,
+    "assetBytes": 10456321,
+    "held": 0,
+    "issues": 0,
+    "mappingStatus": "Unresolved ROM Locators; Exact Saved Evidence Preserved"
+  },
+  "extractionMs": 3744,
+  "coldMs": 8276,
+  "repeatedMs": 7413,
+  "carrierBytes": 266244,
+  "firstTransfers": {
+    "downloads": 610,
+    "bytes": 12605557
+  },
+  "cache": {
+    "objects": 651,
+    "objectBytes": 22528893,
+    "states": 7,
+    "stateBytes": 11036120,
+    "maxBytes": 268435456
+  },
+  "proof": {
+    "originalBytesExact": true,
+    "frontendValuesExact": true,
+    "historyExact": true,
+    "allPlansPreserved": true,
+    "globalDialogueDynamic": true,
+    "remoteWrites": 0,
+    "credentialsUsed": false
+  }
+}

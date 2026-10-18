@@ -64,8 +64,8 @@
 - [x] **U20 — Content Architecture and Workflow Review** — Sol / Medium. User-approved October 16; [accepted design](U20-Consolidated-Architecture-and-Revised-Plan.md), [completion report](U20-Completion-Report.md). Later tasks remain separately gated.
 - [x] **U20A — Content Contracts and ROM Mapping Design** — Sol / High. User-approved October 16; contracts/schema/examples and extraction guide accepted, 45 checks pass. [Review report](U20A-Review-Report.md).
 - [x] **U20B — Content Project Access and Isolated Storage Proof** — Sol / High. Completed October 17. NPCD access, exact transfers, concurrent appends, separate-process recovery, complete groups and cleanup verified. [Report and limits](U20B-Completion-Report.md).
-- [ ] **U20C — Dynamic Registry Reader and Durable Cache** — Sol / High.
-- [ ] **U20D — Planning, Corrections and Content Lifecycle** — Sol / High.
+- [x] **U20C — Dynamic Registry Reader and Durable Cache** — Sol / High.
+- [x] **U20D — Planning, Corrections and Content Lifecycle** — Sol / High.
 - [ ] **U20E — Previewed Content Migration and Provider Cutover** — Sol / High.
 - [ ] **U20F — Content Backend Acceptance and Private Release** — Sol / High.
 
@@ -488,4 +488,15 @@ The [U20C1/U20C2 scheduling contingency](U20C1-Independent-Reader-Plan.md) was n
 - [x] Complete real Windows/YouTrack verification and remove only marked fixtures.
 - [x] Preserve credentials/installed app, archive source/evidence and stop before U20E.
 
-**U20D is complete.** Isolated planning/correction editing, durable issue/upload/link intents, concurrent publication/draft review and current/proposed separation passed 501 tests and Windows/YouTrack recovery checks. [Report](U20D-Completion-Report.md). All 15 fixtures were removed; installed 0.5.7 and GitHub-backed saves remain authoritative. **Next: U20E — Scale Checks and Previewed Content Migration, Sol / High; new PASSKEY required.** No migration has begun.
+**U20E is in progress at its migration-preview acceptance gate.** Read-only Windows/GitHub capture, lossless identity/history reconstruction and bounded cache/journal preparation passed 517 tests. [Migration Preview](U20E-Migration-Preview.md). Installed 0.5.7 and GitHub remain authoritative; no real NPCD import or provider switch has occurred. Stay on **Sol / High** for the remaining U20E work. U20F requires a later separate PASSKEY.
+
+
+## U20E — Migration Preparation and Acceptance
+
+- [x] Read-only latest local/cloud capture; preserve credentials and originals.
+- [x] Full-size local reconstruction/retention and bounded-read improvements; 517 tests passed.
+- [x] Map all 870 identities, 44 plans and 85 annotations; verify exact original/frontend preservation.
+- [x] Prepare the [migration preview, backup policy and rollback procedure](U20E-Migration-Preview.md).
+- [ ] Obtain the required migration-preview acceptance; recheck source freshness.
+- [ ] Publish/read back the accepted dataset, prove actual YouTrack latency and perform a verified single-provider handoff.
+- [ ] Complete U20E documentation/checkpoint and stop before U20F.

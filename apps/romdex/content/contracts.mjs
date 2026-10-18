@@ -2,7 +2,9 @@ import fs from 'node:fs';
 import {createHash} from 'node:crypto';
 import {TextDecoder} from 'node:util';
 
-export const MAX_JSON_BYTES=16*1024*1024,CHUNK_BYTES=512*1024,MAX_MANIFEST_BYTES=256*1024;
+// Full-data bootstrap is ~266 KiB: use the already proved 512 KiB upload bound.
+// Keep manifests single-chunk; no unbounded JSON or upload increase is enabled.
+export const MAX_JSON_BYTES=16*1024*1024,CHUNK_BYTES=512*1024,MAX_MANIFEST_BYTES=CHUNK_BYTES;
 export const requireThat=(ok,message)=>{if(!ok)throw Error(message);};
 export const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 export const isHash=value=>typeof value==='string'&&/^[a-f0-9]{64}$/.test(value);
@@ -60,6 +62,7 @@ export function conforms(value,rule=schema,budget={left:2000000}){
 }
 export function validateArtifact(bytes,workspace){const artifact=parseJSON(bytes);requireThat(conforms(artifact),'Unsupported or Invalid Content Contract.');requireThat(artifact.workspaceId===workspace,'Content Workspace Does Not Match.');verifyDigest(artifact);return artifact;}
 export function unique(values,label){requireThat(new Set(values).size===values.length,'Duplicate '+label+'.');}
+export const pointPayload=record=>record.current.payload.points?record.current.payload:record.kind==='shared'&&record.current.payload.sharedType==='global-dialogue'&&record.current.payload.definitions?.points?record.current.payload.definitions:null;
 export function validateGraph(records){
  unique(records.map(r=>r.recordId),'Content Record');const byId=new Map(records.map(r=>[r.recordId,r]));
  const get=(id,kind)=>{const r=byId.get(id);requireThat(r&&(!kind||r.kind===kind),'Missing or Mismatched Content Reference.');return r;};
@@ -72,7 +75,7 @@ export function validateGraph(records){
   if(['appearance','scene','interactive'].includes(record.kind)){const parent=get(record.parentRecordId,'subzone');requireThat(parent.current.payload[{appearance:'appearanceIds',scene:'sceneIds',interactive:'interactiveIds'}[record.kind]].includes(record.recordId),'Inverse Verse Membership Missing.');}
   if(record.kind==='appearance'){for(const id of [p.profileId,...Object.values(p.profileByPlayerGender)].filter(Boolean))get(id,'profile');for(const id of p.sceneIds)get(id,'scene');}
   if(p.participantIds)for(const id of p.participantIds){const participant=get(id,'appearance');if(record.current.lifecycle==='active')requireThat(participant.current.lifecycle==='active','Active Scene Has an Inactive Participant.');}
-  if(p.points){unique(p.pointOrder,'Point Order');requireThat(same(Object.keys(p.points).sort(),[...p.pointOrder].sort()),'Point Order Differs.');for(const [id,point]of Object.entries(p.points)){requireThat(point.id===id,'Point Identity Differs.');for(const participant of point.participantIds)get(participant,'appearance');unique(point.blockOrder,'Block Order');requireThat(same(Object.keys(point.blocks).sort(),[...point.blockOrder].sort()),'Block Order Differs.');for(const [key,block]of Object.entries(point.blocks)){requireThat(key===block.id,'Block Identity Differs.');if(block.speaker)get(block.speaker,'profile');}}}
+  const points=pointPayload(record);if(points){unique(points.pointOrder,'Point Order');requireThat(same(Object.keys(points.points).sort(),[...points.pointOrder].sort()),'Point Order Differs.');for(const [id,point]of Object.entries(points.points)){requireThat(conforms(point,schema.$defs.point)&&point.id===id,'Point Identity or Shape Differs.');for(const participant of point.participantIds)get(participant,'appearance');unique(point.blockOrder,'Block Order');requireThat(same(Object.keys(point.blocks).sort(),[...point.blockOrder].sort()),'Block Order Differs.');for(const [key,block]of Object.entries(point.blocks)){requireThat(key===block.id,'Block Identity Differs.');if(block.speaker)get(block.speaker,'profile');}}}
  }
  return byId;
 }

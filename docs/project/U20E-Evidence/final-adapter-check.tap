@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: Migration preserves exact original bytes, frontend values, whitespace, alias ownership and all legacy identities
+ok 1 - Migration preserves exact original bytes, frontend values, whitespace, alias ownership and all legacy identities
+  ---
+  duration_ms: 56.234
+  type: 'test'
+  ...
+# Subtest: Missing region decisions, ambiguous area ownership and alias cycles stop preview instead of guessing
+ok 2 - Missing region decisions, ambiguous area ownership and alias cycles stop preview instead of guessing
+  ---
+  duration_ms: 6.1237
+  type: 'test'
+  ...
+# Subtest: Unresolvable legacy scopes are held with originals intact, never reassigned to a nearby record
+ok 3 - Unresolvable legacy scopes are held with originals intact, never reassigned to a nearby record
+  ---
+  duration_ms: 30.0622
+  type: 'test'
+  ...
+# Subtest: Shared character identities keep local appearances, while unrelated anonymous rows remain distinct
+ok 4 - Shared character identities keep local appearances, while unrelated anonymous rows remain distinct
+  ---
+  duration_ms: 70.2182
+  type: 'test'
+  ...
+# Subtest: Documentation updates replace current dialogue dynamically without altering proposed dialogue or history
+ok 5 - Documentation updates replace current dialogue dynamically without altering proposed dialogue or history
+  ---
+  duration_ms: 32.5984
+  type: 'test'
+  ...
+# Subtest: Global routines stay outside regions, can be corrected and retain distinct scoped IDs
+ok 6 - Global routines stay outside regions, can be corrected and retain distinct scoped IDs
+  ---
+  duration_ms: 31.2965
+  type: 'test'
+  ...
+# Subtest: A missing original asset or migrated identity blocks reconstruction without manufacturing defaults
+ok 7 - A missing original asset or migrated identity blocks reconstruction without manufacturing defaults
+  ---
+  duration_ms: 20.1118
+  type: 'test'
+  ...
+# Subtest: Planned additions and archival remain visible after migration without changing existing characters
+ok 8 - Planned additions and archival remain visible after migration without changing existing characters
+  ---
+  duration_ms: 45.7553
+  type: 'test'
+  ...
+# Subtest: Imported draft edits preserve their identity and original legacy slot; shared routine plans use their actual scope
+ok 9 - Imported draft edits preserve their identity and original legacy slot; shared routine plans use their actual scope
+  ---
+  duration_ms: 32.7008
+  type: 'test'
+  ...
+# Subtest: Isolated NPCDex preview uses the existing UI without the coded baseline or save APIs
+ok 10 - Isolated NPCDex preview uses the existing UI without the coded baseline or save APIs
+  ---
+  duration_ms: 725.5763
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1141.2386

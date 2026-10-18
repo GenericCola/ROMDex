@@ -1,0 +1,35 @@
+TAP version 13
+# Subtest: Ten-megabyte histories survive many snapshots, quota failure and reopening without full-copy growth
+ok 1 - Ten-megabyte histories survive many snapshots, quota failure and reopening without full-copy growth
+  ---
+  duration_ms: 4278.6646
+  type: 'test'
+  ...
+# Subtest: More than 200 completed edits are archived without removing uncertain work or its original preview
+ok 2 - More than 200 completed edits are archived without removing uncertain work or its original preview
+  ---
+  duration_ms: 3211.3021
+  type: 'test'
+  ...
+# Subtest: Full-size publication history reconstructs and detects same-size tampering after repeated sync
+ok 3 - Full-size publication history reconstructs and detects same-size tampering after repeated sync
+  ---
+  duration_ms: 10383.6553
+  type: 'test'
+  ...
+# {"records":162,"publications":13,"preservedHistoryBytes":10485760,"coldMs":6129,"cache":{"objects":204,"objectBytes":12347475,"states":30,"stateBytes":1055139,"maxBytes":268435456}}
+# Subtest: Parallel content reads stay bounded, share issue inspection and refresh native comments every cycle
+ok 4 - Parallel content reads stay bounded, share issue inspection and refresh native comments every cycle
+  ---
+  duration_ms: 181.3002
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 18292.0992

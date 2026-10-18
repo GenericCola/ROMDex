@@ -334,3 +334,8 @@ Installed **0.5.6** synchronizes ROMDex tile images, manual sibling order and sa
 ## U19 Completed — October 16, 2026
 
 Installed **0.5.7** completes shared Save/Auto-Sync indicators for native tickets, NPCDex saves and ROMDex metadata. Clean disconnects affect the connection light without claiming unsaved work; pending delivery failures, paused pending work, conflicts and local recovery require attention. All configured services contribute independently. Connection Details shows service-specific status/count/contact/recovery and removes stale local-only help. The workspace button is **19.04 px, 30% smaller, shadow-free and vertically centered**. Passed **426 tests, 6 packaged desktop scenarios, 125 syntax checks and 248 installed hashes**. All 114 Data files, current saves, native fields and three encrypted credentials survived the backed-up upgrade and normal restart. Source and installer are private; diagnostic ports are closed. **Next: U20 — Change Request Workflow and User-Story Review, Sol / Medium; new PASSKEY required.**
+
+
+## U20E Preparation — October 17, 2026
+
+The user confirmed New Bark Town, Route 29 and Cherrygrove City belong under Johto; Global Dialogue remains shared outside either region. Read-only source checks found revision 73 with matching local/cloud heads, no queue/conflict and unchanged protected credentials. Migration preview acceptance remains pending; it is not approval to publish real content or activate a provider. See U20E-Migration-Preview.md for exact source identity, storage scope, retention/backup policy and remaining proof gates.

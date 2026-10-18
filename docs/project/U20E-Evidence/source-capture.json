@@ -1,0 +1,57 @@
+{
+  "task": "U20E",
+  "startedAt": "2026-10-18T01:43:10.761Z",
+  "mode": "Read-Only Source Inspection; Isolated Reconstruction",
+  "remoteWrites": 0,
+  "credentialLogged": false,
+  "captureDirectory": "private-profile/capture-1792287790760",
+  "readMilliseconds": 3374,
+  "cloudRequests": 9,
+  "source": {
+    "revision": 73,
+    "sha256": "2c50ee40f590eb1505a99922efa948db282fe46425bf640b5a0f69fc780c630c",
+    "bytes": 9915298,
+    "summary": {
+      "revision": 73,
+      "towns": 4,
+      "areas": 23,
+      "elements": 128,
+      "points": 193,
+      "blocks": 448,
+      "characters": 54,
+      "plans": 44,
+      "history": 145,
+      "receipts": 0,
+      "requests": 6,
+      "annotations": 85,
+      "embeddedImages": 159,
+      "imageBytes": 2961295
+    },
+    "localHead": "90af156ca7819445a31dcdd394682722458281d5283e0b3cf0da3263d70f80d0",
+    "remoteHeads": [
+      "90af156ca7819445a31dcdd394682722458281d5283e0b3cf0da3263d70f80d0"
+    ],
+    "head": "90af156ca7819445a31dcdd394682722458281d5283e0b3cf0da3263d70f80d0",
+    "cloudCommit": "56f8a0683a4c4596c9685362dc2717a67b4f9536",
+    "review": false,
+    "pendingLocal": 0,
+    "mirrorMatchesJournal": true
+  },
+  "preservedDocuments": [
+    {
+      "key": "genesis",
+      "bytes": 9915298
+    },
+    {
+      "key": "current",
+      "bytes": 9915298
+    }
+  ],
+  "credentialFilesUnchanged": [
+    "service/connection.encrypted",
+    "cloud/github-connection.encrypted",
+    "updates/download-access.encrypted"
+  ],
+  "status": "verified",
+  "finishedAt": "2026-10-18T01:43:19.347Z"
+}

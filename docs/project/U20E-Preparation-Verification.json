@@ -1,0 +1,129 @@
+{
+  "task": "U20E",
+  "status": "preparation-verified-awaiting-migration-acceptance",
+  "at": "2026-10-18T01:53:31.593Z",
+  "testsPassed": 517,
+  "syntaxChecks": 18,
+  "sourceSHA256": "2c50ee40f590eb1505a99922efa948db282fe46425bf640b5a0f69fc780c630c",
+  "sourceHead": "90af156ca7819445a31dcdd394682722458281d5283e0b3cf0da3263d70f80d0",
+  "sourceRevision": 73,
+  "sourceQueue": 0,
+  "sourceReview": false,
+  "installedVersion": "0.5.7",
+  "installedFilesUnchanged": 248,
+  "protectedCredentialFilesUnchanged": [
+    "service/connection.encrypted",
+    "cloud/github-connection.encrypted",
+    "updates/download-access.encrypted"
+  ],
+  "realNPCDWrites": 0,
+  "providerSwitched": false,
+  "originalContractSchemaUnchanged": true,
+  "files": [
+    {
+      "path": "content/cache.mjs",
+      "bytes": 6693,
+      "sha256": "ce5ddcb15d8fd5e973d4efddbf2b02299652bf47386cb2288aa73d637cbfdf09"
+    },
+    {
+      "path": "content/carrier.mjs",
+      "bytes": 3169,
+      "sha256": "bf68cf8ca2295e622273db169230c992c9fb42e7c45420ac84e3cac9608c08b4"
+    },
+    {
+      "path": "content/contracts.mjs",
+      "bytes": 10673,
+      "sha256": "c2d651df99d3cb2f5bed86c2d1b4cd9e357a512c8fea9df6d207e1bbdc60d43f"
+    },
+    {
+      "path": "content/contracts.schema.json",
+      "bytes": 51409,
+      "sha256": "9e832db6bbc2126b4c9aae3316781c2e56e4b524864a2e4c0c7aa1725b5659d1"
+    },
+    {
+      "path": "content/EDITING.md",
+      "bytes": 7723,
+      "sha256": "3934072d479385fc197e31a898a8378b5cee0cd99998c3b54cec5f3f1b9fc06d"
+    },
+    {
+      "path": "content/editor-ui.js",
+      "bytes": 18832,
+      "sha256": "93fedeea4f52eeb6bf0f1de6ae5e8b82cf97fdefca10a22ce0d14759d75e690e"
+    },
+    {
+      "path": "content/edits.mjs",
+      "bytes": 14472,
+      "sha256": "36fff2f2294f43a60fcaacc86a6e8e435f0612f868e2464acbf8b85d55719417"
+    },
+    {
+      "path": "content/image-bounds.mjs",
+      "bytes": 1932,
+      "sha256": "41e1741dfb93db12b5e03f306f14eafdd78fc86fe4a1895f7190e2e023f3c707"
+    },
+    {
+      "path": "content/legacy-projection.mjs",
+      "bytes": 6433,
+      "sha256": "5f504059376914d6006e564737a6cd661d8dcc1e0544ff9264afdf4b4260b301"
+    },
+    {
+      "path": "content/materialize.mjs",
+      "bytes": 11706,
+      "sha256": "6083910223d800e73e37829d3ec0ab56af65d0cafb43e90ec1d498d5ddf3ac69"
+    },
+    {
+      "path": "content/migration.mjs",
+      "bytes": 17060,
+      "sha256": "c6747ef9d225c6f4c0e2a66b37d8083a4cdfd5f3d3b61439bc46154dba0ba0af"
+    },
+    {
+      "path": "content/preview-server.mjs",
+      "bytes": 10297,
+      "sha256": "3868e281b2ca96a9fc7e0069eb03f94508b712501479042fb1cb098a07bf59f2"
+    },
+    {
+      "path": "content/preview.js",
+      "bytes": 5635,
+      "sha256": "bf00d19aa0450984d6100ce972810165954935ca53a96bda8e5bfcc4e572cd6b"
+    },
+    {
+      "path": "content/projection.mjs",
+      "bytes": 6010,
+      "sha256": "6dd3fe70ed78dbb48b89555a5d0f6e4b5b14d9a90461ba970a47238aa93fc853"
+    },
+    {
+      "path": "content/reader.mjs",
+      "bytes": 16404,
+      "sha256": "ffb58a458c4cf4fab275fa21f539cbe7f92bd55b9953554c5398c3776dce0e53"
+    },
+    {
+      "path": "content/README.md",
+      "bytes": 7958,
+      "sha256": "e9f292fa9437a3929d2613e395633783d263602ed07db85d0064791b4ce74cfa"
+    },
+    {
+      "path": "content/writer.mjs",
+      "bytes": 13681,
+      "sha256": "4a06f18297dd192e33de39084d03e0e65d8ba63bad8972db17ad147b138917e8"
+    },
+    {
+      "path": "content/youtrack-reader.mjs",
+      "bytes": 7387,
+      "sha256": "2ab904907fab884b8bfe0bc274cd5b39e1844eb22ee7ee8add08e50fae8a6fe6"
+    },
+    {
+      "path": "content/youtrack-writer.mjs",
+      "bytes": 6417,
+      "sha256": "f85d26e710806d92fa126aa072774a472faa43ccccf19544e267501f8302227a"
+    },
+    {
+      "path": "tests/content-scale.test.mjs",
+      "bytes": 8268,
+      "sha256": "0ffb0e6cc1bb54c039c7f294a3f8c84f53ee10a0c5d77ec7ccb535524a27a689"
+    },
+    {
+      "path": "tests/content-migration.test.mjs",
+      "bytes": 10756,
+      "sha256": "a1528a9d0848d620ffc7144cdc6dfb6c47520ef34a8a871b17e25f5996372d04"
+    }
+  ]
+}

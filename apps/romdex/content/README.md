@@ -28,6 +28,15 @@ Auto-Sync Off makes no automatic remote calls. Save Changes performs one incomin
 
 ## Current Bounds and Gates
 
-Bounds: 512 KiB attachment chunks; 256 KiB carrier manifest; 16 MiB assembled object; 32 chunks per object; 64 MiB response/transfer and materialized-state budgets per cycle; 256 MiB cached payload; 1,000 registry publications; 10,000 requests and 120 seconds per cycle. Listings are paginated with bounded complete sweeps; unstable/truncated enumeration cannot report success. Domain collections and histories also have explicit limits. Cache payload limits do not bound SQLite filesystem overhead. These are conservative implementation limits, not measured YouTrack quotas or a production retention policy.
+Bounds: 512 KiB attachment chunks; 512 KiB carrier manifest; 16 MiB assembled object; 32 chunks per object; 64 MiB response/transfer and unique-object-plus-reference materialization budgets per cycle; 256 MiB cached payload; 1,000 registry publications; 10,000 requests and 120 seconds per cycle. Listings are paginated with bounded complete sweeps; unstable/truncated enumeration cannot report success. Domain collections and histories also have explicit limits. Cache payload limits do not bound SQLite filesystem overhead. These are conservative implementation limits, not measured YouTrack quotas or a production retention policy.
 
 U20C proves synthetic data only. U20D editing and recovery remain isolated; U20E must prove scale/retention before previewing and migrating the latest real data; U20F handles installed acceptance/release. Actual agent identity/access and result authorization remain U23–U25. Upload ceiling and remaining instance capacity are unknown. No ROM or in-game correctness is established by reader validation.
+
+
+## U20E Preparation (Not Activated)
+
+`migration.mjs` extracts an isolated preview with exact original bytes as a verified object, scoped identity indexes, source documentation, image inventory and distinct current/proposed/testing data. `legacy-projection.mjs` reconstructs the original frontend values and overlays validated current revisions while retaining unknown fields, history and old hash/pointer semantics. Global dialogue uses shared records and scoped point/block validation. No installed provider imports these modules yet. Migration acceptance and an actual verified handoff remain required.
+
+Domain/history and journal previews use content-addressed cache references. All pending/uncertain work is retained; older terminal journal entries are archived rather than imposing a 200-edit lifetime ceiling. There is no automatic remote deletion. Routine reads may reuse verified bytes only against fresh inventory/author/length/update metadata. Registry manifests remain fresh byte reads. Manual Save, a cache without a valid audit and 15-minute periodic audits recheck bytes; cold/repeated full-data benchmarks use an in-memory transport and do not establish WAN throughput. Readers bound parallel network requests to four and wait for failed parallel groups to settle before ending a cycle.
+
+The complete revision-73 preview preserves 870 identities, 44 plans and 85 annotations; its 266 KiB carrier fits within the already demonstrated 512 KiB chunk bound. The original U20A schema is unchanged. See the project migration preview for source privacy, exact preservation evidence and limits.

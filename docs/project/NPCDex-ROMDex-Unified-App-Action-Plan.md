@@ -4,7 +4,7 @@
 **Status:** U01–U20 and approved intervening tasks are complete. Installed ROMDex **0.5.7** has private NPCDex/metadata cloud sync, native two-way YouTrack sync and shared controls/indicators. U20's content-registry and package/backend-result design is user-approved; later task-specific approvals and technical proof gates remain required.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
-**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). **U20D is complete.** Isolated planning/correction editing, durable issue/upload/link intents, concurrent publication/draft review and current/proposed separation passed 501 tests and Windows/YouTrack recovery checks. [Report](U20D-Completion-Report.md). All 15 fixtures were removed; installed 0.5.7 and GitHub-backed saves remain authoritative. **Next: U20E — Scale Checks and Previewed Content Migration, Sol / High; new PASSKEY required.** No migration has begun.
+**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). **U20E is in progress at its migration-preview acceptance gate.** Read-only Windows/GitHub capture, lossless identity/history reconstruction and bounded cache/journal preparation passed 517 tests. [Migration Preview](U20E-Migration-Preview.md). Installed 0.5.7 and GitHub remain authoritative; no real NPCD import or provider switch has occurred. Stay on **Sol / High** for the remaining U20E work. U20F requires a later separate PASSKEY.
 
 ## Working Agreement
 
@@ -219,7 +219,7 @@ Scheduled after U30 so notifications do not delay cloud persistence or the packa
 
 Tasks later in the plan are provisional until their design checkpoints are completed. Current desktop/cloud behavior remains available while the content architecture is reviewed and proved. Earlier completion narratives below are historical checkpoints; the status and checklist at the top control current execution.
 
-**Current boundary:** **U20D is complete.** Isolated planning/correction editing, durable issue/upload/link intents, concurrent publication/draft review and current/proposed separation passed 501 tests and Windows/YouTrack recovery checks. [Report](U20D-Completion-Report.md). All 15 fixtures were removed; installed 0.5.7 and GitHub-backed saves remain authoritative. **Next: U20E — Scale Checks and Previewed Content Migration, Sol / High; new PASSKEY required.** No migration has begun.
+**Current boundary:** **U20E is in progress at its migration-preview acceptance gate.** Read-only Windows/GitHub capture, lossless identity/history reconstruction and bounded cache/journal preparation passed 517 tests. [Migration Preview](U20E-Migration-Preview.md). Installed 0.5.7 and GitHub remain authoritative; no real NPCD import or provider switch has occurred. Stay on **Sol / High** for the remaining U20E work. U20F requires a later separate PASSKEY.
 
 
 ## R08 — Release Completed, October 14, 2026

@@ -1,4 +1,4 @@
-import {requireThat,verifyDigest,validateGraph,same,unique} from './contracts.mjs';
+import {requireThat,verifyDigest,validateGraph,same,unique,pointPayload} from './contracts.mjs';
 const digest=a=>a.revisionId||a.digest;
 const empty=()=>({records:[],plans:[],reviews:[],mappings:[],assets:[],revisions:[]});
 export const versionHeads=(list,identity,id)=>{const values=list.filter(a=>a[identity]===id),parents=new Set(values.flatMap(a=>a.parents));return values.filter(a=>!parents.has(a.digest));};
@@ -17,7 +17,7 @@ export function validateDomain(domain){
   requireThat(graph.has(artifact.target.recordId),'Proposal or Review Target Is Missing.');
   const base=revisions.get(artifact.baseline.revisionId);requireThat(base?.recordId===artifact.target.recordId,'Proposal Baseline Is Missing.');
   for(const ref of artifact.readSet||[])requireThat(revisions.get(ref.revisionId)?.recordId===ref.recordId,'Proposal Read Reference Is Missing.');
-  const point=artifact.target.pointId?base.current.payload.points?.[artifact.target.pointId]:null;
+  const point=artifact.target.pointId?pointPayload(base)?.points[artifact.target.pointId]:null;
   if(artifact.target.pointId)requireThat(point,'Proposal Point Is Missing.');for(const id of artifact.target.blockIds)requireThat(point?.blocks[id],'Proposal Block Is Missing.');
  }
  for(const [list,key]of [[domain.plans,'planId'],[domain.reviews,'reviewId']]){const byHash=new Map(list.map(a=>[a.digest,a])),marks=new Map();for(const artifact of list){if(marks.get(artifact.digest)===2)continue;const stack=[{artifact,next:0}];while(stack.length){const frame=stack.at(-1),a=frame.artifact;marks.set(a.digest,1);if(frame.next===a.parents.length){marks.set(a.digest,2);stack.pop();continue;}const hash=a.parents[frame.next++],parent=byHash.get(hash);requireThat(parent&&parent[key]===a[key],'Proposal Ancestry Is Missing or Mismatched.');requireThat(marks.get(hash)!==1,'Proposal Ancestry Cycle.');if(marks.get(hash)!==2)stack.push({artifact:parent,next:0});}}}
@@ -31,7 +31,8 @@ export function validateDomain(domain){
 export function applyPublication(parent,pub,artifacts,assets){
  requireThat(same([...pub.artifactDigests].sort(),artifacts.map(digest).sort()),'Publication Artifact Set Differs.');
  unique(artifacts.map(a=>a.operationId),'Operation Within Publication');
- const domain=parent?structuredClone(parent):empty();
+ // Artifacts are immutable. Copy collection containers, not historical bodies.
+ const domain=parent?Object.fromEntries(Object.entries(parent).map(([key,value])=>[key,[...value]])):empty();
  const prior=new Map(domain.records.map(r=>[r.recordId,r]));
  for(const base of pub.baseRevisions)requireThat(prior.get(base.recordId)?.revisionId===base.revisionId,'Publication Baseline Is Stale.');
  if(pub.kind==='bootstrap'){
