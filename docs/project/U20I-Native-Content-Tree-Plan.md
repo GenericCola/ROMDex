@@ -1,7 +1,9 @@
 # U20I — Complete the Native Content Tree
 
-**Status:** Planned October 18, 2026 at the user's request. Implementation has not begun and requires a new PASSKEY.  
-**Model / Effort:** Sol / High.  
+**Status:** Planned October 18, 2026 at the user's request. Implementation has not begun and requires a new PASSKEY.
+
+**Model / Effort:** Sol / High.
+
 **Sequence:** After U20H, before U21. U21 cannot begin until this task's acceptance is complete.
 
 ## Problem and Outcome
