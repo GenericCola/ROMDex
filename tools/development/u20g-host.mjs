@@ -1,0 +1,18 @@
+// Normal Windows host for approved U20G checks. Initial child is strictly read-only.
+import fs from 'node:fs/promises';import path from 'node:path';import {spawn} from 'node:child_process';import {createHash} from 'node:crypto';import assert from 'node:assert/strict';
+import {secureDirectory} from '../outputs/ROMDex/desktop/migration.mjs';
+const root=process.cwd(),work=path.resolve('work/u20g'),session=path.join(work,'private-profile/session'),source=path.join(process.env.USERPROFILE,'AppData/Local/ROMDexDesktop/Data/Runtime/thegobindsingh-PMON/Local State'),electron=path.resolve('work/u10/runtime/electron/electron.exe');
+await fs.mkdir(work,{recursive:true});const phase=async phase=>fs.writeFile(path.join(work,'host-state.json'),JSON.stringify({task:'U20G',pid:process.pid,phase,at:new Date().toISOString()}));
+async function run(script){const env={...process.env};delete env.ELECTRON_RUN_AS_NODE;const log=await fs.open(path.join(work,'host-check.log'),'a');try{return await new Promise((resolve,reject)=>{const child=spawn(script.endsWith('.cjs')?electron:process.execPath,[script],{cwd:root,env,windowsHide:true,stdio:['ignore',log.fd,log.fd]});child.on('error',reject);child.on('exit',resolve);});}finally{await log.close();}}
+try{
+ await phase('Preparing isolated Windows credential session');await secureDirectory(path.join(work,'private-profile'));await fs.mkdir(session,{recursive:true});const state=JSON.parse(await fs.readFile(source,'utf8'));assert.equal(typeof state.os_crypt?.encrypted_key,'string');await fs.writeFile(path.join(session,'Local State'),JSON.stringify(state));
+ await phase('Read-only active content and connection inspection');const initialCode=await run(path.resolve('work/u20g-preflight.cjs'));await phase(initialCode===0?'Read-only NPCD inspection complete; waiting for reviewed follow-up':'Read-only inspection needs review; host remains available');
+ await phase('Opening isolated contextual form review');await run(path.resolve('work/u20g-open-ui.mjs'));
+ const processed=new Set(),deadline=Date.now()+8*60*60000;
+ while(Date.now()<deadline){
+  try{const stop=JSON.parse(await fs.readFile(path.join(work,'stop.json'),'utf8'));if(stop.task==='U20G'&&stop.at>Date.now()-3600000){await phase('U20G helper stopped');break;}}catch(error){if(error.code!=='ENOENT')throw error;}
+  let job;try{job=JSON.parse(await fs.readFile(path.join(work,'next-job.json'),'utf8'));}catch(error){if(error.code!=='ENOENT')throw error;}
+  if(job&&!processed.has(job.id)){assert.equal(job.task,'U20G');processed.add(job.id);if(Date.now()-job.at>=3600000||job.at>Date.now()+60000){await phase('Ignored expired U20G job; waiting for fresh reviewed follow-up');continue;}const script=path.resolve(job.script);assert.equal(path.dirname(script),path.join(root,'work'));assert(/^u20g-[a-z0-9-]+\.(mjs|cjs)$/.test(path.basename(script)));assert.equal(createHash('sha256').update(await fs.readFile(script)).digest('hex'),job.reviewedSha256);await phase('Running reviewed U20G check: '+path.basename(script));const code=await run(script);await fs.writeFile(path.join(work,'job-result.json'),JSON.stringify({id:job.id,code,at:new Date().toISOString()}));await phase(code===0?'Reviewed check complete; waiting':'Check needs review; waiting');}
+  await new Promise(resolve=>setTimeout(resolve,2000));
+ }
+}catch(error){await phase('U20G Windows helper needs review');await fs.writeFile(path.join(work,'host-error.json'),JSON.stringify({name:error.name,message:'Windows setup or reviewed check could not complete. Original saves and credentials retained.'}));process.exitCode=1;}

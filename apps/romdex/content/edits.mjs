@@ -5,7 +5,7 @@ import {applyPublication,resolvePublication,versionHeads} from './materialize.mj
 import {workspaceAllowed} from './authorization.mjs';
 const uid=kind=>'content:'+kind+'-'+randomUUID();
 const ref=r=>({recordId:r.recordId,revisionId:r.revisionId});
-const target=(r,c)=>({recordId:r.recordId,pointId:c.pointId||null,blockIds:c.blockId?[c.blockId]:[],promptKey:c.promptKey||null,gender:c.gender||null});
+const target=(r,c)=>({recordId:r.recordId,pointId:c.pointId||null,blockIds:c.blockIds|| (c.blockId?[c.blockId]:[]),promptKey:c.promptKey||null,gender:c.gender||null});
 const actor=ctx=>ctx.workspace.startsWith('fixture:')?'fixture:owner':'content:owner';
 const base=(schema,ctx,suffix)=>({schema,workspaceId:ctx.workspace,operationId:ctx.operationId+':'+suffix,createdAt:ctx.createdAt,actorClaim:actor(ctx)});
 const text=(s,label,limit=65536)=>{requireThat(typeof s==='string'&&s.length<=limit,label+' Is Too Long or Invalid.');return s;};
@@ -16,7 +16,7 @@ export function buildEdit(domain,command,ctx){
  const get=()=>{requireThat(r,'The Selected Content Record Is Missing.');requireThat(r.current.payload.definitions?.migration?.format!=='ROMDexLegacyMigration/1','Original Migration Evidence Is Read-Only.');if(command.expectedRevision)requireThat(r.revisionId===command.expectedRevision,'The Selected Content Has Changed. Review the Latest Version.');return r;};
  const asset=image(command.image);if(asset)assets.push(asset);const pointPath=record=>record.kind==='shared'?'/payload/definitions/points/':'/payload/points/';
  if(command.type==='plan'||command.type==='review'){
-  get();requireThat(!asset||command.type==='plan','Use a Plan or Definition for an Image.');const t=target(r,command);const identity=command.type==='plan'?'planId':'reviewId',key=command.type==='plan'?'plans':'reviews',id=command[identity]||uid(command.type),heads=versionHeads(domain[key],identity,id);
+  get();requireThat(!asset||command.type==='plan','Use a Plan or Definition for an Image.');if(command.blockIds!==undefined)requireThat(Array.isArray(command.blockIds)&&command.blockIds.length<=512&&new Set(command.blockIds).size===command.blockIds.length&&command.blockIds.every(id=>typeof id==='string'&&pointPayload(r)?.points?.[command.pointId]?.blocks?.[id])&&(!command.blockId||command.blockIds.length===1&&command.blockIds[0]===command.blockId),'The Selected Passage Scope Disagrees with Its Blocks.');const t=target(r,command);const identity=command.type==='plan'?'planId':'reviewId',key=command.type==='plan'?'plans':'reviews',id=command[identity]||uid(command.type),heads=versionHeads(domain[key],identity,id);
   requireThat(same(heads.map(h=>h.digest).sort(),[...(command.expectedParents||[])].sort()),'This Draft Has Newer or Conflicting Versions.');
   if(heads.length>1)requireThat(command.reviewedHeads===true,'Review All Conflicting Draft Versions Before Saving.');
   const prior=heads[0];if(prior)requireThat(same(t,prior.target),'A Draft Must Keep Its Original Prompt Scope.');

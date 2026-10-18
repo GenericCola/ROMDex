@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';import '../content/presentation.js';import {editorSetup,guidePlan} from './content-editor-fixture.mjs';
+const M=globalThis.romdexContentModel;
+test('Opening a summary target reveals an eligible stage, including conditional entries',()=>{assert.equal(M.stageFor({stageIds:['B']},'A'),'B');assert.equal(M.stageFor({stageIds:['B','C']},'C'),'C');assert.equal(M.stageFor({stageIds:[]},'A'),'conditional');});
+test('An approved UPDATE remains in Changes; FINAL decisions alone appear in Finalized',()=>{const r={recordId:'r',kind:'appearance',current:{payload:{name:'NPC'}},legacyData:{}},entries=M.entries({records:[r],plans:[{planId:'p',digest:'a',parents:[],target:{recordId:'r',pointId:null,blockIds:[]},intent:'UPDATE',workflow:'final',instructions:'Still needs ROM implementation'}]});assert.equal(entries[0].category,'Changes');});
+test('A contradictory passage/block-list command is refused before queueing',async t=>{const s=await editorSetup(t);assert.throws(()=>s.editor.queue(guidePlan({blockIds:[]}),s.editor.view().head),/Scope Disagrees/);assert.equal(s.editor.operations().length,0);});

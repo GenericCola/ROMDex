@@ -1,0 +1,26 @@
+{
+  "task": "U20G",
+  "scope": "Final packaged modules in bundled runtime; isolated synthetic transport",
+  "startedAt": "2026-10-18T12:41:59.514Z",
+  "checks": [
+    "Packaged planning preserves current dialogue and manual Save leaves Auto-Sync Off",
+    "Packaged native review adopts an observed title with retained documentation evidence",
+    "Packaged offline edit survives SQLite closure/reopening and delivers exact whitespace",
+    "Packaged addition keeps its parent/shared profile while original dialogue and plans remain",
+    "Packaged verified cache restores offline without altering its snapshot",
+    "Packaged contextual targeting resolves the selected passage",
+    "Packaged summaries identify their content and retain exact notes",
+    "Packaged contextual drafts preserve the original baseline and exact whitespace",
+    "Packaged note editing never carries stale Verified status into changed content"
+  ],
+  "credentialUsed": false,
+  "networkRequests": 0,
+  "status": "passed",
+  "version": "0.5.10",
+  "runtime": {
+    "electron": "44.7.2",
+    "node": "24.21.0",
+    "sqlite": "3.53.4"
+  },
+  "finishedAt": "2026-10-18T12:42:07.056Z"
+}

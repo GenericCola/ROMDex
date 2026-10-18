@@ -1,0 +1,19 @@
+{
+  "task": "U20G",
+  "status": "passed",
+  "scope": "Native Electron review with isolated copies of the accepted content cache; no credentials copied and network writes disabled",
+  "at": "2026-10-18T12:29:00Z",
+  "checks": [
+    "Add Character appears beside Male/Female in Tray 2 and is absent from Tray 3",
+    "Contextual actions identify the current scene, dialogue entry or selected passage",
+    "Flags/Notes form defaults to the selected scene and condition, using compact flag/testing choices with advanced options collapsed",
+    "Overview groups actual content into Changes, Notes and Finalized with category navigation, map/sub-zone, target, condition and actual request text",
+    "Selecting the first map-change target navigates to its outdoor scene and eligible Stage II instead of leaving it hidden at Stage I",
+    "An isolated native note Save preserves exact trailing whitespace and the unrelated original draft, verified by the business API",
+    "Add Character defaults to Outdoors when selected; an unscoped map offers only its own sub-zones",
+    "Normal-height and 620-pixel-height forms keep a separate footer; the body scrolls to reveal the last field above the buttons"
+  ],
+  "businessEvidence": "work/u20g/ui-acceptance.json",
+  "liveSavesChanged": false,
+  "remoteWrites": 0
+}

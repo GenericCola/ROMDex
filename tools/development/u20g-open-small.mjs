@@ -1,0 +1,1 @@
+import path from 'node:path';import {spawn} from 'node:child_process';const env={...process.env,ROMDEX_UI_SMALL:'1'};delete env.ELECTRON_RUN_AS_NODE;const child=spawn(path.resolve('work/u10/runtime/electron/electron.exe'),[path.resolve('work/u20g-ui.cjs')],{cwd:process.cwd(),env,windowsHide:false,detached:true,stdio:'ignore'});child.unref();process.exit(0);

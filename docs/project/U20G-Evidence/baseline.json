@@ -1,0 +1,53 @@
+{
+  "task": "U20G",
+  "at": "2026-10-18T11:45:57.017Z",
+  "version": "0.5.9",
+  "sourceOnly": true,
+  "files": [
+    {
+      "path": "content/editor-ui.js",
+      "sha256": "8f9561f37a78f0afb893ab41e7d14e3f28405388ff7ec4f97eab3f591b251ba8",
+      "bytes": 22458
+    },
+    {
+      "path": "content/preview.js",
+      "sha256": "22ca23759e6c1f57f9247c0097b50d81b42ff4988c98f43dd369fb737bf5ca36",
+      "bytes": 6494
+    },
+    {
+      "path": "content/native.css",
+      "sha256": "21c3f804f85218b04f65ac95f2d5c4d3902aa5731f336a5e3d4616a73ebe69e0",
+      "bytes": 1758
+    },
+    {
+      "path": "content/desktop-assets.mjs",
+      "sha256": "325f5478828ba5e370b770fbdb0e6c6af30f429978809b7ac6f3df5e60c58884",
+      "bytes": 2389
+    },
+    {
+      "path": "content/preview-server.mjs",
+      "sha256": "807f9ab5765a164152ed62be72d9b3cde14728761ac68e6277babf985071cac6",
+      "bytes": 10575
+    },
+    {
+      "path": "public/addons/npcdex/workspace.js",
+      "sha256": "b06ce3ace59ae56e09d90e212268451692c6134290ac848dfbd0afe5ca5732b4",
+      "bytes": 10060190
+    },
+    {
+      "path": "public/addons/npcdex/index.html",
+      "sha256": "941e7f1c9392914e7279dc81e40a03b070b1d8c97fbe0fb00e1a82697515e91f",
+      "bytes": 42664
+    },
+    {
+      "path": "package.json",
+      "sha256": "1c77168959bf29eb1dbb341765ced5a379286f91f5ffd68c7fa6403b0038b619",
+      "bytes": 531
+    },
+    {
+      "path": "public/index.html",
+      "sha256": "ef44c8f3d5a726e2d916c52b8f8accb7786c9a74be5188165b99d1cf3a2ce5f2",
+      "bytes": 1398
+    }
+  ]
+}

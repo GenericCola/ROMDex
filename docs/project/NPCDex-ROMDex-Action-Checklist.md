@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** **U20F is complete. ROMDex 0.5.9 is installed and open**, with the verified NPCD content backend, current saves and all three remembered connections. [Completion report](U20F-Completion-Report.md). **Next: U21 — Map Document Preview and Task Attachment, Sol / High; new PASSKEY required.**
+**Current:** U20F is complete; ROMDex 0.5.9 is installed. **U20G — Contextual Editing and Review Usability** is authorized and in progress before U21. [Corrective checklist](U20G-Action-Plan.md). U21 remains unstarted and separately gated.
 
 ## Completed Foundation
 
@@ -70,6 +70,8 @@
 - [x] **U20F — Content Backend Acceptance and Private Release** — Sol / High. Completed October 18 in ROMDex 0.5.9; [completion report](U20F-Completion-Report.md), [verification](U20F-Verification.json).
 
 ## Phase 5 — Map Packages and Tasks
+
+- [ ] **U20G — Contextual Editing and Review Usability** — Sol / High. Corrective task authorized October 18; [task checklist](U20G-Action-Plan.md).
 
 - [ ] **U21 — Map Document Preview and Task Attachment** — Sol / High. Existing/new task chooser, explicit attach, immutable versions, no agent dispatch.
 - [ ] **U22 — Linked Navigation and Package Progress** — Sol / High.

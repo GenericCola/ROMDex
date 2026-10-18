@@ -1,0 +1,19 @@
+{
+  "task": "U20G",
+  "status": "passed",
+  "at": "2026-10-18T12:26:07.855Z",
+  "isolated": true,
+  "credentialsCopied": false,
+  "remoteWrites": 0,
+  "uiNoteSavedWithExactWhitespace": true,
+  "selectedSceneAndConditionVerified": true,
+  "originalUnrelatedDraftPreservedExactly": true,
+  "localPendingOperations": 1,
+  "originalDraftCount": 1,
+  "summaryTarget": {
+    "path": "New Bark Town → Outdoors",
+    "name": "Scene When You First Step Outside (Your Friend And Marill)",
+    "condition": "Stage II, the first time you exit your house after Mom’s welcome. Your friend emerges from the western building, Elm’s Lab upstairs, while Marill approaches from the south. They react to each other and walk off. Nobody speaks. This scene plays once."
+  },
+  "nativeInputMethod": "Windows accessibility edit control; native Save Changes click"
+}

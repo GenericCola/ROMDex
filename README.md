@@ -2,7 +2,7 @@
 
 Private development home for ROMDex and its NPCDex add-on.
 
-Latest published private release: [ROMDex 0.5.9](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.9). Installed and verified after the NPCD content migration, with current saves and remembered connections preserved. See the [U20F completion report](docs/project/U20F-Completion-Report.md). U21 remains separately gated.
+Latest published private release: [ROMDex 0.5.9](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.9). Verified source candidate: **0.5.10**, restoring contextual editing and readable summaries with separate form scrolling/footer and Tray 2 Add Character. Final checks passed; the current-save backup, private publication and installed handoff await the human Quit checkpoint. See the [candidate report](docs/project/U20G-Release-Candidate-Report.md). U21 remains separately gated.
 
 - **apps/romdex/** — current application source, desktop host, web UI and tests.
 - **packages/tool-suite-ui/** — reusable suite assets, including the Standard Settings Icon.
