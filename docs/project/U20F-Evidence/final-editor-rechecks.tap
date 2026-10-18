@@ -1,0 +1,18 @@
+✔ Isolated edit routes enforce origin/shape, preserve draft versions and support Off/manual delivery (3500.2706ms)
+✔ An accepted native provider opens the verified offline cache, preserves typed edits and blocks whole-save replacement (3761.3578ms)
+✔ Native content assets use the verified snapshot and omit the embedded baseline and legacy checkpoint adapter (676.6344ms)
+✔ The native presentation works without a duplicate Auto-Sync button and uses no browser polling (27.339ms)
+✔ A native title stays in review until explicitly adopted; correction, identity and originals survive restart (2631.6099ms)
+✔ Multiple native edits are reviewed atomically; shared dependent invalidation preserves explicit local titles (2426.9199ms)
+✔ Reviewed comments and descriptions retain current dialogue and names and preserve native fingerprints as evidence (1387.2136ms)
+✔ Stale observations, missing evidence, unacknowledged shared scope and native reparenting cannot be adopted (419.6097ms)
+✔ A native edit after review blocks the frozen correction without publishing or erasing alternatives (685.5618ms)
+✔ Native metadata reads drain before failure and never exceed four concurrent calls (850.8441ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10182.1875

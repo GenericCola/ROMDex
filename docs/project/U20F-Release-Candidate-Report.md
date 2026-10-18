@@ -1,0 +1,17 @@
+# U20F — Verified Release Candidate
+
+October 18, 2026. Version **0.5.9** is verified for the migrated 0.5.8 profile. Publication and production installation are separate remaining steps; this candidate report does not mark U20F complete.
+
+The content editor now has outer margins, padded text fields/dropdowns, scrolling and reachable footer actions. Plan Changes, Flags/Notes, Documentation Correction and Add Character were reviewed in a native Electron window. Tile cogs open versioned editing; obsolete disabled mutation forms are hidden. Draft reopening restores exact text, trailing spaces and the original baseline rather than replacing an unfinished form.
+
+Native YouTrack title/context discrepancies have explicit owner review. Supported title adoption produces a documentation correction with before/after evidence and retained originals. A later native change blocks the earlier intent before upload. Ticket prose never becomes ROM dialogue merely because it changed. Valid structured additions/updates are projected dynamically; proposed work stays separate from current content.
+
+Verification: **540 regression tests**, **10 final focused checks**, **162 syntax checks**, five checks using the final packaged modules in Electron 44.7.2/Node 24.21.0/SQLite 3.53.4, and native visual review passed. Real private YouTrack fixtures proved offline intent, lost-response rediscovery in another Windows process, shared-profile additions, native adoption and stale-review protection with cold-client readback. All 15 marked fixtures were removed; NPCD retained its 212 real records/registry and PMON retained 299 tasks, with zero PMON writes.
+
+The complete application Data backup preserves **120 files / 152,608,737 bytes**. An isolated restoration matched every file, opened the verified content cache offline and restored all three protected connections without token entry. The checkpoint contains 299 tasks, 104 manual-order entries, 78 saved parent statuses and NPCDex revision 73 with 211 content records. The real Data folder was not replaced by the restoration test.
+
+The candidate MSI is **162,482,532 bytes**, SHA-256 `5376148feecec89c8b917bb595d8fc644c0ba9d991853518d3a65b9497ddd828`. Packaged source hashes match the reviewed source, and the established upgrade/uninstall Data-preservation contract and approved schema are unchanged. Live saves, credentials and private signing keys are excluded.
+
+Known limits remain explicit: arbitrary prose, bare new tickets, unsupported files and native parent moves do not silently replace structured content; technical records need restoration or a validated update. Native review batches are bounded to 100 discrepancies. Mappings remain Unresolved without ROM/source evidence. The existing cache, image, edit, publication and history bounds remain; no remote-history pruning is enabled. A new computer still needs its own account connection and reviewed content-root bootstrap, to be covered in final acceptance. No agent dispatch, map packages or implementation acceptance is introduced here.
+
+The private Windows installer remains unsigned as approved; update metadata is separately cryptographically signed. The updater requires the already-migrated 0.5.8 baseline. See the content-backend guide, application manifest and U20F evidence for the distinction between isolated models, actual Windows/YouTrack checks and the later installed handoff.

@@ -1,0 +1,18 @@
+{
+  "task": "U20F",
+  "status": "passed",
+  "scope": "Source editing UI in a native Electron window using synthetic local-only records; final packaged/installed acceptance remains separate",
+  "credentialUsed": false,
+  "productionDataChanged": false,
+  "checks": [
+    "Plan Changes has outer margins, padded input/select text, a scrollable dialog and visible footer actions",
+    "Flags, Notes and Testing uses the same padded fields and scrollable dialog",
+    "Tile settings cog opens the versioned Documentation Correction form",
+    "Documentation Correction shows its planning boundary and source-evidence controls with consistent margins",
+    "Closing and reopening Plan Changes restores the unfinished draft and original-baseline warning",
+    "Read-only business API confirms the exact trailing space survives, with zero content operations created",
+    "Add Planned Character uses the padded, scrollable form and shared-profile appearance controls"
+  ],
+  "draftEvidence": "work/u20f/ui-draft-check.json",
+  "at": "2026-10-18T11:13:00Z"
+}

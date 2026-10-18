@@ -1,0 +1,59 @@
+{
+  "task": "U20F",
+  "startedAt": "2026-10-18T11:14:53.592Z",
+  "checks": [
+    {
+      "label": "A later native edit blocks the original reviewed intent before upload; explicit replacement reaches a cold second client",
+      "originalDigest": "5754e242be06ade93a2bb43065e9dd46123492527783c9a6e0623fe1e2251788",
+      "originalIntentRetained": true,
+      "blockedBeforeUpload": true,
+      "newerTitle": "Race Second",
+      "coldClientHead": "bae14900ad4bdfee43d3b0800363f2fb40e3f3b3da90f25323dbc85ccd51bd1f",
+      "currentDialoguePreserved": true,
+      "plansPreserved": 5,
+      "PMONWrites": 0
+    }
+  ],
+  "credentialsLogged": false,
+  "runId": "9ebd02c0-11da-42d1-ad96-86528bc79a5e",
+  "project": {
+    "id": "0-2",
+    "key": "NPCD",
+    "name": "NPCDex Content"
+  },
+  "allThreeCredentialFilesUnchanged": true,
+  "status": "passed",
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/users/me",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-596",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues/3-596",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-596",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues/3-596",
+      "status": 200,
+      "anonymous": false
+    }
+  ],
+  "finishedAt": "2026-10-18T11:16:48.986Z"
+}

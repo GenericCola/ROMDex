@@ -1,0 +1,1129 @@
+{
+  "task": "U20F",
+  "startedAt": "2026-10-18T11:06:09.473Z",
+  "checks": [
+    {
+      "label": "Final source publishes a shared-profile local appearance with a durable native-parent intent",
+      "records": 14,
+      "newProfilesCreated": 0,
+      "nativeParentIntent": "verified",
+      "automaticSyncOff": true,
+      "publication": "100e155f15c8558233d31190c5a4705b50cea32f8516a21bc209248203123a7e",
+      "PMONWrites": 0,
+      "reusedExistingOperation": false
+    }
+  ],
+  "credentialsLogged": false,
+  "runId": "9ebd02c0-11da-42d1-ad96-86528bc79a5e",
+  "project": {
+    "id": "0-2",
+    "key": "NPCD",
+    "name": "NPCDex Content"
+  },
+  "runtimeRequests": [
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-591/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-589/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-590/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-592/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-593/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-595/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-594/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-596/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-598/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-597/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-599/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-601/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-600/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-590/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-591/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-589/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-592/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-593/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-594/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-595/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-596/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-597/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-598/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-599/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-601/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-600/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-602",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-602",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-591",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues/3-602/links/173-3t/issues",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-602",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-589",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-590",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-591",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-590",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-591",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-589",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-594",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-592",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-595",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-593",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-592",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-594",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-595",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-593",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-596",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-598",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-599",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-597",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-596",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-599",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-598",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-597",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-601",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-600",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-602",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-601",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-600",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-602",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues/3-588/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588/attachments/12-756",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-602",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-602",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-602/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-602",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues/3-602/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-602/attachments/12-757",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-591",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-591",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-591/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-591",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues/3-591/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-591/attachments/12-758",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues/3-588/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588/attachments/12-759",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-589/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-588/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-590/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-591/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-593/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-592/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-594/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-595/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-597/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-596/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-598/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-599/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-600/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-601/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-602/attachments",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/files/[signed-url-omitted]",
+      "status": 200
+    }
+  ],
+  "runtimePOSTPaths": [
+    "/api/issues",
+    "/api/issues/3-602/links/173-3t/issues",
+    "/api/issues/3-588/attachments",
+    "/api/issues/3-602/attachments",
+    "/api/issues/3-591/attachments",
+    "/api/issues/3-588/attachments"
+  ],
+  "allThreeCredentialFilesUnchanged": true,
+  "status": "passed",
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/users/me",
+      "status": 200,
+      "anonymous": false
+    }
+  ],
+  "finishedAt": "2026-10-18T11:07:06.626Z"
+}

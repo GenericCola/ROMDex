@@ -1,1 +1,22 @@
-.content-editor-toolbar{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.content-editor-toolbar button{padding:6px 10px}.content-editor-dialog{max-width:720px;width:calc(100vw - 40px);max-height:90vh;box-sizing:border-box}.content-editor-dialog form{display:grid;gap:12px}.content-editor-dialog input,.content-editor-dialog select,.content-editor-dialog textarea{width:100%;box-sizing:border-box}.content-editor-dialog textarea{min-height:110px}.content-editor-dialog footer{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}.content-editor-dialog .editor-error{color:var(--yellow);white-space:pre-wrap}.content-editor-dialog pre{white-space:pre-wrap;overflow-wrap:anywhere}.content-editor-dialog .editor-checkbox{width:auto}.content-editor-dialog label{display:grid;gap:5px}.content-preview-notes{margin:14px 0;padding:12px;border:1px solid var(--line);border-radius:8px}.content-preview-notes p{white-space:pre-wrap;overflow-wrap:anywhere}.content-review{color:var(--yellow)}
+.content-editor-toolbar{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.content-editor-toolbar button{padding:6px 10px}
+.content-editor-dialog{max-width:720px;width:calc(100vw - 40px);max-height:90vh;box-sizing:border-box;padding:20px;overflow:auto}
+.content-editor-dialog form{display:grid;gap:12px}
+.content-editor-dialog input,.content-editor-dialog select,.content-editor-dialog textarea{width:100%;box-sizing:border-box}
+.content-editor-dialog input:not([type=checkbox]):not([type=radio]):not([type=file]),.content-editor-dialog select,.content-editor-dialog textarea{padding:9px 12px;line-height:1.4}
+.content-editor-dialog select{padding-right:30px}
+.content-editor-dialog textarea{min-height:110px;resize:vertical}
+.content-editor-dialog footer{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;position:sticky;bottom:0;padding:12px 0;background:var(--screen);border-top:1px solid var(--line)}
+.content-editor-dialog .editor-error{color:var(--yellow);white-space:pre-wrap}
+.content-editor-dialog .editor-error:empty{display:none}
+.content-editor-dialog pre{white-space:pre-wrap;overflow-wrap:anywhere}
+.content-editor-dialog .editor-checkbox{width:auto;order:-1;flex:none;margin:0}
+.content-editor-dialog label{display:grid;gap:5px;margin:10px 0}
+.content-editor-dialog label:has(>.editor-checkbox){display:flex;align-items:center;gap:10px}
+.content-preview-notes{margin:14px 0;padding:12px;border:1px solid var(--line);border-radius:8px}
+.content-preview-notes p{white-space:pre-wrap;overflow-wrap:anywhere}
+.content-review{color:var(--yellow)}
+
+.conversation>.entry-tools,.conversation>.prompt-status-row,.conversation>.prompt-change-editor,.conversation>.entry-note{display:none}
+
+.content-editor-dialog label[hidden]{display:none}

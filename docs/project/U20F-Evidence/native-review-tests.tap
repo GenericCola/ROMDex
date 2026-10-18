@@ -1,0 +1,14 @@
+✔ A native title stays in review until explicitly adopted; correction, identity and originals survive restart (1136.2422ms)
+✔ Multiple native edits are reviewed atomically; shared dependent invalidation preserves explicit local titles (1157.957ms)
+✔ Reviewed comments and descriptions retain current dialogue and names and preserve native fingerprints as evidence (824.5163ms)
+✔ Stale observations, missing evidence, unacknowledged shared scope and native reparenting cannot be adopted (406.2389ms)
+✔ A native edit after review blocks the frozen correction without publishing or erasing alternatives (635.3612ms)
+✔ Native metadata reads drain before failure and never exceed four concurrent calls (582.6322ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5530.427

@@ -1,0 +1,4 @@
+// Preserve the fictional acceptance draft, then reset only that preview's draft.
+import fs from 'node:fs/promises';import assert from 'node:assert/strict';
+const info=JSON.parse(await fs.readFile('work/u20f/ui-window.json','utf8'));assert(info.synthetic&&!info.credentialUsed);const origin=new URL(info.origin);assert.equal(origin.hostname,'127.0.0.1');const state=await(await fetch(new URL('/api/editor',origin))).json();assert.equal(state.operations.length,0);assert.equal(state.draft?.draft?.fields?.instructions,'U20F draft preserved ');await fs.writeFile('work/u20f/synthetic-preserved-ui-draft.json',JSON.stringify(state.draft));
+const response=await fetch(new URL('/api/draft',origin),{method:'POST',headers:{Origin:origin.origin,'Content-Type':'application/json'},body:JSON.stringify({version:state.draft.version+1,draft:null}),signal:AbortSignal.timeout(5000)});assert.equal(response.status,200);

@@ -1,0 +1,16 @@
+{
+  "task": "U20F",
+  "mode": "Read-only preflight",
+  "startedAt": "2026-10-18T04:36:16.332Z",
+  "remoteWrites": 0,
+  "activeProvider": {
+    "workspace": "content:npcdex-1e267c45-75ae-48a9-b173-5ca3132bb121",
+    "registryIssueId": "3-376",
+    "bootstrapPublication": "80ae541037e74a80756676198c3f63fdcdb3bd08ff3be9a3f893c5443173dc2b"
+  },
+  "owner": "GenericCola",
+  "project": "NPCD",
+  "credentialCiphertextUnchanged": true,
+  "status": "passed",
+  "finishedAt": "2026-10-18T04:36:18.734Z"
+}

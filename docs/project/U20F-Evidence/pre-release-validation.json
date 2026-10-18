@@ -1,0 +1,74 @@
+{
+  "task": "U20F",
+  "status": "passed",
+  "at": "2026-10-18T11:22:28.863Z",
+  "version": "0.5.9",
+  "tests": 540,
+  "targeted": 10,
+  "syntax": 162,
+  "packagedChecks": 5,
+  "nativeVisualPassed": true,
+  "remoteFixtureCleanup": true,
+  "backupRestorationPassed": true,
+  "allRememberedCredentialsRestored": true,
+  "installer": {
+    "path": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\ROMDex-Installer-0.5.9\\ROMDex-0.5.9-x64.msi",
+    "bytes": 162482532,
+    "sha256": "5376148feecec89c8b917bb595d8fc644c0ba9d991853518d3a65b9497ddd828"
+  },
+  "evidence": {
+    "preflight": {
+      "status": "passed",
+      "finishedAt": "2026-10-18T04:36:18.734Z"
+    },
+    "live-prepare": {
+      "status": "passed",
+      "finishedAt": "2026-10-18T04:39:30.856Z",
+      "checks": 1
+    },
+    "live-mutate": {
+      "status": "passed",
+      "finishedAt": "2026-10-18T04:40:24.821Z",
+      "checks": 1
+    },
+    "live-recover": {
+      "status": "passed",
+      "finishedAt": "2026-10-18T04:43:33.592Z",
+      "checks": 1
+    },
+    "live-final": {
+      "status": "passed",
+      "finishedAt": "2026-10-18T11:07:06.626Z",
+      "checks": 1
+    },
+    "live-native": {
+      "status": "passed",
+      "finishedAt": "2026-10-18T11:08:42.987Z",
+      "checks": 1
+    },
+    "live-race": {
+      "status": "passed",
+      "finishedAt": "2026-10-18T11:16:48.986Z",
+      "checks": 1
+    },
+    "live-cleanup": {
+      "status": "passed",
+      "finishedAt": "2026-10-18T11:19:05.028Z",
+      "checks": 1
+    },
+    "ui-draft-check": {
+      "status": "passed",
+      "finishedAt": "2026-10-18T11:09:03.575Z"
+    },
+    "packaged-backend": {
+      "status": "passed",
+      "finishedAt": "2026-10-18T11:16:55.500Z",
+      "checks": 5
+    },
+    "backup-restoration": {
+      "status": "passed",
+      "finishedAt": "2026-10-18T11:20:39.624Z"
+    }
+  },
+  "productionUpgradeCompleted": false
+}

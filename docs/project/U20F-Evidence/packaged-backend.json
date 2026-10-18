@@ -1,0 +1,22 @@
+{
+  "task": "U20F",
+  "scope": "Final packaged modules in bundled runtime; isolated synthetic transport",
+  "startedAt": "2026-10-18T11:16:51.482Z",
+  "checks": [
+    "Packaged planning preserves current dialogue and manual Save leaves Auto-Sync Off",
+    "Packaged native review adopts an observed title with retained documentation evidence",
+    "Packaged offline edit survives SQLite closure/reopening and delivers exact whitespace",
+    "Packaged addition keeps its parent/shared profile while original dialogue and plans remain",
+    "Packaged verified cache restores offline without altering its snapshot"
+  ],
+  "credentialUsed": false,
+  "networkRequests": 0,
+  "status": "passed",
+  "version": "0.5.9",
+  "runtime": {
+    "electron": "44.7.2",
+    "node": "24.21.0",
+    "sqlite": "3.53.4"
+  },
+  "finishedAt": "2026-10-18T11:16:55.500Z"
+}

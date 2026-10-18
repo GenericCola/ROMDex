@@ -1,0 +1,46 @@
+{
+  "task": "U20F",
+  "startedAt": "2026-10-18T11:07:29.237Z",
+  "checks": [
+    {
+      "label": "Native title detected without changing current content, explicitly adopted as documentation and read back through actual YouTrack",
+      "recordId": "fixture:guide",
+      "issueId": "3-596",
+      "title": "[ROMDex U20D QA] Native Reviewed Guide",
+      "originalDialoguePreserved": true,
+      "plansRetained": 5,
+      "noROMChange": true,
+      "automaticSyncOff": true
+    }
+  ],
+  "credentialsLogged": false,
+  "runId": "9ebd02c0-11da-42d1-ad96-86528bc79a5e",
+  "project": {
+    "id": "0-2",
+    "key": "NPCD",
+    "name": "NPCDex Content"
+  },
+  "allThreeCredentialFilesUnchanged": true,
+  "status": "passed",
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/users/me",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-596",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/issues/3-596",
+      "status": 200,
+      "anonymous": false
+    }
+  ],
+  "finishedAt": "2026-10-18T11:08:42.987Z"
+}

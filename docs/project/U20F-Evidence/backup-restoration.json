@@ -1,0 +1,26 @@
+{
+  "task": "U20F",
+  "stage": "Complete Data backup and isolated restoration acceptance",
+  "startedAt": "2026-10-18T11:20:28.182Z",
+  "remoteWrites": 0,
+  "status": "passed",
+  "backup": "outputs/U20F-Protected-Data-Backup",
+  "filesPreserved": 120,
+  "bytesPreserved": 152608737,
+  "isolatedRestoreHashesMatch": true,
+  "currentDataUntouched": true,
+  "threeCredentialsRestoredWithoutEntry": true,
+  "content": {
+    "head": "80ae541037e74a80756676198c3f63fdcdb3bd08ff3be9a3f893c5443173dc2b",
+    "revision": 73,
+    "records": 211,
+    "pendingEdits": 0,
+    "snapshotSHA256": "2ebe5cf47444924eff7f47a509dad43039ba7b17fa198cc025aab2f041dc31f2"
+  },
+  "tasks": 299,
+  "finishedAt": "2026-10-18T11:20:39.624Z",
+  "orderEntries": 104,
+  "savedParentStatuses": 78,
+  "assignedStatusRecords": 319,
+  "metadataSHA256": "5fcd94cc20913109865cafe84b2f112390041c752b89b56999ca31cad5b467f2"
+}

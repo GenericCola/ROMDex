@@ -4,10 +4,17 @@ import {buildEdit,buildResolution} from './edits.mjs';
 import {projectNPCDex} from './projection.mjs';
 import {validateCarrier,MANIFEST_NAME} from './carrier.mjs';
 import {workspaceAllowed} from './authorization.mjs';
+import {buildNativeReview} from './native-review.mjs';
 
+async function readNativePins(transport,ids){
+ const values=new Array(ids.length);let next=0,failure;
+ await Promise.all(Array.from({length:Math.min(4,ids.length)},async()=>{while(!failure){const i=next++;if(i>=ids.length)return;try{values[i]={issueId:ids[i],...await transport.native(ids[i])};}catch(e){failure||=e;}}}));
+ if(failure)throw failure;return values;
+}
 export class ContentEditor{
  constructor({reader,transport,enabled=()=>true,changed=()=>{},interval=60000}){requireThat(workspaceAllowed(reader.workspace,reader.authorization)&&reader.cache.directory,'An Explicit Content Reader Is Required.');Object.assign(this,{reader,cache:reader.cache,transport,enabled,changed,interval});this.task=null;this.timer=null;this.status={connection:'cached',attention:false};}
  operations(){return this.cache.get('edit-journal')||[];}
+ queueNativeReview(inputs,expectedHead){const work=this.working(),reviews=this.reader.view().review;requireThat(work.domain&&work.head===expectedHead&&!this.operations().some(o=>!['committed','cancelled'].includes(o.state)),'Finish or Review Pending Edits Before Adopting Native Metadata.');requireThat(reviews.length>0&&reviews.every(r=>r.kind==='native-metadata-changed'),'Resolve Other Content Discrepancies First.');const id='content:native-review-'+randomUUID(),createdAt=new Date().toISOString(),edit=buildNativeReview(work.domain,reviews,inputs,{workspace:this.reader.workspace,authorization:this.reader.authorization,operationId:id,createdAt,head:work.head});this.save({id,...edit,description:'Reviewed Native YouTrack Metadata',state:'queued',slots:{},createdAt,nativeReview:structuredClone(reviews)});this.changed(this.view());return this.view();}
  save(op){this.cache.transaction(()=>{const all=this.operations(),i=all.findIndex(x=>x.id===op.id);if(i<0)all.push(op);else all[i]=op;this.cache.retainOperations(all);});}
  working(){const remote=this.reader.view();if(!remote.active)return {remote,head:null,domain:null};let head=remote.head,domain=this.cache.get('domain:'+head);for(const op of this.operations()){if(['committed','cancelled'].includes(op.state)||this.isAncestor(op.publication.digest,head))continue;if(op.publication.parentPublications.length===1&&op.publication.parentPublications[0]===head&&!['blocked'].includes(op.state)){head=op.publication.digest;domain=op.preview;}}return {remote,head,domain};}
  isAncestor(ancestor,head){const seen=new Set(),todo=[head];while(todo.length&&seen.size<1001){const h=todo.pop();if(h===ancestor)return true;if(seen.has(h))continue;seen.add(h);todo.push(...(this.cache.get('publication:'+h)?.publication.parentPublications||[]));}return false;}
@@ -26,13 +33,14 @@ export class ContentEditor{
  async publish(op){
   const prior=new Map();for(const h of op.publication.parentPublications){const cached=this.cache.get('publication:'+h);requireThat(cached,'The Remote Publication Binding Is Missing.');for(const b of cached.carrier.bindings){requireThat(!prior.has(b.recordId)||prior.get(b.recordId)===b.issueId,'Conflict Branches Rebound an Identity.');prior.set(b.recordId,b.issueId);}}
   const newRecords=op.preview.records.filter(r=>!prior.has(r.recordId));const todo=[...newRecords];while(todo.length){const next=todo.findIndex(r=>!r.parentRecordId||prior.has(r.parentRecordId));requireThat(next>=0,'New Record Dependencies Cannot Be Bound.');const r=todo.splice(next,1)[0],issueId=await this.ensureIssue(op,r,prior.get(r.parentRecordId)||null);prior.set(r.recordId,issueId);}
-  const bindings=[...prior].map(([recordId,issueId])=>({recordId,issueId}));const nativeMetadata=[];for(const issueId of new Set([this.transport.registryIssueId,...prior.values()]))nativeMetadata.push({issueId,...await this.transport.native(issueId)});
-  for(const h of op.publication.parentPublications)for(const pin of this.cache.get('publication:'+h).carrier.nativeMetadata){const current=nativeMetadata.find(p=>p.issueId===pin.issueId);requireThat(current&&same(pin,current),'Native Content Changed Before Publication.');}
+  const bindings=[...prior].map(([recordId,issueId])=>({recordId,issueId}));const nativeMetadata=await readNativePins(this.transport,[...new Set([this.transport.registryIssueId,...prior.values()])]);
+  for(const h of op.publication.parentPublications)for(const pin of this.cache.get('publication:'+h).carrier.nativeMetadata){const current=nativeMetadata.find(p=>p.issueId===pin.issueId);const reviewed=op.nativeReview?.find(r=>r.issueId===pin.issueId);requireThat(current&&same(reviewed?.observed||pin,current),'Native Content Changed Before Publication.');if(reviewed)requireThat(same(reviewed.before,pin),'The Reviewed Native Baseline Changed.');}
   const publication=await this.object(op,'publication',this.transport.registryIssueId,Buffer.from(JSON.stringify(op.publication))),artifacts=[];
   for(let i=0;i<op.artifacts.length;i++){const a=op.artifacts[i],recordId=a.recordId||a.target?.recordId,issueId=recordId?prior.get(recordId):this.transport.registryIssueId;requireThat(issueId,'The Artifact Target Is Unbound.');artifacts.push({digest:a.revisionId||a.digest,object:await this.object(op,'artifact:'+i,issueId,Buffer.from(JSON.stringify(a)))});}
   const assets=[];for(let i=0;i<op.assets.length;i++){const a=op.assets[i];assets.push({assetId:a.assetId,mime:a.mime,object:await this.object(op,'asset:'+i,this.transport.registryIssueId,Buffer.from(a.base64,'base64'))});}
   const carrier=seal({schema:'NPCDexCarrier/1',workspaceId:this.reader.workspace,operationId:op.id,publication,artifacts,assets,bindings,nativeMetadata}),bytes=Buffer.from(JSON.stringify(carrier));validateCarrier(bytes,this.reader.workspace);
   requireThat(!op.carrier||same(op.carrier,carrier),'A Frozen Publication Carrier Changed.');op.carrier=carrier;this.save(op);
+  if(op.nativeReview)for(const pin of op.nativeReview){const now={issueId:pin.issueId,...await this.transport.native(pin.issueId)};requireThat(same(now,pin.observed),'Native Metadata Changed During Review Publication.');}
   await this.object(op,'manifest',this.transport.registryIssueId,bytes,{manifest:true});op.state='published';op.error=null;this.save(op);
  }
  sync(manual=false){if(!manual&&!this.enabled())return Promise.resolve(this.view());if(this.task)return this.task;this.abort=new AbortController();this.transport.begin?.(AbortSignal.any([this.abort.signal,AbortSignal.timeout(600000)]));this.task=this.flush(manual).catch(error=>{this.status={connection:this.abort.signal.aborted?'paused':'unavailable',attention:this.operations().some(o=>!['committed','cancelled'].includes(o.state)),message:'Content Delivery Paused. Local Edits Are Preserved.'};return this.view();}).finally(()=>{this.task=null;this.abort=null;this.changed(this.view());});return this.task;}
@@ -42,9 +50,10 @@ export class ContentEditor{
    if(op.state==='blocked')break;
    const conflict=remote.review.find(r=>r.kind==='competing-publications'),resolving=op.publication.kind==='resolution'&&conflict&&same([...op.publication.parentPublications].sort(),[...conflict.heads].sort())&&remote.review.every(r=>['competing-publications','proposal-conflict'].includes(r.kind));
    const reviewingDrafts=remote.review.every(r=>r.kind==='proposal-conflict')&&op.artifacts.every(a=>['NPCDexPlanRevision/1','NPCDexReviewRevision/1'].includes(a.schema));
-   if(!resolving&&(!reviewingDrafts&&remote.review.length||op.publication.parentPublications.length!==1||op.publication.parentPublications[0]!==remote.head)){op.state='blocked';op.error='The Remote Baseline Changed. The Original Edit Is Retained for Review.';this.save(op);break;}
+   const reviewingNative=op.nativeReview&&same(remote.review,op.nativeReview);
+   if(!resolving&&(!reviewingNative&&!reviewingDrafts&&remote.review.length||op.publication.parentPublications.length!==1||op.publication.parentPublications[0]!==remote.head)){op.state='blocked';op.error='The Remote Baseline Changed. The Original Edit Is Retained for Review.';this.save(op);break;}
    try{op.state='uploading';this.save(op);await this.publish(op);}catch(error){op.state=Object.values(op.slots).some(s=>s.state==='sending')?'uncertain':'blocked';op.error=error.message;this.save(op);break;}
-   await this.reader.cycle(true,{audit:manual});if(this.isAncestor(op.publication.digest,this.reader.view().head)){op.state='committed';this.save(op);}else{op.error='Publication Is Retained; Waiting for Verified Readback or Conflict Review.';this.save(op);break;}
+   await this.reader.cycle(true,{audit:false});if(this.isAncestor(op.publication.digest,this.reader.view().head)){op.state='committed';this.save(op);}else{op.error='Publication Is Retained; Waiting for Verified Readback or Conflict Review.';this.save(op);break;}
   }
   this.status={connection:this.reader.view().status.connection,message:this.operations().some(o=>!['committed','cancelled'].includes(o.state))?'Saved Edits Need Delivery or Review.':'Content Is Up to Date.'};return this.view();}
  start(){if(this.timer||!this.enabled())return;const tick=async()=>{try{await this.sync();}finally{if(this.timer&&this.enabled()){this.timer=setTimeout(tick,this.interval);this.timer.unref?.();}else this.timer=null;}};this.timer=setTimeout(tick,0);this.timer.unref?.();}
