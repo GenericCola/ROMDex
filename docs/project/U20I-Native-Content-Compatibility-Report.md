@@ -1,6 +1,10 @@
 # U20I Native Content Compatibility Review
 
-**Status:** ROMDex 0.5.12 is published privately, installed and verified with current data preserved. The live native-content transition awaits explicit acceptance; normal Quit/reopen and final acceptance remain pending. U20I is not complete and U21 remains blocked.
+**Status:** ROMDex 0.5.12 is published privately, installed and verified with current data preserved. The user accepted and saved the refreshed live transition. Normal tray Quit/reopen passed, preserving all 50 prior edits and the approved transition. Cloud delivery and final readback remain pending; 33 operations were outstanding at 18:19 UTC on October 18, without review errors or blocked operations after automatic retry recovered. U20I is not complete and U21 remains blocked.
+
+## Queue Readback Timing Check
+
+A read-only network diagnostic against an isolated cache copy completed a full history audit in 122,416 ms, using 884 requests and receiving 14,508,419 bytes, with no review findings. This exceeds the installed reader's 120-second cycle limit and identifies insufficient timing margin as a likely contributor to interrupted readbacks. The app's next automatic retry nevertheless recovered and resumed publishing; no production cache edits, forced commits, queue cancellations or replacement of newer data were used. Evidence: `work/u20i/readback-timing.json` and `work/u20i/sync-review-diagnostics.json`. This diagnostic does not prove delivery of the still-queued native transition.
 
 ## Translation and Data Authority
 

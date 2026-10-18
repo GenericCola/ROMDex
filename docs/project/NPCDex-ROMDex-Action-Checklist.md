@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** **U20I — Complete the Native Content Tree** is authorized and in progress. [Task checklist](U20I-Native-Content-Tree-Plan.md). ROMDex **0.5.12** is installed and verified with current saves, 49 prior queued edits and all remembered connections preserved. The fresh live transition is awaiting human acceptance; normal Quit/reopen must also pass before completion. U21 remains unstarted and needs its own PASSKEY.
+**Current:** **U20I — Complete the Native Content Tree** is authorized and in progress. [Task checklist](U20I-Native-Content-Tree-Plan.md). ROMDex **0.5.12** is installed. The user accepted and saved the refreshed native transition, and normal tray Quit/reopen passed with all 50 prior edits and the approved transition retained. Cloud delivery and final remote readback remain the completion gate: at 18:19 UTC on October 18, 33 operations remained, with no review errors or blocked operations. An automatic retry recovered from the earlier connection-interruption errors. All remembered connections remain preserved. U21 remains unstarted and needs its own PASSKEY.
 
 ## Completed Foundation
 
@@ -75,7 +75,7 @@
 
 - [x] **U20H — Restore the Original NPCDex Feedback Interface** — Sol / High. Completed October 18 in 0.5.11; [report](U20H-Completion-Report.md), [verification](U20H-Verification.json).
 
-- [ ] **U20I — Complete the Native Content Tree** — Sol / High. Generate the full interface from structured NPCD records without the original-save scaffold; support previewed new-map/sub-zone/entity imports, update agent extraction/import instructions, preserve the existing UI and all content/history, and verify persistence and installed behavior. The original export becomes recovery/history only. [Scope and acceptance checklist](U20I-Native-Content-Tree-Plan.md). Must complete before U21; implementation awaits a new PASSKEY.
+- [ ] **U20I — Complete the Native Content Tree** — Sol / High. Implementation, installation, human transition acceptance and normal Quit/reopen are verified. Finish queued cloud delivery and final native-content/remote readback checks before marking complete. The original export becomes recovery/history only. [Scope and acceptance checklist](U20I-Native-Content-Tree-Plan.md). Must complete before U21; the current PASSKEY already authorizes this task.
 
 - [ ] **U21 — Map Document Preview and Task Attachment** — Sol / High. Existing/new task chooser, explicit attach, immutable versions, no agent dispatch.
 - [ ] **U22 — Linked Navigation and Package Progress** — Sol / High.

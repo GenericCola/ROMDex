@@ -1,0 +1,3 @@
+# Superseded Build Source Archive
+
+Lossless source archive for generated build folders removed to recover local disk space. The index records original build/path, SHA-256, length and the repository path containing the exact bytes. Use the verified cleanup-backup Git commit when restoring a referenced file. Unique source is content-addressed in objects; existing identical repository files are reused. Electron/runtime binaries, generated MSI/WiX outputs and build temporaries are reproducible and are not source archives. Released installers remain available separately. Current saves, credentials, private signing keys and protected Data backups are excluded.

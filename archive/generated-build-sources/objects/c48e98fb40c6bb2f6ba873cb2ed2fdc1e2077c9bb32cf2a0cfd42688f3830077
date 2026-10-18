@@ -1,0 +1,1309 @@
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" 
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <!-- http://wixtoolset.org/documentation/manual/v3/xsd/wix/product.html -->
+  <Product Id="867574A1-2181-4A00-98F8-A7BBD78FD8FB" 
+           UpgradeCode="C3861991-512B-4F7D-B1C1-9D8EC7230FDA"
+           Name = "ROMDex"
+           Version="0.5.3.0"
+           Manufacturer="ROMDex Project"
+           Language="1033">
+    <!-- Only run this installer on Windows 7 or up (or if it"s already installed, I guess) -->
+    <!-- <Condition Message="This application is only supported on Windows 7 or higher.">
+      <![CDATA[Installed OR (VersionNT >= 601)]]>
+    </Condition> -->
+    <!-- http://wixtoolset.org/documentation/manual/v3/xsd/wix/package.html -->
+    <Package InstallerVersion="405"
+             Compressed="yes"
+             Comments="Windows Installer Package"
+             Platform="x64"
+             InstallScope="perUser"/>
+    <!-- Don't allow downgrades -->
+    <MajorUpgrade AllowSameVersionUpgrades="no" DowngradeErrorMessage="A later version of this product is already installed. Setup will now exit."/>
+    <!-- This will hide our Uninstall entry in Apps & Features. We doing this so
+    we can write our own which we can better control. -->
+    <Property Id="ARPSYSTEMCOMPONENT" Value="1" />
+    <!-- While the MSI package is hidden in Apps & Features, it can still be queried
+    via PowerShell and other means. To differentiate we give the public entry a slightly
+    different name to make admins life easier.  -->
+    <Property Id="VisibleProductName" Value="ROMDex" />
+    <!-- Tells the package to install perUser or perMachine. In case of perUser, all
+    files will be redirected to the user profile and all registry entries to HKCU. -->
+    <Property Id="MSIINSTALLPERUSER" Secure="yes" Value="1" />
+    <!-- Overides the default install mode. It solves a problem where
+    individual packaged files that have the same version as in previous
+    installed App version will be deleted if the files are in use during
+    this upgrade. Unfortunately this causes an ICE 40 warning during linking. -->
+    
+    <!-- Overrides the default reboot behavior if files are in use during the upgrade.
+    By default, this will be set to "ReallySuppress" to make sure no unexpected reboot will happpen.-->
+    <Property Id="REBOOT" Value="ReallySuppress" />
+    <!-- Installlation level to use that determines which features are installed.
+    see guides/enduser.md to check which Install Level maps to which feature that will
+    correspondingly get installed.
+    If not set, this will default to "2" (Main Feature, Launch On Login) -->
+    <Property Id="INSTALLLEVEL" Value="2" />
+    <!-- Allows to customize the Windows user group that gets access rights on
+    the install folder in cas the auto-updater is installed. User that run the App
+    must be part of that user group to be able to auto-update. -->
+    <Property Id="UPDATERUSERGROUP" Value="Users" />
+    <!-- A property to define whether the auto-updater is enabled when the
+    feature gets installed. This way the update can be installed but also be disabled
+    by overwriting the default value.  -->
+    <Property Id="AUTOUPDATEENABLED" Value="1" />
+    <!-- Necessary registry search to find the install path which is used by the
+    PurgeOnUninstall action. Since this package can be installed perUser or perMachine,
+    we have to look in both places. First successful search wins. -->
+    <SetProperty Id="APPLICATIONROOTDIRECTORY" Action="RestoreInstalledDirectory" Value="[INSTALLPATH]" After="AppSearch" Sequence="both">INSTALLPATH</SetProperty>
+<Property Id="INSTALLPATH">
+      <RegistrySearch Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{867574A1-2181-4A00-98F8-A7BBD78FD8FB}.msq"
+                      Root="HKCU" 
+                      Type="raw"
+                      Id="INSTALLPATH_REGSEARCH_HKCU"
+                      Name="InstallPath"
+                      Win64="yes"/>
+      <RegistrySearch Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{867574A1-2181-4A00-98F8-A7BBD78FD8FB}.msq"
+                      Root="HKLM" 
+                      Type="raw"
+                      Id="INSTALLPATH_REGSEARCH_HKLM"
+                      Name="InstallPath"
+                      Win64="yes"/>
+    </Property>
+    <!-- Lets change the product name depending on the perUser installMode. 
+    This way the user and admins can see in which scope the MSI was installed. -->
+    <SetProperty Action="SetVisibleProductName" Id="VisibleProductName" Sequence="both" Before="AppSearch"  Value="ROMDex">
+      <![CDATA[MSIINSTALLPERUSER = "1"]]>
+    </SetProperty>
+    <!-- Again we give thee MSI generaten entry a slightly different name to help 
+    differentiate between the public one and the invisible one. -->
+    <SetProperty Action="SetProductName" Id="ProductName" Sequence="both" Before="AppSearch"  Value="ROMDex">
+      <![CDATA[MSIINSTALLPERUSER = "1"]]>
+    </SetProperty>
+
+    <Media Id="1" Cabinet="product.cab" EmbedCab="yes"/>
+
+
+
+    <!-- Step 2: Add files and directories -->
+    <Directory Id="TARGETDIR" Name="SourceDir">
+       <!-- Installation files to %PROGRAMFILES% -->
+      <Directory Id="LocalAppDataFolder">
+        <Directory Id="APPLICATIONROOTDIRECTORY" Name="ROMDexDesktop">
+          <Directory Id="__8b65ed9d_1c30_454a_a55c_81b8ad9a0b93" Name="app-0.5.3">
+            <Directory Id="_locales_57feab4e_e2e5_4428_b045_859abaa32fe9" Name="locales">
+              <Component Id="_locales_af.pak_fc4f48b6_9558_4a43_9442_ab402b2f294c" Guid="13d5cd80-5e05-4976-bee8-4c0ee42c4949" Win64="yes">
+                <File Name="af.pak" Id="_locales_af.pak_fc4f48b6_9558_4a43_9442_ab402b2f294c" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\af.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_af.pak_fc4f48b6_9558_4a43_9442_ab402b2f294c" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_am.pak_046e39bb_a14a_4f60_ab3c_31dc416ced9a" Guid="2782127a-0697-45bb-9b9c-f2d87cc2fffa" Win64="yes">
+                <File Name="am.pak" Id="_locales_am.pak_046e39bb_a14a_4f60_ab3c_31dc416ced9a" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\am.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_am.pak_046e39bb_a14a_4f60_ab3c_31dc416ced9a" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_ar.pak_841e40f0_6751_4117_98e8_75ce3fa604f5" Guid="03dba3e4-f9b0-487d-babe-1723f39f1cdb" Win64="yes">
+                <File Name="ar.pak" Id="_locales_ar.pak_841e40f0_6751_4117_98e8_75ce3fa604f5" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\ar.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_ar.pak_841e40f0_6751_4117_98e8_75ce3fa604f5" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_bg.pak_7941dcec_440a_405b_93e8_2d3c796faabd" Guid="061549d7-5fb9-4a72-8ded-524047be9fc4" Win64="yes">
+                <File Name="bg.pak" Id="_locales_bg.pak_7941dcec_440a_405b_93e8_2d3c796faabd" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\bg.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_bg.pak_7941dcec_440a_405b_93e8_2d3c796faabd" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_bn.pak_9f037f01_1b12_4627_8da4_84d3f2910103" Guid="bc3b3663-d2c8-46b7-8668-c5a431d7a318" Win64="yes">
+                <File Name="bn.pak" Id="_locales_bn.pak_9f037f01_1b12_4627_8da4_84d3f2910103" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\bn.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_bn.pak_9f037f01_1b12_4627_8da4_84d3f2910103" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_ca.pak_b3f6eb58_1b30_45d6_9460_acd55f301185" Guid="da31608f-a63a-49b0-b082-48fe0cce731e" Win64="yes">
+                <File Name="ca.pak" Id="_locales_ca.pak_b3f6eb58_1b30_45d6_9460_acd55f301185" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\ca.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_ca.pak_b3f6eb58_1b30_45d6_9460_acd55f301185" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_cs.pak_73010b73_2214_4c55_92ea_1136a2ae68cf" Guid="a28ed690-2c10-4551-b008-861bd3544a4b" Win64="yes">
+                <File Name="cs.pak" Id="_locales_cs.pak_73010b73_2214_4c55_92ea_1136a2ae68cf" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\cs.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_cs.pak_73010b73_2214_4c55_92ea_1136a2ae68cf" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_da.pak_e7bc94f7_ad0c_48ae_b005_bbbabc3a5019" Guid="7c05090b-fdd2-4b03-bfcc-1122fc217df3" Win64="yes">
+                <File Name="da.pak" Id="_locales_da.pak_e7bc94f7_ad0c_48ae_b005_bbbabc3a5019" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\da.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_da.pak_e7bc94f7_ad0c_48ae_b005_bbbabc3a5019" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_de.pak_ec922402_cdeb_436a_a4c5_c23293abe0ef" Guid="b44e312a-1833-4f0d-a467-11568a19da7d" Win64="yes">
+                <File Name="de.pak" Id="_locales_de.pak_ec922402_cdeb_436a_a4c5_c23293abe0ef" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\de.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_de.pak_ec922402_cdeb_436a_a4c5_c23293abe0ef" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_el.pak_45d7dd3f_2e04_406a_92dd_41eb2564a9ab" Guid="0d167633-1b93-4f47-b175-f647b2860b6f" Win64="yes">
+                <File Name="el.pak" Id="_locales_el.pak_45d7dd3f_2e04_406a_92dd_41eb2564a9ab" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\el.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_el.pak_45d7dd3f_2e04_406a_92dd_41eb2564a9ab" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_en_GB.pak_aa900536_3f7f_40b0_8faf_8e55a77856de" Guid="a9eeb932-8dd9-43b8-8772-4c20f8e6b355" Win64="yes">
+                <File Name="en-GB.pak" Id="_locales_en_GB.pak_aa900536_3f7f_40b0_8faf_8e55a77856de" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\en-GB.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_en_GB.pak_aa900536_3f7f_40b0_8faf_8e55a77856de" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_en_US.pak_e5621eb1_7bd5_4d75_b67c_be7b4d47a673" Guid="f6c9700f-10fa-40a8-a969-8d87c2a8ca4f" Win64="yes">
+                <File Name="en-US.pak" Id="_locales_en_US.pak_e5621eb1_7bd5_4d75_b67c_be7b4d47a673" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\en-US.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_en_US.pak_e5621eb1_7bd5_4d75_b67c_be7b4d47a673" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_es_419.pak_37cf9888_9897_4528_9752_83a3a97aaae5" Guid="4baf3561-d42f-4900-9892-d2851d7016c6" Win64="yes">
+                <File Name="es-419.pak" Id="_locales_es_419.pak_37cf9888_9897_4528_9752_83a3a97aaae5" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\es-419.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_es_419.pak_37cf9888_9897_4528_9752_83a3a97aaae5" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_es.pak_688bd962_71c5_44de_af88_1e461d82cca2" Guid="6230cd20-d4d7-41c6-96f8-282176656e9f" Win64="yes">
+                <File Name="es.pak" Id="_locales_es.pak_688bd962_71c5_44de_af88_1e461d82cca2" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\es.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_es.pak_688bd962_71c5_44de_af88_1e461d82cca2" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_et.pak_6313df72_23e6_4f51_b821_1c4dd97dc336" Guid="fc6ef30f-b4b4-41a0-8827-a410f647836c" Win64="yes">
+                <File Name="et.pak" Id="_locales_et.pak_6313df72_23e6_4f51_b821_1c4dd97dc336" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\et.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_et.pak_6313df72_23e6_4f51_b821_1c4dd97dc336" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_fa.pak_c8e3fe47_ce5a_42d6_8253_0f17b16f7fc6" Guid="eba797c6-89e3-4960-827e-a60c33df2bdd" Win64="yes">
+                <File Name="fa.pak" Id="_locales_fa.pak_c8e3fe47_ce5a_42d6_8253_0f17b16f7fc6" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\fa.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_fa.pak_c8e3fe47_ce5a_42d6_8253_0f17b16f7fc6" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_fi.pak_8a9f55d2_5052_4b29_8ba8_0bf14d01053d" Guid="eee09839-e513-4477-83e3-09fc4ce54c9e" Win64="yes">
+                <File Name="fi.pak" Id="_locales_fi.pak_8a9f55d2_5052_4b29_8ba8_0bf14d01053d" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\fi.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_fi.pak_8a9f55d2_5052_4b29_8ba8_0bf14d01053d" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_fil.pak_fd71854c_bc7f_407b_bfc4_7a201934444e" Guid="1be3e237-4d66-4787-9d48-f784a4ff1b4d" Win64="yes">
+                <File Name="fil.pak" Id="_locales_fil.pak_fd71854c_bc7f_407b_bfc4_7a201934444e" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\fil.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_fil.pak_fd71854c_bc7f_407b_bfc4_7a201934444e" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_fr.pak_dffdcac8_fc8c_4afa_83c1_8e8df4886f31" Guid="ae66a138-3ac1-4462-93c0-4d161f10c99f" Win64="yes">
+                <File Name="fr.pak" Id="_locales_fr.pak_dffdcac8_fc8c_4afa_83c1_8e8df4886f31" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\fr.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_fr.pak_dffdcac8_fc8c_4afa_83c1_8e8df4886f31" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_gu.pak_462dece5_745c_4bfe_acc4_fa65ca28fd98" Guid="6ba0a4ea-337c-4d64-9183-c5eb42c13fbc" Win64="yes">
+                <File Name="gu.pak" Id="_locales_gu.pak_462dece5_745c_4bfe_acc4_fa65ca28fd98" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\gu.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_gu.pak_462dece5_745c_4bfe_acc4_fa65ca28fd98" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_he.pak_131b0e6f_7e3d_4d03_b3a5_dd253200e37e" Guid="ae3ddfac-d505-4858-9abd-1754f187ca36" Win64="yes">
+                <File Name="he.pak" Id="_locales_he.pak_131b0e6f_7e3d_4d03_b3a5_dd253200e37e" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\he.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_he.pak_131b0e6f_7e3d_4d03_b3a5_dd253200e37e" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_hi.pak_8fd1f9a2_18f1_4d65_948b_e646c41e1e96" Guid="504ca199-3eae-4053-8f8f-b167bf2e316f" Win64="yes">
+                <File Name="hi.pak" Id="_locales_hi.pak_8fd1f9a2_18f1_4d65_948b_e646c41e1e96" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\hi.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_hi.pak_8fd1f9a2_18f1_4d65_948b_e646c41e1e96" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_hr.pak_312f5813_a502_4f68_8b47_cbfa61a7b98c" Guid="a5f5313b-6116-4d74-b15f-62a5895cdd63" Win64="yes">
+                <File Name="hr.pak" Id="_locales_hr.pak_312f5813_a502_4f68_8b47_cbfa61a7b98c" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\hr.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_hr.pak_312f5813_a502_4f68_8b47_cbfa61a7b98c" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_hu.pak_b23ac9be_7a49_4b9f_91b1_93d6b5ca45a1" Guid="d3642a88-a103-43e1-b4a7-1fdcbed5aea6" Win64="yes">
+                <File Name="hu.pak" Id="_locales_hu.pak_b23ac9be_7a49_4b9f_91b1_93d6b5ca45a1" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\hu.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_hu.pak_b23ac9be_7a49_4b9f_91b1_93d6b5ca45a1" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_id.pak_09f6fb27_a8be_4cb6_9ac0_1161c8ad90cc" Guid="5a3cacb1-7cca-4d2a-b227-fa0250b9e813" Win64="yes">
+                <File Name="id.pak" Id="_locales_id.pak_09f6fb27_a8be_4cb6_9ac0_1161c8ad90cc" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\id.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_id.pak_09f6fb27_a8be_4cb6_9ac0_1161c8ad90cc" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_it.pak_1e4a9dd0_d22e_4bfe_9285_7e6aa216934f" Guid="bcbd9552-b139-4569-a8ef-d950f3187113" Win64="yes">
+                <File Name="it.pak" Id="_locales_it.pak_1e4a9dd0_d22e_4bfe_9285_7e6aa216934f" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\it.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_it.pak_1e4a9dd0_d22e_4bfe_9285_7e6aa216934f" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_ja.pak_505b73c2_1162_40c8_8e7c_8da8dd6a2d02" Guid="5c0d7c03-e7a8-4477-89d6-45212e957966" Win64="yes">
+                <File Name="ja.pak" Id="_locales_ja.pak_505b73c2_1162_40c8_8e7c_8da8dd6a2d02" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\ja.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_ja.pak_505b73c2_1162_40c8_8e7c_8da8dd6a2d02" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_kn.pak_ea14291e_611f_4f61_ae69_722cc87ee466" Guid="666d2cca-6279-4872-b7b7-d6e81f196671" Win64="yes">
+                <File Name="kn.pak" Id="_locales_kn.pak_ea14291e_611f_4f61_ae69_722cc87ee466" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\kn.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_kn.pak_ea14291e_611f_4f61_ae69_722cc87ee466" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_ko.pak_9084dfbd_00d6_4c5b_a6bb_197a3c882a40" Guid="fcb410cb-cb26-4492-a105-c5f025d5cc47" Win64="yes">
+                <File Name="ko.pak" Id="_locales_ko.pak_9084dfbd_00d6_4c5b_a6bb_197a3c882a40" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\ko.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_ko.pak_9084dfbd_00d6_4c5b_a6bb_197a3c882a40" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_lt.pak_c3391d67_49ea_4d19_a72d_cd18b8893d08" Guid="e5d8cdf3-7c1b-42f7-9eeb-f8f3ff015dcc" Win64="yes">
+                <File Name="lt.pak" Id="_locales_lt.pak_c3391d67_49ea_4d19_a72d_cd18b8893d08" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\lt.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_lt.pak_c3391d67_49ea_4d19_a72d_cd18b8893d08" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_lv.pak_9b3aeccd_f99e_4f3b_ad14_da4eaf5fde66" Guid="13f51500-e711-485a-9d3d-cbe4a063c275" Win64="yes">
+                <File Name="lv.pak" Id="_locales_lv.pak_9b3aeccd_f99e_4f3b_ad14_da4eaf5fde66" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\lv.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_lv.pak_9b3aeccd_f99e_4f3b_ad14_da4eaf5fde66" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_ml.pak_238a3cb9_8bae_4748_8d68_6b5555fe2d8a" Guid="ba230b2c-fab1-49a4-994f-83fb62826ec3" Win64="yes">
+                <File Name="ml.pak" Id="_locales_ml.pak_238a3cb9_8bae_4748_8d68_6b5555fe2d8a" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\ml.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_ml.pak_238a3cb9_8bae_4748_8d68_6b5555fe2d8a" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_mr.pak_d6a566a2_8be3_4f25_8e1b_15c2a3acbf74" Guid="6e830745-d711-4d2a-a61d-567180113b66" Win64="yes">
+                <File Name="mr.pak" Id="_locales_mr.pak_d6a566a2_8be3_4f25_8e1b_15c2a3acbf74" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\mr.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_mr.pak_d6a566a2_8be3_4f25_8e1b_15c2a3acbf74" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_ms.pak_7b1772a6_a566_4894_b995_acd7f543b192" Guid="c3595bdd-f49d-40c8-8cb3-ca9649988c53" Win64="yes">
+                <File Name="ms.pak" Id="_locales_ms.pak_7b1772a6_a566_4894_b995_acd7f543b192" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\ms.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_ms.pak_7b1772a6_a566_4894_b995_acd7f543b192" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_nb.pak_b0aa3a36_07de_4fc6_b536_d071538db1d2" Guid="b9f0f8ca-c025-4745-bfce-5a74c4e3c78e" Win64="yes">
+                <File Name="nb.pak" Id="_locales_nb.pak_b0aa3a36_07de_4fc6_b536_d071538db1d2" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\nb.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_nb.pak_b0aa3a36_07de_4fc6_b536_d071538db1d2" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_nl.pak_eb52690c_cf74_48a6_b557_4ff12f26453e" Guid="d4791558-601b-441a-82c9-1c7a91569b12" Win64="yes">
+                <File Name="nl.pak" Id="_locales_nl.pak_eb52690c_cf74_48a6_b557_4ff12f26453e" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\nl.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_nl.pak_eb52690c_cf74_48a6_b557_4ff12f26453e" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_pl.pak_59c4a597_7f33_45c6_bf92_383ddd108542" Guid="413b7d09-f543-4cc1-b0e3-346ab65a414a" Win64="yes">
+                <File Name="pl.pak" Id="_locales_pl.pak_59c4a597_7f33_45c6_bf92_383ddd108542" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\pl.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_pl.pak_59c4a597_7f33_45c6_bf92_383ddd108542" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_pt_BR.pak_f291ffe0_62b1_4e21_97e5_611a109595b5" Guid="e311d534-56b0-40ac-8154-6ec5362daf2a" Win64="yes">
+                <File Name="pt-BR.pak" Id="_locales_pt_BR.pak_f291ffe0_62b1_4e21_97e5_611a109595b5" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\pt-BR.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_pt_BR.pak_f291ffe0_62b1_4e21_97e5_611a109595b5" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_pt_PT.pak_c0ace982_0fbe_4b25_9798_9717cc6401bf" Guid="fd676968-44f8-4a25-aed5-8a90337bcc8d" Win64="yes">
+                <File Name="pt-PT.pak" Id="_locales_pt_PT.pak_c0ace982_0fbe_4b25_9798_9717cc6401bf" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\pt-PT.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_pt_PT.pak_c0ace982_0fbe_4b25_9798_9717cc6401bf" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_ro.pak_d75ca045_9dd2_49d6_b161_658c02df9e28" Guid="88b6293f-0ea5-43b6-88a5-9a27a1c1428f" Win64="yes">
+                <File Name="ro.pak" Id="_locales_ro.pak_d75ca045_9dd2_49d6_b161_658c02df9e28" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\ro.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_ro.pak_d75ca045_9dd2_49d6_b161_658c02df9e28" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_ru.pak_940eba12_a711_4c74_82fd_f155a8583ffd" Guid="a9d85933-d83b-424c-bf8c-f3512fd7d60e" Win64="yes">
+                <File Name="ru.pak" Id="_locales_ru.pak_940eba12_a711_4c74_82fd_f155a8583ffd" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\ru.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_ru.pak_940eba12_a711_4c74_82fd_f155a8583ffd" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_sk.pak_7b06468a_0f98_4634_9dcf_aabe52285295" Guid="f1690caf-d9be-417a-b074-2739a5c731fe" Win64="yes">
+                <File Name="sk.pak" Id="_locales_sk.pak_7b06468a_0f98_4634_9dcf_aabe52285295" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\sk.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_sk.pak_7b06468a_0f98_4634_9dcf_aabe52285295" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_sl.pak_317ed124_827d_4993_ac00_2602ce214fa9" Guid="8a4e9ef3-7ce6-46b6-918c-e1ff39534cb2" Win64="yes">
+                <File Name="sl.pak" Id="_locales_sl.pak_317ed124_827d_4993_ac00_2602ce214fa9" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\sl.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_sl.pak_317ed124_827d_4993_ac00_2602ce214fa9" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_sr.pak_e7078522_a0d5_42eb_86fa_db79f561373f" Guid="6675764f-af05-4f95-829b-798c104a35c4" Win64="yes">
+                <File Name="sr.pak" Id="_locales_sr.pak_e7078522_a0d5_42eb_86fa_db79f561373f" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\sr.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_sr.pak_e7078522_a0d5_42eb_86fa_db79f561373f" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_sv.pak_95b07d2b_c820_4fe7_ae13_375ef98e6c1d" Guid="c6b29d86-96b5-40d8-98ae-134f66dfc491" Win64="yes">
+                <File Name="sv.pak" Id="_locales_sv.pak_95b07d2b_c820_4fe7_ae13_375ef98e6c1d" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\sv.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_sv.pak_95b07d2b_c820_4fe7_ae13_375ef98e6c1d" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_sw.pak_e854a9ed_126d_4645_8f53_e238d8ad247b" Guid="8138d683-023e-4123-a8a0-4b71a46efc59" Win64="yes">
+                <File Name="sw.pak" Id="_locales_sw.pak_e854a9ed_126d_4645_8f53_e238d8ad247b" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\sw.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_sw.pak_e854a9ed_126d_4645_8f53_e238d8ad247b" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_ta.pak_be9ac132_816f_4da1_a707_82c80d2170fa" Guid="8de7b106-2805-4bda-a328-787e4de26a07" Win64="yes">
+                <File Name="ta.pak" Id="_locales_ta.pak_be9ac132_816f_4da1_a707_82c80d2170fa" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\ta.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_ta.pak_be9ac132_816f_4da1_a707_82c80d2170fa" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_te.pak_42d220a3_d544_45bf_9ca4_ca5f912e639f" Guid="6a9ceed3-0c2e-47ab-8f0e-ccf6dd1a00df" Win64="yes">
+                <File Name="te.pak" Id="_locales_te.pak_42d220a3_d544_45bf_9ca4_ca5f912e639f" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\te.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_te.pak_42d220a3_d544_45bf_9ca4_ca5f912e639f" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_th.pak_02e9f11f_0631_4683_a3b7_0b0ac74f9d0a" Guid="c51b1da7-ebaf-456b-aef1-6580b93c94d5" Win64="yes">
+                <File Name="th.pak" Id="_locales_th.pak_02e9f11f_0631_4683_a3b7_0b0ac74f9d0a" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\th.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_th.pak_02e9f11f_0631_4683_a3b7_0b0ac74f9d0a" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_tr.pak_723a5a87_57c4_45ee_bf37_196d73362eee" Guid="02574fa6-9c9b-4af4-84c8-49dc828d1ac8" Win64="yes">
+                <File Name="tr.pak" Id="_locales_tr.pak_723a5a87_57c4_45ee_bf37_196d73362eee" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\tr.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_tr.pak_723a5a87_57c4_45ee_bf37_196d73362eee" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_uk.pak_30f1d68f_193c_4ccc_9a86_253bc3a362cd" Guid="cbb2879f-55ac-4932-9026-b1bd6b7a880e" Win64="yes">
+                <File Name="uk.pak" Id="_locales_uk.pak_30f1d68f_193c_4ccc_9a86_253bc3a362cd" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\uk.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_uk.pak_30f1d68f_193c_4ccc_9a86_253bc3a362cd" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_ur.pak_37383674_6b9a_44ec_a66e_eb9583338434" Guid="684716be-33fc-4226-bcc0-0c811fb4777a" Win64="yes">
+                <File Name="ur.pak" Id="_locales_ur.pak_37383674_6b9a_44ec_a66e_eb9583338434" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\ur.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_ur.pak_37383674_6b9a_44ec_a66e_eb9583338434" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_vi.pak_a4ce523e_f3fd_4e26_8108_ea3ea6cbb92e" Guid="761f55e9-446a-4e63-8494-e3ae89785723" Win64="yes">
+                <File Name="vi.pak" Id="_locales_vi.pak_a4ce523e_f3fd_4e26_8108_ea3ea6cbb92e" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\vi.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_vi.pak_a4ce523e_f3fd_4e26_8108_ea3ea6cbb92e" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_zh_CN.pak_8b3c6cf1_36f2_4b61_a48c_28038a7b117e" Guid="1f957948-9689-426d-96e6-2527f842088a" Win64="yes">
+                <File Name="zh-CN.pak" Id="_locales_zh_CN.pak_8b3c6cf1_36f2_4b61_a48c_28038a7b117e" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\zh-CN.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_zh_CN.pak_8b3c6cf1_36f2_4b61_a48c_28038a7b117e" Type="integer" Value="1" KeyPath="yes" /></Component>
+              <Component Id="_locales_zh_TW.pak_73f704fc_82c5_4718_ac0d_c4d36f778cc4" Guid="ef4658eb-a61f-4c54-b1f5-7efda241a4bf" Win64="yes">
+                <File Name="zh-TW.pak" Id="_locales_zh_TW.pak_73f704fc_82c5_4718_ac0d_c4d36f778cc4" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\locales\zh-TW.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_locales_zh_TW.pak_73f704fc_82c5_4718_ac0d_c4d36f778cc4" Type="integer" Value="1" KeyPath="yes" /></Component>
+            </Directory>
+            <Directory Id="_resources_83983ad0_7974_45af_a909_d27e19c85a3c" Name="resources">
+              <Directory Id="_resources_app_6e86a34e_5afb_4984_9304_4aadfbb662f2" Name="app">
+                <Directory Id="_resources_app_desktop_7bb2db40_0056_4df2_807a_9c15b6962317" Name="desktop">
+                  <Component Id="_resources_app_desktop_app.ico_04141638_0b2d_4c7a_82e5_193b3a4971dd" Guid="b236f1bb-d0c5-416b-ad35-58c506e4ee0e" Win64="yes">
+                    <File Name="app.ico" Id="_resources_app_desktop_app.ico_04141638_0b2d_4c7a_82e5_193b3a4971dd" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\app.ico"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_desktop_app.ico_04141638_0b2d_4c7a_82e5_193b3a4971dd" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_resources_app_desktop_app.png_fcb9337b_13d9_4697_b665_01eab2e62270" Guid="53e48cbb-23f7-4e61-881b-39cd78a11ca6" Win64="yes">
+                    <File Name="app.png" Id="_resources_app_desktop_app.png_fcb9337b_13d9_4697_b665_01eab2e62270" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\app.png"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_desktop_app.png_fcb9337b_13d9_4697_b665_01eab2e62270" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_credentials.mjs_adbeaf3f_1307_45e8_aa5d_9c7cccbdfd7a" Guid="516f9afd-df70-4443-b062-5cc220a5af38" Win64="yes">
+                    <File Name="credentials.mjs" Id="_credentials.mjs_adbeaf3f_1307_45e8_aa5d_9c7cccbdfd7a" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\credentials.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_credentials.mjs_adbeaf3f_1307_45e8_aa5d_9c7cccbdfd7a" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_first_run.mjs_920848b9_7b74_4f82_8bfc_30b3c980b678" Guid="011c956c-04a3-426d-9795-38a9997aedce" Win64="yes">
+                    <File Name="first-run.mjs" Id="_first_run.mjs_920848b9_7b74_4f82_8bfc_30b3c980b678" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\first-run.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_first_run.mjs_920848b9_7b74_4f82_8bfc_30b3c980b678" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_github_releases.mjs_f5918558_53ae_4fb2_9513_e8e7e462effe" Guid="2a1e40ba-07d6-4ec4-bec0-1046dd1a05d4" Win64="yes">
+                    <File Name="github-releases.mjs" Id="_github_releases.mjs_f5918558_53ae_4fb2_9513_e8e7e462effe" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\github-releases.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_github_releases.mjs_f5918558_53ae_4fb2_9513_e8e7e462effe" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_install_layout.cjs_f9d41912_de5d_4738_ae4f_a04c37d28bc0" Guid="1aeeb63a-4f48-440e-b4ec-1eaaa3d588ae" Win64="yes">
+                    <File Name="install-layout.cjs" Id="_install_layout.cjs_f9d41912_de5d_4738_ae4f_a04c37d28bc0" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\install-layout.cjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_install_layout.cjs_f9d41912_de5d_4738_ae4f_a04c37d28bc0" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_installer_template.cjs_53251647_8e27_4c4a_862b_d95eb3382e7a" Guid="b3180325-6b5b-407e-831b-7be7f05028f7" Win64="yes">
+                    <File Name="installer-template.cjs" Id="_installer_template.cjs_53251647_8e27_4c4a_862b_d95eb3382e7a" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\installer-template.cjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_installer_template.cjs_53251647_8e27_4c4a_862b_d95eb3382e7a" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_lifecycle.mjs_d37a9019_f405_41eb_af13_1ff31ca806f6" Guid="c5d1fec7-5772-440f-8444-6d5362c6bb5d" Win64="yes">
+                    <File Name="lifecycle.mjs" Id="_lifecycle.mjs_d37a9019_f405_41eb_af13_1ff31ca806f6" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\lifecycle.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_lifecycle.mjs_d37a9019_f405_41eb_af13_1ff31ca806f6" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_resources_app_desktop_main.cjs_9acd615a_4de3_4187_ad8e_e91a83e0b427" Guid="dfd0948d-f10a-431b-bff7-6e904a15002f" Win64="yes">
+                    <File Name="main.cjs" Id="_resources_app_desktop_main.cjs_9acd615a_4de3_4187_ad8e_e91a83e0b427" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\main.cjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_desktop_main.cjs_9acd615a_4de3_4187_ad8e_e91a83e0b427" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_migration.mjs_c0e5b67d_40ea_4f35_b524_76dc323a2220" Guid="8ba7273d-89ce-4298-bc14-2ab4fcb0d518" Win64="yes">
+                    <File Name="migration.mjs" Id="_migration.mjs_c0e5b67d_40ea_4f35_b524_76dc323a2220" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\migration.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_migration.mjs_c0e5b67d_40ea_4f35_b524_76dc323a2220" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_native_attachments.mjs_8b4c9ee8_9776_4aa4_ac59_a9216467100c" Guid="db7d693b-2d01-4461-9a99-3a836cf21e71" Win64="yes">
+                    <File Name="native-attachments.mjs" Id="_native_attachments.mjs_8b4c9ee8_9776_4aa4_ac59_a9216467100c" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\native-attachments.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_native_attachments.mjs_8b4c9ee8_9776_4aa4_ac59_a9216467100c" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_resources_app_desktop_policy.mjs_3104b94e_326c_4669_8ba7_f12ce38f22eb" Guid="65e80995-5341-4189-a2d9-362599c395a7" Win64="yes">
+                    <File Name="policy.mjs" Id="_resources_app_desktop_policy.mjs_3104b94e_326c_4669_8ba7_f12ce38f22eb" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\policy.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_desktop_policy.mjs_3104b94e_326c_4669_8ba7_f12ce38f22eb" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_resources_app_desktop_preload.cjs_51c96090_73fb_4420_9ac1_54654afab70f" Guid="f73a80ce-24c9-49b8-8322-2d5ccac4d9f3" Win64="yes">
+                    <File Name="preload.cjs" Id="_resources_app_desktop_preload.cjs_51c96090_73fb_4420_9ac1_54654afab70f" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\preload.cjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_desktop_preload.cjs_51c96090_73fb_4420_9ac1_54654afab70f" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_profile_relocation.mjs_54a47720_751a_42d7_a5d1_c0b387e2212a" Guid="1166e9c9-6ede-434b-bf51-7ff258595fce" Win64="yes">
+                    <File Name="profile-relocation.mjs" Id="_profile_relocation.mjs_54a47720_751a_42d7_a5d1_c0b387e2212a" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\profile-relocation.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_profile_relocation.mjs_54a47720_751a_42d7_a5d1_c0b387e2212a" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_release_core.mjs_29341f22_84da_4833_9279_f9aa46b8d49e" Guid="496615a3-d8c9-44da-8e05-0c97ff1a260e" Win64="yes">
+                    <File Name="release-core.mjs" Id="_release_core.mjs_29341f22_84da_4833_9279_f9aa46b8d49e" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\release-core.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_release_core.mjs_29341f22_84da_4833_9279_f9aa46b8d49e" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_release_download.mjs_4899c375_59f3_4070_9097_004b1f749aef" Guid="e67977de-9d40-4d55-9713-4865c35da09a" Win64="yes">
+                    <File Name="release-download.mjs" Id="_release_download.mjs_4899c375_59f3_4070_9097_004b1f749aef" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\release-download.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_release_download.mjs_4899c375_59f3_4070_9097_004b1f749aef" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_runtime_lock.json_5ff60a6c_57b9_4382_b648_5a7b7fb11865" Guid="31706b1e-8b5a-4513-9bbc-3cdae653a494" Win64="yes">
+                    <File Name="runtime-lock.json" Id="_runtime_lock.json_5ff60a6c_57b9_4382_b648_5a7b7fb11865" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\runtime-lock.json"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_runtime_lock.json_5ff60a6c_57b9_4382_b648_5a7b7fb11865" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_service_host.mjs_d1713bff_ebc5_4e89_9f1d_1dfec50b4d67" Guid="a83aeb6a-4299-4208-9506-476fdc7e1204" Win64="yes">
+                    <File Name="service-host.mjs" Id="_service_host.mjs_d1713bff_ebc5_4e89_9f1d_1dfec50b4d67" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\service-host.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_service_host.mjs_d1713bff_ebc5_4e89_9f1d_1dfec50b4d67" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_resources_app_desktop_service.mjs_1b27e288_c502_4967_85d9_7f621498e22a" Guid="cc2891d7-3a26-4923-b0ad-639ccf21011d" Win64="yes">
+                    <File Name="service.mjs" Id="_resources_app_desktop_service.mjs_1b27e288_c502_4967_85d9_7f621498e22a" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\service.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_desktop_service.mjs_1b27e288_c502_4967_85d9_7f621498e22a" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_session_migration.cjs_7c8fe619_9a97_4fa3_b89f_2f3f2cbdaadc" Guid="41f02ae0-de81-4e71-bf9a-5f15174bc250" Win64="yes">
+                    <File Name="session-migration.cjs" Id="_session_migration.cjs_7c8fe619_9a97_4fa3_b89f_2f3f2cbdaadc" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\session-migration.cjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_session_migration.cjs_7c8fe619_9a97_4fa3_b89f_2f3f2cbdaadc" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_update_config.json_56b84a8f_2998_4578_98e8_a14e8aabcc9b" Guid="5c7a03cd-ea9e-4659-b1c3-3036261e9da5" Win64="yes">
+                    <File Name="update-config.json" Id="_update_config.json_56b84a8f_2998_4578_98e8_a14e8aabcc9b" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\update-config.json"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_update_config.json_56b84a8f_2998_4578_98e8_a14e8aabcc9b" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_update_controller.mjs_7a8c6166_2af6_4618_a807_45141decfa42" Guid="64fcc4c9-4ab0-4584-9d24-c07a9b63664f" Win64="yes">
+                    <File Name="update-controller.mjs" Id="_update_controller.mjs_7a8c6166_2af6_4618_a807_45141decfa42" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\update-controller.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_update_controller.mjs_7a8c6166_2af6_4618_a807_45141decfa42" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_update_handoff.mjs_a1a0c13a_ee15_427d_92d9_db0d277bca4f" Guid="5aedf339-99e6-4971-b1d4-5a0aadfbbcd1" Win64="yes">
+                    <File Name="update-handoff.mjs" Id="_update_handoff.mjs_a1a0c13a_ee15_427d_92d9_db0d277bca4f" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\update-handoff.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_update_handoff.mjs_a1a0c13a_ee15_427d_92d9_db0d277bca4f" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_update_handoff.ps1_07173292_7bcc_4063_ac30_8afae8cd4a08" Guid="29196343-f9da-406f-8b92-8239b85df3e9" Win64="yes">
+                    <File Name="update-handoff.ps1" Id="_update_handoff.ps1_07173292_7bcc_4063_ac30_8afae8cd4a08" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\update-handoff.ps1"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_update_handoff.ps1_07173292_7bcc_4063_ac30_8afae8cd4a08" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_update_preload.cjs_54d4f86a_6eb1_471f_8451_c94d9d94af77" Guid="3fce6c49-13be-4989-9a84-a49b7eae2f06" Win64="yes">
+                    <File Name="update-preload.cjs" Id="_update_preload.cjs_54d4f86a_6eb1_471f_8451_c94d9d94af77" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\update-preload.cjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_update_preload.cjs_54d4f86a_6eb1_471f_8451_c94d9d94af77" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_updater_window.mjs_6eee6f20_41fe_46e8_a542_f3395e333ce9" Guid="2df88736-324b-469e-a283-9ecdb9a82399" Win64="yes">
+                    <File Name="updater-window.mjs" Id="_updater_window.mjs_6eee6f20_41fe_46e8_a542_f3395e333ce9" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\desktop\updater-window.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_updater_window.mjs_6eee6f20_41fe_46e8_a542_f3395e333ce9" Type="integer" Value="1" KeyPath="yes" /></Component>
+                </Directory>
+                <Directory Id="_resources_app_public_1ba5cb47_006d_48e8_84c0_704a9529929d" Name="public">
+                  <Directory Id="_resources_app_public_addons_a404cafd_7428_4267_9674_774b22e2c6d8" Name="addons">
+                    <Directory Id="_resources_app_public_addons_npcdex_4f9b7e1d_987a_47f3_90a2_20b0e4e66369" Name="npcdex">
+                      <Component Id="_coordination.js_246a34f1_21d1_4b5c_956c_cb24d1fed9bf" Guid="317faed6-ddaf-4fb7-a996-2746a20ad265" Win64="yes">
+                        <File Name="coordination.js" Id="_coordination.js_246a34f1_21d1_4b5c_956c_cb24d1fed9bf" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\addons\npcdex\coordination.js"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                      <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_coordination.js_246a34f1_21d1_4b5c_956c_cb24d1fed9bf" Type="integer" Value="1" KeyPath="yes" /></Component>
+                      <Component Id="_index.html_97adf2cf_4f27_4b6c_a1fc_65b4079cf6fe" Guid="5d53ad1e-b57d-4293-8f0a-dbe4dd5e8717" Win64="yes">
+                        <File Name="index.html" Id="_index.html_97adf2cf_4f27_4b6c_a1fc_65b4079cf6fe" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\addons\npcdex\index.html"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                      <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_index.html_97adf2cf_4f27_4b6c_a1fc_65b4079cf6fe" Type="integer" Value="1" KeyPath="yes" /></Component>
+                      <Component Id="_workspace.js_13fc49f1_6823_4375_a427_4cb8ece6964d" Guid="90d498bb-cb8a-452b-822c-ef41e6d7f2cc" Win64="yes">
+                        <File Name="workspace.js" Id="_workspace.js_13fc49f1_6823_4375_a427_4cb8ece6964d" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\addons\npcdex\workspace.js"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                      <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_workspace.js_13fc49f1_6823_4375_a427_4cb8ece6964d" Type="integer" Value="1" KeyPath="yes" /></Component>
+                    </Directory>
+                  </Directory>
+
+                  <Directory Id="_resources_app_public_shared_ui_403aff6f_0bf0_43d1_96a5_f4cdf2f2955d" Name="shared-ui">
+                    <Component Id="_header.mjs_018cf28b_92d5_476e_8a70_707d1c3e2463" Guid="95a9c4a7-e0a4-404e-a762-86fb8401339a" Win64="yes">
+                      <File Name="header.mjs" Id="_header.mjs_018cf28b_92d5_476e_8a70_707d1c3e2463" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\shared-ui\header.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                    <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_header.mjs_018cf28b_92d5_476e_8a70_707d1c3e2463" Type="integer" Value="1" KeyPath="yes" /></Component>
+                    <Component Id="_npcdex_pokeball.svg_53f813df_b061_40e9_a39a_3d677836fee1" Guid="8bda5876-7f95-44ff-9eba-3db23066feae" Win64="yes">
+                      <File Name="npcdex-pokeball.svg" Id="_npcdex_pokeball.svg_53f813df_b061_40e9_a39a_3d677836fee1" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\shared-ui\npcdex-pokeball.svg"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                    <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_npcdex_pokeball.svg_53f813df_b061_40e9_a39a_3d677836fee1" Type="integer" Value="1" KeyPath="yes" /></Component>
+                    <Component Id="_standard_settings_icon.svg_6b76e423_fb18_4bdb_9202_02f30a57a6b4" Guid="9c6ba2f2-94a0-4437-bfc4-ae176eadb798" Win64="yes">
+                      <File Name="standard-settings-icon.svg" Id="_standard_settings_icon.svg_6b76e423_fb18_4bdb_9202_02f30a57a6b4" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\shared-ui\standard-settings-icon.svg"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                    <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_standard_settings_icon.svg_6b76e423_fb18_4bdb_9202_02f30a57a6b4" Type="integer" Value="1" KeyPath="yes" /></Component>
+                    <Component Id="_theme.css_f725a445_5319_4d0e_ba6a_a8a0c75e902c" Guid="9cc03289-cee4-4c32-aca2-f5d3241bda06" Win64="yes">
+                      <File Name="theme.css" Id="_theme.css_f725a445_5319_4d0e_ba6a_a8a0c75e902c" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\shared-ui\theme.css"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                    <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_theme.css_f725a445_5319_4d0e_ba6a_a8a0c75e902c" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  </Directory>                  <Component Id="_resources_app_public_app.mjs_e46b3d32_f091_449c_987f_c2cacee2c10c" Guid="6d0ee610-b4ae-45d3-92b3-a5054a221ada" Win64="yes">
+                    <File Name="app.mjs" Id="_resources_app_public_app.mjs_e46b3d32_f091_449c_987f_c2cacee2c10c" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\app.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_public_app.mjs_e46b3d32_f091_449c_987f_c2cacee2c10c" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_attachment_core.mjs_311e91ce_3d86_4b7f_a49a_e92cf8b013f7" Guid="34c6c5db-a464-465e-a224-f68a5ca4bc5c" Win64="yes">
+                    <File Name="attachment-core.mjs" Id="_attachment_core.mjs_311e91ce_3d86_4b7f_a49a_e92cf8b013f7" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\attachment-core.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_attachment_core.mjs_311e91ce_3d86_4b7f_a49a_e92cf8b013f7" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_attachment_files.mjs_104d904d_bc47_4434_831b_097b4fdf840e" Guid="14bf672d-2df5-4bd2-a09a-e653c78d0e3e" Win64="yes">
+                    <File Name="attachment-files.mjs" Id="_attachment_files.mjs_104d904d_bc47_4434_831b_097b4fdf840e" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\attachment-files.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_attachment_files.mjs_104d904d_bc47_4434_831b_097b4fdf840e" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_attachment_view.mjs_04fbf4bf_04f2_4823_bc49_a424463e279e" Guid="a8430674-050e-4569-9cf0-9705731bf75a" Win64="yes">
+                    <File Name="attachment-view.mjs" Id="_attachment_view.mjs_04fbf4bf_04f2_4823_bc49_a424463e279e" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\attachment-view.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_attachment_view.mjs_04fbf4bf_04f2_4823_bc49_a424463e279e" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_bulk_hierarchy.mjs_ec4d181b_f29d_4ef2_bd77_becf12db25b3" Guid="80d354fd-f66f-4e6e-b2fc-f09bdeab45f3" Win64="yes">
+                    <File Name="bulk-hierarchy.mjs" Id="_bulk_hierarchy.mjs_ec4d181b_f29d_4ef2_bd77_becf12db25b3" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\bulk-hierarchy.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_bulk_hierarchy.mjs_ec4d181b_f29d_4ef2_bd77_becf12db25b3" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_completed_control.mjs_9bd88b5c_fb1b_48a6_9933_710246317073" Guid="a877e5d1-3f53-46fc-aa6d-fe4a2cdb0f91" Win64="yes">
+                    <File Name="completed-control.mjs" Id="_completed_control.mjs_9bd88b5c_fb1b_48a6_9933_710246317073" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\completed-control.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_completed_control.mjs_9bd88b5c_fb1b_48a6_9933_710246317073" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_resources_app_public_core.mjs_87d0d051_44be_42e0_837f_084851cd928a" Guid="b63cacc7-8408-4f6c-ab7c-0083c158079b" Win64="yes">
+                    <File Name="core.mjs" Id="_resources_app_public_core.mjs_87d0d051_44be_42e0_837f_084851cd928a" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\core.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_public_core.mjs_87d0d051_44be_42e0_837f_084851cd928a" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_custom_editor.mjs_67757ab7_9a68_4c01_9970_214421379911" Guid="06fa6217-bb5f-4ae6-b998-ea2ca5cca6e8" Win64="yes">
+                    <File Name="custom-editor.mjs" Id="_custom_editor.mjs_67757ab7_9a68_4c01_9970_214421379911" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\custom-editor.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_custom_editor.mjs_67757ab7_9a68_4c01_9970_214421379911" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_desktop_methods.mjs_4fb3ce27_9f2a_4314_8c51_9285eb8fa880" Guid="043de350-f0fb-4af4-93c4-016dfc8d5db4" Win64="yes">
+                    <File Name="desktop-methods.mjs" Id="_desktop_methods.mjs_4fb3ce27_9f2a_4314_8c51_9285eb8fa880" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\desktop-methods.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_desktop_methods.mjs_4fb3ce27_9f2a_4314_8c51_9285eb8fa880" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_desktop_workspace.mjs_1f1e2a6d_e14d_46a1_a982_ae75f89efb15" Guid="485f1d92-2980-4c79-8316-f6dfe8fa7221" Win64="yes">
+                    <File Name="desktop-workspace.mjs" Id="_desktop_workspace.mjs_1f1e2a6d_e14d_46a1_a982_ae75f89efb15" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\desktop-workspace.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_desktop_workspace.mjs_1f1e2a6d_e14d_46a1_a982_ae75f89efb15" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_detail_navigation.mjs_a8c09179_d829_460e_b8be_8464a9589d5e" Guid="30fed3de-f562-42a0-bd14-55d6d7274b1c" Win64="yes">
+                    <File Name="detail-navigation.mjs" Id="_detail_navigation.mjs_a8c09179_d829_460e_b8be_8464a9589d5e" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\detail-navigation.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_detail_navigation.mjs_a8c09179_d829_460e_b8be_8464a9589d5e" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_drop_target.mjs_5b70d066_7b96_4f27_89d7_64a8aed0300b" Guid="c880785c-e70e-449c-bb1b-899835e9e36f" Win64="yes">
+                    <File Name="drop-target.mjs" Id="_drop_target.mjs_5b70d066_7b96_4f27_89d7_64a8aed0300b" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\drop-target.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_drop_target.mjs_5b70d066_7b96_4f27_89d7_64a8aed0300b" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_editor_view.mjs_eae257eb_9479_4613_82f9_f126bab22cc6" Guid="fb5f18b8-12c3-4e8f-8430-e078c10d5343" Win64="yes">
+                    <File Name="editor-view.mjs" Id="_editor_view.mjs_eae257eb_9479_4613_82f9_f126bab22cc6" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\editor-view.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_editor_view.mjs_eae257eb_9479_4613_82f9_f126bab22cc6" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_field_tags.mjs_58dad0ef_2778_46f6_af7a_2056f233ff86" Guid="2ed080a9-6f28-4a5e-93fe-ad639b32e4b2" Win64="yes">
+                    <File Name="field-tags.mjs" Id="_field_tags.mjs_58dad0ef_2778_46f6_af7a_2056f233ff86" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\field-tags.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_field_tags.mjs_58dad0ef_2778_46f6_af7a_2056f233ff86" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_resources_app_public_file_drop.mjs_b194d68a_9f4c_4bdf_91c2_6caaf350fba7" Guid="1ed751f7-a9a0-4516-85c5-1bb4d2a1b011" Win64="yes">
+                    <File Name="file-drop.mjs" Id="_resources_app_public_file_drop.mjs_b194d68a_9f4c_4bdf_91c2_6caaf350fba7" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\file-drop.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_public_file_drop.mjs_b194d68a_9f4c_4bdf_91c2_6caaf350fba7" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_resources_app_public_icon.svg_8109edd2_fbb2_495b_9a4e_5947e5f560b6" Guid="699b3add-5645-4517-b952-1bf4aa8a4409" Win64="yes">
+                    <File Name="icon.svg" Id="_resources_app_public_icon.svg_8109edd2_fbb2_495b_9a4e_5947e5f560b6" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\icon.svg"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_public_icon.svg_8109edd2_fbb2_495b_9a4e_5947e5f560b6" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_resources_app_public_index.html_32001ec6_333f_456c_bb72_c483b2db6e81" Guid="06ec26d4-7d4e-4eb6-ba4a-ef930d5972a4" Win64="yes">
+                    <File Name="index.html" Id="_resources_app_public_index.html_32001ec6_333f_456c_bb72_c483b2db6e81" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\index.html"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_public_index.html_32001ec6_333f_456c_bb72_c483b2db6e81" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_item_editor_view.mjs_a8ebc9fe_bf91_4379_bfa1_ba9c01fc4960" Guid="bc4595ab-9299-4782-bc95-7fe946a4295c" Win64="yes">
+                    <File Name="item-editor-view.mjs" Id="_item_editor_view.mjs_a8ebc9fe_bf91_4379_bfa1_ba9c01fc4960" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\item-editor-view.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_item_editor_view.mjs_a8ebc9fe_bf91_4379_bfa1_ba9c01fc4960" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_item_editor.mjs_e76627c6_91f7_43ca_b913_fdd17bd4b309" Guid="c0b6e30b-820e-4323-a667-b5e7376a6fe2" Win64="yes">
+                    <File Name="item-editor.mjs" Id="_item_editor.mjs_e76627c6_91f7_43ca_b913_fdd17bd4b309" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\item-editor.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_item_editor.mjs_e76627c6_91f7_43ca_b913_fdd17bd4b309" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_migration_capture.css_4dadcecb_818a_4712_bdda_17610a863d85" Guid="e6019c89-2889-4d32-9205-c33deff695b7" Win64="yes">
+                    <File Name="migration-capture.css" Id="_migration_capture.css_4dadcecb_818a_4712_bdda_17610a863d85" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\migration-capture.css"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_migration_capture.css_4dadcecb_818a_4712_bdda_17610a863d85" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_migration_capture.html_2fb64770_8186_48bb_9f91_3e12876cacf1" Guid="e6aa03f0-d9fe-4262-8856-40f917353459" Win64="yes">
+                    <File Name="migration-capture.html" Id="_migration_capture.html_2fb64770_8186_48bb_9f91_3e12876cacf1" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\migration-capture.html"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_migration_capture.html_2fb64770_8186_48bb_9f91_3e12876cacf1" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_migration_capture.mjs_9b50ba26_aecf_407c_afc0_41fe429bd106" Guid="b8d74a97-c320-4ddd-aa15-fc322c77523b" Win64="yes">
+                    <File Name="migration-capture.mjs" Id="_migration_capture.mjs_9b50ba26_aecf_407c_afc0_41fe429bd106" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\migration-capture.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_migration_capture.mjs_9b50ba26_aecf_407c_afc0_41fe429bd106" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_migration_format.mjs_cc3817f7_744e_4fa1_b6c5_1b86abf19cfc" Guid="4174df49-0681-479c-b8b7-e86bac3388c5" Win64="yes">
+                    <File Name="migration-format.mjs" Id="_migration_format.mjs_cc3817f7_744e_4fa1_b6c5_1b86abf19cfc" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\migration-format.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_migration_format.mjs_cc3817f7_744e_4fa1_b6c5_1b86abf19cfc" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_npcdex_pokeball.svg_df689036_ee23_4812_b21b_2b759b5f82ef" Guid="28aeed9f-abac-48cc-a4ca-ea6bcdbcc1ac" Win64="yes">
+                    <File Name="npcdex-pokeball.svg" Id="_npcdex_pokeball.svg_df689036_ee23_4812_b21b_2b759b5f82ef" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\npcdex-pokeball.svg"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_npcdex_pokeball.svg_df689036_ee23_4812_b21b_2b759b5f82ef" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_save_coordinator.mjs_56b927ec_80fb_4a52_8b81_32fa1053707f" Guid="3d4335fe-1728-46fb-80e1-1aca71ea5a06" Win64="yes">
+                    <File Name="save-coordinator.mjs" Id="_save_coordinator.mjs_56b927ec_80fb_4a52_8b81_32fa1053707f" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\save-coordinator.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_save_coordinator.mjs_56b927ec_80fb_4a52_8b81_32fa1053707f" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_resources_app_public_seed.json_2f8d44b0_3b78_4a37_88a9_d6303a107c53" Guid="eebbdf08-b08a-40f7-aab1-0a27973f8fec" Win64="yes">
+                    <File Name="seed.json" Id="_resources_app_public_seed.json_2f8d44b0_3b78_4a37_88a9_d6303a107c53" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\seed.json"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_public_seed.json_2f8d44b0_3b78_4a37_88a9_d6303a107c53" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_selector_state.mjs_8dcfc43f_4ac1_4720_ae1a_b791b319a776" Guid="e431cc4b-e1b4-4f0d-af16-192c4d80a61c" Win64="yes">
+                    <File Name="selector-state.mjs" Id="_selector_state.mjs_8dcfc43f_4ac1_4720_ae1a_b791b319a776" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\selector-state.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_selector_state.mjs_8dcfc43f_4ac1_4720_ae1a_b791b319a776" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_selector_view.mjs_d62cc2f0_9023_4ae4_bf12_bf1875c35146" Guid="7aa8f95b-3420-42b9-a8d1-81dd7c223a49" Win64="yes">
+                    <File Name="selector-view.mjs" Id="_selector_view.mjs_d62cc2f0_9023_4ae4_bf12_bf1875c35146" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\selector-view.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_selector_view.mjs_d62cc2f0_9023_4ae4_bf12_bf1875c35146" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_resources_app_public_shell.css_03cdc9e8_7d14_4808_a6f3_9a78d5ec4f85" Guid="56796d08-52c2-45f3-8a40-936a3224a3fb" Win64="yes">
+                    <File Name="shell.css" Id="_resources_app_public_shell.css_03cdc9e8_7d14_4808_a6f3_9a78d5ec4f85" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\shell.css"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_public_shell.css_03cdc9e8_7d14_4808_a6f3_9a78d5ec4f85" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_resources_app_public_shell.mjs_53d4a778_e458_44b9_b6a7_70ade6accb88" Guid="991be713-9aba-41bf-a88f-7a50c841678e" Win64="yes">
+                    <File Name="shell.mjs" Id="_resources_app_public_shell.mjs_53d4a778_e458_44b9_b6a7_70ade6accb88" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\shell.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_public_shell.mjs_53d4a778_e458_44b9_b6a7_70ade6accb88" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_split_pane.mjs_4f2fdcfd_b480_43a9_b59d_071509a3469e" Guid="2173eee3-acdb-477e-96e1-299f5b4df5d9" Win64="yes">
+                    <File Name="split-pane.mjs" Id="_split_pane.mjs_4f2fdcfd_b480_43a9_b59d_071509a3469e" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\split-pane.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_split_pane.mjs_4f2fdcfd_b480_43a9_b59d_071509a3469e" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_standard_settings_icon.svg_2e132bf9_136b_4502_b1f1_f01c0e9b52f4" Guid="0603c52e-40d9-436f-b8cc-e929148ba389" Win64="yes">
+                    <File Name="standard-settings-icon.svg" Id="_standard_settings_icon.svg_2e132bf9_136b_4502_b1f1_f01c0e9b52f4" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\standard-settings-icon.svg"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_standard_settings_icon.svg_2e132bf9_136b_4502_b1f1_f01c0e9b52f4" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_resources_app_public_store.mjs_304cb751_ee76_4447_8acf_d0ccf54df1f6" Guid="36f8275d-c26f-4df5-84d8-9ff0a3036993" Win64="yes">
+                    <File Name="store.mjs" Id="_resources_app_public_store.mjs_304cb751_ee76_4447_8acf_d0ccf54df1f6" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\store.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_public_store.mjs_304cb751_ee76_4447_8acf_d0ccf54df1f6" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_resources_app_public_styles.css_80364d4c_3d8b_44a1_942e_dbb204075b3d" Guid="478a650b-07a7-407d-9120-811a2108ccd4" Win64="yes">
+                    <File Name="styles.css" Id="_resources_app_public_styles.css_80364d4c_3d8b_44a1_942e_dbb204075b3d" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\styles.css"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_public_styles.css_80364d4c_3d8b_44a1_942e_dbb204075b3d" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_sync_control.mjs_a131c478_ccf6_420b_9624_fadfae51c8cc" Guid="6af205c9-41f7-44fc-b556-148b1b598d5a" Win64="yes">
+                    <File Name="sync-control.mjs" Id="_sync_control.mjs_a131c478_ccf6_420b_9624_fadfae51c8cc" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\sync-control.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_sync_control.mjs_a131c478_ccf6_420b_9624_fadfae51c8cc" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_resources_app_public_tasks.html_627d0328_302a_45bc_8768_05be6d1612d0" Guid="bf287e38-4714-4c5b-accb-1f965677898d" Win64="yes">
+                    <File Name="tasks.html" Id="_resources_app_public_tasks.html_627d0328_302a_45bc_8768_05be6d1612d0" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\tasks.html"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_public_tasks.html_627d0328_302a_45bc_8768_05be6d1612d0" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_resources_app_public_updates.css_d5968e5b_47ba_442f_bb53_19a97bd78651" Guid="7319fe3e-67aa-4626-a476-c235ece15233" Win64="yes">
+                    <File Name="updates.css" Id="_resources_app_public_updates.css_d5968e5b_47ba_442f_bb53_19a97bd78651" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\updates.css"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_public_updates.css_d5968e5b_47ba_442f_bb53_19a97bd78651" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_resources_app_public_updates.html_ec23b97e_dbbe_42f9_b806_92a6651f044a" Guid="31910556-cffd-4a59-992e-bc01b5a8b6d1" Win64="yes">
+                    <File Name="updates.html" Id="_resources_app_public_updates.html_ec23b97e_dbbe_42f9_b806_92a6651f044a" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\updates.html"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_public_updates.html_ec23b97e_dbbe_42f9_b806_92a6651f044a" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_resources_app_public_updates.mjs_4a7bb277_233b_44a7_b125_daed747c6f45" Guid="69905f96-a14d-4746-8fc6-0225a02fa969" Win64="yes">
+                    <File Name="updates.mjs" Id="_resources_app_public_updates.mjs_4a7bb277_233b_44a7_b125_daed747c6f45" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\updates.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_public_updates.mjs_4a7bb277_233b_44a7_b125_daed747c6f45" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_work_selection.mjs_64f25e76_a7ec_4149_974b_b417b75a245c" Guid="ae678ce8-3a2b-4935-92ce-a20decf748e7" Win64="yes">
+                    <File Name="work-selection.mjs" Id="_work_selection.mjs_64f25e76_a7ec_4149_974b_b417b75a245c" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\work-selection.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_work_selection.mjs_64f25e76_a7ec_4149_974b_b417b75a245c" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_resources_app_public_work_view.mjs_20ff50bb_aea6_4e8e_8f9b_c6fb34557c5e" Guid="363dc639-bebb-4b5f-a628-ea179555f84c" Win64="yes">
+                    <File Name="work-view.mjs" Id="_resources_app_public_work_view.mjs_20ff50bb_aea6_4e8e_8f9b_c6fb34557c5e" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\work-view.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_public_work_view.mjs_20ff50bb_aea6_4e8e_8f9b_c6fb34557c5e" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_workspace_engine.mjs_d5b2d0bf_8229_4285_906b_064886e16b22" Guid="a6f3642d-a671-4629-a7c9-ba051c592aa8" Win64="yes">
+                    <File Name="workspace-engine.mjs" Id="_workspace_engine.mjs_d5b2d0bf_8229_4285_906b_064886e16b22" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\workspace-engine.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_workspace_engine.mjs_d5b2d0bf_8229_4285_906b_064886e16b22" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_workspace_host.mjs_9540ee82_e2b7_4ec1_be9b_296c056091ff" Guid="eaddf620-814b-4619-b08f-4c5b903abc95" Win64="yes">
+                    <File Name="workspace-host.mjs" Id="_workspace_host.mjs_9540ee82_e2b7_4ec1_be9b_296c056091ff" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\workspace-host.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_workspace_host.mjs_9540ee82_e2b7_4ec1_be9b_296c056091ff" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_workspace_keyboard.mjs_1ef4d15c_156a_4745_8703_39b08dee32ec" Guid="0cb25e48-c29c-46a1-815a-353e3b1f7e3c" Win64="yes">
+                    <File Name="workspace-keyboard.mjs" Id="_workspace_keyboard.mjs_1ef4d15c_156a_4745_8703_39b08dee32ec" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\workspace-keyboard.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_workspace_keyboard.mjs_1ef4d15c_156a_4745_8703_39b08dee32ec" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_workspace_runtime.mjs_9a3eca60_fb8e_4bce_a95b_97cc7bdfcf72" Guid="cab6bf2a-ce70-4bbc-bc1e-94e5cc7e5c34" Win64="yes">
+                    <File Name="workspace-runtime.mjs" Id="_workspace_runtime.mjs_9a3eca60_fb8e_4bce_a95b_97cc7bdfcf72" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\public\workspace-runtime.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_workspace_runtime.mjs_9a3eca60_fb8e_4bce_a95b_97cc7bdfcf72" Type="integer" Value="1" KeyPath="yes" /></Component>
+                </Directory>
+
+                <Directory Id="_resources_app_shared_ui_0185dd60_c312_4c26_91a5_8005584dc1e8" Name="shared-ui">
+                  <Component Id="_resources_app_shared_ui_README.md_f1a864b8_1051_4f18_8af5_d378d36aca41" Guid="a73012fc-b3a5-4028-9159-3c060aabaced" Win64="yes">
+                    <File Name="README.md" Id="_resources_app_shared_ui_README.md_f1a864b8_1051_4f18_8af5_d378d36aca41" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\shared-ui\README.md"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_shared_ui_README.md_f1a864b8_1051_4f18_8af5_d378d36aca41" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_resources_app_shared_ui_header.mjs_b375f27e_6f06_411c_9675_2fd834ca809b" Guid="658e3cd2-1207-4cb8-8c27-409097e1db66" Win64="yes">
+                    <File Name="header.mjs" Id="_resources_app_shared_ui_header.mjs_b375f27e_6f06_411c_9675_2fd834ca809b" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\shared-ui\header.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_shared_ui_header.mjs_b375f27e_6f06_411c_9675_2fd834ca809b" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_npcdex_pokeball.svg_d6fabe34_c210_4e35_8dc4_270a888be0ab" Guid="73de8355-ca91-4e07-aac5-25cb3760a1af" Win64="yes">
+                    <File Name="npcdex-pokeball.svg" Id="_npcdex_pokeball.svg_d6fabe34_c210_4e35_8dc4_270a888be0ab" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\shared-ui\npcdex-pokeball.svg"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_npcdex_pokeball.svg_d6fabe34_c210_4e35_8dc4_270a888be0ab" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_standard_settings_icon.svg_8915afa7_542b_41ff_a9d5_20590f935015" Guid="f151a9a6-ef94-4342-a2fa-12f864c27e62" Win64="yes">
+                    <File Name="standard-settings-icon.svg" Id="_standard_settings_icon.svg_8915afa7_542b_41ff_a9d5_20590f935015" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\shared-ui\standard-settings-icon.svg"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_standard_settings_icon.svg_8915afa7_542b_41ff_a9d5_20590f935015" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_resources_app_shared_ui_theme.css_10dad64d_2ea5_4a28_9936_f5f5f224f18c" Guid="c77c5a90-14fa-4e02-996f-08a2f6b6d2c9" Win64="yes">
+                    <File Name="theme.css" Id="_resources_app_shared_ui_theme.css_10dad64d_2ea5_4a28_9936_f5f5f224f18c" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\shared-ui\theme.css"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_shared_ui_theme.css_10dad64d_2ea5_4a28_9936_f5f5f224f18c" Type="integer" Value="1" KeyPath="yes" /></Component>
+                </Directory>
+                <Directory Id="_resources_app_tests_c29f2ff5_05af_41fb_952b_289ddafc0b00" Name="tests">
+                  <Component Id="_application_profile.test.mjs_b7ecd954_4d1b_4c84_9bb3_7501b83c7ad2" Guid="79b30626-4932-4bf5-9989-70c58ec26e5c" Win64="yes">
+                    <File Name="application-profile.test.mjs" Id="_application_profile.test.mjs_b7ecd954_4d1b_4c84_9bb3_7501b83c7ad2" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\application-profile.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_application_profile.test.mjs_b7ecd954_4d1b_4c84_9bb3_7501b83c7ad2" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_assigned_statuses.test.mjs_ef89627f_2fbf_49a2_a27c_24e5932962cf" Guid="595f8dc2-9134-4e36-bf1c-d1fce24e42b5" Win64="yes">
+                    <File Name="assigned-statuses.test.mjs" Id="_assigned_statuses.test.mjs_ef89627f_2fbf_49a2_a27c_24e5932962cf" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\assigned-statuses.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_assigned_statuses.test.mjs_ef89627f_2fbf_49a2_a27c_24e5932962cf" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_attachment_deletion.test.mjs_88924909_6834_483f_8fd8_04513554752c" Guid="72479df4-06cd-46fc-aa4a-035a67983671" Win64="yes">
+                    <File Name="attachment-deletion.test.mjs" Id="_attachment_deletion.test.mjs_88924909_6834_483f_8fd8_04513554752c" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\attachment-deletion.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_attachment_deletion.test.mjs_88924909_6834_483f_8fd8_04513554752c" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_attachments.test.mjs_de82a70c_4576_4283_a383_3ba696fd79ec" Guid="4c18471b-d2a2-41aa-b137-6cfb3e9b558d" Win64="yes">
+                    <File Name="attachments.test.mjs" Id="_attachments.test.mjs_de82a70c_4576_4283_a383_3ba696fd79ec" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\attachments.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_attachments.test.mjs_de82a70c_4576_4283_a383_3ba696fd79ec" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_bulk_hierarchy.test.mjs_34a94b17_44cd_41b6_b1b6_66aae34221a9" Guid="b771122f-fd0a-4752-b60e-63ec4f2528c9" Win64="yes">
+                    <File Name="bulk-hierarchy.test.mjs" Id="_bulk_hierarchy.test.mjs_34a94b17_44cd_41b6_b1b6_66aae34221a9" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\bulk-hierarchy.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_bulk_hierarchy.test.mjs_34a94b17_44cd_41b6_b1b6_66aae34221a9" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_complexity_setup.test.mjs_5d69b0a1_0ddc_4481_a3ae_5b81d2814c52" Guid="1da1f5ef-afc4-474c-b524-c53bd1bc89e0" Win64="yes">
+                    <File Name="complexity-setup.test.mjs" Id="_complexity_setup.test.mjs_5d69b0a1_0ddc_4481_a3ae_5b81d2814c52" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\complexity-setup.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_complexity_setup.test.mjs_5d69b0a1_0ddc_4481_a3ae_5b81d2814c52" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_resources_app_tests_core.test.mjs_9f9f831b_ad94_4463_af98_ab10349e8ebf" Guid="aed8d04c-c431-4c32-a6a1-3baf79169062" Win64="yes">
+                    <File Name="core.test.mjs" Id="_resources_app_tests_core.test.mjs_9f9f831b_ad94_4463_af98_ab10349e8ebf" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\core.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_tests_core.test.mjs_9f9f831b_ad94_4463_af98_ab10349e8ebf" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_desktop_lifecycle.test.mjs_78f32089_7165_46e4_aa66_8c43b3bfde28" Guid="8f95cef5-16c0-4430-9a94-3cd211d9bb4e" Win64="yes">
+                    <File Name="desktop-lifecycle.test.mjs" Id="_desktop_lifecycle.test.mjs_78f32089_7165_46e4_aa66_8c43b3bfde28" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\desktop-lifecycle.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_desktop_lifecycle.test.mjs_78f32089_7165_46e4_aa66_8c43b3bfde28" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_desktop_migration.test.mjs_7dd28c98_e106_4c7f_b5c1_877bff4580cf" Guid="b21e6c35-0bef-488b-a311-7ab621986ca5" Win64="yes">
+                    <File Name="desktop-migration.test.mjs" Id="_desktop_migration.test.mjs_7dd28c98_e106_4c7f_b5c1_877bff4580cf" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\desktop-migration.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_desktop_migration.test.mjs_7dd28c98_e106_4c7f_b5c1_877bff4580cf" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_desktop_policy.test.mjs_2f1182c1_833a_4147_a675_8a6da5daee92" Guid="f00e6cc5-2eb7-4df0-a0f9-29ebebc7295a" Win64="yes">
+                    <File Name="desktop-policy.test.mjs" Id="_desktop_policy.test.mjs_2f1182c1_833a_4147_a675_8a6da5daee92" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\desktop-policy.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_desktop_policy.test.mjs_2f1182c1_833a_4147_a675_8a6da5daee92" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_detail_navigation.test.mjs_d02e2697_f2b9_4f52_93cd_36074176e83d" Guid="c71df694-efa4-4701-b9c0-4c52744b06f2" Win64="yes">
+                    <File Name="detail-navigation.test.mjs" Id="_detail_navigation.test.mjs_d02e2697_f2b9_4f52_93cd_36074176e83d" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\detail-navigation.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_detail_navigation.test.mjs_d02e2697_f2b9_4f52_93cd_36074176e83d" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_development_state.test.mjs_fc2f8a7c_220b_49e8_a21e_5928bf8dcb13" Guid="925dd65b-7ff8-4ecd-8f57-d75bd65c11dd" Win64="yes">
+                    <File Name="development-state.test.mjs" Id="_development_state.test.mjs_fc2f8a7c_220b_49e8_a21e_5928bf8dcb13" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\development-state.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_development_state.test.mjs_fc2f8a7c_220b_49e8_a21e_5928bf8dcb13" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_drop_target.test.mjs_a29ed5d4_de46_48b5_bcf5_4d0294c1f818" Guid="e6b9ee09-d430-4e0c-9d30-cc18bff63825" Win64="yes">
+                    <File Name="drop-target.test.mjs" Id="_drop_target.test.mjs_a29ed5d4_de46_48b5_bcf5_4d0294c1f818" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\drop-target.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_drop_target.test.mjs_a29ed5d4_de46_48b5_bcf5_4d0294c1f818" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_editor_view.test.mjs_6d9f9b43_11f2_4d45_b2cc_36fc5c96dadf" Guid="e1ef9685-24bc-478f-a0f2-3a2471cc30dc" Win64="yes">
+                    <File Name="editor-view.test.mjs" Id="_editor_view.test.mjs_6d9f9b43_11f2_4d45_b2cc_36fc5c96dadf" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\editor-view.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_editor_view.test.mjs_6d9f9b43_11f2_4d45_b2cc_36fc5c96dadf" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_field_tags.test.mjs_6f33ba15_2462_4dcf_a206_1287bcc94bdf" Guid="b41876fc-6393-4272-a3e2-f25b335bf14a" Win64="yes">
+                    <File Name="field-tags.test.mjs" Id="_field_tags.test.mjs_6f33ba15_2462_4dcf_a206_1287bcc94bdf" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\field-tags.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_field_tags.test.mjs_6f33ba15_2462_4dcf_a206_1287bcc94bdf" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_file_drop.test.mjs_d034bdcf_2830_4f7e_8db3_6717bed5dfbc" Guid="ed658752-a2f7-4865-a925-9252a7fe2ba8" Win64="yes">
+                    <File Name="file-drop.test.mjs" Id="_file_drop.test.mjs_d034bdcf_2830_4f7e_8db3_6717bed5dfbc" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\file-drop.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_file_drop.test.mjs_d034bdcf_2830_4f7e_8db3_6717bed5dfbc" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_integration.test.mjs_1c70ab77_e6db_4f17_813b_e741c642501c" Guid="b4c63d5e-89ed-4d23-b477-df008bcc8a81" Win64="yes">
+                    <File Name="integration.test.mjs" Id="_integration.test.mjs_1c70ab77_e6db_4f17_813b_e741c642501c" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\integration.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_integration.test.mjs_1c70ab77_e6db_4f17_813b_e741c642501c" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_item_editor.test.mjs_7f1c70c7_67f6_46d8_840a_0f00618df52e" Guid="6e4a8941-256b-4c77-8a55-92dbfe6dcd56" Win64="yes">
+                    <File Name="item-editor.test.mjs" Id="_item_editor.test.mjs_7f1c70c7_67f6_46d8_840a_0f00618df52e" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\item-editor.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_item_editor.test.mjs_7f1c70c7_67f6_46d8_840a_0f00618df52e" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_release_update.test.mjs_d092e95e_1cc0_4273_8ea3_6ddff2a813b8" Guid="df5c8785-1655-47af-b760-af895d92b3cb" Win64="yes">
+                    <File Name="release-update.test.mjs" Id="_release_update.test.mjs_d092e95e_1cc0_4273_8ea3_6ddff2a813b8" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\release-update.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_release_update.test.mjs_d092e95e_1cc0_4273_8ea3_6ddff2a813b8" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_runtime_profile.test.mjs_2e5f04eb_510a_4b88_ae54_797cb5b61714" Guid="c406f942-9501-408b-8d2b-9e3995d1baf7" Win64="yes">
+                    <File Name="runtime-profile.test.mjs" Id="_runtime_profile.test.mjs_2e5f04eb_510a_4b88_ae54_797cb5b61714" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\runtime-profile.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_runtime_profile.test.mjs_2e5f04eb_510a_4b88_ae54_797cb5b61714" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_save_coordinator.test.mjs_22cd3e0f_ae50_496e_8ada_f4eb9d2e2449" Guid="b2d8e1f8-4b7e-4602-a609-40c51cecb863" Win64="yes">
+                    <File Name="save-coordinator.test.mjs" Id="_save_coordinator.test.mjs_22cd3e0f_ae50_496e_8ada_f4eb9d2e2449" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\save-coordinator.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_save_coordinator.test.mjs_22cd3e0f_ae50_496e_8ada_f4eb9d2e2449" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_save_indicator.test.mjs_942672ab_802d_4801_91b6_90ff9922431a" Guid="9be39064-50d6-4d2d-a019-99a6a91ede5d" Win64="yes">
+                    <File Name="save-indicator.test.mjs" Id="_save_indicator.test.mjs_942672ab_802d_4801_91b6_90ff9922431a" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\save-indicator.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_save_indicator.test.mjs_942672ab_802d_4801_91b6_90ff9922431a" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_selector_state.test.mjs_720297ba_f005_4711_a7c4_04288ffceec3" Guid="6a4e12ef-9536-495d-b066-a4c10bda3af8" Win64="yes">
+                    <File Name="selector-state.test.mjs" Id="_selector_state.test.mjs_720297ba_f005_4711_a7c4_04288ffceec3" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\selector-state.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_selector_state.test.mjs_720297ba_f005_4711_a7c4_04288ffceec3" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_session_migration.test.mjs_3b9b87d6_4647_4d5f_94fd_308532abb0c1" Guid="1cc0ce17-38ae-4a74-8c00-795e3a950371" Win64="yes">
+                    <File Name="session-migration.test.mjs" Id="_session_migration.test.mjs_3b9b87d6_4647_4d5f_94fd_308532abb0c1" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\session-migration.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_session_migration.test.mjs_3b9b87d6_4647_4d5f_94fd_308532abb0c1" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_split_pane.test.mjs_58695d5c_8f31_4ad8_ac5d_5f3abc650780" Guid="36d54909-cd98-4611-b92e-4dea73e0b858" Win64="yes">
+                    <File Name="split-pane.test.mjs" Id="_split_pane.test.mjs_58695d5c_8f31_4ad8_ac5d_5f3abc650780" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\split-pane.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_split_pane.test.mjs_58695d5c_8f31_4ad8_ac5d_5f3abc650780" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_sync_control.test.mjs_88fc2967_4b31_48fa_a4ec_e6a091b8383e" Guid="6b655ffb-f4d5-4aca-a85d-e0cd4a12c7c8" Win64="yes">
+                    <File Name="sync-control.test.mjs" Id="_sync_control.test.mjs_88fc2967_4b31_48fa_a4ec_e6a091b8383e" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\sync-control.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_sync_control.test.mjs_88fc2967_4b31_48fa_a4ec_e6a091b8383e" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_sync_startup.test.mjs_f0fa3591_468d_451d_994c_17b5eff4bf67" Guid="ed761707-e0de-437e-82ab-4425e909f0b9" Win64="yes">
+                    <File Name="sync-startup.test.mjs" Id="_sync_startup.test.mjs_f0fa3591_468d_451d_994c_17b5eff4bf67" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\sync-startup.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_sync_startup.test.mjs_f0fa3591_468d_451d_994c_17b5eff4bf67" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_work_selection.test.mjs_0823c592_ddf4_4e0e_8d05_2731152fc37c" Guid="0635db77-f6f7-440a-9188-84812cb16772" Win64="yes">
+                    <File Name="work-selection.test.mjs" Id="_work_selection.test.mjs_0823c592_ddf4_4e0e_8d05_2731152fc37c" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\work-selection.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_work_selection.test.mjs_0823c592_ddf4_4e0e_8d05_2731152fc37c" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_work_view.test.mjs_5b07e25a_4745_4a0e_a98d_e5dc0a545c1d" Guid="2e78bccc-2857-4abc-b9fd-4c6b5758d9ca" Win64="yes">
+                    <File Name="work-view.test.mjs" Id="_work_view.test.mjs_5b07e25a_4745_4a0e_a98d_e5dc0a545c1d" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\work-view.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_work_view.test.mjs_5b07e25a_4745_4a0e_a98d_e5dc0a545c1d" Type="integer" Value="1" KeyPath="yes" /></Component>
+                  <Component Id="_workspace_keyboard.test.mjs_72e48b18_c69a_441d_8224_832bee1df2dc" Guid="954c4876-0cc7-4b2e-a7a3-a46aeb988327" Win64="yes">
+                    <File Name="workspace-keyboard.test.mjs" Id="_workspace_keyboard.test.mjs_72e48b18_c69a_441d_8224_832bee1df2dc" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\tests\workspace-keyboard.test.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                  <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_workspace_keyboard.test.mjs_72e48b18_c69a_441d_8224_832bee1df2dc" Type="integer" Value="1" KeyPath="yes" /></Component>
+                </Directory>                <Component Id="_resources_app_.gitignore_3bed86ba_4496_421a_88eb_40d4842af09f" Guid="fe2bf6f1-a785-4c89-8318-0885e35ec31d" Win64="yes">
+                  <File Name=".gitignore" Id="_resources_app_.gitignore_3bed86ba_4496_421a_88eb_40d4842af09f" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\.gitignore"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_.gitignore_3bed86ba_4496_421a_88eb_40d4842af09f" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_resources_app_CHANGELOG.md_a264f769_d6c2_42df_8ef9_40befbc2cc6b" Guid="3b22f9d4-d2ff-4a30-b2cf-1a76df8693f5" Win64="yes">
+                  <File Name="CHANGELOG.md" Id="_resources_app_CHANGELOG.md_a264f769_d6c2_42df_8ef9_40befbc2cc6b" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\CHANGELOG.md"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_CHANGELOG.md_a264f769_d6c2_42df_8ef9_40befbc2cc6b" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_resources_app_Launch_ROMDex.ps1_eda0dfd1_2183_436d_8929_f0c135f94a52" Guid="5697bab8-d2f8-4487-a27d-883c7eba83fd" Win64="yes">
+                  <File Name="Launch-ROMDex.ps1" Id="_resources_app_Launch_ROMDex.ps1_eda0dfd1_2183_436d_8929_f0c135f94a52" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\Launch-ROMDex.ps1"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_Launch_ROMDex.ps1_eda0dfd1_2183_436d_8929_f0c135f94a52" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_resources_app_QA_Report.md_9f07b3b4_23f2_48ee_9e56_3d3e7aee3cda" Guid="fa053ed6-3854-49c6-acfb-f1ae863cac2d" Win64="yes">
+                  <File Name="QA-Report.md" Id="_resources_app_QA_Report.md_9f07b3b4_23f2_48ee_9e56_3d3e7aee3cda" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\QA-Report.md"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_QA_Report.md_9f07b3b4_23f2_48ee_9e56_3d3e7aee3cda" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_resources_app_README.md_5eeb25ab_ec63_49ab_85c1_ca4109cd0832" Guid="1cc394a3-51bd-4c0e-a04a-890c8f46c4fd" Win64="yes">
+                  <File Name="README.md" Id="_resources_app_README.md_5eeb25ab_ec63_49ab_85c1_ca4109cd0832" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\README.md"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_README.md_5eeb25ab_ec63_49ab_85c1_ca4109cd0832" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_resources_app_Start_ROMDex.cmd_1fd95aff_25e2_4648_8d0a_d09099473cff" Guid="f80bea64-2f2c-4ccd-ab48-90d0f77db0de" Win64="yes">
+                  <File Name="Start-ROMDex.cmd" Id="_resources_app_Start_ROMDex.cmd_1fd95aff_25e2_4648_8d0a_d09099473cff" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\Start-ROMDex.cmd"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_Start_ROMDex.cmd_1fd95aff_25e2_4648_8d0a_d09099473cff" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_resources_app_Stop_ROMDex.cmd_2172147f_df65_4e5c_ae0a_b9dc4590ae8f" Guid="4a48ae28-1967-4231-a5f6-ef3315659b2e" Win64="yes">
+                  <File Name="Stop-ROMDex.cmd" Id="_resources_app_Stop_ROMDex.cmd_2172147f_df65_4e5c_ae0a_b9dc4590ae8f" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\Stop-ROMDex.cmd"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_Stop_ROMDex.cmd_2172147f_df65_4e5c_ae0a_b9dc4590ae8f" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_U08_Workspace_Guide.md_8bc9367b_7d1b_4551_ab50_034d45f362b7" Guid="f23dff25-834d-42f6-870b-ce5794055001" Win64="yes">
+                  <File Name="U08-Workspace-Guide.md" Id="_U08_Workspace_Guide.md_8bc9367b_7d1b_4551_ab50_034d45f362b7" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\U08-Workspace-Guide.md"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_U08_Workspace_Guide.md_8bc9367b_7d1b_4551_ab50_034d45f362b7" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_U09_Save_and_Recovery_Guide.md_6875a105_a8e4_4e9f_b4d4_b9c6638eb4a1" Guid="1b5edcc2-1336-46fe-95cc-7b71eef64436" Win64="yes">
+                  <File Name="U09-Save-and-Recovery-Guide.md" Id="_U09_Save_and_Recovery_Guide.md_6875a105_a8e4_4e9f_b4d4_b9c6638eb4a1" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\U09-Save-and-Recovery-Guide.md"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_U09_Save_and_Recovery_Guide.md_6875a105_a8e4_4e9f_b4d4_b9c6638eb4a1" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_U10_Desktop_Preview_Guide.md_79de6810_0ccf_4af6_9e1a_07b1eed2d13d" Guid="53fb024a-08c1-4cc5-b5e7-706922e08e0e" Win64="yes">
+                  <File Name="U10-Desktop-Preview-Guide.md" Id="_U10_Desktop_Preview_Guide.md_79de6810_0ccf_4af6_9e1a_07b1eed2d13d" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\U10-Desktop-Preview-Guide.md"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_U10_Desktop_Preview_Guide.md_79de6810_0ccf_4af6_9e1a_07b1eed2d13d" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_U10F_File_Drop_Guide.md_8d928769_2d9c_4d6d_a3f3_7e5a173bd1c5" Guid="2a012376-52e7-4c7f-b0d7-5d63e65c7c42" Win64="yes">
+                  <File Name="U10F-File-Drop-Guide.md" Id="_U10F_File_Drop_Guide.md_8d928769_2d9c_4d6d_a3f3_7e5a173bd1c5" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\U10F-File-Drop-Guide.md"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_U10F_File_Drop_Guide.md_8d928769_2d9c_4d6d_a3f3_7e5a173bd1c5" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_resources_app_U11_Desktop_Guide.md_bd1999c4_853f_46bf_b386_2fe1d6f340ec" Guid="cde340fa-b6d0-48c2-8130-daf6135faf24" Win64="yes">
+                  <File Name="U11-Desktop-Guide.md" Id="_resources_app_U11_Desktop_Guide.md_bd1999c4_853f_46bf_b386_2fe1d6f340ec" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\U11-Desktop-Guide.md"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_U11_Desktop_Guide.md_bd1999c4_853f_46bf_b386_2fe1d6f340ec" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_U13A_Desktop_Guide.md_01a0a32e_e980_487b_a18e_ab789e99b874" Guid="72f111c8-924a-4db9-8201-2306c68c1c70" Win64="yes">
+                  <File Name="U13A-Desktop-Guide.md" Id="_U13A_Desktop_Guide.md_01a0a32e_e980_487b_a18e_ab789e99b874" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\U13A-Desktop-Guide.md"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_U13A_Desktop_Guide.md_01a0a32e_e980_487b_a18e_ab789e99b874" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_resources_app_U13B_Update_Guide.md_b75a2e31_329b_43ad_8880_97d9164b0541" Guid="1db34ec5-18f9-4a86-a136-04fbb7defba8" Win64="yes">
+                  <File Name="U13B-Update-Guide.md" Id="_resources_app_U13B_Update_Guide.md_b75a2e31_329b_43ad_8880_97d9164b0541" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\U13B-Update-Guide.md"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_U13B_Update_Guide.md_b75a2e31_329b_43ad_8880_97d9164b0541" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_UPGRADE_AND_RECOVERY.md_d62e3041_178d_4842_b3d4_a976ff0bb59a" Guid="033cc591-94e4-46c6-be95-8ac065d3ed46" Win64="yes">
+                  <File Name="UPGRADE-AND-RECOVERY.md" Id="_UPGRADE_AND_RECOVERY.md_d62e3041_178d_4842_b3d4_a976ff0bb59a" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\UPGRADE-AND-RECOVERY.md"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_UPGRADE_AND_RECOVERY.md_d62e3041_178d_4842_b3d4_a976ff0bb59a" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_assigned_statuses.mjs_1a100713_677b_4b91_ad0b_b818645c8ee1" Guid="0657673f-eeb7-467e-8b95-078fb59370fe" Win64="yes">
+                  <File Name="assigned-statuses.mjs" Id="_assigned_statuses.mjs_1a100713_677b_4b91_ad0b_b818645c8ee1" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\assigned-statuses.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_assigned_statuses.mjs_1a100713_677b_4b91_ad0b_b818645c8ee1" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_attachment_service.mjs_569ecb49_fc89_42c7_8dfd_7955f086379d" Guid="22bf33bb-7a5d-40fa-9e26-5fdf350313d0" Win64="yes">
+                  <File Name="attachment-service.mjs" Id="_attachment_service.mjs_569ecb49_fc89_42c7_8dfd_7955f086379d" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\attachment-service.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_attachment_service.mjs_569ecb49_fc89_42c7_8dfd_7955f086379d" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_attachment_storage.mjs_01d42459_c48c_405b_9b2f_7eaf06914470" Guid="293837e8-2ac5-4330-b689-2dc4de87f7bf" Win64="yes">
+                  <File Name="attachment-storage.mjs" Id="_attachment_storage.mjs_01d42459_c48c_405b_9b2f_7eaf06914470" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\attachment-storage.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_attachment_storage.mjs_01d42459_c48c_405b_9b2f_7eaf06914470" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_resources_app_complexity_field.mjs_64565371_22f7_4b20_bcfd_c0e7823f0af6" Guid="47f5c86c-dc57-4a14-bcec-d1f26b2c086d" Win64="yes">
+                  <File Name="complexity-field.mjs" Id="_resources_app_complexity_field.mjs_64565371_22f7_4b20_bcfd_c0e7823f0af6" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\complexity-field.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_complexity_field.mjs_64565371_22f7_4b20_bcfd_c0e7823f0af6" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_credential_protection.mjs_5596020d_d797_4209_92b0_e05ac3b2745a" Guid="3b9deb2c-e57b-446a-8a58-bd58d311eb37" Win64="yes">
+                  <File Name="credential-protection.mjs" Id="_credential_protection.mjs_5596020d_d797_4209_92b0_e05ac3b2745a" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\credential-protection.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_credential_protection.mjs_5596020d_d797_4209_92b0_e05ac3b2745a" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_durable_json_storage.mjs_94fe5c24_e945_4911_a5fb_20eabcb9f9a1" Guid="d6f4b26e-00a2-4bea-bfd8-b7cd3a879ee7" Win64="yes">
+                  <File Name="durable-json-storage.mjs" Id="_durable_json_storage.mjs_94fe5c24_e945_4911_a5fb_20eabcb9f9a1" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\durable-json-storage.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_durable_json_storage.mjs_94fe5c24_e945_4911_a5fb_20eabcb9f9a1" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_resources_app_package.json_dde9980a_f6e8_4955_bb45_0f51d37edee8" Guid="f100aafc-8fcd-4eb2-bfa7-0b565a685bbc" Win64="yes">
+                  <File Name="package.json" Id="_resources_app_package.json_dde9980a_f6e8_4955_bb45_0f51d37edee8" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\package.json"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_package.json_dde9980a_f6e8_4955_bb45_0f51d37edee8" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_resources_app_preview.png_b42c6d90_7fff_4872_9751_46cce06ce64c" Guid="5fa24fd2-0fa0-4583-a32e-7d028fa178eb" Win64="yes">
+                  <File Name="preview.png" Id="_resources_app_preview.png_b42c6d90_7fff_4872_9751_46cce06ce64c" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\preview.png"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_preview.png_b42c6d90_7fff_4872_9751_46cce06ce64c" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_resources_app_runtime_profile.mjs_4304e4e7_a161_43b0_9fb9_6ba78b363ca1" Guid="2954d188-6398-4c21-8806-0f67f485b765" Win64="yes">
+                  <File Name="runtime-profile.mjs" Id="_resources_app_runtime_profile.mjs_4304e4e7_a161_43b0_9fb9_6ba78b363ca1" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\runtime-profile.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_runtime_profile.mjs_4304e4e7_a161_43b0_9fb9_6ba78b363ca1" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_resources_app_server.mjs_ec5633b6_c39a_4089_8cc5_a61f11942747" Guid="6826d4b1-44e4-44cc-a1f8-ce44efcadd5c" Win64="yes">
+                  <File Name="server.mjs" Id="_resources_app_server.mjs_ec5633b6_c39a_4089_8cc5_a61f11942747" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\server.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_server.mjs_ec5633b6_c39a_4089_8cc5_a61f11942747" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_resources_app_sync_settings.mjs_fc611bbd_9845_4e4a_94a5_e4e27dc8d4c0" Guid="3e3ca9d5-9aaa-4a33-9cfb-64592f139e9d" Win64="yes">
+                  <File Name="sync-settings.mjs" Id="_resources_app_sync_settings.mjs_fc611bbd_9845_4e4a_94a5_e4e27dc8d4c0" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\sync-settings.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_sync_settings.mjs_fc611bbd_9845_4e4a_94a5_e4e27dc8d4c0" Type="integer" Value="1" KeyPath="yes" /></Component>
+                <Component Id="_resources_app_youtrack.mjs_c113d027_a609_40f4_bcf2_f1776e6a316d" Guid="43f9d62d-aaf8-4128-bdaa-6f8e262c2d49" Win64="yes">
+                  <File Name="youtrack.mjs" Id="_resources_app_youtrack.mjs_c113d027_a609_40f4_bcf2_f1776e6a316d" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\app\youtrack.mjs"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+                <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_app_youtrack.mjs_c113d027_a609_40f4_bcf2_f1776e6a316d" Type="integer" Value="1" KeyPath="yes" /></Component>
+              </Directory>
+              <Component Id="_resources_default_app.asar_994ce79b_0ad6_4bc7_981c_b79946bb65a9" Guid="57a6dfdf-875a-4669-8c75-82606384816e" Win64="yes">
+                <File Name="default_app.asar" Id="_resources_default_app.asar_994ce79b_0ad6_4bc7_981c_b79946bb65a9" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources\default_app.asar"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+              <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources_default_app.asar_994ce79b_0ad6_4bc7_981c_b79946bb65a9" Type="integer" Value="1" KeyPath="yes" /></Component>
+            </Directory>
+            <Component Id="_LICENSE_b22a89b3_522b_4203_8de4_939f7243a7fc" Guid="948f51c4-e6e9-408a-a0a5-2c61639f485b" Win64="yes">
+              <File Name="LICENSE" Id="_LICENSE_b22a89b3_522b_4203_8de4_939f7243a7fc" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\LICENSE"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+            <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_LICENSE_b22a89b3_522b_4203_8de4_939f7243a7fc" Type="integer" Value="1" KeyPath="yes" /></Component>
+            <Component Id="_LICENSES.chromium.html_f74bc437_34f1_400a_9b82_d8bf8d1e2f4c" Guid="c6841f93-39e2-43f6-8f6e-bed3d0ee49fc" Win64="yes">
+              <File Name="LICENSES.chromium.html" Id="_LICENSES.chromium.html_f74bc437_34f1_400a_9b82_d8bf8d1e2f4c" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\LICENSES.chromium.html"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+            <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_LICENSES.chromium.html_f74bc437_34f1_400a_9b82_d8bf8d1e2f4c" Type="integer" Value="1" KeyPath="yes" /></Component>
+            <Component Id="_READ_ME_FIRST.md_04668ca1_1c77_4dfc_84eb_82c92a226936" Guid="1eb68201-ecc4-4040-b100-38a705903fdf" Win64="yes">
+              <File Name="READ-ME-FIRST.md" Id="_READ_ME_FIRST.md_04668ca1_1c77_4dfc_84eb_82c92a226936" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\READ-ME-FIRST.md"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+            <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_READ_ME_FIRST.md_04668ca1_1c77_4dfc_84eb_82c92a226936" Type="integer" Value="1" KeyPath="yes" /></Component>
+            <Component Id="_ROMDex.exe_39406ab6_d503_4de8_a0b7_85e2b1e78adf" Guid="361efdae-7e70-43fe-9493-51c3b2687113" Win64="yes">
+              <File Name="ROMDex.exe" Id="_ROMDex.exe_39406ab6_d503_4de8_a0b7_85e2b1e78adf" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\ROMDex.exe"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+            <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_ROMDex.exe_39406ab6_d503_4de8_a0b7_85e2b1e78adf" Type="integer" Value="1" KeyPath="yes" /></Component>
+            <Component Id="_chrome_100_percent.pak_42f68635_cf23_4ec4_8ff1_6e3a7d09c9df" Guid="db4f24ff-c735-45b2-8485-243493f09eeb" Win64="yes">
+              <File Name="chrome_100_percent.pak" Id="_chrome_100_percent.pak_42f68635_cf23_4ec4_8ff1_6e3a7d09c9df" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\chrome_100_percent.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+            <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_chrome_100_percent.pak_42f68635_cf23_4ec4_8ff1_6e3a7d09c9df" Type="integer" Value="1" KeyPath="yes" /></Component>
+            <Component Id="_chrome_200_percent.pak_2e8c2424_059c_4c15_ad3f_d4144cb01118" Guid="7ce22a71-84ce-4421-a365-186b9e9ceb36" Win64="yes">
+              <File Name="chrome_200_percent.pak" Id="_chrome_200_percent.pak_2e8c2424_059c_4c15_ad3f_d4144cb01118" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\chrome_200_percent.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+            <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_chrome_200_percent.pak_2e8c2424_059c_4c15_ad3f_d4144cb01118" Type="integer" Value="1" KeyPath="yes" /></Component>
+            <Component Id="_d3dcompiler_47.dll_38b66c79_7ef0_487c_adf7_fc3d59598424" Guid="b5cc1497-74f7-48ee-97ab-49596163c835" Win64="yes">
+              <File Name="d3dcompiler_47.dll" Id="_d3dcompiler_47.dll_38b66c79_7ef0_487c_adf7_fc3d59598424" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\d3dcompiler_47.dll"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+            <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_d3dcompiler_47.dll_38b66c79_7ef0_487c_adf7_fc3d59598424" Type="integer" Value="1" KeyPath="yes" /></Component>
+            <Component Id="_dxcompiler.dll_179dfc25_c3f7_4e3a_8ec5_f8e7d39014de" Guid="8f1c154a-7ea1-4ae7-8d1b-c944a2b13021" Win64="yes">
+              <File Name="dxcompiler.dll" Id="_dxcompiler.dll_179dfc25_c3f7_4e3a_8ec5_f8e7d39014de" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\dxcompiler.dll"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+            <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_dxcompiler.dll_179dfc25_c3f7_4e3a_8ec5_f8e7d39014de" Type="integer" Value="1" KeyPath="yes" /></Component>
+            <Component Id="_dxil.dll_58fd4460_93e1_4d6f_ac43_e96a833f5312" Guid="fca28dfa-931a-4a5d-b12e-2971893c3289" Win64="yes">
+              <File Name="dxil.dll" Id="_dxil.dll_58fd4460_93e1_4d6f_ac43_e96a833f5312" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\dxil.dll"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+            <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_dxil.dll_58fd4460_93e1_4d6f_ac43_e96a833f5312" Type="integer" Value="1" KeyPath="yes" /></Component>
+            <Component Id="_ffmpeg.dll_4d70dfd1_0e52_4a76_8e2e_85f58aba97c1" Guid="478881e8-8140-42cd-807f-5681c8182016" Win64="yes">
+              <File Name="ffmpeg.dll" Id="_ffmpeg.dll_4d70dfd1_0e52_4a76_8e2e_85f58aba97c1" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\ffmpeg.dll"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+            <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_ffmpeg.dll_4d70dfd1_0e52_4a76_8e2e_85f58aba97c1" Type="integer" Value="1" KeyPath="yes" /></Component>
+            <Component Id="_icudtl.dat_1974d723_d112_40eb_bdad_e469c0eec0ac" Guid="97b59ce6-5b21-4188-8f7f-67ca8538635f" Win64="yes">
+              <File Name="icudtl.dat" Id="_icudtl.dat_1974d723_d112_40eb_bdad_e469c0eec0ac" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\icudtl.dat"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+            <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_icudtl.dat_1974d723_d112_40eb_bdad_e469c0eec0ac" Type="integer" Value="1" KeyPath="yes" /></Component>
+            <Component Id="_resources.pak_99cc64a9_9f85_46b7_bdb0_36c7f1703e9b" Guid="8af2b26a-8c25-4844-973c-aa49aaa7d914" Win64="yes">
+              <File Name="resources.pak" Id="_resources.pak_99cc64a9_9f85_46b7_bdb0_36c7f1703e9b" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\resources.pak"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+            <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_resources.pak_99cc64a9_9f85_46b7_bdb0_36c7f1703e9b" Type="integer" Value="1" KeyPath="yes" /></Component>
+            <Component Id="_snapshot_blob.bin_65d5eabc_2398_4ec2_928a_7921d66687de" Guid="3c3af871-8288-4e70-95e1-3011544c0697" Win64="yes">
+              <File Name="snapshot_blob.bin" Id="_snapshot_blob.bin_65d5eabc_2398_4ec2_928a_7921d66687de" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\snapshot_blob.bin"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+            <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_snapshot_blob.bin_65d5eabc_2398_4ec2_928a_7921d66687de" Type="integer" Value="1" KeyPath="yes" /></Component>
+            <Component Id="_v8_context_snapshot.bin_b41e5427_cc93_475b_be4b_261f6e082785" Guid="54d52953-b872-44b9-a97d-a11626255698" Win64="yes">
+              <File Name="v8_context_snapshot.bin" Id="_v8_context_snapshot.bin_b41e5427_cc93_475b_be4b_261f6e082785" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\v8_context_snapshot.bin"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+            <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_v8_context_snapshot.bin_b41e5427_cc93_475b_be4b_261f6e082785" Type="integer" Value="1" KeyPath="yes" /></Component>
+            <Component Id="_version_9fab0ed8_72b8_47e4_a1d5_bd7de247eb4f" Guid="0286e877-41ed-4de3-b9c0-9728492959fa" Win64="yes">
+              <File Name="version" Id="_version_9fab0ed8_72b8_47e4_a1d5_bd7de247eb4f" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\version"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+            <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_version_9fab0ed8_72b8_47e4_a1d5_bd7de247eb4f" Type="integer" Value="1" KeyPath="yes" /></Component>
+            <Component Id="_vk_swiftshader.dll_63a33eb3_1b3e_4908_a593_77abd66cd083" Guid="d7798da7-9f5d-4bd2-9fda-63458bec6952" Win64="yes">
+              <File Name="vk_swiftshader.dll" Id="_vk_swiftshader.dll_63a33eb3_1b3e_4908_a593_77abd66cd083" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\vk_swiftshader.dll"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+            <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_vk_swiftshader.dll_63a33eb3_1b3e_4908_a593_77abd66cd083" Type="integer" Value="1" KeyPath="yes" /></Component>
+            <Component Id="_vk_swiftshader_icd.json_ecc31199_54cb_4372_805d_9f88b462a320" Guid="719393d9-5699-47ef-857e-397262bfac63" Win64="yes">
+              <File Name="vk_swiftshader_icd.json" Id="_vk_swiftshader_icd.json_ecc31199_54cb_4372_805d_9f88b462a320" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\vk_swiftshader_icd.json"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+            <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_vk_swiftshader_icd.json_ecc31199_54cb_4372_805d_9f88b462a320" Type="integer" Value="1" KeyPath="yes" /></Component>
+            <Component Id="_vulkan_1.dll_f19ff711_6267_463b_9942_a660be73c322" Guid="02c66779-8e0e-43d5-8aae-7f08df1458fe" Win64="yes">
+              <File Name="vulkan-1.dll" Id="_vulkan_1.dll_f19ff711_6267_463b_9942_a660be73c322" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\packages\release-0.5.3\vulkan-1.dll"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+            <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_vulkan_1.dll_f19ff711_6267_463b_9942_a660be73c322" Type="integer" Value="1" KeyPath="yes" /></Component>
+          </Directory>
+          <Component Id="_ROMDex.exe_decc77ad_d19c_4485_9f46_0b3ce8a68983" Guid="93d2d580-5195-4a14-99a4-5adec4335667" Win64="yes">
+            <File Name="ROMDex.exe" Id="_ROMDex.exe_decc77ad_d19c_4485_9f46_0b3ce8a68983" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\build-temp\ROMDexr4ftwF\ROMDex.exe"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+          <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_ROMDex.exe_decc77ad_d19c_4485_9f46_0b3ce8a68983" Type="integer" Value="1" KeyPath="yes" /></Component>
+          <Component Id="_.installInfo.json_21b2a0ba_02cf_4b86_9fb1_012fbefa5308" Guid="e3565df4-bb86-4cd8-aef8-4ac1eb077be9" Win64="yes">
+            <File Name=".installInfo.json" Id="_.installInfo.json_21b2a0ba_02cf_4b86_9fb1_012fbefa5308" Source="C:\Users\mrgen\Documents\Codex\2026-10-13\can\work\u13b\build-temp\.installInfockYkAP\.installInfo.json"  Checksum="yes" ProcessorArchitecture="x64"/>
+
+          <RegistryValue Root="HKCU" Key="Software\ROMDex Project\ROMDexDesktop\InstallerComponents" Name="_.installInfo.json_21b2a0ba_02cf_4b86_9fb1_012fbefa5308" Type="integer" Value="1" KeyPath="yes" /></Component>
+          <Component Id="RegistryInstallPath" Guid="e2d7a001-a6bc-4a4d-86a8-0af319b4a44e" Win64="yes">
+            <RegistryKey Root="HKMU" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{867574A1-2181-4A00-98F8-A7BBD78FD8FB}.msq" ForceCreateOnInstall="no" ForceDeleteOnUninstall="yes">
+              <RegistryValue Name="InstallPath" Type="string" Value="[APPLICATIONROOTDIRECTORY]" KeyPath="yes"/>
+            </RegistryKey>
+          </Component>
+          <Component Id="UninstallDisplayName" Guid="64b8d183-b4ae-4a3d-8fc0-79d3442d5bfe" Win64="yes">
+            <RegistryKey Root="HKMU" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{867574A1-2181-4A00-98F8-A7BBD78FD8FB}.msq" ForceCreateOnInstall="no" ForceDeleteOnUninstall="yes">
+              <RegistryValue Name="DisplayName" Type="string" Value="[VisibleProductName]" KeyPath="yes"/>
+            </RegistryKey>
+          </Component>
+          <Component Id="UninstallPublisher" Guid="8edfa41e-c3cd-4930-8eeb-72a861e26aa9" Win64="yes">
+            <RegistryKey Root="HKMU" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{867574A1-2181-4A00-98F8-A7BBD78FD8FB}.msq" ForceCreateOnInstall="no" ForceDeleteOnUninstall="yes">
+              <RegistryValue Name="Publisher" Type="string" Value="ROMDex Project" KeyPath="yes"/>
+            </RegistryKey>
+          </Component>
+          <Component Id="UninstallDisplayVersion" Guid="1344348b-76ad-484f-846c-37245e2ab822" Win64="yes">
+            <RegistryKey Root="HKMU" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{867574A1-2181-4A00-98F8-A7BBD78FD8FB}.msq" ForceCreateOnInstall="no" ForceDeleteOnUninstall="yes">
+              <RegistryValue Name="DisplayVersion" Type="string" Value="0.5.3" KeyPath="yes"/>
+            </RegistryKey>
+          </Component>
+          <Component Id="UninstallModifyString" Guid="d7d4f22a-3c9f-4e12-8b7a-fcd5b17b9943" Win64="yes">
+            <RegistryKey Root="HKMU" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{867574A1-2181-4A00-98F8-A7BBD78FD8FB}.msq" ForceCreateOnInstall="no" ForceDeleteOnUninstall="yes">
+              <RegistryValue Name="ModifyPath" Type="expandable" Value="MsiExec.exe /I {867574A1-2181-4A00-98F8-A7BBD78FD8FB}" KeyPath="yes"/>
+            </RegistryKey>
+          </Component>
+          <Component Id="UninstallString" Guid="ab4af2b9-2d37-4768-b953-4e91c6db5c1b" Win64="yes">
+            <RegistryKey Root="HKMU" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{867574A1-2181-4A00-98F8-A7BBD78FD8FB}.msq" ForceCreateOnInstall="no" ForceDeleteOnUninstall="yes">
+              <RegistryValue Name="UninstallString" Type="expandable" Value="MsiExec.exe /X {867574A1-2181-4A00-98F8-A7BBD78FD8FB}" KeyPath="yes"/>
+            </RegistryKey>
+          </Component>
+          <Component Id="UninstallDisplayIcon" Guid="af39722e-f25c-4441-bfc6-89b56e2cd451" Win64="yes">
+            <RegistryKey Root="HKMU" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{867574A1-2181-4A00-98F8-A7BBD78FD8FB}.msq" ForceCreateOnInstall="no" ForceDeleteOnUninstall="yes">
+              <RegistryValue Name="DisplayIcon" Type="expandable" Value="[APPLICATIONROOTDIRECTORY]ROMDex.exe" KeyPath="yes"/>
+            </RegistryKey>
+          </Component>
+        </Directory>
+      </Directory>
+
+      <!-- Desktop -->
+      <Directory Id="DesktopFolder" Name="Desktop" />
+
+      <!-- Start Menu -->
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="ROMDex"/>
+      </Directory>
+    </Directory>
+
+    <!-- Step 3: Add app to Start Menu -->
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="d5bbf9b2-942e-4b16-a8d0-d59fba3b56e4" Win64="yes">
+        <Shortcut Id="ApplicationStartMenuShortcut"
+                  Name="ROMDex"
+                  Description="ROMDex Workspace with NPCDex Add-On"
+                  Target="[APPLICATIONROOTDIRECTORY]ROMDex.exe"
+                  WorkingDirectory="APPLICATIONROOTDIRECTORY">
+          <ShortcutProperty Key="System.AppUserModel.ID" Value="ROMDexDesktop"/>
+        </Shortcut>
+        <RemoveFolder Id="Empty_f90d640c1d68673c868fde42" Directory="APPLICATIONROOTDIRECTORY" On="uninstall" />
+<RemoveFolder Id="Empty_369f367a86a8d77f36fdd138" Directory="__8b65ed9d_1c30_454a_a55c_81b8ad9a0b93" On="uninstall" />
+<RemoveFolder Id="Empty_cd50d3e7f3567ffc6880864f" Directory="_locales_57feab4e_e2e5_4428_b045_859abaa32fe9" On="uninstall" />
+<RemoveFolder Id="Empty_20dece7d1c7ebda34bb5fd9e" Directory="_resources_83983ad0_7974_45af_a909_d27e19c85a3c" On="uninstall" />
+<RemoveFolder Id="Empty_40364711a59a91828ad0d00f" Directory="_resources_app_6e86a34e_5afb_4984_9304_4aadfbb662f2" On="uninstall" />
+<RemoveFolder Id="Empty_bd39fef6cb80c8f6f244b37b" Directory="_resources_app_desktop_7bb2db40_0056_4df2_807a_9c15b6962317" On="uninstall" />
+<RemoveFolder Id="Empty_5a581d5acc14460c8c33e072" Directory="_resources_app_public_1ba5cb47_006d_48e8_84c0_704a9529929d" On="uninstall" />
+<RemoveFolder Id="Empty_ca7c264b9ee7180cb2fb9f15" Directory="_resources_app_public_addons_a404cafd_7428_4267_9674_774b22e2c6d8" On="uninstall" />
+<RemoveFolder Id="Empty_b2edf75d0216856d46be97c4" Directory="_resources_app_public_addons_npcdex_4f9b7e1d_987a_47f3_90a2_20b0e4e66369" On="uninstall" />
+<RemoveFolder Id="Empty_c276e546e52604ef82e41979" Directory="_resources_app_public_shared_ui_403aff6f_0bf0_43d1_96a5_f4cdf2f2955d" On="uninstall" />
+<RemoveFolder Id="Empty_edf6a32c6296c6b06fe6d406" Directory="_resources_app_shared_ui_0185dd60_c312_4c26_91a5_8005584dc1e8" On="uninstall" />
+<RemoveFolder Id="Empty_1bb103e3d3dbb9bb72b1a6aa" Directory="_resources_app_tests_c29f2ff5_05af_41fb_952b_289ddafc0b00" On="uninstall" />
+<RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU"
+                       Key="Software\Microsoft\ROMDexDesktop"
+                       Name="installed"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+   <!-- Step 4: Add app desktop shortcut --> 
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="DesktopShortcut" Guid="39959018-c61c-4b3a-8a3d-962fc26684fc" >
+          <Shortcut Id="MyDesktopShortcut"
+                    Name="ROMDex"
+                    Description="ROMDex Workspace with NPCDex Add-On"
+                    Target="[APPLICATIONROOTDIRECTORY]ROMDex.exe"
+                    WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
+          <RegistryValue Root="HKCU"
+                    Key="Software\Microsoft\ROMDexDesktop"
+                    Name="installed"
+                    Type="integer"
+                    Value="1"
+                    KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+
+    <!-- Lets cleanup any files that are were not part of the initial install
+    via this MSI. Such as newer versions installed by the auto-updater. -->
+    
+
+    <Feature Id="Complete" Title="ROMDex (0.5.3)" Description="The complete package." Display="expand" Level="1" >
+      <!-- Step 5: Tell WiX to install the files -->
+      <Feature Id="MainApplication" Title="Main Application" Level="1" Description="The main components to run the applications." >
+        <ComponentRef Id="_locales_af.pak_fc4f48b6_9558_4a43_9442_ab402b2f294c" />
+        <ComponentRef Id="_locales_am.pak_046e39bb_a14a_4f60_ab3c_31dc416ced9a" />
+        <ComponentRef Id="_locales_ar.pak_841e40f0_6751_4117_98e8_75ce3fa604f5" />
+        <ComponentRef Id="_locales_bg.pak_7941dcec_440a_405b_93e8_2d3c796faabd" />
+        <ComponentRef Id="_locales_bn.pak_9f037f01_1b12_4627_8da4_84d3f2910103" />
+        <ComponentRef Id="_locales_ca.pak_b3f6eb58_1b30_45d6_9460_acd55f301185" />
+        <ComponentRef Id="_locales_cs.pak_73010b73_2214_4c55_92ea_1136a2ae68cf" />
+        <ComponentRef Id="_locales_da.pak_e7bc94f7_ad0c_48ae_b005_bbbabc3a5019" />
+        <ComponentRef Id="_locales_de.pak_ec922402_cdeb_436a_a4c5_c23293abe0ef" />
+        <ComponentRef Id="_locales_el.pak_45d7dd3f_2e04_406a_92dd_41eb2564a9ab" />
+        <ComponentRef Id="_locales_en_GB.pak_aa900536_3f7f_40b0_8faf_8e55a77856de" />
+        <ComponentRef Id="_locales_en_US.pak_e5621eb1_7bd5_4d75_b67c_be7b4d47a673" />
+        <ComponentRef Id="_locales_es_419.pak_37cf9888_9897_4528_9752_83a3a97aaae5" />
+        <ComponentRef Id="_locales_es.pak_688bd962_71c5_44de_af88_1e461d82cca2" />
+        <ComponentRef Id="_locales_et.pak_6313df72_23e6_4f51_b821_1c4dd97dc336" />
+        <ComponentRef Id="_locales_fa.pak_c8e3fe47_ce5a_42d6_8253_0f17b16f7fc6" />
+        <ComponentRef Id="_locales_fi.pak_8a9f55d2_5052_4b29_8ba8_0bf14d01053d" />
+        <ComponentRef Id="_locales_fil.pak_fd71854c_bc7f_407b_bfc4_7a201934444e" />
+        <ComponentRef Id="_locales_fr.pak_dffdcac8_fc8c_4afa_83c1_8e8df4886f31" />
+        <ComponentRef Id="_locales_gu.pak_462dece5_745c_4bfe_acc4_fa65ca28fd98" />
+        <ComponentRef Id="_locales_he.pak_131b0e6f_7e3d_4d03_b3a5_dd253200e37e" />
+        <ComponentRef Id="_locales_hi.pak_8fd1f9a2_18f1_4d65_948b_e646c41e1e96" />
+        <ComponentRef Id="_locales_hr.pak_312f5813_a502_4f68_8b47_cbfa61a7b98c" />
+        <ComponentRef Id="_locales_hu.pak_b23ac9be_7a49_4b9f_91b1_93d6b5ca45a1" />
+        <ComponentRef Id="_locales_id.pak_09f6fb27_a8be_4cb6_9ac0_1161c8ad90cc" />
+        <ComponentRef Id="_locales_it.pak_1e4a9dd0_d22e_4bfe_9285_7e6aa216934f" />
+        <ComponentRef Id="_locales_ja.pak_505b73c2_1162_40c8_8e7c_8da8dd6a2d02" />
+        <ComponentRef Id="_locales_kn.pak_ea14291e_611f_4f61_ae69_722cc87ee466" />
+        <ComponentRef Id="_locales_ko.pak_9084dfbd_00d6_4c5b_a6bb_197a3c882a40" />
+        <ComponentRef Id="_locales_lt.pak_c3391d67_49ea_4d19_a72d_cd18b8893d08" />
+        <ComponentRef Id="_locales_lv.pak_9b3aeccd_f99e_4f3b_ad14_da4eaf5fde66" />
+        <ComponentRef Id="_locales_ml.pak_238a3cb9_8bae_4748_8d68_6b5555fe2d8a" />
+        <ComponentRef Id="_locales_mr.pak_d6a566a2_8be3_4f25_8e1b_15c2a3acbf74" />
+        <ComponentRef Id="_locales_ms.pak_7b1772a6_a566_4894_b995_acd7f543b192" />
+        <ComponentRef Id="_locales_nb.pak_b0aa3a36_07de_4fc6_b536_d071538db1d2" />
+        <ComponentRef Id="_locales_nl.pak_eb52690c_cf74_48a6_b557_4ff12f26453e" />
+        <ComponentRef Id="_locales_pl.pak_59c4a597_7f33_45c6_bf92_383ddd108542" />
+        <ComponentRef Id="_locales_pt_BR.pak_f291ffe0_62b1_4e21_97e5_611a109595b5" />
+        <ComponentRef Id="_locales_pt_PT.pak_c0ace982_0fbe_4b25_9798_9717cc6401bf" />
+        <ComponentRef Id="_locales_ro.pak_d75ca045_9dd2_49d6_b161_658c02df9e28" />
+        <ComponentRef Id="_locales_ru.pak_940eba12_a711_4c74_82fd_f155a8583ffd" />
+        <ComponentRef Id="_locales_sk.pak_7b06468a_0f98_4634_9dcf_aabe52285295" />
+        <ComponentRef Id="_locales_sl.pak_317ed124_827d_4993_ac00_2602ce214fa9" />
+        <ComponentRef Id="_locales_sr.pak_e7078522_a0d5_42eb_86fa_db79f561373f" />
+        <ComponentRef Id="_locales_sv.pak_95b07d2b_c820_4fe7_ae13_375ef98e6c1d" />
+        <ComponentRef Id="_locales_sw.pak_e854a9ed_126d_4645_8f53_e238d8ad247b" />
+        <ComponentRef Id="_locales_ta.pak_be9ac132_816f_4da1_a707_82c80d2170fa" />
+        <ComponentRef Id="_locales_te.pak_42d220a3_d544_45bf_9ca4_ca5f912e639f" />
+        <ComponentRef Id="_locales_th.pak_02e9f11f_0631_4683_a3b7_0b0ac74f9d0a" />
+        <ComponentRef Id="_locales_tr.pak_723a5a87_57c4_45ee_bf37_196d73362eee" />
+        <ComponentRef Id="_locales_uk.pak_30f1d68f_193c_4ccc_9a86_253bc3a362cd" />
+        <ComponentRef Id="_locales_ur.pak_37383674_6b9a_44ec_a66e_eb9583338434" />
+        <ComponentRef Id="_locales_vi.pak_a4ce523e_f3fd_4e26_8108_ea3ea6cbb92e" />
+        <ComponentRef Id="_locales_zh_CN.pak_8b3c6cf1_36f2_4b61_a48c_28038a7b117e" />
+        <ComponentRef Id="_locales_zh_TW.pak_73f704fc_82c5_4718_ac0d_c4d36f778cc4" />
+        <ComponentRef Id="_resources_app_desktop_app.ico_04141638_0b2d_4c7a_82e5_193b3a4971dd" />
+        <ComponentRef Id="_resources_app_desktop_app.png_fcb9337b_13d9_4697_b665_01eab2e62270" />
+        <ComponentRef Id="_credentials.mjs_adbeaf3f_1307_45e8_aa5d_9c7cccbdfd7a" />
+        <ComponentRef Id="_first_run.mjs_920848b9_7b74_4f82_8bfc_30b3c980b678" />
+        <ComponentRef Id="_github_releases.mjs_f5918558_53ae_4fb2_9513_e8e7e462effe" />
+        <ComponentRef Id="_install_layout.cjs_f9d41912_de5d_4738_ae4f_a04c37d28bc0" />
+        <ComponentRef Id="_installer_template.cjs_53251647_8e27_4c4a_862b_d95eb3382e7a" />
+        <ComponentRef Id="_lifecycle.mjs_d37a9019_f405_41eb_af13_1ff31ca806f6" />
+        <ComponentRef Id="_resources_app_desktop_main.cjs_9acd615a_4de3_4187_ad8e_e91a83e0b427" />
+        <ComponentRef Id="_migration.mjs_c0e5b67d_40ea_4f35_b524_76dc323a2220" />
+        <ComponentRef Id="_native_attachments.mjs_8b4c9ee8_9776_4aa4_ac59_a9216467100c" />
+        <ComponentRef Id="_resources_app_desktop_policy.mjs_3104b94e_326c_4669_8ba7_f12ce38f22eb" />
+        <ComponentRef Id="_resources_app_desktop_preload.cjs_51c96090_73fb_4420_9ac1_54654afab70f" />
+        <ComponentRef Id="_profile_relocation.mjs_54a47720_751a_42d7_a5d1_c0b387e2212a" />
+        <ComponentRef Id="_release_core.mjs_29341f22_84da_4833_9279_f9aa46b8d49e" />
+        <ComponentRef Id="_release_download.mjs_4899c375_59f3_4070_9097_004b1f749aef" />
+        <ComponentRef Id="_runtime_lock.json_5ff60a6c_57b9_4382_b648_5a7b7fb11865" />
+        <ComponentRef Id="_service_host.mjs_d1713bff_ebc5_4e89_9f1d_1dfec50b4d67" />
+        <ComponentRef Id="_resources_app_desktop_service.mjs_1b27e288_c502_4967_85d9_7f621498e22a" />
+        <ComponentRef Id="_session_migration.cjs_7c8fe619_9a97_4fa3_b89f_2f3f2cbdaadc" />
+        <ComponentRef Id="_update_config.json_56b84a8f_2998_4578_98e8_a14e8aabcc9b" />
+        <ComponentRef Id="_update_controller.mjs_7a8c6166_2af6_4618_a807_45141decfa42" />
+        <ComponentRef Id="_update_handoff.mjs_a1a0c13a_ee15_427d_92d9_db0d277bca4f" />
+        <ComponentRef Id="_update_handoff.ps1_07173292_7bcc_4063_ac30_8afae8cd4a08" />
+        <ComponentRef Id="_update_preload.cjs_54d4f86a_6eb1_471f_8451_c94d9d94af77" />
+        <ComponentRef Id="_updater_window.mjs_6eee6f20_41fe_46e8_a542_f3395e333ce9" />
+        <ComponentRef Id="_coordination.js_246a34f1_21d1_4b5c_956c_cb24d1fed9bf" />
+        <ComponentRef Id="_index.html_97adf2cf_4f27_4b6c_a1fc_65b4079cf6fe" />
+        <ComponentRef Id="_workspace.js_13fc49f1_6823_4375_a427_4cb8ece6964d" />
+        <ComponentRef Id="_header.mjs_018cf28b_92d5_476e_8a70_707d1c3e2463" />
+        <ComponentRef Id="_npcdex_pokeball.svg_53f813df_b061_40e9_a39a_3d677836fee1" />
+        <ComponentRef Id="_standard_settings_icon.svg_6b76e423_fb18_4bdb_9202_02f30a57a6b4" />
+        <ComponentRef Id="_theme.css_f725a445_5319_4d0e_ba6a_a8a0c75e902c" />
+        <ComponentRef Id="_resources_app_public_app.mjs_e46b3d32_f091_449c_987f_c2cacee2c10c" />
+        <ComponentRef Id="_attachment_core.mjs_311e91ce_3d86_4b7f_a49a_e92cf8b013f7" />
+        <ComponentRef Id="_attachment_files.mjs_104d904d_bc47_4434_831b_097b4fdf840e" />
+        <ComponentRef Id="_attachment_view.mjs_04fbf4bf_04f2_4823_bc49_a424463e279e" />
+        <ComponentRef Id="_bulk_hierarchy.mjs_ec4d181b_f29d_4ef2_bd77_becf12db25b3" />
+        <ComponentRef Id="_completed_control.mjs_9bd88b5c_fb1b_48a6_9933_710246317073" />
+        <ComponentRef Id="_resources_app_public_core.mjs_87d0d051_44be_42e0_837f_084851cd928a" />
+        <ComponentRef Id="_custom_editor.mjs_67757ab7_9a68_4c01_9970_214421379911" />
+        <ComponentRef Id="_desktop_methods.mjs_4fb3ce27_9f2a_4314_8c51_9285eb8fa880" />
+        <ComponentRef Id="_desktop_workspace.mjs_1f1e2a6d_e14d_46a1_a982_ae75f89efb15" />
+        <ComponentRef Id="_detail_navigation.mjs_a8c09179_d829_460e_b8be_8464a9589d5e" />
+        <ComponentRef Id="_drop_target.mjs_5b70d066_7b96_4f27_89d7_64a8aed0300b" />
+        <ComponentRef Id="_editor_view.mjs_eae257eb_9479_4613_82f9_f126bab22cc6" />
+        <ComponentRef Id="_field_tags.mjs_58dad0ef_2778_46f6_af7a_2056f233ff86" />
+        <ComponentRef Id="_resources_app_public_file_drop.mjs_b194d68a_9f4c_4bdf_91c2_6caaf350fba7" />
+        <ComponentRef Id="_resources_app_public_icon.svg_8109edd2_fbb2_495b_9a4e_5947e5f560b6" />
+        <ComponentRef Id="_resources_app_public_index.html_32001ec6_333f_456c_bb72_c483b2db6e81" />
+        <ComponentRef Id="_item_editor_view.mjs_a8ebc9fe_bf91_4379_bfa1_ba9c01fc4960" />
+        <ComponentRef Id="_item_editor.mjs_e76627c6_91f7_43ca_b913_fdd17bd4b309" />
+        <ComponentRef Id="_migration_capture.css_4dadcecb_818a_4712_bdda_17610a863d85" />
+        <ComponentRef Id="_migration_capture.html_2fb64770_8186_48bb_9f91_3e12876cacf1" />
+        <ComponentRef Id="_migration_capture.mjs_9b50ba26_aecf_407c_afc0_41fe429bd106" />
+        <ComponentRef Id="_migration_format.mjs_cc3817f7_744e_4fa1_b6c5_1b86abf19cfc" />
+        <ComponentRef Id="_npcdex_pokeball.svg_df689036_ee23_4812_b21b_2b759b5f82ef" />
+        <ComponentRef Id="_save_coordinator.mjs_56b927ec_80fb_4a52_8b81_32fa1053707f" />
+        <ComponentRef Id="_resources_app_public_seed.json_2f8d44b0_3b78_4a37_88a9_d6303a107c53" />
+        <ComponentRef Id="_selector_state.mjs_8dcfc43f_4ac1_4720_ae1a_b791b319a776" />
+        <ComponentRef Id="_selector_view.mjs_d62cc2f0_9023_4ae4_bf12_bf1875c35146" />
+        <ComponentRef Id="_resources_app_public_shell.css_03cdc9e8_7d14_4808_a6f3_9a78d5ec4f85" />
+        <ComponentRef Id="_resources_app_public_shell.mjs_53d4a778_e458_44b9_b6a7_70ade6accb88" />
+        <ComponentRef Id="_split_pane.mjs_4f2fdcfd_b480_43a9_b59d_071509a3469e" />
+        <ComponentRef Id="_standard_settings_icon.svg_2e132bf9_136b_4502_b1f1_f01c0e9b52f4" />
+        <ComponentRef Id="_resources_app_public_store.mjs_304cb751_ee76_4447_8acf_d0ccf54df1f6" />
+        <ComponentRef Id="_resources_app_public_styles.css_80364d4c_3d8b_44a1_942e_dbb204075b3d" />
+        <ComponentRef Id="_sync_control.mjs_a131c478_ccf6_420b_9624_fadfae51c8cc" />
+        <ComponentRef Id="_resources_app_public_tasks.html_627d0328_302a_45bc_8768_05be6d1612d0" />
+        <ComponentRef Id="_resources_app_public_updates.css_d5968e5b_47ba_442f_bb53_19a97bd78651" />
+        <ComponentRef Id="_resources_app_public_updates.html_ec23b97e_dbbe_42f9_b806_92a6651f044a" />
+        <ComponentRef Id="_resources_app_public_updates.mjs_4a7bb277_233b_44a7_b125_daed747c6f45" />
+        <ComponentRef Id="_work_selection.mjs_64f25e76_a7ec_4149_974b_b417b75a245c" />
+        <ComponentRef Id="_resources_app_public_work_view.mjs_20ff50bb_aea6_4e8e_8f9b_c6fb34557c5e" />
+        <ComponentRef Id="_workspace_engine.mjs_d5b2d0bf_8229_4285_906b_064886e16b22" />
+        <ComponentRef Id="_workspace_host.mjs_9540ee82_e2b7_4ec1_be9b_296c056091ff" />
+        <ComponentRef Id="_workspace_keyboard.mjs_1ef4d15c_156a_4745_8703_39b08dee32ec" />
+        <ComponentRef Id="_workspace_runtime.mjs_9a3eca60_fb8e_4bce_a95b_97cc7bdfcf72" />
+        <ComponentRef Id="_resources_app_shared_ui_README.md_f1a864b8_1051_4f18_8af5_d378d36aca41" />
+        <ComponentRef Id="_resources_app_shared_ui_header.mjs_b375f27e_6f06_411c_9675_2fd834ca809b" />
+        <ComponentRef Id="_npcdex_pokeball.svg_d6fabe34_c210_4e35_8dc4_270a888be0ab" />
+        <ComponentRef Id="_standard_settings_icon.svg_8915afa7_542b_41ff_a9d5_20590f935015" />
+        <ComponentRef Id="_resources_app_shared_ui_theme.css_10dad64d_2ea5_4a28_9936_f5f5f224f18c" />
+        <ComponentRef Id="_application_profile.test.mjs_b7ecd954_4d1b_4c84_9bb3_7501b83c7ad2" />
+        <ComponentRef Id="_assigned_statuses.test.mjs_ef89627f_2fbf_49a2_a27c_24e5932962cf" />
+        <ComponentRef Id="_attachment_deletion.test.mjs_88924909_6834_483f_8fd8_04513554752c" />
+        <ComponentRef Id="_attachments.test.mjs_de82a70c_4576_4283_a383_3ba696fd79ec" />
+        <ComponentRef Id="_bulk_hierarchy.test.mjs_34a94b17_44cd_41b6_b1b6_66aae34221a9" />
+        <ComponentRef Id="_complexity_setup.test.mjs_5d69b0a1_0ddc_4481_a3ae_5b81d2814c52" />
+        <ComponentRef Id="_resources_app_tests_core.test.mjs_9f9f831b_ad94_4463_af98_ab10349e8ebf" />
+        <ComponentRef Id="_desktop_lifecycle.test.mjs_78f32089_7165_46e4_aa66_8c43b3bfde28" />
+        <ComponentRef Id="_desktop_migration.test.mjs_7dd28c98_e106_4c7f_b5c1_877bff4580cf" />
+        <ComponentRef Id="_desktop_policy.test.mjs_2f1182c1_833a_4147_a675_8a6da5daee92" />
+        <ComponentRef Id="_detail_navigation.test.mjs_d02e2697_f2b9_4f52_93cd_36074176e83d" />
+        <ComponentRef Id="_development_state.test.mjs_fc2f8a7c_220b_49e8_a21e_5928bf8dcb13" />
+        <ComponentRef Id="_drop_target.test.mjs_a29ed5d4_de46_48b5_bcf5_4d0294c1f818" />
+        <ComponentRef Id="_editor_view.test.mjs_6d9f9b43_11f2_4d45_b2cc_36fc5c96dadf" />
+        <ComponentRef Id="_field_tags.test.mjs_6f33ba15_2462_4dcf_a206_1287bcc94bdf" />
+        <ComponentRef Id="_file_drop.test.mjs_d034bdcf_2830_4f7e_8db3_6717bed5dfbc" />
+        <ComponentRef Id="_integration.test.mjs_1c70ab77_e6db_4f17_813b_e741c642501c" />
+        <ComponentRef Id="_item_editor.test.mjs_7f1c70c7_67f6_46d8_840a_0f00618df52e" />
+        <ComponentRef Id="_release_update.test.mjs_d092e95e_1cc0_4273_8ea3_6ddff2a813b8" />
+        <ComponentRef Id="_runtime_profile.test.mjs_2e5f04eb_510a_4b88_ae54_797cb5b61714" />
+        <ComponentRef Id="_save_coordinator.test.mjs_22cd3e0f_ae50_496e_8ada_f4eb9d2e2449" />
+        <ComponentRef Id="_save_indicator.test.mjs_942672ab_802d_4801_91b6_90ff9922431a" />
+        <ComponentRef Id="_selector_state.test.mjs_720297ba_f005_4711_a7c4_04288ffceec3" />
+        <ComponentRef Id="_session_migration.test.mjs_3b9b87d6_4647_4d5f_94fd_308532abb0c1" />
+        <ComponentRef Id="_split_pane.test.mjs_58695d5c_8f31_4ad8_ac5d_5f3abc650780" />
+        <ComponentRef Id="_sync_control.test.mjs_88fc2967_4b31_48fa_a4ec_e6a091b8383e" />
+        <ComponentRef Id="_sync_startup.test.mjs_f0fa3591_468d_451d_994c_17b5eff4bf67" />
+        <ComponentRef Id="_work_selection.test.mjs_0823c592_ddf4_4e0e_8d05_2731152fc37c" />
+        <ComponentRef Id="_work_view.test.mjs_5b07e25a_4745_4a0e_a98d_e5dc0a545c1d" />
+        <ComponentRef Id="_workspace_keyboard.test.mjs_72e48b18_c69a_441d_8224_832bee1df2dc" />
+        <ComponentRef Id="_resources_app_.gitignore_3bed86ba_4496_421a_88eb_40d4842af09f" />
+        <ComponentRef Id="_resources_app_CHANGELOG.md_a264f769_d6c2_42df_8ef9_40befbc2cc6b" />
+        <ComponentRef Id="_resources_app_Launch_ROMDex.ps1_eda0dfd1_2183_436d_8929_f0c135f94a52" />
+        <ComponentRef Id="_resources_app_QA_Report.md_9f07b3b4_23f2_48ee_9e56_3d3e7aee3cda" />
+        <ComponentRef Id="_resources_app_README.md_5eeb25ab_ec63_49ab_85c1_ca4109cd0832" />
+        <ComponentRef Id="_resources_app_Start_ROMDex.cmd_1fd95aff_25e2_4648_8d0a_d09099473cff" />
+        <ComponentRef Id="_resources_app_Stop_ROMDex.cmd_2172147f_df65_4e5c_ae0a_b9dc4590ae8f" />
+        <ComponentRef Id="_U08_Workspace_Guide.md_8bc9367b_7d1b_4551_ab50_034d45f362b7" />
+        <ComponentRef Id="_U09_Save_and_Recovery_Guide.md_6875a105_a8e4_4e9f_b4d4_b9c6638eb4a1" />
+        <ComponentRef Id="_U10_Desktop_Preview_Guide.md_79de6810_0ccf_4af6_9e1a_07b1eed2d13d" />
+        <ComponentRef Id="_U10F_File_Drop_Guide.md_8d928769_2d9c_4d6d_a3f3_7e5a173bd1c5" />
+        <ComponentRef Id="_resources_app_U11_Desktop_Guide.md_bd1999c4_853f_46bf_b386_2fe1d6f340ec" />
+        <ComponentRef Id="_U13A_Desktop_Guide.md_01a0a32e_e980_487b_a18e_ab789e99b874" />
+        <ComponentRef Id="_resources_app_U13B_Update_Guide.md_b75a2e31_329b_43ad_8880_97d9164b0541" />
+        <ComponentRef Id="_UPGRADE_AND_RECOVERY.md_d62e3041_178d_4842_b3d4_a976ff0bb59a" />
+        <ComponentRef Id="_assigned_statuses.mjs_1a100713_677b_4b91_ad0b_b818645c8ee1" />
+        <ComponentRef Id="_attachment_service.mjs_569ecb49_fc89_42c7_8dfd_7955f086379d" />
+        <ComponentRef Id="_attachment_storage.mjs_01d42459_c48c_405b_9b2f_7eaf06914470" />
+        <ComponentRef Id="_resources_app_complexity_field.mjs_64565371_22f7_4b20_bcfd_c0e7823f0af6" />
+        <ComponentRef Id="_credential_protection.mjs_5596020d_d797_4209_92b0_e05ac3b2745a" />
+        <ComponentRef Id="_durable_json_storage.mjs_94fe5c24_e945_4911_a5fb_20eabcb9f9a1" />
+        <ComponentRef Id="_resources_app_package.json_dde9980a_f6e8_4955_bb45_0f51d37edee8" />
+        <ComponentRef Id="_resources_app_preview.png_b42c6d90_7fff_4872_9751_46cce06ce64c" />
+        <ComponentRef Id="_resources_app_runtime_profile.mjs_4304e4e7_a161_43b0_9fb9_6ba78b363ca1" />
+        <ComponentRef Id="_resources_app_server.mjs_ec5633b6_c39a_4089_8cc5_a61f11942747" />
+        <ComponentRef Id="_resources_app_sync_settings.mjs_fc611bbd_9845_4e4a_94a5_e4e27dc8d4c0" />
+        <ComponentRef Id="_resources_app_youtrack.mjs_c113d027_a609_40f4_bcf2_f1776e6a316d" />
+        <ComponentRef Id="_resources_default_app.asar_994ce79b_0ad6_4bc7_981c_b79946bb65a9" />
+        <ComponentRef Id="_LICENSE_b22a89b3_522b_4203_8de4_939f7243a7fc" />
+        <ComponentRef Id="_LICENSES.chromium.html_f74bc437_34f1_400a_9b82_d8bf8d1e2f4c" />
+        <ComponentRef Id="_READ_ME_FIRST.md_04668ca1_1c77_4dfc_84eb_82c92a226936" />
+        <ComponentRef Id="_ROMDex.exe_39406ab6_d503_4de8_a0b7_85e2b1e78adf" />
+        <ComponentRef Id="_chrome_100_percent.pak_42f68635_cf23_4ec4_8ff1_6e3a7d09c9df" />
+        <ComponentRef Id="_chrome_200_percent.pak_2e8c2424_059c_4c15_ad3f_d4144cb01118" />
+        <ComponentRef Id="_d3dcompiler_47.dll_38b66c79_7ef0_487c_adf7_fc3d59598424" />
+        <ComponentRef Id="_dxcompiler.dll_179dfc25_c3f7_4e3a_8ec5_f8e7d39014de" />
+        <ComponentRef Id="_dxil.dll_58fd4460_93e1_4d6f_ac43_e96a833f5312" />
+        <ComponentRef Id="_ffmpeg.dll_4d70dfd1_0e52_4a76_8e2e_85f58aba97c1" />
+        <ComponentRef Id="_icudtl.dat_1974d723_d112_40eb_bdad_e469c0eec0ac" />
+        <ComponentRef Id="_resources.pak_99cc64a9_9f85_46b7_bdb0_36c7f1703e9b" />
+        <ComponentRef Id="_snapshot_blob.bin_65d5eabc_2398_4ec2_928a_7921d66687de" />
+        <ComponentRef Id="_v8_context_snapshot.bin_b41e5427_cc93_475b_be4b_261f6e082785" />
+        <ComponentRef Id="_version_9fab0ed8_72b8_47e4_a1d5_bd7de247eb4f" />
+        <ComponentRef Id="_vk_swiftshader.dll_63a33eb3_1b3e_4908_a593_77abd66cd083" />
+        <ComponentRef Id="_vk_swiftshader_icd.json_ecc31199_54cb_4372_805d_9f88b462a320" />
+        <ComponentRef Id="_vulkan_1.dll_f19ff711_6267_463b_9942_a660be73c322" />
+        <ComponentRef Id="_ROMDex.exe_decc77ad_d19c_4485_9f46_0b3ce8a68983" />
+        <ComponentRef Id="_.installInfo.json_21b2a0ba_02cf_4b86_9fb1_012fbefa5308" />
+        <ComponentRef Id="RegistryInstallPath" />
+        <ComponentRef Id="UninstallDisplayName" />
+        <ComponentRef Id="UninstallPublisher" />
+        <ComponentRef Id="UninstallDisplayVersion" />
+        <ComponentRef Id="UninstallModifyString" />
+        <ComponentRef Id="UninstallString" />
+        <ComponentRef Id="UninstallDisplayIcon" />
+        <ComponentRef Id="ApplicationShortcut" />
+        <ComponentRef Id="DesktopShortcut" />
+      </Feature> 
+    </Feature> 
+  </Product>
+</Wix>

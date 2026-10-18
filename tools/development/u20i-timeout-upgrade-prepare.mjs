@@ -1,0 +1,3 @@
+import fs from 'node:fs/promises';
+let installed=await fs.readFile('work/u20i-installed-check.cjs','utf8');installed=installed.replaceAll('work/u20i','work/u20i-timeout').replaceAll('0.5.12','0.5.13').replaceAll('U20I-Protected-Data-Backup','U20I-Timeout-Protected-Data-Backup');await fs.writeFile('work/u20i-timeout-installed-check.cjs',installed);
+let upgrade=await fs.readFile('work/u20i-upgrade.mjs','utf8');upgrade=upgrade.replaceAll('work/u20i','work/u20i-timeout');upgrade=upgrade.replace("await run('work/u20i-timeout-deploy.mjs');","await run('work/u20i-timeout-backup-restore.cjs',true);await run('work/u20i-timeout-publish.mjs');await run('work/u20i-timeout-deploy.mjs');");await fs.writeFile('work/u20i-timeout-upgrade.mjs',upgrade);

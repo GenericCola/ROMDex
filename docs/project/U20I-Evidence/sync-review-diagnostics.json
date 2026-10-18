@@ -1,0 +1,36 @@
+{
+  "task": "U20I",
+  "at": "2026-10-18T18:30:59.743Z",
+  "readOnly": true,
+  "review": [],
+  "acceptedHead": "0c0d03f4aa4993beb156142dcaf844d8f17e005354797ab27ab926e055ab3853",
+  "pending": 28,
+  "operations": [
+    {
+      "id": "content:operation-d65aedbd-0714-44cc-9dc2-6b482ec31408",
+      "state": "uploading",
+      "kind": "planning",
+      "digest": "a8ac3625869b387b056d5dcef9f9dd4c6851e664c4de330015564404dd59574f",
+      "slots": {
+        "publication:0": {
+          "kind": "object",
+          "state": "verified",
+          "issueId": "3-376",
+          "sha256": "f0d716b7e43d6d00e986019960f33e6e403f1d6f0c2c6c626dd1d7bcbc7a7865",
+          "bytes": 780,
+          "name": "npcdex-0120ad8aa3b1-f0d716b7e43d6d00e9860199.bin",
+          "attachmentId": "12-873"
+        },
+        "artifact:0:0": {
+          "kind": "object",
+          "state": "verified",
+          "issueId": "3-486",
+          "sha256": "8564f4ab0ed617687f66a238d696cd42e720f8e908f5b57cbc47487c6e1f103b",
+          "bytes": 1441,
+          "name": "npcdex-0120ad8aa3b1-8564f4ab0ed617687f66a238.bin",
+          "attachmentId": "12-874"
+        }
+      }
+    }
+  ]
+}

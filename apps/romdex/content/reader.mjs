@@ -3,10 +3,11 @@ import {MANIFEST_NAME,validateCarrier} from './carrier.mjs';
 import {applyPublication,resolvePublication} from './materialize.mjs';
 import {projectNPCDex,PROJECTION_VERSION} from './projection.mjs';
 import {workspaceAllowed} from './authorization.mjs';
+const connectionFailure=error=>error.code==='CONTENT_CONNECTION'||error.status||['AbortError','TimeoutError'].includes(error.name);
 async function mapReads(values,fn){const results=new Array(values.length);let next=0,failure;await Promise.all(Array.from({length:Math.min(4,values.length)},async()=>{for(;;){if(failure)return;const i=next++;if(i>=values.length)return;try{results[i]=await fn(values[i]);}catch(error){failure||=error;}}}));if(failure)throw failure;return results;}
 
 export class ContentReader{
- constructor({transport,cache,workspace,bootstrapPublication,ownerId='2-2',authorization=null,enabled=()=>true,changed=()=>{},interval=60000,deadline=120000,now=()=>Date.now()}){
+ constructor({transport,cache,workspace,bootstrapPublication,ownerId='2-2',authorization=null,enabled=()=>true,changed=()=>{},interval=60000,deadline=600000,now=()=>Date.now()}){
   requireThat(workspace===cache.workspace&&workspaceAllowed(workspace,authorization)&&isHash(bootstrapPublication)&&ownerId==='2-2','Explicit Content Root and Owner Pins Are Required.');this.authorization=authorization;
   requireThat(Number.isInteger(deadline)&&deadline>=1000&&deadline<=600000,'Invalid Content Cycle Deadline.');requireThat(Number.isInteger(interval)&&interval>=1000,'Invalid Content Poll Interval.');Object.assign(this,{transport,cache,workspace,bootstrapPublication,ownerId,enabled,changed,interval,deadline,now});this.task=null;this.timer=null;this.status={connection:'cached',attention:false,message:'Showing the Verified Content Cache.'};
   const binding={workspace,bootstrapPublication,registryIssueId:transport.registryIssueId,projectId:transport.projectId,ownerId};const previous=cache.get('binding');requireThat(!previous||same(previous,binding),'The Preview Registry Binding Changed.');if(!previous)cache.set('binding',binding);
@@ -16,7 +17,7 @@ export class ContentReader{
  cycle(manual=false,{audit=manual}={}){
   if(!manual&&!this.enabled())return Promise.resolve(this.view());if(this.task)return this.task;
   const audited=this.cache.get('full-audit')?.at;this.fullAudit=audit||!audited||this.now()<audited||this.now()-audited>=15*60*1000;
-  this.lifecyclePaused=false;this.abort=new AbortController();this.task=this.pull().catch(error=>{this.status=this.lifecyclePaused&&this.abort.signal.aborted?{connection:'paused',attention:!!this.cache.get('review')?.length,message:'Automatic Content Sync Is Paused; the Verified Cache Is Retained.'}:{connection:'unavailable',attention:true,failureKind:error.code==='CONTENT_CONNECTION'||error.status?'connection':'review',message:error.message};this.changed(this.view());return this.view();}).finally(()=>{this.task=null;this.abort=null;});return this.task;
+  this.lifecyclePaused=false;this.abort=new AbortController();this.task=this.pull().catch(error=>{this.status=this.lifecyclePaused&&this.abort.signal.aborted?{connection:'paused',attention:!!this.cache.get('review')?.length,message:'Automatic Content Sync Is Paused; the Verified Cache Is Retained.'}:{connection:'unavailable',attention:true,failureKind:this.abort.signal.aborted||connectionFailure(error)?'connection':'review',message:error.message};this.changed(this.view());return this.view();}).finally(()=>{this.task=null;this.abort=null;});return this.task;
  }
  async pull(){
   this.status={connection:'syncing',attention:false,message:'Reading Content Publications.'};this.changed(this.view());this.cycleBytes=0;this.cycleObjects=new Map();this.transport.begin(AbortSignal.any([this.abort.signal,AbortSignal.timeout(this.deadline)]));
@@ -36,7 +37,7 @@ export class ContentReader{
     await mapReads(carrier.nativeMetadata,pin=>this.transport.issue(pin.issueId));
     const bindingKey=pub.digest,bindings=canonical({bindings:[...carrier.bindings].sort((a,b)=>a.recordId.localeCompare(b.recordId)),nativeMetadata:[...carrier.nativeMetadata].sort((a,b)=>a.issueId.localeCompare(b.issueId)),assets:assets.slice().sort((a,b)=>a.assetId.localeCompare(b.assetId))});requireThat(!seenBindings.has(bindingKey)||seenBindings.get(bindingKey)===bindings,'Publication Record Bindings Differ.');seenBindings.set(bindingKey,bindings);
     entries.push({pub,artifacts,assets,carrier,attachmentId:meta.id});if(pub.digest===this.bootstrapPublication)rootBindings=carrier.bindings;
-   }catch(error){review.push({kind:'publication-needs-review',attachmentId:meta.id,message:error.message});}
+   }catch(error){if(this.abort.signal.aborted||connectionFailure(error))throw error;review.push({kind:'publication-needs-review',attachmentId:meta.id,message:error.message});}
   }
   const inventory=listing.map(meta=>({...meta,issueId:this.transport.registryIssueId}));
   if(rootBindings){const issues=[...new Set(entries.flatMap(e=>e.carrier.bindings.map(b=>b.issueId)))];const listings=await mapReads(issues,async issueId=>(await this.transport.inventory(issueId)).map(meta=>({...meta,issueId})));inventory.push(...listings.flat());}

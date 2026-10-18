@@ -1,0 +1,377 @@
+{
+  "at": "2026-10-18T18:33:20.665Z",
+  "scope": "Generated project build trees only",
+  "records": [
+    {
+      "path": "work/u13b/packages",
+      "bytes": 3170391509,
+      "files": 1712,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20e/packages",
+      "bytes": 1587670068,
+      "files": 1156,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20i/packages",
+      "bytes": 1191531611,
+      "files": 950,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20h/packages",
+      "bytes": 1191039940,
+      "files": 906,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u13a/packages",
+      "bytes": 1188689296,
+      "files": 596,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20g/packages",
+      "bytes": 793964507,
+      "files": 596,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20i-timeout/packages",
+      "bytes": 541411634,
+      "files": 629,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20f/packages",
+      "bytes": 396954801,
+      "files": 293,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u19/packages",
+      "bytes": 396538757,
+      "files": 248,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u18/packages",
+      "bytes": 396530407,
+      "files": 245,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u17/packages",
+      "bytes": 396449525,
+      "files": 234,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u16/packages",
+      "bytes": 396391871,
+      "files": 226,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20i-timeout/make-release-0.5.13-r1",
+      "bytes": 165163911,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20i/make-release-0.5.12-r3",
+      "bytes": 165107300,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20i/make-release-0.5.12-r1",
+      "bytes": 165055211,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20i/make-release-0.5.12-r2",
+      "bytes": 165051113,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20h/make-release-0.5.11-r2",
+      "bytes": 164915547,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20h/make-release-0.5.11-r3",
+      "bytes": 164907357,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20g/make-release-0.5.10-r2",
+      "bytes": 164872764,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20g/make-release-0.5.10-r1",
+      "bytes": 164864571,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20f/make-release-0.5.9-r1",
+      "bytes": 164815203,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20e/make-release-0.5.8-r2",
+      "bytes": 164788132,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20e/make-release-0.5.8-r4",
+      "bytes": 164784040,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20e/make-release-0.5.8-r3",
+      "bytes": 164784034,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20e/make-release-0.5.8",
+      "bytes": 164722587,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u19/make-release-0.5.7",
+      "bytes": 164350715,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u18/make-release-0.5.6",
+      "bytes": 164319907,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u17/make-release-0.5.5",
+      "bytes": 164213052,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u16/make-release-0.5.4",
+      "bytes": 164142515,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u13b/make-fixture-0.5.3",
+      "bytes": 164043809,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u13b/make-fixture-0.5.4-first-attempt",
+      "bytes": 164039712,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u13b/make-fixture-0.5.4-review-1792119423649",
+      "bytes": 164039710,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u13b/make-fixture-0.5.4-second-attempt",
+      "bytes": 164039710,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u13b/make-fixture-0.5.4",
+      "bytes": 164039709,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u13b/make-fixture-0.5.4-review-1792119863717",
+      "bytes": 164039709,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u13b/make-release-0.5.3-before-provider-route-fix",
+      "bytes": 164033811,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u13b/make-release-0.5.3",
+      "bytes": 164029714,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u13a/make-0.5.2",
+      "bytes": 163867772,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u13a/make-0.5.0",
+      "bytes": 163853305,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u13a/make-0.5.1",
+      "bytes": 163849213,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u13a/wix",
+      "bytes": 121946713,
+      "files": 220,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u13b/build-temp",
+      "bytes": 2032914,
+      "files": 16,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u13a/build-temp",
+      "bytes": 1781257,
+      "files": 15,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u18/build-temp",
+      "bytes": 1016412,
+      "files": 8,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20e/build-temp",
+      "bytes": 1016412,
+      "files": 8,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20i/build-temp",
+      "bytes": 762312,
+      "files": 6,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u19/build-temp",
+      "bytes": 762309,
+      "files": 6,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20g/build-temp",
+      "bytes": 508208,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20h/build-temp",
+      "bytes": 508208,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u16/build-temp",
+      "bytes": 508206,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u17/build-temp",
+      "bytes": 508206,
+      "files": 4,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20i-timeout/build-temp",
+      "bytes": 254104,
+      "files": 2,
+      "links": false,
+      "protectedEntries": []
+    },
+    {
+      "path": "work/u20f/build-temp",
+      "bytes": 254103,
+      "files": 2,
+      "links": false,
+      "protectedEntries": []
+    }
+  ]
+}

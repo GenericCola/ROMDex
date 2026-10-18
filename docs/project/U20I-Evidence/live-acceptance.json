@@ -1,0 +1,23 @@
+{
+  "task": "U20I",
+  "status": "accepted-and-saved-locally",
+  "at": "2026-10-18T18:00:24.474Z",
+  "humanAcceptance": "User reported Transition Saved after accepting the refreshed in-app preview.",
+  "approvedBaseline": "31c1ea2418280fe6f8c918e20eadd680a430639f64c95f04ebe6c8ab6c040c42",
+  "approvedPublication": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+  "operationId": "content:catalog-79455f25-83b7-4b16-87f4-8a272765bfc9",
+  "records": 211,
+  "maps": 3,
+  "views": 198,
+  "pendingAtPreview": 43,
+  "sourceSHA256": "2c50ee40f590eb1505a99922efa948db282fe46425bf640b5a0f69fc780c630c",
+  "priorEditsRetained": 50,
+  "newerPlanningEditIncluded": true,
+  "approvedBaselineFiles": {
+    "working-domain.json": "cf7898e87bf925f46714c9037f789be037f5182f2ba6a39a483ab189b4803515",
+    "editor-draft.json": "335ad69897d79723528f83cea03db62d63f9778b09d6ddfb3ddbd63d40a5c530",
+    "edit-journal.json": "e50cc64745f79915278f190ddae50a934b211585e3ac0766a6e1d574535b4020"
+  },
+  "remoteDeliveryVerified": false,
+  "normalQuitReopenVerified": false
+}

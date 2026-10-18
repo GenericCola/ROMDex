@@ -1,0 +1,25 @@
+import fs from 'node:fs/promises';import path from 'node:path';import {randomUUID,createPublicKey} from 'node:crypto';import {spawn} from 'node:child_process';
+import {verifyInstaller} from './release-download.mjs';import {fileDigest} from './migration.mjs';import {DurableJSONStorage} from '../durable-json-storage.mjs';
+export async function checkpointBackup(profile,directory,{session=path.join(profile,'session')}={}){
+ await fs.mkdir(directory,{recursive:true});const files=[];
+ async function walk(dir,relative=''){for(const entry of await fs.readdir(dir,{withFileTypes:true})){if(!relative&&['updates','session','desktop-owner.json'].includes(entry.name))continue;if(entry.isSymbolicLink()||entry.name.endsWith('.tmp'))throw Error('A Save Needs Review Before Updating.');const rel=path.join(relative,entry.name),source=path.join(dir,entry.name),target=path.join(directory,rel);if(entry.isDirectory())await walk(source,rel);else if(entry.isFile()){await fs.mkdir(path.dirname(target),{recursive:true});await fs.copyFile(source,target);const sha256=await fileDigest(source);if(await fileDigest(target)!==sha256)throw Error('A Save Changed During the Update Checkpoint.');files.push({path:rel,sha256});}}}
+ await walk(profile);let runtimeState=null;try{const source=path.join(session,'Local State'),bytes=await fs.readFile(source),target=path.join(directory,'runtime-key/Local State');await fs.mkdir(path.dirname(target));await fs.writeFile(target,bytes);runtimeState={source,sha256:await fileDigest(target)};}catch(error){if(error.code!=='ENOENT')throw error;}await new DurableJSONStorage(path.join(directory,'checkpoint-inventory.json')).save({format:'ROMDexUpdateCheckpoint/1',at:new Date().toISOString(),files,runtimeState});return files.length;
+}
+export function publicKeyXml(pem){const jwk=createPublicKey(pem).export({format:'jwk'});if(jwk.kty!=='RSA')throw Error('Invalid Release Key.');return '<RSAKeyValue><Modulus>'+Buffer.from(jwk.n,'base64url').toString('base64')+'</Modulus><Exponent>'+Buffer.from(jwk.e,'base64url').toString('base64')+'</Exponent></RSAKeyValue>';}
+export async function createHandoff({root,profile,session,installer,release,publicKey,version,upgradeCode,shortName='ROMDexDesktop',parentPid=process.pid,utilityPid,helperSource,checkpoint,quiesce,resume,launch=spawn,now=()=>Date.now()}){
+ const expected=path.join(root,'Data/thegobindsingh-PMON');if(path.resolve(profile)!==path.resolve(expected))throw Error('The Installed Save Folder Does Not Match the Update Plan.');
+ const directory=path.join(profile,'updates'),nonce=randomUUID(),statusFile=path.join(directory,'install-status.json'),planFile=path.join(directory,'install-plan.json'),abortFile=path.join(directory,'install-aborted.flag');
+ if(path.resolve(installer)!==path.join(directory,release.artifact.name))throw Error('The Installer Is Outside the Verified Update Cache.');
+ await verifyInstaller(installer,release.artifact);
+ try{
+  await checkpoint();await quiesce();await verifyInstaller(installer,release.artifact);const backup=path.join(directory,'recovery-'+nonce);await checkpointBackup(profile,backup,{session});await fs.unlink(abortFile).catch(error=>{if(error.code!=='ENOENT')throw error;});
+  const plan={format:'ROMDexInstallPlan/1',nonce,createdAt:now(),applicationRoot:root,profile,installer,fromVersion:version,toVersion:release.version,upgradeCode,shortName,parentPid,utilityPid,envelope:JSON.parse(release.envelope),publicKeyXml:publicKeyXml(publicKey),backup};
+  await new DurableJSONStorage(planFile).save(plan);const script=await fs.readFile(helperSource,'utf8');
+  // Windows PowerShell exits before executing EncodedCommand with DETACHED_PROCESS.
+  // An unreferenced Windows child survives its parent without that creation flag.
+  const child=launch('powershell.exe',['-NoProfile','-NonInteractive','-WindowStyle','Hidden','-EncodedCommand',Buffer.from(script,'utf16le').toString('base64')],{windowsHide:true,detached:false,stdio:'ignore',env:{...process.env,ROMDEX_UPDATE_PLAN:planFile}});
+  let launchError,exited=false;child.once('error',error=>{launchError=error;});child.once('exit',()=>{exited=true;});child.unref();
+  for(let i=0;i<300;i++){if(launchError)throw Error('The Windows Update Helper Could Not Start.');try{const status=JSON.parse(await fs.readFile(statusFile,'utf8'));if(status.nonce===nonce){if(status.phase==='waiting')return {plan,statusFile,abort:()=>fs.writeFile(abortFile,nonce)};if(status.phase==='failed')throw Error(status.message||'The Installer Preflight Failed.');}}catch(error){if(error.code!=='ENOENT'&&!(error instanceof SyntaxError))throw error;}if(exited)throw Error('The Windows Update Helper Exited Before Confirming Readiness.');await new Promise(r=>setTimeout(r,100));}
+  throw Error('The Windows Update Helper Did Not Confirm Readiness.');
+ }catch(error){await fs.writeFile(abortFile,nonce).catch(()=>{});await resume();throw error;}
+}

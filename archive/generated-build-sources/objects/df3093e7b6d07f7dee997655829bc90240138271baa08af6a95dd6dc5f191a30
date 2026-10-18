@@ -1,0 +1,51 @@
+.content-editor-toolbar{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.content-editor-toolbar button{padding:6px 10px}
+.content-editor-dialog,.content-summary-dialog{max-width:800px;width:calc(100vw - 32px);max-height:90dvh;box-sizing:border-box;padding:20px;overflow:hidden}
+.content-editor-dialog[open],.content-summary-dialog[open]{display:flex;flex-direction:column;gap:12px}
+.content-editor-dialog h2,.content-summary-dialog h2{margin:0;flex:none}
+.content-editor-dialog form{display:grid;grid-template-rows:minmax(0,1fr) auto;gap:12px;min-height:0;overflow:hidden;margin:0}
+.content-editor-dialog .editor-body,.content-summary-dialog .editor-body{overflow:auto;min-height:0;padding:4px 12px 12px 4px;scroll-padding:12px;overscroll-behavior:contain}
+.content-editor-dialog input,.content-editor-dialog select,.content-editor-dialog textarea{width:100%;box-sizing:border-box}
+.content-editor-dialog input:not([type=checkbox]):not([type=radio]):not([type=file]),.content-editor-dialog select,.content-editor-dialog textarea{padding:9px 12px;line-height:1.4}
+.content-editor-dialog select{padding-right:30px}
+.content-editor-dialog textarea{min-height:110px;resize:vertical}
+.content-editor-dialog footer,.content-summary-dialog footer{position:static;flex:none;display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;padding-top:12px;background:var(--screen);border-top:1px solid var(--line)}
+.content-editor-dialog .editor-error{color:var(--yellow);white-space:pre-wrap}
+.content-editor-dialog .editor-error:empty{display:none}
+.content-editor-dialog pre{white-space:pre-wrap;overflow-wrap:anywhere}
+.content-editor-dialog .editor-checkbox{width:auto;order:-1;flex:none;margin:0}
+.content-editor-dialog label{display:grid;gap:5px;margin:10px 0}
+.content-editor-dialog label:has(>.editor-checkbox){display:flex;align-items:center;gap:10px}
+.content-preview-notes{margin:14px 0;padding:12px;border:1px solid var(--line);border-radius:8px}
+.content-preview-notes p{white-space:pre-wrap;overflow-wrap:anywhere}
+.content-review{color:var(--yellow)}
+
+
+
+.content-editor-dialog [hidden]{display:none!important}
+.editor-context{padding:10px 12px;border:1px solid var(--line);border-radius:6px;margin-bottom:12px}
+.editor-context strong{display:block;margin-bottom:5px}
+.editor-current{white-space:pre-wrap;border-left:3px solid var(--line);padding:8px 12px;margin:8px 0;max-height:140px;overflow:auto}
+.editor-advanced{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.editor-options{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.editor-options button[aria-pressed=true]{background:var(--yellow);color:#293023;font-weight:700}
+.editor-resume{margin:8px 0;padding:8px 10px;border:1px solid var(--line);border-radius:6px}
+.content-summary-group>summary{font-weight:700;padding:9px 0;cursor:pointer}
+.content-summary-entry{padding:12px 0;border-top:1px solid var(--line);overflow-wrap:anywhere}
+.content-summary-entry p{white-space:pre-wrap;margin:6px 0}
+.content-summary-entry .summary-path{font-size:11px;color:var(--muted)}
+.content-summary-entry .summary-target{display:inline;font-size:13px;font-weight:700;text-align:left}
+.content-summary-entry .summary-condition{font-size:12px}
+.content-summary-entry .summary-text{border-left:2px solid var(--line);padding-left:10px}
+.content-summary-entry .summary-badge{display:inline-block;margin:0 6px;padding:2px 6px;border:1px solid var(--line);border-radius:3px;font-size:10px}
+.content-summary-entry .summary-final{color:#a8dbb2;border-color:#7bb388}
+.content-summary-entry .summary-update{color:#ff9299;border-color:#d97880}
+.content-add-character{margin-right:8px;white-space:nowrap}
+.gender:has(.content-add-character){display:flex;align-items:center;gap:6px}
+.content-editor-toolbar .scope-label{flex-basis:100%;font-size:11px;color:var(--muted)}
+@media(max-height:640px){.content-editor-dialog,.content-summary-dialog{max-height:calc(100dvh - 16px);padding:12px}.content-editor-dialog textarea{min-height:80px}}
+
+/* Use the original web feedback markup and its original CSS, without resizing tags. */
+.tile button.cog,button.suite-content-settings{width:18px;height:18px;min-width:18px;min-height:18px;padding:0;display:grid;place-items:center;box-sizing:border-box;border:1px solid #718773;border-radius:50%;background:#101d1de6;line-height:0}
+.tile button.cog>.standard-settings-icon,button.suite-content-settings>.standard-settings-icon{width:12px;height:12px;display:block;image-rendering:pixelated}
+.content-summary-dialog pre{white-space:pre-wrap;overflow-wrap:anywhere}

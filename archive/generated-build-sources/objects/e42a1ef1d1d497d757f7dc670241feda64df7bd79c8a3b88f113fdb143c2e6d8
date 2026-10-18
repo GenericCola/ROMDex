@@ -1,0 +1,52 @@
+// Keep the original web UI and handlers; replace only its feedback write boundary.
+(()=>{
+ const M=globalThis.romdexContentModel,C=globalThis.romdexClassicModel;
+ const allowed=new Set(['Update Flag, Note or Tester Status','Set Prompt Change Status','Edit Prompt Change Description','Set Specific Prompt Change Instructions','Set Item Change Status','Edit Item Change Description']);
+ const api=(route,body)=>window.romdexContentAPI?window.romdexContentAPI(route,body):fetch(route,{method:body?'POST':'GET',headers:body?{'Content-Type':'application/json'}:{},body:body?JSON.stringify(body):undefined}).then(async r=>{const v=await r.json();if(!r.ok)throw Error(v.error);return v;});
+ let chain=Promise.resolve(),failure=null,inflight=0,initial=true,refreshTask=null,draftTimer=null,viewContext=null;const pending=new Map();
+ const announce=()=>window.dispatchEvent(new Event('npcdex-status'));
+ const feedbackKey=spec=>spec.type+':'+spec.key;
+ const editing=()=>inflight>0||pending.size>0||!!document.activeElement?.closest('.entry-note,.prompt-change-editor,#settings-dialog');
+ const tell=e=>{failure=e;$('save-status').textContent='Feedback Needs Attention: '+e.message;if(!$('classic-review-sync')){const button=document.createElement('button');button.id='classic-review-sync';button.type='button';button.textContent='Review Sync';button.onclick=()=>window.romdexContentEditor.openRecovery();$('history-open-flags').parentElement.append(button);}announce();};
+ function overlay(spec){if(spec.type==='review')data.annotations[spec.key]=structuredClone(spec.after);else if(spec.after){data.changePlans[spec.key]=structuredClone(spec.after);delete data.promptStatusUnset[spec.key];}else{delete data.changePlans[spec.key];data.promptStatusUnset[spec.key]=true;}reviewCache=null;}
+ function capture(){
+  const specs=[],p=current(),entry=p&&activeEntry(p),target=entry&&editorialTarget(p,entry),note=$('entry-note-text');
+  if(note&&target&&(note.value!==(ann(target.key).note||'')||pending.get('review:'+target.key)?.draftOnly))specs.push({type:'review',key:target.key,before:structuredClone(ann(target.key)),after:{...structuredClone(ann(target.key)),note:note.value,scope:target.scope,context:editorialContext(p,entry,target)},context:editorialContext(p,entry,target),discardOnly:note.value===(ann(target.key).note||'')});
+  const description=$('prompt-change-description');if(description){const key=description.dataset.townId+'|prompt|'+description.dataset.promptKey,before=data.changePlans[key],proposed=$('prompt-proposed-dialogue')?.value||'',same=description.value===(before?.instructions||'')&&proposed===(before?.proposedDialogue||'');if(!same||pending.get('plan:'+key)?.draftOnly)specs.push({type:'plan',key,before:structuredClone(before),after:{...structuredClone(before),id:before?.id,target:before?.target||JSON.parse(description.dataset.target),intent:before?.intent||description.dataset.intent,instructions:description.value,proposedDialogue:proposed},target:before?.target||JSON.parse(description.dataset.target),discardOnly:same});}
+  if($('settings-dialog').open&&settingsTarget){const key=settingAnnotationKey(),note=$('setting-note');if(note&&!$('setting-note-editor').classList.contains('hidden')&&(note.value!==(ann(key).note||'')||pending.get('review:'+key)?.draftOnly)){const ctx=context({label:settingsTarget.label,target:{type:settingsTarget.type,id:settingsTarget.id}});specs.push({type:'review',key,before:structuredClone(ann(key)),after:{...structuredClone(ann(key)),note:note.value,context:ctx},context:ctx,discardOnly:note.value===(ann(key).note||'')});}}
+  for(const s of specs){s.identity=data.contentPreview.feedbackKeys?.[s.key]?.[s.type==='review'?'reviewId':'planId'];pending.set(feedbackKey(s),s);}return specs;
+ }
+ async function storeDraft(c,spec,remove=false){let t;try{t=C.resolve(c.records,spec);}catch{t={recordId:'unresolved:'+spec.key,pointId:spec.context?.pointId||spec.target?.pointId};}const value={mode:'classic',head:c.head,fields:{recordId:t.recordId,pointId:t.pointId||'',blockId:feedbackKey(spec)},classicSpec:spec},draft=M.saveDraft(c.draft?.draft||null,value,remove);await api('/api/draft',{version:(c.draft?.version||0)+1,draft});}
+ function queue(spec,commit=true){
+  if(!spec.recordRevision&&viewContext){try{const t=C.resolve(viewContext.records,spec);spec.recordRevision=viewContext.records.find(r=>r.recordId===t.recordId).revisionId;}catch{}}
+  spec.draftOnly=!commit;pending.set(feedbackKey(spec),spec);inflight++;announce();chain=chain.catch(()=>{}).then(async()=>{const c=await api('/api/editor');if(spec.discardOnly){await storeDraft(c,spec,true);if(pending.get(feedbackKey(spec))===spec)pending.delete(feedbackKey(spec));return;}await storeDraft(c,spec);if(!commit)return;const latest=await api('/api/editor'),command=C.command(latest,spec);await api('/api/edit',{command,expectedHead:latest.head});const after=await api('/api/editor');await storeDraft(after,spec,true);if(pending.get(feedbackKey(spec))===spec)pending.delete(feedbackKey(spec));failure=null;}).catch(tell).finally(()=>{inflight--;announce();if(!editing())window.romdexContentPreview.refresh(true);});
+ }
+ commitChange=function(label,mutate,details={}){
+  if(!allowed.has(label))throw Error('Use Edit Recorded Content for Documentation Corrections. Browser Save Mutation Is Disabled.');
+  const beforeA=structuredClone(data.annotations),beforeP=structuredClone(data.changePlans);mutate();const specs=[];
+  for(const key of new Set([...Object.keys(beforeA),...Object.keys(data.annotations)])){const after=data.annotations[key];if(JSON.stringify(beforeA[key])===JSON.stringify(after))continue;specs.push({type:'review',key,before:beforeA[key]||{flag:false,note:'',testStatus:'unreviewed'},after:structuredClone(after),context:structuredClone(after.context),testingChanged:beforeA[key]?.testStatus!==after.testStatus});}
+  for(const key of new Set([...Object.keys(beforeP),...Object.keys(data.changePlans)])){const after=data.changePlans[key];if(JSON.stringify(beforeP[key])===JSON.stringify(after))continue;specs.push({type:'plan',key,before:beforeP[key],after:structuredClone(after),target:structuredClone((after||beforeP[key]).target)});}
+  reviewCache=null;for(const spec of specs){spec.identity=data.contentPreview.feedbackKeys?.[spec.key]?.[spec.type==='review'?'reviewId':'planId'];queue(spec);}return undefined;
+ };
+ markDirty=function(){clearTimeout(draftTimer);draftTimer=setTimeout(()=>{for(const s of capture())queue(s,false);},200);};
+ const baseRenderDialogue=renderDialogue;
+ renderDialogue=function(...args){const result=baseRenderDialogue(...args);for(const spec of pending.values()){if(spec.type==='review'&&$('entry-note-text')&&current()){const entry=activeEntry(current());if(entry&&editorialTarget(current(),entry).key===spec.key){$('entry-note-text').value=spec.after.note||'';$('entry-note-editor').classList.remove('hidden');}}}return result;};
+ const originalSettings=openSettings;
+ function classicSettings(type,id){originalSettings(type,id);if(!$('settings-dialog').open)return;
+  for(const key of ['image-fields','npc-name-fields'])$(key).classList.add('hidden');
+  if(!$('content-correct-recorded')){const button=document.createElement('button');button.id='content-correct-recorded';button.type='button';button.textContent='Edit Recorded Content';button.onclick=()=>{const target={type:settingsTarget.type,id:settingsTarget.id};closeSettings();window.romdexContentEditor.open('definition',{legacy:target});};$('settings-apply').before(button);}
+  $('settings-apply').onclick=async()=>{try{flushNote();flushSettingDescription();await chain;if(failure)throw failure;$('settings-dialog').close();await window.romdexContentPreview.refresh(true);}catch(e){settingsStatus(e.message,true);}};
+ }
+ openSettings=classicSettings;
+ async function refresh(){if(refreshTask||editing())return refreshTask;refreshTask=(async()=>{try{const c=await api('/api/editor');viewContext=c;C.decorate(data,c);
+   if(initial){initial=false;for(const draft of M.drafts(c.draft?.draft).filter(d=>d.mode==='classic'&&d.classicSpec)){pending.set(feedbackKey(draft.classicSpec),draft.classicSpec);overlay(draft.classicSpec);}}
+   renderDialogue(true);refreshTileIndicators();window.romdexContentPreview.lockControls();if($('flags-dialog').open)renderReviewMenu();
+  }catch(e){tell(e);}finally{refreshTask=null;}})();return refreshTask;}
+ $('flags').onclick=()=>{flushNote();renderReviewMenu();$('flags-dialog').showModal();};
+ const flushOriginal=flushNote;
+ async function flush(){clearTimeout(draftTimer);flushOriginal();for(const s of capture())queue(s);await chain;if(failure)throw failure;for(const s of [...pending.values()])queue(s);await chain;if(failure)throw failure;}
+ const snapshotView=()=>['#maps','.groups','.conversation','.conditions-pane','#dialogue-options','#message-scroll'].map(selector=>({selector,top:document.querySelector(selector)?.scrollTop||0}));
+ const restoreView=positions=>{for(const p of positions||[]){const element=document.querySelector(p.selector);if(element)element.scrollTop=p.top;}};
+ window.romdexClassic={editing,refresh,openSettings:classicSettings,flush,snapshotView,restoreView,status:()=>({pending:pending.size,attention:!!failure,message:failure?.message}),resume(draft){const spec=draft.classicSpec;pending.set(feedbackKey(spec),spec);overlay(spec);if(spec.type==='review')jumpToAnnotation(spec.key,spec.after);else openReviewEntry({kind:'plan',plan:spec.after||spec.before,townId:(spec.after||spec.before).target.townId});},capture};
+ document.addEventListener('content-preview-render',()=>refresh());document.addEventListener('focusout',()=>setTimeout(()=>{if(!editing())refresh();},0));refresh();
+})();

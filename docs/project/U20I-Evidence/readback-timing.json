@@ -1,0 +1,22 @@
+{
+  "task": "U20I",
+  "startedAt": "2026-10-18T18:15:59.857Z",
+  "remoteWrites": 0,
+  "productionCacheWrites": 0,
+  "status": "captured",
+  "elapsedMs": 122416,
+  "readerStatus": {
+    "connection": "connected",
+    "attention": false,
+    "pendingIncomingFiles": 0,
+    "message": "Content Is Up to Date.",
+    "automaticRemote": false,
+    "pendingWrites": 0,
+    "label": "NPCDex Content Preview"
+  },
+  "review": [],
+  "head": "49495625f8044246541e02531b67f22dda1fdd8cf0d917fbbe44dc0b78cacdb5",
+  "requests": 884,
+  "responseBytes": 14508419,
+  "finishedAt": "2026-10-18T18:18:04.418Z"
+}

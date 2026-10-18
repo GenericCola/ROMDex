@@ -1,0 +1,24 @@
+{
+  "task": "U20I",
+  "startedAt": "2026-10-18T18:01:49.076Z",
+  "processesTerminated": 0,
+  "persistedSnapshot": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u20i\\private-profile\\normal-quit-1792346510442",
+  "priorEditsRetained": 50,
+  "approvedTransitionRetained": true,
+  "pendingAfterQuit": 40,
+  "operationStates": {
+    "committed": 11,
+    "published": 1,
+    "queued": 39
+  },
+  "status": "passed",
+  "normalTrayQuitConfirmedByUser": true,
+  "ownershipReleasedNormally": true,
+  "sqliteIntegrityAfterQuit": true,
+  "reopenedVersion": "0.5.12",
+  "pid": 6304,
+  "utilityPid": 11940,
+  "fixture": false,
+  "sourceDataNotRestoredOrReplaced": true,
+  "finishedAt": "2026-10-18T18:01:56.610Z"
+}

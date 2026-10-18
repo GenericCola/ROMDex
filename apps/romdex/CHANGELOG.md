@@ -1,3 +1,9 @@
+## 0.5.13 — U20I Sync Recovery
+
+- Allow up to ten minutes for a verified full-history content read, retaining the existing request, transfer, ownership and integrity bounds.
+- Treat interrupted requests and server failures as retryable connection failures, retaining the accepted view instead of creating false content conflicts.
+- Preserve the approved transition, original operation identities, drafts, saves and all remembered credentials.
+
 ## 0.5.12 — U20I Candidate (Acceptance Pending)
 
 - Assemble native NPCDex views from structured records, assets and versioned display metadata; retain the original export for recovery.

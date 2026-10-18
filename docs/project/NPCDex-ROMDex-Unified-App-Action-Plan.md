@@ -1,10 +1,10 @@
 # ROMDex — Desktop and Add-on Action Plan
 
 **Date:** October 14, 2026  
-**Status:** U01–U20H and approved intervening tasks are complete. **U20I is in progress**: ROMDex **0.5.12** is installed with native content assembly and reviewed imports available. Live metadata-transition acceptance and final normal Quit/reopen remain pending. U21 remains separately gated.
+**Status:** U01–U20H and approved intervening tasks are complete. **U20I is in progress**: ROMDex **0.5.12** is installed with native content assembly and reviewed imports available. The refreshed live transition was accepted and saved; normal tray Quit/reopen passed with all prior edits retained. Queued cloud delivery and final remote readback remain pending. U21 remains separately gated.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
-**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). Current: **U20I — Complete the Native Content Tree, Sol / High**, under its [scope and acceptance checklist](U20I-Native-Content-Tree-Plan.md). Implementation, isolated/backend verification, package checks and installation are complete; the live transition and final acceptance are not.
+**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). Current: **U20I — Complete the Native Content Tree, Sol / High**, under its [scope and acceptance checklist](U20I-Native-Content-Tree-Plan.md). Implementation, isolated/backend verification, package checks, installation, human transition acceptance and normal Quit/reopen are complete; cloud delivery and final remote verification are not.
 
 ## Working Agreement
 
