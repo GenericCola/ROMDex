@@ -2,12 +2,14 @@
 import {sha,seal,requireThat,validateArtifact,validateGraph,parseJSON} from './contracts.mjs';
 import {inspectNPC} from '../cloud/npcdex-import.mjs';import {validateDomain as validateLegacy} from '../cloud/npcdex-domain.mjs';
 import {validateDomain} from './materialize.mjs';
+import {workspaceAllowed} from './authorization.mjs';
 const clone=value=>structuredClone(value),key=(townId,kind,id)=>JSON.stringify([townId,kind,id]);
 const without=(value,keys)=>Object.fromEntries(Object.entries(clone(value)).filter(([key])=>!keys.includes(key)));
 const identity=(kind,...scope)=>'content:'+kind+'-'+sha(Buffer.from(JSON.stringify(scope))).slice(0,32);
 const unique=values=>[...new Set(values)];
-export function previewLegacyMigration({bytes,workspace,regions,createdAt,sourceHead}){
- requireThat(Buffer.isBuffer(bytes)&&workspace.startsWith('fixture:')&&typeof sourceHead==='string'&&regions&&createdAt,'An Explicit Isolated Migration Preview Is Required.');
+export function previewLegacyMigration({bytes,workspace,regions,createdAt,sourceHead,authorization=null}){
+ requireThat(Buffer.isBuffer(bytes)&&workspaceAllowed(workspace,authorization)&&typeof sourceHead==='string'&&regions&&createdAt,'An Explicit Migration Preview Is Required.');
+ if(!workspace.startsWith('fixture:'))requireThat(sha(bytes)===authorization.sourceSHA256&&sourceHead===authorization.sourceHead,'The Source Changed After Migration Acceptance.');
  parseJSON(bytes);const inspected=inspectNPC(bytes),original=inspected.document;validateLegacy(original);
  const sourceHash=sha(bytes),base=(schema,operationId)=>({schema,workspaceId:workspace,operationId,createdAt,actorClaim:'content:owner'}),records=[],mappings=[],assets=[],assetBytes=new Map(),index=[],byLegacy=new Map(),held=[],issues=[];
  const addAsset=(body,mime)=>{const hash=sha(body),assetId='content:asset-'+hash;if(!assetBytes.has(hash)){assets.push({assetId,sha256:hash,bytes:body.length,mime});assetBytes.set(hash,body);}return assetId;};

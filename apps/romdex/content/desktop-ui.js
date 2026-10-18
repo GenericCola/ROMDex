@@ -1,0 +1,6 @@
+// Native lifetime and shared-header adapter. No network or whole-save write access.
+(()=>{const desktop=window.parent.romdexDesktop;let state=null,error=null;const announce=()=>window.dispatchEvent(new Event('npcdex-status'));
+ const refresh=async()=>{try{state=await window.romdexContentAPI('/api/view');error=null;await window.romdexContentPreview.refresh();}catch(e){error=e.message;}announce();};
+ window.romdexWorkspace={kind:'npcdex',provider:'youtrack-content',ready:refresh(),get dirty(){return false;},get revision(){return data.revision;},async checkpoint(){await window.romdexContentEditor.flushDraft();},async manualSave(){await this.checkpoint();state=await window.romdexContentAPI('/api/sync',{});await window.romdexContentPreview.refresh(true);announce();return {ok:!state.status.attention&&!state.status.pendingWrites,message:state.status.message};},openCloudReview:()=>window.romdexContentEditor.openRecovery(),status(){return {...state?.status,label:'NPCDex',cloud:true,localCheckpoint:true,dirty:false,attention:!!error||!!state?.status.attention,localError:error,message:error||state?.status.message||'Loading Verified Content.'};}};
+ desktop.onEvent(event=>{if(event.type==='npcdex-cloud')refresh();});document.addEventListener('content-preview-render',announce);
+})();

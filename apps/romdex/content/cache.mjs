@@ -1,15 +1,16 @@
 import fs from 'node:fs';import path from 'node:path';import {DatabaseSync} from 'node:sqlite';
 import {sha,requireThat,parseJSON} from './contracts.mjs';
 const domainKeys=['records','plans','reviews','mappings','assets','revisions'];
+import {workspaceAllowed} from './authorization.mjs';
 
-// This phase deliberately has no path to the live profile or active-provider switch.
+// Fixture caches remain isolated; accepted migrations use a separately pinned context.
 export class ContentCache{
- constructor({directory,workspace,isolation=false,maxBytes=256*1024*1024,fault=()=>{}}){
-  requireThat(isolation===true&&typeof workspace==='string'&&workspace.startsWith('fixture:'),'U20C Requires an Explicitly Isolated Fixture Workspace.');
-  directory=path.resolve(directory);requireThat(!/[\\/]ROMDexDesktop[\\/]Data(?:[\\/]|$)/i.test(directory),'The Production Data Folder Is Not a Preview Cache.');
-  let ancestor=directory;while(!fs.existsSync(ancestor))ancestor=path.dirname(ancestor);requireThat(!/[\\/]ROMDexDesktop[\\/]Data(?:[\\/]|$)/i.test(fs.realpathSync(ancestor)),'A Preview Path Cannot Resolve Into Production Data.');
-  fs.mkdirSync(directory,{recursive:true});requireThat(!fs.lstatSync(directory).isSymbolicLink(),'Preview Cache Links Are Not Allowed.');
-  const marker=path.join(directory,'content-isolation.json'),identity={format:'ROMDexContentPreview/1',workspace};
+ constructor({directory,workspace,isolation=false,authorization=null,maxBytes=256*1024*1024,fault=()=>{}}){
+  const live=typeof workspace==='string'&&!workspace.startsWith('fixture:');requireThat(workspaceAllowed(workspace,authorization)&&(!live?isolation===true:true),'An Explicit Content Cache Context Is Required.');
+  directory=path.resolve(directory);const production=/[\\/]ROMDexDesktop[\\/]Data(?:[\\/]|$)/i.test(directory),approvedPath=/[\\/]ROMDexDesktop[\\/]Data[\\/]thegobindsingh-PMON[\\/]cloud[\\/]content$/i.test(directory);requireThat(!production||live&&!isolation&&approvedPath,'The Production Data Folder Is Not a Preview Cache.');requireThat(isolation||live&&approvedPath,'An Accepted Live Cache Must Use Its Dedicated Content Folder.');
+  let ancestor=directory;while(!fs.existsSync(ancestor))ancestor=path.dirname(ancestor);requireThat(!/[\\/]ROMDexDesktop[\\/]Data(?:[\\/]|$)/i.test(fs.realpathSync(ancestor))||production&&live&&!isolation&&approvedPath,'A Preview Path Cannot Resolve Into Production Data.');
+  fs.mkdirSync(directory,{recursive:true});for(let part=directory;path.dirname(part)!==part;part=path.dirname(part))requireThat(!fs.lstatSync(part).isSymbolicLink(),'Content Cache Links Are Not Allowed.');requireThat(path.resolve(fs.realpathSync(directory)).toLowerCase()===directory.toLowerCase(),'Content Cache Must Use Its Real Path.');
+  const marker=path.join(directory,'content-isolation.json'),identity={format:live?'ROMDexAcceptedContentCache/1':'ROMDexContentPreview/1',workspace,...(live?{sourceSHA256:authorization.sourceSHA256}:{} )};
   if(fs.existsSync(marker))requireThat(JSON.stringify(parseJSON(fs.readFileSync(marker)))===JSON.stringify(identity),'Preview Cache Belongs to Another Workspace.');
   else fs.writeFileSync(marker,JSON.stringify(identity),{flag:'wx'});
   Object.assign(this,{directory,workspace,maxBytes,fault});this.db=new DatabaseSync(path.join(directory,'content.sqlite'));

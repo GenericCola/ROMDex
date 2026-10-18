@@ -1,6 +1,6 @@
 # U20E — NPCDex Migration Preview
 
-**Status:** preparation verified; awaiting the required migration acceptance. U20E is not complete. **Model:** Sol / High. Installed ROMDex **0.5.7** and the GitHub-backed NPCDex remain authoritative. No real NPCD content has been uploaded or activated.
+**Status:** human migration acceptance received; import and handoff preparation underway. U20E is not complete. **Model:** Sol / High. Installed ROMDex **0.5.7** and the GitHub-backed NPCDex remain authoritative until the final source freeze, live readback and application handoff pass. The approved real-data transfer is in progress; authority activation still requires successful readback and handoff.
 
 ## Proposed Result
 

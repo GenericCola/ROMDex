@@ -1,0 +1,18 @@
+{
+  "remoteWrites": 0,
+  "task": "U20E",
+  "status": "passed",
+  "credentialsCopied": false,
+  "sourceSHA256": "2c50ee40f590eb1505a99922efa948db282fe46425bf640b5a0f69fc780c630c",
+  "mode": "Isolated Native Desktop",
+  "sourceRevision": 73,
+  "at": "2026-10-18T02:32:57.0073873Z",
+  "fullInstalledAcceptance": "U20F — Not Authorized",
+  "checks": [
+    "Maps, Tile Images and Timeline Reconstruct from Verified Content",
+    "Professor Elm Current Dialogue Remains Visible",
+    "Versioned Planning Form Targets Selected Encounter",
+    "Dialogue Entry and Text Block Match the Viewed Passage",
+    "Shared Header Auto-Sync Controls Are Reused"
+  ]
+}

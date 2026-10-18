@@ -1,0 +1,32 @@
+{
+  "task": "U20E",
+  "status": "prepared",
+  "at": "2026-10-18T02:37:52.969Z",
+  "testsPassed": 530,
+  "targetedRechecks": 45,
+  "privateReadChecks": 3,
+  "isolatedNativeChecks": [
+    "Maps, Tile Images and Timeline Reconstruct from Verified Content",
+    "Professor Elm Current Dialogue Remains Visible",
+    "Versioned Planning Form Targets Selected Encounter",
+    "Dialogue Entry and Text Block Match the Viewed Passage",
+    "Shared Header Auto-Sync Controls Are Reused"
+  ],
+  "sourceSHA256": "2c50ee40f590eb1505a99922efa948db282fe46425bf640b5a0f69fc780c630c",
+  "sourceRevision": 73,
+  "candidateVersion": "0.5.8",
+  "syntaxChecks": 160,
+  "sourceMatches": 215,
+  "referenceAssets": 1,
+  "applicationFileCount": 290,
+  "installer": {
+    "path": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\U20E-Migration-Candidate\\ROMDex-0.5.8-x64.msi",
+    "bytes": 162477913,
+    "sha256": "67142fd1ea4050a5dfe71cc38f98e4526fe4a9855ff049b6eed33a36f3ba2654"
+  },
+  "installerContractUnchanged": true,
+  "credentialsBundled": false,
+  "realNPCDContentImported": false,
+  "providerSwitched": false,
+  "u20fAuthorized": false
+}

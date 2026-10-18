@@ -1,0 +1,11 @@
+{
+  "task": "U20E",
+  "status": "passed",
+  "checks": [
+    "Expected Private Owner",
+    "Changed Reporter",
+    "Broadened Visibility"
+  ],
+  "remoteWrites": 0,
+  "actualCredentialsUsed": false
+}

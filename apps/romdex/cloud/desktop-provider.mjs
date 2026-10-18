@@ -1,7 +1,9 @@
 import fs from 'node:fs/promises';import path from 'node:path';
 import {GitHubSaveStore} from './github-store.mjs';import {restorePreparedImport} from './npcdex-import.mjs';
 import {NPCDexJournal} from './npcdex-journal.mjs';import {NPCDexSync} from './npcdex-sync.mjs';import {DurableJSONStorage} from '../durable-json-storage.mjs';
+import {openContentProvider} from '../content/desktop-provider.mjs';
 export async function openNPCDexCloud({profile,protect,enabled,changed,verificationBranch=null}){
+ const content=await openContentProvider({profile,protect,enabled,changed});if(content)return content;
  const base=path.dirname(profile),cloud=path.join(base,'cloud');let connection,seed;
  try{connection=JSON.parse(await fs.readFile(path.join(cloud,'github-connection.encrypted'),'utf8'));seed=JSON.parse(await fs.readFile(path.join(cloud,'npcdex-import.json'),'utf8'));}catch(error){if(error.code==='ENOENT'){for(const file of ['npcdex-import.json','runtime/npcdex.sqlite']){try{await fs.stat(path.join(cloud,file));}catch(missing){if(missing.code==='ENOENT')continue;throw missing;}throw Error('The Existing NPCDex Cloud Workspace Is Missing Its Connection or Import Configuration.');}return null;}throw error;}
  const store=new GitHubSaveStore({connection,credential:()=>protect(JSON.stringify(connection.credential),true),writeInterval:1500,verificationBranch});
