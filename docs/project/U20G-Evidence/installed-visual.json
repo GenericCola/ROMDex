@@ -1,0 +1,22 @@
+{
+  "task": "U20G",
+  "status": "passed",
+  "version": "0.5.10",
+  "at": "2026-10-18T13:02:00Z",
+  "method": "Native Windows Computer Use through @oai/sky; no renderer scripting or DOM automation",
+  "checks": [
+    "Installed ROMDex opens with 299 current tasks and healthy shared sync connections",
+    "NPCDex shows Add Character beside Male/Female in Tray 2, with no Add Character in Tray 3",
+    "Flags, Notes & Changes groups 6 Changes, 40 Notes and 38 collapsed Finalized entries with map/sub-zone, target, condition and actual content",
+    "Selecting the first change target navigates to New Bark Town / Outdoors and the matching scene at Stage II",
+    "Tray 3 exposes contextual Flags & Notes and CHANGE / FINAL / REMOVE controls",
+    "Plan Changes defaults to the selected scene and existing request; technical target selectors are hidden and advanced options are collapsed",
+    "Scrolling reveals Proposed Name, Proposed Picture and advanced controls completely above the separate Close / Discard Editor Draft / Save Changes row",
+    "Form was closed unchanged and the installed app remains open"
+  ],
+  "preservationEvidence": "work/u20g/post-visual-preservation.json",
+  "originalDraftPreserved": true,
+  "acceptedSnapshotUnchanged": true,
+  "journalUnchanged": true,
+  "remoteWritesDuringVisualReview": 0
+}

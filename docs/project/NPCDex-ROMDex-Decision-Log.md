@@ -357,3 +357,7 @@ Installed ROMDex 0.5.8 now uses NPCD as NPCDex’s content authority after the a
 ## October 18, 2026 — U20F Acceptance and Private Release
 
 ROMDex 0.5.9 completes the content-backend acceptance gate. Preserve current/proposed separation and guarded native title/context review; unsupported native changes remain visible for human review. Complete Data backup/restoration and installed verification retained all saves and three protected connections. The private signed-metadata release requires migrated 0.5.8. U21 remains a separate PASSKEY gate; fresh-computer connection/root bootstrap remains an explicit U29 acceptance requirement.
+
+## October 18 — U20G Corrective UI
+
+Restore contextual editing over the versioned backend; separate form scrolling/footer; identify every summary entry and navigate to its stage; place Add Character beside Male/Female. Preserve unrelated drafts and immutable multi-passage scopes. Stale notes default to Unreviewed until explicit retesting. Release 0.5.10 completes this corrective task; U21 remains separately gated.

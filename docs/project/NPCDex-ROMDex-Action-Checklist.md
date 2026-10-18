@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** U20F is complete; ROMDex 0.5.9 is installed. **U20G — Contextual Editing and Review Usability** is authorized and in progress before U21. [Corrective checklist](U20G-Action-Plan.md). U21 remains unstarted and separately gated.
+**Current:** **U20G is complete. ROMDex 0.5.10 is installed and open**, with contextual editing restored, readable summaries, separate form scrolling/footer and Add Character in Tray 2. Current saves and all three remembered connections are preserved. [Completion report](U20G-Completion-Report.md). **Next: U21 — Map Document Preview and Task Attachment, Sol / High; new PASSKEY required.**
 
 ## Completed Foundation
 
@@ -71,7 +71,7 @@
 
 ## Phase 5 — Map Packages and Tasks
 
-- [ ] **U20G — Contextual Editing and Review Usability** — Sol / High. Corrective task authorized October 18; [task checklist](U20G-Action-Plan.md).
+- [x] **U20G — Contextual Editing and Review Usability** — Sol / High. Completed October 18 in 0.5.10; [report](U20G-Completion-Report.md), [verification](U20G-Verification.json).
 
 - [ ] **U21 — Map Document Preview and Task Attachment** — Sol / High. Existing/new task chooser, explicit attach, immutable versions, no agent dispatch.
 - [ ] **U22 — Linked Navigation and Package Progress** — Sol / High.
@@ -506,3 +506,7 @@ The [U20C1/U20C2 scheduling contingency](U20C1-Independent-Reader-Plan.md) was n
 ## U20F — Complete
 
 All acceptance gates passed: 540 regression tests, 10 final rechecks, actual Windows/YouTrack recovery and native review, complete Data restoration, packaged source/installer checks, private release and installed handoff. All three credentials were retained without token entry. [Completion report](U20F-Completion-Report.md). U21 remains unchecked and separately gated.
+
+## U20G — Complete
+
+The corrective release passed its regression, focused, native visual, runtime, backup/restoration and installed handoff checks. [Completion report](U20G-Completion-Report.md). U21 remains unchecked and requires a new PASSKEY.

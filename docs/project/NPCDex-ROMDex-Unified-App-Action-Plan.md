@@ -1,10 +1,10 @@
 # ROMDex — Desktop and Add-on Action Plan
 
 **Date:** October 14, 2026  
-**Status:** U01–U20F and approved intervening tasks are complete. Installed ROMDex **0.5.9** uses the verified NPCD content backend, GitHub-backed ROMDex metadata, two-way YouTrack task sync and shared controls. U21 requires a new task-specific PASSKEY.
+**Status:** U01–U20G and approved intervening tasks are complete. Installed ROMDex **0.5.10** includes the verified NPCD backend and corrective contextual-editing UI. U21 requires a new PASSKEY.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
-**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). **U20F is complete.** ROMDex 0.5.9 is installed with its verified private release, current saves and all remembered connections. [Completion report](U20F-Completion-Report.md). **Next: U21 — Map Document Preview and Task Attachment, Sol / High.**
+**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). **U20G is complete.** ROMDex 0.5.10 is installed with current saves, all remembered connections and the corrective UI. [Completion report](U20G-Completion-Report.md). **Next: U21 — Map Document Preview and Task Attachment, Sol / High.**
 
 ## Working Agreement
 
@@ -219,7 +219,7 @@ Scheduled after U30 so notifications do not delay cloud persistence or the packa
 
 Tasks later in the plan are provisional until their design checkpoints are completed. Current desktop/cloud behavior remains available while the content architecture is reviewed and proved. Earlier completion narratives below are historical checkpoints; the status and checklist at the top control current execution.
 
-**Current boundary:** **U20F is complete.** ROMDex 0.5.9 is installed with its verified private release, current saves and all remembered connections. [Completion report](U20F-Completion-Report.md). **Next: U21 — Map Document Preview and Task Attachment, Sol / High.**
+**Current boundary:** **U20G is complete.** ROMDex 0.5.10 is installed with current saves, all remembered connections and the corrective UI. [Completion report](U20G-Completion-Report.md). **Next: U21 — Map Document Preview and Task Attachment, Sol / High.**
 
 
 ## R08 — Release Completed, October 14, 2026
