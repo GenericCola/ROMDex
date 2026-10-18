@@ -1,0 +1,17 @@
+{
+  "task": "U20I",
+  "startedAt": "2026-10-18T21:38:35.377Z",
+  "remoteWrites": 0,
+  "threeCredentialCiphertextsUnchanged": true,
+  "threeCredentialsUnlockedWithoutEntry": true,
+  "status": "passed",
+  "approvedPublication": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+  "registryIssueId": "3-376",
+  "projectId": "0-2",
+  "manifestAttachmentId": "12-1164",
+  "manifestHashVerified": true,
+  "freshPublicationBytesVerified": true,
+  "restrictedOwnerChecked": true,
+  "requests": 5,
+  "finishedAt": "2026-10-18T21:38:39.144Z"
+}

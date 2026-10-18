@@ -1,10 +1,10 @@
 # ROMDex — Desktop and Add-on Action Plan
 
 **Date:** October 14, 2026  
-**Status:** U01–U20H and approved intervening tasks are complete. **U20I is in progress**: ROMDex **0.5.13** is installed with verified Data/credential preservation. Human transition acceptance and normal Quit/reopen passed; final queue delivery and native/remote checks remain open. U21 remains separately gated.
+**Status:** U01–U20I and approved intervening tasks are complete. ROMDex **0.5.14** is installed and verified. U21 remains separately gated.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
-**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). Current: **U20I — Complete the Native Content Tree, Sol / High**, under its [scope and acceptance checklist](U20I-Native-Content-Tree-Plan.md). Implementation, isolated/backend verification, package checks, installation, human transition acceptance and normal Quit/reopen are complete; cloud delivery and final remote verification are not.
+**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). U20I is complete; see [Completion Report](U20I-Completion-Report.md). Next: **U21 — Map Document Preview and Task Attachment, Sol / High**, after a new PASSKEY.
 
 ## Working Agreement
 
@@ -136,7 +136,7 @@ Added by the user during U05; requires completed U05 design review and a separat
 
 ## Phase 4 — Approved Content Architecture Revision
 
-**U20 design approved October 16, 2026.** [Consolidated architecture and revised plan](U20-Consolidated-Architecture-and-Revised-Plan.md) replaces the earlier future ticket/receipt sequence, preserved in [the prior future-phase plan](U20-Previous-Future-Phase-Plan.md). The confirmed individual decisions are recorded in [the discussion log](U20-Architecture-Discussion.md). Later task-specific approvals completed U20A–U20H and the accepted NPCD cutover; the checklist records those gates. U20I and U21–U33 implementation still require their own PASSKEYs.
+**U20 design approved October 16, 2026.** [Consolidated architecture and revised plan](U20-Consolidated-Architecture-and-Revised-Plan.md) replaces the earlier future ticket/receipt sequence, preserved in [the prior future-phase plan](U20-Previous-Future-Phase-Plan.md). The confirmed individual decisions are recorded in [the discussion log](U20-Architecture-Discussion.md). Later task-specific approvals completed U20A–U20H and the accepted NPCD cutover; the checklist records those gates. U20I subsequently completed under its own PASSKEY; U21–U33 retain their separate authorization gates.
 
 ### 4A–4H. Review, Prove, Migrate and Finish Native Content Assembly
 
@@ -154,6 +154,8 @@ Added by the user during U05; requires completed U05 design review and a separat
 **Milestone C:** The content-backed NPCDex has passed isolated proof, a previewed real migration and installed-app acceptance; task execution still requires explicit user handoff.
 
 **October 18 transition gate:** U20E/U20F completed backend migration and acceptance for the migrated workspace, not full removal of the original-save presentation scaffold. U20I closes that explicit remaining gap before U21. Complete frontend assembly and new-map imports must not depend on parsing the original export; preserve it only for recovery, historical hashes and audit. Do not repeat the migration or re-extract existing ROM data merely to remove this presentation dependency.
+
+**Recovery follow-up to scope:** uncertain-only uploads need an accessible reviewed-retry control even without a content-conflict review; large publications should receive their bounded write budget after the initial history read. The U20I delivery procedure uses the existing installed APIs with the app closed and a verified fresh backup. This does not implement those follow-up UI/batching changes.
 
 **Scheduling contingency — October 16, not adopted:** [U20C1 — Independent Content Reader, Cache and Preview](U20C1-Independent-Reader-Plan.md) was proposed while the instance owner was unavailable. The user then reported that owner setup is underway and withdrew the diversion. Retain the split as reference only; current execution returns to U20B, then the original U20C scope under its separate PASSKEY. No U20C1 work began.
 
@@ -223,7 +225,7 @@ Scheduled after U30 so notifications do not delay cloud persistence or the packa
 
 Tasks later in the plan are provisional until their design checkpoints are completed. Current desktop/cloud behavior remains available while the content architecture is reviewed and proved. Earlier completion narratives below are historical checkpoints; the status and checklist at the top control current execution.
 
-**Current boundary:** U20I is authorized and in progress. Complete the native content tree and verified import path before U21. Any real-data transition requires fresh preview acceptance; U21 needs its own PASSKEY.
+**Current boundary:** U20I is complete. U21 needs its own PASSKEY and has not started.
 
 
 ## R08 — Release Completed, October 14, 2026

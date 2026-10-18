@@ -369,3 +369,7 @@ Reuse the original web renderer and CSS for status tags, flags, notes, inline ch
 ## October 18 — U20I Native Content Tree Prerequisite
 
 The backend migration is complete, but the migrated frontend still depends on the preserved original-save compatibility scaffold. The user requested adding the remaining transition to the checklist/roadmap. Schedule **U20I — Complete the Native Content Tree**, Sol / High, before U21: assemble the entire interface from structured records, support previewed new-map/sub-zone/entity imports, preserve existing UI/data/history and update agent extraction/import instructions. Original exports remain recovery/history only. Prove a new map absent from the original save through the validated import/display path, distinguishing synthetic tests from actual ROM extraction. Implementation and any live metadata transition remain subject to a new PASSKEY and applicable preview acceptance. This request updates planning only; U20I has not begun.
+
+## October 18, 2026 — U20I Complete
+
+The accepted native-content transition is committed and verified in installed 0.5.14. All preceding edits and saved connections are retained. A bounded ten-minute content read and retryable transport failures resolve the observed history-read timing issue while preserving integrity and conflict checks. U21 remains a separate Sol / High task requiring a new PASSKEY.

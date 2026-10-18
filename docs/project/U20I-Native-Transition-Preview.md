@@ -18,3 +18,7 @@ The isolated YouTrack proof has already created, imported, read back and reopene
 ## In-App Acceptance
 
 The user accepted the refreshed in-app preview after a newer planning edit changed the original baseline. Approved baseline: `31c1ea2418280fe6f8c918e20eadd680a430639f64c95f04ebe6c8ab6c040c42`. Accepted publication: `fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8`. The in-app operation/time differ from offline preparation, so its fingerprint is intentionally distinct. The transition is queued after preceding edits; no bypass or cancellation of those edits was used.
+
+## Remote Completion
+
+The exact accepted publication `fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8` is committed and independently read back. The queue is empty and native view parity passed. See [Completion Report](U20I-Completion-Report.md).

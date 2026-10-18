@@ -1,0 +1,17 @@
+// Review one interrupted upload without changing the app's queue or remote data.
+const {app,safeStorage}=require('electron'),fs=require('original-fs').promises,path=require('node:path'),assert=require('node:assert/strict'),{DatabaseSync}=require('node:sqlite'),{pathToFileURL}=require('node:url');
+const root=path.resolve(__dirname,'..'),work=path.join(root,'work/u20i-bound'),base=path.join(process.env.USERPROFILE,'AppData/Local/ROMDexDesktop'),profile=path.join(base,'Data/thegobindsingh-PMON'),report={task:'U20I',startedAt:new Date().toISOString(),remoteWrites:0,productionCacheWrites:0};let token,db;
+app.setPath('userData',path.join(work,'private-profile/session'));app.setPath('sessionData',path.join(work,'private-profile/session'));app.disableHardwareAcceleration();
+app.whenReady().then(async()=>{
+ db=new DatabaseSync(path.join(profile,'cloud/content/content.sqlite'),{readOnly:true});
+ const get=k=>{const r=db.prepare('SELECT bytes FROM state WHERE key=?').get(k);return r?JSON.parse(Buffer.from(r.bytes)):null;};
+ const id='content:catalog-79455f25-83b7-4b16-87f4-8a272765bfc9',op=(get('edit-journal')||[]).find(o=>o.id===id);assert.equal(op.publication.digest,'fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8');assert.equal((get('review')||[]).length,0);assert.equal(op.publication.parentPublications[0],get('accepted').head);
+ const slots=Object.entries(op.slots).filter(([,s])=>s.state==='sending');assert.equal(slots.length,1);const [key,slot]=slots[0];assert.equal(key,'artifact:110:0');assert.equal(slot.kind,'object');
+ let envelope=JSON.parse(await fs.readFile(path.join(profile,'service/connection.encrypted')));while(typeof envelope==='string')envelope=JSON.parse(envelope);token=safeStorage.decryptString(Buffer.from(envelope.bytes,'base64'));
+ const {YouTrackContentWriter}=await import(pathToFileURL(path.join(base,'app-0.5.14/resources/app/content/youtrack-writer.mjs'))),config=JSON.parse(await fs.readFile(path.join(profile,'cloud/content-provider.json')));
+ const writer=new YouTrackContentWriter({registryIssueId:config.registryIssueId,workspace:config.workspace,marker:'ROMDexNPCDexContent/1\nWorkspace: '+config.workspace,authorization:config.acceptance,credential:async()=>token,fetch:async(url,options)=>{assert.equal(options.method,'GET');return fetch(url,options);}});writer.begin(AbortSignal.timeout(120000));
+ const scans=[];for(let i=0;i<2;i++){await writer.requireIssue(slot.issueId);writer.read.issues.delete(slot.issueId);const files=await writer.read.attachments(slot.issueId);scans.push(files.filter(f=>f.name===slot.name).map(f=>({id:f.id,bytes:f.size,authorId:f.authorId})));}
+ assert(scans.every(s=>s.length===0),'A Matching Attachment Exists; Rediscover Instead of Retrying');
+ const now=(get('edit-journal')||[]).find(o=>o.id===id);assert.equal(now.slots[key].state,'sending');assert.equal(now.publication.digest,op.publication.digest);
+ Object.assign(report,{status:'reviewed-missing',operationId:id,publication:op.publication.digest,slotKey:key,sha256:slot.sha256,bytes:slot.bytes,scans,verifiedSlots:Object.values(now.slots).filter(s=>s.state==='verified').length,unchangedBaseline:true,requests:writer.read.requests});
+}).catch(e=>{report.status='needs-review';report.message=e.message;}).finally(async()=>{token=null;db?.close();report.finishedAt=new Date().toISOString();await fs.writeFile(path.join(work,'missing-attachment-review.json'),JSON.stringify(report,null,2));app.exit(report.status==='reviewed-missing'?0:1);});

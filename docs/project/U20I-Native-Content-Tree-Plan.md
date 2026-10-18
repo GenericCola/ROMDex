@@ -1,6 +1,6 @@
 # U20I — Complete the Native Content Tree
 
-**Status:** Authorized by the user’s PASSKEY on October 18, 2026. In progress; stop before U21.
+**Status:** Complete. ROMDex 0.5.14 is installed; human acceptance, queued delivery, native parity and fresh remote readback passed. Stop before U21.
 
 **Model / Effort:** Sol / High.
 
@@ -20,7 +20,7 @@ Generate the complete NPCDex view from structured NPCD records and their referen
 - [x] Provide a safe import path for new maps, sub-zones and entities. Validate the bundle, source revision/evidence, stable identities, parent and shared references, assets, timeline and expected backend baseline. Preview additions/conflicts before explicitly approved publication; preserve newer work and handle retries, partial delivery and readback using the existing versioned storage rules. An ordinary unstructured YouTrack ticket is not an import bundle.
 - [x] Update the existing [ROM Mapping and Content Import Guide](U20A-Contracts/ROM-Mapping-and-Import-Guide.md) and provide a concrete agent handoff template, validated map-bundle example, field/mapping reference and validation/import instructions. Define required source inputs and outputs, exact dialogue/control preservation, identity reuse and unresolved-evidence handling. Do not claim a game-specific extractor or ROM-verified locator without the actual project/toolchain and evidence; identify missing inputs explicitly.
 - [x] Verify full migrated-content parity, new-map/sub-zone/entity creation, shared references and original feedback behavior. Use isolated copies/marked test records for import, readback, restart/offline, duplicate prevention and conflict tests. Show that frontend construction succeeds with the original export unavailable to the presentation path, while the preserved recovery copy remains intact. Synthetic fixtures must be reported separately from real ROM extraction.
-- [ ] Complete installed-app/native UI acceptance and the appropriate verified release/handoff. Back up and verify restoration of current Data, preserve all saved credentials and pending work, and confirm both workspaces remain usable. Any real-data metadata transition requires a fresh preview, current-state recheck and explicit acceptance before writes. Record evidence, check off U20I, report limitations and stop before U21.
+- [x] Complete installed-app/native UI acceptance and the appropriate verified release/handoff. Back up and verify restoration of current Data, preserve all saved credentials and pending work, and confirm both workspaces remain usable. Any real-data metadata transition requires a fresh preview, current-state recheck and explicit acceptance before writes. Record evidence, check off U20I, report limitations and stop before U21.
 
 ## Completion Gate
 
@@ -43,3 +43,7 @@ See [Compatibility Review](U20I-Native-Content-Compatibility-Report.md) and [Map
 ## Verification Checkpoint
 
 The full regression run passed 596 tests. Final focused checks passed 63 tests after the bounded-publication, native-runtime and membership-resolution changes. They include booting without the old monolithic workspace file, retaining both imported child sets during reviewed concurrent additions to the same parent, explicit choices for conflicting parent values, and preservation of distinct floor/location labels. The normal-window import file picker, preview, confirmation and reopen were exercised against an isolated copy; its accepted snapshot, original draft and prior queue remained intact. A separate marked NPCD registry passed real import/publication/readback/reopen/idempotence checks and was cleaned up without touching production records. The latest captured compatibility proof preserves 211 records and 44 pending edits. The final package passed 182 syntax checks, an exact source/installer audit and 17 packaged-runtime checks. Native review at 620-pixel window height confirmed the file picker, named-parent preview, separate body/footer scrolling and Escape dismissal. Release/installed acceptance and the live metadata transition remain open.
+
+## Final Acceptance
+
+See [Completion Report](U20I-Completion-Report.md) and [Verification](U20I-Verification.json). The final gate is complete; historical pre-acceptance checkpoints above retain their original scope.

@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** **U20I is in progress.** ROMDex **0.5.13** is installed and verified with all current Data, 51 prior operations (including the accepted transition), original drafts and all three remembered credentials preserved. Backup/restoration, private release readback and installed checks passed. Queue delivery and final native/remote verification remain open; U21 is unstarted and requires a new PASSKEY.
+**Current:** **U20I is complete.** ROMDex **0.5.14** is installed and verified; the native transition and prior queue are committed, all saved connections are preserved, and final native/remote checks passed. [Completion report](U20I-Completion-Report.md). Next: **U21 — Map Document Preview and Task Attachment, Sol / High**. Wait for a new PASSKEY.
 
 ## Completed Foundation
 
@@ -75,7 +75,9 @@
 
 - [x] **U20H — Restore the Original NPCDex Feedback Interface** — Sol / High. Completed October 18 in 0.5.11; [report](U20H-Completion-Report.md), [verification](U20H-Verification.json).
 
-- [ ] **U20I — Complete the Native Content Tree** — Sol / High. Implementation, installation, human transition acceptance and normal Quit/reopen are verified. Finish queued cloud delivery and final native-content/remote readback checks before marking complete. The original export becomes recovery/history only. [Scope and acceptance checklist](U20I-Native-Content-Tree-Plan.md). Must complete before U21; the current PASSKEY already authorizes this task.
+- [x] **U20I — Complete the Native Content Tree** — Sol / High. Native projection, reviewed imports and agent instructions are delivered. Human acceptance, installed backup/restoration, queue delivery, exact content preservation and final remote readback passed in 0.5.14. [Completion report](U20I-Completion-Report.md).
+
+**Recovery follow-up to scope:** expose reviewed retry for uncertain-only uploads even when there is no content-conflict review, and give large publications a write budget independent of their initial history read. U20I uses the installed recovery API under exclusive ownership to deliver its already-approved transition; these UI/batching improvements remain pending.
 
 - [ ] **U21 — Map Document Preview and Task Attachment** — Sol / High. Existing/new task chooser, explicit attach, immutable versions, no agent dispatch.
 - [ ] **U22 — Linked Navigation and Package Progress** — Sol / High.

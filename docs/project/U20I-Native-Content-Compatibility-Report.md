@@ -1,6 +1,6 @@
 # U20I Native Content Compatibility Review
 
-**Status:** ROMDex 0.5.13 is installed and verified. The user accepted the native transition; normal Quit/reopen, fresh complete Data restoration, private release readback and all credential checks passed. Final queue delivery and native/remote verification remain pending. U20I is not complete.
+**Status:** Complete in installed ROMDex 0.5.14. The human-approved transition and all preceding edits are remotely committed; final native parity, credential preservation and fresh remote readback passed. [Completion Report](U20I-Completion-Report.md).
 
 ## Queue Readback Timing Check
 
@@ -60,3 +60,7 @@ The fresh compatibility proof retains all 49 edits and both gender projections. 
 ROMDex 0.5.12 is installed and open. Installation preserved all 122 Data files / 163,922,828 bytes before reopening, and 318 application file hashes matched. Post-install read-only checks retained all 49 original operations and object hashes, the original saved draft, 299 tasks, 104 order entries and 78 saved parent statuses. All three credential files were unchanged and unlocked; live restricted-registry access and the latest signed private update were verified. Native UI review observed both workspaces and prepared the fresh 211-record / 3-map / 198-metadata / 49-edit transition dialog without accepting it.
 
 A post-backup read-only preview changed only SQLite shared-memory reader-lock bytes. Every database/WAL and other Data file remained identical. The first backup was retained, and a fresh stable backup/restoration passed before installation. No stale save was restored into live Data. Live transition acceptance and normal Quit/reopen remain outstanding.
+
+## Final Installed Acceptance
+
+The approved publication `fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8` is committed. All 50 preceding edits are committed and the queue is empty. Both gender views match the approved baseline without reading the original export; record bindings and content/proposals/testing/history remain unchanged. The complete Data backup restored successfully, and all three credentials remain unchanged and unlock without re-entry. See [Verification](U20I-Verification.json) for exact evidence.

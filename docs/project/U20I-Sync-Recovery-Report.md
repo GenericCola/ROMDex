@@ -1,6 +1,6 @@
 # U20I — Native Content Sync Recovery
 
-**Status:** Correction under verification; U20I remains open. No U21 work started.
+**Status:** Complete in installed 0.5.14; U20I queue delivery and final remote/native checks passed. No U21 work started.
 
 ## Observed Problem
 
@@ -28,3 +28,7 @@ The final source correction passes all 87 focused tests. The first candidate was
 ## Installed Correction
 
 0.5.13 is published privately and installed. All 121 Data files (189,878,773 bytes) were preserved exactly during installation, and 318 application hashes were verified. All 51 prior operations, immutable objects, original draft and all three saved credentials remain intact; credentials unlock without entry. The initial installed snapshot still contained 27 pending operations and nine cached interruption warnings from 0.5.12. The corrected reader must refresh and drain these before final completion.
+
+## Final Result
+
+The final replacement package, bundled runtime, live-history read, complete Data backup/restoration, private publication, installation and credential checks passed. The user freed disk space after verified source backup and collection of obsolete build output. All prior queued edits and the approved transition are committed. See [Completion Report](U20I-Completion-Report.md).

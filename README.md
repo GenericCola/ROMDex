@@ -2,7 +2,7 @@
 
 Private development home for ROMDex and its NPCDex add-on.
 
-Latest published private release: [ROMDex 0.5.13](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.13). U20I remains in progress with two original operations pending. The 0.5.14 read-budget recovery candidate passes 92 focused tests, 182 syntax checks, 17 packaged-runtime checks and fresh live-history verification; its fresh backup, private publication and installation are next. It retains hard response limits and retries the original legacy intent only against a verified unchanged parent. See [bounded read recovery](docs/project/U20I-Bounded-Read-Recovery.md). U21 remains separately gated.
+Latest published private release: [ROMDex 0.5.14](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.14). Installed and verified with the native NPCD transition committed, its queue empty, current content and all saved connections preserved. [U20I completion report](docs/project/U20I-Completion-Report.md). Next: **U21 — Map Document Preview and Task Attachment, Sol / High**, after a new PASSKEY.
 
 - **apps/romdex/** — current application source, desktop host, web UI and tests.
 - **packages/tool-suite-ui/** — reusable suite assets, including the Standard Settings Icon.
@@ -20,6 +20,6 @@ For current scope and deferred work, see [the action checklist](docs/project/NPC
 
 Run application tests from apps/romdex with Node 24: `node --test tests/*.test.mjs`. Electron and installer versions are pinned in the application/runtime manifests; no Actions workflow or billing feature is enabled by this repository setup.
 
-## U20I Development Checkpoint
+## U20I Completed
 
-Native content assembly and reviewed map imports are installed in 0.5.12. Human transition acceptance and normal Quit/reopen passed. The 0.5.13 source adds bounded readback time and retryable connection handling; it has not yet been published or installed. See [U20I Checklist](docs/project/U20I-Native-Content-Tree-Plan.md) and [Compatibility Review](docs/project/U20I-Native-Content-Compatibility-Report.md). Do not treat this checkpoint as completed cloud delivery or permission to begin U21.
+Native content assembly, reviewed map imports and agent extraction/format instructions are delivered. The original export is retained for recovery/history; normal frontend construction uses structured NPCD records and referenced assets. Human acceptance, backup/restoration, installed preservation, exact native parity and fresh remote readback passed. U21 has not started.

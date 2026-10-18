@@ -1,0 +1,39 @@
+{
+  "task": "U20I",
+  "version": "0.5.14",
+  "startedAt": "2026-10-18T21:11:04.613Z",
+  "applicationSourceChanged": false,
+  "reviewedRetries": [
+    {
+      "key": "artifact:110:0",
+      "sha256": "f5b76432d25e5736f599c591050da8f32abafae485e7567b782dfea4af1d68f2",
+      "bytes": 964,
+      "twoFreshScansMissing": true,
+      "at": "2026-10-18T21:14:18.748Z"
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "uncertain",
+      "error": "Content Connection Interrupted. The Verified Cache Is Retained.",
+      "errorCode": "CONTENT_CONNECTION",
+      "verifiedFiles": 190
+    },
+    {
+      "attempt": 2,
+      "status": "published",
+      "verifiedFiles": 211
+    }
+  ],
+  "backup": "outputs\\U20I-Reviewed-Retry-Protected-Data-Backup-1792357864706",
+  "filesBackedUp": 121,
+  "backupHashesVerified": true,
+  "initialVerifiedFiles": 121,
+  "status": "passed",
+  "publication": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+  "queueEmpty": true,
+  "nativeAccepted": true,
+  "originalVerifiedFilesPreserved": true,
+  "finishedAt": "2026-10-18T21:38:29.147Z"
+}

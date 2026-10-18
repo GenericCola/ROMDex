@@ -1,6 +1,6 @@
 # U20I — Bounded Read Recovery
 
-**Status:** 0.5.14 candidate passed verification; awaiting fresh backup and installation. Two operations remain intact: the final planning edit and the accepted native-content transition. U20I is not complete.
+**Status:** Complete in installed 0.5.14. Both remaining operations are committed; final native parity and fresh remote readback passed. U20I is complete and U21 has not started.
 
 ## Live Finding
 
@@ -17,3 +17,7 @@ The old transport used the same error for an oversized individual response and c
 ## Evidence and Remaining Gate
 
 All 92 focused reader/editor/transport/catalog-storage checks pass. They cover cumulative-budget reset, hard per-response limits, durable checkpoint/reopen, legacy intent recovery and continued blocking after a genuine size failure. The final installer matches 243 source files plus one retained reference asset, passes 182 syntax checks and 17 packaged-runtime checks, and completed a fresh live-history read in 178,297 ms (987 requests, 17,015,786 bytes, no review findings). Fresh backup/restoration, installation and final native/remote verification remain required. No queue cancellation, content rewrite or forced commit is authorized by this correction.
+
+## Final Acceptance
+
+The fresh complete Data backup and isolated restoration passed. Installation preserved all saved connections and operations. The original planning publication and accepted native transition reached YouTrack with unchanged identities; the queue is empty. See [Completion Report](U20I-Completion-Report.md) for the final evidence.

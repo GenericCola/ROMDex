@@ -1,0 +1,27 @@
+{
+  "task": "U20I",
+  "stage": "Complete Data backup and isolated restoration acceptance",
+  "startedAt": "2026-10-18T20:27:59.933Z",
+  "remoteWrites": 0,
+  "status": "passed",
+  "backup": "outputs/U20I-Bound-Protected-Data-Backup",
+  "filesPreserved": 121,
+  "bytesPreserved": 194888219,
+  "isolatedRestoreHashesMatch": true,
+  "currentDataUntouched": true,
+  "threeCredentialsRestoredWithoutEntry": true,
+  "content": {
+    "head": "8dc430d3fd89950e1bee9fe58305036ab819af004bc74b176a1aacdbb92e45c3",
+    "acceptedHead": "8dc430d3fd89950e1bee9fe58305036ab819af004bc74b176a1aacdbb92e45c3",
+    "revision": 123,
+    "records": 211,
+    "pendingEdits": 2,
+    "snapshotSHA256": "ec2ae4ffa02574c4e0773b07db3fa825388763b0b332aa60c24c44074e45ae3e"
+  },
+  "tasks": 299,
+  "orderEntries": 104,
+  "savedParentStatuses": 78,
+  "assignedStatusRecords": 319,
+  "metadataSHA256": "5fcd94cc20913109865cafe84b2f112390041c752b89b56999ca31cad5b467f2",
+  "finishedAt": "2026-10-18T20:28:10.135Z"
+}

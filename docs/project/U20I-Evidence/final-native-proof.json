@@ -1,0 +1,21 @@
+{
+  "task": "U20I",
+  "startedAt": "2026-10-18T21:38:31.929Z",
+  "remoteWrites": 0,
+  "credentialUsed": false,
+  "status": "passed",
+  "approvedBaseline": "31c1ea2418280fe6f8c918e20eadd680a430639f64c95f04ebe6c8ab6c040c42",
+  "approvedPublication": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+  "acceptedHead": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+  "records": 211,
+  "views": 198,
+  "priorEditsVerifiedCommitted": 50,
+  "bothGenderViewsMatchApprovedBaseline": true,
+  "currentContentProposalsTestingHistoryAndMappingsUnchanged": true,
+  "originalExportStillPresent": true,
+  "originalExportNotReadByNativeProjection": true,
+  "issueBindingsUnchanged": true,
+  "currentNativeTree": true,
+  "pendingLaterEdits": 0,
+  "finishedAt": "2026-10-18T21:38:35.068Z"
+}

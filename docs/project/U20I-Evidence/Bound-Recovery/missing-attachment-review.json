@@ -1,0 +1,20 @@
+{
+  "task": "U20I",
+  "startedAt": "2026-10-18T21:05:11.488Z",
+  "remoteWrites": 0,
+  "productionCacheWrites": 0,
+  "status": "reviewed-missing",
+  "operationId": "content:catalog-79455f25-83b7-4b16-87f4-8a272765bfc9",
+  "publication": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+  "slotKey": "artifact:110:0",
+  "sha256": "f5b76432d25e5736f599c591050da8f32abafae485e7567b782dfea4af1d68f2",
+  "bytes": 964,
+  "scans": [
+    [],
+    []
+  ],
+  "verifiedSlots": 121,
+  "unchangedBaseline": true,
+  "requests": 6,
+  "finishedAt": "2026-10-18T21:05:14.950Z"
+}
