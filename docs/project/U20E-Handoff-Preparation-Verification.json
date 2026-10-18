@@ -1,7 +1,7 @@
 {
   "task": "U20E",
   "status": "prepared",
-  "at": "2026-10-18T02:37:52.969Z",
+  "at": "2026-10-18T03:01:37.008Z",
   "testsPassed": 530,
   "targetedRechecks": 45,
   "privateReadChecks": 3,
@@ -21,8 +21,8 @@
   "applicationFileCount": 290,
   "installer": {
     "path": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\U20E-Migration-Candidate\\ROMDex-0.5.8-x64.msi",
-    "bytes": 162477913,
-    "sha256": "67142fd1ea4050a5dfe71cc38f98e4526fe4a9855ff049b6eed33a36f3ba2654"
+    "bytes": 162473817,
+    "sha256": "214fc5520c84d73d084235a62d103a91da709e24f02cefdb089acc91c3af8e47"
   },
   "installerContractUnchanged": true,
   "credentialsBundled": false,

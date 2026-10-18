@@ -339,3 +339,12 @@ Installed **0.5.7** completes shared Save/Auto-Sync indicators for native ticket
 ## U20E Preparation — October 17, 2026
 
 The user confirmed New Bark Town, Route 29 and Cherrygrove City belong under Johto; Global Dialogue remains shared outside either region. Read-only source checks found revision 73 with matching local/cloud heads, no queue/conflict and unchanged protected credentials. Migration preview acceptance remains pending; it is not approval to publish real content or activate a provider. See U20E-Migration-Preview.md for exact source identity, storage scope, retention/backup policy and remaining proof gates.
+
+
+## U20E — Migration Accepted; Closed-App Handoff in Progress
+
+The human approved “Approve Preview and Continue U20E” for revision 73 and then confirmed Quit ROMDex. The final closed-app capture matches the approved SHA256 `2c50ee40f590eb1505a99922efa948db282fe46425bf640b5a0f69fc780c630c`, with no pending uploads, conflicts or dirty recovery draft. A complete protected application Data backup and ciphertext inventory are verified.
+
+The resumable import is limited to the accepted 211 private NPCD content records plus registry, parent links and verified attachments. A pagination hold exposed changing default search order; migration-only discovery now uses immutable issue-ID ordering, bounded per-batch inventories and fresh final identity checks. Every mutation retains the base transport’s fresh ownership/privacy guard. A restart rediscovers uncertain delivery; no blind resend is allowed. Original Data, GitHub history and all three tokens remain preserved.
+
+The local 0.5.8 handoff candidate passed 530 regression tests, targeted rechecks, isolated native presentation checks and source/hash audit. Installation, authority activation and final readback are not yet complete. U20F installed acceptance/private release remains separately gated by PASSKEY.

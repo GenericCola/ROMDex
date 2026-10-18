@@ -13,7 +13,7 @@ function image(value){if(!value)return null;requireThat(value&&['image/png','ima
 export function buildEdit(domain,command,ctx){
  requireThat(workspaceAllowed(ctx.workspace,ctx.authorization)&&command&&typeof command==='object','An Explicit Content Edit Context Is Required.');
  const byId=new Map(domain.records.map(r=>[r.recordId,r])),r=byId.get(command.recordId);const assets=[],artifacts=[];let kind='planning',resultDigest=null;
- const get=()=>{requireThat(r,'The Selected Content Record Is Missing.');if(command.expectedRevision)requireThat(r.revisionId===command.expectedRevision,'The Selected Content Has Changed. Review the Latest Version.');return r;};
+ const get=()=>{requireThat(r,'The Selected Content Record Is Missing.');requireThat(r.current.payload.definitions?.migration?.format!=='ROMDexLegacyMigration/1','Original Migration Evidence Is Read-Only.');if(command.expectedRevision)requireThat(r.revisionId===command.expectedRevision,'The Selected Content Has Changed. Review the Latest Version.');return r;};
  const asset=image(command.image);if(asset)assets.push(asset);const pointPath=record=>record.kind==='shared'?'/payload/definitions/points/':'/payload/points/';
  if(command.type==='plan'||command.type==='review'){
   get();requireThat(!asset||command.type==='plan','Use a Plan or Definition for an Image.');const t=target(r,command);const identity=command.type==='plan'?'planId':'reviewId',key=command.type==='plan'?'plans':'reviews',id=command[identity]||uid(command.type),heads=versionHeads(domain[key],identity,id);

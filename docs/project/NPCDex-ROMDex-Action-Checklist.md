@@ -488,7 +488,7 @@ The [U20C1/U20C2 scheduling contingency](U20C1-Independent-Reader-Plan.md) was n
 - [x] Complete real Windows/YouTrack verification and remove only marked fixtures.
 - [x] Preserve credentials/installed app, archive source/evidence and stop before U20E.
 
-**U20E is in progress after human migration-preview acceptance; live import and handoff are pending.** Read-only Windows/GitHub capture, lossless identity/history reconstruction and bounded cache/journal preparation passed 517 tests. [Migration Preview](U20E-Migration-Preview.md). Installed 0.5.7 and GitHub remain authoritative; no real NPCD import or provider switch has occurred. Stay on **Sol / High** for the remaining U20E work. U20F requires a later separate PASSKEY.
+**U20E is in progress after human migration-preview acceptance; live import and handoff are pending.** Read-only Windows/GitHub capture, lossless identity/history reconstruction and bounded cache/journal preparation passed 517 tests. [Migration Preview](U20E-Migration-Preview.md). Installed 0.5.7 and GitHub remain authoritative while the approved, resumable NPCD import is in progress; provider activation still requires complete verified readback. Stay on **Sol / High** for the remaining U20E work. U20F requires a later separate PASSKEY.
 
 
 ## U20E — Migration Preparation and Acceptance
@@ -497,6 +497,6 @@ The [U20C1/U20C2 scheduling contingency](U20C1-Independent-Reader-Plan.md) was n
 - [x] Full-size local reconstruction/retention and bounded-read improvements; 517 tests passed.
 - [x] Map all 870 identities, 44 plans and 85 annotations; verify exact original/frontend preservation.
 - [x] Prepare the [migration preview, backup policy and rollback procedure](U20E-Migration-Preview.md).
-- [ ] Obtain the required migration-preview acceptance; recheck source freshness.
+- [x] Obtain the required migration-preview acceptance; recheck source freshness.
 - [ ] Publish/read back the accepted dataset, prove actual YouTrack latency and perform a verified single-provider handoff.
 - [ ] Complete U20E documentation/checkpoint and stop before U20F.

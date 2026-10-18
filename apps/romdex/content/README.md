@@ -1,6 +1,6 @@
-# Isolated NPCDex Content Reader — U20C
+# NPCDex Content Backend — U20C–U20E
 
-This directory implements a YouTrack content reader, verified SQLite cache and NPCDex projection. U20D adds an optional isolated owner editor; see [Editing and Recovery](EDITING.md). It is not imported by the installed application. ROMDex 0.5.7 and the existing GitHub-backed NPCDex remain authoritative. Construction requires an explicit isolated `fixture:` workspace and a pinned bootstrap publication; production Data paths are refused.
+This directory implements a YouTrack content reader, verified SQLite cache and NPCDex projection. U20D adds versioned owner editing; U20E adds the explicitly accepted real-data import and native provider handoff. See [Editing and Recovery](EDITING.md). Fixture workspaces remain isolated. The accepted content workspace is available only with its recorded human acceptance, source pins and dedicated cache binding. The desktop service selects it only when the active provider file and verified cache agree; otherwise an invalid handoff fails closed. Until a verified handoff, the established GitHub-backed source remains authoritative.
 
 ## Carrier and Identity
 
@@ -18,7 +18,7 @@ SQLite WAL with FULL synchronization retains verified objects, publication/domai
 
 `projection.mjs` builds the NPCDex v2 shape from domain records: maps/subzones, shared character profiles, local appearances and overrides, explicit player-gender profiles, ordered dialogue, images, staged proposals, planned additions and archived records. Current content and proposals remain separate. Testing against an older content revision displays Unreviewed without discarding the original review artifact. The projection version allows a derived-view upgrade without pretending the source revision changed.
 
-The base reader accepts owner-authored bootstrap, planning, documentation-correction and explicitly reviewed resolution publications. U20D supplies optional isolated planning/correction writes and guarded lifecycle actions as described in EDITING.md. Agent implementation-result acceptance, parent moves and remapping remain later gates. Complete real-save alias/history reconstruction and provider cutover require U20E migration evidence.
+The reader accepts owner-authored bootstrap, planning, documentation-correction and explicitly reviewed resolution publications. Editing uses the bounded commands in EDITING.md. U20E preserves the exact original export, images, histories, legacy identities and alias mappings, and reconstructs the familiar view from verified records. Original migration evidence is read-only through ordinary content commands. Agent implementation-result acceptance, parent moves and remapping remain later gates. U20F performs full installed-app acceptance and private release.
 
 ## Isolated Preview
 
@@ -28,7 +28,7 @@ Auto-Sync Off makes no automatic remote calls. Save Changes performs one incomin
 
 ## Current Bounds and Gates
 
-Bounds: 512 KiB attachment chunks; 512 KiB carrier manifest; 16 MiB assembled object; 32 chunks per object; 64 MiB response/transfer and unique-object-plus-reference materialization budgets per cycle; 256 MiB cached payload; 1,000 registry publications; 10,000 requests and 120 seconds per cycle. Listings are paginated with bounded complete sweeps; unstable/truncated enumeration cannot report success. Domain collections and histories also have explicit limits. Cache payload limits do not bound SQLite filesystem overhead. These are conservative implementation limits, not measured YouTrack quotas or a production retention policy.
+Bounds: 512 KiB attachment chunks; 512 KiB carrier manifest; 16 MiB assembled object; 32 chunks per object; 64 MiB response/transfer and unique-object-plus-reference materialization budgets per cycle; 256 MiB cached payload; 1,000 registry publications; 10,000 requests and a default 120 seconds per cycle. The explicitly bounded initial migration audit may use up to ten minutes; that does not change the installed routine default. Listings are paginated with bounded complete sweeps; unstable/truncated enumeration cannot report success. Domain collections and histories also have explicit limits. Cache payload limits do not bound SQLite filesystem overhead. These are conservative implementation limits, not measured YouTrack quotas or a production retention policy.
 
 U20C proves synthetic data only. U20D editing and recovery remain isolated; U20E must prove scale/retention before previewing and migrating the latest real data; U20F handles installed acceptance/release. Actual agent identity/access and result authorization remain U23–U25. Upload ceiling and remaining instance capacity are unknown. No ROM or in-game correctness is established by reader validation.
 
@@ -40,3 +40,10 @@ U20C proves synthetic data only. U20D editing and recovery remain isolated; U20E
 Domain/history and journal previews use content-addressed cache references. All pending/uncertain work is retained; older terminal journal entries are archived rather than imposing a 200-edit lifetime ceiling. There is no automatic remote deletion. Routine reads may reuse verified bytes only against fresh inventory/author/length/update metadata. Registry manifests remain fresh byte reads. Manual Save, a cache without a valid audit and 15-minute periodic audits recheck bytes; cold/repeated full-data benchmarks use an in-memory transport and do not establish WAN throughput. Readers bound parallel network requests to four and wait for failed parallel groups to settle before ending a cycle.
 
 The complete revision-73 preview preserves 870 identities, 44 plans and 85 annotations; its 266 KiB carrier fits within the already demonstrated 512 KiB chunk bound. The original U20A schema is unchanged. See the project migration preview for source privacy, exact preservation evidence and limits.
+
+
+## Native Handoff
+
+The desktop provider uses the same verified cache, reader and typed editor; it never routes whole legacy save files into content edits. The native page strips the embedded baseline and exposes versioned editing controls, preserving current content separately from proposals. The internal original-export/index record is excluded from content pickers and protected from editing. Shared Auto-Sync and Save Changes control the native provider. Full native-control adoption, discrepancy/offline acceptance, backup restoration acceptance and release remain U20F.
+
+The migration publisher records every issue, link and upload intent, resumes from confirmed identities/bytes, and publishes the carrier last. The old GitHub NPCDex namespace receives an append-only retirement record only after successful live readback; its history remains a recovery copy, while ROMDex metadata retains its separate live namespace. Source changes or uncertain delivery hold authority activation. Full local/Runtime backup and encrypted credentials are retained outside the installer and development repository.
