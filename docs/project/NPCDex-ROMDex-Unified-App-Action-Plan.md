@@ -1,10 +1,10 @@
 # ROMDex — Desktop and Add-on Action Plan
 
 **Date:** October 14, 2026  
-**Status:** U01–U20H and approved intervening tasks are complete. Installed ROMDex **0.5.11** restores the original NPCDex feedback interface over the verified NPCD backend. U21 requires a new PASSKEY.
+**Status:** U01–U20H and approved intervening tasks are complete. Installed ROMDex **0.5.11** uses NPCD as content authority, with a legacy compatibility scaffold still assembling the migrated frontend. **U20I — Complete the Native Content Tree** is newly scheduled before U21; implementation requires a new PASSKEY.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
-**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). **U20H is complete.** ROMDex 0.5.11 is installed with current saves, remembered connections and the restored original web feedback controls. [Completion report](U20H-Completion-Report.md). **Next: U21 — Map Document Preview and Task Attachment, Sol / High.**
+**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). **U20H is complete.** [Completion report](U20H-Completion-Report.md). **Next: U20I — Complete the Native Content Tree, Sol / High**, under its [scope and acceptance checklist](U20I-Native-Content-Tree-Plan.md). U21 depends on successful U20I acceptance. This is a planning revision only.
 
 ## Working Agreement
 
@@ -12,7 +12,7 @@ Execute the tasks below in order, one at a time. Each task requires a new PASSKE
 
 Use browser checks sparingly: focused visual verification for changed interfaces, automated checks for data and synchronization behavior, and a final integrated review. Preserve current working data and remembered credentials across every build. Never migrate an old packaged export over newer working data.
 
-Keep the installed tools usable throughout the proposed content-backend work. Completed desktop/cloud migrations and their protected backups remain intact; U20 has not begun content-project provisioning, content migration or map-package publishing.
+Keep the installed tools usable throughout content-backend work. Completed desktop/cloud migrations and protected backups remain intact. NPCD provisioning and the accepted content migration are complete; removal of the frontend compatibility scaffold and map-package publishing remain separately gated work.
 
 ## Confirmed Requirements
 
@@ -136,9 +136,9 @@ Added by the user during U05; requires completed U05 design review and a separat
 
 ## Phase 4 — Approved Content Architecture Revision
 
-**U20 design approved October 16, 2026.** [Consolidated architecture and revised plan](U20-Consolidated-Architecture-and-Revised-Plan.md) replaces the earlier future ticket/receipt sequence, preserved in [the prior future-phase plan](U20-Previous-Future-Phase-Plan.md). The confirmed individual decisions are recorded in [the discussion log](U20-Architecture-Discussion.md). No U20A–U33 implementation or migration is authorized. Current NPCDex saves remain GitHub-backed until a previewed, accepted cutover.
+**U20 design approved October 16, 2026.** [Consolidated architecture and revised plan](U20-Consolidated-Architecture-and-Revised-Plan.md) replaces the earlier future ticket/receipt sequence, preserved in [the prior future-phase plan](U20-Previous-Future-Phase-Plan.md). The confirmed individual decisions are recorded in [the discussion log](U20-Architecture-Discussion.md). Later task-specific approvals completed U20A–U20H and the accepted NPCD cutover; the checklist records those gates. U20I and U21–U33 implementation still require their own PASSKEYs.
 
-### 4A–4G. Review, Prove and Migrate the Content Backend
+### 4A–4H. Review, Prove, Migrate and Finish Native Content Assembly
 
 | Phase | Task | Deliverable and acceptance gate | Model / Effort |
 | --- | --- | --- | --- |
@@ -149,8 +149,11 @@ Added by the user during U05; requires completed U05 design review and a separat
 | 4E — Plan and correct | U20D | Backend planning/correction writes, shared profiles/local overrides, planned additions and archival lifecycle. Prove draft/current separation, offline writes and conflict recovery using isolated data. No implicit execution task or handoff. | Sol / High |
 | 4F — Migrate safely | U20E | First prove latency, reconstruction and retention at the full dataset size; then preview the latest real dataset, preserve complete originals, validate mappings/assets/history and activate one authoritative provider only after the user's migration acceptance. Define GitHub backup behavior and recovery without enabling a second editable master. | Sol / High |
 | 4G — Accept content backend | U20F | Installed-app acceptance, dynamic add/update from YouTrack, native edit/conflict/offline cases, exact save/credential preservation, backup restoration and verified private release. Stop for review before packaging implementation. | Sol / High |
+| 4H — Complete native content assembly | U20I | Replace the migrated-save scaffold with projection from structured NPCD records for all maps, sub-zones and entities. Preserve the original interface, identities, aliases, shared scenes/profiles, gender/timeline behavior, images, drafts, feedback and history. Add a validated, previewed new-map/sub-zone import path and agent extraction/import instructions; prove a new map end-to-end in isolated backend and installed-app checks. Original exports remain recovery/history only. [Detailed acceptance gate](U20I-Native-Content-Tree-Plan.md). | Sol / High |
 
 **Milestone C:** The content-backed NPCDex has passed isolated proof, a previewed real migration and installed-app acceptance; task execution still requires explicit user handoff.
+
+**October 18 transition gate:** U20E/U20F completed backend migration and acceptance for the migrated workspace, not full removal of the original-save presentation scaffold. U20I closes that explicit remaining gap before U21. Complete frontend assembly and new-map imports must not depend on parsing the original export; preserve it only for recovery, historical hashes and audit. Do not repeat the migration or re-extract existing ROM data merely to remove this presentation dependency.
 
 **Scheduling contingency — October 16, not adopted:** [U20C1 — Independent Content Reader, Cache and Preview](U20C1-Independent-Reader-Plan.md) was proposed while the instance owner was unavailable. The user then reported that owner setup is underway and withdrew the diversion. Retain the split as reference only; current execution returns to U20B, then the original U20C scope under its separate PASSKEY. No U20C1 work began.
 
@@ -158,7 +161,7 @@ Added by the user during U05; requires completed U05 design review and a separat
 
 | Phase | Task | Deliverable and acceptance gate | Model / Effort |
 | --- | --- | --- | --- |
-| 5A — Package and attach | U21 | One map document, whole-map selection preview, existing/new PMON task chooser, explicit attach, immutable versions and duplicate-safe retry. Preserve unrelated task content and expose newer-draft/superseded-package state. | Sol / High |
+| 5A — Package and attach | U21 | After U20I acceptance: one map document, whole-map selection preview, existing/new PMON task chooser, explicit attach, immutable versions and duplicate-safe retry. Preserve unrelated task content and expose newer-draft/superseded-package state. | Sol / High |
 | 5B — Navigate and track | U22 | Task/content/package links and per-package/item/group progress. Match attached package versions; no implicit dispatch or task completion. | Sol / High |
 
 **Planning boundary:** NPCDex produces a single fixed map-change document, with whole-map/sub-zone pending plans, flags and notes preselected and preview exclusions. The user selects an existing PMON task or explicitly creates one, then confirms attachment. No automatic agent dispatch, assignment or task-state advance. Current content remains primary with proposals appended; older implemented packages preserve newer drafts. All agent-required mappings/context/assets must be accessible on YouTrack without private GitHub save access.
@@ -213,13 +216,14 @@ Scheduled after U30 so notifications do not delay cloud persistence or the packa
 | Versioned content/plan/result contracts, ROM mapping and representative documents | U20A schema review, before storage implementation. |
 | Content project identity, actual permissions/capacity, actor attribution and transport safety | U20B isolated proof, before content migration; owner assistance if required. |
 | Latest real-data preview, one authoritative provider, backup and rollback | U20E migration acceptance and U20F installed-app acceptance. |
+| Frontend independence from the original-save scaffold, new-map import and agent extraction instructions | U20I installed acceptance before U21; actual ROM/source verification requires supplied project evidence. |
 | Package preview, existing/new task defaults, attachment/replacement and retry behavior | U21, under the confirmed planning-only boundary. |
 | Agent execution identity, direct-update protocol, grouped results and readiness notice | U23 review before enabling U24/U25 agent-result discovery/application. |
 | Agent identity, message sources, notification preferences and background/quit delivery | U31 after the principal release; before U32/U33 implementation. |
 
 Tasks later in the plan are provisional until their design checkpoints are completed. Current desktop/cloud behavior remains available while the content architecture is reviewed and proved. Earlier completion narratives below are historical checkpoints; the status and checklist at the top control current execution.
 
-**Current boundary:** **U20H is complete.** ROMDex 0.5.11 is installed with current saves, remembered connections and the restored original web feedback controls. [Completion report](U20H-Completion-Report.md). **Next: U21 — Map Document Preview and Task Attachment, Sol / High.**
+**Current boundary:** **U20H is complete.** ROMDex 0.5.11 remains the installed release. **Next: U20I — Complete the Native Content Tree, Sol / High; new PASSKEY required.** [Scope and acceptance checklist](U20I-Native-Content-Tree-Plan.md). U21 remains unstarted and depends on U20I acceptance. This roadmap update does not authorize implementation, import or live-data changes.
 
 
 ## R08 — Release Completed, October 14, 2026

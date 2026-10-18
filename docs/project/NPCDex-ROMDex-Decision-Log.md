@@ -365,3 +365,7 @@ Restore contextual editing over the versioned backend; separate form scrolling/f
 ## October 18 — U20H Original Feedback Interface
 
 Reuse the original web renderer and CSS for status tags, flags, notes, inline changes and grouped review; map the mutation boundary onto versioned database edits. Preserve targets, exact text, drafts, toggle-off history and conflict review. Use the standard Tray 2 settings button on tiles, and place Add Character left of gender. Release 0.5.11 completes this corrective task; U21 remains separately gated.
+
+## October 18 — U20I Native Content Tree Prerequisite
+
+The backend migration is complete, but the migrated frontend still depends on the preserved original-save compatibility scaffold. The user requested adding the remaining transition to the checklist/roadmap. Schedule **U20I — Complete the Native Content Tree**, Sol / High, before U21: assemble the entire interface from structured records, support previewed new-map/sub-zone/entity imports, preserve existing UI/data/history and update agent extraction/import instructions. Original exports remain recovery/history only. Prove a new map absent from the original save through the validated import/display path, distinguishing synthetic tests from actual ROM extraction. Implementation and any live metadata transition remain subject to a new PASSKEY and applicable preview acceptance. This request updates planning only; U20I has not begun.

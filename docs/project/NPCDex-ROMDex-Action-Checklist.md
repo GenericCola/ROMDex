@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** **U20H is complete. ROMDex 0.5.11 is installed and open**, with the original web feedback interface mapped onto the versioned database, standard tile settings buttons and Add Character left of the gender toggle. Current saves and all three remembered connections are preserved. [Completion report](U20H-Completion-Report.md). **Next: U21 — Map Document Preview and Task Attachment, Sol / High; new PASSKEY required.**
+**Current:** **U20H is complete. ROMDex 0.5.11 is the installed release**, with the original web feedback interface mapped onto the versioned database. The existing content is stored in NPCD, but frontend assembly still uses the migrated save's compatibility scaffold. **Next: U20I — Complete the Native Content Tree, Sol / High; new PASSKEY required.** [Task checklist](U20I-Native-Content-Tree-Plan.md). U21 is blocked on U20I acceptance; this planning update authorizes no implementation or live-data changes.
 
 ## Completed Foundation
 
@@ -74,6 +74,8 @@
 - [x] **U20G — Contextual Editing and Review Usability** — Sol / High. Completed October 18 in 0.5.10; [report](U20G-Completion-Report.md), [verification](U20G-Verification.json).
 
 - [x] **U20H — Restore the Original NPCDex Feedback Interface** — Sol / High. Completed October 18 in 0.5.11; [report](U20H-Completion-Report.md), [verification](U20H-Verification.json).
+
+- [ ] **U20I — Complete the Native Content Tree** — Sol / High. Generate the full interface from structured NPCD records without the original-save scaffold; support previewed new-map/sub-zone/entity imports, update agent extraction/import instructions, preserve the existing UI and all content/history, and verify persistence and installed behavior. The original export becomes recovery/history only. [Scope and acceptance checklist](U20I-Native-Content-Tree-Plan.md). Must complete before U21; implementation awaits a new PASSKEY.
 
 - [ ] **U21 — Map Document Preview and Task Attachment** — Sol / High. Existing/new task chooser, explicit attach, immutable versions, no agent dispatch.
 - [ ] **U22 — Linked Navigation and Package Progress** — Sol / High.
