@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** **RD01 is complete and user-approved.** [Completion report](RD01-Completion-Report.md). **RD02 — Bounded Sync and Upload Recovery, Sol / High** is authorized and in progress. Installed 0.5.14 and all live saves/credentials remain unchanged pending verified implementation. RD03 and later tasks need separate PASSKEYs.
+**Current:** **RD01 is approved and complete; RD02 source implementation is complete and verified.** [RD02 report](RD02-Completion-Report.md). Installed 0.5.14, live Data/queue and credentials remain unchanged pending the later RDX release. Next: **RD03 — RDX Container, Validator and Tooling, Sol / High**, requiring a new PASSKEY.
 
 ## Completed Foundation
 
@@ -84,7 +84,7 @@
   - [x] Prepare schemas, exact-asset examples and six workflow walkthroughs.
   - [x] Pass 70 isolated design checks; clearly distinguish them from live/importer proof.
   - [x] User accepted the RD01 contracts, including automatic safe reconciliation and mandatory human testing.
-- [ ] **RD02 — Bounded Sync and Upload Recovery** — Sol / High. **Authorized; in progress.** Reviewed retry for uncertain-only uploads; independent read/write budgets, durable progress, verified-upload reuse and bounded no-progress handling. Preserve integrity/ownership/conflict checks; no blind resends or repeated full-history loops.
+- [x] **RD02 — Bounded Sync and Upload Recovery** — Sol / High. **Source-complete and verified.** [Report](RD02-Completion-Report.md), [evidence](RD02-Verification.json). Reviewed retry for uncertain-only uploads; independent read/write budgets, durable progress, verified-upload reuse and bounded no-progress handling. Preserve integrity/ownership/conflict checks; no blind resends or repeated full-history loops.
 - [ ] **RD03 — RDX Container, Validator and Tooling** — Sol / High. Lossless compressed JSON/assets, deduplication, routing/version checks, safe bounds, deterministic pack/unpack/validate tools and measured compression choice. Exact round-trip; no AI involvement.
 
 ## Phase 6 — Managed Documents, Imports and Cloud Publication
@@ -538,3 +538,12 @@ All acceptance gates passed: 540 regression tests, 10 final rechecks, actual Win
 ## U20G — Complete
 
 The corrective release passed its regression, focused, native visual, runtime, backup/restoration and installed handoff checks. [Completion report](U20G-Completion-Report.md). U21 remains unchecked and requires a new PASSKEY.
+
+## RD01 and RD02 Completed — October 18, 2026
+
+- [x] RD01 contracts explicitly accepted by the user, including automatic safe return reconciliation with human testing mandatory.
+- [x] RD02 source implements accessible uncertain-only recovery, separate time budgets, verified-upload reuse and a durable bounded no-progress hold while incoming reads continue.
+- [x] Passed 107 focused tests, 14 new delivery tests in the bundled Electron runtime, final hold-message recheck, nine changed-module syntax checks and five isolated recovery UI checks.
+- [x] Preserved installed 0.5.14, live saves/queue and all saved connections; avoid a separate installer cycle for this foundation change.
+
+Next is **RD03 — Sol / High**, under a new PASSKEY. Existing-map conversion remains gated on RD07 live two-way proof and RD10 acceptance.

@@ -1,3 +1,11 @@
+## Unreleased — RD02 Sync and Recovery
+
+- Make uncertain-only upload recovery accessible through Content Tools and Connection Details.
+- Separate history reading from the cumulative publication budget; preserve request/write ceilings.
+- Resume exact verified attachments with fresh ownership/metadata checks and cached immutable bytes.
+- Persist progress; pause stalled automatic delivery without stopping incoming sync.
+- Preserve existing saves, queue identities, original UI and all remembered connections.
+
 ## 0.5.14 — U20I Read-Budget Recovery
 
 - Checkpoint cumulative read-budget exhaustion without raising individual-response, request or transfer limits.

@@ -1,0 +1,8 @@
+{
+  "task": "RD02",
+  "scope": "Existing bundled Electron runtime, node mode, synthetic delivery fixtures only",
+  "credentialsUsed": false,
+  "productionDataAccessed": false,
+  "exitCode": 0,
+  "status": "passed"
+}

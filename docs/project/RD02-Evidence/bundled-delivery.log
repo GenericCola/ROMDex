@@ -1,0 +1,22 @@
+✔ Initial and readback history time does not consume the separate cumulative write budget (644.5548ms)
+✔ Actual write work shares a bounded budget and continues from its durable checkpoint (576.9174ms)
+✔ Repeated connected checks without progress pause only automatic delivery across restart (669.3882ms)
+✔ Transient offline reads do not accumulate a false stalled-publication hold (402.4698ms)
+✔ Cancelling the last safe queued operation does not leave a hold on unrelated later work (386.7003ms)
+✔ An uncertain-only upload exposes recovery even when there is no content conflict (239.4587ms)
+✔ Verified slots use pinned attachment identities on resume and missing ones never resend blindly (380.6449ms)
+✔ Removal of a previously verified upload requires review rather than replacement (193.921ms)
+✔ A reviewed uncertain retry clears a persisted hold but cannot race an active sync (398.718ms)
+✔ Recovery API includes progress without requiring a content-conflict record (377.6676ms)
+✔ Progress notifications are bounded while durable verified slots continue to advance (324.2779ms)
+✔ Pinned writer reuses verified immutable bytes after fresh metadata and checks ownership every cycle (155.4865ms)
+✔ Missing, altered or foreign verified attachments cannot use the immutable-byte shortcut (152.237ms)
+✔ Resuming a write phase changes its signal without resetting write and request ceilings (0.5143ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5478.9646

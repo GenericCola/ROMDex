@@ -401,3 +401,7 @@ RD01 is at its planned user-acceptance gate. Application source, installed 0.5.1
 ## October 18, 2026 — RD01 Approved and RD02 Authorized
 
 The user explicitly approved the contracts and automatic safe reconciliation of returned task `.rdx` attachments, with human testing still mandatory. RD01 is complete; [completion report](RD01-Completion-Report.md). The same message separately supplied PASSKEY for RD02, Sol / High. Begin only bounded sync/upload recovery; RD03 and later work remain separately gated.
+
+## October 18, 2026 — RD02 Source Complete
+
+[RD02](RD02-Completion-Report.md) adds recovery access for uncertain-only uploads, visible progress/manual checks, independent cumulative write budgets, pinned verified-upload reuse and a durable three-attempt no-progress hold. Incoming reads remain active during an outgoing hold; ownership/privacy, hashes, request/write caps and final readback remain enforced. Passed 107 focused tests, 14 new tests under the bundled runtime and isolated recovery UI review. No live data or credential was used for QA. Installed 0.5.14 remains unchanged; include the source fix in later RDX packaging rather than reinstall for every foundation task. RD03 is next, Sol / High, with a new PASSKEY.

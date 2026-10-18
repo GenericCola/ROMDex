@@ -1,0 +1,15 @@
+{
+  "task": "RD02",
+  "status": "passed",
+  "synthetic": true,
+  "credentialsUsed": false,
+  "externalNetworkWrites": 0,
+  "checks": [
+    "Tray 2 Content Tools exposes Review Sync",
+    "Uncertain-only upload shows reviewed retry without content conflict",
+    "Progress and manual sync controls are visible",
+    "One manual check rediscovers the accepted upload and clears pending state",
+    "No browser runtime errors"
+  ],
+  "screenshot": "work/rd02/recovery.png"
+}
