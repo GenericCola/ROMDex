@@ -1,0 +1,19 @@
+{
+  "task": "U20I",
+  "status": "passed",
+  "at": "2026-10-18T17:24:03.853Z",
+  "method": "Native Windows UI observation via computer-use",
+  "height": 620,
+  "width": 1280,
+  "packagedApplication": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u20i\\packages\\release-0.5.12-r3",
+  "originalInterfaceRendered": true,
+  "tray2CogOpenedContentTools": true,
+  "nativeFilePickerOpenedSyntheticBundle": true,
+  "reviewShowsMapZoneProfileAppearanceAndNamedParents": true,
+  "bodyScrolledSeparatelyFromFooter": true,
+  "closeAndImportButtonsVisibleWithoutOverlap": true,
+  "escapeClosedWithoutImport": true,
+  "remoteWrites": 0,
+  "credentialsCopied": false,
+  "productionAcceptancePending": true
+}

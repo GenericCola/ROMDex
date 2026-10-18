@@ -32,8 +32,8 @@ An isolated copy with 34 queued edits revealed that the old path rehydrated ever
 
 ## Remaining Acceptance
 
-- Final regression/syntax and native-window review, including original editing controls and constrained dialog height.
-- Isolated YouTrack import/publication/readback with marked synthetic content and no production migration.
+- Complete: regression/focused checks, 182 syntax checks, original-interface/native-window review and separate scrolling preview/footer at 620-pixel height.
+- Complete: isolated YouTrack import/publication/readback with marked synthetic content, followed by verified cleanup and no production migration.
 - Fresh live-data transition preview, current-state recheck and explicit human acceptance.
 - Full Data backup/restoration proof, credential preservation, verified package/install and installed native rendering/sync checks.
 
@@ -41,6 +41,6 @@ No actual ROM project/toolchain was supplied. The example is synthetic; agent in
 
 ## Later Verification Evidence
 
-The full 596-test run passed. Final focused checks passed 63 tests. `work/u20i/ui-acceptance.json` records native file selection/preview/confirmation/reopen with no tokens or network writes and unchanged original draft/accepted snapshot. `work/u20i/live-import.json` records real isolated NPCD publication/readback; `live-cleanup.json` confirms only marked synthetic issues were removed. The latest transition preview is in [Native Transition Preview](U20I-Native-Transition-Preview.md). It is not permission to write production metadata. The compatible 0.5.12 package and installed handoff are still being verified.
+The full 596-test run passed. Final focused checks passed 63 tests. `work/u20i/ui-acceptance.json` records native file selection/preview/confirmation/reopen with no tokens or network writes and unchanged original draft/accepted snapshot. `work/u20i/live-import.json` records real isolated NPCD publication/readback; `live-cleanup.json` confirms only marked synthetic issues were removed. The final 0.5.12 candidate passed its source/installer audit, 182 syntax checks, 17 packaged-runtime checks and constrained-height native preview review. The latest transition preview is in [Native Transition Preview](U20I-Native-Transition-Preview.md). It is not permission to write production metadata. Installed handoff and live transition acceptance remain pending.
 
 The original renderer functions now reside in a separate runtime file, extracted without changing their implementation. Normal native boot reads that runtime and the projected backend snapshot; it does not load the old monolithic `workspace.js`. The preserved original remains byte-identical. Reviewed concurrent imports under an existing map/sub-zone can combine append-only child memberships; conflicting non-membership values still require a choice from an observed branch. Neither branch's children are discarded. These checks establish the supported import/review path, not an unrestricted distributed transaction guarantee for every possible simultaneous identity creation.

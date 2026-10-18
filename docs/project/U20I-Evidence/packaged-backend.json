@@ -1,0 +1,34 @@
+{
+  "task": "U20I",
+  "scope": "Final packaged modules in bundled runtime; isolated synthetic transport",
+  "startedAt": "2026-10-18T17:19:42.249Z",
+  "checks": [
+    "Packaged planning preserves current dialogue and manual Save leaves Auto-Sync Off",
+    "Packaged native review adopts an observed title with retained documentation evidence",
+    "Packaged offline edit survives SQLite closure/reopening and delivers exact whitespace",
+    "Packaged addition keeps its parent/shared profile while original dialogue and plans remain",
+    "Packaged verified cache restores offline without altering its snapshot",
+    "Packaged contextual targeting resolves the selected passage",
+    "Packaged summaries identify their content and retain exact notes",
+    "Packaged contextual drafts preserve the original baseline and exact whitespace",
+    "Packaged note editing never carries stale Verified status into changed content",
+    "Packaged original inline feedback queues durably with exact text and prompt scope while Auto-Sync is Off",
+    "Packaged database feedback reconstructs the original web annotation and review-menu identity after reopening",
+    "Packaged original decision toggle-off retains history without changing current ROM content",
+    "Packaged native transition requires explicit matching preview and preserves content without extra tickets",
+    "Packaged map import preserves exact identities across offline reopen, publication/readback and duplicate-free retry",
+    "Packaged frontend assembles a new map and exact dialogue without reading the preserved original export",
+    "Packaged original notes/flags resolve native imported entities with stable passage scope",
+    "Packaged agent example validates against the packaged runtime contracts"
+  ],
+  "credentialUsed": false,
+  "networkRequests": 0,
+  "status": "passed",
+  "version": "0.5.12",
+  "runtime": {
+    "electron": "44.7.2",
+    "node": "24.21.0",
+    "sqlite": "3.53.4"
+  },
+  "finishedAt": "2026-10-18T17:19:51.455Z"
+}
