@@ -1,0 +1,11 @@
+{
+  "task": "U20I",
+  "at": "2026-10-18T17:36:05.164Z",
+  "status": "verified-derived-file-only",
+  "changed": [
+    "thegobindsingh-PMON\\cloud\\content\\content.sqlite-shm"
+  ],
+  "allOtherDataBytesUnchanged": true,
+  "reason": "The read-only post-backup transition preview acquired SQLite shared-memory reader locks; it changed no database/WAL or user content bytes.",
+  "priorBackupRetained": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\U20I-Protected-Data-Backup-Before-SHM-Refresh"
+}

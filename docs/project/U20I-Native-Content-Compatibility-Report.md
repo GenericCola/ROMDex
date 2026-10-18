@@ -1,6 +1,6 @@
 # U20I Native Content Compatibility Review
 
-**Status:** Implementation and verification in progress. No live transition, release or installation has been accepted/completed. U21 remains blocked.
+**Status:** ROMDex 0.5.12 is published privately, installed and verified with current data preserved. The live native-content transition awaits explicit acceptance; normal Quit/reopen and final acceptance remain pending. U20I is not complete and U21 remains blocked.
 
 ## Translation and Data Authority
 
@@ -51,3 +51,8 @@ The installed 0.5.11 app stalled during its requested Quit while the desktop ser
 
 The fresh compatibility proof retains all 49 edits and both gender projections. The live metadata transition remains unapproved. The new installed build must also be checked for successful normal Quit/reopen before U20I is complete.
 
+## Installed Boundary
+
+ROMDex 0.5.12 is installed and open. Installation preserved all 122 Data files / 163,922,828 bytes before reopening, and 318 application file hashes matched. Post-install read-only checks retained all 49 original operations and object hashes, the original saved draft, 299 tasks, 104 order entries and 78 saved parent statuses. All three credential files were unchanged and unlocked; live restricted-registry access and the latest signed private update were verified. Native UI review observed both workspaces and prepared the fresh 211-record / 3-map / 198-metadata / 49-edit transition dialog without accepting it.
+
+A post-backup read-only preview changed only SQLite shared-memory reader-lock bytes. Every database/WAL and other Data file remained identical. The first backup was retained, and a fresh stable backup/restoration passed before installation. No stale save was restored into live Data. Live transition acceptance and normal Quit/reopen remain outstanding.

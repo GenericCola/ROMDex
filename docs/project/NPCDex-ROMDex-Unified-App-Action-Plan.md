@@ -1,10 +1,10 @@
 # ROMDex — Desktop and Add-on Action Plan
 
 **Date:** October 14, 2026  
-**Status:** U01–U20H and approved intervening tasks are complete. Installed ROMDex **0.5.11** uses NPCD as content authority, with a legacy compatibility scaffold still assembling the migrated frontend. **U20I — Complete the Native Content Tree** is newly scheduled before U21; implementation requires a new PASSKEY.
+**Status:** U01–U20H and approved intervening tasks are complete. **U20I is in progress**: ROMDex **0.5.12** is installed with native content assembly and reviewed imports available. Live metadata-transition acceptance and final normal Quit/reopen remain pending. U21 remains separately gated.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
-**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). **U20H is complete.** [Completion report](U20H-Completion-Report.md). **Next: U20I — Complete the Native Content Tree, Sol / High**, under its [scope and acceptance checklist](U20I-Native-Content-Tree-Plan.md). U21 depends on successful U20I acceptance. This is a planning revision only.
+**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). Current: **U20I — Complete the Native Content Tree, Sol / High**, under its [scope and acceptance checklist](U20I-Native-Content-Tree-Plan.md). Implementation, isolated/backend verification, package checks and installation are complete; the live transition and final acceptance are not.
 
 ## Working Agreement
 
