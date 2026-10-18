@@ -1,0 +1,21 @@
+{
+  "task": "U20H",
+  "status": "passed",
+  "at": "2026-10-18T13:52:00Z",
+  "method": "Native Windows Computer Use through @oai/sky, isolated database copy, no credentials and disabled network writes",
+  "checks": [
+    "Original FINAL / UPDATE / REMOVE controls use the original compact status-button markup and reference CSS, with selection dimming and critical-flag color behavior",
+    "Original Flag Prompt button reveals Standard/Critical choices and applies a flag inline",
+    "Original Add/Edit Note opens the inline note field with Selected Line Only scope and the separate tester checkboxes",
+    "A native Apply Note queues the correct whole-prompt note with exact trailing whitespace; its database record and unchanged unrelated draft were verified separately",
+    "Reloading the frontend reconstructs the saved Prompt Note and Edit Note controls from the database",
+    "Inline scroll position is preserved across the database refresh after applying feedback",
+    "Original tile settings show their compact flag/note/change controls; recorded-content correction remains an explicit separate action",
+    "Original Flags, Notes & Changes dialog uses FLAGS/NOTES, CHANGES and FINALIZED categories grouped by map",
+    "Tile settings artwork and circular face match the Tray 2 reference; all generated tile settings controls share that asset and geometry",
+    "Add Character appears immediately left of the gender toggle"
+  ],
+  "businessEvidence": "work/u20h/ui-acceptance.json",
+  "remoteWrites": 0,
+  "productionDataEditedByTests": false
+}

@@ -1,0 +1,60 @@
+{
+  "task": "U20H",
+  "at": "2026-10-18T13:11:29.210Z",
+  "version": "0.5.10",
+  "sourceOnly": true,
+  "files": [
+    {
+      "path": "content/editor-ui.js",
+      "sha256": "792398ddc99e3e76cb31c2bcf0f2d3e3105c7266d491fca81089a9cb2703632f"
+    },
+    {
+      "path": "content/preview.js",
+      "sha256": "b0dc4d04d71b2c02c7a2f43edaad577a1b880188930fb292f41419b2f777ffb4"
+    },
+    {
+      "path": "content/native.css",
+      "sha256": "5debc73273531329840f5f63a0c0db463d1d5e7f11bdfa7069f9533b49594782"
+    },
+    {
+      "path": "content/desktop-assets.mjs",
+      "sha256": "f6579fe55d786087a53fbf1d8afc7945776b38a359bc98844a80e2422e7f3865"
+    },
+    {
+      "path": "content/preview-server.mjs",
+      "sha256": "a7328270a0008cc2cc43a7a23198fc3cab80ff7cf80e5fd73ae11d5c9236a777"
+    },
+    {
+      "path": "content/desktop-ui.js",
+      "sha256": "e55c61325ea97793f4c59c63161f02664933c044bbca46d70562c3a0a33b762e"
+    },
+    {
+      "path": "content/projection.mjs",
+      "sha256": "6dd3fe70ed78dbb48b89555a5d0f6e4b5b14d9a90461ba970a47238aa93fc853"
+    },
+    {
+      "path": "content/legacy-projection.mjs",
+      "sha256": "5f504059376914d6006e564737a6cd661d8dcc1e0544ff9264afdf4b4260b301"
+    },
+    {
+      "path": "content/presentation.js",
+      "sha256": "7c8bb9a3e5bbcdde852e64f365214076b45ec747747f84ab619ab05063b1a610"
+    },
+    {
+      "path": "public/addons/npcdex/index.html",
+      "sha256": "941e7f1c9392914e7279dc81e40a03b070b1d8c97fbe0fb00e1a82697515e91f"
+    },
+    {
+      "path": "public/addons/npcdex/workspace.js",
+      "sha256": "b06ce3ace59ae56e09d90e212268451692c6134290ac848dfbd0afe5ca5732b4"
+    },
+    {
+      "path": "package.json",
+      "sha256": "151c29915dea13a5b4db90303fbdb503c08aa037b09f65f35c10ac16e162403f"
+    },
+    {
+      "path": "public/index.html",
+      "sha256": "603f7f731eda75b08ce1949d9282b2be3323bd0284c8933ca533844965c83eb2"
+    }
+  ]
+}

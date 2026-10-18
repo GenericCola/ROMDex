@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** **U20G is complete. ROMDex 0.5.10 is installed and open**, with contextual editing restored, readable summaries, separate form scrolling/footer and Add Character in Tray 2. Current saves and all three remembered connections are preserved. [Completion report](U20G-Completion-Report.md). **Next: U21 — Map Document Preview and Task Attachment, Sol / High; new PASSKEY required.**
+**Current:** U20G is complete. **U20H — Restore the Original NPCDex Feedback Interface** is authorized by the corrective request and in progress. [Checklist](U20H-Action-Plan.md). U21 remains unstarted.
 
 ## Completed Foundation
 
@@ -72,6 +72,8 @@
 ## Phase 5 — Map Packages and Tasks
 
 - [x] **U20G — Contextual Editing and Review Usability** — Sol / High. Completed October 18 in 0.5.10; [report](U20G-Completion-Report.md), [verification](U20G-Verification.json).
+
+- [ ] **U20H — Restore the Original NPCDex Feedback Interface** — Sol / High. [Checklist](U20H-Action-Plan.md).
 
 - [ ] **U21 — Map Document Preview and Task Attachment** — Sol / High. Existing/new task chooser, explicit attach, immutable versions, no agent dispatch.
 - [ ] **U22 — Linked Navigation and Package Progress** — Sol / High.

@@ -1,0 +1,20 @@
+{
+  "task": "U20H",
+  "status": "passed",
+  "at": "2026-10-18T13:54:25.131Z",
+  "isolated": true,
+  "credentialsCopied": false,
+  "remoteWrites": 0,
+  "originalInlineNoteQueued": true,
+  "exactWhitespacePreserved": true,
+  "originalUnrelatedDraftPreserved": true,
+  "acceptedSnapshotUnchanged": true,
+  "correctPromptScope": true,
+  "flagEditPreservesNote": true,
+  "localOperations": 2,
+  "target": {
+    "path": "New Bark Town → Friend’s House (Southeast)",
+    "name": "Your Friend",
+    "condition": "stages A to C: no badge and no Pokémon yet."
+  }
+}
