@@ -1,0 +1,10 @@
+{
+  "liveDataCompared": false,
+  "sourceManifest": "U19-Application-Manifest.json",
+  "status": "passed",
+  "checkedAt": "2026-10-18T01:05:05.8140701Z",
+  "task": "U20D",
+  "installedVersion": "0.5.7",
+  "changedFiles": [],
+  "matchedFiles": 248
+}

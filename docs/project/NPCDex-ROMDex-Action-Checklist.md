@@ -476,3 +476,16 @@ The [U20C1/U20C2 scheduling contingency](U20C1-Independent-Reader-Plan.md) was n
 - [x] Stop before U20D; request its separate PASSKEY.
 
 **U20C is complete** after isolated dynamic reader/cache/projection implementation, 467 tests and live YouTrack attachment/restart/cleanup proof. [Report and limits](U20C-Completion-Report.md). Installed 0.5.7 and the existing GitHub-backed NPCDex remain authoritative. **Next: U20D — Backend Planning and Documentation Corrections, Sol / High; new PASSKEY required.**
+
+
+## U20D — Planning and Correction Checklist
+
+- [x] Preserve current/proposed/testing boundaries and the U20C source baseline.
+- [x] Implement planned additions, shared/local profiles, guarded corrections and archival rules.
+- [x] Persist frozen operations and all issue/upload/parent-link intents before network requests.
+- [x] Add explicit isolated editing, retained drafts and guarded conflict/retry review.
+- [x] Verify concurrency, offline/restart/replay, source/asset preservation and sync controls.
+- [x] Complete real Windows/YouTrack verification and remove only marked fixtures.
+- [x] Preserve credentials/installed app, archive source/evidence and stop before U20E.
+
+**U20D is complete.** Isolated planning/correction editing, durable issue/upload/link intents, concurrent publication/draft review and current/proposed separation passed 501 tests and Windows/YouTrack recovery checks. [Report](U20D-Completion-Report.md). All 15 fixtures were removed; installed 0.5.7 and GitHub-backed saves remain authoritative. **Next: U20E — Scale Checks and Previewed Content Migration, Sol / High; new PASSKEY required.** No migration has begun.

@@ -4,7 +4,7 @@
 **Status:** U01–U20 and approved intervening tasks are complete. Installed ROMDex **0.5.7** has private NPCDex/metadata cloud sync, native two-way YouTrack sync and shared controls/indicators. U20's content-registry and package/backend-result design is user-approved; later task-specific approvals and technical proof gates remain required.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
-**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md), [U20 accepted design](U20-Consolidated-Architecture-and-Revised-Plan.md). U20A is approved and complete. **U20B is complete** after NPCD provisioning and isolated live storage/restart/cleanup proof; [report and limits](U20B-Completion-Report.md). **U20C is complete** after isolated dynamic reader/cache/projection implementation, 467 tests and live YouTrack attachment/restart/cleanup proof. [Report and limits](U20C-Completion-Report.md). Installed 0.5.7 and the existing GitHub-backed NPCDex remain authoritative. **Next: U20D — Backend Planning and Documentation Corrections, Sol / High; new PASSKEY required.**
+**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). **U20D is complete.** Isolated planning/correction editing, durable issue/upload/link intents, concurrent publication/draft review and current/proposed separation passed 501 tests and Windows/YouTrack recovery checks. [Report](U20D-Completion-Report.md). All 15 fixtures were removed; installed 0.5.7 and GitHub-backed saves remain authoritative. **Next: U20E — Scale Checks and Previewed Content Migration, Sol / High; new PASSKEY required.** No migration has begun.
 
 ## Working Agreement
 
@@ -147,7 +147,7 @@ Added by the user during U05; requires completed U05 design review and a separat
 | 4C — Prove YouTrack storage | U20B | Complete October 17. Owner-created NPCD, private fixture transfers/links, competing versions, separate-process interrupted-group recovery and cleanup proved. [Measured limits](U20B-Completion-Report.md); actual agent grants remain U23. No migration. | Sol / High |
 | 4D — Read and assemble | U20C | Background registry reader, durable cache/recovery and dynamic NPCDex projection in an isolated profile. Preserve the familiar interface, shared Save/Auto-Sync semantics and separate content/work views. No live source switch. | Sol / High |
 | 4E — Plan and correct | U20D | Backend planning/correction writes, shared profiles/local overrides, planned additions and archival lifecycle. Prove draft/current separation, offline writes and conflict recovery using isolated data. No implicit execution task or handoff. | Sol / High |
-| 4F — Migrate safely | U20E | Preview the latest real dataset, preserve complete originals, validate mappings/assets/history and activate one authoritative provider only after the user's migration acceptance. Define GitHub backup behavior and recovery without enabling a second editable master. | Sol / High |
+| 4F — Migrate safely | U20E | First prove latency, reconstruction and retention at the full dataset size; then preview the latest real dataset, preserve complete originals, validate mappings/assets/history and activate one authoritative provider only after the user's migration acceptance. Define GitHub backup behavior and recovery without enabling a second editable master. | Sol / High |
 | 4G — Accept content backend | U20F | Installed-app acceptance, dynamic add/update from YouTrack, native edit/conflict/offline cases, exact save/credential preservation, backup restoration and verified private release. Stop for review before packaging implementation. | Sol / High |
 
 **Milestone C:** The content-backed NPCDex has passed isolated proof, a previewed real migration and installed-app acceptance; task execution still requires explicit user handoff.
@@ -219,7 +219,7 @@ Scheduled after U30 so notifications do not delay cloud persistence or the packa
 
 Tasks later in the plan are provisional until their design checkpoints are completed. Current desktop/cloud behavior remains available while the content architecture is reviewed and proved. Earlier completion narratives below are historical checkpoints; the status and checklist at the top control current execution.
 
-**Current boundary:** **U20C is complete** after isolated dynamic reader/cache/projection implementation, 467 tests and live YouTrack attachment/restart/cleanup proof. [Report and limits](U20C-Completion-Report.md). Installed 0.5.7 and the existing GitHub-backed NPCDex remain authoritative. **Next: U20D — Backend Planning and Documentation Corrections, Sol / High; new PASSKEY required.**
+**Current boundary:** **U20D is complete.** Isolated planning/correction editing, durable issue/upload/link intents, concurrent publication/draft review and current/proposed separation passed 501 tests and Windows/YouTrack recovery checks. [Report](U20D-Completion-Report.md). All 15 fixtures were removed; installed 0.5.7 and GitHub-backed saves remain authoritative. **Next: U20E — Scale Checks and Previewed Content Migration, Sol / High; new PASSKEY required.** No migration has begun.
 
 
 ## R08 — Release Completed, October 14, 2026

@@ -4,6 +4,10 @@ Started October 14, 2026. This records the discussion before the phased Action P
 
 ## Current Design Checkpoint — October 17, 2026
 
+**U20D is complete.** Isolated planning/correction editing, durable issue/upload/link intents, concurrent publication/draft review and current/proposed separation passed 501 tests and Windows/YouTrack recovery checks. [Report](U20D-Completion-Report.md). All 15 fixtures were removed; installed 0.5.7 and GitHub-backed saves remain authoritative. **Next: U20E — Scale Checks and Previewed Content Migration, Sol / High; new PASSKEY required.** No migration has begun.
+
+The U20D PASSKEY authorized this isolated implementation. Live proof showed that full defensive reconstruction currently takes several minutes; U20E must prove scale/retention and acceptable latency before migration preview/acceptance. Native-edit adoption and installed acceptance remain later gates. Earlier checkpoint entries below are historical.
+
 The user approved the [U20 content-registry and revised workflow baseline](U20-Consolidated-Architecture-and-Revised-Plan.md). Permanent content is planned for a separate YouTrack project; actionable work remains PMON. NPCDex stages only; fixed map documents attach by explicit choice, direct versioned backend updates preserve newer drafts, and testing remains human-controlled. Explicit documentation corrections retain history without requesting ROM work.
 
 The user authorized **U20A** with PASSKEY and subsequently selected **“Approve U20A Contracts.”** Its [record/mapping contracts, examples and extraction guide](U20A-Review-Report.md) are accepted with 45 passing isolated model/legacy checks. No content project, access change, live upload, migration, application update or actual ROM edit occurred in U20A. The user's subsequent **PASSKEY** authorizes **U20B — Sol / High**. Earlier entries below remain historical decisions and completed milestones.

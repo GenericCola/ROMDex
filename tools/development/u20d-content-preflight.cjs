@@ -1,0 +1,24 @@
+// Resumed U20D: read-only identity, project grants and binding inspection.
+const {app,safeStorage}=require('electron');
+const fs=require('node:fs/promises'),path=require('node:path'),{createHash}=require('node:crypto');
+const root=path.resolve(__dirname,'..'),work=path.join(root,'work/u20d'),session=path.join(work,'private-profile/session'),profile=path.join(process.env.USERPROFILE,'AppData/Local/ROMDexDesktop/Data/thegobindsingh-PMON');
+app.setPath('userData',session);app.setPath('sessionData',session);app.disableHardwareAcceleration();
+const base='https://thegobindsingh.youtrack.cloud',sha=b=>createHash('sha256').update(b).digest('hex');let token;
+const result={task:'U20D',stage:'Read-only content-project inspection',startedAt:new Date().toISOString(),base,remoteWrites:0,credentialLogged:false,requests:[]};
+async function get(route,anonymous=false){const url=new URL(route,base);if(url.origin!==base||!url.pathname.startsWith('/api/'))throw Error('Unapproved route');const response=await fetch(url,{method:'GET',redirect:'manual',headers:{Accept:'application/json',...(!anonymous?{Authorization:'Bearer '+token}:{})},signal:AbortSignal.timeout(20000)});let data;try{data=await response.json();}catch{}const entry={route,anonymous,status:response.status};if(response.ok)entry.data=data;else entry.reason=String(data?.error_description||data?.error||'Unavailable').replace(/perm:[A-Za-z0-9._=-]+/g,'[redacted]').slice(0,250);result.requests.push(entry);return {status:response.status,data};}
+async function list(route,maxPages=20){const items=[];for(let i=0;i<maxPages;i++){const r=await get(route+(route.includes('?')?'&':'?')+'$top=50&$skip='+i*50);if(r.status!==200||!Array.isArray(r.data))return {complete:false,items};items.push(...r.data);if(r.data.length<50)return {complete:true,items};}return {complete:false,items};}
+app.whenReady().then(async()=>{
+ if(!safeStorage.isEncryptionAvailable())throw Error('Windows protection unavailable');const credentialFile=path.join(profile,'service/connection.encrypted'),credentialBytes=await fs.readFile(credentialFile),envelope=JSON.parse(credentialBytes);if(envelope.format!=='ROMDexElectronCredential/1')throw Error('Unsupported envelope');token=safeStorage.decryptString(Buffer.from(envelope.bytes,'base64'));
+ const me=await get('/api/users/me?fields=id,login,guest,banned');if(me.status!==200||me.data?.login!=='GenericCola'||me.data?.id!=='2-2'||me.data?.guest||me.data?.banned)throw Error('Approved owner not verified');result.owner={id:me.data.id,login:me.data.login};
+ const projects=await list('/api/admin/projects?fields=id,name,shortName,description,leader(id,login),team(id,name,usersCount)');if(!projects.complete)throw Error('Incomplete project inventory');const target=projects.items.filter(p=>p.shortName==='NPCD');if(target.length!==1)throw Error('Expected one visible NPCD');result.project=target[0];result.pmon=projects.items.find(p=>p.shortName==='PMON');result.projectId=result.project.id;
+ const projectId=encodeURIComponent(result.projectId),roleFields='id,holder(id,login,name),role(id,name,permissions(id,name)),scope(id,$type,project(id,shortName))';
+ result.ownerEffectiveVisibleRoles=await list('/api/assignedRoles?fields='+roleFields+'&query='+encodeURIComponent('holder:'+me.data.id));
+ result.projectVisibleRoles=await list('/api/assignedRoles?fields='+roleFields+'&query='+encodeURIComponent('scope:'+result.projectId));
+ result.team=await list('/api/admin/projects/'+projectId+'/team/users?fields=id,login');
+ const groups=await list('/api/groups?fields=id,name,allUsersGroup');result.groupsComplete=groups.complete;result.groupMembership=[];
+ for(const g of groups.items){const users=await list('/api/groups/'+encodeURIComponent(g.id)+'/users?fields=id,login');result.groupMembership.push({group:g,complete:users.complete,userIds:users.items.map(u=>u.id)});}
+ const issues=await list('/api/issues?query='+encodeURIComponent('project: NPCD')+'&fields=id,idReadable,summary,reporter(id,login),visibility(permittedUsers(id,login),permittedGroups(id,name))');result.visibleExistingIssues={complete:issues.complete,items:issues.items};
+ await get('/api/admin/globalSettings?fields=id,systemSettings(maxUploadFileSize,isApplicationReadOnly),license(id,error)');
+ await get('/api/admin/projects/'+projectId+'?fields=id,name,shortName',true);
+ result.credentialBytesUnchanged=sha(credentialBytes)===sha(await fs.readFile(credentialFile));if(!result.credentialBytesUnchanged)throw Error('Credential changed');result.status='inspected';
+}).catch(error=>{result.status='needs-review';result.errorType=error.name;result.message=error.message==='Expected one visible NPCD'?error.message:'Project/grant inspection did not complete; no changes made.';}).finally(async()=>{token=null;result.finishedAt=new Date().toISOString();await fs.writeFile(path.join(work,'content-preflight.json'),JSON.stringify(result,null,2));app.exit(result.status==='inspected'?0:1);});

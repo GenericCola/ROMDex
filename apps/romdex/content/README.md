@@ -1,6 +1,6 @@
 # Isolated NPCDex Content Reader — U20C
 
-This directory implements a read-only YouTrack content reader, verified SQLite cache and NPCDex projection. It is not imported by the installed application. ROMDex 0.5.7 and the existing GitHub-backed NPCDex remain authoritative. Construction requires an explicit isolated `fixture:` workspace and a pinned bootstrap publication; production Data paths are refused.
+This directory implements a YouTrack content reader, verified SQLite cache and NPCDex projection. U20D adds an optional isolated owner editor; see [Editing and Recovery](EDITING.md). It is not imported by the installed application. ROMDex 0.5.7 and the existing GitHub-backed NPCDex remain authoritative. Construction requires an explicit isolated `fixture:` workspace and a pinned bootstrap publication; production Data paths are refused.
 
 ## Carrier and Identity
 
@@ -18,11 +18,11 @@ SQLite WAL with FULL synchronization retains verified objects, publication/domai
 
 `projection.mjs` builds the NPCDex v2 shape from domain records: maps/subzones, shared character profiles, local appearances and overrides, explicit player-gender profiles, ordered dialogue, images, staged proposals, planned additions and archived records. Current content and proposals remain separate. Testing against an older content revision displays Unreviewed without discarding the original review artifact. The projection version allows a derived-view upgrade without pretending the source revision changed.
 
-This phase reads owner-authored bootstrap, planning and documentation-correction publications. It does not implement planning writes, lifecycle/reparent/remap corrections, implementation-result acceptance or conflict resolution writes. Those remain later gates. Complete real-save alias/history reconstruction and provider cutover require U20E migration evidence.
+The base reader accepts owner-authored bootstrap, planning, documentation-correction and explicitly reviewed resolution publications. U20D supplies optional isolated planning/correction writes and guarded lifecycle actions as described in EDITING.md. Agent implementation-result acceptance, parent moves and remapping remain later gates. Complete real-save alias/history reconstruction and provider cutover require U20E migration evidence.
 
 ## Isolated Preview
 
-`preview-server.mjs` serves the existing NPCDex interface with the coded baseline removed and the reader projection injected. `preview.js` disables editing while retaining navigation, player-gender selection and proposed-change visibility. Incoming refresh preserves the current selection. The loopback API exposes only the current verified view, a one-time incoming read and the local Auto-Sync preference. It checks host/origin/fetch-site, uses a restrictive CSP and provides no arbitrary file access, remote proxy, credential entry or save API.
+`preview-server.mjs` serves the existing NPCDex interface with the coded baseline removed and the reader projection injected. `preview.js` disables legacy mutation/storage handlers while retaining navigation, player-gender selection and proposed-change visibility. The optional U20D editor supplies explicit validated editing controls. Incoming refresh preserves the current selection. The loopback API exposes only the current verified view, a one-time incoming read and the local Auto-Sync preference. It checks host/origin/fetch-site, uses a restrictive CSP and provides no arbitrary file access, remote proxy or credential entry. Read-only previews have no edit API; the optional editor exposes only the bounded commands documented in EDITING.md.
 
 Auto-Sync Off makes no automatic remote calls. Save Changes performs one incoming cycle while leaving Off in place. An intentional stop cancels the current read and retains the cache without fabricating an outage. A service connection failure is reported as unavailable; content discrepancies remain separate review conditions.
 
@@ -30,4 +30,4 @@ Auto-Sync Off makes no automatic remote calls. Save Changes performs one incomin
 
 Bounds: 512 KiB attachment chunks; 256 KiB carrier manifest; 16 MiB assembled object; 32 chunks per object; 64 MiB response/transfer and materialized-state budgets per cycle; 256 MiB cached payload; 1,000 registry publications; 10,000 requests and 120 seconds per cycle. Listings are paginated with bounded complete sweeps; unstable/truncated enumeration cannot report success. Domain collections and histories also have explicit limits. Cache payload limits do not bound SQLite filesystem overhead. These are conservative implementation limits, not measured YouTrack quotas or a production retention policy.
 
-U20C proves synthetic data only. U20D adds isolated editing and recovery; U20E previews and migrates the latest real data; U20F handles installed acceptance/release. Actual agent identity/access and result authorization remain U23–U25. Upload ceiling and remaining instance capacity are unknown. No ROM or in-game correctness is established by reader validation.
+U20C proves synthetic data only. U20D editing and recovery remain isolated; U20E must prove scale/retention before previewing and migrating the latest real data; U20F handles installed acceptance/release. Actual agent identity/access and result authorization remain U23–U25. Upload ceiling and remaining instance capacity are unknown. No ROM or in-game correctness is established by reader validation.

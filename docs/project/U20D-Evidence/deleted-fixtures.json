@@ -1,0 +1,98 @@
+{
+  "task": "U20D",
+  "runId": "e1b66bbf-7fd6-4b96-b4f7-8fed81f72cb0",
+  "marker": "ROMDexU20DFixture/e1b66bbf-7fd6-4b96-b4f7-8fed81f72cb0",
+  "issues": [
+    {
+      "id": "3-361",
+      "idReadable": "NPCD-16",
+      "projectId": "0-2"
+    },
+    {
+      "id": "3-362",
+      "idReadable": "NPCD-17",
+      "projectId": "0-2"
+    },
+    {
+      "id": "3-363",
+      "idReadable": "NPCD-18",
+      "projectId": "0-2"
+    },
+    {
+      "id": "3-364",
+      "idReadable": "NPCD-19",
+      "projectId": "0-2"
+    },
+    {
+      "id": "3-365",
+      "idReadable": "NPCD-20",
+      "projectId": "0-2"
+    },
+    {
+      "id": "3-366",
+      "idReadable": "NPCD-21",
+      "projectId": "0-2"
+    },
+    {
+      "id": "3-367",
+      "idReadable": "NPCD-22",
+      "projectId": "0-2"
+    },
+    {
+      "id": "3-368",
+      "idReadable": "NPCD-23",
+      "projectId": "0-2"
+    },
+    {
+      "id": "3-369",
+      "idReadable": "NPCD-24",
+      "projectId": "0-2"
+    },
+    {
+      "id": "3-370",
+      "idReadable": "NPCD-25",
+      "projectId": "0-2"
+    },
+    {
+      "id": "3-371",
+      "idReadable": "NPCD-26",
+      "projectId": "0-2"
+    },
+    {
+      "id": "3-372",
+      "idReadable": "NPCD-27",
+      "projectId": "0-2"
+    },
+    {
+      "id": "3-373",
+      "projectId": "0-2"
+    },
+    {
+      "id": "3-374",
+      "projectId": "0-2"
+    },
+    {
+      "id": "3-375",
+      "projectId": "0-2"
+    }
+  ],
+  "deleted": [
+    "3-369",
+    "3-370",
+    "3-371",
+    "3-372",
+    "3-374",
+    "3-375",
+    "3-364",
+    "3-363",
+    "3-362",
+    "3-365",
+    "3-366",
+    "3-367",
+    "3-368",
+    "3-373",
+    "3-361"
+  ],
+  "stage": "cleaned",
+  "onlySynthetic": true
+}

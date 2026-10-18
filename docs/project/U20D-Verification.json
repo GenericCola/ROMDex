@@ -1,0 +1,283 @@
+{
+  "task": "U20D",
+  "status": "passed",
+  "completedAt": "2026-10-18T01:11:36.600Z",
+  "userDate": "2026-10-17 America/New_York",
+  "installedVersion": "0.5.7",
+  "isolated": true,
+  "productionProviderChanged": false,
+  "realSavesMigrated": false,
+  "actualROMChanged": false,
+  "agentDispatched": false,
+  "PMONWrites": 0,
+  "tests": {
+    "passed": 501,
+    "failed": 0,
+    "newU20DChecks": 34
+  },
+  "syntax": {
+    "failed": [],
+    "files": 31,
+    "task": "U20D"
+  },
+  "independentSchema": {
+    "task": "U20D",
+    "scope": "Independent PowerShell Test-Json schema evaluation of U20A synthetic artifacts",
+    "powershell": "7.6.5",
+    "positiveArtifacts": 24,
+    "rejectedInvalidArtifacts": 4,
+    "status": "passed",
+    "doesNotProve": "Hardened production parsing, live server behavior, actual actor grants or ROM extraction"
+  },
+  "acceptedSchemaSha256": "9e832db6bbc2126b4c9aae3316781c2e56e4b524864a2e4c0c7aa1725b5659d1",
+  "stages": {
+    "live-prepare": {
+      "status": "passed",
+      "startedAt": "2026-10-18T00:50:17.637Z",
+      "finishedAt": "2026-10-18T00:51:37.860Z",
+      "checks": [
+        {
+          "label": "Owner-only marked NPCD fixtures and domain/native hierarchy seeded",
+          "projectId": "0-2",
+          "issues": 12,
+          "recordBindings": 11,
+          "artifacts": 17,
+          "bootstrap": "194f7ad8d18ba33d61dc5b132daa96e947c503bfbb9a76f7e594a7f2c5c5d7fb",
+          "PMONWrites": 0
+        }
+      ],
+      "runtimeGETs": 0,
+      "runtimePOSTs": 0,
+      "allThreeCredentialFilesUnchanged": true
+    },
+    "live-mutate": {
+      "status": "passed",
+      "startedAt": "2026-10-18T00:52:16.626Z",
+      "finishedAt": "2026-10-18T00:53:39.803Z",
+      "checks": [
+        {
+          "label": "Four durable isolated edits queued; one real successful upload acknowledgement deliberately discarded",
+          "pending": 4,
+          "actualUploadPOSTs": 1,
+          "currentROMChanged": false,
+          "agentDispatched": false,
+          "automaticSyncOff": true,
+          "process": 1852
+        }
+      ],
+      "runtimeGETs": 195,
+      "runtimePOSTs": 1,
+      "allThreeCredentialFilesUnchanged": true
+    },
+    "live-recover": {
+      "status": "passed",
+      "startedAt": "2026-10-18T00:54:34.472Z",
+      "finishedAt": "2026-10-18T01:01:06.748Z",
+      "checks": [
+        {
+          "label": "Separate Windows process recovered exact upload and committed staged edits using actual runtime modules",
+          "plans": 5,
+          "reviews": 2,
+          "records": 13,
+          "createdPlannedRecords": 2,
+          "oldDialoguePreserved": true,
+          "sharedProfileCorrection": true,
+          "automaticSyncOff": true,
+          "priorProcess": 1852,
+          "process": 14736,
+          "rediscoveredAttachmentId": "12-88",
+          "publication": "b5d41307732fc4fc60b61e74eebc2d1c184714e5eece2527eab616d9f1e375fd",
+          "duplicateUploadOnReplay": false,
+          "PMONWrites": 0
+        }
+      ],
+      "runtimeGETs": 941,
+      "runtimePOSTs": 19,
+      "allThreeCredentialFilesUnchanged": true
+    },
+    "live-final": {
+      "status": "passed",
+      "startedAt": "2026-10-18T01:07:19.026Z",
+      "finishedAt": "2026-10-18T01:09:05.297Z",
+      "checks": [
+        {
+          "label": "Final source publishes a shared-profile local appearance with a durable native-parent intent",
+          "records": 14,
+          "newProfilesCreated": 0,
+          "nativeParentIntent": "verified",
+          "automaticSyncOff": true,
+          "publication": "d5b92d0a5925c03f1a7ce07c4815a8ae24f17fb9ab90884a89c6f4524d86415d",
+          "PMONWrites": 0,
+          "reusedExistingOperation": true
+        }
+      ],
+      "runtimeGETs": 256,
+      "runtimePOSTs": 0,
+      "allThreeCredentialFilesUnchanged": true
+    },
+    "live-cleanup": {
+      "status": "passed",
+      "startedAt": "2026-10-18T01:09:55.810Z",
+      "finishedAt": "2026-10-18T01:10:48.412Z",
+      "checks": [
+        {
+          "label": "Only this marked writer run was deleted and verified absent",
+          "deleted": 15,
+          "activeRunFixtures": 0,
+          "visibleContentIssues": 0,
+          "visiblePMONIssues": 299,
+          "PMONWrites": 0
+        }
+      ],
+      "runtimeGETs": 0,
+      "runtimePOSTs": 0,
+      "allThreeCredentialFilesUnchanged": true
+    }
+  },
+  "harnessCorrection": {
+    "expectedProfileCountWasWrong": true,
+    "firstAttemptStatus": "needs-review",
+    "successfulPublicationWasRetained": true,
+    "rerunCreatedNoIssuesOrUploads": true
+  },
+  "installedPreservation": {
+    "liveDataCompared": false,
+    "sourceManifest": "U19-Application-Manifest.json",
+    "status": "passed",
+    "checkedAt": "2026-10-18T01:05:05.8140701Z",
+    "task": "U20D",
+    "installedVersion": "0.5.7",
+    "changedFiles": [],
+    "matchedFiles": 248
+  },
+  "preview": {
+    "image": "U20D-Editor-Preview.png",
+    "synthetic": true,
+    "restoredDraft": true,
+    "correctionEvidenceRequired": true,
+    "plannedAdditionVisible": true,
+    "automaticSyncRemainedOff": true,
+    "temporaryTabsClosed": true
+  },
+  "limits": {
+    "editRequestBytes": 1048576,
+    "imageBytes": 524288,
+    "imageSidePixels": 4096,
+    "imagePixels": 8388608,
+    "journalOperations": 200,
+    "outgoingCycleMilliseconds": 600000,
+    "writesPerCycle": 200,
+    "queuedOperationsPerCycle": 20,
+    "serverUploadCeilingKnown": false,
+    "remainingCapacityKnown": false,
+    "productionScaleProven": false
+  },
+  "nextGate": "U20E starts with latency/reconstruction/retention checks, then latest-data preview and separate migration acceptance",
+  "source": [
+    {
+      "path": "content/cache.mjs",
+      "bytes": 3721,
+      "sha256": "497827bbf343e9dd0fd11548b621a11b405ed4aeb6cfb51a5fcf16d3d827635f"
+    },
+    {
+      "path": "content/carrier.mjs",
+      "bytes": 3169,
+      "sha256": "bf68cf8ca2295e622273db169230c992c9fb42e7c45420ac84e3cac9608c08b4"
+    },
+    {
+      "path": "content/contracts.mjs",
+      "bytes": 10161,
+      "sha256": "e8ababa7b595cc46f025c6b6595643198d7ed799bb739e0719e49693e8b80e9c"
+    },
+    {
+      "path": "content/contracts.schema.json",
+      "bytes": 51409,
+      "sha256": "9e832db6bbc2126b4c9aae3316781c2e56e4b524864a2e4c0c7aa1725b5659d1"
+    },
+    {
+      "path": "content/EDITING.md",
+      "bytes": 7447,
+      "sha256": "6809d7f2510b2162054d3c0f873c6c7fe067c0a5868de9c04b67543b1a44656d"
+    },
+    {
+      "path": "content/editor-ui.js",
+      "bytes": 18832,
+      "sha256": "93fedeea4f52eeb6bf0f1de6ae5e8b82cf97fdefca10a22ce0d14759d75e690e"
+    },
+    {
+      "path": "content/edits.mjs",
+      "bytes": 14343,
+      "sha256": "2c5093b9e759183e907beb7e4bee426bb949a21a093f30fed68756bf617df5f5"
+    },
+    {
+      "path": "content/image-bounds.mjs",
+      "bytes": 1932,
+      "sha256": "41e1741dfb93db12b5e03f306f14eafdd78fc86fe4a1895f7190e2e023f3c707"
+    },
+    {
+      "path": "content/materialize.mjs",
+      "bytes": 11560,
+      "sha256": "7d0218fea2580d99556a81ebee260c90c28f2347e44d69033d0a5821690f66c0"
+    },
+    {
+      "path": "content/preview-server.mjs",
+      "bytes": 10217,
+      "sha256": "3780c4690773d360c20f5e590da8e9c1acee9ef85f032bf1eaf35efccabb1301"
+    },
+    {
+      "path": "content/preview.js",
+      "bytes": 5635,
+      "sha256": "bf00d19aa0450984d6100ce972810165954935ca53a96bda8e5bfcc4e572cd6b"
+    },
+    {
+      "path": "content/projection.mjs",
+      "bytes": 5760,
+      "sha256": "449e240ded5fa6405b7f66672338b1c9f523bfd968acade4fbbc449d84a25c98"
+    },
+    {
+      "path": "content/reader.mjs",
+      "bytes": 15177,
+      "sha256": "61cd6d796b489d1bd084c89998223df66484e39ca2f6c1992fb392b1e011da92"
+    },
+    {
+      "path": "content/README.md",
+      "bytes": 6328,
+      "sha256": "af9b8e0009854e1d83a520f278b37993f84e492958a119f950c27f14fa875980"
+    },
+    {
+      "path": "content/writer.mjs",
+      "bytes": 13805,
+      "sha256": "a0517f5d3ec338f859e560b1daf8182a3770e2f180f8affc694ccfc56eafc8a4"
+    },
+    {
+      "path": "content/youtrack-reader.mjs",
+      "bytes": 6020,
+      "sha256": "6c3cc8a322490704c567331356b0694fac305b0b6d208344378ee77e282efb88"
+    },
+    {
+      "path": "content/youtrack-writer.mjs",
+      "bytes": 6417,
+      "sha256": "f85d26e710806d92fa126aa072774a472faa43ccccf19544e267501f8302227a"
+    },
+    {
+      "path": "tests/content-editor-fixture.mjs",
+      "bytes": 3494,
+      "sha256": "c9140c9a1eb19cdbaf8f13e35c7d1d22bd060b77ae8e7794e9da93cbf110ceec"
+    },
+    {
+      "path": "tests/content-editor.test.mjs",
+      "bytes": 19368,
+      "sha256": "db203f770140a10276eb18695278f3b9c0a52431d822ff425e66e5db2becca9d"
+    },
+    {
+      "path": "tests/content-editor-api.test.mjs",
+      "bytes": 2113,
+      "sha256": "f30cd5f5f2e04550625bbf14cc85a39e33f3bdead3204e04385af40dd064dbd4"
+    },
+    {
+      "path": "tests/content-write-transport.test.mjs",
+      "bytes": 3316,
+      "sha256": "f05b67f650ab4d8a21559cebf5e3d8ef3b81684e7815af979388b320abc7a421"
+    }
+  ]
+}

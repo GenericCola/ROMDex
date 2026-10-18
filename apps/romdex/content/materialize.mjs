@@ -1,6 +1,15 @@
 import {requireThat,verifyDigest,validateGraph,same,unique} from './contracts.mjs';
 const digest=a=>a.revisionId||a.digest;
 const empty=()=>({records:[],plans:[],reviews:[],mappings:[],assets:[],revisions:[]});
+export const versionHeads=(list,identity,id)=>{const values=list.filter(a=>a[identity]===id),parents=new Set(values.flatMap(a=>a.parents));return values.filter(a=>!parents.has(a.digest));};
+function stableRecord(before,after){requireThat(after.kind===before.kind&&after.parentRecordId===before.parentRecordId&&same(after.mappingRefs,before.mappingRefs)&&same(after.legacyRefs,before.legacyRefs)&&same(after.legacyData,before.legacyData),'Editing Cannot Rebind, Remap or Discard Compatibility Data.');requireThat(same(after.parents,[before.revisionId]),'Record Parent Revision Differs.');}
+function appendVersion(domain,a,key,identity){
+ const prior=domain[key].filter(x=>x[identity]===a[identity]);const heads=versionHeads(prior,identity,a[identity]);
+ requireThat(same([...a.parents].sort(),heads.map(h=>h.digest).sort()),'Editing Must Cover Every Current Proposal Head.');
+ if(prior.length)requireThat(same(a.target,prior[0].target),'A Proposal Cannot Move to Another Target.');
+ if(key==='plans'){requireThat(a.version===1+Math.max(0,...prior.map(x=>x.version)),'Plan Version Does Not Advance.');requireThat(a.workflow!=='implemented','Planning Cannot Claim Implementation.');if(a.workflow==='ready')requireThat(a.intent!=='FINAL'&&a.instructions.trim()&&a.changes.some(c=>!same(c.before,c.after)),'Ready Proposals Need Instructions and Scoped Changes.');if(a.intent==='FINAL')requireThat(['draft','final','superseded'].includes(a.workflow),'FINAL Is an Editorial Decision.');}
+ domain[key].push(a);
+}
 export function validateDomain(domain){
  for(const key of ['records','plans','reviews','mappings','assets'])requireThat(domain[key].length<=10000,'Content Domain Collection Exceeds Its Bound.');requireThat(domain.revisions.length<=50000,'Content Revision History Exceeds Its Bound.');
  const graph=validateGraph(domain.records),revisions=new Map(domain.revisions.map(r=>[r.revisionId,r]));
@@ -36,7 +45,18 @@ export function applyPublication(parent,pub,artifacts,assets){
   }
  }else if(pub.kind==='planning'){
   requireThat(parent&&!pub.resultDigest&&!pub.groupId,'Invalid Planning Publication.');
-  for(const a of artifacts){const key=a.schema==='NPCDexPlanRevision/1'?'plans':a.schema==='NPCDexReviewRevision/1'?'reviews':null;requireThat(key,'Planning Cannot Replace Current Content.');const identity=key==='plans'?'planId':'reviewId';for(const p of a.parents){const previous=domain[key].find(x=>x.digest===p);requireThat(previous?.[identity]===a[identity],'Planning Parent Does Not Match.');}if(!domain[key].some(x=>x.digest===a.digest))domain[key].push(a);}
+  const additions=artifacts.filter(a=>a.schema==='NPCDexContentRevision/1'&&!prior.has(a.recordId));
+  for(const a of artifacts){
+   if(a.schema==='NPCDexPlanRevision/1'||a.schema==='NPCDexReviewRevision/1'){const key=a.schema==='NPCDexPlanRevision/1'?'plans':'reviews';appendVersion(domain,a,key,key==='plans'?'planId':'reviewId');continue;}
+   requireThat(a.schema==='NPCDexContentRevision/1','Planning Cannot Replace Current Content.');const before=prior.get(a.recordId);
+   if(!before){requireThat(['profile','appearance','scene','interactive'].includes(a.kind)&&a.current.lifecycle==='planned'&&!a.parents.length&&!a.mappingRefs.length&&!a.legacyRefs.length&&!Object.keys(a.legacyData).length,'New Content Must Be a Planned Addition.');domain.records.push(a);}
+   else{
+    stableRecord(before,a);
+    if(before.current.lifecycle==='planned')requireThat(['planned','archived'].includes(a.current.lifecycle),'Planning Cannot Activate ROM Content.');
+    else{const expected=structuredClone(before.current);requireThat(before.kind==='subzone','Planning Cannot Replace Current Content.');for(const [field,kind]of [['appearanceIds','appearance'],['sceneIds','scene'],['interactiveIds','interactive']])expected.payload[field].push(...additions.filter(x=>x.kind===kind&&x.parentRecordId===before.recordId).map(x=>x.recordId));requireThat(same(a.current,expected),'Planning Can Only Append Planned Membership to Existing Content.');}
+    domain.records=domain.records.map(r=>r.recordId===a.recordId?a:r);
+   }domain.revisions.push(a);
+  }
  }else if(pub.kind==='correction'){
   requireThat(parent&&pub.resultDigest&&!pub.groupId,'Invalid Documentation Correction Publication.');
   const correction=artifacts.find(a=>a.digest===pub.resultDigest);requireThat(correction?.schema==='NPCDexDocumentationCorrection/1'&&correction.romChangeRequested===false&&correction.reason.trim()&&correction.evidence.length,'Documentation Correction Evidence Is Missing.');
@@ -46,16 +66,31 @@ export function applyPublication(parent,pub,artifacts,assets){
   for(const update of correction.recordUpdates){
    const before=prior.get(update.before.recordId),after=update.after;
    requireThat(before?.revisionId===update.before.revisionId&&after.recordId===before.recordId&&after.kind===before.kind,'Correction Target Differs.');
-   requireThat(same(after.parents,[before.revisionId])&&after.current.lifecycle===before.current.lifecycle&&after.parentRecordId===before.parentRecordId,'Correction Cannot Perform a Lifecycle or Parent Move.');
-   requireThat(same(after.mappingRefs,before.mappingRefs),'Correction Remapping Needs a Later Reviewed Workflow.');
+   stableRecord(before,after);requireThat(before.current.lifecycle!=='planned'||after.current.lifecycle!=='active','A Planned Addition Cannot Be Activated by a Documentation Correction.');
+   if(after.current.lifecycle==='active'&&before.current.lifecycle==='archived')requireThat(domain.revisions.some(r=>r.recordId===before.recordId&&r.current.lifecycle==='active'),'An Archived Planned Addition Cannot Be Activated by a Documentation Correction.');
+   requireThat(before.current.lifecycle===after.current.lifecycle||['active','archived'].includes(before.current.lifecycle)&&['active','archived'].includes(after.current.lifecycle),'Unsupported Documentation Lifecycle Correction.');
    requireThat(artifacts.some(a=>a.revisionId===after.revisionId&&same(a,after)),'Correction After-Revision Is Missing.');
    domain.records=domain.records.map(r=>r.recordId===before.recordId?after:r);domain.revisions.push(after);
   }
- }else throw Error('This Publication Workflow Is Not Enabled in the Read-Only Preview.');
+ }else throw Error('This Publication Workflow Is Not Enabled in This Content Phase.');
  for(const asset of assets){const previous=domain.assets.find(a=>a.assetId===asset.assetId);requireThat(!previous||previous.sha256===asset.sha256,'Asset Identity Was Reused for Different Bytes.');if(!previous)domain.assets.push(asset);}
  for(const list of [domain.plans,domain.reviews]){
   unique(list.map(a=>a.digest),'Versioned Proposal');
   for(const a of list){verifyDigest(a);for(const p of a.parents)requireThat(p!==a.digest,'Proposal Revision Cycle.');}
  }
  return validateDomain(domain);
+}
+
+// Explicit owner review joins exactly the named branches. Every original version survives.
+export function resolvePublication(parents,pub,artifacts,assets){
+ requireThat(parents.length>=2&&parents.length<=16&&!pub.resultDigest&&!pub.groupId,'Invalid Reviewed Resolution.');
+ requireThat(same([...pub.artifactDigests].sort(),artifacts.map(digest).sort()),'Resolution Artifact Set Differs.');
+ const union=(key,id)=>{const values=new Map();for(const parent of parents)for(const value of parent[key]){const prior=values.get(value[id]);requireThat(!prior||same(prior,value),'Conflicting Immutable Identity.');values.set(value[id],value);}return [...values.values()];};
+ const domain={records:[],plans:union('plans','digest'),reviews:union('reviews','digest'),mappings:union('mappings','digest'),assets:union('assets','assetId'),revisions:union('revisions','revisionId')};
+ const allRecords=new Map();for(const parent of parents)for(const r of parent.records){if(!allRecords.has(r.recordId))allRecords.set(r.recordId,[]);allRecords.get(r.recordId).push(r);}
+ requireThat(same(pub.baseRevisions.map(r=>r.recordId+':'+r.revisionId).sort(),[...new Set(parents.flatMap(p=>p.records.map(r=>r.recordId+':'+r.revisionId)))].sort()),'Resolution Must Review Every Branch Baseline.');
+ const selected=artifacts.filter(a=>a.schema==='NPCDexContentRevision/1');unique(selected.map(r=>r.recordId),'Resolved Record');requireThat(selected.length===allRecords.size,'Resolution Must Preserve All Records.');
+ for(const r of selected){requireThat(allRecords.get(r.recordId)?.some(x=>same(x,r)),'Resolution Must Select an Observed Current Record.');domain.records.push(r);}
+ for(const a of artifacts.filter(a=>a.schema!=='NPCDexContentRevision/1')){requireThat(['NPCDexPlanRevision/1','NPCDexReviewRevision/1'].includes(a.schema),'Unsupported Resolution Artifact.');appendVersion(domain,a,a.schema==='NPCDexPlanRevision/1'?'plans':'reviews',a.schema==='NPCDexPlanRevision/1'?'planId':'reviewId');}
+ requireThat(!assets.length,'Resolution Cannot Introduce Unreviewed Assets.');return validateDomain(domain);
 }
