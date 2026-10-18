@@ -1,0 +1,9 @@
+{
+  "task": "U20I",
+  "status": "passed",
+  "bytes": 144455,
+  "sha256": "432df7dfd90c6726f9cdc745143fa7702d06b0de41e575dc296de9ad8ba7c714",
+  "rendererFunctionsUnchanged": true,
+  "originalMonosourceReadByNativeBoot": false,
+  "originalWebFileUnchanged": true
+}

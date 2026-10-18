@@ -1,0 +1,6 @@
+import fs from 'node:fs/promises';
+for(const name of ['backup-restore.cjs','deploy.mjs','publish.mjs']){
+ let source=(await fs.readFile('work/u20h-'+name,'utf8')).replaceAll('u20h','u20i').replaceAll('U20H','U20I').replaceAll('0.5.11','0.5.12').replaceAll('0.5.10','0.5.11');
+ if(name==='publish.mjs')source=source.replaceAll('0.5.8','0.5.11').replace('ROMDex 0.5.12 — Original NPCDex Interface','ROMDex 0.5.12 — Native NPCDex Content Tree').replace('Restores the original NPCDex feedback interface over the versioned database, standardizes tile settings buttons and places Add Character left of the gender toggle.','Builds the original NPCDex interface from versioned native content, adds reviewed map imports and agent formatting instructions. A fresh, explicit metadata-transition review is required in Tray 2 Content Tools after upgrading.').replace('Original NPCDex flags/notes/change controls mapped to the versioned database, standard tile settings artwork and Add Character left of gender.','Native content assembly with the original interface, reviewed map imports, retained history and append-only conflict reconciliation. Complete the explicit content-transition review after upgrading.');
+ await fs.writeFile('work/u20i-'+name,source);
+}

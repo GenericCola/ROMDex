@@ -4,10 +4,7 @@ import {requireThat,parseJSON,same} from './contracts.mjs';
 import {CATALOG_ROUTES,catalogAPI} from './catalog-api.mjs';
 
 export async function createContentPreview({reader,editor=null,publicDir=path.resolve(import.meta.dirname,'../public'),port=0,notice=null}){
- const htmlSource=await fs.readFile(path.join(publicDir,'addons/npcdex/index.html'),'utf8'),source=await fs.readFile(path.join(publicDir,'addons/npcdex/workspace.js'),'utf8');
- const start=source.indexOf('\nlet data=structuredClone(ORIGINAL)');requireThat(start>0&&source.indexOf('const startupReady=start();',start)>0,'NPCDex Preview Adapter Needs Review.');
- const runtime='const ORIGINAL=window.romdexContentSnapshot;\n'+source.slice(start).replace('const startupReady=start();','const startupReady=Promise.resolve();');
- requireThat(!runtime.includes('const ORIGINAL={'),'An Embedded Baseline Entered the Preview Runtime.');
+ const htmlSource=await fs.readFile(path.join(publicDir,'addons/npcdex/index.html'),'utf8'),runtime=await fs.readFile(new URL('./workspace-runtime.js',import.meta.url),'utf8');requireThat(runtime.startsWith('const ORIGINAL=window.romdexContentSnapshot;')&&!runtime.includes('const ORIGINAL={'),'Native UI Code Must Use the Backend Snapshot.');
  const controller=await fs.readFile(new URL('./preview.js',import.meta.url));
  let automatic=reader.cache.get('preview-auto-sync')!==false;reader.enabled=()=>editor?false:automatic;if(editor)editor.enabled=()=>automatic;const provider=editor||reader;
  const view=gender=>{if(editor)return editor.view(['male','female'].includes(gender)?gender:'male');const result=reader.view();if(notice)result.status.message=notice+' · '+result.status.message;if(result.active&&['male','female'].includes(gender)){const domain=reader.cache.get('domain:'+result.head);result.snapshot=projectNPCDex(domain,{revision:result.snapshot.revision,gender,assetBytes:hash=>reader.cache.object(hash)});}return result;};

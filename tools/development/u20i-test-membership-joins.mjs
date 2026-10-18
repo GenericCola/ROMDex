@@ -1,0 +1,1 @@
+import fs from 'node:fs';const p='outputs/ROMDex/content/edits.mjs',s=fs.readFileSync(p,'utf8');fs.writeFileSync(p,s.replace("ctx.operationId+':membership-'+all.size+'-'+id","ctx.operationId+':membership-'+sha(id).slice(0,16)"));
