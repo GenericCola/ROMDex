@@ -1,0 +1,21 @@
+{
+  "task": "U20H",
+  "status": "passed",
+  "version": "0.5.11",
+  "at": "2026-10-18T14:06:20.003Z",
+  "method": "Native Windows Computer Use through @oai/sky against the installed app-0.5.11 window",
+  "readOnlyReview": true,
+  "checks": [
+    "Installed app opens current ROMDex tree and healthy shared connections",
+    "Workspace switch loads NPCDex with current maps and character tiles",
+    "Add Character appears immediately left of Male/Female",
+    "Tile settings uses the standard circular settings icon matching Tray 2",
+    "Selecting Lyra shows original inline flag/note, tester checkboxes, compact colored FINAL/UPDATE/REMOVE controls and existing change description",
+    "Original Flags, Notes & Changes dialog shows map-grouped FLAGS/NOTES, CHANGES and FINALIZED categories",
+    "Tile settings opens the original compact feedback controls and explicit Edit Recorded Content action",
+    "Review and settings were closed without applying; installed app remains open"
+  ],
+  "preservation": "work/u20h/post-visual-preservation.json",
+  "testContentMutations": 0,
+  "existingDraftVersion": 13
+}

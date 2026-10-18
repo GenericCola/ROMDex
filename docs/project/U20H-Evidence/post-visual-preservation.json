@@ -1,0 +1,15 @@
+{
+  "task": "U20H",
+  "status": "passed",
+  "at": "2026-10-18T14:05:58.139Z",
+  "readOnly": true,
+  "remoteWrites": 0,
+  "acceptedSnapshotUnchanged": true,
+  "journalUnchanged": true,
+  "reviewCount": 0,
+  "originalDraftPreserved": true,
+  "allExistingDraftFieldsUnchanged": true,
+  "originalDraftBaselinePreserved": true,
+  "beforeDraftVersion": 13,
+  "afterDraftVersion": 13
+}

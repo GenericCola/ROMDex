@@ -1,0 +1,19 @@
+{
+  "task": "U20H",
+  "startedAt": "2026-10-18T14:02:45.281Z",
+  "status": "installed",
+  "version": "0.5.11",
+  "exitCode": 0,
+  "filesPreservedExactly": 120,
+  "bytesPreserved": 152641777,
+  "applicationHashesVerified": 302,
+  "backup": "outputs/U20H-Protected-Data-Backup",
+  "startupReport": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u20h\\current-startup-1792332209674.json",
+  "pid": 23052,
+  "utilityPid": 13204,
+  "fixture": false,
+  "contentProvider": true,
+  "inspectorEnabled": false,
+  "privateReleaseUrl": "https://github.com/GenericCola/ROMDex/releases/tag/v0.5.11",
+  "finishedAt": "2026-10-18T14:03:37.019Z"
+}

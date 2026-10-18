@@ -361,3 +361,7 @@ ROMDex 0.5.9 completes the content-backend acceptance gate. Preserve current/pro
 ## October 18 — U20G Corrective UI
 
 Restore contextual editing over the versioned backend; separate form scrolling/footer; identify every summary entry and navigate to its stage; place Add Character beside Male/Female. Preserve unrelated drafts and immutable multi-passage scopes. Stale notes default to Unreviewed until explicit retesting. Release 0.5.10 completes this corrective task; U21 remains separately gated.
+
+## October 18 — U20H Original Feedback Interface
+
+Reuse the original web renderer and CSS for status tags, flags, notes, inline changes and grouped review; map the mutation boundary onto versioned database edits. Preserve targets, exact text, drafts, toggle-off history and conflict review. Use the standard Tray 2 settings button on tiles, and place Add Character left of gender. Release 0.5.11 completes this corrective task; U21 remains separately gated.

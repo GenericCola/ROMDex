@@ -2,7 +2,7 @@
 
 Private development home for ROMDex and its NPCDex add-on.
 
-Latest published private release: [ROMDex 0.5.10](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.10). Verified source candidate: **0.5.11**, restoring the original NPCDex feedback interface over the versioned database, standardizing tile settings buttons and moving Add Character left of the gender toggle. Current-save backup and installed handoff remain pending. See the [candidate report](docs/project/U20H-Release-Candidate-Report.md). U21 remains separately gated.
+Latest published private release: [ROMDex 0.5.11](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.11). Installed and verified with the original NPCDex feedback interface restored over the versioned database, current saves and remembered connections preserved. See the [U20H completion report](docs/project/U20H-Completion-Report.md). U21 remains separately gated.
 
 - **apps/romdex/** — current application source, desktop host, web UI and tests.
 - **packages/tool-suite-ui/** — reusable suite assets, including the Standard Settings Icon.
