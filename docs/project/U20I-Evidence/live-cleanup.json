@@ -1,0 +1,174 @@
+{
+  "task": "U20I",
+  "startedAt": "2026-10-18T16:33:32.403Z",
+  "checks": [
+    {
+      "label": "Removed only the owner-only marked U20I synthetic registry and records after verified readback",
+      "issues": 12,
+      "productionRecordsDeleted": 0,
+      "PMONWrites": 0
+    }
+  ],
+  "credentialsLogged": false,
+  "allThreeCredentialFilesUnchanged": true,
+  "status": "passed",
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/users/me",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/projects/0-2",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-614",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-614",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-613",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-613",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-612",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-612",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-611",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-611",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-610",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-610",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-609",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-609",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-608",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-608",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-607",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-607",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-606",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-606",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-605",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-605",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-604",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-604",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/issues/3-603",
+      "status": 200,
+      "anonymous": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/issues/3-603",
+      "status": 200,
+      "anonymous": false
+    }
+  ],
+  "finishedAt": "2026-10-18T16:33:44.832Z"
+}

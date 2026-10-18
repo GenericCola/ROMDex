@@ -43,7 +43,7 @@
  }
  function decorate(document,domain){
   document.promptStatusUnset||={};document.changePlans||={};document.annotations||={};
-  const records=domain.records,manifest=records.find(r=>r.current.payload.definitions?.migration)?.current.payload.definitions.migration,keys={};
+  const records=domain.records,manifest=document.contentPreview.nativeTree?{reviewIndex:document.contentPreview.reviewBindings||[]}:records.find(r=>r.current.payload.definitions?.migration)?.current.payload.definitions.migration,keys={};
   const planHeads=heads(domain.plans),reviewHeads=heads(domain.reviews);
   for(const p of planHeads){if(planHeads.filter(x=>x.planId===p.planId).length!==1)continue;
    const entry=Object.entries(document.changePlans).find(([,old])=>old.id===p.planId||p.legacyRefs?.some(x=>x.kind==='plan'&&x.id===old.id));let t=entry?.[1].target||legacyTarget(document,records,p.target);if(!t)continue;const key=entry?.[0]||targetKey(t);keys[key]={planId:p.planId};

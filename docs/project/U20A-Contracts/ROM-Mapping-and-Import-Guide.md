@@ -95,3 +95,7 @@ No separate integration-receipt file is normally handed to the user. Implementat
 - [Task binding](examples/task-binding.json): exact document-byte hash/attachment binding, dispatch `none`.
 
 These fixtures demonstrate contracts, not actual ROM extraction or the user's intended dialogue. U20B must prove transport, identity and capacity; U20E must prove real-data migration; U23 must verify the actual agent route before production implementation updates are enabled.
+
+## U20I Runtime Import Format
+
+For the implemented new-map import bundle, fresh context download, exact field/asset limits and agent handoff instructions, see [Native Content and Map Imports](../../../apps/romdex/U20I-Map-Import-Guide.md). The original U20A design contracts and fictional examples remain unchanged; they are not directly submitted as NPCDexMapImport/1 files.

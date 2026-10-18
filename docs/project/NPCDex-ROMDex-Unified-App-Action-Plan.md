@@ -223,7 +223,7 @@ Scheduled after U30 so notifications do not delay cloud persistence or the packa
 
 Tasks later in the plan are provisional until their design checkpoints are completed. Current desktop/cloud behavior remains available while the content architecture is reviewed and proved. Earlier completion narratives below are historical checkpoints; the status and checklist at the top control current execution.
 
-**Current boundary:** **U20H is complete.** ROMDex 0.5.11 remains the installed release. **Next: U20I — Complete the Native Content Tree, Sol / High; new PASSKEY required.** [Scope and acceptance checklist](U20I-Native-Content-Tree-Plan.md). U21 remains unstarted and depends on U20I acceptance. This roadmap update does not authorize implementation, import or live-data changes.
+**Current boundary:** U20I is authorized and in progress. Complete the native content tree and verified import path before U21. Any real-data transition requires fresh preview acceptance; U21 needs its own PASSKEY.
 
 
 ## R08 — Release Completed, October 14, 2026

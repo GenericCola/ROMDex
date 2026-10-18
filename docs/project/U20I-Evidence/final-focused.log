@@ -1,0 +1,26 @@
+✔ Catalog routes enforce explicit previews and Off queues without a network write (3898.0596ms)
+✔ Catalog HTTP import routes preserve origin and method boundaries and hide technical artifacts from the editor menu (4586.9221ms)
+✔ A cancelled import is not silently reported as imported on retry (1804.076ms)
+✔ Transition preview is local-only and requires matching explicit acceptance (1535.2823ms)
+✔ Native view metadata survives offline queue/reopen and is published without creating duplicate content tickets (3701.8485ms)
+✔ New map import uses the production writer, readback and reopen path, retaining exact dialogue (5755.0887ms)
+✔ Repeated accepted import does not create extra records or upload another publication (3466.0914ms)
+✔ Offline import and a lost manifest response recover from immutable intent without duplicate records (3015.6931ms)
+✔ A preview cannot be applied after a newer local edit changes its baseline (1280.86ms)
+✔ Long offline queues load only the final working snapshot and retain every pending version (3235.9881ms)
+✔ Parsed-state memoization cannot hide corrupted bytes or let a caller mutate saved state (230.2508ms)
+✔ Large catalog metadata is retained once while upload-slot updates keep the journal small (789.7503ms)
+✔ A bounded publication checkpoints before sending and resumes without duplicate uploads (2270.9677ms)
+✔ The content writer refuses unmarked, wrongly owned or broadly visible issues before any POST (200.212ms)
+✔ Only isolated marked constructors and approved POST routes are available (2.3563ms)
+✔ Planned issue creation fixes project and private visibility without dispatch fields (14.043ms)
+✔ Interrupted write errors never echo a credential or signed address (3.8063ms)
+✔ Unexpected parent links are held rather than silently moved (96.4193ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 28141.2864

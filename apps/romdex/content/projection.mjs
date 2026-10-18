@@ -1,11 +1,13 @@
 import {requireThat,validateGraph,sha} from './contracts.mjs';
 import {projectLegacyNPCDex} from './legacy-projection.mjs';
-export const PROJECTION_VERSION='NPCDexContentProjection/2';
+import {hasNativeViews,projectNativeNPCDex} from './native-projection.mjs';
+export const PROJECTION_VERSION='NPCDexContentProjection/3';
 const heads=(values,identity)=>{const parents=new Set(values.flatMap(x=>x.parents||[]));const visible=values.filter(x=>!parents.has(x.digest));const groups=new Map();for(const a of visible){const id=a[identity];if(!groups.has(id))groups.set(id,[]);groups.get(id).push(a);}return [...groups.values()].flat();};
 
 // Explicit adapter to NPCDex v2 presentation. No embedded baseline or YouTrack task State.
 export function projectNPCDex(domain,{revision=1,assetBytes=()=>null,gender='male'}={}){
  requireThat(['male','female'].includes(gender),'Invalid Preview Player Gender.');const records=validateGraph(domain.records);
+ if(hasNativeViews(domain))return projectNativeNPCDex(domain,{revision,gender,assetBytes});
  if(domain.records.some(r=>r.kind==='shared'&&r.current.payload.definitions?.migration?.format==='ROMDexLegacyMigration/1'))return projectLegacyNPCDex(domain,{revision,gender,assetBytes});
  const image=id=>{if(!id)return null;const ref=domain.assets.find(a=>a.assetId===id);requireThat(ref&&/^image\/(png|jpeg|gif|webp)$/.test(ref.mime),'Unsupported Tile Image.');const bytes=assetBytes(ref.sha256);requireThat(bytes&&bytes.length===ref.bytes&&sha(bytes)===ref.sha256,'Tile Image Is Not in the Verified Cache.');return {dataUrl:'data:'+ref.mime+';base64,'+bytes.toString('base64'),name:id};};
  const speaker=(record,point,profile)=>{if(!profile)return null;const ids=record.kind==='appearance'?[record.recordId,...point.participantIds]:[...point.participantIds,...(record.current.payload.participantIds||[])];const matches=[...new Set(ids)].map(id=>records.get(id)).filter(r=>r?.kind==='appearance'&&(r.current.payload.profileByPlayerGender[gender]||r.current.payload.profileId)===profile);return matches.length===1?matches[0].recordId:'unresolved:'+profile;};

@@ -1,0 +1,154 @@
+{
+  "format": "NPCDexMapImport/1",
+  "workspaceId": "fixture:workspace",
+  "expectedHead": "bae9fecc9c5d6b2937e751f842168735b4aaa2ec0337d61bac4d18dac9466f80",
+  "createdAt": "2026-10-18T15:02:00.000Z",
+  "source": {
+    "repositoryId": "fixture:source",
+    "revision": "Synthetic Map Example",
+    "artifactSha256": "1402b334fdacfc14cc6a9f496cf37bed4549c16d3fd72a756cbb2b9d7ce70cc4",
+    "verification": "documented"
+  },
+  "reason": "Import a synthetic map absent from the original save.",
+  "records": [
+    {
+      "recordId": "fixture:new-map",
+      "kind": "map",
+      "parentRecordId": "content:region-941f19ed080dbdd9737ab2f5ac062667",
+      "current": {
+        "lifecycle": "active",
+        "payload": {
+          "name": "New Map",
+          "regionId": "content:region-941f19ed080dbdd9737ab2f5ac062667",
+          "sourceMapKeys": [
+            "new-map"
+          ],
+          "subzoneIds": [
+            "fixture:new-zone"
+          ],
+          "timelineRef": "content:shared-0084940742d15e335ed766de6e65889b"
+        }
+      },
+      "presentation": null,
+      "mapping": {
+        "status": "unresolved",
+        "locators": [],
+        "evidence": []
+      }
+    },
+    {
+      "recordId": "fixture:new-zone",
+      "kind": "subzone",
+      "parentRecordId": "fixture:new-map",
+      "current": {
+        "lifecycle": "active",
+        "payload": {
+          "name": "New House",
+          "mapId": "fixture:new-map",
+          "sourceAreaKeys": [
+            "new-zone"
+          ],
+          "appearanceIds": [
+            "fixture:new-person"
+          ],
+          "sceneIds": [],
+          "interactiveIds": [],
+          "aliasRefs": []
+        }
+      },
+      "presentation": null,
+      "mapping": {
+        "status": "unresolved",
+        "locators": [],
+        "evidence": []
+      }
+    },
+    {
+      "recordId": "fixture:new-profile",
+      "kind": "profile",
+      "parentRecordId": null,
+      "current": {
+        "lifecycle": "active",
+        "payload": {
+          "name": "New Person",
+          "baseImageId": null,
+          "identityEvidence": []
+        }
+      },
+      "presentation": null,
+      "mapping": {
+        "status": "unresolved",
+        "locators": [],
+        "evidence": []
+      }
+    },
+    {
+      "recordId": "fixture:new-person",
+      "kind": "appearance",
+      "parentRecordId": "fixture:new-zone",
+      "current": {
+        "lifecycle": "active",
+        "payload": {
+          "name": "New Person",
+          "profileId": "fixture:new-profile",
+          "profileByPlayerGender": {
+            "male": null,
+            "female": null
+          },
+          "sourceAreaKeys": [
+            "new-zone"
+          ],
+          "sourceElementIds": [],
+          "points": {
+            "fixture:new-point": {
+              "id": "fixture:new-point",
+              "condition": "Always",
+              "stageIds": [
+                "A"
+              ],
+              "sourceIds": [],
+              "participantIds": [
+                "fixture:new-person"
+              ],
+              "blocks": {
+                "fixture:new-block": {
+                  "id": "fixture:new-block",
+                  "kind": "dialogue",
+                  "text": "New dialogue ",
+                  "speaker": "fixture:new-profile",
+                  "gender": "both",
+                  "reviewKey": "fixture:new-prompt",
+                  "archived": false,
+                  "sourceBlockId": null,
+                  "sourceIds": [],
+                  "rawMessageData": null,
+                  "legacyData": {}
+                }
+              },
+              "blockOrder": [
+                "fixture:new-block"
+              ],
+              "evidence": [],
+              "legacyData": {}
+            }
+          },
+          "pointOrder": [
+            "fixture:new-point"
+          ],
+          "sceneIds": [],
+          "overrides": {
+            "displayName": null,
+            "imageAssetId": null
+          }
+        }
+      },
+      "presentation": null,
+      "mapping": {
+        "status": "unresolved",
+        "locators": [],
+        "evidence": []
+      }
+    }
+  ],
+  "assets": []
+}

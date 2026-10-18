@@ -1,0 +1,241 @@
+{
+  "task": "U20I",
+  "at": "2026-10-18T15:18:19.020Z",
+  "source": {
+    "head": "80ae541037e74a80756676198c3f63fdcdb3bd08ff3be9a3f893c5443173dc2b",
+    "sha256": "2c50ee40f590eb1505a99922efa948db282fe46425bf640b5a0f69fc780c630c",
+    "revision": 73
+  },
+  "counts": {
+    "records": 211,
+    "maps": 3,
+    "sharedCollections": 1
+  },
+  "rootFields": [
+    {
+      "key": "version",
+      "bytes": 1
+    },
+    {
+      "key": "stages",
+      "bytes": 752
+    },
+    {
+      "key": "index",
+      "bytes": 91843
+    },
+    {
+      "key": "sources",
+      "bytes": 192
+    },
+    {
+      "key": "sourceBaseline",
+      "bytes": 170852
+    },
+    {
+      "key": "provenance",
+      "bytes": 379
+    },
+    {
+      "key": "app",
+      "bytes": 8
+    },
+    {
+      "key": "annotations",
+      "bytes": 56240
+    },
+    {
+      "key": "preferences",
+      "bytes": 17
+    },
+    {
+      "key": "annotationFormat",
+      "bytes": 554
+    },
+    {
+      "key": "savedAt",
+      "bytes": 26
+    },
+    {
+      "key": "revision",
+      "bytes": 2
+    },
+    {
+      "key": "migrations",
+      "bytes": 70
+    },
+    {
+      "key": "identificationCorrections",
+      "bytes": 361
+    },
+    {
+      "key": "reconciliations",
+      "bytes": 83147
+    },
+    {
+      "key": "sourceBaselines",
+      "bytes": 543866
+    },
+    {
+      "key": "buildVersion",
+      "bytes": 6
+    },
+    {
+      "key": "contentRevision",
+      "bytes": 1
+    },
+    {
+      "key": "importedExportRevision",
+      "bytes": 2
+    },
+    {
+      "key": "characterImages",
+      "bytes": 63916
+    },
+    {
+      "key": "changePlans",
+      "bytes": 63910
+    },
+    {
+      "key": "history",
+      "bytes": 7440108
+    },
+    {
+      "key": "implementationReceipts",
+      "bytes": 2
+    },
+    {
+      "key": "liveMappings",
+      "bytes": 2
+    },
+    {
+      "key": "characterNames",
+      "bytes": 2880
+    },
+    {
+      "key": "changeFormat",
+      "bytes": 250
+    },
+    {
+      "key": "romReversalResolutions",
+      "bytes": 2
+    },
+    {
+      "key": "exportSchema",
+      "bytes": 21
+    },
+    {
+      "key": "changeRequests",
+      "bytes": 42637
+    },
+    {
+      "key": "romReversalRequests",
+      "bytes": 2
+    },
+    {
+      "key": "legacyChangePlans",
+      "bytes": 3023
+    },
+    {
+      "key": "decisionConflicts",
+      "bytes": 2
+    },
+    {
+      "key": "interfaceBuild",
+      "bytes": 6
+    },
+    {
+      "key": "promptStatusUnset",
+      "bytes": 2
+    },
+    {
+      "key": "standardNotesSuite",
+      "bytes": 30
+    },
+    {
+      "key": "changeDrafts",
+      "bytes": 2
+    },
+    {
+      "key": "agentHandoff",
+      "bytes": 17625
+    },
+    {
+      "key": "globalDialogue",
+      "bytes": 386
+    }
+  ],
+  "townFields": [
+    "id",
+    "name",
+    "subtitle",
+    "areas",
+    "locations",
+    "characters",
+    "image",
+    "sourceFiles",
+    "sourceRecords",
+    "sourceMetadata"
+  ],
+  "locationFields": [
+    "id",
+    "name",
+    "areaIds",
+    "image",
+    "legacyNames",
+    "aliasOf",
+    "aliasAreaId",
+    "nameByGender",
+    "archived",
+    "expandAreas"
+  ],
+  "areaFields": [
+    "id",
+    "name",
+    "code",
+    "elements",
+    "floor",
+    "image",
+    "legacyNames",
+    "archived"
+  ],
+  "characterFields": [
+    "id",
+    "name",
+    "elementIds",
+    "sceneIds",
+    "gender",
+    "identityId",
+    "legacyNames",
+    "nameByGender",
+    "identityByGender",
+    "scheduleReference",
+    "globalDialogueReferences",
+    "identityEvidence",
+    "identityNotes"
+  ],
+  "elementFields": [
+    "id",
+    "name",
+    "events",
+    "context",
+    "points",
+    "kind",
+    "gender",
+    "legacyNames",
+    "image",
+    "originalPlacement",
+    "originalContext",
+    "location"
+  ],
+  "pendingStates": {
+    "queued": 28
+  },
+  "duplicateLabelExplanation": {
+    "profileRecord": "content:profile-05911f654b861cca46793f1b9a123373",
+    "appearanceRecord": "content:element-5f5c1e11f49642e4f3cdaeabfefc959a",
+    "profileLinked": true
+  },
+  "legacyIdentityCount": 870,
+  "imageOccurrenceCount": 159
+}

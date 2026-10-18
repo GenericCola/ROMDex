@@ -1,4 +1,6 @@
 import {requireThat,verifyDigest,validateGraph,same,unique,pointPayload} from './contracts.mjs';
+import {validateViews} from './view-contract.mjs';
+import {applyCatalog} from './catalog-core.mjs';
 const digest=a=>a.revisionId||a.digest;
 const empty=()=>({records:[],plans:[],reviews:[],mappings:[],assets:[],revisions:[]});
 export const versionHeads=(list,identity,id)=>{const values=list.filter(a=>a[identity]===id),parents=new Set(values.flatMap(a=>a.parents));return values.filter(a=>!parents.has(a.digest));};
@@ -26,7 +28,7 @@ export function validateDomain(domain){
  const assets=new Set(domain.assets.map(a=>a.assetId));
  for(const record of domain.records){const p=record.current.payload;for(const id of [p.baseImageId,p.overrides?.imageAssetId].filter(Boolean))requireThat(assets.has(id),'Content Image Asset Is Missing.');}
  for(const plan of domain.plans)for(const id of plan.requiredAssetIds)requireThat(assets.has(id),'Plan Asset Is Missing.');
- return domain;
+ validateViews(domain);return domain;
 }
 export function applyPublication(parent,pub,artifacts,assets){
  requireThat(same([...pub.artifactDigests].sort(),artifacts.map(digest).sort()),'Publication Artifact Set Differs.');
@@ -44,6 +46,8 @@ export function applyPublication(parent,pub,artifacts,assets){
    else if(a.schema==='NPCDexROMMapping/1')domain.mappings.push(a);
    else throw Error('Unsupported Bootstrap Artifact.');
   }
+ }else if(pub.kind==='catalog'){
+  applyCatalog(domain,parent,pub,artifacts);
  }else if(pub.kind==='planning'){
   requireThat(parent&&!pub.resultDigest&&!pub.groupId,'Invalid Planning Publication.');
   const additions=artifacts.filter(a=>a.schema==='NPCDexContentRevision/1'&&!prior.has(a.recordId));
@@ -88,10 +92,11 @@ export function resolvePublication(parents,pub,artifacts,assets){
  requireThat(same([...pub.artifactDigests].sort(),artifacts.map(digest).sort()),'Resolution Artifact Set Differs.');
  const union=(key,id)=>{const values=new Map();for(const parent of parents)for(const value of parent[key]){const prior=values.get(value[id]);requireThat(!prior||same(prior,value),'Conflicting Immutable Identity.');values.set(value[id],value);}return [...values.values()];};
  const domain={records:[],plans:union('plans','digest'),reviews:union('reviews','digest'),mappings:union('mappings','digest'),assets:union('assets','assetId'),revisions:union('revisions','revisionId')};
+ if(parents.some(p=>p.views?.length)){const all=new Map();for(const p of parents)for(const v of p.views||[]){const old=all.get(v.digest);requireThat(!old||same(old,v),'Conflicting Immutable Presentation Identity.');all.set(v.digest,v);}domain.views=[...all.values()];}
  const allRecords=new Map();for(const parent of parents)for(const r of parent.records){if(!allRecords.has(r.recordId))allRecords.set(r.recordId,[]);allRecords.get(r.recordId).push(r);}
  requireThat(same(pub.baseRevisions.map(r=>r.recordId+':'+r.revisionId).sort(),[...new Set(parents.flatMap(p=>p.records.map(r=>r.recordId+':'+r.revisionId)))].sort()),'Resolution Must Review Every Branch Baseline.');
  const selected=artifacts.filter(a=>a.schema==='NPCDexContentRevision/1');unique(selected.map(r=>r.recordId),'Resolved Record');requireThat(selected.length===allRecords.size,'Resolution Must Preserve All Records.');
  for(const r of selected){requireThat(allRecords.get(r.recordId)?.some(x=>same(x,r)),'Resolution Must Select an Observed Current Record.');domain.records.push(r);}
- for(const a of artifacts.filter(a=>a.schema!=='NPCDexContentRevision/1')){requireThat(['NPCDexPlanRevision/1','NPCDexReviewRevision/1'].includes(a.schema),'Unsupported Resolution Artifact.');appendVersion(domain,a,a.schema==='NPCDexPlanRevision/1'?'plans':'reviews',a.schema==='NPCDexPlanRevision/1'?'planId':'reviewId');}
+ for(const a of artifacts.filter(a=>a.schema!=='NPCDexContentRevision/1')){if(a.schema==='NPCDexViewRevision/1'){const prior=(domain.views||[]).filter(v=>v.viewId===a.viewId);const heads=prior.filter(v=>!prior.some(x=>x.parents.includes(v.digest)));requireThat(heads.length>1&&same([...a.parents].sort(),heads.map(v=>v.digest).sort()),'Presentation Resolution Must Cover Every Observed Version.');const identical=heads.every(v=>same(v.payload,heads[0].payload)),rootMerge=a.viewId==='view:root'&&heads.every(v=>same({...v.payload,collectionOrder:[]},{...heads[0].payload,collectionOrder:[]}))&&same({...a.payload,collectionOrder:[]},{...heads[0].payload,collectionOrder:[]})&&same([...a.payload.collectionOrder].sort(),[...new Set(heads.flatMap(v=>v.payload.collectionOrder))].sort());requireThat((identical&&same(a.payload,heads[0].payload))||rootMerge||heads.some(v=>same(a.payload,v.payload)),'Presentation Resolution Must Select Observed Metadata or Merge Independent Map Ordering.');domain.views.push(a);continue;}requireThat(['NPCDexPlanRevision/1','NPCDexReviewRevision/1'].includes(a.schema),'Unsupported Resolution Artifact.');appendVersion(domain,a,a.schema==='NPCDexPlanRevision/1'?'plans':'reviews',a.schema==='NPCDexPlanRevision/1'?'planId':'reviewId');}
  requireThat(!assets.length,'Resolution Cannot Introduce Unreviewed Assets.');return validateDomain(domain);
 }

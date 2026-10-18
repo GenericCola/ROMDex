@@ -1,0 +1,23 @@
+✔ Native transition preserves the complete original view without reading the recovery export (437.1368ms)
+✔ New map, zone, profile and entity appear without extending original export or migrated IDs (287.1603ms)
+✔ Import is deterministic and replays from its pinned parent, with duplicate identities rejected (266.4164ms)
+✔ Stale heads and cross-workspace bundles cannot be imported (94.6921ms)
+✔ Invalid parent membership or missing shared profile is rejected (208.0483ms)
+✔ Import cannot replace an existing item or claim an existing legacy identity (98.1368ms)
+✔ A catalog publication cannot rewrite an existing current dialogue (173.5094ms)
+✔ Locator traversal and unsupported verification claims are rejected (79.7162ms)
+✔ Presentation metadata cannot hide an embedded legacy tree or reference a missing record (105.8894ms)
+✔ Content corrections and planned additions work after native transition without stale root data overwriting them (182.4879ms)
+✔ An import cannot substitute a different timeline or invent a migration record (166.5258ms)
+✔ Imported image bytes must match their declared signature, not merely dimensions (99.6556ms)
+✔ Two independent map imports retain both maps and merge root ordering during reviewed resolution (357.1131ms)
+✔ A presentation transition cannot omit metadata for an existing item (87.8967ms)
+✔ Invalid native map identities and cross-zone area collisions fail in preview rather than after queueing (157.8788ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4905.2065

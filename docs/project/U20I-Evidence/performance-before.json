@@ -1,0 +1,14 @@
+{
+  "task": "U20I",
+  "status": "measured",
+  "at": "2026-10-18T15:33:20.421Z",
+  "mode": "before",
+  "workingMs": 5554.8426,
+  "workingObjectReads": 21245,
+  "viewMs": 10966.5881,
+  "viewObjectReads": 41901,
+  "pending": 34,
+  "head": "bef292b57bcc28851f9b0dff371a0de6eb6fd3cc3220170d4487db946c35c2ec",
+  "remoteCalls": 0,
+  "productionWrites": 0
+}

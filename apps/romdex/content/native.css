@@ -49,3 +49,5 @@
 .tile button.cog,button.suite-content-settings{width:18px;height:18px;min-width:18px;min-height:18px;padding:0;display:grid;place-items:center;box-sizing:border-box;border:1px solid #718773;border-radius:50%;background:#101d1de6;line-height:0}
 .tile button.cog>.standard-settings-icon,button.suite-content-settings>.standard-settings-icon{width:12px;height:12px;display:block;image-rendering:pixelated}
 .content-summary-dialog pre{white-space:pre-wrap;overflow-wrap:anywhere}
+
+.content-import-dialog .editor-body{flex:1}.content-import-dialog .confirm-import{background:var(--yellow);color:var(--screen);font-weight:700}.content-import-dialog table{width:100%;border-collapse:collapse}.content-import-dialog th,.content-import-dialog td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--line)}

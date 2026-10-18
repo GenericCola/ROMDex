@@ -1,0 +1,21 @@
+{
+  "task": "U20I",
+  "status": "passed",
+  "at": "2026-10-18T16:36:26.986Z",
+  "nativeFilePickerPreviewAndConfirmation": true,
+  "approvedTray2Cog": true,
+  "newMapShownAfterReopen": true,
+  "dialogFooterSeparateFromBody": true,
+  "normalWindowHeight": 820,
+  "originalDraftPreserved": true,
+  "acceptedSnapshotUnchanged": true,
+  "priorQueuedOperationsPreserved": true,
+  "importQueuedWithAutoSyncOff": true,
+  "exactDialogueWhitespace": true,
+  "credentialsCopied": false,
+  "networkDisabled": true,
+  "remoteWrites": 0,
+  "limitations": [
+    "Constrained-height and installed-release checks still pending."
+  ]
+}

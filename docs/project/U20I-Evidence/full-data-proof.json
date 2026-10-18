@@ -1,0 +1,17 @@
+{
+  "task": "U20I",
+  "startedAt": "2026-10-18T16:45:45.865Z",
+  "remoteWrites": 0,
+  "credentialUsed": false,
+  "status": "passed",
+  "head": "ecb59481d9d15fb0fdf887584015f78ad4c4ff9c4912761e855ad63aa5f9f48a",
+  "queuedEdits": 44,
+  "views": 198,
+  "records": 211,
+  "bothGendersMatch": true,
+  "originalExportNotReadByProjector": true,
+  "currentContentRevisionsUnchanged": true,
+  "plansReviewsAndHistoryPreserved": true,
+  "capturedDraftAndQueueUnchanged": true,
+  "finishedAt": "2026-10-18T16:46:28.762Z"
+}

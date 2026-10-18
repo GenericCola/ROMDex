@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** **U20H is complete. ROMDex 0.5.11 is the installed release**, with the original web feedback interface mapped onto the versioned database. The existing content is stored in NPCD, but frontend assembly still uses the migrated save's compatibility scaffold. **Next: U20I — Complete the Native Content Tree, Sol / High; new PASSKEY required.** [Task checklist](U20I-Native-Content-Tree-Plan.md). U21 is blocked on U20I acceptance; this planning update authorizes no implementation or live-data changes.
+**Current:** **U20I — Complete the Native Content Tree** is authorized and in progress. [Task checklist](U20I-Native-Content-Tree-Plan.md). ROMDex 0.5.11 remains installed and usable; no live metadata transition has been accepted yet. U21 remains unstarted and requires its own PASSKEY after U20I acceptance.
 
 ## Completed Foundation
 

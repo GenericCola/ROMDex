@@ -1,3 +1,10 @@
+## 0.5.12 — U20I Candidate (Acceptance Pending)
+
+- Assemble native NPCDex views from structured records, assets and versioned display metadata; retain the original export for recovery.
+- Add Tray 2 Content Tools, fresh import context and explicitly previewed map/sub-zone/entity imports with source and mapping evidence.
+- Preserve original contextual editing and queued drafts; compact catalog journals and checkpoint large publications within the existing write bound.
+- Existing 0.5.11 installation remains active until verified backup, acceptance and handoff.
+
 # ROMDex 0.4.1 — October 15, 2026
 
 S01 side patch before U06:

@@ -18,3 +18,7 @@ Current live saves, queued work, remembered credentials, private signing keys, d
 For current scope and deferred work, see [the action checklist](docs/project/NPCDex-ROMDex-Action-Checklist.md), [the unified plan](docs/project/NPCDex-ROMDex-Unified-App-Action-Plan.md), and [deferred application commands](docs/project/Deferred-Application-Commands.md).
 
 Run application tests from apps/romdex with Node 24: `node --test tests/*.test.mjs`. Electron and installer versions are pinned in the application/runtime manifests; no Actions workflow or billing feature is enabled by this repository setup.
+
+## U20I Development Checkpoint
+
+Native content assembly and reviewed map imports are implemented in the 0.5.12 candidate. Live transition acceptance and installed release checks remain pending; 0.5.11 remains installed. See [U20I Checklist](docs/project/U20I-Native-Content-Tree-Plan.md) and [Compatibility Review](docs/project/U20I-Native-Content-Compatibility-Report.md). Do not treat this checkpoint as a completed migration or permission to begin U21.
