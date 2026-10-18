@@ -2,7 +2,7 @@
 
 Private development home for ROMDex and its NPCDex add-on.
 
-Current release: [ROMDex 0.5.7](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.7). See the [shared sync report](docs/project/U19-Completion-Report.md) and [release manifests](docs/releases/0.5.7/). Shared indicators include every configured service. Change Request workflow design is the next separately approved task.
+Latest published private release: [ROMDex 0.5.7](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.7). Current source and installed migration candidate: **0.5.8**, with NPCDex backed by YouTrack NPCD after verified U20E migration. See the [migration completion report](docs/project/U20E-Completion-Report.md). U20F installed acceptance and private release remain the next separate task.
 
 - **apps/romdex/** — current application source, desktop host, web UI and tests.
 - **packages/tool-suite-ui/** — reusable suite assets, including the Standard Settings Icon.

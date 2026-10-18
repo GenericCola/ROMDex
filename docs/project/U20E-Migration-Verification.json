@@ -1,0 +1,76 @@
+{
+  "task": "U20E",
+  "status": "handoff-verified",
+  "at": "2026-10-18T04:20:25.288Z",
+  "version": "0.5.8",
+  "scope": "Accepted Content Migration and Single-Provider Handoff; U20F Acceptance Remains Separate",
+  "sourceRevision": 73,
+  "sourceSHA256": "2c50ee40f590eb1505a99922efa948db282fe46425bf640b5a0f69fc780c630c",
+  "sourceHead": "90af156ca7819445a31dcdd394682722458281d5283e0b3cf0da3263d70f80d0",
+  "authority": "YouTrack NPCD",
+  "registryIssueId": "3-376",
+  "bootstrapPublication": "80ae541037e74a80756676198c3f63fdcdb3bd08ff3be9a3f893c5443173dc2b",
+  "records": 211,
+  "registryRecords": 1,
+  "originalBytes": 9915298,
+  "exactOriginalAndFrontendReadback": true,
+  "planArtifacts": 550,
+  "deduplicatedAssetsIncludingOriginal": 40,
+  "physicalUploads": 610,
+  "requestsThisResumedProcess": 1073,
+  "writesThisResumedProcess": 1,
+  "publishMilliseconds": 13267,
+  "coldReadMilliseconds": 98045,
+  "routineReadMilliseconds": 30985,
+  "coldRequests": 833,
+  "routineRequests": 224,
+  "coldResponseBytes": 13176459,
+  "routineResponseBytes": 818352,
+  "cache": {
+    "objects": 651,
+    "objectBytes": 22548576,
+    "states": 619,
+    "stateBytes": 11532952,
+    "maxBytes": 268435456
+  },
+  "protectedDataBackup": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\U20E-Protected-Data-Backup",
+  "credentialFilesPreserved": [
+    ".profile-copy-9a7c54e2-fb27-40a0-afcf-36fef4177c34/service/connection.encrypted",
+    "thegobindsingh-PMON/cloud/github-connection.encrypted",
+    "thegobindsingh-PMON/service/connection.encrypted",
+    "thegobindsingh-PMON/updates/download-access.encrypted"
+  ],
+  "gitHubHistoryRetirement": {
+    "status": "verified",
+    "commit": "d68ae1afbd8cf784e98360b1616c7daa311f207e",
+    "path": "workspaces/1e267c45-75ae-48a9-b173-5ca3132bb121/npcdex/retired-provider.json",
+    "sha256": "adbe5655a86b6001f369d334c245afae4d629330a2b5bac9ba9c4fb895ad866a"
+  },
+  "applicationFilesVerified": 290,
+  "installer": {
+    "path": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\U20E-Migration-Candidate\\ROMDex-0.5.8-x64.msi",
+    "bytes": 162473817,
+    "sha256": "3892f70073b48dfe5aa6ce4b441819ee7864d4f26232df5624392dbf03830f18"
+  },
+  "testsPassed": 534,
+  "targetedRechecks": 47,
+  "migrationTransportChecks": 4,
+  "isolatedNativeChecks": [
+    "Maps, Tile Images and Timeline Reconstruct from Verified Content",
+    "Professor Elm Current Dialogue Remains Visible",
+    "Versioned Planning Form Targets Selected Encounter",
+    "Dialogue Entry and Text Block Match the Viewed Passage",
+    "Shared Header Auto-Sync Controls Are Reused"
+  ],
+  "installedProviderSelected": true,
+  "privateReleasePublished": false,
+  "pmOnWrites": false,
+  "agentDispatch": false,
+  "romChanges": false,
+  "u20fAuthorized": false,
+  "limitations": [
+    "ROM locators remain Unresolved without ROM/source evidence.",
+    "Full installed edit, offline, conflict, recovery and release acceptance remains U20F.",
+    "No automatic remote history pruning; explicit existing storage and publication bounds remain."
+  ]
+}

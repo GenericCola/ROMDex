@@ -66,7 +66,7 @@
 - [x] **U20B — Content Project Access and Isolated Storage Proof** — Sol / High. Completed October 17. NPCD access, exact transfers, concurrent appends, separate-process recovery, complete groups and cleanup verified. [Report and limits](U20B-Completion-Report.md).
 - [x] **U20C — Dynamic Registry Reader and Durable Cache** — Sol / High.
 - [x] **U20D — Planning, Corrections and Content Lifecycle** — Sol / High.
-- [ ] **U20E — Previewed Content Migration and Provider Cutover** — Sol / High.
+- [x] **U20E — Previewed Content Migration and Provider Cutover** — Sol / High. Completed October 18. [Report](U20E-Completion-Report.md).
 - [ ] **U20F — Content Backend Acceptance and Private Release** — Sol / High.
 
 ## Phase 5 — Map Packages and Tasks
@@ -488,7 +488,7 @@ The [U20C1/U20C2 scheduling contingency](U20C1-Independent-Reader-Plan.md) was n
 - [x] Complete real Windows/YouTrack verification and remove only marked fixtures.
 - [x] Preserve credentials/installed app, archive source/evidence and stop before U20E.
 
-**U20E is in progress after human migration-preview acceptance; live import and handoff are pending.** Read-only Windows/GitHub capture, lossless identity/history reconstruction and bounded cache/journal preparation passed 517 tests. [Migration Preview](U20E-Migration-Preview.md). Installed 0.5.7 and GitHub remain authoritative while the approved, resumable NPCD import is in progress; provider activation still requires complete verified readback. Stay on **Sol / High** for the remaining U20E work. U20F requires a later separate PASSKEY.
+**U20E is complete.** ROMDex 0.5.8 is installed with the verified NPCD content provider. All 211 records, the original export and reconstructed frontend passed live readback; saved connections and recovery copies are preserved. [Completion report](U20E-Completion-Report.md). **Next: U20F — Content Backend Acceptance and Private Release, Sol / High.**
 
 
 ## U20E — Migration Preparation and Acceptance
@@ -498,5 +498,5 @@ The [U20C1/U20C2 scheduling contingency](U20C1-Independent-Reader-Plan.md) was n
 - [x] Map all 870 identities, 44 plans and 85 annotations; verify exact original/frontend preservation.
 - [x] Prepare the [migration preview, backup policy and rollback procedure](U20E-Migration-Preview.md).
 - [x] Obtain the required migration-preview acceptance; recheck source freshness.
-- [ ] Publish/read back the accepted dataset, prove actual YouTrack latency and perform a verified single-provider handoff.
-- [ ] Complete U20E documentation/checkpoint and stop before U20F.
+- [x] Publish/read back the accepted dataset, prove actual YouTrack latency and perform a verified single-provider handoff.
+- [x] Complete U20E documentation/checkpoint and stop before U20F.

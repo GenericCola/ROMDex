@@ -4,7 +4,7 @@
 **Status:** U01–U20 and approved intervening tasks are complete. Installed ROMDex **0.5.7** has private NPCDex/metadata cloud sync, native two-way YouTrack sync and shared controls/indicators. U20's content-registry and package/backend-result design is user-approved; later task-specific approvals and technical proof gates remain required.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
-**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). **U20E is in progress after human migration-preview acceptance; live import and handoff are pending.** Read-only Windows/GitHub capture, lossless identity/history reconstruction and bounded cache/journal preparation passed 517 tests. [Migration Preview](U20E-Migration-Preview.md). Installed 0.5.7 and GitHub remain authoritative while the approved resumable NPCD import is in progress; activation requires complete verified readback. Stay on **Sol / High** for the remaining U20E work. U20F requires a later separate PASSKEY.
+**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). **U20E is complete.** ROMDex 0.5.8 is installed with the verified NPCD content provider. All 211 records, the original export and reconstructed frontend passed live readback; saved connections and recovery copies are preserved. [Completion report](U20E-Completion-Report.md). **Next: U20F — Content Backend Acceptance and Private Release, Sol / High.**
 
 ## Working Agreement
 
@@ -219,7 +219,7 @@ Scheduled after U30 so notifications do not delay cloud persistence or the packa
 
 Tasks later in the plan are provisional until their design checkpoints are completed. Current desktop/cloud behavior remains available while the content architecture is reviewed and proved. Earlier completion narratives below are historical checkpoints; the status and checklist at the top control current execution.
 
-**Current boundary:** **U20E is in progress after human migration-preview acceptance; live import and handoff are pending.** Read-only Windows/GitHub capture, lossless identity/history reconstruction and bounded cache/journal preparation passed 517 tests. [Migration Preview](U20E-Migration-Preview.md). Installed 0.5.7 and GitHub remain authoritative while the approved resumable NPCD import is in progress; activation requires complete verified readback. Stay on **Sol / High** for the remaining U20E work. U20F requires a later separate PASSKEY.
+**Current boundary:** **U20E is complete.** ROMDex 0.5.8 is installed with the verified NPCD content provider. All 211 records, the original export and reconstructed frontend passed live readback; saved connections and recovery copies are preserved. [Completion report](U20E-Completion-Report.md). **Next: U20F — Content Backend Acceptance and Private Release, Sol / High.**
 
 
 ## R08 — Release Completed, October 14, 2026

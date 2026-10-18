@@ -2,25 +2,25 @@ TAP version 13
 # Subtest: Migration discovery uses immutable issue ordering and one bounded inventory per batch
 ok 1 - Migration discovery uses immutable issue ordering and one bounded inventory per batch
   ---
-  duration_ms: 35.8287
+  duration_ms: 36.5078
   type: 'test'
   ...
 # Subtest: Duplicate identities are held and a shifted sweep is retried only as a complete read
 ok 2 - Duplicate identities are held and a shifted sweep is retried only as a complete read
   ---
-  duration_ms: 2.2694
+  duration_ms: 3.1237
   type: 'test'
   ...
 # Subtest: Absent or broadened native inventories cannot become a publication baseline
 ok 3 - Absent or broadened native inventories cannot become a publication baseline
   ---
-  duration_ms: 0.4695
+  duration_ms: 0.5001
   type: 'test'
   ...
 # Subtest: Final native proof rereads all 212 private identities with bounded concurrency and detects changes
 ok 4 - Final native proof rereads all 212 private identities with bounded concurrency and detects changes
   ---
-  duration_ms: 1731.0588
+  duration_ms: 1352.9106
   type: 'test'
   ...
 1..4
@@ -31,4 +31,4 @@ ok 4 - Final native proof rereads all 212 private identities with bounded concur
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 1954.3197
+# duration_ms 1582.3705

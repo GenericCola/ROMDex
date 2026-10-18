@@ -1,0 +1,16 @@
+{
+  "task": "U20E",
+  "status": "passed",
+  "at": "2026-10-18T04:20:24.867Z",
+  "version": "0.5.8",
+  "fixture": false,
+  "checks": [
+    "Installed ROMDex opens with 299 current tasks",
+    "All configured sync services report healthy",
+    "Workspace menu switches from ROMDex to NPCDex",
+    "NPCDex displays migrated map and character images",
+    "Professor Elm dialogue and timeline remain visible"
+  ],
+  "mutationsPerformed": false,
+  "scope": "Brief production handoff check; full U20F acceptance remains separate"
+}

@@ -1,6 +1,6 @@
 # U20E — Accepted Import and Handoff Preparation
 
-Human accepted revision 73's migration preview. **U20E remains in progress; U20F is not authorized.** The local 0.5.8 migration candidate is prepared, without publishing a private application release. The installed 0.5.7/GitHub provider remains authoritative until the final closed-app source check, protected backup, live NPCD readback and application handoff succeed.
+**Completed October 18, 2026.** The accepted import and 0.5.8 handoff passed. NPCD is active, all saved connections remain preserved, and GitHub originals remain recovery history. This preparation record is retained for audit; the [completion report](U20E-Completion-Report.md) supersedes its earlier pending gates.
 
 ## Prepared and Verified
 
@@ -24,3 +24,9 @@ Human accepted revision 73's migration preview. **U20E remains in progress; U20F
 Full installed-app acceptance, native YouTrack edit/adoption/conflict/offline cases, backup restoration acceptance and private release remain **U20F**. The handoff candidate uses explicit versioned editing controls; complete native-control integration and visual acceptance belong to that task. Agent identity/access, map packages, ticket handoff and implementation-result authorization remain later tasks. ROM locators remain honestly Unresolved without supplied ROM/source evidence.
 
 Before activation, failures leave the GitHub-backed source authoritative and retain staged NPCD records for review. After activation, preserve both NPCD and any pending local work before considering rollback. Never automatically restore an older save over newer content. Old installers are recovery references, not an alternate workspace to continue editing after handoff.
+
+## Full-Size Verification Follow-Up — Resolved
+
+All 211 records/relationships and 610 chunks, including the final manifest, are verified remotely. The final read-only helper exceeded its deadline in a repeated local journal lookup; the old process later exited naturally and the corrected checks resumed from the frozen checkpoint. The guarded recovery launch did not stop any process. No write was uncertain; the provider handoff is now complete.
+
+The corrected helper reuses one frozen binding snapshot. The reader also shares fresh paginated native metadata and complete attachment inventories within each cycle; incomplete/changed comment counts require complete pagination or review, private scope checks remain mandatory, and signed URLs remain ephemeral. All 534 regression tests and 47 targeted reader rechecks passed. The rebuilt candidate passed live readback (98.045-second full audit and 30.985-second routine cycle), all 290 installed hashes and the application handoff.

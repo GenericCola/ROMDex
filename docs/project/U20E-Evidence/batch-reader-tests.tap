@@ -1,0 +1,292 @@
+TAP version 13
+# Subtest: An accepted native provider opens the verified offline cache, preserves typed edits and blocks whole-save replacement
+ok 1 - An accepted native provider opens the verified offline cache, preserves typed edits and blocks whole-save replacement
+  ---
+  duration_ms: 666.508
+  type: 'test'
+  ...
+# Subtest: Native content assets use the verified snapshot and omit the embedded baseline and legacy checkpoint adapter
+ok 2 - Native content assets use the verified snapshot and omit the embedded baseline and legacy checkpoint adapter
+  ---
+  duration_ms: 79.9232
+  type: 'test'
+  ...
+# Subtest: The native presentation works without a duplicate Auto-Sync button and uses no browser polling
+ok 3 - The native presentation works without a duplicate Auto-Sync button and uses no browser polling
+  ---
+  duration_ms: 3.986
+  type: 'test'
+  ...
+# Subtest: Strict JSON preserves exact whitespace and Unicode and rejects lossy input
+ok 4 - Strict JSON preserves exact whitespace and Unicode and rejects lossy input
+  ---
+  duration_ms: 4.9409
+  type: 'test'
+  ...
+# Subtest: Pinned contract validation checks schema, workspace and digest
+ok 5 - Pinned contract validation checks schema, workspace and digest
+  ---
+  duration_ms: 37.9162
+  type: 'test'
+  ...
+# Subtest: Graph validation rejects cycles, wrong profiles and absent inverse membership
+ok 6 - Graph validation rejects cycles, wrong profiles and absent inverse membership
+  ---
+  duration_ms: 19.3039
+  type: 'test'
+  ...
+# Subtest: Unconfigured or production-profile cache paths cannot activate this preview
+ok 7 - Unconfigured or production-profile cache paths cannot activate this preview
+  ---
+  duration_ms: 3.8429
+  type: 'test'
+  ...
+# Subtest: A complete baseline assembles a valid NPCDex view with stable IDs and proposals
+ok 8 - A complete baseline assembles a valid NPCDex view with stable IDs and proposals
+  ---
+  duration_ms: 266.9542
+  type: 'test'
+  ...
+# Subtest: Native titles changed outside the contract are visible review conditions
+ok 9 - Native titles changed outside the contract are visible review conditions
+  ---
+  duration_ms: 168.3125
+  type: 'test'
+  ...
+# Subtest: Incomplete dependent correction preserves the view through restart, then applies together
+ok 10 - Incomplete dependent correction preserves the view through restart, then applies together
+  ---
+  duration_ms: 262.804
+  type: 'test'
+  ...
+# Subtest: Two conflicting branches roll back to a common ancestor and preserve both heads
+ok 11 - Two conflicting branches roll back to a common ancestor and preserve both heads
+  ---
+  duration_ms: 237.7341
+  type: 'test'
+  ...
+# Subtest: Missing history remains a warning across repeated discovery and restart
+ok 12 - Missing history remains a warning across repeated discovery and restart
+  ---
+  duration_ms: 241.7122
+  type: 'test'
+  ...
+# Subtest: Unauthorized, null-author, corrupt bytes and unknown workflow do not replace accepted data
+ok 13 - Unauthorized, null-author, corrupt bytes and unknown workflow do not replace accepted data
+  ---
+  duration_ms: 561.7811
+  type: 'test'
+  ...
+# Subtest: Tampering under a previously observed manifest ID is held even if the server size matches
+ok 14 - Tampering under a previously observed manifest ID is held even if the server size matches
+  ---
+  duration_ms: 144.3212
+  type: 'test'
+  ...
+# Subtest: Auto-Sync Off performs no reads; manual cycle is one pass and keeps Off
+ok 15 - Auto-Sync Off performs no reads; manual cycle is one pass and keeps Off
+  ---
+  duration_ms: 137.0282
+  type: 'test'
+  ...
+# Subtest: Offline reads retain the accepted snapshot across a new reader process boundary
+ok 16 - Offline reads retain the accepted snapshot across a new reader process boundary
+  ---
+  duration_ms: 152.8762
+  type: 'test'
+  ...
+# Subtest: SQLite transaction failure cannot acknowledge a new projection
+ok 17 - SQLite transaction failure cannot acknowledge a new projection
+  ---
+  duration_ms: 184.9309
+  type: 'test'
+  ...
+# Subtest: A cache quota failure retains the last accepted state
+ok 18 - A cache quota failure retains the last accepted state
+  ---
+  duration_ms: 149.4763
+  type: 'test'
+  ...
+# Subtest: A cached byte-integrity failure is surfaced without deleting cache data
+ok 19 - A cached byte-integrity failure is surfaced without deleting cache data
+  ---
+  duration_ms: 50.7051
+  type: 'test'
+  ...
+# Subtest: A different bootstrap cannot reuse an existing isolated cache
+ok 20 - A different bootstrap cannot reuse an existing isolated cache
+  ---
+  duration_ms: 133.3606
+  type: 'test'
+  ...
+# Subtest: Projection resolves local player-gender profiles and resets stale testing display
+ok 21 - Projection resolves local player-gender profiles and resets stale testing display
+  ---
+  duration_ms: 4.0445
+  type: 'test'
+  ...
+# Subtest: Speaker profiles are mapped to the explicit local appearance without losing profile identity
+ok 22 - Speaker profiles are mapped to the explicit local appearance without losing profile identity
+  ---
+  duration_ms: 1.9248
+  type: 'test'
+  ...
+# Subtest: A changed content revision displays old verified testing as unreviewed
+ok 23 - A changed content revision displays old verified testing as unreviewed
+  ---
+  duration_ms: 2.9153
+  type: 'test'
+  ...
+# Subtest: A fresh client can show its verified baseline while a later publication is incomplete
+ok 24 - A fresh client can show its verified baseline while a later publication is incomplete
+  ---
+  duration_ms: 147.1125
+  type: 'test'
+  ...
+# Subtest: Chunked objects are assembled and verified before projection
+ok 25 - Chunked objects are assembled and verified before projection
+  ---
+  duration_ms: 188.3043
+  type: 'test'
+  ...
+# Subtest: Duplicate physical carriers with identical semantic bindings do not create competing versions
+ok 26 - Duplicate physical carriers with identical semantic bindings do not create competing versions
+  ---
+  duration_ms: 202.4577
+  type: 'test'
+  ...
+# Subtest: Unpublished owner files remain pending without replacing current content or flashing a review warning
+ok 27 - Unpublished owner files remain pending without replacing current content or flashing a review warning
+  ---
+  duration_ms: 193.1048
+  type: 'test'
+  ...
+# Subtest: Unpublished files from another actor are visible review conditions
+ok 28 - Unpublished files from another actor are visible review conditions
+  ---
+  duration_ms: 191.846
+  type: 'test'
+  ...
+# Subtest: Deleting a published entity artifact remains a missing-history warning on every refresh
+ok 29 - Deleting a published entity artifact remains a missing-history warning on every refresh
+  ---
+  duration_ms: 148.3038
+  type: 'test'
+  ...
+# Subtest: Native descriptionSha256 changes require review and retain accepted content
+ok 30 - Native descriptionSha256 changes require review and retain accepted content
+  ---
+  duration_ms: 152.5895
+  type: 'test'
+  ...
+# Subtest: Native commentsSha256 changes require review and retain accepted content
+ok 31 - Native commentsSha256 changes require review and retain accepted content
+  ---
+  duration_ms: 152.295
+  type: 'test'
+  ...
+# Subtest: Intentional stop pauses an incoming cycle and manual sync can resume while automatic sync is Off
+ok 32 - Intentional stop pauses an incoming cycle and manual sync can resume while automatic sync is Off
+  ---
+  duration_ms: 185.4544
+  type: 'test'
+  ...
+# Subtest: Pinned YouTrack reader sends only GET and never exposes signed URLs from discovery
+ok 33 - Pinned YouTrack reader sends only GET and never exposes signed URLs from discovery
+  ---
+  duration_ms: 60.5281
+  type: 'test'
+  ...
+# Subtest: Foreign attachment URLs are refused before credentials are sent there
+ok 34 - Foreign attachment URLs are refused before credentials are sent there
+  ---
+  duration_ms: 3.4353
+  type: 'test'
+  ...
+# Subtest: Redirect responses cannot forward the saved credential
+ok 35 - Redirect responses cannot forward the saved credential
+  ---
+  duration_ms: 4.4183
+  type: 'test'
+  ...
+# Subtest: Null or unexpected server author is not replaced by an artifact claim
+ok 36 - Null or unexpected server author is not replaced by an artifact claim
+  ---
+  duration_ms: 3.9857
+  type: 'test'
+  ...
+# Subtest: A cross-project issue cannot be used to substitute a content attachment
+ok 37 - A cross-project issue cannot be used to substitute a content attachment
+  ---
+  duration_ms: 1.5664
+  type: 'test'
+  ...
+# Subtest: Shifting and truncated pagination cannot declare discovery complete
+ok 38 - Shifting and truncated pagination cannot declare discovery complete
+  ---
+  duration_ms: 2.5256
+  type: 'test'
+  ...
+# Subtest: Stable discovery retries when a concurrent insertion changes an attachment sweep
+ok 39 - Stable discovery retries when a concurrent insertion changes an attachment sweep
+  ---
+  duration_ms: 4.3453
+  type: 'test'
+  ...
+# Subtest: Changed bytes under a valid attachment ID fail hash verification
+ok 40 - Changed bytes under a valid attachment ID fail hash verification
+  ---
+  duration_ms: 2.3594
+  type: 'test'
+  ...
+# Subtest: Response streaming and request-count bounds are enforced
+ok 41 - Response streaming and request-count bounds are enforced
+  ---
+  duration_ms: 2.2481
+  type: 'test'
+  ...
+# Subtest: An interrupted connection error never includes a signed URL or credential
+ok 42 - An interrupted connection error never includes a signed URL or credential
+  ---
+  duration_ms: 0.6504
+  type: 'test'
+  ...
+# Subtest: A download is canceled by the lifecycle abort signal
+ok 43 - A download is canceled by the lifecycle abort signal
+  ---
+  duration_ms: 0.4115
+  type: 'test'
+  ...
+# Subtest: A fresh paginated issue snapshot replaces hundreds of native requests and resets each cycle
+ok 44 - A fresh paginated issue snapshot replaces hundreds of native requests and resets each cycle
+  ---
+  duration_ms: 24.733
+  type: 'test'
+  ...
+# Subtest: Truncated embedded comments use complete pagination and missing/private changes hold the snapshot
+ok 45 - Truncated embedded comments use complete pagination and missing/private changes hold the snapshot
+  ---
+  duration_ms: 22.0314
+  type: 'test'
+  ...
+# Subtest: Fresh attachment inventories supply private ephemeral download metadata without caching signed URLs
+ok 46 - Fresh attachment inventories supply private ephemeral download metadata without caching signed URLs
+  ---
+  duration_ms: 2.9568
+  type: 'test'
+  ...
+# Subtest: Inventory download shortcuts still reject foreign URLs, author changes and altered bytes
+ok 47 - Inventory download shortcuts still reject foreign URLs, author changes and altered bytes
+  ---
+  duration_ms: 2.8595
+  type: 'test'
+  ...
+1..47
+# tests 47
+# suites 0
+# pass 47
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4623.9705

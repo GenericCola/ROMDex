@@ -1,0 +1,15 @@
+{
+  "task": "U20E",
+  "status": "opened",
+  "version": "0.5.8",
+  "fixture": false,
+  "contentProvider": true,
+  "pid": 14156,
+  "utilityPid": 22360,
+  "profile": "C:\\Users\\mrgen\\AppData\\Local\\ROMDexDesktop\\Data\\thegobindsingh-PMON",
+  "startupReport": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u20e\\current-startup-1792296600121.json",
+  "sourceSHA256": "2c50ee40f590eb1505a99922efa948db282fe46425bf640b5a0f69fc780c630c",
+  "privateReleasePublished": false,
+  "u20fAuthorized": false,
+  "at": "2026-10-18T04:10:05.853Z"
+}

@@ -1,0 +1,28 @@
+{
+  "task": "U20E",
+  "startedAt": "2026-10-18T04:07:54.759Z",
+  "privateReleasePublished": false,
+  "credentialsLogged": false,
+  "phase": "Activated — Ready for Application Handoff Check",
+  "applicationFilesVerified": 290,
+  "retirement": {
+    "status": "verified",
+    "commit": "d68ae1afbd8cf784e98360b1616c7daa311f207e",
+    "path": "workspaces/1e267c45-75ae-48a9-b173-5ca3132bb121/npcdex/retired-provider.json",
+    "sha256": "adbe5655a86b6001f369d334c245afae4d629330a2b5bac9ba9c4fb895ad866a"
+  },
+  "credentialFilesUnchanged": [
+    ".profile-copy-9a7c54e2-fb27-40a0-afcf-36fef4177c34/service/connection.encrypted",
+    "thegobindsingh-PMON/cloud/github-connection.encrypted",
+    "thegobindsingh-PMON/service/connection.encrypted",
+    "thegobindsingh-PMON/updates/download-access.encrypted"
+  ],
+  "status": "activated",
+  "version": "0.5.8",
+  "authority": "NPCD",
+  "registryIssueId": "3-376",
+  "bootstrapPublication": "80ae541037e74a80756676198c3f63fdcdb3bd08ff3be9a3f893c5443173dc2b",
+  "backup": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\U20E-Protected-Data-Backup",
+  "sourceSHA256": "2c50ee40f590eb1505a99922efa948db282fe46425bf640b5a0f69fc780c630c",
+  "finishedAt": "2026-10-18T04:09:57.730Z"
+}

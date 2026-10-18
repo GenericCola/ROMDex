@@ -1,6 +1,6 @@
 # U20E — NPCDex Migration Preview
 
-**Status:** human migration acceptance received; import and handoff preparation underway. U20E is not complete. **Model:** Sol / High. Installed ROMDex **0.5.7** and the GitHub-backed NPCDex remain authoritative until the final source freeze, live readback and application handoff pass. The approved real-data transfer is in progress; authority activation still requires successful readback and handoff.
+**Status: completed.** The human-approved revision-73 preview below was imported and activated in ROMDex 0.5.8. NPCD is now the content authority. Exact original/frontend readback, preserved credentials and application handoff passed; see the [completion report](U20E-Completion-Report.md) for final measurements and limits. The approved preview is retained below as the migration record.
 
 ## Proposed Result
 
