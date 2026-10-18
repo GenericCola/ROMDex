@@ -1,0 +1,33 @@
+{
+  "format": "RDXContainer/1",
+  "documentRevision": "832905897f45a0cb8650b0f80198dc3885b903e5643253aae2f46ed7247615d1",
+  "requiredCapabilities": [
+    "org.romdex.rdx.container-v1"
+  ],
+  "entries": [
+    {
+      "id": "document",
+      "codec": "store",
+      "offset": 0,
+      "storedBytes": 19993,
+      "decodedBytes": 19993,
+      "sha256": "a497d10d9e1e0afc7d0b42ce473100fcca122c9c4a9006b577fc005da23fdfe8"
+    },
+    {
+      "id": "blob:054edec1d0211f624fed0cbca9d4f9400b0e491c43742af2c5b0abebf0c990d8",
+      "codec": "store",
+      "offset": 19993,
+      "storedBytes": 4,
+      "decodedBytes": 4,
+      "sha256": "054edec1d0211f624fed0cbca9d4f9400b0e491c43742af2c5b0abebf0c990d8"
+    },
+    {
+      "id": "blob:f6d6acb2dcf66d4e1b6419962726cf72cb16371556bc7dbdfd4e66e2caee2b8c",
+      "codec": "store",
+      "offset": 19997,
+      "storedBytes": 68,
+      "decodedBytes": 68,
+      "sha256": "f6d6acb2dcf66d4e1b6419962726cf72cb16371556bc7dbdfd4e66e2caee2b8c"
+    }
+  ]
+}

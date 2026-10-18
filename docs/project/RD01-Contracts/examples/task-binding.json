@@ -1,0 +1,17 @@
+{
+  "format": "RDXTaskBinding/1",
+  "bindingId": "rdx:fixture-binding",
+  "package": {
+    "packageId": "rdx:fixture-package",
+    "version": 1,
+    "sha256": "6b4c009d0806e31d5d4c721c14e3ffa564027960ec99fc9b3079d6cebde848a1"
+  },
+  "task": {
+    "instanceOrigin": "https://youtrack.example.invalid",
+    "projectId": "fixture:project",
+    "issueId": "fixture:task",
+    "attachmentId": "fixture:package-attachment"
+  },
+  "dispatch": "none",
+  "digest": "d2c79eba7d540539683e48369ef34469d23693635e234b28751459b3ef402092"
+}

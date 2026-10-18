@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** **U20I is complete.** ROMDex **0.5.14** is installed and verified; the native transition and prior queue are committed, all saved connections are preserved, and final native/remote checks passed. [Completion report](U20I-Completion-Report.md). Next: **U21 — Map Document Preview and Task Attachment, Sol / High**. Wait for a new PASSKEY.
+**Current:** **RD01 is complete and user-approved.** [Completion report](RD01-Completion-Report.md). **RD02 — Bounded Sync and Upload Recovery, Sol / High** is authorized and in progress. Installed 0.5.14 and all live saves/credentials remain unchanged pending verified implementation. RD03 and later tasks need separate PASSKEYs.
 
 ## Completed Foundation
 
@@ -69,7 +69,7 @@
 - [x] **U20E — Previewed Content Migration and Provider Cutover** — Sol / High. Completed October 18. [Report](U20E-Completion-Report.md).
 - [x] **U20F — Content Backend Acceptance and Private Release** — Sol / High. Completed October 18 in ROMDex 0.5.9; [completion report](U20F-Completion-Report.md), [verification](U20F-Verification.json).
 
-## Phase 5 — Map Packages and Tasks
+### Completed Content Prerequisites
 
 - [x] **U20G — Contextual Editing and Review Usability** — Sol / High. Completed October 18 in 0.5.10; [report](U20G-Completion-Report.md), [verification](U20G-Verification.json).
 
@@ -77,32 +77,54 @@
 
 - [x] **U20I — Complete the Native Content Tree** — Sol / High. Native projection, reviewed imports and agent instructions are delivered. Human acceptance, installed backup/restoration, queue delivery, exact content preservation and final remote readback passed in 0.5.14. [Completion report](U20I-Completion-Report.md).
 
-**Recovery follow-up to scope:** expose reviewed retry for uncertain-only uploads even when there is no content-conflict review, and give large publications a write budget independent of their initial history read. U20I uses the installed recovery API under exclusive ownership to deliver its already-approved transition; these UI/batching improvements remain pending.
+## Phase 5 — RDX Contracts, Reliable Sync and Container Tools
 
-- [ ] **U21 — Map Document Preview and Task Attachment** — Sol / High. Existing/new task chooser, explicit attach, immutable versions, no agent dispatch.
-- [ ] **U22 — Linked Navigation and Package Progress** — Sol / High.
+- [x] **RD01 — RDX and JSON Workflow Contracts** — Sol / High. User-approved October 18; [completion report](RD01-Completion-Report.md). [Contracts/schema/examples](RD01-Contracts/README.md), [review report](RD01-Review-Report.md). Portable identities/bindings, complete/partial scope, compatibility, compression evaluation, atomic recovery, JSON packages and returned-RDX testing rules; legacy migration recognition retained.
+  - [x] Inspect current native import, storage and legacy-format boundaries.
+  - [x] Prepare schemas, exact-asset examples and six workflow walkthroughs.
+  - [x] Pass 70 isolated design checks; clearly distinguish them from live/importer proof.
+  - [x] User accepted the RD01 contracts, including automatic safe reconciliation and mandatory human testing.
+- [ ] **RD02 — Bounded Sync and Upload Recovery** — Sol / High. **Authorized; in progress.** Reviewed retry for uncertain-only uploads; independent read/write budgets, durable progress, verified-upload reuse and bounded no-progress handling. Preserve integrity/ownership/conflict checks; no blind resends or repeated full-history loops.
+- [ ] **RD03 — RDX Container, Validator and Tooling** — Sol / High. Lossless compressed JSON/assets, deduplication, routing/version checks, safe bounds, deterministic pack/unpack/validate tools and measured compression choice. Exact round-trip; no AI involvement.
 
-## Phase 6 — Backend Results and Human Verification
+## Phase 6 — Managed Documents, Imports and Cloud Publication
 
-- [ ] **U23 — Agent Access and Direct Update Contract Review** — Sol / High.
-- [ ] **U24 — Durable Backend Result Discovery** — Sol / High.
-- [ ] **U25 — Validated Independent/Grouped Result Application** — Astra / High. Preserve newer drafts; a separate receipt file is not the normal return route.
-- [ ] **U26 — Human Review and Controlled Resolution** — Sol / High.
-- [ ] **U27 — History, Reversal and Verification-Gated Completion** — Sol / High.
+- [ ] **RD04 — Local Managed Documents and Portable Export** — Sol / High. App-managed `.rdx` in Data, atomic save/recovery and self-contained export; original input untouched. Import/view/edit/save without YouTrack, preserving all included content/assets/drafts/history.
+- [ ] **RD05 — NPCDex Map Import and Update Preview** — Sol / High. One map per input; stable-ID update previews, shared dependencies and newer-draft protection. Complete snapshots may propose archival of covered omissions; partial files imply no removal. Preserve original UI and archive history.
+- [ ] **RD06 — ROMDex Plan Import and Destination Mapping** — Sol / High. User-selected PMON destination; preview tier changes, retain complete subtrees and map editable fields/comments/attachments. Omitted tasks survive; explicit deletion is reviewed. Idempotent restart/reimport, no implicit publish or dispatch.
+- [ ] **RD07 — Document Bindings and Bidirectional Cloud Sync** — Sol / High. Bind local files after preview; publish record/asset deltas; fold accepted YouTrack edits back into managed `.rdx`. **Acceptance:** a test file imports, maps to real isolated YouTrack records, accepts a local change and a native YouTrack change, then retains both after reopen/export. Preserve conflict recovery, shared controls and credentials.
+- [ ] **RD08 — Windows RDX File Integration** — Sol / Medium. Use the exact existing **Pokéball favicon artwork** as the `.rdx` file icon. Register/open into validated previews through the single-instance app; no silent execution/publication/replacement. Preserve Data and association ownership on upgrade/uninstall.
+- [ ] **RD09 — Agent Authoring and Portable Workflow Guide** — Sol / Medium. Versioned schemas/examples and extraction/ROM-mapping/pack/unpack/validate instructions for map/plan `.rdx`, JSON Map Packages and returned `.rdx`. Distinguish fixtures from real ROM extraction; required agent assets accessible on YouTrack.
+- [ ] **RD10 — Adopt RDX for All Existing Maps** — Sol / High. Only after the RD07 proof: fresh authoritative backup and reviewed preview, then move all current maps to managed `.rdx` files. Retain NPCD records/identities as the synced backend; preserve exact content, assets, notes/flags/proposals/history/testing, queued edits and all credentials. Verify each map and restoration before completion.
 
-## Phase 7 — Final Review and Release
+**Adoption gate:** do not replace current working map storage until the test `.rdx` demonstrably imports, maps to YouTrack and accepts local/native changes. Converting maps is separately authorized under RD10; it is not permission to delete/recreate the backend tree.
 
-- [ ] **U28 — Integrated Failure and Concurrency Review** — Astra / High.
-- [ ] **U29 — Guided Live-Workspace Acceptance** — Sol / High.
-- [ ] **U30 — Verified Installer and Handoff Documentation** — Sol / Medium.
+## Phase 7 — JSON Map Packages and Actionable Tasks
 
-## Phase 8 — Agent Contact Notifications After the Principal Release
+- [ ] **U21 — Map Document Preview and Task Attachment** — Sol / High. After RD01–RD10: readable immutable `.json` Map Package, whole-map pending work preselected, stable ROM targets/base hashes/instructions and accessible YouTrack asset references. Existing/new task chooser, explicit attach, duplicate-safe retry; newer drafts preserved and no agent dispatch.
+- [ ] **U22 — Linked Navigation and Package Progress** — Sol / High. Exact task/map/package links and per-item/group progress; distinguish staged, attached, implemented and awaiting testing. No implicit task completion.
+
+## Phase 8 — Returned RDX Reconciliation, Review and Testing
+
+- [ ] **U23 — Agent Access and Returned RDX Contract Review** — Sol / High. JSON package → ROM changes → updated map `.rdx` on the same task. Verify actual identity/grants, package/base/source evidence, grouped outcomes and readiness notice before discovery/application.
+- [ ] **U24 — Durable Returned RDX Discovery** — Sol / High. Discover attachments on linked tasks; validate/stage, deduplicate and recover across restart/offline/manual cycles. Agent labels in files are not authentication.
+- [ ] **U25 — Validated Independent/Grouped Result Application** — Astra / High. ROMDex reconciles returned `.rdx` into NPCD and managed files, preserving newer drafts and conflict alternatives. Validate authorization/package scope/base/hashes; dependent groups apply together. Every accepted result requires human review/testing; no separate receipt file required.
+- [ ] **U26 — Human Review and Controlled Resolution** — Sol / High. Preview/defer/reject/retry stale, conflicting, incomplete or unapproved results without losing either version; never partially apply dependent groups.
+- [ ] **U27 — History, Reversal and Verification-Gated Completion** — Sol / High. Every agent-result import gets a visible Needs Human Review and Testing marker and affected testing becomes Unreviewed. Announce readiness, retain task open, preserve unaffected testing; explicit human verification alone clears the gate.
+
+## Phase 9 — Final Review and Release
+
+- [ ] **U28 — Integrated Failure and Concurrency Review** — Astra / High. Full `.rdx`/JSON/task/return/testing loop plus offline, sync, portability and failure boundaries; reuse valid prior evidence and avoid redundant full-suite runs.
+- [ ] **U29 — Guided Live-Workspace Acceptance** — Sol / High. Fresh preview/backups and isolated QA; user confirms original UI, cross-instance transfer, native YouTrack changes and human-only completion gates. Do not repeat completed migrations.
+- [ ] **U30 — Verified Installer and Handoff Documentation** — Sol / Medium. Include `.rdx` icon/association, schemas/tools/examples, agent guide, limitations, backup/restore, optional cloud setup and QA report. Preserve all saves/credentials.
+
+## Phase 10 — Agent Contact Notifications After the Principal Release
 
 - [ ] **U31 — Notification Sources and Delivery Review** — Sol / Medium. Define agent-created tickets/comments/messages, agent identity, relevant scope, preferences, Auto-Sync interaction and hidden/offline/fully-quit behavior; obtain design approval.
 - [ ] **U32 — Durable Agent Activity Retrieval** — Sol / High. Implement approved event discovery/unread storage, offline/restart catch-up and duplicate suppression.
 - [ ] **U33 — Windows Notifications and Activity Access** — Sol / High. Implement approved alerts and click-through; verify installed/tray behavior and deliver a tested release.
 
-**Historical planning update — October 15, 2026:** map-level JSON handoff/automatic receipt return was added to U20–U27; agent-contact notifications follow U30. Its then-next task was U14. U20 now proposes direct content-record results instead of a separate receipt-file return; the current review boundary and active task list above supersede that earlier future-work outline.
+**Historical planning updates:** October 15 introduced map-level JSON handoff/receipt return; U20 later selected direct content-record updates. The October 18 amendment now supersedes that normal agent return route with updated map `.rdx` attachments reconciled by ROMDex. JSON Map Packages remain the readable execution document; notifications still follow U30. Earlier completion records below describe historical boundaries, not current authorization.
 
 ## Completion Records
 

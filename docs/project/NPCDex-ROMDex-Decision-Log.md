@@ -373,3 +373,31 @@ The backend migration is complete, but the migrated frontend still depends on th
 ## October 18, 2026 — U20I Complete
 
 The accepted native-content transition is committed and verified in installed 0.5.14. All preceding edits and saved connections are retained. A bounded ten-minute content read and retryable transport failures resolve the observed history-read timing issue while preserving integrity and conflict checks. U21 remains a separate Sol / High task requiring a new PASSKEY.
+
+## October 18, 2026 — RDX Documents and JSON Map Packages
+
+The user requested a planning revision before implementation. [Revised phases and contracts](NPCDex-ROMDex-Unified-App-Action-Plan.md) and [execution checklist](NPCDex-ROMDex-Action-Checklist.md) add RD01–RD10 before U21, preserving every completed task and the installed 0.5.14 baseline.
+
+- Use one `.rdx` extension with internal workspace/add-on, object kind and version routing: ROMDex objects are plans; NPCDex objects are maps. Filenames do not determine format. Preserve recognition of the older browser-migration `.rdx` separately.
+- Use a lossless compressed container containing structured JSON and exact binary assets, deduplicated by content hash; codec/limits require contract review and measurement. Supply deterministic pack/unpack/validate tools, schemas, examples and agent extraction/ROM-mapping instructions. Application import/mapping uses no AI.
+- Keep an app-managed working copy in Data, leaving the original imported file unchanged. Local saves and accepted YouTrack changes update it; export is self-contained and portable. Permit local import/edit/save before any cloud connection. Portable record IDs remain separate from backend issue IDs.
+- Initially accept one map per file with required region/shared/timeline dependencies. Match existing records by stable identity and preview updates. Complete map snapshots can propose archival of covered omissions; partial maps imply no archival. Protect shared profiles, newer drafts and history.
+- Task-plan imports choose a destination and preview tier changes, preserving whole subtrees, fields, attachments and comments. Omitted tasks remain; explicit deletion requests require review and follow existing YouTrack deletion behavior.
+- Export selected map work as a readable, fixed **JSON Map Package**, attached only after the user chooses an existing task or explicitly creates one. This supersedes the proposed `.rdx` change-package variant. Include stable ROM targets, exact package/base identities, instructions and agent-accessible YouTrack asset references. No automatic agent dispatch.
+- Normal agent return is an updated map `.rdx` attached to the same task, with actual implementation/source evidence and package/base provenance. ROMDex discovers and validates it, applies safe independent results or complete dependent groups, preserves newer drafts and sends exceptions to review. ROMDex updates NPCD and the managed file; direct agent writes to NPCD are no longer the normal route. Retain legacy history and native two-way sync.
+- Every agent-result import is marked **Needs Human Review and Testing**, even after safe automatic reconciliation. Affected content is Unreviewed; the task remains open until explicit human verification. No separate receipt file is necessary; provenance is inside the returned document.
+- `.rdx` file icons must use the **exact existing Pokéball favicon artwork**, distinct from the Pokédex application icon. Schedule association/open behavior and faithful Windows icon conversion in RD08.
+- User acceptance criterion: produce a test `.rdx` that imports, maps successfully to YouTrack and accepts both local and native YouTrack changes, retained through file reopen/export. Only after that live isolated proof may all current maps adopt managed `.rdx` files under a fresh backup and accepted conversion preview (RD10). Preserve existing NPCD records as the synced backend, IDs, queued edits, images, proposals/history/testing and all saved credentials.
+- Promote the U20I upload-recovery follow-up to RD02: visible uncertain-only retry, separate read/write budgets, incremental checkpoints/verified-upload reuse and bounded no-progress handling. Preserve integrity/privacy/conflict checks; avoid repeated testing and no-progress loops.
+
+**Current authorization:** documentation only. Next is **RD01 — RDX and JSON Workflow Contracts, Sol / High**, after review of the revised phases and a new PASSKEY. No new application implementation, conversion, live publication, installation or project creation is authorized by this planning update. Each later task requires a separate PASSKEY; RD10 also requires its fresh live-data preview acceptance.
+
+## October 18, 2026 — RD01 Contract Design Prepared
+
+The user authorized RD01 with PASSKEY. [Proposed contracts](RD01-Contracts/README.md) and [review report](RD01-Review-Report.md) define the map/plan envelope, internal namespace/version routing, portable identity versus backend bindings, lossless container proposal, exact asset references, local checkpoint recovery, previewed updates/removals, fixed JSON package v2, returned map provenance and mandatory human testing. Six workflow walkthroughs and 70 isolated design checks pass. The new schema embeds the pinned native schema without rewriting its identities; legacy migration and current JSON import retain dedicated routes. Compression defaults and final resource limits remain measured RD03 decisions, not untested performance claims.
+
+RD01 is at its planned user-acceptance gate. Application source, installed 0.5.14, live saves/queues and all credentials are unchanged. No compressed RDX, real backend import or ROM extractor was implemented. After acceptance, RD02 is next, Sol / High, under a new PASSKEY; later tasks remain separately gated.
+
+## October 18, 2026 — RD01 Approved and RD02 Authorized
+
+The user explicitly approved the contracts and automatic safe reconciliation of returned task `.rdx` attachments, with human testing still mandatory. RD01 is complete; [completion report](RD01-Completion-Report.md). The same message separately supplied PASSKEY for RD02, Sol / High. Begin only bounded sync/upload recovery; RD03 and later work remain separately gated.

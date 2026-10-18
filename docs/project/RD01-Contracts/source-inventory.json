@@ -1,0 +1,19 @@
+{
+  "prepared": "2026-10-18",
+  "status": "design-only",
+  "nativeSchema": {
+    "source": "apps/romdex/content/contracts.schema.json",
+    "sha256": "af84475e548105095b3d203a51cf3c613b5c9d52560ac169c6f72d5a84fc0295"
+  },
+  "fixtureSources": [
+    "docs/project/U20A-Contracts/examples/map-package.json",
+    "docs/project/U20A-Contracts/examples/dialogue-result.json"
+  ],
+  "legacyMagic": "ROMDEXM1",
+  "proposedMagic": "ROMDXR01",
+  "icon": {
+    "source": "apps/romdex/public/shared-ui/npcdex-pokeball.svg",
+    "sha256": "8103c2ea8be0117dad79117f35e2645ad5c7eb4677cb9e521fdd60262d48082c"
+  },
+  "implementationChanged": false
+}
