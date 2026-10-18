@@ -353,3 +353,7 @@ The local 0.5.8 handoff candidate passed 530 regression tests, targeted rechecks
 ## U20E Completed — October 18, 2026
 
 Installed ROMDex 0.5.8 now uses NPCD as NPCDex’s content authority after the accepted revision-73 migration. All 211 records plus registry and 610 chunks passed exact original/frontend readback. Full audit: 98.045 seconds / 833 requests; routine verification: 30.985 seconds / 224 requests. All three saved connections, original Data backup and GitHub recovery history remain preserved; metadata sync remains independent. Passed 534 regression tests, 47 reader rechecks, 4 migration-transport checks, 3 private-reader checks, 160 syntax checks and all 290 installed hashes. Brief native verification confirms both workspaces, 299 current tasks, healthy services, images and current dialogue. See [completion report](U20E-Completion-Report.md). Full U20F acceptance/private release remains the next separate task, Sol / High. No PMON task, agent dispatch, access grant or ROM mutation occurred.
+
+## October 18, 2026 — U20F Acceptance and Private Release
+
+ROMDex 0.5.9 completes the content-backend acceptance gate. Preserve current/proposed separation and guarded native title/context review; unsupported native changes remain visible for human review. Complete Data backup/restoration and installed verification retained all saves and three protected connections. The private signed-metadata release requires migrated 0.5.8. U21 remains a separate PASSKEY gate; fresh-computer connection/root bootstrap remains an explicit U29 acceptance requirement.

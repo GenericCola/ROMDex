@@ -1,10 +1,10 @@
 # ROMDex — Desktop and Add-on Action Plan
 
 **Date:** October 14, 2026  
-**Status:** U01–U20 and approved intervening tasks are complete. Installed ROMDex **0.5.7** has private NPCDex/metadata cloud sync, native two-way YouTrack sync and shared controls/indicators. U20's content-registry and package/backend-result design is user-approved; later task-specific approvals and technical proof gates remain required.
+**Status:** U01–U20F and approved intervening tasks are complete. Installed ROMDex **0.5.9** uses the verified NPCD content backend, GitHub-backed ROMDex metadata, two-way YouTrack task sync and shared controls. U21 requires a new task-specific PASSKEY.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
-**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). **U20E is complete.** ROMDex 0.5.8 is installed with the verified NPCD content provider. All 211 records, the original export and reconstructed frontend passed live readback; saved connections and recovery copies are preserved. [Completion report](U20E-Completion-Report.md). **Next: U20F — Content Backend Acceptance and Private Release, Sol / High.**
+**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). **U20F is complete.** ROMDex 0.5.9 is installed with its verified private release, current saves and all remembered connections. [Completion report](U20F-Completion-Report.md). **Next: U21 — Map Document Preview and Task Attachment, Sol / High.**
 
 ## Working Agreement
 
@@ -186,7 +186,7 @@ Added by the user during U05; requires completed U05 design review and a separat
 | Task | Action and Deliverable | Completion Check | Model / Effort |
 | --- | --- | --- | --- |
 | U28 | Review the full implementation and run integrated failure/concurrency scenarios across switching, desktop lifecycle, cloud, YouTrack, requests, and backend results. | No unresolved data-loss or reconciliation failures; installer/upgrade retains saves and credentials; targeted fixes receive their own scoped follow-up if needed. | Astra / High |
-| U29 | Conduct a guided real-workspace acceptance pass with previewed migration and deliberately isolated QA records. | User confirms UI/workflow; native YouTrack edits and cross-device updates are visible; QA artifacts are cleaned without restoring stale real data. | Sol / High |
+| U29 | Conduct a guided real-workspace acceptance pass with previewed migration and deliberately isolated QA records. | User confirms UI/workflow; native YouTrack edits and cross-device updates are visible, including fresh-computer account connection and reviewed content-root bootstrap; QA artifacts are cleaned without restoring stale real data. | Sol / High |
 
 ### 7B. Release and Handoff
 
@@ -219,7 +219,7 @@ Scheduled after U30 so notifications do not delay cloud persistence or the packa
 
 Tasks later in the plan are provisional until their design checkpoints are completed. Current desktop/cloud behavior remains available while the content architecture is reviewed and proved. Earlier completion narratives below are historical checkpoints; the status and checklist at the top control current execution.
 
-**Current boundary:** **U20E is complete.** ROMDex 0.5.8 is installed with the verified NPCD content provider. All 211 records, the original export and reconstructed frontend passed live readback; saved connections and recovery copies are preserved. [Completion report](U20E-Completion-Report.md). **Next: U20F — Content Backend Acceptance and Private Release, Sol / High.**
+**Current boundary:** **U20F is complete.** ROMDex 0.5.9 is installed with its verified private release, current saves and all remembered connections. [Completion report](U20F-Completion-Report.md). **Next: U21 — Map Document Preview and Task Attachment, Sol / High.**
 
 
 ## R08 — Release Completed, October 14, 2026

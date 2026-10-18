@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** U20E is complete. **U20F — Content Backend Acceptance and Private Release** is in progress under its PASSKEY. Installed ROMDex remains **0.5.8**, using the verified NPCD content provider. Version 0.5.9 is being packaged after the passed regression and native editing checks. [Current task plan](U20F-Action-Plan.md). U21 remains separately gated.
+**Current:** **U20F is complete. ROMDex 0.5.9 is installed and open**, with the verified NPCD content backend, current saves and all three remembered connections. [Completion report](U20F-Completion-Report.md). **Next: U21 — Map Document Preview and Task Attachment, Sol / High; new PASSKEY required.**
 
 ## Completed Foundation
 
@@ -67,7 +67,7 @@
 - [x] **U20C — Dynamic Registry Reader and Durable Cache** — Sol / High.
 - [x] **U20D — Planning, Corrections and Content Lifecycle** — Sol / High.
 - [x] **U20E — Previewed Content Migration and Provider Cutover** — Sol / High. Completed October 18. [Report](U20E-Completion-Report.md).
-- [ ] **U20F — Content Backend Acceptance and Private Release** — Sol / High.
+- [x] **U20F — Content Backend Acceptance and Private Release** — Sol / High. Completed October 18 in ROMDex 0.5.9; [completion report](U20F-Completion-Report.md), [verification](U20F-Verification.json).
 
 ## Phase 5 — Map Packages and Tasks
 
@@ -501,6 +501,6 @@ The [U20C1/U20C2 scheduling contingency](U20C1-Independent-Reader-Plan.md) was n
 - [x] Publish/read back the accepted dataset, prove actual YouTrack latency and perform a verified single-provider handoff.
 - [x] Complete U20E documentation/checkpoint and stop before U20F.
 
-## U20F — In Progress
+## U20F — Complete
 
-Authorized October 18 with PASSKEY, including Plan Changes and similar form padding. [Task plan and evidence](U20F-Action-Plan.md). The 540-test regression and ten final editor/API checks passed. Offline/lost-response recovery passed against this run's private disposable NPCD records. Visible form review, remaining native/live acceptance, backup restoration, packaging and private release remain open. Installed ROMDex remains 0.5.8; U20F is not complete and U21 is not authorized.
+All acceptance gates passed: 540 regression tests, 10 final rechecks, actual Windows/YouTrack recovery and native review, complete Data restoration, packaged source/installer checks, private release and installed handoff. All three credentials were retained without token entry. [Completion report](U20F-Completion-Report.md). U21 remains unchecked and separately gated.

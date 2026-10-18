@@ -1,0 +1,18 @@
+{
+  "task": "U20F",
+  "status": "passed",
+  "version": "0.5.9",
+  "at": "2026-10-18T11:33:00Z",
+  "method": "Native Windows UI Automation and screenshots through computer-use, selecting the returned app-0.5.9 ROMDex window",
+  "productionBusinessEditSubmitted": false,
+  "checks": [
+    "Installed task dashboard displays 299 items and the saved hierarchy",
+    "Shared connection status reports all configured services healthy and up to date",
+    "Workspace menu switches to NPCDex with existing maps, images and characters visible",
+    "Installed Plan Changes dialog has horizontal outer margins, inset text/dropdowns, scrolling and visible footer actions",
+    "Existing unfinished draft is restored with an original-baseline warning; it was closed without submitting a content edit",
+    "Read-only post-visual check confirms all original draft fields and baseline, accepted snapshot and edit journal remain unchanged",
+    "Task dashboard restored after the visual review"
+  ],
+  "preservationEvidence": "work/u20f/post-visual-preservation.json"
+}
