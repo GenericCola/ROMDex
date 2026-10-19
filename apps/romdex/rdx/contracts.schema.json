@@ -1635,7 +1635,7 @@
     "native": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "$id": "urn:romdex:npcdex:contracts:1",
-      "title": "NPCDex Content Contracts — Additive U25 RDX Application Evidence",
+      "title": "NPCDex Content Contracts \u2014 Additive U26 Reviewed RDX Application Evidence",
       "description": "Structural contract only. Cross-document authorization, integrity, graph and domain validation are mandatory; see README.",
       "oneOf": [
         {
@@ -4183,6 +4183,40 @@
             },
             "requiresHumanTesting": {
               "const": true
+            },
+            "review": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "format": {
+                  "const": "RDXReviewedOverwrite/1"
+                },
+                "readSet": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "$ref": "#/$defs/ref"
+                  }
+                },
+                "previewDigest": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "decisionDigest": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "allowExistingReturn": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "format",
+                "readSet",
+                "previewDigest",
+                "decisionDigest",
+                "allowExistingReturn"
+              ]
             }
           },
           "required": [

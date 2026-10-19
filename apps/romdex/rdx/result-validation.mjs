@@ -17,7 +17,7 @@ export function resultEvidence(receipt){
 
 const parts=path=>{const values=path.split('/').slice(1).map(p=>p.replace(/~1/g,'/').replace(/~0/g,'~'));fail(path.startsWith('/')&&values.length&&['lifecycle','payload'].includes(values[0])&&values.every(p=>p&&!['__proto__','constructor','prototype'].includes(p)),'Unsupported Returned Patch Path.');return values;};
 export function patchState(value,path){let at=value;for(const key of parts(path)){if(!at||typeof at!=='object'||!Object.hasOwn(at,key))return {exists:false};at=at[key];}return {exists:true,value:at};}
-function patch(value,change){const keys=parts(change.path);let at=value;for(const key of keys.slice(0,-1)){fail(at&&typeof at==='object'&&!Array.isArray(at)&&Object.hasOwn(at,key),'A Returned Patch Parent Is Missing or Ambiguous.');at=at[key];}fail(at&&typeof at==='object'&&!Array.isArray(at),'Array-Index Patches Need Explicit Review.');const key=keys.at(-1);if(change.after.exists)at[key]=structuredClone(change.after.value);else delete at[key];}
+export function patchResult(value,change){const keys=parts(change.path);let at=value;for(const key of keys.slice(0,-1)){fail(at&&typeof at==='object'&&!Array.isArray(at)&&Object.hasOwn(at,key),'A Returned Patch Parent Is Missing or Ambiguous.');at=at[key];}fail(at&&typeof at==='object'&&!Array.isArray(at),'Array-Index Patches Need Explicit Review.');const key=keys.at(-1);if(change.after.exists)at[key]=structuredClone(change.after.value);else delete at[key];}
 
 // Package requests, not returned claims, define every permitted current-state
 // byte. Group validation is pure and never imports returned drafts/views/tests.
@@ -35,7 +35,7 @@ export function resultGroup(receipt){
  const updates=[];for(const [id,list]of changes){const before=base.get(id),w=writes.get(id),after=receipt.records.find(r=>r.recordId===id);fail(before&&after&&w.beforeRevision===before.revisionId&&w.afterRevision===after.revisionId,'A Returned Record Revision Pin Differs.');verifyDigest(after);
   fail(!['region','shared','profile'].includes(before.kind),'Shared or Cross-Map Writes Require Explicit Review.');
   fail(after.workspaceId===before.workspaceId&&after.kind===before.kind&&after.parentRecordId===before.parentRecordId&&same(after.parents,[before.revisionId])&&same(after.legacyRefs,before.legacyRefs)&&same(after.legacyData,before.legacyData),'A Return Cannot Rebind Stable Content Identity or Compatibility History.');
-  const expected=structuredClone(before.current);for(const change of list){fail(same(patchState(before.current,change.path),change.before),'The Requested Before Value Differs From Its Fixed Baseline.');patch(expected,change);}
+  const expected=structuredClone(before.current);for(const change of list){fail(same(patchState(before.current,change.path),change.before),'The Requested Before Value Differs From Its Fixed Baseline.');patchResult(expected,change);}
   fail(!same(expected,before.current)&&same(expected,after.current),'Returned Content Differs From the Exact Requested Patches.');updates.push({before,after});
  }
  fail(receipt.records.length===updates.length&&new Set(receipt.records.map(r=>r.recordId)).size===updates.length,'The Application Contains Unrelated Record Revisions.');

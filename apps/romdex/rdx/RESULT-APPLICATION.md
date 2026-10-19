@@ -8,7 +8,7 @@ Auto-Sync On discovers and processes eligible returns. Save Changes performs one
 
 Before acceptance, ROMDex freshly checks the exact active authorization, authenticated task/project/account, server attachment inventory and bytes of the fixed package, binding, return context, required assets and result. Local staging alone grants no approval. The approved existing shared account is still used; matching attribution is not proof of a separate agent identity.
 
-Every written current-content value must equal the concrete patches in the authorized JSON package. Stable identities, mapping/build evidence, asset hashes, read baselines, explicit outcomes and complete dependency groups are checked. Independent successful groups can apply while another group is unfinished. A dependent group applies together or stays held. Unrequested content, stale reads, incomplete groups, conflicting results and instructions-only requests remain available for U26 review. No model interprets prose or guesses patch scope.
+Every written current-content value must equal the concrete patches in the authorized JSON package. Stable identities, mapping/build evidence, asset hashes, read baselines, explicit outcomes and complete dependency groups are checked. Independent successful groups can apply while another group is unfinished. A dependent group applies together or stays held. Unrequested content, stale reads, incomplete groups, conflicting results and instructions-only requests remain available for [U26 review](RETURN-REVIEW.md). Explicit complete-group reviewed overwrite can use newly pinned current reads; it does not waive hard validation or current package authorization. No model interprets prose or guesses patch scope.
 
 ## Durable Acceptance and Publication
 
@@ -22,7 +22,7 @@ Explicitly bound standalone managed maps use the existing DocumentCloud publicat
 
 Only the exact packaged plan head is marked Implemented. Newer drafts, excluded plans, notes/flags, views, images and history remain. Affected reviews retain notes/flags and receive an Unreviewed revision; removed points keep their historical reviews and receive a whole-item testing obligation. Unaffected testing stays unchanged. Returned testing claims, task completion and portable approval fields never establish human verification.
 
-No task State, priority, assignment, comments or completion are changed. U27 adds the flashing-amber Needs Testing status/readiness notice and human-only completion gate. U26 supplies explicit review decisions. This phase records and displays the obligations without those later controls.
+No task State, priority, assignment, comments or completion are changed. U27 adds the flashing-amber Needs Testing status/readiness notice and human-only completion gate. [U26 supplies explicit review decisions and reviewed overwrite](RETURN-REVIEW.md). This phase records and displays the obligations without those later controls.
 
 ## Storage, Bounds and Compatibility
 

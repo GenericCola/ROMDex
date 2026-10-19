@@ -1,3 +1,11 @@
+## Unreleased — U26 Returned-File Review
+
+- Add read-only three-way values, changed read context, long-value viewing, complete-group/archival previews and durable defer/reject/retry controls in Map Package Delivery.
+- Support explicitly approved complete-group overwrite against pinned current reads, preserving unrelated newer data. Current authorization and all hard validation remain mandatory.
+- Synchronize review histories in private metadata v4; hold concurrent decisions/acceptance, preserve prior formats and protect already accepted work across computers.
+- Recover interrupted review effects and retain replaced unaccepted attempts. Keep tasks open and affected testing Unreviewed.
+- Source-only; installed 0.5.15 remains unchanged. U26A annotation corrections and U27 testing/completion controls remain pending.
+
 ## Unreleased — U25 Validated Result Application
 
 - Apply exact authorized independent/grouped RDX returns to NPCD and managed maps with durable private acceptance and cross-store recovery.

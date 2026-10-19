@@ -1,0 +1,51 @@
+{
+  "task": "U26",
+  "status": "passed",
+  "automated": {
+    "regression": 348,
+    "focusedRecovery": 37,
+    "privateAcceptancePins": 2,
+    "countsOverlap": true,
+    "failures": 0
+  },
+  "ui": {
+    "task": "U26",
+    "scope": "Real source interface in headless Chromium with isolated in-memory native task transport; no live network writes",
+    "checks": [
+      "Delivered package exposes explicit authorization while attachment alone remains unauthorized",
+      "Exact map/task/version/hash confirmation can be cancelled without changing authority",
+      "Confirmed exact package exposes copy and download actions with durable authorization",
+      "Explicit return check stages a valid result while Auto-Sync stays Off; duplicate bytes produce one readable result with both provenances",
+      "Untrusted attachment names render as text, with no image/HTML execution or map application",
+      "Read-only delivery view reflects authorization uncertainty as Deferred without importing or claiming implementation",
+      "Fixed instructions use clipboard or selectable fallback; no model/generation/message call is made",
+      "Review shows the packaged original, current saved content and returned values without applying them",
+      "Explicit full-value read displays the complete long dialogue without importing or applying it",
+      "Reject confirmation records a durable hold and manual processing cannot bypass it",
+      "Retry preserves the content conflict; cancelling explicit overwrite does not apply it",
+      "Explicit complete-group approval applies through normal validation and leaves the task open, testing Unreviewed and Auto-Sync Off",
+      "Three-way comparison wraps inside the existing modal at 620-pixel height without footer overlap or horizontal overflow"
+    ],
+    "status": "passed",
+    "finishedAt": "2026-10-19T22:01:55.608Z"
+  },
+  "service": {
+    "task": "U26",
+    "status": "passed",
+    "checks": [
+      "Fixture service initializes with Auto-Sync Off and no network calls",
+      "Native package status/manual discovery route works without a linked package and makes no network request",
+      "Native manual check rejects a stale renderer map context",
+      "Review preview/full-value native routes reject unrecognized retained packages without network access",
+      "Suspend/resume, update quiescence, checkpoint and shutdown drain discovery without network calls or leaked timers"
+    ],
+    "externalRequests": 0
+  },
+  "transportProof": "Isolated synthetic native/private-metadata transports; unchanged real transport already exercised in U25",
+  "newLiveYouTrackWrites": false,
+  "productionMetadataV4Published": false,
+  "productionSavesChanged": false,
+  "installerRun": false,
+  "installedVersion": "0.5.15",
+  "queuedNextTask": "U26A"
+}

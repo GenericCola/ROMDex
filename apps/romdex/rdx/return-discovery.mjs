@@ -90,7 +90,7 @@ export class ReturnDiscovery{
  status(entry){
   if(!this.opened||!entry.binding)return {checkedAt:null,error:null,files:[],application:'not-enabled'};const key=taskKey(entry),task=this.get('return_tasks',key),files=this.files(key),versions=this.versions(),output=[];
   for(const row of files){const own=versions.filter(v=>v.file===row.id);if(!own.length){output.push({name:row.meta.name,attachmentId:row.meta.id,state:row.status==='oversized'?'needs-review':'pending',reason:row.error||'Waiting for a Complete Download.',present:row.present});continue;}
-   for(const v of own){if(v.entryId&&v.entryId!==entry.id)continue;let state='staged',reason='Validated and Retained; Application Is Not Enabled Yet.';
+   for(const v of own){if(v.entryId&&v.entryId!==entry.id)continue;let state='staged',reason='Validated and Retained; Awaiting Application Checks.';
     const a=this.packages.authorization(entry),other=files.some(f=>f.id!==row.id&&f.meta.id===row.meta.id),variants=versions.filter(x=>x.file===row.id),conflict=v.resultId&&versions.some(x=>x.resultId===v.resultId&&x.revision!==v.revision);
     if(v.validationError){state='needs-review';reason=v.validationError;}
     else if(!row.present||row.missingAt||other||variants.length>1){state='needs-review';reason='The Attachment Was Removed, Replaced or Changed; Retained Bytes Are Preserved.';}

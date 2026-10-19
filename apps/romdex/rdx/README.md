@@ -62,3 +62,5 @@ Independent benchmark processes sampled peak RSS around 180 MiB; this is a 2 ms 
 ## Authorized Returned Results
 
 [Discovery](RETURN-DISCOVERY.md) retains task attachments; [U25 application](RESULT-APPLICATION.md) independently checks exact scope and private authority, reconciles eligible groups and requires human testing. These changes await a later packaged release.
+
+[U26 returned-file review](RETURN-REVIEW.md) adds durable decisions, full-value comparisons and explicit complete-group overwrite while retaining all authorization, integrity and human-testing requirements.
