@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** **U22 is complete in source**, with exact task/map/package/target links, fixed item/group delivery progress and separate unreported implementation/testing dimensions. 77 focused tests and eight source-interface checks passed. [Completion report](U22-Completion-Report.md). Installed ROMDex remains **0.5.15** pending a later packaged release. **Next: U23 — Sol / High; await a new PASSKEY.**
+**Current:** **U23 and U23A are complete.** [U23 approved contract](U23-Decision-Review.md), [U23A source completion](U23A-Completion-Report.md). Authorization, fixed-template handoff and real agent file-transfer proof are verified. Installed ROMDex remains **0.5.15**; automatic return discovery/application and the Needs Testing status are not enabled yet. **Next: U24 — Sol / High; await a new PASSKEY.**
 
 ## Completed Foundation
 
@@ -117,11 +117,12 @@ RD10 execution checklist:
 
 ## Phase 8 — Returned RDX Reconciliation, Review and Testing
 
-- [ ] **U23 — Agent Access and Returned RDX Contract Review** — Sol / High. JSON package → ROM changes → updated map `.rdx` on the same task. Verify actual identity/grants, package/base/source evidence, grouped outcomes and readiness notice before discovery/application.
+- [x] **U23 — Agent Access and Returned RDX Contract Review** — Sol / High. JSON package → ROM changes → updated map `.rdx` on the same task. Verify actual identity/grants, package/base/source evidence, grouped outcomes and readiness notice before discovery/application.
+- [x] **U23A — Authorized Handoff and Agent File Transfer** — Sol / High. **Completed in source October 19;** [report](U23A-Completion-Report.md). Durable exact-package authorization/supersession/withdrawal, hard-coded Copy Agent Instructions, bounded sanitized return context and an actual agent-route download/upload proof. No AI generation or automatic dispatch. Prove a valid return using only agent-visible material before live work is enabled.
 - [ ] **U24 — Durable Returned RDX Discovery** — Sol / High. Discover attachments on linked tasks; validate/stage, deduplicate and recover across restart/offline/manual cycles. Agent labels in files are not authentication.
 - [ ] **U25 — Validated Independent/Grouped Result Application** — Astra / High. ROMDex reconciles returned `.rdx` into NPCD and managed files, preserving newer drafts and conflict alternatives. Validate authorization/package scope/base/hashes; dependent groups apply together. Every accepted result requires human review/testing; no separate receipt file required.
 - [ ] **U26 — Human Review and Controlled Resolution** — Sol / High. Preview/defer/reject/retry stale, conflicting, incomplete or unapproved results without losing either version; never partially apply dependent groups.
-- [ ] **U27 — History, Reversal and Verification-Gated Completion** — Sol / High. Every agent-result import gets a visible Needs Human Review and Testing marker and affected testing becomes Unreviewed. Announce readiness, retain task open, preserve unaffected testing; explicit human verification alone clears the gate.
+- [ ] **U27 — History, Reversal and Verification-Gated Completion** — Sol / High. Every agent-result import sets affected testing to Unreviewed. U23 approved **Needs Testing with flashing amber** in the existing task/item lights, between In Development and Complete; no added badge. Retain Critical/development precedence and preserve testing obligations independently of State edits. Announce readiness, retain task open, preserve unaffected testing; explicit human verification alone clears the gate.
 
 ## Phase 9 — Final Review and Release
 

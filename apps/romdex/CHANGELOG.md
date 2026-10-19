@@ -1,5 +1,13 @@
 ## Unreleased — U22 Package Navigation and Progress
 
+## Unreleased — U23A
+
+- Exact-version agent authorization, replacement/withdrawal history and fixed-template handoff instructions.
+- Sanitized ancestry/context delivery and bounded deterministic agent file-transfer CLI with verified upload recovery.
+- Authorization history uses the existing private metadata channel, retaining v1 history and conservative conflict review.
+- Source-only; automatic returned-file discovery/application and Needs Testing status remain later tasks.
+
+
 - Link task Details to exact maps/package versions, and packages to their tasks, managed maps and individual content targets.
 - Show fixed selected items/dependency groups, upload/verification counts and native recovery holds without treating task completion as verified implementation or testing.
 - Checkpoint before cross-document navigation, protect editors and report missing targets without guessing names. No imports, publication, dispatch or task-status changes from links.

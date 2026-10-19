@@ -1,0 +1,210 @@
+{
+  "task": "U23A",
+  "status": "passed",
+  "sourceOnly": true,
+  "installedVersionUnchanged": "0.5.15",
+  "regression": {
+    "total": 868,
+    "passed": 866,
+    "initialFailures": 2,
+    "failuresCorrected": true,
+    "finalAffectedPassed": 94,
+    "metadataResolutionRechecksPassed": 40,
+    "finalTransferPassed": 12,
+    "overlappingRechecksNotAdditive": true
+  },
+  "ui": {
+    "task": "U23A",
+    "scope": "Real source interface in headless Chromium with isolated in-memory native task transport; no live network writes",
+    "checks": [
+      "Delivered package exposes explicit authorization while attachment alone remains unauthorized",
+      "Exact map/task/version/hash confirmation can be cancelled without changing authority",
+      "Confirmed exact package exposes copy and download actions with durable authorization",
+      "Fixed instructions use clipboard or selectable fallback; no model/generation/message call is made",
+      "Existing modal layout keeps controls above the footer at 620-pixel window height",
+      "Withdrawal removes copy controls, preserves package files and leaves native task fields and queue unchanged"
+    ],
+    "status": "passed",
+    "finishedAt": "2026-10-19T20:31:12.754Z"
+  },
+  "live": {
+    "task": "PMON-329",
+    "scope": "Actual deterministic agent CLI download, construction and upload/readback using one private synthetic PMON task",
+    "checks": [
+      "Remembered credential opens only uniquely marked, owner-private QA task destinations",
+      "Exact package/context and required assets delivered and authorized on one owner-private marked task",
+      "Separate Node CLI authenticated as the approved existing account and downloaded only pinned task content/assets; unchecked proposals/notes were absent",
+      "A valid one-map agent-result RDX was compiled solely from downloaded context/assets and selected JSON changes, with mandatory human testing",
+      "Actual returned RDX was uploaded, downloaded/hash-verified and replayed with the same attachment ID without a duplicate POST",
+      "Task State/assignment/description/priority and Auto-Sync Off were preserved; no NPCD writes or agent messages occurred"
+    ],
+    "existingTasksChanged": false,
+    "productionSavesChanged": false,
+    "cleanup": [
+      {
+        "issueId": "PMON-329",
+        "status": "deleted-owned-synthetic-record"
+      }
+    ],
+    "account": {
+      "id": "2-2",
+      "login": "GenericCola"
+    },
+    "packageHash": "fde8473bd9064a151c7b844cc93bdb9bb0e4029e2d6466a5d817596f8c2c0d90",
+    "contextHash": "031b88711cb57dceb58c88d346a40c77feb295b49b879efac0762ee3315a869c",
+    "resultHash": "25c26ecfefc39ff21a65fa7ec2f490f581af093aaf6f4c6f6ebe0b43d5998f47",
+    "status": "passed",
+    "rememberedConnectionUnchanged": true,
+    "finishedAt": "2026-10-19T20:22:30.915Z"
+  },
+  "standalone": {
+    "format": "RDXDocument/1",
+    "namespace": "org.romdex.npcdex",
+    "kind": "map",
+    "documentId": "rdx:fixture-map",
+    "revision": "56b9b1778cb23d7c46c76d8c5f7c85685d7c2111b37d9710998316da25296867",
+    "assets": 1,
+    "uniqueBlobs": 1,
+    "storedBytes": 4006,
+    "decodedBytes": 15343,
+    "containerSha256": "25c26ecfefc39ff21a65fa7ec2f490f581af093aaf6f4c6f6ebe0b43d5998f47",
+    "requiresHumanTesting": true,
+    "authorization": "not-established",
+    "backendWrites": false,
+    "validated": true
+  },
+  "toolBundle": {
+    "path": "outputs\\RDX-Reference\\U23A-Agent-File-Tools.zip",
+    "sha256": "2aef209d7de9041d5832b01d9ba42dcd630056ed4ed1071a12872a4a3a52cb54",
+    "bytes": 69130,
+    "fileCount": 21
+  },
+  "syntaxFiles": [
+    "cloud/metadata-core.mjs",
+    "cloud/metadata-projection.mjs",
+    "cloud/metadata-sync.mjs",
+    "content/map-packages.js",
+    "desktop/service.mjs",
+    "server.mjs",
+    "rdx/agent-handoff.mjs",
+    "rdx/agent-files.mjs",
+    "rdx/agent-cli.mjs",
+    "rdx/map-package-workspace.mjs",
+    "tests/agent-handoff-fixture.mjs",
+    "tests/agent-handoff.test.mjs",
+    "tests/map-package.test.mjs",
+    "tests/metadata-projection.test.mjs"
+  ],
+  "sourceFiles": [
+    {
+      "path": "cloud/metadata-core.mjs",
+      "sha256": "f36031719e33657c83de8eef45656180c94bd9912a3c595c3f4c66008f858e4d",
+      "bytes": 10112
+    },
+    {
+      "path": "cloud/metadata-projection.mjs",
+      "sha256": "cd2151392c6eadeb449d1c8a0cc174564305ac6de0a4b789d144b050b3b59fdd",
+      "bytes": 4843
+    },
+    {
+      "path": "cloud/metadata-sync.mjs",
+      "sha256": "c3eed162ba090150f84031dcaba9d1b811cf3b637ad355ee1be59f53f0e8601b",
+      "bytes": 19973
+    },
+    {
+      "path": "content/map-packages.js",
+      "sha256": "31d5a4a062416e405970a1d03cd63d529acb3f6cd60b276e70245423346da9e5",
+      "bytes": 17784
+    },
+    {
+      "path": "desktop/service.mjs",
+      "sha256": "a09d44d537aede74594ce0d970b6b982ec303429431ead95b32132ad37b1ea21",
+      "bytes": 17153
+    },
+    {
+      "path": "package.json",
+      "sha256": "b9598e942a572c4fa7e84fe8d7acff1d2f8ea70465156161458503a8ec9ba098",
+      "bytes": 649
+    },
+    {
+      "path": "server.mjs",
+      "sha256": "cc36c55a3a66a984ba3b3756ddb60fd20a46360e6dffc60a0b21eaf92e388bd0",
+      "bytes": 23569
+    },
+    {
+      "path": "rdx/agent-handoff.mjs",
+      "sha256": "8c9220633530660db972c34694ac291eab1caaaad55c1a4da551e06d9f3c1749",
+      "bytes": 10611
+    },
+    {
+      "path": "rdx/agent-files.mjs",
+      "sha256": "30e45c73854da408a5914f0619ad5343cf7a2131c9e28b90493f8da071e30d08",
+      "bytes": 9074
+    },
+    {
+      "path": "rdx/agent-cli.mjs",
+      "sha256": "9ef576696abb6c675267a985188873dbc6413db86548ced62ededcdcf320d114",
+      "bytes": 2618
+    },
+    {
+      "path": "rdx/map-package-workspace.mjs",
+      "sha256": "39e637bc6e62a16761fcfbe13809e4e039139acb37a564bd1b050a1d6e59ae08",
+      "bytes": 24798
+    },
+    {
+      "path": "rdx/AGENT-FILE-TRANSFER.md",
+      "sha256": "ea9bd5fd54ec0d6a73d8d8e2dad3fe4ca22aa2e80537b4abd936b9c3acbc5733",
+      "bytes": 7115
+    },
+    {
+      "path": "rdx/MAP-PACKAGES.md",
+      "sha256": "410e646f41df27ae8d563cca16dfe8f857b01d8f1e985430074918237c7b2fbb",
+      "bytes": 4284
+    },
+    {
+      "path": "rdx/authoring/AGENT-HANDOFF.md",
+      "sha256": "c80c6ed2ed4e8cf0fe69eebeb5dd12d0008d5be3b26240318eb22f17e90a744a",
+      "bytes": 6818
+    },
+    {
+      "path": "rdx/authoring/PACKAGES-AND-RETURNS.md",
+      "sha256": "06d5f8015f7094d39c51e68d65e5be8d9219e982f99a1ccff79100b0480ffc5e",
+      "bytes": 9378
+    },
+    {
+      "path": "tests/agent-handoff-fixture.mjs",
+      "sha256": "990451bc25deda813ef5d9f58807a92f5f0011b657f40df75a1d24af631deadb",
+      "bytes": 4879
+    },
+    {
+      "path": "tests/agent-handoff.test.mjs",
+      "sha256": "22811d70210e65225691c5da4cad77695b72b82ebfa94b59b2c13e3fcfcf0847",
+      "bytes": 7315
+    },
+    {
+      "path": "tests/map-package.test.mjs",
+      "sha256": "c060f114db013dfa3fe42e02e1e7a312d768bc3697afe0edf01781da3be47c56",
+      "bytes": 25984
+    },
+    {
+      "path": "tests/metadata-projection.test.mjs",
+      "sha256": "ccf63bd03e151680c45d037f119e9ba6e946042b07b8f24d32b7c625dc41538b",
+      "bytes": 12475
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "a9d53a51a265664d354de0e875b9c6472dd4c1de99045e3e50cc137a4feb7fcf",
+      "bytes": 9746
+    },
+    {
+      "path": "QA-Report.md",
+      "sha256": "4b5ef08ef7f7ffa6bcf6e43e640e4b574cb077f02d6b0bd1d3582a2039552ed1",
+      "bytes": 10310
+    }
+  ],
+  "automaticDiscoveryEnabled": false,
+  "automaticApplicationEnabled": false,
+  "romExtractionProven": false,
+  "humanTestingProven": false,
+  "agentAccountSeparationProven": false
+}

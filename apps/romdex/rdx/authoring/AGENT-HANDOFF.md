@@ -20,7 +20,7 @@ Required inputs: game/variant, exact ROM/source revision, authorized relevant re
 
 Use this prompt only after separate human handoff of an actionable task and the later package/return features are enabled:
 
-> Work from this task's exact JSON Map Package version, separate verified binding, base map RDX, source evidence and YouTrack-accessible assets. Verify hashes, source revision and uniquely resolving targets first. Implement only assigned ready requests; retain unrelated content and newer drafts. Report blockers without guessing.
+> Work from this task's exact authorized JSON Map Package version, separate verified binding, sanitized RDXReturnContext/1, source evidence and YouTrack-accessible assets. Verify hashes, source revision and uniquely resolving targets first. Implement only the selected non-FINAL requests in the authorized package; retain unrelated content and newer drafts. Report blockers without guessing.
 >
 > Return an updated map RDX on the same task with `origin.role: "agent-result"`, exact task/package/base provenance, retained source/base/history/assets, actual before/after content and per-request grouped outcomes. Treat dependent scene changes as one group. Set `requiresHumanTesting: true`, retain unreviewed testing, and announce Ready for Human Review and Testing with your source/build checks and unresolved work. Leave the task open. ROMDex owns accepted NPCD reconciliation; do not directly rewrite the backend as the normal return route. Do not claim that automated checks are a human in-game test.
 
@@ -41,3 +41,5 @@ Use this prompt only after separate human handoff of an actionable task and the 
 | The agent claims implementation succeeded. | Updated current content is still Needs Human Review and Testing; the task stays open until the owner verifies it. |
 
 The local fixture exercise and reference checker prove deterministic format use. RD07 separately proved two-way YouTrack behavior using eleven isolated real content records. None of these is proof that a particular real ROM extractor or in-game result has been tested.
+
+U23A adds deterministic [authorized handoff/file-transfer tools](../AGENT-FILE-TRANSFER.md). Copy Agent Instructions is a fixed template, not AI generation. New authorization supersedes older versions on the same task/map; their results require review. Returned-file discovery/application remain U24/U25, and the flashing-amber Needs Testing stage remains U27.

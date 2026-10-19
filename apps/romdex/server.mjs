@@ -186,5 +186,5 @@ async function dispatchLocal(route,{method='GET',bytes,headers={}}={}){
 }
 async function verifyDesktopConnection(){const items=await (await readyClient()).all();return {items,...syncStatus()};}
 async function releaseDeliverySettings(){const yt=await readyClient(),healthy=yt.healthy;try{const value=await yt.request('admin/globalSettings/systemSettings?fields=maxUploadFileSize');return {maxUploadFileSize:Number.isSafeInteger(value?.maxUploadFileSize)?value.maxUploadFileSize:null,storageCapacityVerified:false};}catch(error){return {maxUploadFileSize:null,status:error.status||null,reason:'The Current Connection Cannot Read the Server Upload Setting.',storageCapacityVerified:false};}finally{yt.healthy=healthy;}}
-async function desktopPackageTarget(id){return serialized(async()=>{const yt=await readyClient();const item=await yt.require(id);return {instanceOrigin:BASE,projectId:yt.projectId,issueId:item.dbId,issueKey:item.id};});}
+async function desktopPackageTarget(id){return serialized(async()=>{const yt=await readyClient();const item=await yt.require(id);return {instanceOrigin:BASE,projectId:yt.projectId,issueId:item.dbId,issueKey:item.id,actor:{id:yt.user.id,login:yt.user.login}};});}
 export {server,protectCredential,dispatchLocal,verifyDesktopConnection,releaseDeliverySettings,desktopPackageTarget};

@@ -5,6 +5,7 @@ import {validateShape} from './schema.mjs';
 import {ensure,LIMITS} from './limits.mjs';
 import {MAX_FILE_BYTES} from '../public/attachment-core.mjs';
 import {packageSummary,packageProgress} from '../public/package-progress.mjs';
+import {buildReturnContext,authorizationKey,authorizationState,authorizationToken,validateAuthorizationHistory,handoffText,handoffManifest} from './agent-handoff.mjs';
 
 const BASE='https://thegobindsingh.youtrack.cloud',CHUNK=512*1024;
 const cleanDestination=(input,items)=>{
@@ -16,7 +17,7 @@ const cleanDestination=(input,items)=>{
 };
 const fileInfo=(assetId,hash,bytes,mime,name,role)=>({assetId,assetIds:assetId?[assetId]:[],hash,bytes,mime,name,role});
 export class MapPackageWorkspace{
- constructor({maps,engine,target,attachmentBytes,changed=()=>{}}){Object.assign(this,{maps,engine,target,attachmentBytes,changed,paused:false,running:null,download:null});}
+ constructor({maps,engine,target,attachmentBytes,authorizationSafety=()=>({ready:true,localOnly:true}),changed=()=>{}}){Object.assign(this,{maps,engine,target,attachmentBytes,authorizationSafety,changed,paused:false,running:null,download:null});}
  entries(){return Object.values(this.engine.state?.mapPackages||{});}
  pause(){this.paused=true;}
  resume(){this.paused=false;}
@@ -27,9 +28,9 @@ export class MapPackageWorkspace{
   const value=await this.maps.store.view(key);ensure(value.status.saved,'RECOVERY','Finish the Map RDX Checkpoint Before Packaging.');
   return {key,value};
  }
- status(){return this.entries().map(e=>({...packageSummary(e,this.engine.state.blocked),newerDrafts:this.maps.store?.row(e.key).head!==e.revision,binding:e.binding||null,packageHash:e.packageHash||null,uploads:e.uploads.map(f=>({role:f.role,name:f.name,complete:!!f.completed,verified:!!f.verified,error:f.error||null}))}));}
+ status(){return this.entries().map(e=>({...packageSummary(e,this.engine.state.blocked),newerDrafts:this.maps.store?.row(e.key).head!==e.revision,binding:e.binding||null,packageHash:e.packageHash||null,authorization:this.authorization(e),uploads:e.uploads.map(f=>({role:f.role,name:f.name,complete:!!f.completed,verified:!!f.verified,error:f.error||null}))}));}
  frozen(id){const entry=this.engine.state.mapPackages?.[id];ensure(entry,'NOT_FOUND','This Fixed Package Is No Longer Available.');const value=this.maps.store.load(entry.key,entry.revision);ensure(sha(value.documentBytes)===entry.baseDocumentHash,'INTEGRITY','The Frozen Package Baseline Changed.');return {entry,prepared:inspectMapPackage(value,{selection:entry.selection})};}
- details(id){const {entry,prepared}=this.frozen(id);return {...packageProgress(entry,prepared,this.engine.state.blocked),binding:entry.binding||null,packageHash:entry.packageHash||null,taskName:this.engine.items.find(t=>t.id===entry.issueId)?.summary||null,newerDrafts:this.maps.store.row(entry.key).head!==entry.revision};}
+ details(id){const {entry,prepared}=this.frozen(id);return {...packageProgress(entry,prepared,this.engine.state.blocked),binding:entry.binding||null,packageHash:entry.packageHash||null,taskName:this.engine.items.find(t=>t.id===entry.issueId)?.summary||null,newerDrafts:this.maps.store.row(entry.key).head!==entry.revision,authorization:this.authorization(entry)};}
  navigation(input){const {entry,prepared}=this.frozen(input.id),row=input.targetKey?prepared.rows.find(r=>r.selected&&r.key===input.targetKey):null;ensure(!input.targetKey||row,'NOT_FOUND','The Target Is Not in This Fixed Package.');const artifact=row&&(row.key.startsWith('plan:')?prepared.requests.find(p=>p.digest===row.key.slice(5)):prepared.observations.find(r=>r.digest===row.key.slice(7)));return {id:entry.id,issueId:entry.issueId,key:entry.key,context:this.maps.adoption?.owns(entry.key)?null:entry.key,mapRecordId:prepared.document.scope.mapRecordId,target:artifact?structuredClone(artifact.target):null};}
  async preview(input){
   ensure(this.engine.state,'NOT_READY','Wait for the Task Workspace to Load.');await this.engine.lock;
@@ -63,7 +64,7 @@ export class MapPackageWorkspace{
   const p=await this.preview(input);ensure(p.destination,'INVALID','Choose the Task Destination.');ensure(input.token===p.response.token,'CONFLICT','The Map, Selection or Destination Changed. Preview Again.');ensure(!p.prepared.blockers.length,'REVIEW_REQUIRED',p.prepared.blockers.join('\n'));
   if(p.response.previous)return {id:p.response.previous.id,alreadyQueued:true};
   const d=p.captured.value.document,id=randomUUID(),issueId=p.destination.kind==='new'?'local-'+randomUUID():p.destination.issueId,createOpId=p.destination.kind==='new'?randomUUID():null;
-  const entry={id,key:p.captured.key,revision:d.revision,mapName:p.prepared.mapName,packageId:p.response.packageId,version:p.response.version,previewToken:p.response.token,fingerprint:p.response.fingerprint,selection:p.prepared.selection,baseDocumentHash:sha(p.captured.value.documentBytes),contextOnly:p.prepared.contextOnly,issueId,parentId:p.destination.parentId??null,createOpId,status:'assets',uploads:[],createdAt:new Date().toISOString(),approved:true};
+  const entry={id,key:p.captured.key,revision:d.revision,mapName:p.prepared.mapName,packageId:p.response.packageId,version:p.response.version,previewToken:p.response.token,fingerprint:p.response.fingerprint,selection:p.prepared.selection,baseDocumentHash:sha(p.captured.value.documentBytes),contextOnly:p.prepared.contextOnly,datasetId:d.datasetId,mapRecordId:d.scope.mapRecordId,issueId,parentId:p.destination.parentId??null,createOpId,status:'assets',uploads:[],createdAt:new Date().toISOString(),approved:true};
   for(const a of p.prepared.assets)await this.retain(p.captured.value.blobs.get(a.sha256));
   const files=p.assets.map(a=>({...a,opId:randomUUID()}));
   // Frozen bytes precede this transaction; the package ledger, task creation and
@@ -80,7 +81,7 @@ export class MapPackageWorkspace{
    ensure(!this.paused,'NOT_READY','Package Verification Is Paused.');await this.update(entry.id,e=>{const f=e.uploads.find(a=>a.opId===file.opId);ensure(f?.receipt.id===file.receipt.id,'CONFLICT','The Upload Receipt Changed.');f.verified=true;});
   }return true;
  }
- async finalInventory(entry){const result=await this.engine.request('/api/attachments?id='+encodeURIComponent(entry.issueId)+'&manual=true');for(const file of entry.uploads){const actual=result.attachments.find(a=>a.id===file.receipt?.id);ensure(actual&&actual.name===file.name&&actual.size===file.bytes,'REVIEW_REQUIRED','A Frozen Package Attachment Was Removed or Renamed. Review the Task.');if(actual.updated!==file.receipt.updated){const bytes=await this.attachmentBytes(entry.issueId,actual.id);ensure(sha(bytes)===file.hash,'INTEGRITY','A Previously Verified Package Attachment Changed.');}}}
+ async finalInventory(entry){const result=await this.engine.request('/api/attachments?id='+encodeURIComponent(entry.issueId)+'&manual=true');for(const file of entry.uploads){const actual=result.attachments.find(a=>a.id===file.receipt?.id);ensure(actual&&actual.name===file.name&&actual.size===file.bytes,'REVIEW_REQUIRED','A Frozen Package Attachment Was Removed or Renamed. Review the Task.');if(actual.updated!==file.receipt.updated){const bytes=await this.attachmentBytes(entry.issueId,actual.id);ensure(sha(bytes)===file.hash,'INTEGRITY','A Previously Verified Package Attachment Changed.');}}return result.attachments;}
  async cycle(manual=false){
   if(this.running){const prior=this.running;await prior;if(!manual)return;if(this.running&&this.running!==prior)return this.cycle(manual);}
   if(this.paused||!this.engine.state||!manual&&!this.engine.automaticSyncEnabled)return;
@@ -110,12 +111,33 @@ export class MapPackageWorkspace{
       const bytes=Buffer.from(JSON.stringify(binding,null,2)+'\n'),hash=await this.retain(bytes),upload={...fileInfo(null,hash,bytes.length,'application/json',packageName(entry.packageId,entry.version,'binding.json'),'binding'),opId:randomUUID()};
       await this.enqueue([upload],entry,s=>{const e=s.mapPackages[id];ensure(e.status==='package','CONFLICT','The Binding Phase Changed.');e.status='binding';e.binding=binding;});if(this.engine.automaticSyncEnabled)this.engine.schedule();
      }else if(entry.status==='binding'){
+      ensure(same(entry.target,target),'AUTH','The Bound Task or Project Changed.');await this.prepareContext(entry);
+     }else if(entry.status==='context'){
       ensure(same(entry.target,target),'AUTH','The Bound Task or Project Changed.');await this.finalInventory(entry);await this.update(id,e=>{e.status='attached';e.attachedAt=new Date().toISOString();delete e.error;});this.changed();break;
      }else ensure(false,'RECOVERY','Unknown Package Delivery Phase.');
     }
    }catch(error){if(!this.paused)await this.update(id,e=>{e.error=error.message;});}
   }});
   const task=run();this.running=task;try{await task;}finally{if(this.running===task)this.running=null;}return this.status();
+ }
+ authorization(entry){
+  const safety=this.authorizationSafety(),current=authorizationState(entry,this.engine.state.packageAuthorizations||{});
+  return {...current,...safety,ready:safety.ready===true&&entry.status==='attached'&&!entry.error,contextReady:!!entry.contextHash,token:entry.binding&&entry.datasetId?authorizationToken(entry,this.engine.state.packageAuthorizations||{}):null};
+ }
+ async prepareContext(entry){
+  ensure(!entry.contextHash,'CONFLICT','Agent Context Is Already Prepared.');await this.finalInventory(entry);const {prepared}=this.frozen(entry.id),baseline=this.maps.store.load(entry.key,entry.revision),packet=entry.uploads.find(f=>f.role==='package'),pkg=JSON.parse(this.blob(packet.hash)),built=buildReturnContext(baseline,pkg,entry.binding),hash=await this.retain(built.bytes),file={...fileInfo(null,hash,built.bytes.length,'application/json',packageName(entry.packageId,entry.version,'return-context.json'),'return-context'),opId:randomUUID()};
+  await this.enqueue([file],entry,s=>{const e=s.mapPackages[entry.id];ensure(!e.contextHash,'CONFLICT','Agent Context Was Already Queued.');e.status='context';e.contextHash=hash;e.datasetId=prepared.document.datasetId;e.mapRecordId=prepared.document.scope.mapRecordId;});if(this.engine.automaticSyncEnabled)this.engine.schedule();
+ }
+ async changeAuthorization(input,action){
+  ensure(input.approved===true,'REVIEW_REQUIRED','Confirm This Exact Package Authorization Change.');const {entry}=this.frozen(input.id);let a=this.authorization(entry);if(action==='authorize')ensure(a.ready&&a.contextReady,'NOT_READY','Finish Verified Agent File Delivery and Resolve Metadata Review First.');else ensure(a.state==='authorized','AUTH','Only the Current Authorization Can Be Withdrawn.');ensure(input.token===a.token,'CONFLICT','Package Authorization Changed. Review the Current Version.');
+  let target={actor:a.event?.actor},observedAttachments=a.event?.observedAttachments||[];if(action==='authorize'){observedAttachments=(await this.finalInventory(entry)).map(a=>a.id).sort();target=await this.target(entry.issueId);ensure(same(entry.target,{instanceOrigin:target.instanceOrigin,projectId:target.projectId,issueId:target.issueId})&&/^\d+-\d+$/.test(target.actor?.id||'')&&typeof target.actor.login==='string','AUTH','The Authenticated Task Account or Binding Is Unavailable.');}
+  const context=entry.uploads.find(f=>f.role==='return-context');ensure(context?.verified&&context.receipt?.id,'NOT_READY','Verified Agent Context Is Missing.');
+  await this.engine.transaction(s=>{
+   ensure((action==='withdraw'||this.authorizationSafety().ready===true)&&input.token===authorizationToken(entry,s.packageAuthorizations||{}),'CONFLICT','Package Authorization Changed. Review Again.');s.packageAuthorizations??={};const key=authorizationKey(entry),history=s.packageAuthorizations[key]||{format:'RDXAgentAuthorizationHistory/1',events:[]},last=history.events.at(-1);
+   const current=authorizationState(entry,s.packageAuthorizations);if(action==='withdraw')ensure(current.state==='authorized','AUTH','Only the Current Authorization Can Be Withdrawn.');
+   if(action==='authorize'&&current.state==='authorized')return;
+   ensure(history.events.length<1000,'LIMIT','Authorization History Requires Retention Review.');history.events.push(seal({format:'RDXAgentAuthorization/1',id:randomUUID(),action,parent:last?.digest||null,lineage:key,entryHash:entry.fingerprint,binding:structuredClone(entry.binding),contextHash:entry.contextHash,contextBytes:context.bytes,contextAttachmentId:context.receipt.id,actor:{id:target.actor.id,login:target.actor.login},observedAttachments,createdAt:new Date().toISOString()}));validateAuthorizationHistory(history);s.packageAuthorizations[key]=history;
+  });this.changed();return this.details(entry.id);
  }
  async dispatch(route,input={},context=null){
   ensure(typeof route==='string'&&route.startsWith('/api/packages/')&&input&&JSON.stringify(input).length<=1024*1024,'INVALID','Invalid Map Package Request.');
@@ -125,9 +147,13 @@ export class MapPackageWorkspace{
   return this.maps.execute(async()=>{
    ensure(!this.paused,'NOT_READY','Map Packages Are Paused for Desktop Lifecycle Work.');
    if(route.endsWith('/details'))return this.details(input.id);
+   if(route.endsWith('/prepare-handoff')){ensure(input.approved===true,'REVIEW_REQUIRED','Confirm Preparation of Agent Files.');const {entry}=this.frozen(input.id);ensure(entry.status==='attached','NOT_READY','Finish Package Delivery First.');if(!entry.contextHash)await this.prepareContext(entry);this.changed();return this.details(input.id);}
+   if(route.endsWith('/authorize')||route.endsWith('/withdraw'))return this.changeAuthorization(input,route.endsWith('/withdraw')?'withdraw':'authorize');
+   if(route.endsWith('/instructions')){const {entry}=this.frozen(input.id),a=this.authorization(entry);ensure(a.state==='authorized'&&a.ready,'AUTH','This Exact Package Is Not Currently Authorized.');return {text:handoffText(entry,a.event)};}
    if(route.endsWith('/navigation'))return this.navigation(input);
    if(route.endsWith('/preview'))return (await this.preview(input)).response;
    if(route.endsWith('/stage'))return this.stage(input);
+   if(route.endsWith('/download-handoff')){const {entry}=this.frozen(input.id),a=this.authorization(entry);ensure(a.state==='authorized'&&a.ready,'AUTH','Authorize This Exact Package First.');const bytes=Buffer.from(JSON.stringify(handoffManifest(entry,a.event),null,2)+'\n');this.download={id:randomUUID(),bytes,expires:Date.now()+15*60*1000};return {id:this.download.id,bytes:bytes.length,sha256:sha(bytes),name:packageName(entry.packageId,entry.version,'handoff.json')};}
    if(route.endsWith('/download')){const entry=this.engine.state.mapPackages?.[input.id];ensure(entry?.packageHash,'NOT_READY','The Exact JSON Package Is Available After Its Assets Are Verified.');const bytes=this.blob(entry.packageHash);this.download={id:randomUUID(),bytes,expires:Date.now()+15*60*1000};return {id:this.download.id,bytes:bytes.length,sha256:sha(bytes),name:packageName(entry.packageId,entry.version)};}
    if(route.endsWith('/download-chunk')){const d=this.download;ensure(d&&Date.now()<d.expires&&input.id===d.id&&Number.isSafeInteger(input.offset)&&input.offset>=0&&input.offset<d.bytes.length,'INVALID','Invalid Package Download Offset.');return {base64:d.bytes.subarray(input.offset,input.offset+CHUNK).toString('base64')};}
    if(route.endsWith('/download-end')){ensure(this.download?.id===input.id,'INVALID','Unknown Package Download.');this.download=null;return true;}

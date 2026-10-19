@@ -60,3 +60,7 @@ When the later receiver is enabled, it will discover the returned RDX on the tas
 ## Reference Exercise
 
 The versioned `contract-reference` folder contains an exact map, four requests in three groups, one observation, assets, fixed JSON package, separate binding and returned-map example. The return implements only the independent guide-dialogue request; other groups remain pending. `check-reference.mjs` checks local structure/seals/byte-binding relationships with no network writes. Both the fictional `.invalid` origin and `fixture:*` IDs must be replaced by verified real provenance during an actual authorized assignment. The example is a contract walkthrough, not a completed ROM change.
+
+## U23A Authorization and Return Context
+
+See [Agent File Transfer](../AGENT-FILE-TRANSFER.md) for the source implementation. Verified delivery now includes a separate RDXReturnContext/1 JSON supplement supplying required immutable content ancestry/mappings. It excludes private plans/reviews/views and whole-document history; the original JSON package is not rewritten. Exact-version authorization is application-owned private metadata, independent of any actor claim in a file. The fixed Copy Agent Instructions template and downloadable RDXAgentHandoff/1 manifest identify verified task files for the deterministic CLI. Context baselines are execution material, not replacement imports. U24 discovery and U25 application remain disabled.

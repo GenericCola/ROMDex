@@ -21,3 +21,5 @@ After attachment, hand the task to the coding agent separately. Recorded mapping
 Limits: one physical map, 2,000 selectable entries, 64 distinct required files, 50 MiB per file, 128 MiB of required files and 16 MiB of JSON. Nothing is silently dropped to meet a limit. The local ledger holds up to 1,000 fixed package versions before an explicit retention review is required.
 
 [U22 navigation and progress](PACKAGE-NAVIGATION.md) adds exact reciprocal task/map/version/target links and read-only delivery facts. Implementation/testing remain separately gated.
+
+U23A extends verified delivery with sanitized return context and explicit exact-package authorization. [Agent handoff and deterministic file tools](AGENT-FILE-TRANSFER.md) explain authorizing/replacing/withdrawing work, fixed copy instructions and bounded/recoverable returned-RDX upload. Automatic result discovery/application are separate later tasks.

@@ -66,3 +66,7 @@ This remains a Node.js 22+ local service and browser launcher. Sync requires its
 The R08 checkpoint preserves saved files/ciphertext and current saved NPCDex data, not unsaved browser-only NPCDex edits. Do not restore an old journal or profile over later work without comparison. The original U01 backup remains immutable.
 
 No Git repository exists, so this is a verified release change set rather than a Git commit. No publication or standalone desktop migration was performed.
+
+## U23A — Authorized Handoff and File Transfer
+
+Source implementation: 94 final affected checks passed after two new metadata-transition failures were corrected; the single broad run had 866 passes and the two corrected failures. Six headless source-interface checks passed, including short-window footer layout. Actual Windows-protected-connection/YouTrack proof used the deterministic CLI on private synthetic task PMON-329, then removed it. Download, valid synthetic returned RDX, upload/readback and duplicate-free replay passed; task fields, Auto-Sync Off and the protected connection were preserved. This is not proof of real ROM extraction/in-game behavior, a separate restricted agent identity, automatic discovery/application or a new installed release. See rdx/AGENT-FILE-TRANSFER.md.

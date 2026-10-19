@@ -29,6 +29,8 @@ export class MetadataProjection{
     state.sourcePending=true;manager.journal.transaction(()=>manager.journal.setState(state));
     const removed=Object.keys(previous.assigned).filter(id=>!Object.hasOwn(doc.assigned,id)),records=await this.applyAssigned(doc.assigned,expected,removed);
     next.remote=next.remote.map(item=>({...item,assignedState:doc.assigned[item.id]??records[item.id]?.assignedState??item.assignedState}));
+    if(doc.version===2)next.packageAuthorizations=structuredClone(doc.authorizations);
+    else if(Object.hasOwn(next,'packageAuthorizations'))next.packageAuthorizations={};
     const localImages=Object.fromEntries(Object.entries(next.images||{}).filter(([id])=>id.startsWith('local-')));next.images={...doc.images,...localImages};
     const hierarchyPending=next.operations.some(op=>['create','delete'].includes(op.type)||op.patch&&'parentId'in op.patch);
     if(!hierarchyPending)next.order=projectOrder(doc,next.remote,next.order,previous);
