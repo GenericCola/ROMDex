@@ -118,7 +118,7 @@
  async function openOverview(){try{const c=await getContext(true);overviewDialog.replaceChildren(make('h2','Flags, Notes & Changes'));const body=make('div');body.className='editor-body';summary(body,M.entries({...c,reviewStates:data.contentPreview.reviewStates}),c.records,{overview:true});const footer=make('footer');button('Close',()=>overviewDialog.close(),footer);overviewDialog.append(body,footer);overviewDialog.showModal();}catch(e){$('save-status').textContent=e.message;}}
  async function renderControls(){
   if(!$('content-add-character')){const add=make('button','Add Character');add.id='content-add-character';add.className='content-add-character';add.type='button';add.onclick=()=>open('addCharacter');add.title='Add a Planned Character to This Map or Sub-zone';$('female').parentElement.before(add);}
-  document.querySelector('.content-editor-toolbar')?.remove();document.getElementById('content-proposals')?.remove();
+  document.querySelector('.content-editor-toolbar')?.remove();document.getElementById('content-proposals')?.remove();document.querySelectorAll('#groups .content-preview-notes').forEach(el=>el.remove());
   for(const cog of document.querySelectorAll('.tile button.cog,button[data-area-settings],button[data-legacy-settings]')){cog.classList.add('suite-content-settings');if(cog.querySelector('.standard-settings-icon'))continue;const img=make('img');img.src='/shared-ui/standard-settings-icon.svg';img.className='standard-settings-icon';img.alt='';img.setAttribute('aria-hidden','true');cog.replaceChildren(img);}
  }
  const legacyDialogue=renderDialogue;renderDialogue=function(...args){const result=legacyDialogue(...args);queueMicrotask(toolbar);return result;};

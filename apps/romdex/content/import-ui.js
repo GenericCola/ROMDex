@@ -3,22 +3,32 @@
  const api=(route,body)=>window.romdexContentAPI?window.romdexContentAPI(route,body):fetch(route,{method:body?'POST':'GET',headers:body?{'Content-Type':'application/json'}:{},body:body?JSON.stringify(body):undefined}).then(async r=>{const value=await r.json();if(!r.ok)throw Error(value.error||'Content Import Needs Review.');return value;});
  const make=(tag,text)=>{const el=document.createElement(tag);if(text!==undefined)el.textContent=text;return el;};
  const dialog=make('dialog');dialog.className='content-editor-dialog content-import-dialog';dialog.setAttribute('aria-label','Content Tools');document.body.append(dialog);
- let status=null,preview=null,json=null,body,footer,error,busy=false,rdx=null,transfer=null,rdxPreview=null,rdxChoices={},rdxArchive=[];
+ let status=null,preview=null,json=null,body,footer,error,busy=false,menuGeneration=0,rdx=null,transfer=null,rdxPreview=null,rdxChoices={},rdxArchive=[];
  const button=(text,fn,host)=>{const b=make('button',text);b.type='button';b.onclick=()=>run(fn);host.append(b);return b;};
  function tell(message){error.textContent=message;}
  async function run(fn){if(busy)return;busy=true;for(const b of dialog.querySelectorAll('button'))b.disabled=true;try{await fn();}catch(e){tell(e.message);}finally{busy=false;for(const b of dialog.querySelectorAll('button'))b.disabled=b.dataset.blocked==='true';}}
- function frame(title){dialog.replaceChildren(make('h2',title));body=make('div');body.className='editor-body';error=make('p');error.className='editor-error';error.setAttribute('role','status');body.append(error);footer=make('footer');const close=button('Close',()=>dialog.close(),footer);close.dataset.close='true';dialog.append(body,footer);}
+ function frame(title){menuGeneration++;dialog.replaceChildren(make('h2',title));body=make('div');body.className='editor-body';error=make('p');error.className='editor-error';error.setAttribute('role','status');body.append(error);footer=make('footer');const close=make('button','Close');close.type='button';close.onclick=()=>dialog.close();close.dataset.close='true';footer.append(close);dialog.append(body,footer);}
  function line(label,value){const p=make('p');p.append(make('strong',label+': '),document.createTextNode(String(value)));body.append(p);}
- async function open(){if(dialog.open)return;frame('Content Tools');dialog.showModal();await run(async()=>{try{rdx=await api('/api/rdx/status');}catch{rdx=null;}if(window.romdexMapPackages){button('Package Map Changes',()=>{dialog.close();return window.romdexMapPackages.open();},body);button('Map Package Delivery',()=>{dialog.close();return window.romdexMapPackages.openDelivery();},body);}if(rdx){button('Import RDX Map',chooseRDX,body);body.append(make('p','RDX maps open as local working documents. Importing does not publish to YouTrack or dispatch an agent.'));
-   for(const item of rdx.documents)button((item.key===rdx.active?'Current · ':'Open · ')+item.name,()=>switchMap(item.key),body);
-   if(rdx.active){button('Export Current Map RDX',exportRDX,body);button(rdx.cloudBinding?'Review RDX Sync':'Publish Map to YouTrack',rdx.cloudBinding?cloudReview:cloudPreview,body);if(rdx.cloudBinding)button('Synchronize Map Now',async()=>{await checkpointView();await api('/api/sync',{});await window.romdexContentPreview.refresh(true);await cloudReview();},body);if(rdx.hasSyncedContent)button('Return to Synced Content',()=>switchMap(null),body);return;}
-   if(rdx.adoptedCatalog){button('Export Current Map RDX',exportRDX,body);body.append(make('p','Each managed RDX contains one map and its required dependencies. Existing NPCD records are preserved; Global Dialogue and complete backups remain separate.'));if(window.romdexContentEditor)button('Review Sync',async()=>{dialog.close();await window.romdexContentEditor.openRecovery();},body);return;}
-   if(!rdx.hasSyncedContent)return;
-  }status=await api('/api/catalog/status');body.append(make('p','Legacy agent-prepared JSON imports remain available for the existing synced catalog. Every import requires a preview and confirmation; no execution task is created.'));
+ function openFeedback(){dialog.close();const scope={townId,type:roomAreaId?'area':locationId?'location':'town',id:roomAreaId||locationId||townId};window.romdexClassic.openReview(scope);}
+ async function open(){if(dialog.open)return;frame('Content Tools');dialog.showModal();const generation=++menuGeneration;
+  // Navigation and Close are usable immediately, even when storage status is slow.
+  const feedback=make('button','Data / Flags');feedback.type='button';feedback.onclick=openFeedback;body.append(feedback);
+  body.append(make('p','View Flags, Notes and Changes for '+($('scope-title').textContent||town().name)+'.'));
+  if(window.romdexMapPackages){button('Package Map Changes',()=>{dialog.close();return window.romdexMapPackages.open();},body);button('Map Package Delivery',()=>{dialog.close();return window.romdexMapPackages.openDelivery();},body);}
+  button('Import RDX Map',chooseRDX,body);const loading=make('p','Loading Map Controls…');body.append(loading);
+  try{try{rdx=await api('/api/rdx/status');}catch{rdx=null;}if(!dialog.open||generation!==menuGeneration)return;loading.remove();
+   if(rdx){body.append(make('p','RDX maps open as local working documents. Importing does not publish to YouTrack or dispatch an agent.'));
+    for(const item of rdx.documents)button((item.key===rdx.active?'Current · ':'Open · ')+item.name,()=>switchMap(item.key),body);
+    if(rdx.active){button('Export Current Map RDX',exportRDX,body);button(rdx.cloudBinding?'Review RDX Sync':'Publish Map to YouTrack',rdx.cloudBinding?cloudReview:cloudPreview,body);if(rdx.cloudBinding)button('Synchronize Map Now',async()=>{await checkpointView();await api('/api/sync',{});await window.romdexContentPreview.refresh(true);await cloudReview();},body);if(rdx.hasSyncedContent)button('Return to Synced Content',()=>switchMap(null),body);return;}
+    if(rdx.adoptedCatalog){button('Export Current Map RDX',exportRDX,body);body.append(make('p','Each managed RDX contains one map and its required dependencies. Existing NPCD records are preserved; Global Dialogue and complete backups remain separate.'));if(window.romdexContentEditor)button('Review Sync',async()=>{dialog.close();await window.romdexContentEditor.openRecovery();},body);return;}
+    if(!rdx.hasSyncedContent)return;
+   }
+   status=await api('/api/catalog/status');if(!dialog.open||generation!==menuGeneration)return;body.append(make('p','Legacy agent-prepared JSON imports remain available for the existing synced catalog. Every import requires a preview and confirmation; no execution task is created.'));
    if(!status.nativeTree){body.append(make('p','Complete the reviewed native content transition before importing new maps. The original export and all existing edits will be preserved.'));button('Review Native Content Transition',reviewTransition,body);}
    else{line('Content Tree','Native');button('Import Map Data',chooseImport,body);}
    if(window.romdexContentEditor)button('Review Sync',async()=>{dialog.close();await window.romdexContentEditor.openRecovery();},body);
-  });}
+  }catch(e){if(dialog.open&&generation===menuGeneration){loading.remove();tell(e.message);}}
+ }
  const position=()=>({townId,locationId,roomAreaId,expandedLocationId,gender,selected,stage,pointId,pageIndex,reviewEntryKey,scopeOverride,expandedTowns:[...expandedTowns],scroll:window.romdexClassic?.snapshotView()||[]});
  async function checkpointView(){await window.romdexClassic?.flush();await window.romdexContentEditor?.flushDraft();await api('/api/rdx/position',{position:position()});}
  async function switchMap(key){await checkpointView();await api('/api/rdx/open',{key});location.reload();}
@@ -46,5 +56,5 @@
  if(r.intentToken)button('Review and Retry Frozen Delivery',async()=>{await api('/api/rdx/cloud-retry',{approved:true,token:r.intentToken});tell('Recovery Approved. Save Changes Retries the Same Frozen Operations After Discovery.');},footer);}
  function enable(){const cog=$('inventory-settings');if(!cog)return;cog.disabled=false;cog.removeAttribute('aria-disabled');cog.title='Content Tools';cog.setAttribute('aria-label','Content Tools');}
  async function openNativeFile(stage){if(dialog.open)throw Error('Finish the Open NPCDex Dialog First.');await checkpointView();rdxChoices={};rdxArchive=[];rdxPreview=null;frame('Review RDX Map');dialog.showModal();await run(async()=>{transfer=await stage();await refreshRDX();});}
- dialog.addEventListener('close',()=>{if(transfer){api('/api/rdx/cancel',{}).catch(()=>{});transfer=null;}window.romdexContentPreview.refresh(true);});dialog.addEventListener('cancel',e=>{if(busy){e.preventDefault();return;}preview=null;json=null;});window.romdexContentImports={open,checkpointView,openNativeFile,openCloudReview:async()=>{if(!dialog.open)dialog.showModal();await run(cloudReview);}};document.addEventListener('content-preview-render',enable);document.addEventListener('click',()=>queueMicrotask(enable));enable();
+ dialog.addEventListener('close',()=>{if(transfer){api('/api/rdx/cancel',{}).catch(()=>{});transfer=null;}window.romdexContentPreview.refresh(true);});dialog.addEventListener('cancel',e=>{if(busy){e.preventDefault();return;}preview=null;json=null;});window.romdexContentImports={open,openFeedback,checkpointView,openNativeFile,openCloudReview:async()=>{if(!dialog.open)dialog.showModal();await run(cloudReview);}};document.addEventListener('content-preview-render',enable);document.addEventListener('click',()=>queueMicrotask(enable));enable();
 })();

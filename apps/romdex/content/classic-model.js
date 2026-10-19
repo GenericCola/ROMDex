@@ -9,7 +9,7 @@
  const targetKey=t=>t.townId+'|'+t.type+'|'+t.id;
  const fail=message=>{throw Error(message);};
  function resolve(records,spec){
-  const c=spec.context||{},old=spec.target||{},town=old.townId||c.townId,pid=old.pointId||c.pointId;
+  const c=spec.context||{},old=spec.target||c.target||{},town=old.townId||c.townId,pid=old.pointId||(!old.type||['point','prompt'].includes(old.type)?c.pointId:null);
   const belongs=r=>{const seen=new Set();while(r&&!seen.has(r.recordId)){seen.add(r.recordId);if(r.recordId===town||r.legacyRefs.some(x=>x.townId===town))return true;r=records.find(x=>x.recordId===r.parentRecordId);}return false;};
   let matches=records.filter(r=>pid?point(r,pid)&&(belongs(r)||r.recordId===old.recordId):r.recordId===old.id||r.legacyRefs.some(x=>x.townId===town&&x.kind===old.type&&x.id===old.id));
   if(matches.length!==1)fail('This Feedback Target Needs Review Before It Can Be Saved.');
@@ -28,7 +28,7 @@
   if(spec.recordRevision&&r.revisionId!==spec.recordRevision)fail('Current Content Changed While You Were Editing. Review It Before Saving.');
   const result={type:spec.type,...target,expectedRevision:r.revisionId,...(prior?{[identity]:prior[identity],expectedParents:[prior.digest]}:{})};
   const merge=(name,before,after,current)=>{if(spec.before&&before===after)return current;if(prior&&spec.before&&current!==before&&current!==after)fail('This '+name+' Changed on Another Computer. Review Both Versions.');return after;};
-  if(spec.type==='review'){const flag=a=>a?.critical?'critical':a?.flag?'standard':'none',nextFlag=merge('Flag',flag(spec.before),flag(spec.after),prior?.flag||'none'),note=merge('Note',spec.before?.note||'',spec.after.note||'',prior?.note||'');return {...result,flag:nextFlag,note,testStatus:spec.testingChanged?merge('Testing Status',spec.before?.testStatus||'unreviewed',spec.after.testStatus||'unreviewed',prior?.testStatus||'unreviewed'):prior&&prior.baseline.revisionId===r.revisionId?prior.testStatus:'unreviewed'};}
+  if(spec.type==='review'){const flag=a=>a?.flag?(a.critical?'critical':'standard'):'none',nextFlag=merge('Flag',flag(spec.before),flag(spec.after),prior?.flag||'none'),note=merge('Note',spec.before?.note||'',spec.after.note||'',prior?.note||'');return {...result,flag:nextFlag,note,testStatus:spec.testingChanged?merge('Testing Status',spec.before?.testStatus||'unreviewed',spec.after.testStatus||'unreviewed',prior?.testStatus||'unreviewed'):prior&&prior.baseline.revisionId===r.revisionId?prior.testStatus:'unreviewed'};}
   if(!spec.after){if(!prior)fail('The Change Decision No Longer Exists.');for(const field of ['intent','instructions','proposedDialogue'])if(spec.before&&prior[field]!==spec.before[field])fail('This Decision Changed on Another Computer. Review It Before Clearing.');return {...result,intent:prior.intent,workflow:'superseded',instructions:prior.instructions,proposedDialogue:prior.proposedDialogue,sharedAcknowledged:r.kind==='profile'};}
   const intent=merge('Decision',spec.before?.intent,spec.after.intent,prior?.intent),instructions=merge('Change Description',spec.before?.instructions||'',spec.after.instructions||'',prior?.instructions||''),dialogue=merge('Proposed Dialogue',spec.before?.proposedDialogue||'',spec.after.proposedDialogue||'',prior?.proposedDialogue||'');
   return {...result,intent,workflow:intent==='FINAL'?'final':'draft',instructions,proposedDialogue:dialogue,sharedAcknowledged:r.kind==='profile'};

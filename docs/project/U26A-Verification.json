@@ -1,0 +1,52 @@
+{
+  "task": "U26A",
+  "status": "complete-in-source",
+  "installedVersion": "0.5.15",
+  "regression": {
+    "uniqueAffectedCases": 55,
+    "combinedPassed": 54,
+    "combinedFixtureAssertionFailure": 1,
+    "assertionCorrected": "Count only the two reviews created by the sync test, excluding the fixture seed review",
+    "finalFeedbackRecheckPassed": 20,
+    "countsOverlap": true
+  },
+  "ui": {
+    "task": "U26A",
+    "scope": "Source UI with isolated app-managed native RDX and actual local edit/draft endpoints; no live writes",
+    "checks": [
+      "Inherited original character flag is visible, editable through its original identity, and clears its tile without deleting its note",
+      "Unchecked scope retains the same note and flag across passages and speaker turns",
+      "Checked scope stays distinct from the whole-prompt note and changes only its passage",
+      "Reload preserves both scopes and clearing the only remaining critical flag removes the marker",
+      "Tray 2 has no duplicate note editor; the contextual Add/Edit Note remains beside Flag Prompt",
+      "Data / Flags opens the original readable summary restricted to the current selector, including applicable item feedback",
+      "One modal opens; Close and one Escape work even while storage status is delayed",
+      "Closing and reopening the managed RDX retains annotations, flag-clear history and note whitespace"
+    ],
+    "status": "passed",
+    "finishedAt": "2026-10-19T22:25:39.444Z"
+  },
+  "liveAudit": {
+    "readOnly": true,
+    "mapFiles": 3,
+    "newBarkFlags": 7,
+    "newBarkCriticalFlags": 6,
+    "newBarkCriticalCharacterFlags": 3,
+    "allFlagsHaveExistingReviewIdentity": true
+  },
+  "liveWrites": false,
+  "installed": false,
+  "preservation": "No live Data, queued operations, tokens, native records or ROM changes",
+  "syntax": {
+    "passed": 7,
+    "files": [
+      "apps/romdex/content/workspace-runtime.js",
+      "apps/romdex/content/classic-model.js",
+      "apps/romdex/content/classic-ui.js",
+      "apps/romdex/content/import-ui.js",
+      "apps/romdex/content/preview.js",
+      "apps/romdex/content/editor-ui.js",
+      "apps/romdex/tests/content-classic-feedback.test.mjs"
+    ]
+  }
+}

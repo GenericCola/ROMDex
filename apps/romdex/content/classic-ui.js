@@ -6,7 +6,7 @@
  let chain=Promise.resolve(),failure=null,inflight=0,initial=true,refreshTask=null,draftTimer=null,viewContext=null;const pending=new Map();
  const announce=()=>window.dispatchEvent(new Event('npcdex-status'));
  const feedbackKey=spec=>spec.type+':'+spec.key;
- const editing=()=>inflight>0||pending.size>0||!!document.activeElement?.closest('.entry-note,.prompt-change-editor,#settings-dialog');
+ const editing=()=>inflight>0||pending.size>0||!!document.querySelector('dialog[open]')||!!document.activeElement?.closest('.entry-note,.prompt-change-editor,#settings-dialog');
  const tell=e=>{failure=e;$('save-status').textContent='Feedback Needs Attention: '+e.message;if(!$('classic-review-sync')){const button=document.createElement('button');button.id='classic-review-sync';button.type='button';button.textContent='Review Sync';button.onclick=()=>window.romdexContentEditor.openRecovery();$('history-open-flags').parentElement.append(button);}announce();};
  function overlay(spec){if(spec.type==='review')data.annotations[spec.key]=structuredClone(spec.after);else if(spec.after){data.changePlans[spec.key]=structuredClone(spec.after);delete data.promptStatusUnset[spec.key];}else{delete data.changePlans[spec.key];data.promptStatusUnset[spec.key]=true;}reviewCache=null;}
  function capture(){
@@ -18,7 +18,7 @@
  }
  async function storeDraft(c,spec,remove=false){let t;try{t=C.resolve(c.records,spec);}catch{t={recordId:'unresolved:'+spec.key,pointId:spec.context?.pointId||spec.target?.pointId};}const value={mode:'classic',head:c.head,fields:{recordId:t.recordId,pointId:t.pointId||'',blockId:feedbackKey(spec)},classicSpec:spec},draft=M.saveDraft(c.draft?.draft||null,value,remove);await api('/api/draft',{version:(c.draft?.version||0)+1,draft});}
  function queue(spec,commit=true){
-  if(!spec.recordRevision&&viewContext){try{const t=C.resolve(viewContext.records,spec);spec.recordRevision=viewContext.records.find(r=>r.recordId===t.recordId).revisionId;}catch{}}
+  if(!spec.recordRevision&&viewContext){try{const identity=spec.type==='review'?'reviewId':'planId',prior=C.heads(spec.type==='review'?viewContext.reviews:viewContext.plans).find(v=>v[identity]===spec.identity),t=prior?.target||C.resolve(viewContext.records,spec);spec.recordRevision=viewContext.records.find(r=>r.recordId===t.recordId).revisionId;}catch{}}
   spec.draftOnly=!commit;pending.set(feedbackKey(spec),spec);inflight++;announce();chain=chain.catch(()=>{}).then(async()=>{const c=await api('/api/editor');if(spec.discardOnly){await storeDraft(c,spec,true);if(pending.get(feedbackKey(spec))===spec)pending.delete(feedbackKey(spec));return;}await storeDraft(c,spec);if(!commit)return;const latest=await api('/api/editor'),command=C.command(latest,spec);await api('/api/edit',{command,expectedHead:latest.head});const after=await api('/api/editor');await storeDraft(after,spec,true);if(pending.get(feedbackKey(spec))===spec)pending.delete(feedbackKey(spec));failure=null;}).catch(tell).finally(()=>{inflight--;announce();if(!editing())window.romdexContentPreview.refresh(true);});
  }
  commitChange=function(label,mutate,details={}){
@@ -42,13 +42,14 @@
    if(initial){initial=false;for(const draft of M.drafts(c.draft?.draft).filter(d=>d.mode==='classic'&&d.classicSpec)){pending.set(feedbackKey(draft.classicSpec),draft.classicSpec);overlay(draft.classicSpec);}}
    renderDialogue(true);refreshTileIndicators();window.romdexContentPreview.lockControls();if($('flags-dialog').open)renderReviewMenu();
   }catch(e){tell(e);}finally{refreshTask=null;}})();return refreshTask;}
- $('flags').onclick=()=>{flushNote();renderReviewMenu();$('flags-dialog').showModal();};
+ function openReview(scope=null){flushNote();renderReviewMenu(scope);$('flags-dialog').showModal();}
+ $('flags').onclick=()=>openReview();
  const flushOriginal=flushNote;
  async function flush(){clearTimeout(draftTimer);flushOriginal();for(const s of capture())queue(s);await chain;if(failure)throw failure;for(const s of [...pending.values()])queue(s);await chain;if(failure)throw failure;}
  async function reviewDraft(draft){try{const c=await api('/api/editor'),spec=C.reviewed(c,draft.classicSpec),node=(tag,text)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;return n;},dialog=node('dialog'),body=node('div'),footer=node('footer'),error=node('p');dialog.className='content-summary-dialog';dialog.setAttribute('aria-label','Review Inline Feedback');body.className='editor-body';const t=C.resolve(c.records,spec),where=M.label(c.records,t);body.append(node('p',where.path+' → '+where.name),node('p',where.condition),node('h3','Current Database Version'),node('pre',JSON.stringify(spec.before,null,2)),node('h3','Your Draft After Review'),node('pre',spec.after?JSON.stringify(spec.after,null,2):'Clear This Decision; Keep Its History.'),error);dialog.append(node('h2','Review Inline Feedback'),body,footer);
   const action=(text,fn)=>{const b=node('button',text);b.type='button';b.onclick=fn;footer.append(b);};action('Cancel',()=>dialog.close());action('Keep Database Version',async()=>{try{await chain;const latest=await api('/api/editor');await storeDraft(latest,spec,true);pending.delete(feedbackKey(spec));if(!pending.size)failure=null;dialog.close();await window.romdexContentPreview.refresh(true);announce();}catch(e){error.textContent=e.message;}});action('Use This Draft',async()=>{try{queue(spec);await chain;if(failure)throw failure;dialog.close();await window.romdexContentPreview.refresh(true);}catch(e){error.textContent=e.message;}});dialog.addEventListener('close',()=>dialog.remove(),{once:true});document.body.append(dialog);dialog.showModal();}catch(e){tell(e);}}
  const snapshotView=()=>['#maps','.groups','.conversation','.conditions-pane','#dialogue-options','#message-scroll'].map(selector=>({selector,top:document.querySelector(selector)?.scrollTop||0}));
  const restoreView=positions=>{for(const p of positions||[]){const element=document.querySelector(p.selector);if(element)element.scrollTop=p.top;}};
- window.romdexClassic={editing,refresh,openSettings:classicSettings,flush,snapshotView,restoreView,status:()=>({pending:pending.size,attention:!!failure,message:failure?.message}),resume:reviewDraft,capture};
- document.addEventListener('content-preview-render',()=>refresh());document.addEventListener('focusout',()=>setTimeout(()=>{if(!editing())refresh();},0));refresh();
+ window.romdexClassic={editing,refresh,openReview,openSettings:classicSettings,flush,snapshotView,restoreView,status:()=>({pending:pending.size,attention:!!failure,message:failure?.message}),resume:reviewDraft,capture};
+ document.addEventListener('content-preview-render',()=>refresh());document.addEventListener('close',()=>{if(!editing())window.romdexContentPreview.refresh(true);},true);document.addEventListener('focusout',()=>setTimeout(()=>{if(!editing())refresh();},0));refresh();
 })();
