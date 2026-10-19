@@ -6,7 +6,7 @@
 **Status:** U01–U20I and RD01 are complete. RD02–RD09 source/guide implementation is complete, including RD07 real isolated two-way proof, RD08 Windows/installer acceptance and RD09 portable agent kit. Installed ROMDex remains 0.5.14; current production maps and credentials are unchanged. Fresh accepted adoption remains RD10.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
-**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). RD10 is authorized and in progress under the October 19 PASSKEY. The original accepted source data is retained, with strict one-map files as subsequently instructed; [scoped preview](RD10-Scoped-Adoption-Preview.md). Complete backup/restoration, a fresh baseline check and installed acceptance remain required. Production remains 0.5.14. After Phase 6 and successful installer execution, deliver the requested plain-English extraction/tooling report and evaluate a built-in RDX compiler. U21 remains outside this PASSKEY.
+**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). **Phase 6 is complete.** RD10 is verified in installed ROMDex 0.5.15 with three strictly separate map files, unchanged existing NPCD identities, fresh backup/restoration and all saved connections preserved. [Completion report](RD10-Completion-Report.md), [requested tooling report](Phase-6-RDX-Authoring-Report.md). **U21 — Sol / High** is next and requires a new PASSKEY.
 
 ## Working Agreement
 
@@ -205,7 +205,7 @@ Execute RD01 → RD02 → RD03, with a separate PASSKEY and completion report fo
 | RD09 — Agent Authoring and Portable Workflow Guide | **Complete:** [report](RD09-Completion-Report.md). Versioned schemas/examples, portable Node 24 authoring kit and pack/unpack/validate instructions cover ROM extraction, task plans, JSON Map Packages, returned map `.rdx`, stable IDs, exact assets and human testing. | Agent can generate a valid fixture without app-side AI; another instance imports a self-contained document. Distinguish fixture proof from real ROM/source extraction. Document existing-data export/adoption without re-migration. | Sol / Medium |
 | RD10 — Adopt RDX for All Existing Maps | After the RD07 end-to-end proof, capture a fresh authoritative snapshot and complete protected backup; preview one managed `.rdx` per existing map with required shared dependencies. Obtain acceptance before switching all working maps to the document model. | Exact current/proposed text, images, flags, notes, history, testing and queued edits survive. Retain NPCD identities and three credentials; verify each map file against backend content and prove restoration. No destructive backend rebuild or replacement from an old baseline. | Sol / High |
 
-**Milestone D:** The test `.rdx` passes import/YouTrack mapping and local/native two-way change checks; all existing maps then adopt managed `.rdx` files through the accepted RD10 preview. Maps/plans remain portable with optional cloud publication. File icons use the original Pokéball art. Full integrated installed acceptance remains U28–U30.
+**Milestone D — Verified Complete, October 19, 2026:** The test `.rdx` passes import/YouTrack mapping and local/native two-way change checks; all existing maps then adopt managed `.rdx` files through the accepted RD10 preview. Maps/plans remain portable with optional cloud publication. File icons use the original Pokéball art. Full integrated installed acceptance remains U28–U30.
 
 ## Phase 7 — JSON Map Packages and Actionable Tasks
 
@@ -278,7 +278,7 @@ Scheduled after U30 so notifications do not delay cloud persistence or the packa
 
 Tasks later in the plan are provisional until their design checkpoints are completed. Current desktop/cloud behavior remains available while the content architecture is reviewed and proved. Earlier completion narratives below are historical checkpoints; the status and checklist at the top control current execution.
 
-**Current boundary:** RD01 is approved; RD02–RD07 are source-complete and the real isolated RDX two-way proof has passed. Installed 0.5.14, current production maps, live Data/queue and credentials remain unchanged. RD08 is complete, including its authorized pixel application-icon revision and native acceptance. RD09 is complete with the independently verified portable guide/kit. Next: RD10, Sol / High, under a new PASSKEY and fresh accepted preview. RD10 must explicitly adopt existing NPCD identities after a fresh accepted preview; the new-map creation route must not recreate the production tree. Subsequent task-result/testing gates remain mandatory.
+**Current boundary:** RD01–RD10 are complete within their approved scopes. The real isolated import/YouTrack/two-way proof passed before all three existing maps adopted managed one-map RDX working files in 0.5.15. Shared/global content and protected recovery remain separate. **U21** begins Phase 7 only after a new PASSKEY. Task-bound returned-file reconciliation and human testing gates remain mandatory later work.
 
 
 ## R08 — Release Completed, October 14, 2026

@@ -1,3 +1,5 @@
+> Historical preparation checkpoint. Installed acceptance is now recorded in [RD10-Completion-Report.md](RD10-Completion-Report.md).
+
 # RD10 — Prepared — Awaiting Current-Data Handoff
 
 RD10 is not complete and production remains on 0.5.14. The source version is 0.5.15. No live Data or NPCD records have been changed by RD10 preparation.

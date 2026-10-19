@@ -1,0 +1,233 @@
+{
+  "task": "RD10",
+  "status": "complete",
+  "version": "0.5.15",
+  "completedAt": "2026-10-19T12:36:46.577Z",
+  "candidate": {
+    "task": "RD10",
+    "version": "0.5.15",
+    "at": "2026-10-19T12:24:07.913Z",
+    "status": "passed",
+    "rdxRegressionTests": 186,
+    "finalFocusedAdoptionTests": 9,
+    "focusedPreviewTests": 1,
+    "nativeChecks": 6,
+    "syntaxFiles": 145,
+    "applicationFiles": 238,
+    "packageFiles": 310,
+    "installer": {
+      "path": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\ROMDex-Installer-0.5.15\\ROMDex-0.5.15-x64.msi",
+      "bytes": 162138374,
+      "sha256": "de7a40983d8282a9e1ac1e941719420432b3c8682e1e770c35faddaf736a00a5"
+    },
+    "oneMapPerFile": true,
+    "productionChanged": false
+  },
+  "native": {
+    "task": "RD10",
+    "scope": "Packaged Electron, isolated adopted copy, no credentials",
+    "checks": [
+      "Packaged app opens both workspaces and all three maps plus separate Global Dialogue",
+      "The native service restores three adopted RDX identities and checkpoints",
+      "Opening an adopted map restores its selector and refreshes the shell save/quit binding",
+      "The real Tray 2 menu exports the selected map as a verified one-map file",
+      "Original current-content view and separate shared collection remain available after export",
+      "Normal quit checkpoints the unsent isolated edit without needing a connection"
+    ],
+    "status": "passed",
+    "version": "0.5.15",
+    "productionDataChanged": false,
+    "credentialsUsed": false,
+    "exportBytes": 185623,
+    "at": "2026-10-19T12:24:07.634Z"
+  },
+  "backup": {
+    "task": "RD10",
+    "stage": "Complete Data backup and isolated restoration acceptance",
+    "startedAt": "2026-10-19T12:31:29.211Z",
+    "remoteWrites": 0,
+    "freshBaseline": {
+      "head": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+      "domainSHA256": "e985de82792f8cddc247a1dab0bf27da580be538a17cf62a0f557e24033d8c5b",
+      "localAndRemoteMatch": true,
+      "queue": 0,
+      "review": 0,
+      "requests": 282
+    },
+    "status": "passed",
+    "backup": "outputs/RD10-Protected-Data-Backup",
+    "filesPreserved": 121,
+    "bytesPreserved": 192524906,
+    "isolatedRestoreHashesMatch": true,
+    "currentDataUntouched": true,
+    "threeCredentialsRestoredWithoutEntry": true,
+    "content": {
+      "head": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+      "acceptedHead": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+      "revision": 125,
+      "records": 211,
+      "pendingEdits": 0,
+      "snapshotSHA256": "88712fd2322d8ecd0116630c91e861ce0cd41696dff51c24757b80413d91ca69"
+    },
+    "tasks": 299,
+    "orderEntries": 104,
+    "savedParentStatuses": 78,
+    "assignedStatusRecords": 319,
+    "metadataSHA256": "5fcd94cc20913109865cafe84b2f112390041c752b89b56999ca31cad5b467f2",
+    "finishedAt": "2026-10-19T12:33:07.104Z"
+  },
+  "deployment": {
+    "task": "RD10",
+    "startedAt": "2026-10-19T12:34:56.576Z",
+    "status": "installed",
+    "version": "0.5.15",
+    "exitCode": 0,
+    "filesPreservedExactly": 121,
+    "bytesPreserved": 192524906,
+    "applicationHashesVerified": 310,
+    "backup": "outputs/RD10-Protected-Data-Backup",
+    "adoption": {
+      "task": "RD10",
+      "stage": "Activate accepted one-map files using installed code",
+      "remoteWrites": 0,
+      "status": "passed",
+      "sourceHead": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+      "domainSHA256": "e985de82792f8cddc247a1dab0bf27da580be538a17cf62a0f557e24033d8c5b",
+      "snapshotSHA256": "b6776e572dbf5e3dcc568a96f93a009b893ff976404a16c430359aac8f681c66",
+      "records": 211,
+      "files": [
+        {
+          "mapRecordId": "content:map-6f46596ba749602286e0e6f205b28fd5",
+          "name": "New Bark Town",
+          "path": "C:\\Users\\mrgen\\AppData\\Local\\ROMDexDesktop\\Data\\thegobindsingh-PMON\\RDX\\working\\f43040a1071e18840f42f31817a7406192e360bd1c1d55a12bd7c97eca94d4c3.rdx",
+          "revision": "a42dd188f19893f718a52718f0c1734fd1047d1a69fc1250fe9808b6e7bdca9f",
+          "sha256": "55dc2a300cad480b932e456f08a4d345c5c37f462a68703fb0539670058d5fbf",
+          "bytes": 540642
+        },
+        {
+          "mapRecordId": "content:map-02fad93088dbfffc9bd993beb5246e5a",
+          "name": "Route 29",
+          "path": "C:\\Users\\mrgen\\AppData\\Local\\ROMDexDesktop\\Data\\thegobindsingh-PMON\\RDX\\working\\6c724be0d7bbff3364c6a6c3bfb720675a78c8949e0d6e492d0d1327010f67d1.rdx",
+          "revision": "b8644e63d6c94046362ef0ad00889acaaf6184ab3466d0c2fa1aaf5a8a507409",
+          "sha256": "bf59c02fb01f75b0507f270ed88c824f37faf722a72deeb00dad016a4ef4f57e",
+          "bytes": 185623
+        },
+        {
+          "mapRecordId": "content:map-cdb040dd26bba56fabaa5bf701194795",
+          "name": "Cherrygrove City",
+          "path": "C:\\Users\\mrgen\\AppData\\Local\\ROMDexDesktop\\Data\\thegobindsingh-PMON\\RDX\\working\\5e820e54fb72f90edd249f935ed2004a1dc40d139cdd769f7361e0505a67cba2.rdx",
+          "revision": "42ebf3b0633391cfff15ed01dacdc68163c4431d8ead4c44a22c6ac27d20af80",
+          "sha256": "9fe76ffd27be3804ecaef1bfca6b24ccdd10f0e34bea246aedad960ec4f3d193",
+          "bytes": 338835
+        }
+      ],
+      "existingNativeJournalPreserved": true,
+      "remoteRequests": 0,
+      "at": "2026-10-19T12:35:42.738Z"
+    },
+    "startupReport": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\rd10\\current-startup-1792413324331.json",
+    "pid": 3352,
+    "utilityPid": 14704,
+    "fixture": false,
+    "contentProvider": true,
+    "inspectorEnabled": false,
+    "privateReleaseUrl": "https://github.com/GenericCola/ROMDex/releases/tag/v0.5.15",
+    "finishedAt": "2026-10-19T12:35:51.118Z"
+  },
+  "activation": {
+    "task": "RD10",
+    "stage": "Activate accepted one-map files using installed code",
+    "remoteWrites": 0,
+    "status": "passed",
+    "sourceHead": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+    "domainSHA256": "e985de82792f8cddc247a1dab0bf27da580be538a17cf62a0f557e24033d8c5b",
+    "snapshotSHA256": "b6776e572dbf5e3dcc568a96f93a009b893ff976404a16c430359aac8f681c66",
+    "records": 211,
+    "files": [
+      {
+        "mapRecordId": "content:map-6f46596ba749602286e0e6f205b28fd5",
+        "name": "New Bark Town",
+        "path": "C:\\Users\\mrgen\\AppData\\Local\\ROMDexDesktop\\Data\\thegobindsingh-PMON\\RDX\\working\\f43040a1071e18840f42f31817a7406192e360bd1c1d55a12bd7c97eca94d4c3.rdx",
+        "revision": "a42dd188f19893f718a52718f0c1734fd1047d1a69fc1250fe9808b6e7bdca9f",
+        "sha256": "55dc2a300cad480b932e456f08a4d345c5c37f462a68703fb0539670058d5fbf",
+        "bytes": 540642
+      },
+      {
+        "mapRecordId": "content:map-02fad93088dbfffc9bd993beb5246e5a",
+        "name": "Route 29",
+        "path": "C:\\Users\\mrgen\\AppData\\Local\\ROMDexDesktop\\Data\\thegobindsingh-PMON\\RDX\\working\\6c724be0d7bbff3364c6a6c3bfb720675a78c8949e0d6e492d0d1327010f67d1.rdx",
+        "revision": "b8644e63d6c94046362ef0ad00889acaaf6184ab3466d0c2fa1aaf5a8a507409",
+        "sha256": "bf59c02fb01f75b0507f270ed88c824f37faf722a72deeb00dad016a4ef4f57e",
+        "bytes": 185623
+      },
+      {
+        "mapRecordId": "content:map-cdb040dd26bba56fabaa5bf701194795",
+        "name": "Cherrygrove City",
+        "path": "C:\\Users\\mrgen\\AppData\\Local\\ROMDexDesktop\\Data\\thegobindsingh-PMON\\RDX\\working\\5e820e54fb72f90edd249f935ed2004a1dc40d139cdd769f7361e0505a67cba2.rdx",
+        "revision": "42ebf3b0633391cfff15ed01dacdc68163c4431d8ead4c44a22c6ac27d20af80",
+        "sha256": "9fe76ffd27be3804ecaef1bfca6b24ccdd10f0e34bea246aedad960ec4f3d193",
+        "bytes": 338835
+      }
+    ],
+    "existingNativeJournalPreserved": true,
+    "remoteRequests": 0,
+    "at": "2026-10-19T12:35:42.738Z"
+  },
+  "installed": {
+    "task": "RD10",
+    "mode": "Read-only installed acceptance",
+    "startedAt": "2026-10-19T12:35:51.288Z",
+    "remoteWrites": 0,
+    "native": {
+      "views": 198,
+      "collections": 4,
+      "records": 211,
+      "originalExportNotRead": true
+    },
+    "version": "0.5.15",
+    "tasks": 299,
+    "orderEntries": 104,
+    "savedParentStatuses": 78,
+    "priorOperationsPreserved": 32,
+    "priorObjectHashesPreserved": true,
+    "originalDraftPreserved": true,
+    "pending": 0,
+    "review": 0,
+    "nativeTree": true,
+    "head": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+    "threeCredentialCiphertextsUnchanged": true,
+    "threeCredentialsUnlockedWithoutEntry": true,
+    "managedMaps": {
+      "count": 3,
+      "oneMapPerFile": true,
+      "exactBackendDomain": true,
+      "allCheckpointsSaved": true,
+      "sourceHead": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+      "records": 211,
+      "sharedContextSeparate": true
+    },
+    "status": "passed",
+    "liveYouTrackOwnerAndRestrictedRegistryVerified": true,
+    "privateUpdateAccessVerified": true,
+    "finishedAt": "2026-10-19T12:35:58.563Z"
+  },
+  "publication": {
+    "startedAt": "2026-10-19T12:33:07.383Z",
+    "status": "passed",
+    "repository": "GenericCola/ROMDex",
+    "private": true,
+    "commit": "cbbbc196747846b6955621ff780a80fbb9140759",
+    "releaseId": "417270257",
+    "url": "https://github.com/GenericCola/ROMDex/releases/tag/v0.5.15",
+    "version": "0.5.15",
+    "installer": {
+      "bytes": 162138374,
+      "sha256": "de7a40983d8282a9e1ac1e941719420432b3c8682e1e770c35faddaf736a00a5",
+      "assetId": "656224888"
+    },
+    "keyId": "6b407cf8c962677653659eab74772e72b92323f1e47c8c4c63bd6ea6eb17a49e",
+    "authenticatedRemoteDownloadVerified": true,
+    "publisherTokenStoredInApp": false,
+    "finishedAt": "2026-10-19T12:34:56.453Z"
+  }
+}
