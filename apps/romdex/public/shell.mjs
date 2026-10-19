@@ -9,6 +9,7 @@ import {BrowserWorkspaceStorage} from './workspace-runtime.mjs';
 import {SaveCoordinator} from './save-coordinator.mjs';
 import {saveNeedsAttention,planNeedsReview} from './core.mjs';
 import {sharedSyncStatus,renderSyncDetails} from './shared-sync-status.mjs';
+import {mountNativeRdx} from './native-rdx.mjs';
 const $=id=>document.getElementById(id);let notification,npc=null,npcError=null,nativeError=null,checkpointTimer;
 function tell(message){$('shell-status').textContent=message;$('shell-status').hidden=false;clearTimeout(notification);notification=setTimeout(()=>$('shell-status').hidden=true,8000);}
 const desktop=window.romdexDesktop;const native=desktop?new DesktopWorkspace(desktop):new Workspace();window.romdexApplication={native};
@@ -55,3 +56,4 @@ window.addEventListener('resize',()=>host.resize());window.romdexShell={host,coo
 await coordinator.init().catch(error=>{coordinator.storageError=error.message;coordinator.emit();});
 try{await native.init();await host.activate('romdex');}catch(error){nativeError=error.message;tell(error.message);}
 try{if(nativeError)await host.activate('npcdex');else await host.load('npcdex');host.resize();}catch(error){npcError=error.message;tell(error.message);}finally{$('shell-loading').hidden=true;mirror();if(desktop)desktop.profileInfo().then(info=>{if(!info.migrated)tell('Isolated Desktop Verification Profile · Your Live Saves Are Separate.');}).catch(()=>{});}
+if(desktop)window.romdexNativeRdx=mountNativeRdx({desktop,host,tell});

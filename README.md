@@ -2,7 +2,7 @@
 
 Private development home for ROMDex and its NPCDex add-on.
 
-Latest published private release: [ROMDex 0.5.14](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.14). Installed and verified with the native NPCD transition committed, its queue empty, current content and all saved connections preserved. [U20I completion report](docs/project/U20I-Completion-Report.md). The RDX roadmap now precedes U21: RD01 is approved; RD02–RD07 are source-complete without changing installed production maps; the real isolated RDX two-way proof has passed. Next: **RD08 — Windows RDX File Integration, Sol / Medium**, after a new PASSKEY. [RD07 report](docs/project/RD07-Completion-Report.md).
+Latest published private release: [ROMDex 0.5.14](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.14). Installed and verified with the native NPCD transition committed, its queue empty, current content and all saved connections preserved. [U20I completion report](docs/project/U20I-Completion-Report.md). The RDX roadmap now precedes U21: RD01 is approved; RD02–RD08 are source-complete without changing installed production maps. The real isolated RDX two-way proof and Windows file/installer integration have passed. Next: **RD09 — Agent Authoring and Portable Workflow Guide, Sol / Medium**, after a new PASSKEY. [RD08 report](docs/project/RD08-Completion-Report.md).
 
 - **apps/romdex/** — current application source, desktop host, web UI and tests.
 - **packages/tool-suite-ui/** — reusable suite assets, including the Standard Settings Icon.

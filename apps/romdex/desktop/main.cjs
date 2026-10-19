@@ -13,12 +13,14 @@ app.setPath('userData',sessionBase);app.setPath('sessionData',sessionBase);
 let updater,updateState;
 let win,service,tray,lease,lifecycle,rendererRecovery,quitting=false,shellReady=false,firstClose=false;
 let trayState={active:'romdex',enabled:true,ready:false,busy:false};
+let rdxOpen;
+const pendingRdxLaunches=[[process.argv,process.cwd(),app.isPackaged?1:2]];
 const rpc=(command,args=[])=>service?service.call(command,args):Promise.reject(Error('Desktop Service Is Starting.'));
 const hasInstance=app.requestSingleInstanceLock();
 let sessionMigrationError;
 if(hasInstance&&!qa){try{require('./session-migration.cjs').prepareSessionKey({sourceProfile:path.join(accountData,'ROMDexDesktopData/thegobindsingh-PMON'),sourceSession:path.join(accountData,'ROMDexDesktopData/sessions/thegobindsingh-PMON'),destinationProfile:base,destinationSession:sessionBase});}catch(error){sessionMigrationError=error;}}
 function showWindow(){if(!win||win.isDestroyed())return;if(win.isMinimized())win.restore();win.show();win.focus();if(rendererRecovery?.failed)rendererRecovery.retry().catch(()=>{});}
-app.on('second-instance',showWindow);app.on('activate',showWindow);
+app.on('second-instance',(_event,argv,cwd)=>{if(rdxOpen)rdxOpen.enqueue(argv,cwd);else pendingRdxLaunches.push([argv,cwd,1]);showWindow();});app.on('activate',showWindow);
 async function main(){
  if(sessionMigrationError)throw sessionMigrationError;
  const {assetPath,trustedURL,contentPolicy,externalURL,validateCall,STORES,ORIGIN}=await import('./policy.mjs');
@@ -46,6 +48,10 @@ async function main(){
  win=new BrowserWindow({title:qa?'ROMDex — Verification Preview':'ROMDex',icon:path.join(__dirname,'app.ico'),width:1440,height:960,minWidth:840,minHeight:600,show:false,backgroundColor:'#a92032',autoHideMenuBar:true,webPreferences:{preload:path.join(__dirname,'preload.cjs'),contextIsolation:true,sandbox:true,nodeIntegration:false,nodeIntegrationInSubFrames:false,webSecurity:true,backgroundThrottling:false,partition:'persist:romdex-desktop-v1'}});
  win.removeMenu();
  function caller(event){if(event.sender!==win.webContents||event.senderFrame!==win.webContents.mainFrame||!trustedURL(event.senderFrame.url)||new URL(event.senderFrame.url).pathname!=='/')throw Error('Untrusted Desktop Caller.');}
+ const {RdxOpenBroker}=await import('./rdx-open.mjs');
+ rdxOpen=new RdxOpenBroker({rpc,changed:()=>{if(win&&!win.isDestroyed())win.webContents.send('romdex:event',{type:'rdx-open'});}});
+ for(const args of pendingRdxLaunches.splice(0))rdxOpen.enqueue(...args);
+ ipcMain.handle('romdex:rdx-open',(event,action,value)=>{caller(event);if(lifecycle?.busy||quitting)throw Error('Wait for the Application Lifecycle Work to Finish.');if(action==='list')return rdxOpen.list();if(action==='inspect'&&typeof value==='string')return rdxOpen.inspect(value);if(action==='dismiss'&&typeof value==='string')return rdxOpen.dismiss(value);if(action==='stage'&&value&&typeof value==='object')return rdxOpen.stage(value);throw Error('Invalid RDX Open Request.');});
  ipcMain.handle('romdex:profile-info',event=>{caller(event);return {migrated:!qa,version:app.getVersion()};});
  ipcMain.handle('romdex:tray-state',(event,state)=>{caller(event);if(!state||!['romdex','npcdex'].includes(state.active)||['enabled','ready','busy'].some(k=>typeof state[k]!=='boolean'))throw Error('Invalid Tray State.');trayState={active:state.active,enabled:state.enabled,ready:state.ready,busy:state.busy};shellReady=true;if(state.ready)rendererRecovery?.ready();rebuildTray();});
  function rebuildTray(){if(tray&&!tray.isDestroyed())tray.setContextMenu(Menu.buildFromTemplate(trayTemplate({...trayState,busy:trayState.busy||!!lifecycle?.busy,quitBusy:!!lifecycle?.busy,updates:updateState,run:runCommand,quit:()=>lifecycle.request()})));}

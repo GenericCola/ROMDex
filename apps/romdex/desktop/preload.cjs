@@ -5,6 +5,7 @@ if(process.isMainFrame){
   call:(method,args=[])=>ipcRenderer.invoke('romdex:call',method,args),
   trayState:state=>ipcRenderer.invoke('romdex:tray-state',state),
   profileInfo:()=>ipcRenderer.invoke('romdex:profile-info'),
+  rdxOpen:(action,value)=>ipcRenderer.invoke('romdex:rdx-open',action,value),
   storage:(mode,key,value)=>ipcRenderer.invoke('romdex:storage',mode,key,value),
   chooseAttachments:id=>ipcRenderer.invoke('romdex:attach',id),
   dropAttachments:(id,files)=>{

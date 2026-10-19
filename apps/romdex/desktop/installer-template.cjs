@@ -6,7 +6,7 @@ function addEmptyFolderCleanup(xml){
  const cleanup=folders.map(([,id])=>'<RemoveFolder Id="Empty_'+createHash('sha256').update(id).digest('hex').slice(0,24)+'" Directory="'+id+'" On="uninstall" />').join('\n');
  return xml.replace('<RemoveFolder Id="ApplicationProgramsFolder"',cleanup+'\n<RemoveFolder Id="ApplicationProgramsFolder"');
 }
-function preserveApplicationData(creator){
+function preserveApplicationData(creator,{association={}}={}){
  let xml=creator.wixTemplate;
  if(!xml.includes('<Component Id="PurgeOnUninstall"')||!xml.includes('<Directory Id="{{ProgramFilesFolder}}">'))throw Error('The Pinned Installer Template Changed; Review Data Preservation Before Building.');
  xml=xml.replace(/<DirectoryRef Id="APPLICATIONROOTDIRECTORY">\s*<Component Id="PurgeOnUninstall"[\s\S]*?<\/DirectoryRef>/,'').replace(/\s*<ComponentRef Id="PurgeOnUninstall"\s*\/>/,'');
@@ -25,5 +25,6 @@ function preserveApplicationData(creator){
  creator.wixTemplate=xml;
  if(typeof creator.create!=='function')throw Error('The Pinned Installer Create Hook Changed.');
  const create=creator.create.bind(creator);creator.create=async()=>{const output=await create();output.wxsContent=addEmptyFolderCleanup(output.wxsContent);await fs.writeFile(output.wxsFile,output.wxsContent);return output;};
+ require('./rdx-association.cjs').registerRdxAssociation(creator,association);
 }
 module.exports={preserveApplicationData,addEmptyFolderCleanup};

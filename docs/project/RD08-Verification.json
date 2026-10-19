@@ -1,0 +1,279 @@
+{
+  "task": "RD08",
+  "status": "passed",
+  "date": "2026-10-19",
+  "sourceChecks": {
+    "focused": 38,
+    "passed": 38,
+    "ui": {
+      "task": "RD08",
+      "status": "passed",
+      "scope": "Headless Chromium against actual local desktop assets; not Windows native proof",
+      "checks": [
+        "Actual NPCDex preview opens from an opaque native transfer without importing",
+        "Actual plan preview opens without local import or publication",
+        "Pending requests preserve an existing draft/modal and keep all 16 entries scrollable above the footer",
+        "Later pauses requests without a repeat-open loop",
+        "No renderer runtime errors or external requests"
+      ],
+      "geometry": {
+        "bodyBottom": 538.5,
+        "footerTop": 550.5,
+        "footerBottom": 584
+      }
+    },
+    "syntax": 10
+  },
+  "icons": {
+    "sizes": [
+      16,
+      24,
+      32,
+      48,
+      64,
+      128,
+      256
+    ],
+    "icons": {
+      "app": {
+        "source": "shared-ui/romdex-pixel.svg",
+        "sourceSHA256": "4bcc7c4424ec65ad6b4fb2a5284d9370699057cc5342ae76e17b36e07639c973",
+        "icoSHA256": "36655b2b66acb932ab4973a85e027e0224a9595deea72c17c69b2d89e16c9c6e",
+        "frames": [
+          {
+            "size": 16,
+            "sha256": "56f362c3351bec19d9c96b383cfbdc04771e7c23b06129062694f1ff3d3b0c0b"
+          },
+          {
+            "size": 24,
+            "sha256": "6cbce49688f28af0f8413f7677cef33cd1fb91b1973f66c3a173982fc5908573"
+          },
+          {
+            "size": 32,
+            "sha256": "4933e8976edb3250738b149d04376620f57f67b8e5f067523dfc55aeb469465f"
+          },
+          {
+            "size": 48,
+            "sha256": "9dd5e9ab00b8557c8092cf2ac7f17f5b860e049a880d0d972a2cb88c5c82e528"
+          },
+          {
+            "size": 64,
+            "sha256": "2b9e78135d32dd9e712c12c1aef7424ab1d476c655ef23d12c847770b8aab603"
+          },
+          {
+            "size": 128,
+            "sha256": "2f380bf4c04d3dca020173505560ab8aea0d35a3cc5161dbd9067e542ca875e4"
+          },
+          {
+            "size": 256,
+            "sha256": "454e1342455c9636f4c99928639ab71e63eb88f5665ab0381a3cf0e56db3d043"
+          }
+        ]
+      },
+      "rdx": {
+        "source": "shared-ui/npcdex-pokeball.svg",
+        "sourceSHA256": "8103c2ea8be0117dad79117f35e2645ad5c7eb4677cb9e521fdd60262d48082c",
+        "icoSHA256": "567df794cada5437d14bbfcd47ff0680363ee83b0b10383a7a8b150295806ad4",
+        "frames": [
+          {
+            "size": 16,
+            "sha256": "ab8a7a9a0f7dac471c167666bb43def206efb081d1d8f03324ef23ccbb90a5b5"
+          },
+          {
+            "size": 24,
+            "sha256": "6ea55b24fdb2ca06c183769f735c5cd1284e87fb236d79ae65156fbb9227644b"
+          },
+          {
+            "size": 32,
+            "sha256": "0dae1bc6d3d02ead856ddba259403993eb7497999529abe5491de7f4a0d5a33b"
+          },
+          {
+            "size": 48,
+            "sha256": "04da87d2dcb986aa2eb47559cd062283a158e8d1b9ff1bcac0958383f498051d"
+          },
+          {
+            "size": 64,
+            "sha256": "db1ee3e87c9923da074048aaeec91d81511d97dc6587922b8ae5aa2cf7dd927d"
+          },
+          {
+            "size": 128,
+            "sha256": "82d819a247b1d1e0e169e6aa66f304b0e4d1b768e682e13e331e59dc11c3b00f"
+          },
+          {
+            "size": 256,
+            "sha256": "66d8e359d264ca514b5b522ce0f436714009e539dd5c764850d4d7f7db1f4258"
+          }
+        ]
+      }
+    }
+  },
+  "preservedOriginalSHA256": {
+    "app.ico": "37fb0ca67ac3a429004677b9221e3e36c019e9a5356056759c6cfd12546479c1",
+    "app.png": "442bd8c2b21ccb3d108b027744652fc672528388ce0570e5877d7da70ce8c1eb",
+    "icon.svg": "490903debe3f322c90b56fe9e08659c2bc79fe2a334271d8e8907f5378de79b7"
+  },
+  "sourceFiles": [
+    {
+      "path": "desktop/main.cjs",
+      "bytes": 17705,
+      "sha256": "e696a39f331c8e9c7431ac5d1f844dc079295e82eaec4af143900c3c00aa81bd"
+    },
+    {
+      "path": "desktop/preload.cjs",
+      "bytes": 1520,
+      "sha256": "0db43a3f05031c689f5bb67bff7f9b9de9e819861dbb2863d98e64785b50a69f"
+    },
+    {
+      "path": "desktop/installer-template.cjs",
+      "bytes": 3705,
+      "sha256": "05e766d593e9f1dfc3b73181d57c7450ab3a0763e183d696553a846b31c797b0"
+    },
+    {
+      "path": "desktop/rdx-open.mjs",
+      "bytes": 3116,
+      "sha256": "e30a4b206bbc229003dd144a01be93894b28312f786f51f933091f21c411e226"
+    },
+    {
+      "path": "desktop/rdx-association.cjs",
+      "bytes": 2461,
+      "sha256": "b89f6df329946ee107e1aeeac98b04326461884376bfcdff1fd4a5f2ca24257f"
+    },
+    {
+      "path": "desktop/app.ico",
+      "bytes": 6332,
+      "sha256": "36655b2b66acb932ab4973a85e027e0224a9595deea72c17c69b2d89e16c9c6e"
+    },
+    {
+      "path": "desktop/app.png",
+      "bytes": 2759,
+      "sha256": "454e1342455c9636f4c99928639ab71e63eb88f5665ab0381a3cf0e56db3d043"
+    },
+    {
+      "path": "desktop/rdx.ico",
+      "bytes": 6093,
+      "sha256": "567df794cada5437d14bbfcd47ff0680363ee83b0b10383a7a8b150295806ad4"
+    },
+    {
+      "path": "desktop/rdx.png",
+      "bytes": 2705,
+      "sha256": "66d8e359d264ca514b5b522ce0f436714009e539dd5c764850d4d7f7db1f4258"
+    },
+    {
+      "path": "desktop/icons-original/app.ico",
+      "bytes": 12971,
+      "sha256": "37fb0ca67ac3a429004677b9221e3e36c019e9a5356056759c6cfd12546479c1"
+    },
+    {
+      "path": "desktop/icons-original/app.png",
+      "bytes": 6216,
+      "sha256": "442bd8c2b21ccb3d108b027744652fc672528388ce0570e5877d7da70ce8c1eb"
+    },
+    {
+      "path": "desktop/icons-original/icon.svg",
+      "bytes": 328,
+      "sha256": "490903debe3f322c90b56fe9e08659c2bc79fe2a334271d8e8907f5378de79b7"
+    },
+    {
+      "path": "desktop/icons-original/README.md",
+      "bytes": 524,
+      "sha256": "70239574db6adf3626625f52b9a3fa01b77cfb0afae14c6d7ee89c6cc6854908"
+    },
+    {
+      "path": "public/icon.svg",
+      "bytes": 588,
+      "sha256": "4bcc7c4424ec65ad6b4fb2a5284d9370699057cc5342ae76e17b36e07639c973"
+    },
+    {
+      "path": "public/native-rdx.mjs",
+      "bytes": 3285,
+      "sha256": "a1747e7856f173b9cc97809e471c6086140d74d649bed3bfa22d4b53630da271"
+    },
+    {
+      "path": "public/shell.mjs",
+      "bytes": 12811,
+      "sha256": "230b21ec001e4278ebec27b9df27d2f0b5c46825876547f26c95220e748695d7"
+    },
+    {
+      "path": "public/plan-import-view.mjs",
+      "bytes": 14133,
+      "sha256": "0b8f9b9dc23a9f378c7d913b7c7a75d199d8ee8bdbdc4602e2a16c7bf662a04a"
+    },
+    {
+      "path": "content/import-ui.js",
+      "bytes": 16921,
+      "sha256": "60e14996f421ee50cea244b15bc89f6f3aeaa757a4419b477b2bb983b757f5df"
+    },
+    {
+      "path": "shared-ui/romdex-pixel.svg",
+      "bytes": 588,
+      "sha256": "4bcc7c4424ec65ad6b4fb2a5284d9370699057cc5342ae76e17b36e07639c973"
+    },
+    {
+      "path": "rdx/WINDOWS-FILES.md",
+      "bytes": 3149,
+      "sha256": "99f9d40a0f1bdd12509c88601832d1cbf8e0217f80c0b5507aa96f769cabef6f"
+    },
+    {
+      "path": "tests/rdx-open.test.mjs",
+      "bytes": 6525,
+      "sha256": "9adb54fb8f745880a197f0649adb026a1bf198641f936639c7d89860784cc2cb"
+    }
+  ],
+  "installedVersion": "0.5.14",
+  "productionDataTouched": false,
+  "credentialsReadOrChanged": false,
+  "gitCommitted": "Commit follows this gated verification; see Git history.",
+  "remaining": [],
+  "nativeWindows": {
+    "packaged": {
+      "task": "RD08",
+      "scope": "Packaged Windows Electron, isolated local fixture; no credentials or production saves",
+      "checks": [
+        "Cold launch routes a spaced/unicode map path to the real NPCDex preview",
+        "Opening alone creates no managed document or cloud binding",
+        "Second native process exits and the original utility/window shows the plan preview",
+        "Open editor modal is preserved and defers the incoming file",
+        "Deferred file resumes after editor closes",
+        "Agent-return file is rejected into review, with no automatic import/testing bypass",
+        "Normal quit checkpoints and closes after native previews"
+      ],
+      "status": "passed"
+    },
+    "registeredLauncher": {
+      "task": "RD08",
+      "status": "passed",
+      "scope": "Actual MSI root launcher, observed through its versioned process after automation bootstrap timeout",
+      "owner": {
+        "pid": 9856,
+        "executable": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\rd08\\installed-fixture\\app-0.5.15\\ROMDex.exe",
+        "qa": "1",
+        "profile": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\rd08\\native-profile"
+      },
+      "checks": [
+        "MSI registered root launcher forwards a spaced/unicode file to the cold-started versioned app and its NPCDex preview",
+        "Installed launcher opens only a preview; no document or cloud binding is created",
+        "Installed fixture checkpoints and quits normally"
+      ]
+    },
+    "installer": {
+      "task": "RD08",
+      "scope": "Disposable per-user MSI installation/upgrade/uninstall; no live app or tokens",
+      "checks": [
+        "MSI links with Windows Installer validation enabled",
+        "Install adds only the fixture handler; existing defaults/UserChoice remain unchanged",
+        "Registered file icon exactly matches the Pokéball ICO",
+        "Installed runtime matches the seven-check tested package; registered root launcher separately passes real cold-start preview/quit checks",
+        "Upgrade preserves Data and refreshes the owned icon path without changing defaults",
+        "Uninstall removes its handler, retains Data and a subsequently added foreign Open With value"
+      ],
+      "status": "passed",
+      "resumedAfter": "Automation lost the MSI bootstrap process; direct observation of the versioned app verified the actual registered cold launch, without repeating installation."
+    }
+  },
+  "harnessNotes": [
+    "Replaced unavailable require in the automation context with controller-side spawning and the supplied Electron app handle.",
+    "The MSI bootstrap handed off to a versioned process; observed that live process directly to prove registered cold launch and normal quit. Continued from the verified install without repeating it."
+  ],
+  "productionReleasePublished": false,
+  "productionInstalled": false
+}

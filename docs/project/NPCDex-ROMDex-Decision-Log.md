@@ -441,3 +441,10 @@ The user supplied PASSKEY for RD07 and launched one normal Windows verification 
 Source adds map publication/binding previews, incremental factored artifacts/history, durable frozen intents, native/branch review and manifest/file caches. PMON native edits fold into managed plans; explicit target matching verifies fields/comments/files before binding. Unknown/unsupported/shared-scope changes stop for review. Agent-result files cannot bypass task-bound reconciliation. Twenty-five new checks passed in the bundled runtime, alongside affected regressions/focused repairs, source-asset UI and desktop-service checks. Existing production records, maps, Data and installed 0.5.14 remain unchanged. [Report](RD07-Completion-Report.md).
 
 The live milestone is met; production adoption is not authorized by it. RD10 must adopt existing NPCD identities after the separate fresh-data acceptance, not recreate them through the new-map path. Next is RD08, Sol / Medium, under a new PASSKEY.
+
+
+## RD08 — Windows File Integration and Application Icon, October 19, 2026
+
+The PASSKEY authorized the existing RD08 scope and a pixel-art rendition of the Pokédex application icon matching the suite Pokéball. Preserve original PNG/ICO/SVG bytes. The .rdx file icon remains the exact original Pokéball, independently of application branding.
+
+Validated OS file opens use ordinary local map/plan previews and the single-instance app. Busy editors are preserved, imports/publication remain explicit, and returned agent results cannot bypass task reconciliation/testing. Register per-user owned ProgID/Open With/capability values; preserve Windows UserChoice, other defaults/handlers and Data. Native and disposable installer acceptance passed. Source-complete; installed production remains 0.5.14. RD09 requires a separate PASSKEY, with Sol / Medium as planned.
