@@ -1578,7 +1578,7 @@
           "items": {
             "$ref": "urn:romdex:npcdex:contracts:1#/$defs/plan"
           },
-          "minItems": 1
+          "minItems": 0
         },
         "observations": {
           "type": "array",

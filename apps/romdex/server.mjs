@@ -6,7 +6,7 @@ import {randomUUID,createHash} from 'node:crypto';
 import {protectCredential} from './credential-protection.mjs';
 import {DurableJSONStorage} from './durable-json-storage.mjs';
 import {Readable} from 'node:stream';
-import {YouTrack} from './youtrack.mjs';
+import {YouTrack,BASE} from './youtrack.mjs';
 import {AssignedStatuses} from './assigned-statuses.mjs';
 import {SyncSettings} from './sync-settings.mjs';
 import {UploadStorage,multipartFile} from './attachment-storage.mjs';
@@ -136,11 +136,11 @@ async function api(req,res,url){
  if(req.method==='POST'&&url.pathname==='/api/sync'){
   const input=await body(req);if(!syncSettings.allows(input.manual)){skipAutomatic(res);return;}await readyClient();
   const operations=input.operations;if(!Array.isArray(operations)||operations.length>1000)throw new Error('Invalid queue.');
-  const completed=[],mapping={},deletedAttachments=[];let blocked=null;
-  for(const op of operations){try{const result=await processOp(op,mapping);if(result.conflicts||result.uncertain){blocked={opId:op.opId,...result};break;}completed.push(op.opId);if(result.deletedAttachment)deletedAttachments.push(result.deletedAttachment);Object.assign(mapping,result.mapping||{});}catch(e){blocked={opId:op.opId,error:e.message,confirmedFields:journal[op.opId]?.confirmedFields||[],tagProgress:journal[op.opId]?.tagsApplied||[]};break;}}
+  const completed=[],mapping={},deletedAttachments=[],attachmentResults={};let blocked=null;
+  for(const op of operations){try{const result=await processOp(op,mapping);if(result.conflicts||result.uncertain){blocked={opId:op.opId,...result};break;}completed.push(op.opId);if(result.attachment)attachmentResults[op.opId]=result.attachment;if(result.deletedAttachment)deletedAttachments.push(result.deletedAttachment);Object.assign(mapping,result.mapping||{});}catch(e){blocked={opId:op.opId,error:e.message,confirmedFields:journal[op.opId]?.confirmedFields||[],tagProgress:journal[op.opId]?.tagsApplied||[]};break;}}
   let items=null,error=null;
   try{if(!blocked)await requireClient().derivedStatuses();items=await requireClient().all();}catch(e){error=e.message;}
-  return send(res,200,{completed,mapping,blocked,items,error,deletedAttachments,at:Date.now(),...syncStatus()});
+  return send(res,200,{completed,mapping,blocked,items,error,deletedAttachments,attachmentResults,at:Date.now(),...syncStatus()});
  }
  if(req.method==='POST'&&url.pathname==='/api/acknowledge'){
   const {opId,action,issueId,manual}=await body(req);if(!syncSettings.allows(manual)){skipAutomatic(res);return;}
@@ -186,4 +186,5 @@ async function dispatchLocal(route,{method='GET',bytes,headers={}}={}){
 }
 async function verifyDesktopConnection(){const items=await (await readyClient()).all();return {items,...syncStatus()};}
 async function releaseDeliverySettings(){const yt=await readyClient(),healthy=yt.healthy;try{const value=await yt.request('admin/globalSettings/systemSettings?fields=maxUploadFileSize');return {maxUploadFileSize:Number.isSafeInteger(value?.maxUploadFileSize)?value.maxUploadFileSize:null,storageCapacityVerified:false};}catch(error){return {maxUploadFileSize:null,status:error.status||null,reason:'The Current Connection Cannot Read the Server Upload Setting.',storageCapacityVerified:false};}finally{yt.healthy=healthy;}}
-export {server,protectCredential,dispatchLocal,verifyDesktopConnection,releaseDeliverySettings};
+async function desktopPackageTarget(id){return serialized(async()=>{const yt=await readyClient();const item=await yt.require(id);return {instanceOrigin:BASE,projectId:yt.projectId,issueId:item.dbId,issueKey:item.id};});}
+export {server,protectCredential,dispatchLocal,verifyDesktopConnection,releaseDeliverySettings,desktopPackageTarget};

@@ -16,7 +16,7 @@ Use `.json`, with format `NPCDexMapPackage/2`. Its human-readable fields are als
 | `datasetId`, `baseDocument`, `mapRecordId` | Exact portable lineage and map/document revision the work was planned against. |
 | `source` | Source repository/revision and extraction/inventory evidence hash, with its evidence level. State what artifact each hash covers. |
 | `contextRecords`, `mappings` | Exact baseline/read context and unambiguous versioned ROM locators. |
-| `requests` | Selected, pinned `NPCDexPlanRevision/1` versions and their baseline/read sets, patches, instructions and required assets. Only selected ready work may be executed after handoff. |
+| `requests` | Selected, pinned `NPCDexPlanRevision/1` versions and their baseline/read sets, patches, instructions and required assets. Selected non-FINAL work defines the requested scope after a separate human handoff; internal Draft/Ready metadata is not an extra user gate. A context-only package may have no requests. |
 | `observations` | Contextual flags/notes/testing observations. They are not commands to change the ROM. |
 | `groups` | Dependency groups, plan digests, read sets, allowed write records, prerequisite groups and acceptance checks. |
 | `assets` | Exact hashes, sizes, MIME types and durable YouTrack instance/project/issue/attachment identities. |
@@ -36,7 +36,9 @@ Every asset needed by the agent must be accessible on YouTrack through verified 
 
 ## The Agent's Execution Checklist
 
-After the separate human handoff, obtain the exact attached package, its binding, latest permitted base RDX and all required YouTrack assets. Verify file hashes, source revision/toolchain, identity/mapping evidence, ready request versions and dependency groups. Resolve each locator uniquely against the actual source before touching the ROM. Missing/ambiguous resources, stale bases, unready requests or inaccessible assets need clarification.
+After the separate human handoff, obtain the exact attached package, its binding and all required YouTrack assets. Verify file hashes, source revision/toolchain, identity/mapping evidence, selected request versions and dependency groups. Resolve each locator uniquely against the actual source before touching the ROM. Missing/ambiguous resources, stale bases or inaccessible assets need clarification. FINAL decisions, flags and notes never authorize changes. A context-only package explicitly authorizes no ROM changes.
+
+U21 keeps the complete working RDX local so unchecked proposals, observations and history do not leak through a baseline attachment. The fixed JSON supplies current content records, mapping evidence and selected artifacts, plus verified asset locations. The original immutable RDX revision is pinned locally for reconciliation. Do not assume private GitHub access or treat omitted plans/notes as deletions. U23–U27 must preserve the original local presentation/history and newer or excluded drafts when accepting an agent result; this source implementation does not enable that receiver.
 
 Implement only the assigned package scope. Preserve unrelated ROM content, newer NPCDex drafts and histories. Independent groups can be reported incrementally. A shared scene and its participants must return as a complete dependent group; partial success cannot silently publish half the scene. Do not update NPCD directly as the normal result route. Prepare an updated map RDX and attach it to the **same actionable task**; ROMDex's later receiver owns accepted NPCD/working-file reconciliation.
 

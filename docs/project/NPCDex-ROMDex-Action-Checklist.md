@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** **Phase 6 and RD10 are complete**, verified October 19 in installed ROMDex **0.5.15**. Three separate managed map files retain all existing NPCD identities and accepted content; complete backup/restoration, private release, saved credentials and reopened installed acceptance passed. [Completion report](RD10-Completion-Report.md), [tooling report](Phase-6-RDX-Authoring-Report.md). **Next: U21 — Sol / High; await a new PASSKEY.**
+**Current:** **U21 is complete in source**, verified October 19 with 197 targeted tests, five native desktop checks and six isolated real YouTrack checks. Fixed JSON map packages use familiar CHANGE/REMOVE/FINAL selection, context-only support and explicit existing/new task attachment. [Completion report](U21-Completion-Report.md). Installed ROMDex remains **0.5.15**; U21 is not installed until a later packaged release. **Next: U22 — Sol / High; await a new PASSKEY.**
 
 ## Completed Foundation
 
@@ -89,7 +89,7 @@
 
 ## Phase 6 — Managed Documents, Imports and Cloud Publication
 
-- [x] **RD04 — Local Managed Documents and Portable Export** — Sol / High. **Source-complete and verified.** [Report](RD04-Completion-Report.md), [evidence](RD04-Verification.json), [guide](ROMDex/rdx/MANAGED-DOCUMENTS.md). Data/RDX service/CLI, durable journal, atomic working checkpoints/recovery and offline portable export. 107 focused checks; 31 managed checks under bundled runtime, plus seven final provenance rechecks in both. Existing maps/UI/installed app unchanged; integration/adoption remain later tasks.
+- [x] **RD04 — Local Managed Documents and Portable Export** — Sol / High. **Source-complete and verified.** [Report](RD04-Completion-Report.md), [evidence](RD04-Verification.json), [guide](../../apps/romdex/rdx/MANAGED-DOCUMENTS.md). Data/RDX service/CLI, durable journal, atomic working checkpoints/recovery and offline portable export. 107 focused checks; 31 managed checks under bundled runtime, plus seven final provenance rechecks in both. Existing maps/UI/installed app unchanged; integration/adoption remain later tasks.
 - [x] **RD05 — NPCDex Map Import and Update Preview** — Sol / High. One map per input; stable-ID update previews, shared dependencies and newer-draft protection. Complete snapshots may propose archival of covered omissions; partial files imply no removal. Preserve original UI and archive history.
 - [x] **RD06 — ROMDex Plan Import and Destination Mapping** — Sol / High. User-selected PMON destination; preview tier changes, retain complete subtrees and map editable fields/comments/attachments. Omitted tasks survive; explicit deletion is reviewed. Idempotent restart/reimport, no implicit publish or dispatch. Source-complete October 18; [report](RD06-Completion-Report.md). Live proof remains RD07.
 - [x] **RD07 — Document Bindings and Bidirectional Cloud Sync** — Sol / High. Source-complete October 19; [report](RD07-Completion-Report.md). Explicit bindings, incremental delivery, native map/plan pullback and review/recovery. **Live acceptance passed:** a compressed test file imported, mapped to eleven real isolated NPCD records, accepted local and native changes, and retained both after reopen/export and second-instance readback. Shared controls and credentials preserved; installed production data unchanged.
@@ -112,7 +112,7 @@ RD10 execution checklist:
 
 ## Phase 7 — JSON Map Packages and Actionable Tasks
 
-- [ ] **U21 — Map Document Preview and Task Attachment** — Sol / High. After RD01–RD10: readable immutable `.json` Map Package, whole-map pending work preselected, stable ROM targets/base hashes/instructions and accessible YouTrack asset references. Existing/new task chooser, explicit attach, duplicate-safe retry; newer drafts preserved and no agent dispatch.
+- [x] **U21 — Map Document Preview and Task Attachment** — Sol / High. After RD01–RD10: readable immutable `.json` Map Package, whole-map pending work preselected, stable ROM targets/base hashes/instructions and accessible YouTrack asset references. Existing/new task chooser, explicit attach, duplicate-safe retry; newer drafts preserved and no agent dispatch. Completed October 19 in source; [report](U21-Completion-Report.md). No hidden Draft/Ready gate; FINAL/flags/notes stay context, and context-only packages are allowed.
 - [ ] **U22 — Linked Navigation and Package Progress** — Sol / High. Exact task/map/package links and per-item/group progress; distinguish staged, attached, implemented and awaiting testing. No implicit task completion.
 
 ## Phase 8 — Returned RDX Reconciliation, Review and Testing

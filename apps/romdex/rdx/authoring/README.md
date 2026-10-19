@@ -20,9 +20,9 @@ Create files with the shipped packer: modern RDX uses the `ROMDXR01` framing, no
 
 ## Working Today and Later Gates
 
-RD03–RD08 have source implementations and isolated verification: container tools, managed files, map/plan import previews, explicit publication/bindings, accepted two-way changes and Windows file integration. The installed production release remains **0.5.14** at this checkpoint. These new tools can be used locally from the kit/source; that installed release is not claimed to support the new RDX menus.
+RD03–RD10 are complete. Installed **0.5.15** supports managed one-map RDX storage, imports, explicit cloud publication and Windows file integration. Existing production maps have adopted individual managed RDX files while preserving NPCD identities and history.
 
-Existing production maps are adopted under **RD10**, after a fresh backup and accepted preview preserving existing NPCD identities. **U21** implements the JSON package selection/task-attachment interface. **U23–U27** finalize execution identity, returned-file discovery, validated reconciliation and human testing. The reference package/return examples describe those approved contracts; they do not enable future automation. Ordinary file import currently rejects agent-result files.
+**U21** adds fixed JSON package selection/task attachment in source; it is not installed until a later release. See [Package Map Changes](../MAP-PACKAGES.md) for the controls and boundaries. **U23–U27** finalize execution identity, returned-file discovery, validated reconciliation and human testing. The reference package/return examples describe those approved contracts; they do not enable future automation. Ordinary file import rejects agent-result files.
 
 ## Ten-Minute Local Exercise
 

@@ -52,3 +52,15 @@
 
 .content-import-dialog .editor-body{flex:1}.content-import-dialog .confirm-import{background:var(--yellow);color:var(--screen);font-weight:700}.content-import-dialog table{width:100%;border-collapse:collapse}.content-import-dialog th,.content-import-dialog td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--line)}
 .content-import-dialog pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:240px;overflow:auto}.content-import-dialog section{margin:16px 0;padding:12px;border:1px solid var(--line);border-radius:8px}.content-import-dialog input[type=checkbox]{width:18px;height:18px;display:inline-block;margin-right:8px}
+
+/* Package staging reuses the bounded original editor frame and fixed footer. */
+.map-package-dialog .map-package-entry{margin:12px 0;padding:12px;border:1px solid var(--line);border-radius:8px}
+.map-package-dialog .map-package-entry label,.map-package-dialog .map-package-approval{display:flex;align-items:center;gap:8px}
+.map-package-dialog input[type=checkbox]{width:18px;height:18px;flex:0 0 18px;margin:0}
+.map-package-dialog .map-package-entry p{white-space:pre-wrap;overflow-wrap:anywhere;margin:8px 0}
+.map-package-dialog .map-package-destination{margin:16px 0;padding:12px;border:1px solid var(--line);border-radius:8px}
+.map-package-dialog .map-package-warning{color:var(--yellow);white-space:pre-wrap}
+.map-package-dialog .confirm-import{background:var(--yellow);color:var(--screen);font-weight:700}
+.map-package-dialog footer{flex-wrap:wrap}
+.map-package-dialog .map-package-tag{font-size:11px;border:1px solid currentColor;border-radius:3px;padding:2px 6px;white-space:nowrap}
+.map-package-dialog .map-package-tag.final{color:#a8dbb2}.map-package-dialog .map-package-tag.update{color:#f4c55b}.map-package-dialog .map-package-tag.remove{color:#ff9299}

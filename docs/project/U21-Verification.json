@@ -1,0 +1,169 @@
+{
+  "task": "U21",
+  "status": "passed",
+  "completion": "source-only",
+  "installedVersion": "0.5.15",
+  "productionDataChanged": false,
+  "regressionTests": 197,
+  "focusedFinalPlanRecheck": 1,
+  "syntaxChecks": [
+    "rdx/map-package.mjs",
+    "rdx/map-package-workspace.mjs",
+    "public/map-package-queue.mjs",
+    "public/core.mjs",
+    "public/shell.mjs",
+    "server.mjs",
+    "desktop/service.mjs",
+    "content/map-packages.js",
+    "content/desktop-assets.mjs",
+    "content/import-ui.js",
+    "tests/map-package.test.mjs"
+  ],
+  "native": {
+    "task": "U21",
+    "scope": "Actual source desktop, isolated map and synthetic task, no credentials or network writes",
+    "checks": [
+      "Tray 2 Content Tools opens real whole-map preview with familiar tags, readable paths and all entries selected",
+      "Excluding requests and reviewing retains notes-only scope with a prominent context-only notice",
+      "At 620px window height the body scrolls above a separate footer; controls do not overlap",
+      "Explicit confirmation stages a fixed package locally while Auto-Sync stays Off; Escape closes the dialog",
+      "Native orderly quit persists the package ledger and staged files without a credential or production write"
+    ],
+    "geometry": {
+      "bodyBottom": 388.703125,
+      "footerTop": 400.703125,
+      "dialogTop": 8,
+      "dialogBottom": 469,
+      "viewport": 477
+    },
+    "status": "passed",
+    "profile": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u21\\native-G5apYn"
+  },
+  "liveYouTrack": {
+    "task": "U21",
+    "scope": "Real PMON task creation and exact attachment readback using synthetic map data only",
+    "checks": [
+      "Remembered credential opens only uniquely marked, owner-private QA task destinations",
+      "Real disk restart delivers assets, JSON and byte-binding through the native upload journal with Auto-Sync Off",
+      "Downloaded JSON, binding and every image match exact hashes; existing task description, assignment, status and priority remain unchanged",
+      "Repeated confirmation and delivery do not create duplicate task attachments",
+      "A second fixed context-only package attaches without authorizing any ROM change",
+      "Explicit new-task destination creates one private QA child under the chosen QA parent"
+    ],
+    "existingTasksChanged": false,
+    "productionSavesChanged": false,
+    "cleanup": [
+      {
+        "issueId": "PMON-328",
+        "status": "deleted-owned-synthetic-record"
+      },
+      {
+        "issueId": "PMON-327",
+        "status": "deleted-owned-synthetic-record"
+      }
+    ],
+    "packages": [
+      {
+        "version": 1,
+        "issueId": "PMON-327",
+        "packageHash": "eecea11ace88081f71262419ee3faa8fa0f8f9a50b0c95bff0fd71d3f79ae8bb",
+        "verified": true
+      },
+      {
+        "version": 2,
+        "issueId": "PMON-327",
+        "packageHash": "ffe70fd6c0960dcc64df2f77eda160e12dacef4717d3bfd7a10bb157a82adabd",
+        "verified": true
+      },
+      {
+        "version": 3,
+        "issueId": "PMON-328",
+        "packageHash": "9141c6f80b72dd81f15f31bfb7942224909fbb36d94cf077af146d0779fbcd41",
+        "verified": true
+      }
+    ],
+    "status": "passed",
+    "rememberedConnectionUnchanged": true,
+    "finishedAt": "2026-10-19T14:51:36.458Z"
+  },
+  "scopeLimits": [
+    "No installer or production data replacement in U21",
+    "No agent dispatch",
+    "U22 progress/navigation and U23\u2013U27 returns/testing remain gated",
+    "Full local RDX versions remain pinned; future retention must preserve these baselines"
+  ],
+  "sourceFiles": [
+    {
+      "path": "rdx/map-package.mjs",
+      "sha256": "857b191cb3d46d3474bf2690704eeb87fd4f71addbda60cfab1a476b6617637f"
+    },
+    {
+      "path": "rdx/map-package-workspace.mjs",
+      "sha256": "5337e391b443b9be2b769330aca44e234aede5731e49b973f9539fa561a388f0"
+    },
+    {
+      "path": "public/map-package-queue.mjs",
+      "sha256": "677fea53b0f6edc4e79a8c45f4bcf48bb9adc9a80613fdb53c33dab7f9b40ffb"
+    },
+    {
+      "path": "public/core.mjs",
+      "sha256": "bc102e613c6dcbda1e09a772522e787c28924d633fcbeb928c000df2448a7823"
+    },
+    {
+      "path": "public/shell.mjs",
+      "sha256": "ebbc81a2247262015b6e42b61ca455fa1bdbc0dbcded92d53700ef06954bc7c0"
+    },
+    {
+      "path": "server.mjs",
+      "sha256": "de7f826c0da8a30e8978dc9c54332bcdde01ff27bd426a76b03f357f6a5b4c27"
+    },
+    {
+      "path": "desktop/service.mjs",
+      "sha256": "2497f35234d8166ebd2d38ae2306be2a1e1102d63e90f7cc95caaa8241bfe10f"
+    },
+    {
+      "path": "rdx/contracts.schema.json",
+      "sha256": "1b64ec173d45387a6c86e19ab80e3b9d00fb220adad0933199acfc6fccdbee9d"
+    },
+    {
+      "path": "content/map-packages.js",
+      "sha256": "12a8336b30d84ea0c0bacfdaa14c29ed7fe8cc22ab3e05c955735a402447e111"
+    },
+    {
+      "path": "content/native.css",
+      "sha256": "191d543adf454bc49429c8f166581ab166cef63589c47350861ca3f77842009c"
+    },
+    {
+      "path": "content/desktop-assets.mjs",
+      "sha256": "8b31527b8a9b4270b9c3039df2550e481972b89d7cc7d65c16f4b93b666c5db4"
+    },
+    {
+      "path": "content/import-ui.js",
+      "sha256": "34c60a7906afb13c3abf60df301a67421ed69a44988f76ee85403d002168e485"
+    },
+    {
+      "path": "tests/map-package.test.mjs",
+      "sha256": "4f37d17ac66df28a11c76e9e2b706807c67f0bd59db84d388a7ec36477ed3565"
+    },
+    {
+      "path": "rdx/MAP-PACKAGES.md",
+      "sha256": "3241a3f1318acf71cd3ae9feae4f1bd46fc25a706b14a5b891feb23f4034aaeb"
+    },
+    {
+      "path": "rdx/authoring/PACKAGES-AND-RETURNS.md",
+      "sha256": "b3164460b337f2adbe74a1b3f1f38f3f91a81f46fc2e2152f772bc12f7180890"
+    },
+    {
+      "path": "rdx/authoring/README.md",
+      "sha256": "53f2c1f4a2eaa6fa6f716e754aafab07974713b0f791acc21c87e39a941e6c29"
+    },
+    {
+      "path": "README.md",
+      "sha256": "23b04305dc0f85d1b5051adc9278a882e95aa0c8a15ad65450ca751493096f32"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "7de4ccc892b66080128773b5826e141790758add149f33d82a35455df313b7ae"
+    }
+  ]
+}

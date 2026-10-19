@@ -1,3 +1,11 @@
+## Unreleased — U21 Fixed JSON Map Packages
+
+- Add whole-map readable CHANGE/REMOVE/FINAL and notes/flags selection, context-only packages, explicit existing/new PMON task destinations and immutable versions.
+- Reuse native durable task/upload recovery; verify required image/file bytes, fixed JSON and exact task binding without dispatching work or overwriting newer edits.
+- Keep complete RDX baselines and excluded planning/history local; expose required assets on the chosen task, with no private GitHub dependency for the agent.
+- Preserve Auto-Sync Off during manual delivery and include package progress/errors in shared Save status. Original NPCDex editors are unchanged.
+- Verified source/native/live QA; production remains installed 0.5.15. Returned-RDX discovery/reconciliation and human-testing enforcement remain U23–U27.
+
 ## Unreleased — RD07 RDX Bindings and Two-Way Sync
 
 - Add reviewed private NPCD map binding, incremental immutable artifact/asset delivery and accepted incoming RDX checkpoints.

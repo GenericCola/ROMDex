@@ -1,0 +1,47 @@
+{
+  "task": "U21",
+  "scope": "Real PMON task creation and exact attachment readback using synthetic map data only",
+  "checks": [
+    "Remembered credential opens only uniquely marked, owner-private QA task destinations",
+    "Real disk restart delivers assets, JSON and byte-binding through the native upload journal with Auto-Sync Off",
+    "Downloaded JSON, binding and every image match exact hashes; existing task description, assignment, status and priority remain unchanged",
+    "Repeated confirmation and delivery do not create duplicate task attachments",
+    "A second fixed context-only package attaches without authorizing any ROM change",
+    "Explicit new-task destination creates one private QA child under the chosen QA parent"
+  ],
+  "existingTasksChanged": false,
+  "productionSavesChanged": false,
+  "cleanup": [
+    {
+      "issueId": "PMON-328",
+      "status": "deleted-owned-synthetic-record"
+    },
+    {
+      "issueId": "PMON-327",
+      "status": "deleted-owned-synthetic-record"
+    }
+  ],
+  "packages": [
+    {
+      "version": 1,
+      "issueId": "PMON-327",
+      "packageHash": "eecea11ace88081f71262419ee3faa8fa0f8f9a50b0c95bff0fd71d3f79ae8bb",
+      "verified": true
+    },
+    {
+      "version": 2,
+      "issueId": "PMON-327",
+      "packageHash": "ffe70fd6c0960dcc64df2f77eda160e12dacef4717d3bfd7a10bb157a82adabd",
+      "verified": true
+    },
+    {
+      "version": 3,
+      "issueId": "PMON-328",
+      "packageHash": "9141c6f80b72dd81f15f31bfb7942224909fbb36d94cf077af146d0779fbcd41",
+      "verified": true
+    }
+  ],
+  "status": "passed",
+  "rememberedConnectionUnchanged": true,
+  "finishedAt": "2026-10-19T14:51:36.458Z"
+}

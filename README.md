@@ -2,7 +2,9 @@
 
 Private development home for ROMDex and its NPCDex add-on.
 
-Latest published private release: [ROMDex 0.5.14](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.14). Installed and verified with the native NPCD transition committed, its queue empty, current content and all saved connections preserved. [U20I completion report](docs/project/U20I-Completion-Report.md). The RDX roadmap now precedes U21: RD01 is approved; RD02–RD09 source/guide work is complete without changing installed production maps. The real isolated RDX two-way proof, Windows file integration and portable agent kit have passed their acceptance checks. Next: **RD10 — Adopt RDX for All Existing Maps, Sol / High**, after a new PASSKEY and fresh accepted preview. [RD09 report](docs/project/RD09-Completion-Report.md), [authoring guide](apps/romdex/rdx/authoring/README.md).
+Latest published and installed private release: [ROMDex 0.5.15](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.15), with separate managed RDX map files and all saved connections preserved. [RD10 acceptance](docs/project/RD10-Completion-Report.md).
+
+**U21 is complete in source**, with fixed JSON Map Package previews, familiar CHANGE/REMOVE/FINAL selection, context-only packages and explicit existing/new PMON task attachment. 197 targeted tests, native UI/quit checks and real private synthetic-task delivery passed. [U21 report](docs/project/U21-Completion-Report.md), [package guide](apps/romdex/rdx/MAP-PACKAGES.md). Installed 0.5.15 awaits a later packaged release for U21. **Next: U22 — Sol / High**, under a new PASSKEY. Returned-RDX automation remains U23–U27; ROM extraction is a post-release stretch goal.
 
 - **apps/romdex/** — current application source, desktop host, web UI and tests.
 - **packages/tool-suite-ui/** — reusable suite assets, including the Standard Settings Icon.
@@ -20,6 +22,6 @@ For current scope and deferred work, see [the action checklist](docs/project/NPC
 
 Run application tests from apps/romdex with Node 24: `node --test tests/*.test.mjs`. Electron and installer versions are pinned in the application/runtime manifests; no Actions workflow or billing feature is enabled by this repository setup.
 
-## U20I Completed
+## Current Work
 
-Native content assembly, reviewed map imports and agent extraction/format instructions are delivered. The original export is retained for recovery/history; normal frontend construction uses structured NPCD records and referenced assets. Human acceptance, backup/restoration, installed preservation, exact native parity and fresh remote readback passed. U21 has not started.
+U20I and RD01–RD10 are complete. U21 source is verified without changing the current installed app, production saves or existing user tasks. Task-bound returned files, reconciliation and human-testing gates remain separately authorized later work.

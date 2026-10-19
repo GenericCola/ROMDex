@@ -1,0 +1,20 @@
+{
+  "task": "U21",
+  "scope": "Actual source desktop, isolated map and synthetic task, no credentials or network writes",
+  "checks": [
+    "Tray 2 Content Tools opens real whole-map preview with familiar tags, readable paths and all entries selected",
+    "Excluding requests and reviewing retains notes-only scope with a prominent context-only notice",
+    "At 620px window height the body scrolls above a separate footer; controls do not overlap",
+    "Explicit confirmation stages a fixed package locally while Auto-Sync stays Off; Escape closes the dialog",
+    "Native orderly quit persists the package ledger and staged files without a credential or production write"
+  ],
+  "geometry": {
+    "bodyBottom": 388.703125,
+    "footerTop": 400.703125,
+    "dialogTop": 8,
+    "dialogBottom": 469,
+    "viewport": 477
+  },
+  "status": "passed",
+  "profile": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\u21\\native-G5apYn"
+}

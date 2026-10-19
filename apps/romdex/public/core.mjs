@@ -1,14 +1,17 @@
 import {applyPlanSync} from './plan-queue.mjs';
+import {applyMapPackageSync} from './map-package-queue.mjs';
 export const STATUS = {grey:'Untouched',yellow:'In Progress',blue:'Standby',purple:'In Development',green:'Complete',red:'Critical'};
 export const STATES = {grey:'To do',yellow:'In Progress',blue:'Standby',purple:'In Development',green:'Done',red:'Critical / Debugging'};
 export const FIELDS = ['summary','description','state','priority','complexity','parentId','assignedState','assignee','dueDate','tags'];
 export const isEditableField=key=>FIELDS.includes(key)||/^custom:[-\w]{1,100}$/.test(key);
 export const clone = x => structuredClone(x);
 export const planNeedsReview=state=>Object.values(state?.rdxImports||{}).some(ledger=>!!ledger.review||Object.values(ledger.batches||{}).some(b=>['blocked','needs-review'].includes(b.status)));
+export const pendingMapPackages=state=>Object.values(state?.mapPackages||{}).filter(p=>p.status!=='attached');
+export const mapPackageError=state=>pendingMapPackages(state).find(p=>p.error)?.error||null;
 export function saveNeedsAttention(state, connection, dirtyFields = {}) {
-  const pending = !!(planNeedsReview(state)||state?.operations?.length || state?.blocked || dirtyFields.summary || dirtyFields.description);
+  const pending = !!(Object.values(state?.mapPackages||{}).some(p=>p.status!=='attached')||planNeedsReview(state)||state?.operations?.length || state?.blocked || dirtyFields.summary || dirtyFields.description);
   const unavailable = connection?.connected !== true || connection?.automaticSyncEnabled === false
-    || connection?.mode === 'manual' || connection?.failures > 0 || connection?.missingStates?.length || state?.blocked||planNeedsReview(state);
+    || connection?.mode === 'manual' || connection?.failures > 0 || connection?.missingStates?.length || state?.blocked||planNeedsReview(state)||Object.values(state?.mapPackages||{}).some(p=>!!p.error);
   return pending && !!unavailable;
 }
 export const hasMeaningfulNotes = text => Boolean(String(text||'').replace(/^_Migrated from ClickUp:.*_\s*$/gm,'').replace(/^\s*---\s*$/gm,'').trim());
@@ -114,6 +117,7 @@ export function applySyncResult(state,result){
   if(result.items)mergeIncoming(state,result.items);
   for(const target of result.deletedAttachments||[]){const item=state.remote.find(x=>x.id===target.issueId);if(item)item.attachments=(item.attachments||[]).filter(x=>x.id!==target.id);}
   applyPlanSync(state,result);
+  applyMapPackageSync(state,result);
   state.blocked=result.blocked||null;
   if(!result.blocked&&!result.error)state.lastSync=result.at;
   return state;
