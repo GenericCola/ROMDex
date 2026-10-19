@@ -1,25 +1,27 @@
 import {gzipSync,gunzipSync} from 'node:zlib';
 import {sha256,CHUNK_BYTES,DESCRIPTOR_BYTES} from './github-store.mjs';
 import {STATES,indexTree,same} from '../public/core.mjs';
+import {validateAcceptance} from '../rdx/result-acceptance.mjs';
 import {validateAuthorizationHistory} from '../rdx/agent-handoff.mjs';
 export const encode=x=>Buffer.from(JSON.stringify(x));
 export const check=(ok,message)=>{if(!ok)throw Error(message);};
 export const EMPTY={version:1,images:{},orders:{},assigned:{}};
-const fields=['images','orders','assigned','authorizations'],id=x=>typeof x==='string'&&/^PMON-[1-9]\d*$/.test(x),hash=x=>typeof x==='string'&&/^[a-f0-9]{64}$/.test(x);
+const fields=['images','orders','assigned','authorizations','acceptances'],id=x=>typeof x==='string'&&/^PMON-[1-9]\d*$/.test(x),hash=x=>typeof x==='string'&&/^[a-f0-9]{64}$/.test(x);
 export function validateMetadata(value){
- check(value&&(value.version===1&&Object.keys(value).sort().join(',')==='assigned,images,orders,version'||value.version===2&&Object.keys(value).sort().join(',')==='assigned,authorizations,images,orders,version'),'Unknown ROMDex Metadata Format.');
- for(const field of fields){const map=value[field]??(field==='authorizations'&&value.version===1?{}:null);check(map&&typeof map==='object'&&!Array.isArray(map)&&Object.keys(map).length<=10000,'Invalid ROMDex Metadata Collection.');for(const [key,v]of Object.entries(map)){
-  check(id(key)||field==='orders'&&key==='ROOT'||field==='authorizations'&&hash(key),'Invalid Metadata Ticket Identity.');
+ check(value&&(value.version===1&&Object.keys(value).sort().join(',')==='assigned,images,orders,version'||value.version===2&&Object.keys(value).sort().join(',')==='assigned,authorizations,images,orders,version'||value.version===3&&Object.keys(value).sort().join(',')==='acceptances,assigned,authorizations,images,orders,version'),'Unknown ROMDex Metadata Format.');
+ for(const field of fields){const map=value[field]??(['authorizations','acceptances'].includes(field)&&!Object.hasOwn(value,field)?{}:null);check(map&&typeof map==='object'&&!Array.isArray(map)&&Object.keys(map).length<=10000,'Invalid ROMDex Metadata Collection.');for(const [key,v]of Object.entries(map)){
+  check(id(key)||field==='orders'&&key==='ROOT'||['authorizations','acceptances'].includes(field)&&hash(key),'Invalid Metadata Ticket Identity.');
+  if(field==='acceptances'){validateAcceptance(v);check(v.key===key,'Acceptance Group Identity Differs.');}
   if(field==='authorizations'){validateAuthorizationHistory(v);check(v.events.every(e=>e.lineage===key),'Authorization Lineage Differs.');}
   if(field==='images'){check(typeof v==='string'&&v.length<=2*1024*1024&&/^data:image\/(png|jpeg|webp|gif);base64,(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(v),'Unsupported Tile Image.');const type=v.slice(11,v.indexOf(';')),bytes=Buffer.from(v.slice(v.indexOf(',')+1),'base64');check(type==='png'&&bytes.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10]))||type==='jpeg'&&bytes.subarray(0,3).equals(Buffer.from([255,216,255]))||type==='gif'&&/^GIF8[79]a$/.test(bytes.subarray(0,6).toString())||type==='webp'&&bytes.subarray(0,4).toString()==='RIFF'&&bytes.subarray(8,12).toString()==='WEBP','Tile Image Signature Does Not Match Its Type.');}
   if(field==='orders')check(Array.isArray(v)&&v.length<=10000&&new Set(v).size===v.length&&v.every(id)&&!v.includes(key),'Invalid Sibling Order.');
   if(field==='assigned')check(typeof v==='string'&&v.trim().length>0&&v.length<=256&&!/[\u0000-\u001f]/.test(v),'Unsupported Saved Parent Status.');
  }}check(encode(value).length<=16*1024*1024,'ROMDex Metadata Exceeds the Validated Limit.');return value;
 }
-export function canonical(value){validateMetadata(value);const version=value.version===2&&Object.keys(value.authorizations).length?2:1;return {version,...Object.fromEntries(fields.filter(f=>f!=='authorizations'||version===2).map(f=>[f,Object.fromEntries(Object.keys(value[f]).sort().map(k=>[k,value[f][k]]))]))};}
+export function canonical(value){validateMetadata(value);const version=Object.keys(value.acceptances||{}).length?3:Object.keys(value.authorizations||{}).length?2:1;return {version,...Object.fromEntries(fields.filter(f=>f!=='acceptances'||version===3).filter(f=>f!=='authorizations'||version>=2).map(f=>[f,Object.fromEntries(Object.keys(value[f]||{}).sort().map(k=>[k,value[f][k]]))]))};}
 export const metadataHash=value=>sha256(encode(canonical(value)));
 export function delta(before,after){validateMetadata(before);validateMetadata(after);const changes=[];for(const field of fields)for(const key of [...new Set([...Object.keys(before[field]||{}),...Object.keys(after[field]||{})])].sort())if(!same(before[field]?.[key],after[field]?.[key]))changes.push({field,key,before:before[field]?.[key]??null,after:after[field]?.[key]??null});return changes;}
-export function applyDelta(before,changes){check(Array.isArray(changes)&&changes.length<=30000,'Invalid Metadata Changes.');const result=structuredClone(before),seen=new Set();for(const c of changes){check(fields.includes(c.field)&&(id(c.key)||c.field==='orders'&&c.key==='ROOT'||c.field==='authorizations'&&hash(c.key))&&Object.keys(c).sort().join(',')==='after,before,field,key','Invalid Metadata Change.');const key=c.field+'/'+c.key;check(!seen.has(key)&&same(result[c.field]?.[c.key],c.before),'Metadata Before-Value Changed.');seen.add(key);if(c.field==='authorizations'){result.version=2;result.authorizations??={};}if(c.after===null)delete result[c.field][c.key];else result[c.field][c.key]=structuredClone(c.after);}return canonical(result);}
+export function applyDelta(before,changes){check(Array.isArray(changes)&&changes.length<=30000,'Invalid Metadata Changes.');const result=structuredClone(before),seen=new Set();for(const c of changes){check(fields.includes(c.field)&&(id(c.key)||c.field==='orders'&&c.key==='ROOT'||['authorizations','acceptances'].includes(c.field)&&hash(c.key))&&Object.keys(c).sort().join(',')==='after,before,field,key','Invalid Metadata Change.');const key=c.field+'/'+c.key;check(!seen.has(key)&&same(result[c.field]?.[c.key],c.before),'Metadata Before-Value Changed.');seen.add(key);if(c.field==='acceptances'){result.version=3;result.acceptances??={};result.authorizations??={};if(c.after!==null){validateAcceptance(c.after);check(c.before===null||same(c.before,c.after),'Private Acceptance Records Are Immutable.');if(c.before===null){const event=result.authorizations[c.after.lineage]?.events.at(-1);check(event?.action==='authorize'&&event.digest===c.after.authorizationDigest&&same(event.binding,c.after.binding),'Private Acceptance Has No Matching Current Authorization.');}}}if(c.field==='authorizations'){result.version=Math.max(result.version,2);result.authorizations??={};}if(c.after===null)delete result[c.field][c.key];else result[c.field][c.key]=structuredClone(c.after);}return canonical(result);}
 export function genesis(workspace){const record={format:'ROMDexMetadataGenesis/1',workspace,namespace:'romdex-metadata',actor:'32021766',parents:[],after:metadataHash(EMPTY)},bytes=encode(record);return {record,bytes,id:sha256(bytes)};}
 export function makeMetadataChange({before,after,parents,base=parents[0],workspace,device,sequence,operation=crypto.randomUUID(),kind='edit',review=null}){
  const changes=delta(before,after);if(!changes.length&&kind==='edit')return null;
@@ -44,7 +46,8 @@ export function captureMetadata(state,records={},known=EMPTY){
  // Missing tickets never delete saved statuses or images. Their dormant metadata remains recoverable.
  for(const [key,value]of Object.entries(known.assigned))if(!valid.has(key))result.assigned[key]=value;
  for(const operation of state.operations||[])if(operation.type==='edit'&&id(operation.issueId)&&Object.hasOwn(operation.patch,'assignedState')&&(observed[operation.issueId]?.hasChildren||Object.hasOwn(result.assigned,operation.issueId)))result.assigned[operation.issueId]=operation.patch.assignedState;
- if(Object.hasOwn(state,'packageAuthorizations')||known.version===2){result.version=2;result.authorizations=structuredClone(state.packageAuthorizations??known.authorizations??{});}
+ if(Object.hasOwn(state,'packageAuthorizations')||known.version>=2){result.version=2;result.authorizations=structuredClone(state.packageAuthorizations??known.authorizations??{});}
+ if(Object.hasOwn(state,'resultAcceptances')||known.version===3){result.version=3;result.authorizations??={};result.acceptances=structuredClone(state.resultAcceptances??known.acceptances??{});}
  return canonical(result);
 }
 export function projectOrder(document,items,current={},previous=EMPTY){

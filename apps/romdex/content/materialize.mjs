@@ -1,5 +1,6 @@
 import {requireThat,verifyDigest,validateGraph,same,unique,pointPayload} from './contracts.mjs';
 import {validateViews} from './view-contract.mjs';
+import {applyImplementation} from './rdx-implementation.mjs';
 import {applyCatalog} from './catalog-core.mjs';
 import {membershipResolution} from './membership-resolution.mjs';
 const digest=a=>a.revisionId||a.digest;
@@ -31,7 +32,7 @@ export function validateDomain(domain){
  for(const plan of domain.plans)for(const id of plan.requiredAssetIds)requireThat(assets.has(id),'Plan Asset Is Missing.');
  validateViews(domain);return domain;
 }
-export function applyPublication(parent,pub,artifacts,assets){
+export function applyPublication(parent,pub,artifacts,assets,{implementationAuthority=()=>false}={}){
  requireThat(same([...pub.artifactDigests].sort(),artifacts.map(digest).sort()),'Publication Artifact Set Differs.');
  unique(artifacts.map(a=>a.operationId),'Operation Within Publication');
  // Artifacts are immutable. Copy collection containers, not historical bodies.
@@ -78,6 +79,8 @@ export function applyPublication(parent,pub,artifacts,assets){
    requireThat(artifacts.some(a=>a.revisionId===after.revisionId&&same(a,after)),'Correction After-Revision Is Missing.');
    domain.records=domain.records.map(r=>r.recordId===before.recordId?after:r);domain.revisions.push(after);
   }
+ }else if(pub.kind==='implementation'){
+  requireThat(parent&&pub.parentPublications.length===1,'Invalid RDX Implementation Parent.');const receipt=artifacts.find(a=>a.digest===pub.resultDigest);requireThat(implementationAuthority(receipt,pub)===true,'Private RDX Acceptance Is Missing or Unavailable.');applyImplementation(domain,pub,artifacts,assets);
  }else throw Error('This Publication Workflow Is Not Enabled in This Content Phase.');
  for(const asset of assets){const previous=domain.assets.find(a=>a.assetId===asset.assetId);requireThat(!previous||previous.sha256===asset.sha256,'Asset Identity Was Reused for Different Bytes.');if(!previous)domain.assets.push(asset);}
  for(const list of [domain.plans,domain.reviews]){

@@ -1,13 +1,14 @@
 # ROMDex Outputs — Start Here
 
-Current installed release: **0.5.15**. U21–U24 Map Package selection/delivery, authorization/handoff and durable returned-file discovery are complete in source and await a later packaged release. This folder contains current deliverables and organized reference material. Runtime saves and credentials remain in the installed application's Data folder.
+Current installed release: **0.5.15**. U21–U25 Map Package selection/delivery, authorization/handoff, returned-file discovery and validated result application are complete in source and await a later packaged release. This folder contains current deliverables and organized reference material. Runtime saves and credentials remain in the installed application's Data folder.
 
 - [Overall Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md)
 - [Phase and Task Checklist](NPCDex-ROMDex-Action-Checklist.md)
-- [Current Installer](ROMDex-0.5.15-x64.msi)
-- [RDX Agent Authoring Kit](RD09-Agent-Authoring-Kit.zip)
+- [Current Installer](ROMDex-Installer-0.5.15/ROMDex-0.5.15-x64.msi)
+- [RDX Agent Authoring Kit](RDX-Reference/RD09-Agent-Authoring-Kit.zip)
 - [RDX Tooling and Deferred ROM Extraction](Phase-6-RDX-Authoring-Report.md)
 - [Project Scope](NPCDex-ROMDex-Unified-App-Scope.md) and [Decision Log](NPCDex-ROMDex-Decision-Log.md)
+- [U25 Validated Application Report](U25-Completion-Report.md)
 - [U24 Returned RDX Discovery Report](U24-Completion-Report.md)
 - [U22 Navigation and Progress Report](U22-Completion-Report.md)
 - [U21 Package Implementation Report](U21-Completion-Report.md)

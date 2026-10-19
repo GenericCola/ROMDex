@@ -7,8 +7,8 @@ const connectionFailure=error=>['CONTENT_CONNECTION','CONTENT_READ_CHECKPOINT'].
 async function mapReads(values,fn){const results=new Array(values.length);let next=0,failure;await Promise.all(Array.from({length:Math.min(4,values.length)},async()=>{for(;;){if(failure)return;const i=next++;if(i>=values.length)return;try{results[i]=await fn(values[i]);}catch(error){failure||=error;}}}));if(failure)throw failure;return results;}
 
 export class ContentReader{
- constructor({transport,cache,workspace,bootstrapPublication,ownerId='2-2',authorization=null,enabled=()=>true,changed=()=>{},interval=60000,deadline=600000,now=()=>Date.now()}){
-  requireThat(workspace===cache.workspace&&workspaceAllowed(workspace,authorization)&&isHash(bootstrapPublication)&&ownerId==='2-2','Explicit Content Root and Owner Pins Are Required.');this.authorization=authorization;
+ constructor({transport,cache,workspace,bootstrapPublication,ownerId='2-2',authorization=null,implementationAuthority=()=>false,enabled=()=>true,changed=()=>{},interval=60000,deadline=600000,now=()=>Date.now()}){
+  requireThat(workspace===cache.workspace&&workspaceAllowed(workspace,authorization)&&isHash(bootstrapPublication)&&ownerId==='2-2','Explicit Content Root and Owner Pins Are Required.');this.authorization=authorization;this.implementationAuthority=implementationAuthority;
   requireThat(Number.isInteger(deadline)&&deadline>=1000&&deadline<=600000,'Invalid Content Cycle Deadline.');requireThat(Number.isInteger(interval)&&interval>=1000,'Invalid Content Poll Interval.');Object.assign(this,{transport,cache,workspace,bootstrapPublication,ownerId,enabled,changed,interval,deadline,now});this.task=null;this.timer=null;this.status={connection:'cached',attention:false,message:'Showing the Verified Content Cache.'};
   const binding={workspace,bootstrapPublication,registryIssueId:transport.registryIssueId,projectId:transport.projectId,ownerId};const previous=cache.get('binding');requireThat(!previous||same(previous,binding),'The Preview Registry Binding Changed.');if(!previous)cache.set('binding',binding);
  }
@@ -51,7 +51,7 @@ export class ContentReader{
    const visit=hash=>{if(states.has(hash))return states.get(hash);requireThat(!materializationExhausted,'Content Materialization Budget Exceeded.');requireThat(!visiting.has(hash),'Publication Ancestry Cycle.');const entry=byHash.get(hash);requireThat(entry&&!invalid.has(hash),'Publication Dependency Is Missing or Invalid.');visiting.add(hash);let parents=[];
     if(hash===this.bootstrapPublication)requireThat(entry.pub.kind==='bootstrap'&&entry.pub.parentPublications.length===0,'Pinned Initial Publication Is Invalid.');
     else{requireThat(entry.pub.kind==='resolution'?entry.pub.parentPublications.length>=2&&entry.pub.parentPublications.length<=16:entry.pub.parentPublications.length===1,'Publication Parent Set Is Invalid.');parents=entry.pub.parentPublications.map(visit);}
-    const domain=entry.pub.kind==='resolution'?resolvePublication(parents,entry.pub,entry.artifacts,entry.assets):applyPublication(parents[0]||null,entry.pub,entry.artifacts,entry.assets);
+    const domain=entry.pub.kind==='resolution'?resolvePublication(parents,entry.pub,entry.artifacts,entry.assets):applyPublication(parents[0]||null,entry.pub,entry.artifacts,entry.assets,{implementationAuthority:this.implementationAuthority});
     const pins=new Map(entry.carrier.bindings.map(b=>[b.recordId,b.issueId]));requireThat(pins.size===domain.records.length&&domain.records.every(r=>pins.has(r.recordId)),'Content Record Bindings Are Incomplete.');
     for(const parentHash of entry.pub.parentPublications)for(const b of byHash.get(parentHash).carrier.bindings)requireThat(pins.get(b.recordId)===b.issueId,'Record Rebinding Needs Explicit Review.');
     for(const a of entry.artifacts)if(a.schema==='NPCDexContentRevision/1')requireThat(entry.carrier.bindings.some(b=>b.recordId===a.recordId),'Content Record Binding Is Missing.');

@@ -4,7 +4,7 @@
 
 After exact-package authorization and manual agent handoff, the agent attaches its one-map result RDX to the same actionable task. ROMDex checks linked tasks in the background with Auto-Sync On. Map Package Delivery → **Check for Returned Files Once** explicitly checks while Auto-Sync is Off; Save Changes also includes one check. A check is bounded, so additional pending tasks/files may need another cycle.
 
-The delivery view distinguishes **Pending**, **Staged**, **Deferred** and **Needs Review**. Exact duplicate files appear once, with their copy count. Staged means retained and validated for the discovery boundary; it does not mean applied, implemented correctly or human-tested. This source phase has no result-application control.
+The delivery view distinguishes **Pending**, **Staged**, **Deferred** and **Needs Review**. Exact duplicate files appear once, with their copy count. Staged means retained and validated for the discovery boundary; it does not mean applied, implemented correctly or human-tested. U25 adds [validated result application](RESULT-APPLICATION.md) through Auto-Sync or manual Save; the explicit discovery action remains read-only.
 
 ## Durable Storage and Recovery
 
@@ -28,4 +28,4 @@ Suspension, shutdown and update quiescence stop the timer, abort/drain the curre
 
 Server task/project identity and attachment author are checked independently of file claims. The current exact authorization, its consent-time attachment inventory and metadata safety are re-evaluated for display. Preauthorization attachments, package withdrawal/replacement, changed/missing native files or pins, absent/different attribution and conflicting result identities require review. Uncertain authorization metadata defers staging eligibility. GenericCola is the approved shared-account route; matching author IDs do not prove a distinct human versus agent identity.
 
-The local pinned package and baseline must exist. Portable manifests are not approval credentials. Discovery checks format, stable map/base/binding and declared plan/group membership; U25 must still validate every actual write, dependency completeness, newer drafts and fresh remote evidence before application. No U24 field authenticates a human test. Every agent return retains its mandatory human-testing requirement.
+The local pinned package and baseline must exist. Portable manifests are not approval credentials. Discovery checks format, stable map/base/binding and declared plan/group membership; The U25 application layer separately validates every actual write, dependency completeness, newer drafts and fresh remote evidence before application. No U24 field authenticates a human test. Every agent return retains its mandatory human-testing requirement.

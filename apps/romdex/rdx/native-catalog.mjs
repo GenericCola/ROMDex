@@ -24,6 +24,13 @@ export class NativeCatalog{
   ensure(maps.every(m=>!this.maps.store.db.prepare('SELECT 1 FROM documents WHERE key=?').get(m.key)),'CONFLICT','An Existing RDX Document Must Be Reviewed Before Native Adoption.');
   this.ledger={format:'ROMDexNativeCatalog/1',workspace:this.provider.reader.workspace,acceptance:structuredClone(acceptance),sourceHead:null,maps,domainSHA256:null};
   this.maps.set('native-catalog',this.ledger);await this.refresh();return this.ledger;}
+ applicationHistory(head){
+  const pending=new Map(this.provider.editor.operations().filter(o=>o.publication).map(o=>[o.publication.digest,o])),todo=[head],seen=new Set(),artifacts=[];
+  while(todo.length){const digest=todo.pop();if(seen.has(digest))continue;ensure(seen.size<10000,'LIMIT','Native Application History Needs Coordinated Review.');seen.add(digest);const cached=this.provider.cache.get('publication:'+digest),op=pending.get(digest),publication=cached?.publication||op?.publication;if(!publication)continue;
+   if(publication.kind==='implementation'){const ref=cached?.carrier?.artifacts.find(a=>a.digest===publication.resultDigest),raw=ref?this.provider.cache.object(ref.object.sha256):null,values=raw?[JSON.parse(raw.toString('utf8'))]:(op?this.provider.editor.artifacts(op):[]);ensure(!ref||raw,'RECOVERY','Accepted Application History Is Missing.');for(const a of values)if(a.schema==='NPCDexRDXApplication/1')artifacts.push(a);}
+   todo.push(...publication.parentPublications);
+  }return artifacts;
+ }
  async refresh(){if(!this.ledger||this.closed)return;const work=this.source();if(work.head===this.ledger.sourceHead){this.error=null;return this.ledger;}
   try{const domainSHA256=sha(canonical(work.domain)),entries=[],priorIntent=this.maps.get('native-generation'),targets=work.domain.records.filter(r=>r.kind==='map').map(r=>{const old=this.ledger.maps.find(m=>m.mapRecordId===r.recordId)||priorIntent?.maps.find(m=>m.mapRecordId===r.recordId);return old||{mapRecordId:r.recordId,key:sha(canonical({datasetId:r.workspaceId,documentId:'content:rdx-map-'+sha(canonical({datasetId:r.workspaceId,mapRecordId:r.recordId}))})),revision:null,name:r.current.payload.name};});
    for(const m of targets)if(!this.ledger.maps.some(old=>old.key===m.key)&&!priorIntent?.maps.some(old=>old.key===m.key))ensure(!this.maps.store.db.prepare('SELECT 1 FROM documents WHERE key=?').get(m.key),'CONFLICT','A New Native Map Collides With an Imported RDX Identity.');
@@ -32,7 +39,7 @@ export class NativeCatalog{
     const old=targets.find(m=>m.mapRecordId===r.recordId),rowBefore=this.maps.store.db.prepare('SELECT * FROM documents WHERE key=?').get(old.key);
     if(rowBefore&&old.revision)ensure(this.maps.store.knownPrior(rowBefore,old.revision),'RECOVERY','An Adopted Map Lost Its Accepted Journal Ancestry.');
     const previous=rowBefore?this.maps.store.load(old.key,rowBefore.head):null;
-    const value=nativeMapDocument({domain:work.domain,mapRecordId:r.recordId,head:work.head,assetBytes:h=>this.provider.cache.object(h),bindings:work.bindings,previous}),key=documentKey(value.document),existing=this.maps.store.db.prepare('SELECT * FROM documents WHERE key=?').get(key);
+    const value=nativeMapDocument({domain:work.domain,mapRecordId:r.recordId,head:work.head,assetBytes:h=>this.provider.cache.object(h),bindings:work.bindings,historyArtifacts:this.applicationHistory(work.head),previous}),key=documentKey(value.document),existing=this.maps.store.db.prepare('SELECT * FROM documents WHERE key=?').get(key);
     // A staged or interrupted generation is recoverable only for the same
     // original map identity. Never overwrite an independently imported map.
     if(existing){ensure(old&&old.key===key,'CONFLICT','An Existing RDX Identity Needs Adoption Review.');const staged=this.maps.store.load(key,existing.head),e=staged.document.extensions[ADOPTION_EXTENSION];ensure(e?.format==='ROMDexNativeMapEvidence/1'&&staged.document.scope.mapRecordId===r.recordId,'RECOVERY','An Interrupted Catalog Generation Needs Review.');

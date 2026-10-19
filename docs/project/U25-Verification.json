@@ -1,0 +1,120 @@
+{
+  "task": "U25",
+  "status": "passed",
+  "automated": {
+    "uniqueFinalRun": 328,
+    "log": "regression.log",
+    "failed": 0
+  },
+  "ui": {
+    "task": "U25",
+    "scope": "Real source interface in headless Chromium with isolated in-memory native task transport; no live network writes",
+    "checks": [
+      "Delivered package exposes explicit authorization while attachment alone remains unauthorized",
+      "Exact map/task/version/hash confirmation can be cancelled without changing authority",
+      "Confirmed exact package exposes copy and download actions with durable authorization",
+      "Explicit return check stages a valid result while Auto-Sync stays Off; duplicate bytes produce one readable result with both provenances",
+      "Untrusted attachment names render as text, with no image/HTML execution or map application",
+      "Read-only delivery view reflects authorization uncertainty as Deferred without importing or claiming implementation",
+      "Fixed instructions use clipboard or selectable fallback; no model/generation/message call is made",
+      "Trusted application progress shows Applied and Needs Human Testing while the task stays open",
+      "Existing modal layout keeps controls above the footer at 620-pixel window height",
+      "Withdrawal removes copy controls, preserves package files and leaves native task fields and queue unchanged"
+    ],
+    "status": "passed",
+    "finishedAt": "2026-10-19T21:30:58.340Z"
+  },
+  "service": {
+    "task": "U25",
+    "status": "passed",
+    "checks": [
+      "Fixture service initializes with Auto-Sync Off and no network calls",
+      "Native package status/manual discovery route works without a linked package and makes no network request",
+      "Native manual check rejects a stale renderer map context",
+      "Suspend/resume, update quiescence, checkpoint and shutdown drain discovery without network calls or leaked timers"
+    ],
+    "externalRequests": 0
+  },
+  "live": {
+    "task": "U25",
+    "scope": "Authorized application, NPCD publication and managed-map recovery using isolated private synthetic records",
+    "checks": [
+      "Remembered credential opens only uniquely marked, owner-private QA task destinations",
+      "Exact package/context and required assets delivered and authorized on one owner-private marked task",
+      "A unique synthetic map was bound and published to newly created, private, clearly marked NPCD records without reusing existing content",
+      "Explicit manual processing with Auto-Sync Off freshly verified pinned task bytes/authorization, applied the exact requested group and read back its NPCD publication",
+      "Reopening SQLite retained the accepted group/testing obligation; replay caused no second map revision",
+      "Managed RDX contains exact requested changes and durable evidence; task stays open, notes/assignment/priority/Auto-Sync Off are preserved, and testing remains Unreviewed"
+    ],
+    "existingTasksChanged": false,
+    "productionSavesChanged": false,
+    "cleanup": [
+      {
+        "issueId": "3-647",
+        "status": "deleted-owned-synthetic-record"
+      },
+      {
+        "issueId": "3-646",
+        "status": "deleted-owned-synthetic-record"
+      },
+      {
+        "issueId": "3-645",
+        "status": "deleted-owned-synthetic-record"
+      },
+      {
+        "issueId": "3-644",
+        "status": "deleted-owned-synthetic-record"
+      },
+      {
+        "issueId": "3-643",
+        "status": "deleted-owned-synthetic-record"
+      },
+      {
+        "issueId": "3-642",
+        "status": "deleted-owned-synthetic-record"
+      },
+      {
+        "issueId": "3-641",
+        "status": "deleted-owned-synthetic-record"
+      },
+      {
+        "issueId": "3-640",
+        "status": "deleted-owned-synthetic-record"
+      },
+      {
+        "issueId": "3-639",
+        "status": "deleted-owned-synthetic-record"
+      },
+      {
+        "issueId": "3-638",
+        "status": "deleted-owned-synthetic-record"
+      },
+      {
+        "issueId": "3-637",
+        "status": "deleted-owned-synthetic-record"
+      },
+      {
+        "issueId": "3-636",
+        "status": "deleted-owned-synthetic-record"
+      },
+      {
+        "issueId": "PMON-333",
+        "status": "deleted-owned-synthetic-record"
+      }
+    ],
+    "npcdRecords": 12,
+    "account": {
+      "id": "2-2",
+      "login": "GenericCola"
+    },
+    "syntheticTask": "PMON-333",
+    "resultHash": "abdc2e3af0df3392cabda5612d8e01bc44db8babb291ecda1f382b79c52ba982",
+    "authorizationMetadata": "Isolated trusted test history with synthetic synced readiness; no production metadata rollout",
+    "status": "passed",
+    "rememberedConnectionUnchanged": true,
+    "finishedAt": "2026-10-19T21:29:59.829Z"
+  },
+  "productionInstalledVersion": "0.5.15",
+  "productionSavesChanged": false,
+  "installerRun": false
+}

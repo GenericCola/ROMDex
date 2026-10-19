@@ -1,3 +1,11 @@
+## Unreleased — U25 Validated Result Application
+
+- Apply exact authorized independent/grouped RDX returns to NPCD and managed maps with durable private acceptance and cross-store recovery.
+- Preserve newer/excluded drafts, notes, views/assets/history and unaffected testing; affected content remains Unreviewed and tasks stay open.
+- Verify fresh pinned bytes, native provenance, scope, baselines and dependency completeness; hold exceptions for U26.
+- Support Auto-Sync/manual Save, trusted progress and lifecycle cancellation. Pass 328 affected tests, ten UI checks, four source-service checks and an isolated live application proof.
+- Source-only; installed 0.5.15 stays unchanged. U26 review controls and U27 Needs Testing/completion controls remain pending.
+
 ## Unreleased — U22 Package Navigation and Progress
 
 ## Unreleased — U23A
