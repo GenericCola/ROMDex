@@ -7,7 +7,7 @@ import {createHash,randomUUID} from 'node:crypto';
 export const PROFILE_KEY='thegobindsingh-PMON';
 export const PRIVATE_FILES=['connection.encrypted','assigned-statuses.json','journal.json','sync-settings.json','workspace.json'];
 const markerFile='profile.json';
-const serviceFiles=['package.json','server.mjs','credential-protection.mjs','durable-json-storage.mjs','runtime-profile.mjs','youtrack.mjs','assigned-statuses.mjs','sync-settings.mjs','complexity-field.mjs','attachment-storage.mjs','attachment-service.mjs','public/attachment-core.mjs','public/core.mjs','public/bulk-hierarchy.mjs','public/item-editor.mjs','public/custom-editor.mjs','public/field-tags.mjs'];
+const serviceFiles=['package.json','server.mjs','credential-protection.mjs','durable-json-storage.mjs','runtime-profile.mjs','youtrack.mjs','assigned-statuses.mjs','sync-settings.mjs','complexity-field.mjs','attachment-storage.mjs','attachment-service.mjs','public/attachment-core.mjs','public/core.mjs','public/bulk-hierarchy.mjs','public/item-editor.mjs','public/custom-editor.mjs','public/field-tags.mjs','rdx/return-reader.mjs','rdx/limits.mjs','content/contracts.mjs'];
 const here=path.dirname(fileURLToPath(import.meta.url));
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
 

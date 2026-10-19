@@ -1,0 +1,69 @@
+{
+  "task": "U24",
+  "status": "passed",
+  "installedVersionUnchanged": "0.5.15",
+  "automated": {
+    "affectedPassed": 152,
+    "finalDiscoveryPassed": 41,
+    "overlap": true
+  },
+  "sourceInterface": {
+    "task": "U24",
+    "scope": "Real source interface in headless Chromium with isolated in-memory native task transport; no live network writes",
+    "checks": [
+      "Delivered package exposes explicit authorization while attachment alone remains unauthorized",
+      "Exact map/task/version/hash confirmation can be cancelled without changing authority",
+      "Confirmed exact package exposes copy and download actions with durable authorization",
+      "Explicit return check stages a valid result while Auto-Sync stays Off; duplicate bytes produce one readable result with both provenances",
+      "Untrusted attachment names render as text, with no image/HTML execution or map application",
+      "Read-only delivery view reflects authorization uncertainty as Deferred without importing or claiming implementation",
+      "Fixed instructions use clipboard or selectable fallback; no model/generation/message call is made",
+      "Existing modal layout keeps controls above the footer at 620-pixel window height",
+      "Withdrawal removes copy controls, preserves package files and leaves native task fields and queue unchanged"
+    ],
+    "status": "passed",
+    "finishedAt": "2026-10-19T20:49:51.875Z"
+  },
+  "sourceService": {
+    "task": "U24",
+    "status": "passed",
+    "checks": [
+      "Fixture service initializes with Auto-Sync Off and no network calls",
+      "Native package status/manual discovery route works without a linked package and makes no network request",
+      "Native manual check rejects a stale renderer map context",
+      "Suspend/resume, update quiescence, checkpoint and shutdown drain discovery without network calls or leaked timers"
+    ],
+    "externalRequests": 0
+  },
+  "liveYouTrack": {
+    "task": "PMON-330",
+    "scope": "Actual read-only returned RDX discovery and durable staging on one private synthetic PMON task",
+    "checks": [
+      "Remembered credential opens only uniquely marked, owner-private QA task destinations",
+      "Exact package/context and required assets delivered and authorized on one owner-private marked task",
+      "Native reader proved task/project identity and fresh server authorship, then downloaded/validated/retained the exact returned RDX under manual Auto-Sync Off",
+      "Closing/reopening the real SQLite store preserves staged bytes and explicit rediscovery creates no duplicate result or map mutation",
+      "Task State/assignment/description/priority, managed map head and Auto-Sync Off remained unchanged; discovery made no YouTrack writes, NPCD edits or agent messages"
+    ],
+    "existingTasksChanged": false,
+    "productionSavesChanged": false,
+    "cleanup": [
+      {
+        "issueId": "PMON-330",
+        "status": "deleted-owned-synthetic-record"
+      }
+    ],
+    "authorizationMetadata": "Isolated test history with synthetic synced readiness; no live metadata publication",
+    "account": {
+      "id": "2-2",
+      "login": "GenericCola"
+    },
+    "resultHash": "3328ffe76cf02ceb02c720a8b08890d247fc88406ad13a252947f011a5fa884a",
+    "status": "passed",
+    "rememberedConnectionUnchanged": true,
+    "finishedAt": "2026-10-19T20:51:05.021Z"
+  },
+  "noProductionMigration": true,
+  "applicationEnabled": false,
+  "nextTask": "U25 — Astra / High"
+}

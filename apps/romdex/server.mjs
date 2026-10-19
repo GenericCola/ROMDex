@@ -11,6 +11,7 @@ import {AssignedStatuses} from './assigned-statuses.mjs';
 import {SyncSettings} from './sync-settings.mjs';
 import {UploadStorage,multipartFile} from './attachment-storage.mjs';
 import {AttachmentService} from './attachment-service.mjs';
+import {ReturnReader} from './rdx/return-reader.mjs';
 import {attachmentMetadata,MAX_FILE_BYTES,isRaster,validateUpload,validateAttachmentDelete} from './public/attachment-core.mjs';
 import {prepareProfile,buildIdentity,saveProtectedConnection} from './runtime-profile.mjs';
 import {reconcile,remapOperation,same,indexTree,descendants,validateMove,isEditableField,FIELDS,STATES} from './public/core.mjs';
@@ -187,4 +188,6 @@ async function dispatchLocal(route,{method='GET',bytes,headers={}}={}){
 async function verifyDesktopConnection(){const items=await (await readyClient()).all();return {items,...syncStatus()};}
 async function releaseDeliverySettings(){const yt=await readyClient(),healthy=yt.healthy;try{const value=await yt.request('admin/globalSettings/systemSettings?fields=maxUploadFileSize');return {maxUploadFileSize:Number.isSafeInteger(value?.maxUploadFileSize)?value.maxUploadFileSize:null,storageCapacityVerified:false};}catch(error){return {maxUploadFileSize:null,status:error.status||null,reason:'The Current Connection Cannot Read the Server Upload Setting.',storageCapacityVerified:false};}finally{yt.healthy=healthy;}}
 async function desktopPackageTarget(id){return serialized(async()=>{const yt=await readyClient();const item=await yt.require(id);return {instanceOrigin:BASE,projectId:yt.projectId,issueId:item.dbId,issueKey:item.id,actor:{id:yt.user.id,login:yt.user.login}};});}
-export {server,protectCredential,dispatchLocal,verifyDesktopConnection,releaseDeliverySettings,desktopPackageTarget};
+async function desktopReturnInventory(entry,signal){return serialized(async()=>new ReturnReader(await readyClient()).inventory(entry,signal));}
+async function desktopReturnBytes(entry,metadata,signal){return serialized(async()=>new ReturnReader(await readyClient()).bytes(entry,metadata,signal));}
+export {server,protectCredential,dispatchLocal,verifyDesktopConnection,releaseDeliverySettings,desktopPackageTarget,desktopReturnInventory,desktopReturnBytes};

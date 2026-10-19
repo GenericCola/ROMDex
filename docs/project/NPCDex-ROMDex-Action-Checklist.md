@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** **U23 and U23A are complete.** [U23 approved contract](U23-Decision-Review.md), [U23A source completion](U23A-Completion-Report.md). Authorization, fixed-template handoff and real agent file-transfer proof are verified. Installed ROMDex remains **0.5.15**; automatic return discovery/application and the Needs Testing status are not enabled yet. **Next: U24 — Sol / High; await a new PASSKEY.**
+**Current:** **U24 is complete in source.** [Completion report](U24-Completion-Report.md). Returned RDX discovery/staging, recovery and actual YouTrack transport are verified. Installed ROMDex remains **0.5.15**; automatic result application and Needs Testing status are not enabled yet. **Next: U25 — Astra / High; await a new PASSKEY.**
 
 ## Completed Foundation
 
@@ -79,13 +79,13 @@
 
 ## Phase 5 — RDX Contracts, Reliable Sync and Container Tools
 
-- [x] **RD01 — RDX and JSON Workflow Contracts** — Sol / High. User-approved October 18; [completion report](RD01-Completion-Report.md). [Contracts/schema/examples](RD01-Contracts/README.md), [review report](RD01-Review-Report.md). Portable identities/bindings, complete/partial scope, compatibility, compression evaluation, atomic recovery, JSON packages and returned-RDX testing rules; legacy migration recognition retained.
+- [x] **RD01 — RDX and JSON Workflow Contracts** — Sol / High. User-approved October 18; [completion report](RD01-Completion-Report.md). [Contracts/schema/examples](README.md), [review report](RD01-Review-Report.md). Portable identities/bindings, complete/partial scope, compatibility, compression evaluation, atomic recovery, JSON packages and returned-RDX testing rules; legacy migration recognition retained.
   - [x] Inspect current native import, storage and legacy-format boundaries.
   - [x] Prepare schemas, exact-asset examples and six workflow walkthroughs.
   - [x] Pass 70 isolated design checks; clearly distinguish them from live/importer proof.
   - [x] User accepted the RD01 contracts, including automatic safe reconciliation and mandatory human testing.
 - [x] **RD02 — Bounded Sync and Upload Recovery** — Sol / High. **Source-complete and verified.** [Report](RD02-Completion-Report.md), [evidence](RD02-Verification.json). Reviewed retry for uncertain-only uploads; independent read/write budgets, durable progress, verified-upload reuse and bounded no-progress handling. Preserve integrity/ownership/conflict checks; no blind resends or repeated full-history loops.
-- [x] **RD03 — RDX Container, Validator and Tooling** — Sol / High. **Source-complete and verified.** [Report](RD03-Completion-Report.md), [evidence](RD03-Verification.json), [actual synthetic RDX examples](RD03-Examples/README.md). Lossless compressed JSON/assets, deduplication, routing/version checks, bounds/cancellation and deterministic tools. 93 focused tests; 48 RDX tests also pass in bundled runtime. Level 9 chosen from measured compression. No installed-app change.
+- [x] **RD03 — RDX Container, Validator and Tooling** — Sol / High. **Source-complete and verified.** [Report](RD03-Completion-Report.md), [evidence](RD03-Verification.json), [actual synthetic RDX examples](README.md). Lossless compressed JSON/assets, deduplication, routing/version checks, bounds/cancellation and deterministic tools. 93 focused tests; 48 RDX tests also pass in bundled runtime. Level 9 chosen from measured compression. No installed-app change.
 
 ## Phase 6 — Managed Documents, Imports and Cloud Publication
 
@@ -119,7 +119,7 @@ RD10 execution checklist:
 
 - [x] **U23 — Agent Access and Returned RDX Contract Review** — Sol / High. JSON package → ROM changes → updated map `.rdx` on the same task. Verify actual identity/grants, package/base/source evidence, grouped outcomes and readiness notice before discovery/application.
 - [x] **U23A — Authorized Handoff and Agent File Transfer** — Sol / High. **Completed in source October 19;** [report](U23A-Completion-Report.md). Durable exact-package authorization/supersession/withdrawal, hard-coded Copy Agent Instructions, bounded sanitized return context and an actual agent-route download/upload proof. No AI generation or automatic dispatch. Prove a valid return using only agent-visible material before live work is enabled.
-- [ ] **U24 — Durable Returned RDX Discovery** — Sol / High. Discover attachments on linked tasks; validate/stage, deduplicate and recover across restart/offline/manual cycles. Agent labels in files are not authentication.
+- [x] **U24 — Durable Returned RDX Discovery** — Sol / High. Discover attachments on linked tasks; validate/stage, deduplicate and recover across restart/offline/manual cycles. Agent labels in files are not authentication. Completed October 19 in source; [report](U24-Completion-Report.md).
 - [ ] **U25 — Validated Independent/Grouped Result Application** — Astra / High. ROMDex reconciles returned `.rdx` into NPCD and managed files, preserving newer drafts and conflict alternatives. Validate authorization/package scope/base/hashes; dependent groups apply together. Every accepted result requires human review/testing; no separate receipt file required.
 - [ ] **U26 — Human Review and Controlled Resolution** — Sol / High. Preview/defer/reject/retry stale, conflicting, incomplete or unapproved results without losing either version; never partially apply dependent groups.
 - [ ] **U27 — History, Reversal and Verification-Gated Completion** — Sol / High. Every agent-result import sets affected testing to Unreviewed. U23 approved **Needs Testing with flashing amber** in the existing task/item lights, between In Development and Complete; no added badge. Retain Critical/development precedence and preserve testing obligations independently of State edits. Announce readiness, retain task open, preserve unaffected testing; explicit human verification alone clears the gate.
