@@ -6,13 +6,16 @@ export class WorkspaceHost {
   if(this.loading.has(id))return this.loading.get(id);
   const frame=this.frames[id];if(!frame)throw Error('Unknown Workspace.');
   const pending=new Promise((resolve,reject)=>{
-   let timer;const cleanup=()=>{clearTimeout(timer);frame.removeEventListener('load',loaded);};
+   // Importing/opening an RDX reloads the same iframe. Keep observing its load
+   // events so save/quit providers never retain a detached document's handlers.
+   let timer,settled=false;const cleanup=(remove=false)=>{clearTimeout(timer);if(remove)frame.removeEventListener('load',loaded);};
    const loaded=async()=>{try{const win=frame.contentWindow,doc=frame.contentDocument;if(!win.romdexWorkspace)throw Error('Workspace Did Not Load. Retry Switching.');await win.romdexWorkspace.ready;const view={frame,win,doc,state:null,focus:null};
     const remember=event=>{const element=event.target;if(element&&element!==doc.body&&element!==doc.documentElement)view.focus=this.focusState(element);};
     doc.addEventListener('focusin',remember);doc.addEventListener('focusout',remember);doc.addEventListener('selectionchange',()=>{const e=doc.activeElement;if(e&&e!==doc.body)view.focus=this.focusState(e);});
-    this.views.set(id,view);cleanup();this.onReady(id,view);resolve(view);
-   }catch(error){cleanup();reject(error);}};
-   frame.addEventListener('load',loaded);timer=setTimeout(()=>{cleanup();reject(Error('Workspace Loading Timed Out. Retry Switching.'));},45000);frame.src=frame.dataset.src;
+    if(doc!==frame.contentDocument)return;
+    this.views.set(id,view);cleanup();this.onReady(id,view);if(settled)this.resize();settled=true;resolve(view);
+   }catch(error){cleanup(!settled);if(!settled)reject(error);}};
+   frame.addEventListener('load',loaded);timer=setTimeout(()=>{cleanup(true);reject(Error('Workspace Loading Timed Out. Retry Switching.'));},45000);frame.src=frame.dataset.src;
   });this.loading.set(id,pending);try{return await pending;}finally{this.loading.delete(id);}
  }
  focusState(element){let start=null,end=null,direction=null;try{start=element.selectionStart;end=element.selectionEnd;direction=element.selectionDirection;}catch{}return {element,id:element.id,start,end,direction};}

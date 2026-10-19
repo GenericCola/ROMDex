@@ -1,0 +1,82 @@
+{
+  "task": "RD10",
+  "stage": "Read-Only Authoritative Capture",
+  "startedAt": "2026-10-19T11:08:59.224Z",
+  "remoteWrites": 0,
+  "liveDataWrites": 0,
+  "status": "captured",
+  "head": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+  "remoteHead": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+  "localHeadBefore": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+  "localHeadChanged": false,
+  "localSnapshotSHA256": "b6776e572dbf5e3dcc568a96f93a009b893ff976404a16c430359aac8f681c66",
+  "snapshotSHA256": "b6776e572dbf5e3dcc568a96f93a009b893ff976404a16c430359aac8f681c66",
+  "domainSHA256": "e985de82792f8cddc247a1dab0bf27da580be538a17cf62a0f557e24033d8c5b",
+  "records": 211,
+  "recordRevisions": 211,
+  "views": 198,
+  "plans": 94,
+  "reviews": 85,
+  "assets": 40,
+  "assetBytes": 10456321,
+  "bindings": 211,
+  "maps": [
+    {
+      "recordId": "content:map-6f46596ba749602286e0e6f205b28fd5",
+      "name": "New Bark Town",
+      "issueId": "3-429"
+    },
+    {
+      "recordId": "content:map-02fad93088dbfffc9bd993beb5246e5a",
+      "name": "Route 29",
+      "issueId": "3-491"
+    },
+    {
+      "recordId": "content:map-cdb040dd26bba56fabaa5bf701194795",
+      "name": "Cherrygrove City",
+      "issueId": "3-513"
+    }
+  ],
+  "sharedCollections": [
+    {
+      "recordId": "content:shared-0084940742d15e335ed766de6e65889b",
+      "name": "Narrative Progression",
+      "type": "progression"
+    },
+    {
+      "recordId": "content:shared-4e38cea9469724ececeadf3825868cad",
+      "name": "Global Dialogue",
+      "type": "global-dialogue"
+    },
+    {
+      "recordId": "content:element-dcc282eb1f4205220b27edd164421e2f",
+      "name": "Item Gifts",
+      "type": "global-dialogue"
+    },
+    {
+      "recordId": "content:element-5ceb3d76de621a17cfa40fc189409748",
+      "name": "Hidden Item Messages",
+      "type": "global-dialogue"
+    },
+    {
+      "recordId": "content:element-f39f4f4373377bde781e314a7941c921",
+      "name": "Photographer Dialogue",
+      "type": "global-dialogue"
+    },
+    {
+      "recordId": "content:element-77f09889b0eba42c1fe50873c527b491",
+      "name": "Shared Routines",
+      "type": "global-dialogue"
+    },
+    {
+      "recordId": "content:compatibility-620308234cf49ad7f5d0bee767111cdf",
+      "name": "Original Save and Migration Index",
+      "type": "assets"
+    }
+  ],
+  "pending": [],
+  "review": [],
+  "requests": 282,
+  "readBytes": 4863187,
+  "finishedAt": "2026-10-19T11:10:28.484Z"
+}

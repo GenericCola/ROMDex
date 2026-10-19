@@ -1,0 +1,239 @@
+{
+  "task": "RD10",
+  "status": "in-progress-awaiting-preview-acceptance",
+  "date": "2026-10-19",
+  "capture": {
+    "task": "RD10",
+    "stage": "Read-Only Authoritative Capture",
+    "startedAt": "2026-10-19T11:08:59.224Z",
+    "remoteWrites": 0,
+    "liveDataWrites": 0,
+    "status": "captured",
+    "head": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+    "remoteHead": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+    "localHeadBefore": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+    "localHeadChanged": false,
+    "localSnapshotSHA256": "b6776e572dbf5e3dcc568a96f93a009b893ff976404a16c430359aac8f681c66",
+    "snapshotSHA256": "b6776e572dbf5e3dcc568a96f93a009b893ff976404a16c430359aac8f681c66",
+    "domainSHA256": "e985de82792f8cddc247a1dab0bf27da580be538a17cf62a0f557e24033d8c5b",
+    "records": 211,
+    "recordRevisions": 211,
+    "views": 198,
+    "plans": 94,
+    "reviews": 85,
+    "assets": 40,
+    "assetBytes": 10456321,
+    "bindings": 211,
+    "maps": [
+      {
+        "recordId": "content:map-6f46596ba749602286e0e6f205b28fd5",
+        "name": "New Bark Town",
+        "issueId": "3-429"
+      },
+      {
+        "recordId": "content:map-02fad93088dbfffc9bd993beb5246e5a",
+        "name": "Route 29",
+        "issueId": "3-491"
+      },
+      {
+        "recordId": "content:map-cdb040dd26bba56fabaa5bf701194795",
+        "name": "Cherrygrove City",
+        "issueId": "3-513"
+      }
+    ],
+    "sharedCollections": [
+      {
+        "recordId": "content:shared-0084940742d15e335ed766de6e65889b",
+        "name": "Narrative Progression",
+        "type": "progression"
+      },
+      {
+        "recordId": "content:shared-4e38cea9469724ececeadf3825868cad",
+        "name": "Global Dialogue",
+        "type": "global-dialogue"
+      },
+      {
+        "recordId": "content:element-dcc282eb1f4205220b27edd164421e2f",
+        "name": "Item Gifts",
+        "type": "global-dialogue"
+      },
+      {
+        "recordId": "content:element-5ceb3d76de621a17cfa40fc189409748",
+        "name": "Hidden Item Messages",
+        "type": "global-dialogue"
+      },
+      {
+        "recordId": "content:element-f39f4f4373377bde781e314a7941c921",
+        "name": "Photographer Dialogue",
+        "type": "global-dialogue"
+      },
+      {
+        "recordId": "content:element-77f09889b0eba42c1fe50873c527b491",
+        "name": "Shared Routines",
+        "type": "global-dialogue"
+      },
+      {
+        "recordId": "content:compatibility-620308234cf49ad7f5d0bee767111cdf",
+        "name": "Original Save and Migration Index",
+        "type": "assets"
+      }
+    ],
+    "pending": [],
+    "review": [],
+    "requests": 282,
+    "readBytes": 4863187,
+    "finishedAt": "2026-10-19T11:10:28.484Z"
+  },
+  "preview": {
+    "format": "ROMDexNativeAdoptionPreview/1",
+    "head": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+    "domainSHA256": "e985de82792f8cddc247a1dab0bf27da580be538a17cf62a0f557e24033d8c5b",
+    "maps": [
+      {
+        "mapRecordId": "content:map-6f46596ba749602286e0e6f205b28fd5",
+        "name": "New Bark Town",
+        "documentId": "content:rdx-map-58b2334ca357faea147c3d41cb6bf225d1cbf3274e110e85ebe43326ed04885b",
+        "revision": "f53cea2691ba643e27e9f043b3c9d34e50c79867c1fb17e8b62f65156a2a9b98",
+        "bytes": 6096599,
+        "sha256": "92d4895fa730fc5647f7304f279275a408bad25fd0fe50019a02bf42289250c8",
+        "ownedRecords": 62,
+        "sharedRecords": 58,
+        "recordRevisions": 120,
+        "plans": 94,
+        "reviews": 81,
+        "assets": 40,
+        "issueId": "3-429"
+      },
+      {
+        "mapRecordId": "content:map-02fad93088dbfffc9bd993beb5246e5a",
+        "name": "Route 29",
+        "documentId": "content:rdx-map-ba80d007618b9e50761f5d90778e84e83e62f4c55135c9b75187af934f2c50be",
+        "revision": "fc0359fa12826bdf4caf4dd4b8b23771869e693e7cfa3546707a1990881b20e1",
+        "bytes": 6058855,
+        "sha256": "ba42aee760a960673853f41b246a2eaffbd775f57b6d52c221471597b6f7c368",
+        "ownedRecords": 22,
+        "sharedRecords": 58,
+        "recordRevisions": 80,
+        "plans": 17,
+        "reviews": 21,
+        "assets": 40,
+        "issueId": "3-491"
+      },
+      {
+        "mapRecordId": "content:map-cdb040dd26bba56fabaa5bf701194795",
+        "name": "Cherrygrove City",
+        "documentId": "content:rdx-map-931817e186c601598f623061ff41bab1b4270020731cfc82035df71a4d796493",
+        "revision": "03281abf36fc6fa4aa677c56000a3820a2a4cbd7b6119be9169a9aef289276d2",
+        "bytes": 6121337,
+        "sha256": "78c26a3f374943247359ad15d31d3f3298929b7002d247a6bf576bbe045205b6",
+        "ownedRecords": 69,
+        "sharedRecords": 58,
+        "recordRevisions": 127,
+        "plans": 17,
+        "reviews": 19,
+        "assets": 40,
+        "issueId": "3-513"
+      }
+    ],
+    "recordCount": 211,
+    "plans": 94,
+    "reviews": 85,
+    "assets": 40,
+    "sharedCollections": [
+      {
+        "recordId": "content:shared-4e38cea9469724ececeadf3825868cad",
+        "name": "Global Dialogue"
+      },
+      {
+        "recordId": "content:element-dcc282eb1f4205220b27edd164421e2f",
+        "name": "Item Gifts"
+      },
+      {
+        "recordId": "content:element-5ceb3d76de621a17cfa40fc189409748",
+        "name": "Hidden Item Messages"
+      },
+      {
+        "recordId": "content:element-f39f4f4373377bde781e314a7941c921",
+        "name": "Photographer Dialogue"
+      },
+      {
+        "recordId": "content:element-77f09889b0eba42c1fe50873c527b491",
+        "name": "Shared Routines"
+      }
+    ],
+    "nativeBindings": 211,
+    "backendRecordsCreated": 0,
+    "exactCatalogRoundtrip": true,
+    "exactMaleAndFemaleViews": true,
+    "capturedAt": "2026-10-19T11:10:28.484Z",
+    "remoteHead": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+    "pending": [],
+    "review": [],
+    "credentialChanges": 0,
+    "liveDataChanges": 0,
+    "remoteWrites": 0,
+    "productionActivation": false,
+    "fullDataBackupAndRestoration": "Required before activation; this is only a consistent read-only content capture.",
+    "acceptance": "Awaiting fresh preview acceptance"
+  },
+  "candidateStore": {
+    "task": "RD10",
+    "stage": "Actual Candidate Store and Reopen Checks",
+    "productionWrites": 0,
+    "remoteWrites": 0,
+    "credentialsUsed": false,
+    "status": "passed",
+    "maps": [
+      {
+        "key": "5e820e54fb72f90edd249f935ed2004a1dc40d139cdd769f7361e0505a67cba2",
+        "documentId": "content:rdx-map-931817e186c601598f623061ff41bab1b4270020731cfc82035df71a4d796493",
+        "revision": "03281abf36fc6fa4aa677c56000a3820a2a4cbd7b6119be9169a9aef289276d2",
+        "sha256": "78c26a3f374943247359ad15d31d3f3298929b7002d247a6bf576bbe045205b6"
+      },
+      {
+        "key": "6c724be0d7bbff3364c6a6c3bfb720675a78c8949e0d6e492d0d1327010f67d1",
+        "documentId": "content:rdx-map-ba80d007618b9e50761f5d90778e84e83e62f4c55135c9b75187af934f2c50be",
+        "revision": "fc0359fa12826bdf4caf4dd4b8b23771869e693e7cfa3546707a1990881b20e1",
+        "sha256": "ba42aee760a960673853f41b246a2eaffbd775f57b6d52c221471597b6f7c368"
+      },
+      {
+        "key": "f43040a1071e18840f42f31817a7406192e360bd1c1d55a12bd7c97eca94d4c3",
+        "documentId": "content:rdx-map-58b2334ca357faea147c3d41cb6bf225d1cbf3274e110e85ebe43326ed04885b",
+        "revision": "f53cea2691ba643e27e9f043b3c9d34e50c79867c1fb17e8b62f65156a2a9b98",
+        "sha256": "92d4895fa730fc5647f7304f279275a408bad25fd0fe50019a02bf42289250c8"
+      }
+    ],
+    "exactFileCheckpoints": true,
+    "reopenedCatalogSHA256": "e985de82792f8cddc247a1dab0bf27da580be538a17cf62a0f557e24033d8c5b",
+    "contentIdentities": 211,
+    "assets": 40,
+    "at": "2026-10-19T11:15:07.080Z"
+  },
+  "focusedTests": {
+    "passed": 4,
+    "failed": 0,
+    "strengthenedPortableViewAssertionRecheck": 1,
+    "command": "node --test tests/rdx-native-adoption.test.mjs"
+  },
+  "sourceFiles": [
+    {
+      "path": "rdx/native-adoption.mjs",
+      "bytes": 9728,
+      "sha256": "0a62521b14fa629f838fe30170d8ef19cc5046004ef1673be7ab3e830292ebf0"
+    },
+    {
+      "path": "tests/rdx-native-adoption.test.mjs",
+      "bytes": 6065,
+      "sha256": "3c045e9df05fc7226eb97665b55d1994b9bc93962ac559c7b2f304d6f7c023e1"
+    }
+  ],
+  "installedVersion": "0.5.14",
+  "productionActivated": false,
+  "completeDataBackup": false,
+  "completeDataRestoration": false,
+  "credentialsChanged": false,
+  "remoteWrites": 0,
+  "superseded": true,
+  "supersededBy": "RD10-Scoped-Adoption-Preview.md",
+  "notice": "Historical bulk-packaging verification only; these candidates will not be activated."
+}

@@ -1,0 +1,18 @@
+{
+  "task": "RD10",
+  "scope": "Packaged Electron, isolated adopted copy, no credentials",
+  "checks": [
+    "Packaged app opens both workspaces and all three maps plus separate Global Dialogue",
+    "The native service restores three adopted RDX identities and checkpoints",
+    "Opening an adopted map restores its selector and refreshes the shell save/quit binding",
+    "The real Tray 2 menu exports the selected map as a verified one-map file",
+    "Original current-content view and separate shared collection remain available after export",
+    "Normal quit checkpoints the unsent isolated edit without needing a connection"
+  ],
+  "status": "passed",
+  "version": "0.5.15",
+  "productionDataChanged": false,
+  "credentialsUsed": false,
+  "exportBytes": 185623,
+  "at": "2026-10-19T12:24:07.634Z"
+}

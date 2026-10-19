@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** RD01–RD09 are complete within their approved design/source boundaries. [RD09 report](RD09-Completion-Report.md), [agent kit](../../apps/romdex/rdx/authoring/README.md). Eight focused tests and 13 extracted-kit CLI commands passed. Installed 0.5.14, current production maps and credentials remain unchanged. Next: **RD10 — Adopt RDX for All Existing Maps, Sol / High**, requiring a new PASSKEY, fresh backup and accepted preview.
+**Current:** **RD10 — Adopt RDX for All Existing Maps, Sol / High** is authorized and in progress. The accepted source data is now packaged strictly one map per RDX, following the user's explicit correction; [scoped preview](RD10-Scoped-Adoption-Preview.md) and [combined authorization](RD10-Scoped-Acceptance.json). Exact reconstruction, isolated local edit/reopen and 186 RDX regression checks passed. The 0.5.15 MSI is built; native export review, complete backup/restoration, fresh baseline and installed acceptance remain pending. Live 0.5.14 data is unchanged. U21 remains separately gated.
 
 ## Completed Foundation
 
@@ -96,6 +96,17 @@
 - [x] **RD08 — Windows RDX File Integration** — Sol / Medium. Use the exact existing **Pokéball favicon artwork** as the `.rdx` file icon. Register/open into validated previews through the single-instance app; no silent execution/publication/replacement. Preserve Data and association ownership on upgrade/uninstall. **Completed October 19:** 38 focused checks, five targeted UI checks, seven packaged-app checks, registered-launcher observation and six installer acceptance checks passed. The authorized pixel-art app icon preserves the former PNG/ICO/SVG exactly. [Report](RD08-Completion-Report.md).
 - [x] **RD09 — Agent Authoring and Portable Workflow Guide** — Sol / Medium. Versioned schemas/examples and extraction/ROM-mapping/pack/unpack/validate instructions for map/plan `.rdx`, JSON Map Packages and returned `.rdx`. Distinguish fixtures from real ROM extraction; required agent assets accessible on YouTrack. **Completed October 19:** versioned guide/prompts/examples, pinned schemas and a 44-file portable kit; eight focused tests and 13 independent CLI commands passed. [Report](RD09-Completion-Report.md).
 - [ ] **RD10 — Adopt RDX for All Existing Maps** — Sol / High. Only after the RD07 proof: fresh authoritative backup and reviewed preview, then move all current maps to managed `.rdx` files. Retain NPCD records/identities as the synced backend; preserve exact content, assets, notes/flags/proposals/history/testing, queued edits and all credentials. Verify each map and restoration before completion.
+
+RD10 execution checklist:
+
+- [x] Capture consistent current native data and verify the live NPCD head read-only; queue and review are empty.
+- [x] Produce strictly map-scoped candidate `.rdx` files and verify map-only payloads, required assets, exact map views and catalog reconstruction with separate native shared context. The earlier whole-catalog recovery candidates passed preservation checks but are superseded.
+- [x] Record original source-data acceptance together with the subsequent explicit one-map scope instruction; preserve both as authorization evidence. No source data is substituted.
+- [x] Complete the existing-catalog adapter and focused save/pull/shared-context/recovery verification without recreating NPCD records.
+- [x] Prepare and verify the packaged build; preserve the completed RDX Windows integration and all original icons.
+- [ ] After a verified quit, create a fresh complete Data backup, prove isolated restoration and preserve all three credentials; revalidate the accepted baseline.
+- [ ] Activate adoption, verify each managed file against the backend and reopened installation, complete the report and mark RD10 done.
+- [ ] **After Phase 6 and successful packaged-installer execution:** deliver the user's concise plain-English report listing the exact ROM/source inputs, tools and files required to generate RDX, and compare the portable packer with an RDX compiler built into ROMDex. Do not deliver this final recommendation before installer acceptance.
 
 **Adoption gate:** do not replace current working map storage until the test `.rdx` demonstrably imports, maps to YouTrack and accepts local/native changes. Converting maps is separately authorized under RD10; it is not permission to delete/recreate the backend tree.
 

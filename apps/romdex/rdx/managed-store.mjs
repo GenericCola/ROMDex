@@ -77,7 +77,7 @@ export class ManagedDocuments{
   if(existing){ensure(existing.head===value.document.revision,'REVIEW_REQUIRED','An Existing Document Needs an Update Preview; It Was Not Replaced.');return {...await this.status(key),alreadyPresent:true};}
   return this.commit(value,{key,reason:'local-import',prior:null,sourceHash:value.containerSha256,options});
  });}
- async save(key,{documentBytes,blobs,expectedRevision,...options}={}){return this.exclusive(async()=>{
+ async save(key,{documentBytes,blobs,expectedRevision,nativeCheckpoint=false,...options}={}){return this.exclusive(async()=>{
   const row=this.row(key);ensure(row.head===expectedRevision,'CONFLICT','The Managed RDX Baseline Changed. Reload Before Saving.');ensure(!this.pending(key),'RECOVERY','Finish the Pending RDX Checkpoint Before Editing Again.');
   // Draft bytes come from an explicit local edit, not the untrusted RDX import
   // path. Only the outer revision is recomputed; nested artifact seals must pass.
@@ -90,11 +90,17 @@ export class ManagedDocuments{
   for(const a of before.document.assetInventory){if(assets.has(a.assetId))ensure(same(assets.get(a.assetId),a),'CONFLICT','An Existing RDX Asset Identity Has Different Bytes.');else{doc.assetInventory.push(a);assets.set(a.assetId,a);}if(!nextBlobs.has(a.sha256))nextBlobs.set(a.sha256,before.blobs.get(a.sha256));}
   for(const h of before.document.content.history)if(!doc.content.history.some(v=>same(v,h)))doc.content.history.push(h);
   const unchanged={...doc,revision:before.document.revision};if(same(unchanged,before.document)){validateDocument(Buffer.from(canonical(unchanged)),{blobs:nextBlobs});return {...await this.status(key),unchanged:true};}
-  if(!row.needs_testing)doc.origin={...doc.origin,role:'user',generator:'ROMDex Managed Documents/1'};
+  if(nativeCheckpoint){
+   ensure(!row.needs_testing&&doc.kind==='map'&&before.document.extensions?.['org.romdex.native-adoption']?.format==='ROMDexNativeMapEvidence/1'&&doc.extensions?.['org.romdex.native-adoption']?.format==='ROMDexNativeMapEvidence/1'&&doc.origin.role==='backend-sync','INVALID','Native Checkpoint Authority Differs.');
+   // Generated wrapper versions remain in the immutable SQLite journal and
+   // previous containers. Portable files retain native artifact history once,
+   // rather than recursively embedding every preceding RDX wrapper.
+   for(const collection of ['records','plans','reviews','mappings','views'])for(const old of before.document.content[collection])if(!(collection==='views'&&old.actorClaim==='content:rdx-adapter'))ensure(doc.content[collection].some(a=>(a.revisionId||a.digest)===(old.revisionId||old.digest)&&same(a,old)),'RECOVERY','A Native Checkpoint Cannot Discard Artifact History.');
+  }else if(!row.needs_testing)doc.origin={...doc.origin,role:'user',generator:'ROMDex Managed Documents/1'};
   const baseHash=sha(before.documentBytes),assetId='history:rdx-'+baseHash;
-  if(!assets.has(assetId))doc.assetInventory.push({assetId,sha256:baseHash,bytes:before.documentBytes.length,mime:'application/json',purpose:'history'});
-  nextBlobs.set(baseHash,before.documentBytes);
-  if(!doc.content.history.some(h=>h.sha256===baseHash))doc.content.history.push({sha256:baseHash,mediaType:'application/json',schema:'RDXDocument/1',purpose:'Exact Prior Managed Document'});
+  if(!nativeCheckpoint){if(!assets.has(assetId))doc.assetInventory.push({assetId,sha256:baseHash,bytes:before.documentBytes.length,mime:'application/json',purpose:'history'});
+   nextBlobs.set(baseHash,before.documentBytes);
+   if(!doc.content.history.some(h=>h.sha256===baseHash))doc.content.history.push({sha256:baseHash,mediaType:'application/json',schema:'RDXDocument/1',purpose:'Exact Prior Managed Document'});}
   doc.parents=[...new Set([...doc.parents,row.head])];doc.revision=documentRevision(doc);
   const packed=await packRdx(Buffer.from(canonical(doc)),nextBlobs,options),value=await unpackRdx(packed,options);
   return this.commit(value,{key,reason:'local-edit',prior:row.head,sourceHash:null,options});

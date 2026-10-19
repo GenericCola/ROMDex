@@ -1,0 +1,25 @@
+{
+  "task": "RD10",
+  "scope": "Strict one-map files, real captured catalog, local copy only",
+  "networkRequests": 0,
+  "remoteWrites": 0,
+  "productionWrites": 0,
+  "credentialsUsed": false,
+  "checks": [
+    "Accepted current native catalog adopts without creating tickets or changing identity",
+    "Local note remains in original journal and exact managed maps with identical NPCDex presentation",
+    "Reopen retains all 211 records, exact assets and the unsent local edit"
+  ],
+  "timings": {
+    "initialAdoptionMs": 11097,
+    "localEditAcknowledgementMs": 4102,
+    "localEditCheckpointMs": 9307,
+    "reopenMs": 2408
+  },
+  "status": "passed",
+  "records": 211,
+  "maps": 3,
+  "sourceHead": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+  "testCopyHead": "d152a43b6dcb411b600788b359643db9515c8bcce80a9d59377cd1d854cbcfcc",
+  "at": "2026-10-19T11:45:11.483Z"
+}

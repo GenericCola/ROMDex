@@ -1,0 +1,95 @@
+{
+  "format": "ROMDexNativeAdoptionPreview/2",
+  "portableScope": "one-map-v2",
+  "head": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+  "domainSHA256": "e985de82792f8cddc247a1dab0bf27da580be538a17cf62a0f557e24033d8c5b",
+  "maps": [
+    {
+      "mapRecordId": "content:map-6f46596ba749602286e0e6f205b28fd5",
+      "name": "New Bark Town",
+      "documentId": "content:rdx-map-58b2334ca357faea147c3d41cb6bf225d1cbf3274e110e85ebe43326ed04885b",
+      "revision": "a42dd188f19893f718a52718f0c1734fd1047d1a69fc1250fe9808b6e7bdca9f",
+      "bytes": 540642,
+      "sha256": "55dc2a300cad480b932e456f08a4d345c5c37f462a68703fb0539670058d5fbf",
+      "ownedRecords": 62,
+      "sharedRecords": 17,
+      "recordRevisions": 79,
+      "plans": 81,
+      "reviews": 67,
+      "assets": 34,
+      "issueId": "3-429"
+    },
+    {
+      "mapRecordId": "content:map-02fad93088dbfffc9bd993beb5246e5a",
+      "name": "Route 29",
+      "documentId": "content:rdx-map-ba80d007618b9e50761f5d90778e84e83e62f4c55135c9b75187af934f2c50be",
+      "revision": "b8644e63d6c94046362ef0ad00889acaaf6184ab3466d0c2fa1aaf5a8a507409",
+      "bytes": 185623,
+      "sha256": "bf59c02fb01f75b0507f270ed88c824f37faf722a72deeb00dad016a4ef4f57e",
+      "ownedRecords": 22,
+      "sharedRecords": 12,
+      "recordRevisions": 34,
+      "plans": 2,
+      "reviews": 3,
+      "assets": 6,
+      "issueId": "3-491"
+    },
+    {
+      "mapRecordId": "content:map-cdb040dd26bba56fabaa5bf701194795",
+      "name": "Cherrygrove City",
+      "documentId": "content:rdx-map-931817e186c601598f623061ff41bab1b4270020731cfc82035df71a4d796493",
+      "revision": "42ebf3b0633391cfff15ed01dacdc68163c4431d8ead4c44a22c6ac27d20af80",
+      "bytes": 338835,
+      "sha256": "9fe76ffd27be3804ecaef1bfca6b24ccdd10f0e34bea246aedad960ec4f3d193",
+      "ownedRecords": 69,
+      "sharedRecords": 32,
+      "recordRevisions": 101,
+      "plans": 1,
+      "reviews": 2,
+      "assets": 3,
+      "issueId": "3-513"
+    }
+  ],
+  "recordCount": 211,
+  "plans": 94,
+  "reviews": 85,
+  "assets": 40,
+  "sharedCollections": [
+    {
+      "recordId": "content:shared-4e38cea9469724ececeadf3825868cad",
+      "name": "Global Dialogue"
+    },
+    {
+      "recordId": "content:element-dcc282eb1f4205220b27edd164421e2f",
+      "name": "Item Gifts"
+    },
+    {
+      "recordId": "content:element-5ceb3d76de621a17cfa40fc189409748",
+      "name": "Hidden Item Messages"
+    },
+    {
+      "recordId": "content:element-f39f4f4373377bde781e314a7941c921",
+      "name": "Photographer Dialogue"
+    },
+    {
+      "recordId": "content:element-77f09889b0eba42c1fe50873c527b491",
+      "name": "Shared Routines"
+    }
+  ],
+  "nativeBindings": 211,
+  "backendRecordsCreated": 0,
+  "exactCatalogRoundtrip": true,
+  "exactMaleAndFemaleViews": true,
+  "oneMapPayloadPerFile": true,
+  "wholeCatalogRecoveryEmbedded": false,
+  "capturedAt": "2026-10-19T11:10:28.484Z",
+  "remoteHead": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+  "pending": [],
+  "review": [],
+  "credentialChanges": 0,
+  "liveDataChanges": 0,
+  "remoteWrites": 0,
+  "productionActivation": false,
+  "fullDataBackupAndRestoration": "Required before activation; this is only a consistent read-only content capture.",
+  "acceptance": "Original source-data acceptance plus explicit one-map instruction; final backup and baseline checks remain required."
+}

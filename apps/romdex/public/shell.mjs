@@ -40,7 +40,7 @@ $('about-close').onclick=()=>$('about-dialog').close();
 native.addEventListener('service-ready',()=>{nativeError=null;mirror.tray=null;tell('Desktop Service Recovered. Review Any Interrupted Action Before Retrying.');coordinator.emit();});
 async function desktopCheckpoint(quitting=true){
  if(quitting)document.body.inert=true;
- try{const view=host.views.get('romdex');await view?.win.romdexWorkspace.flush?.();
+ try{for(const entry of host.views.values())if(entry.doc!==entry.frame.contentDocument)throw Error('A Workspace Is Still Opening. Wait Before Saving or Quitting.');const view=host.views.get('romdex');await view?.win.romdexWorkspace.flush?.();
   if(quitting){await view?.win.romdexWorkspace.prepareQuit?.();for(const [id,entry]of host.views){if(id==='npcdex'&&entry.doc.querySelector('dialog[open]'))throw Error('Finish or Cancel the Open NPCDex Dialog Before Quitting.');}}
   const results=await coordinator.checkpoint();if(results.some(x=>!x.ok))document.body.inert=false;return results;
  }catch(error){document.body.inert=false;throw error;}

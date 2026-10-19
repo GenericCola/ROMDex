@@ -6,7 +6,7 @@
 **Status:** U01–U20I and RD01 are complete. RD02–RD09 source/guide implementation is complete, including RD07 real isolated two-way proof, RD08 Windows/installer acceptance and RD09 portable agent kit. Installed ROMDex remains 0.5.14; current production maps and credentials are unchanged. Fresh accepted adoption remains RD10.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
-**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). RD09 is complete: [report](RD09-Completion-Report.md), [agent kit](../../apps/romdex/rdx/authoring/README.md). Next: **RD10 — Adopt RDX for All Existing Maps, Sol / High**, under a new PASSKEY and fresh preview acceptance.
+**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). RD10 is authorized and in progress under the October 19 PASSKEY. The original accepted source data is retained, with strict one-map files as subsequently instructed; [scoped preview](RD10-Scoped-Adoption-Preview.md). Complete backup/restoration, a fresh baseline check and installed acceptance remain required. Production remains 0.5.14. After Phase 6 and successful installer execution, deliver the requested plain-English extraction/tooling report and evaluate a built-in RDX compiler. U21 remains outside this PASSKEY.
 
 ## Working Agreement
 

@@ -1,0 +1,54 @@
+{
+  "format": "ROMDexNativeAdoptionAcceptance/1",
+  "approved": true,
+  "approvedBy": "Human User",
+  "answer": "Approve Preview and Continue RD10",
+  "approvedAt": "2026-10-19T11:21:57.316Z",
+  "head": "fbb5dcdf7ecd8e420222cc13bf6d25ce7ffbf8e6dca3a427d53afa3b273009b8",
+  "domainSHA256": "e985de82792f8cddc247a1dab0bf27da580be538a17cf62a0f557e24033d8c5b",
+  "maps": [
+    {
+      "mapRecordId": "content:map-6f46596ba749602286e0e6f205b28fd5",
+      "documentId": "content:rdx-map-58b2334ca357faea147c3d41cb6bf225d1cbf3274e110e85ebe43326ed04885b",
+      "issueId": "3-429"
+    },
+    {
+      "mapRecordId": "content:map-02fad93088dbfffc9bd993beb5246e5a",
+      "documentId": "content:rdx-map-ba80d007618b9e50761f5d90778e84e83e62f4c55135c9b75187af934f2c50be",
+      "issueId": "3-491"
+    },
+    {
+      "mapRecordId": "content:map-cdb040dd26bba56fabaa5bf701194795",
+      "documentId": "content:rdx-map-931817e186c601598f623061ff41bab1b4270020731cfc82035df71a4d796493",
+      "issueId": "3-513"
+    }
+  ],
+  "conditions": [
+    "Complete Data backup and verified isolated restoration",
+    "Recheck fresh source baseline before activation",
+    "Preserve all 211 NPCD identities and all three credentials"
+  ],
+  "portableScope": "one-map-v2",
+  "approvalBasis": "Original human data acceptance plus the subsequent explicit one-map-per-file instruction; no source-data substitution.",
+  "sourceApprovalFile": "RD10-Preview-Acceptance.json",
+  "scopeInstruction": "There should be one .rdx for each map. an rdx should not contain multiple maps.",
+  "scopeRecordedAt": "2026-10-19T11:44:35.481Z",
+  "candidateFiles": [
+    {
+      "mapRecordId": "content:map-6f46596ba749602286e0e6f205b28fd5",
+      "bytes": 540642,
+      "sha256": "55dc2a300cad480b932e456f08a4d345c5c37f462a68703fb0539670058d5fbf"
+    },
+    {
+      "mapRecordId": "content:map-02fad93088dbfffc9bd993beb5246e5a",
+      "bytes": 185623,
+      "sha256": "bf59c02fb01f75b0507f270ed88c824f37faf722a72deeb00dad016a4ef4f57e"
+    },
+    {
+      "mapRecordId": "content:map-cdb040dd26bba56fabaa5bf701194795",
+      "bytes": 338835,
+      "sha256": "9fe76ffd27be3804ecaef1bfca6b24ccdd10f0e34bea246aedad960ec4f3d193"
+    }
+  ],
+  "catalogRecoverySeparate": true
+}

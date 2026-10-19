@@ -1,0 +1,14 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {spawn} from 'node:child_process';
+import {createHash} from 'node:crypto';
+import {secureDirectory} from '../../outputs/ROMDex/desktop/migration.mjs';
+const work=path.resolve('work/rd10'),done=new Set(),deadline=Date.now()+8*3600000;
+const state=phase=>fs.writeFile(path.join(work,'host-state.json'),JSON.stringify({task:'RD10',pid:process.pid,phase,at:new Date().toISOString()}));
+await secureDirectory(path.join(work,'private-profile'));
+await fs.mkdir(path.join(work,'tmp'),{recursive:true});
+await state('Ready for Reviewed RD10 Checks');
+try{while(Date.now()<deadline){let job;try{job=JSON.parse(await fs.readFile(path.join(work,'job.json')));}catch(e){if(e.code!=='ENOENT')throw e;}
+ if(job&&!done.has(job.id)){done.add(job.id);if(job.task!=='RD10'||Date.now()-job.at>3600000||job.at>Date.now()+60000)throw Error('Expired Verification Job.');if(job.stop){await state('Stopped');break;}
+ const file=path.resolve(job.file);if(path.dirname(file)!==work||!/^verify-[\w-]+\.mjs$/.test(path.basename(file))||createHash('sha256').update(await fs.readFile(file)).digest('hex')!==job.sha256)throw Error('Unreviewed Verification Job.');await state('Running '+path.basename(file));const log=await fs.open(path.join(work,'host.log'),'a');const code=await new Promise((resolve,reject)=>{const env={...process.env,TEMP:path.join(work,'tmp'),TMP:path.join(work,'tmp')};delete env.ELECTRON_RUN_AS_NODE;const p=spawn(process.execPath,[file],{env,windowsHide:true,stdio:['ignore',log.fd,log.fd]});p.once('error',reject);p.once('exit',resolve);});await log.close();await fs.writeFile(path.join(work,'job-result.json'),JSON.stringify({id:job.id,code,at:new Date().toISOString()}));await state('Waiting After '+path.basename(file));}
+ await new Promise(r=>setTimeout(r,2000));}}catch(e){await state('Needs Review: '+e.message);process.exitCode=1;}

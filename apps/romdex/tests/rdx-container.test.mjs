@@ -15,6 +15,11 @@ import {documentRevision,validateDocument} from '../rdx/document.mjs';
 import {operation,LIMITS} from '../rdx/limits.mjs';
 import {main} from '../rdx/cli.mjs';
 const fixtures=new URL('./fixtures/rdx/',import.meta.url);
+test('map files reject other maps hidden in JSON attachments or backup payloads',async()=>{
+ const base=await fixture(),document=structuredClone(base.doc),blobs=new Map(base.blobs),foreign=Buffer.from(JSON.stringify({version:2,towns:[{id:'another-map',name:'Another Map',areas:[],characters:[],locations:[]}]})),hash=sha(foreign);
+ document.assetInventory.push({assetId:'fixture:hidden-catalog',sha256:hash,bytes:foreign.length,mime:'application/json',purpose:'attachment'});blobs.set(hash,foreign);document.revision=documentRevision(document);await assert.rejects(packRdx(Buffer.from(canonical(document)),blobs),/Another Map|Multi-Map/);
+ const multi=Buffer.from(JSON.stringify({towns:[{id:document.scope.mapRecordId,areas:[],characters:[]},{id:'another-map',areas:[],characters:[]}]})),h=sha(multi);document.assetInventory.at(-1).sha256=h;document.assetInventory.at(-1).bytes=multi.length;blobs.delete(hash);blobs.set(h,multi);document.revision=documentRevision(document);await assert.rejects(packRdx(Buffer.from(canonical(document)),blobs),/Multi-Map/);
+});
 async function fixture(name='map'){
  const bytes=await fs.readFile(new URL(name+'.document.json',fixtures)),doc=JSON.parse(bytes),blobs=new Map();
  for(const a of doc.assetInventory)blobs.set(a.sha256,await fs.readFile(new URL('blobs/'+a.sha256+'.bin',fixtures)));

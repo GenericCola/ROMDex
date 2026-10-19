@@ -1,0 +1,14 @@
+import fs from 'node:fs/promises';import path from 'node:path';import assert from 'node:assert/strict';
+import {previewNativeAdoption} from '../../outputs/ROMDex/rdx/native-adoption.mjs';
+import {canonical,sha} from '../../outputs/ROMDex/content/contracts.mjs';
+const work=path.resolve('work/rd10'),privateRoot=path.join(work,'private-profile'),report=JSON.parse(await fs.readFile(path.join(work,'capture-report.json')));
+assert.equal(report.status,'captured');assert.equal(report.liveDataWrites,0);assert.equal(report.remoteWrites,0);
+const domain=JSON.parse(await fs.readFile(path.join(privateRoot,'domain.json'))),source=JSON.parse(await fs.readFile(path.join(privateRoot,'source.json'))),bindings=JSON.parse(await fs.readFile(path.join(privateRoot,'bindings.json'))),assets=new Map();
+assert.equal(sha(canonical(domain)),report.domainSHA256);
+for(const a of domain.assets)assets.set(a.sha256,await fs.readFile(path.join(privateRoot,'assets',a.sha256)));
+const result=await previewNativeAdoption({domain,head:source.head,assetBytes:h=>assets.get(h),bindings});
+await fs.mkdir(path.join(privateRoot,'candidate-maps-scoped'),{recursive:true});
+for(const map of result.maps)await fs.writeFile(path.join(privateRoot,'candidate-maps-scoped',sha(map.document.documentId)+'.rdx'),map.bytes);
+const summary={...result.summary,capturedAt:report.finishedAt,remoteHead:source.remoteHead,pending:report.pending,review:report.review,credentialChanges:0,liveDataChanges:0,remoteWrites:0,productionActivation:false,fullDataBackupAndRestoration:'Required before activation; this is only a consistent read-only content capture.',acceptance:'Original source-data acceptance plus explicit one-map instruction; final backup and baseline checks remain required.'};
+await fs.writeFile(path.join(work,'adoption-preview-scoped.json'),JSON.stringify(summary,null,2));
+console.log(JSON.stringify({maps:summary.maps,records:summary.recordCount,assets:summary.assets,exactCatalogRoundtrip:summary.exactCatalogRoundtrip,pending:summary.pending.length,review:summary.review.length}));

@@ -12,6 +12,17 @@ export function requireCapabilities(required){
 }
 export function documentRevision(doc){const body={...doc};delete body.revision;return sha(canonical(body));}
 const ref=r=>r.recordId+':'+r.revisionId;
+function singleMapPayload(value,doc){
+ const map=doc.scope.mapRecordId,record=doc.content.records.find(r=>r.recordId===map),view=doc.content.views.find(v=>v.recordId===map),allowed=new Set([map,record?.legacyData?.legacyTownId,view?.payload.fields?.id].filter(Boolean)),todo=[value];
+ while(todo.length){const v=todo.pop();if(!v||typeof v!=='object')continue;
+  if(v.schema==='NPCDexContentRevision/1'&&v.kind==='map')ensure(v.recordId===map,'INVALID','An RDX Map Cannot Contain Another Map Payload.');
+  if(v.format==='RDXDocument/1'&&v.kind==='map')ensure(v.scope?.mapRecordId===map,'INVALID','An RDX Map Cannot Contain Another Map Document.');
+  const town=x=>x&&typeof x==='object'&&Array.isArray(x.areas)&&Array.isArray(x.characters);
+  if(Array.isArray(v.towns)&&v.towns.some(town))ensure(v.towns.length===1&&allowed.has(v.towns[0]?.id),'INVALID','An RDX Map Cannot Embed a Multi-Map Save or Another Map.');
+  if(town(v)&&typeof v.id==='string')ensure(allowed.has(v.id),'INVALID','An RDX Map Cannot Embed Another Map.');
+  for(const x of Object.values(v))if(x&&typeof x==='object')todo.push(x);
+ }
+}
 function image(bytes,mime){
  const signature=mime==='image/png'?bytes.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10])):
   mime==='image/gif'?/^GIF8[79]a$/.test(bytes.subarray(0,6).toString()):
@@ -76,6 +87,7 @@ export function validateDocument(bytes,{blobs=new Map(),limits:overrides,check=(
  ensure(doc?.format==='RDXDocument/1'&&doc.schemaVersion===1&&((doc.namespace==='org.romdex.npcdex'&&doc.kind==='map')||(doc.namespace==='org.romdex.tasks'&&doc.kind==='plan')),'UNSUPPORTED','Unsupported RDX Document Version, Workspace or Kind.');
  requireCapabilities(doc.capabilities?.required);validateShape(doc,doc.kind==='map'?'mapDocument':'planDocument');
  ensure(doc.revision===documentRevision(doc),'INVALID','RDX Document Revision Differs.');
+ if(doc.kind==='map')singleMapPayload(doc,doc);
  ensure(!doc.parents.includes(doc.revision),'INVALID','RDX Document Is Its Own Parent.');
  ensure(Number.isFinite(Date.parse(doc.createdAt))&&new Date(doc.createdAt).toISOString()===doc.createdAt,'INVALID','Invalid RDX Creation Time.');
  unique(doc.assetInventory.map(a=>a.assetId),'RDX Asset Identity');
@@ -86,6 +98,7 @@ export function validateDocument(bytes,{blobs=new Map(),limits:overrides,check=(
   if(a.purpose==='image')image(data,a.mime);
   if(a.purpose==='history'||a.mime==='application/json'){
    const old=parseJSON(data,{maxBytes:limits.json,maxDepth:limits.depth,maxNodes:limits.nodes});
+   if(doc.kind==='map')singleMapPayload(old,doc);
    if(a.purpose==='history'){
     historyTypes.set(a.sha256,old.format||old.schema);
     if(old.format==='RDXDocument/1'){requireCapabilities(old.capabilities?.required);validateShape(old,old.kind==='map'?'mapDocument':'planDocument');ensure(old.revision===documentRevision(old)&&old.datasetId===doc.datasetId,'INVALID','RDX History Document Differs.');const artifacts=[...(old.content.records||[]),...(old.content.mappings||[]),...(old.content.views||[])];for(const value of artifacts){verifyDigest(value);ensure(value.workspaceId===doc.datasetId,'INVALID','RDX History Dataset Differs.');}history.push(...artifacts);}

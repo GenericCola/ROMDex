@@ -1,0 +1,20 @@
+{
+  "task": "RD10",
+  "version": "0.5.15",
+  "at": "2026-10-19T12:24:07.913Z",
+  "status": "passed",
+  "rdxRegressionTests": 186,
+  "finalFocusedAdoptionTests": 9,
+  "focusedPreviewTests": 1,
+  "nativeChecks": 6,
+  "syntaxFiles": 145,
+  "applicationFiles": 238,
+  "packageFiles": 310,
+  "installer": {
+    "path": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\ROMDex-Installer-0.5.15\\ROMDex-0.5.15-x64.msi",
+    "bytes": 162138374,
+    "sha256": "de7a40983d8282a9e1ac1e941719420432b3c8682e1e770c35faddaf736a00a5"
+  },
+  "oneMapPerFile": true,
+  "productionChanged": false
+}
