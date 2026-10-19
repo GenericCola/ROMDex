@@ -1,0 +1,104 @@
+{
+  "task": "RD06",
+  "status": "source-complete",
+  "date": "2026-10-18",
+  "installedVersionUnchanged": "0.5.14",
+  "productionMapsConverted": false,
+  "liveBackendWrites": 0,
+  "credentialsUsed": false,
+  "distinctRelevantChecks": 142,
+  "suites": {
+    "newPlanImportAndQueue": 30,
+    "existingMapImportAndWorkspace": 26,
+    "existingCoreBulkHierarchyAttachmentsSyncPolicy": 86
+  },
+  "execution": {
+    "affectedRegressionRun": {
+      "passed": 138,
+      "failed": 0
+    },
+    "finalPlanRun": {
+      "passed": 30,
+      "failed": 0,
+      "includesFourFinalAdditions": true
+    }
+  },
+  "bundled": {
+    "task": "RD06",
+    "scope": "Bundled Electron in Node mode; synthetic plan import, queue recovery and portable export",
+    "credentialsUsed": false,
+    "productionDataAccessed": false,
+    "exitCode": 0,
+    "status": "passed"
+  },
+  "ui": {
+    "task": "RD06",
+    "status": "passed",
+    "scope": "Actual plan dialog module and styles in isolated headless Chromium; no installed native-window acceptance",
+    "synthetic": true,
+    "productionDataAccessed": false,
+    "credentialsUsed": false,
+    "backendWrites": 0,
+    "checks": [
+      "Import previews and saves locally without queuing native operations",
+      "Local task editor preserves names and exact notes",
+      "Verified RDX export includes local edits without backend bindings",
+      "Tier rebasing is visible and publication waits for explicit assignee mapping",
+      "Short-window preview scrolls above its separate action footer",
+      "Explicit queue preserves Auto-Sync Off and exposes durable batch progress",
+      "No browser runtime errors or external network requests"
+    ],
+    "geometry": {
+      "bodyBottom": 534.5,
+      "footerTop": 546.5,
+      "footerBottom": 582,
+      "height": 620
+    }
+  },
+  "serviceSmoke": {
+    "status": "passed",
+    "scope": "Actual desktop service RPC in disposable offline profile",
+    "checks": [
+      "Offline local plan import",
+      "Shared Data/RDX root",
+      "NPCDex selection unchanged",
+      "Suspension gate",
+      "Checkpoint and shutdown",
+      "Managed-store ownership released"
+    ]
+  },
+  "syntax": [
+    "rdx/plan-import.mjs",
+    "rdx/plan-workspace.mjs",
+    "rdx/map-workspace.mjs",
+    "public/plan-queue.mjs",
+    "public/plan-import-view.mjs",
+    "public/core.mjs",
+    "public/app.mjs",
+    "desktop/service.mjs",
+    "desktop/policy.mjs",
+    "tests/rdx-plan-import.test.mjs"
+  ],
+  "sourceSha256": {
+    "rdx/plan-import.mjs": "8d4edc6195eecc1e675052587143a017c6653dcb2239587a32bb8b24b4429cbd",
+    "rdx/plan-workspace.mjs": "9375f50bf80e44bc784a11e17ad1960fce29c1391a5a8c906de8d51a8bcdaf01",
+    "rdx/map-workspace.mjs": "e312a84d221b6a575afb754dbd367a5b8735c6fbbffabc2af50613c8947288b0",
+    "public/plan-queue.mjs": "8213cd4c5f388ae44bcccca0da07b5cb63dc67d72f4c8d776039e1cb397b7458",
+    "public/plan-import-view.mjs": "f13fdd53d115666b9604fc49976412b47ad572c3c26ed608e128d323798b710d",
+    "public/core.mjs": "6238880576fcb0c7eab67f417ab26961d11f7c7621753aa5063bade089be2d1a",
+    "public/app.mjs": "ed002c70de4779cd1f991cd5bf2748f8997f7297db2ee369ba4041d31045a2ca",
+    "public/styles.css": "5ac2deb7af68101c03a394e58160e3987c0ce57c45a878702d471ab0a4e440ca",
+    "desktop/service.mjs": "212931336dfae6be0787f07510f367d2ba70feff921486fcb65b40bc4547c3c3",
+    "desktop/policy.mjs": "dd08fdd9fc47a15079d176b4363e957c30286f1bdb679e1a5ae01e061b5c59d2",
+    "tests/rdx-plan-import.test.mjs": "ed4d9043129de1936c208013b0532a68bc3566771a0c5c2f87546dfb8d1fbc3b",
+    "rdx/PLAN-IMPORT.md": "811d55f6bba694f38334b269470dc82bf9de07877549fdb4ad41e1b31ecdfe8f",
+    "rdx/README.md": "5489a07085c749e57812e9c783331ebf3a23d37441fa5b8704bcf1b1ae70f123",
+    "CHANGELOG.md": "d9031a1defd200603f56db9b0af83a972417091002b8d38ea2ec191013d160b1"
+  },
+  "limits": [
+    "Source only; no installer or installed native-window acceptance",
+    "Local binding ledger; automatic native pullback and cross-computer bindings remain RD07",
+    "Live isolated RDX two-way proof remains RD07",
+    "Fresh production-map adoption remains RD10"
+  ]
+}

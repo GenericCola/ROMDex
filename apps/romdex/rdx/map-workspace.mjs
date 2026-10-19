@@ -39,8 +39,9 @@ export class MapWorkspace{
  }
  async dispatch(route,input,context=null){
   ensure(typeof route==='string'&&JSON.stringify(input??null).length<=1024*1024,'INVALID','Invalid RDX Workspace Request.');
-  const task=(this.task||Promise.resolve()).catch(()=>{}).then(()=>{const writes=input!==undefined&&input!==null;if(writes)ensure(context===this.active,'CONFLICT','The Open Map Changed. Reopen NPCDex Before Editing.');return this.api(route,input);});this.task=task;return task;
+  return this.execute(()=>{const writes=input!==undefined&&input!==null;if(writes)ensure(context===this.active,'CONFLICT','The Open Map Changed. Reopen NPCDex Before Editing.');return this.api(route,input);});
  }
+ execute(fn){const task=(this.task||Promise.resolve()).catch(()=>{}).then(fn);this.task=task;return task;}
  async checkpoint(){await this.task?.catch(()=>{});if(this.store)this.store.db.exec('PRAGMA wal_checkpoint(FULL)');}
  async api(route,input){
   if(route==='/api/rdx/status'){const documents=this.store?await this.store.list():[];return {active:this.active,documents:documents.filter(d=>d.kind==='map').map(d=>({...d,name:mapDomain(this.store.load(d.key,d.revision)).records.find(r=>r.kind==='map').current.payload.name})),hasSyncedContent:!!this.fallback};}

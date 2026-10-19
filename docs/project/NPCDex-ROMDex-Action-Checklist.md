@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** **RD01 is approved; RD02–RD05 are source-complete and verified.** [RD05 report](RD05-Completion-Report.md). Installed 0.5.14 and current production maps are unchanged; real RDX binding/adoption remain later gates. Next: **RD06 — ROMDex Plan Import and Destination Mapping, Sol / High**, requiring a new PASSKEY.
+**Current:** **RD01 is approved; RD02–RD06 are source-complete and verified.** [RD06 report](RD06-Completion-Report.md). Installed 0.5.14 and current production maps are unchanged; real RDX bidirectional proof/adoption remain later gates. Next: **RD07 — Document Bindings and Bidirectional Cloud Sync, Sol / High**, requiring a new PASSKEY.
 
 ## Completed Foundation
 
@@ -91,7 +91,7 @@
 
 - [x] **RD04 — Local Managed Documents and Portable Export** — Sol / High. **Source-complete and verified.** [Report](RD04-Completion-Report.md), [evidence](RD04-Verification.json), [guide](ROMDex/rdx/MANAGED-DOCUMENTS.md). Data/RDX service/CLI, durable journal, atomic working checkpoints/recovery and offline portable export. 107 focused checks; 31 managed checks under bundled runtime, plus seven final provenance rechecks in both. Existing maps/UI/installed app unchanged; integration/adoption remain later tasks.
 - [x] **RD05 — NPCDex Map Import and Update Preview** — Sol / High. One map per input; stable-ID update previews, shared dependencies and newer-draft protection. Complete snapshots may propose archival of covered omissions; partial files imply no removal. Preserve original UI and archive history.
-- [ ] **RD06 — ROMDex Plan Import and Destination Mapping** — Sol / High. User-selected PMON destination; preview tier changes, retain complete subtrees and map editable fields/comments/attachments. Omitted tasks survive; explicit deletion is reviewed. Idempotent restart/reimport, no implicit publish or dispatch.
+- [x] **RD06 — ROMDex Plan Import and Destination Mapping** — Sol / High. User-selected PMON destination; preview tier changes, retain complete subtrees and map editable fields/comments/attachments. Omitted tasks survive; explicit deletion is reviewed. Idempotent restart/reimport, no implicit publish or dispatch. Source-complete October 18; [report](RD06-Completion-Report.md). Live proof remains RD07.
 - [ ] **RD07 — Document Bindings and Bidirectional Cloud Sync** — Sol / High. Bind local files after preview; publish record/asset deltas; fold accepted YouTrack edits back into managed `.rdx`. **Acceptance:** a test file imports, maps to real isolated YouTrack records, accepts a local change and a native YouTrack change, then retains both after reopen/export. Preserve conflict recovery, shared controls and credentials.
 - [ ] **RD08 — Windows RDX File Integration** — Sol / Medium. Use the exact existing **Pokéball favicon artwork** as the `.rdx` file icon. Register/open into validated previews through the single-instance app; no silent execution/publication/replacement. Preserve Data and association ownership on upgrade/uninstall.
 - [ ] **RD09 — Agent Authoring and Portable Workflow Guide** — Sol / Medium. Versioned schemas/examples and extraction/ROM-mapping/pack/unpack/validate instructions for map/plan `.rdx`, JSON Map Packages and returned `.rdx`. Distinguish fixtures from real ROM extraction; required agent assets accessible on YouTrack.
@@ -234,7 +234,7 @@ R07 is complete. Next: R08 — Enhancement QA and Release, Sol / High. Await a n
 - [x] Fixed late staging after upload cancellation and unified Work toolbar action heights.
 - [x] Passed 207 extracted-package tests, 51 module syntax checks, launcher parse and isolated startup/assets verification.
 - [x] Completed focused combined browser QA and controlled real YouTrack two-way field/file/conflict/subtree checks.
-- [x] Cleaned the four marked QA tickets; retained all 299 original issue IDs.
+- [x] Cleaned the four marked QA tickets; retained all 309 original issue IDs.
 - [x] Produced the 69-file 0.4 ZIP, independently verified hashes, manifest, QA report and recovery guide.
 - [x] Verified the new running installation/build and 28 served resources; saved credential ciphertext, connection and Auto-Sync retained, with no pending or blocked work.
 - [x] Refreshed and verified the protected 47-file checkpoint, including NPCDex saved revision 72; preserved immutable U01 backups.
@@ -380,7 +380,7 @@ The user authorized U12 and reviewed/accepted the native migration preview. Desk
 
 The stable Windows-account profile is outside build folders at **%LOCALAPPDATA%/ROMDexDesktopData/thegobindsingh-PMON**. Original browser/package files and protected backups remain intact. The importer stages, hashes, reviews and atomically publishes the profile; missing established saves refuse baseline fallback. The remembered connection was converted through Windows protection to Electron safeStorage and verified after restart without token entry. Saved parent statuses and operation journal match their originals exactly.
 
-Passed **272 automated tests, 83 syntax checks, 194 delivered-file hashes**, genuine YouTrack reads matching all 299 task fields, exact whole-document NPCDex comparison, hidden automatic sync and a checkpointed relaunch from a separate build folder. ROMDex then returned to its normal delivery executable with verification endpoints closed. No synthetic production edits were made. [Report](U12-Completion-Report.md), [live/restart evidence](U12-Desktop-Verification.json), [preservation](U12-Preservation-Verification.json).
+Passed **272 automated tests, 83 syntax checks, 194 delivered-file hashes**, genuine YouTrack reads matching all 309 task fields, exact whole-document NPCDex comparison, hidden automatic sync and a checkpointed relaunch from a separate build folder. ROMDex then returned to its normal delivery executable with verification endpoints closed. No synthetic production edits were made. [Report](U12-Completion-Report.md), [live/restart evidence](U12-Desktop-Verification.json), [preservation](U12-Preservation-Verification.json).
 
 **Use the desktop for current work; the old browser service is stopped. NPCDex remains local-only until U14–U19.** Installer upgrade/uninstall behavior remains U13A; update delivery U13B. **Next: U13A — Windows Installer and Upgrade/Uninstall Preservation, Sol / Medium**, requiring a new PASSKEY. No U13A implementation has begun.
 
@@ -582,3 +582,14 @@ Next: **RD05 — NPCDex Map Import and Update Preview, Sol / High**, with a new 
 - [x] Preserve installed 0.5.14, production maps, live queue, credentials and backend data.
 
 Next: **RD06 — ROMDex Plan Import and Destination Mapping, Sol / High**, with a new PASSKEY. No current production map has become an RDX working file; RD07 proof and RD10 accepted adoption remain required.
+
+## RD06 Completed — October 18, 2026
+
+- [x] Added local plan import/update review, basic local edits and verified RDX export without touching the imported source or the active NPCDex map.
+- [x] Added explicit PMON placement, tier rebasing, typed field/value mapping, provenance-preserving comments and exact attachment staging.
+- [x] Retained omissions; reviewed explicit deletion targets/children and overlapping native edits. New siblings use local order metadata.
+- [x] Committed local bindings and queue actions atomically, retained partial progress and reused recovery identities after lost responses.
+- [x] Passed 142 distinct relevant checks, 30 plan checks in bundled Electron Node mode, seven isolated UI checks and an actual desktop-service smoke check. [Evidence](RD06-Verification.json).
+- [x] Kept installed 0.5.14, current production maps, live queues, credentials and YouTrack unchanged. [Completion report](RD06-Completion-Report.md).
+
+Next: **RD07 — Document Bindings and Bidirectional Cloud Sync, Sol / High**, with a new PASSKEY. Automatic native-change pullback/shared bindings and the real isolated two-way proof remain RD07; fresh production adoption remains RD10.

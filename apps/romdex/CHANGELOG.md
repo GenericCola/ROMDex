@@ -1,3 +1,12 @@
+## Unreleased — RD06 ROMDex RDX Task Plan Import
+
+- Import and edit plans locally, preserve original files and export verified portable copies.
+- Preview PMON destination/tier rebasing and explicitly map editable fields, comments and exact attachments.
+- Retain omitted tasks; review explicit deletions and overlapping native changes.
+- Commit stable import bindings with the save queue; expose partial progress and reuse recovery identities.
+- Preserve Auto-Sync Off and existing NPCDex selection; no implicit publication or agent dispatch.
+- Installed 0.5.14 remains unchanged; live bidirectional RDX proof is RD07.
+
 ## Unreleased — RD05 NPCDex RDX Map Import and Update
 
 - Add previewed local map imports, conflict choices, optional archival proposals and portable exports in Tray 2 Content Tools.

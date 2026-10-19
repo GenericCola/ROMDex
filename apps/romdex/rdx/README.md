@@ -1,6 +1,6 @@
 # RDX Container Tools
 
-RD03 implements the version 1 file container and deterministic local tooling. RD04 adds [managed local documents and portable export](MANAGED-DOCUMENTS.md). RD05 adds the source implementation of [NPCDex map import/update previews and export](MAP-IMPORT.md). The installed interface is unchanged; task-plan import, backend binding and Windows association follow in RD06–RD08. No command here uploads, changes tickets, dispatches work or certifies human testing. No AI, connection or token is required.
+RD03 implements the version 1 file container and deterministic local tooling. RD04 adds [managed local documents and portable export](MANAGED-DOCUMENTS.md). RD05 adds [NPCDex map import/update previews and export](MAP-IMPORT.md). RD06 adds [local task-plan import and reviewed PMON publication](PLAN-IMPORT.md). These are source implementations; the installed interface is unchanged. Bidirectional binding and Windows association follow in RD07–RD08. The CLI commands below never upload, change tickets, dispatch work or certify human testing. No AI, connection or token is required for local tooling.
 
 ## Commands
 

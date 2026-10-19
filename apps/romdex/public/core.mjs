@@ -1,3 +1,4 @@
+import {applyPlanSync} from './plan-queue.mjs';
 export const STATUS = {grey:'Untouched',yellow:'In Progress',blue:'Standby',purple:'In Development',green:'Complete',red:'Critical'};
 export const STATES = {grey:'To do',yellow:'In Progress',blue:'Standby',purple:'In Development',green:'Done',red:'Critical / Debugging'};
 export const FIELDS = ['summary','description','state','priority','complexity','parentId','assignedState','assignee','dueDate','tags'];
@@ -111,6 +112,7 @@ export function applySyncResult(state,result){
   }
   if(result.items)mergeIncoming(state,result.items);
   for(const target of result.deletedAttachments||[]){const item=state.remote.find(x=>x.id===target.issueId);if(item)item.attachments=(item.attachments||[]).filter(x=>x.id!==target.id);}
+  applyPlanSync(state,result);
   state.blocked=result.blocked||null;
   if(!result.blocked&&!result.error)state.lastSync=result.at;
   return state;

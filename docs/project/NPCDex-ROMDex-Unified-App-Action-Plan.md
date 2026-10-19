@@ -3,10 +3,10 @@
 **Date:** October 14, 2026  
 **Revised:** October 18, 2026.
 
-**Status:** U01–U20I and RD01 are complete. RD02–RD04 source implementation and focused verification are complete; [RD04 report](RD04-Completion-Report.md). Installed ROMDex remains 0.5.14. Current maps are unchanged; the RDX foundation awaits later integration/adoption.
+**Status:** U01–U20I and RD01 are complete. RD02–RD06 source implementation and focused verification are complete; [RD06 report](RD06-Completion-Report.md). Installed ROMDex remains 0.5.14. Current maps are unchanged; live RDX two-way proof and production adoption remain later gates.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
-**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). RD05 is source-complete: map import/update previews, original editing controls, unbound local working files and verified portable export. [RD05 report](RD05-Completion-Report.md). Next: **RD06 — ROMDex Plan Import and Destination Mapping, Sol / High**, under a new PASSKEY.
+**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). RD06 is source-complete: local plan import/edit/export, reviewed PMON placement/field mapping and durable publication recovery. [RD06 report](RD06-Completion-Report.md). Next: **RD07 — Document Bindings and Bidirectional Cloud Sync, Sol / High**, under a new PASSKEY.
 
 ## Working Agreement
 

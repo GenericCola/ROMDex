@@ -1,0 +1,48 @@
+import fs from 'node:fs/promises';import path from 'node:path';import {randomUUID} from 'node:crypto';
+import {canonical,sha} from '../content/contracts.mjs';
+import {stageReviewedPlan} from '../public/plan-queue.mjs';
+import {packRdx,readRdxFile,readBoundedFile,unpackRdx} from './container.mjs';
+import {documentKey} from './managed-store.mjs';import {documentRevision} from './document.mjs';
+import {directory,regular} from './managed-files.mjs';import {ensure,LIMITS} from './limits.mjs';
+import {previewPlanImport,previewPlanPublication,taskRevision,fieldTargets} from './plan-import.mjs';
+const CHUNK=512*1024;
+export class PlanWorkspace{
+ constructor({maps,engine}){Object.assign(this,{maps,engine,upload:null,download:null});}
+ dispatch(route,input){ensure(typeof route==='string'&&JSON.stringify(input??null).length<=1024*1024,'INVALID','Invalid Plan Request.');return this.maps.execute(()=>this.api(route,input));}
+ async close(){await this.cancel();this.download=null;}
+ async cancel(){if(!this.upload)return;await this.upload.handle?.close();await regular(this.upload.file);await fs.unlink(this.upload.file);this.upload=null;}
+ session(input){const u=this.upload;ensure(u&&input?.id===u.id&&Date.now()<u.expires,'INVALID','Plan Import Session Expired. Choose the File Again.');return u;}
+ async api(route,input){
+  if(route==='context'){const state=this.engine.state;return {documents:this.maps.store?(await this.maps.store.list()).filter(d=>d.kind==='plan').map(d=>{const doc=this.maps.store.load(d.key,d.revision).document;return {...d,title:doc.content.tasks.find(t=>t.taskId===doc.content.roots[0])?.title||doc.documentId};}):[],destinations:state?this.engine.items.filter(i=>/^PMON-\d+$/.test(i.id)).map(i=>({id:i.id,title:i.summary,parentId:i.parentId})):[],connection:this.engine.connection||null,options:state?.editOptions||null,fields:fieldTargets(state?.editOptions),queueStatus:{message:this.engine.message,mode:this.engine.mode},imports:Object.fromEntries(Object.entries(state?.rdxImports||{}).map(([id,ledger])=>[id,{batches:ledger.batches}]))};}
+  if(route==='refresh-fields'){await this.engine.loadEditOptions('local-rdx-options');return this.api('context');}
+  const store=await this.maps.open();
+  if(route==='begin'){ensure(Number.isSafeInteger(input?.bytes)&&input.bytes>0&&input.bytes<=LIMITS.stored,'LIMIT','RDX File Size Limit Exceeded.');await this.cancel();await store.capacity(input.bytes);const root=await directory(path.join(store.root,'plan-transfers')),id=randomUUID(),file=path.join(root,id+'.rdx');this.upload={id,file,handle:await fs.open(file,'wx'),bytes:input.bytes,offset:0,expires:Date.now()+15*60*1000};return {id,chunkBytes:CHUNK};}
+  if(route==='chunk'){const u=this.session(input);ensure(u.handle&&input.offset===u.offset&&typeof input.base64==='string'&&input.base64.length<=Math.ceil(CHUNK/3)*4,'INVALID','Invalid Plan Transfer Offset.');const bytes=Buffer.from(input.base64,'base64');ensure(bytes.length&&bytes.length<=CHUNK&&bytes.toString('base64')===input.base64&&u.offset+bytes.length<=u.bytes,'INVALID','Invalid Plan Transfer Chunk.');let offset=0;while(offset<bytes.length){const v=await u.handle.write(bytes,offset,bytes.length-offset,u.offset+offset);ensure(v.bytesWritten>0,'IO','Plan File Write Stopped.');offset+=v.bytesWritten;}u.offset+=bytes.length;return {offset:u.offset};}
+  if(route==='cancel'){await this.cancel();return true;}
+  if(route==='preview'||route==='import'){
+   const u=this.session(input);ensure(u.offset===u.bytes,'INVALID','The Plan Transfer Is Incomplete.');if(u.handle){await u.handle.sync();await u.handle.close();u.handle=null;}const incoming=await readRdxFile(u.file),key=documentKey(incoming.document),row=store.db.prepare('SELECT * FROM documents WHERE key=?').get(key),local=row?await store.view(key):null;if(local)ensure(local.status.saved,'RECOVERY','Recover This Plan Checkpoint Before Updating.');
+   const result=previewPlanImport(incoming,local,input.choices||{});if(result.preview.conflicts.every(c=>c.choice))await packRdx(Buffer.from(canonical(result.document)),result.blobs);
+   if(route==='preview')return {...result.preview,key};ensure(input.approved===true&&input.token===result.preview.token,'CONFLICT','The Plan Baseline or Choices Changed. Preview Again.');ensure(result.preview.conflicts.every(c=>c.choice),'REVIEW_REQUIRED','Choose Every Plan Conflict Before Importing.');
+   if(!local)await store.ingest(u.file);else if(incoming.document.revision!==row.head)await store.save(key,{documentBytes:Buffer.from(canonical(result.document)),blobs:result.blobs,expectedRevision:row.head});await this.cancel();return {saved:true,key,published:false};
+  }
+  ensure(typeof input?.key==='string','INVALID','Choose a Managed Plan.');const value=await store.view(input.key);ensure(value.document.kind==='plan','WORKSPACE','This Document Is Not a Task Plan.');
+  if(route==='view')return {document:value.document,status:value.status};
+  if(route==='cancel-deletion'){ensure(input.expectedRevision===value.document.revision,'CONFLICT','The Plan Changed. Reopen It Before Editing.');const ledger=this.engine.state?.rdxImports?.[input.key];ensure(!ledger?.tasks?.[input.taskId]?.deleted&&!Object.values(ledger?.batches||{}).some(b=>b.taskIds.includes(input.taskId)&&!['complete','cancelled'].includes(b.status)),'REVIEW_REQUIRED','Review the Queued Native Actions Before Changing This Deletion Request.');const d=structuredClone(value.document);ensure(d.content.deletionRequests.some(r=>r.taskId===input.taskId),'NOT_FOUND','No Deletion Request Exists for This Task.');d.content.deletionRequests=d.content.deletionRequests.filter(r=>r.taskId!==input.taskId);d.revision=documentRevision(d);await store.save(input.key,{documentBytes:Buffer.from(canonical(d)),blobs:value.blobs,expectedRevision:value.document.revision});return this.api('view',{key:input.key});}
+  if(route==='edit'){ensure(input.expectedRevision===value.document.revision,'CONFLICT','The Plan Changed. Reopen It Before Editing.');const d=structuredClone(value.document),task=d.content.tasks.find(t=>t.taskId===input.taskId);ensure(task&&!d.content.deletionRequests.some(r=>r.taskId===task.taskId),'REVIEW_REQUIRED','This Task Is Missing or Has a Pinned Deletion Request.');ensure(input.patch&&Object.keys(input.patch).every(k=>['title','description','status','priority','complexity'].includes(k)),'INVALID','Unsupported Local Plan Edit.');task.baseRevision=taskRevision(task);Object.assign(task,input.patch);d.revision=documentRevision(d);await store.save(input.key,{documentBytes:Buffer.from(canonical(d)),blobs:value.blobs,expectedRevision:value.document.revision});return this.api('view',{key:input.key});}
+  if(route==='publication-preview'||route==='queue'){
+   ensure(value.status.saved,'RECOVERY','Finish the Local Plan Checkpoint First.');ensure(this.engine.state,'NOT_READY','The Task Workspace Is Still Loading.');await this.engine.lock;
+   const options={state:this.engine.state,connection:this.engine.connection,options:this.engine.state.editOptions,destination:input.destination??null,mappings:input.mappings||{},choices:input.choices||{},deletions:input.deletions||[]},result=previewPlanPublication(value,options),previous=this.engine.state.rdxImports?.[input.key]?.batches?.[result.batch.batchId];
+   if(route==='publication-preview')return {...result.preview,previous:previous||null};
+   ensure(input.approved===true,'REVIEW_REQUIRED','Explicit Publication Approval Is Required.');if(previous)return {alreadyQueued:true,batch:previous};ensure(input.token===result.preview.token,'CONFLICT','The Destination or Queue Changed. Preview Again.');ensure(result.preview.ready,'REVIEW_REQUIRED','Resolve All Field Mappings, Conflicts and Destination Blockers First.');
+   // Asset bytes are kept locally before the atomic queue/ledger transaction.
+   // Retrying an interrupted staging step reuses the same upload/operation IDs.
+   const stagedFiles=[];try{for(const file of result.batch.uploads){await this.engine.files.set(file.uploadId,new File([value.blobs.get(file.sha256)],file.file.name,{type:file.file.mimeType}));stagedFiles.push(file.uploadId);}
+    let staged;await this.engine.transaction(s=>{const latest=previewPlanPublication(value,{...options,state:s});ensure(latest.preview.token===input.token,'CONFLICT','The Destination or Queue Changed During File Staging. Preview Again.');staged=stageReviewedPlan(s,latest.batch);});this.engine.schedule();return staged;
+   }catch(e){for(const id of stagedFiles)if(!this.engine.state.operations.some(o=>o.uploadId===id))await this.engine.files.remove(id).catch(()=>{});throw e;}
+  }
+  if(route==='export'){ensure(value.status.saved,'RECOVERY','Finish the Plan Checkpoint Before Exporting.');const bytes=await readBoundedFile(value.status.path,LIMITS.stored),verified=await unpackRdx(bytes);ensure(verified.document.revision===value.document.revision&&verified.containerSha256===store.row(input.key).checkpoint_hash,'RECOVERY','The Working Plan Changed During Export.');this.download={id:randomUUID(),bytes,key:input.key};return {id:this.download.id,bytes:bytes.length,sha256:sha(bytes),chunkBytes:CHUNK};}
+  if(route==='export-chunk'){ensure(this.download?.id===input.id&&this.download.key===input.key&&Number.isSafeInteger(input.offset)&&input.offset>=0&&input.offset<this.download.bytes.length,'INVALID','Invalid Plan Export Offset.');return {base64:this.download.bytes.subarray(input.offset,input.offset+CHUNK).toString('base64')};}
+  if(route==='export-end'){ensure(this.download?.id===input.id,'INVALID','Unknown Plan Export.');this.download=null;return true;}
+  ensure(false,'UNSUPPORTED','Unsupported Plan Command.');
+ }
+}

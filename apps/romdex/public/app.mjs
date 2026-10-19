@@ -20,6 +20,7 @@ import {ItemEditor} from './item-editor-view.mjs';
 import {editorValues} from './item-editor.mjs';
 import {WorkSelection} from './work-selection.mjs';
 import {siblingSelection,bulkMovePlan} from './bulk-hierarchy.mjs';
+import {mountPlanImports} from './plan-import-view.mjs';
 let paneSplit=null,reviewSignature=null,complexitySetupBusy=false,workRowsMarkup=null,groupDraft=null,groupCommitting=false;
 const $=id=>document.getElementById(id),esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const sharedHeader=mountHeader(document.querySelector('.device-header'),{onConnection:()=>showConnection(),onError:error=>toast(error.message),onAbout:()=>safely(async()=>{show('about-dialog');$('about-version').textContent='Checking Version…';try{const status=await request('/api/status');$('about-version').textContent='Version '+status.version;}catch{$('about-version').textContent='Version Unavailable';}})});
@@ -399,3 +400,4 @@ await ws.init();paneSplit=new TraySplit({host:document.querySelector('.work-tray
 
 if(ws.dropAttachments)fileDrops=new FileDropTarget({doc:document,attach:(id,files)=>ws.dropAttachments(id,files),item:id=>tree?.byId.get(id),notify:toast,internalDrag:()=>!!drag,suppressClick:()=>suppressClickUntil=performance.now()+350});
 markWorkspaceReady();
+const planButton=document.createElement('button');planButton.type='button';planButton.textContent='Import Plan RDX';planButton.id='import-plan-rdx';$('add-work').after(planButton);const planBridge=window.parent.romdexDesktop;if(planBridge)mountPlanImports({button:planButton,api:(route,input)=>planBridge.call('rdxPlan',[route,input]),flush:()=>flushEditors(),onReview:()=>showReview()});else{planButton.disabled=true;planButton.title='RDX Plan Import Is Available in the Desktop Build.';}
