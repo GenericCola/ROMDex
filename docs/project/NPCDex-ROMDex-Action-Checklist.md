@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** **RD01 is approved; RD02–RD06 are source-complete and verified.** [RD06 report](RD06-Completion-Report.md). Installed 0.5.14 and current production maps are unchanged; real RDX bidirectional proof/adoption remain later gates. Next: **RD07 — Document Bindings and Bidirectional Cloud Sync, Sol / High**, requiring a new PASSKEY.
+**Current:** **RD01 is approved; RD02–RD07 are source-complete, and RD07's real isolated two-way proof has passed.** [RD07 report](RD07-Completion-Report.md). Installed 0.5.14 and current production maps are unchanged; RD10 adoption remains a separate accepted gate. Next: **RD08 — Windows RDX File Integration, Sol / Medium**, requiring a new PASSKEY.
 
 ## Completed Foundation
 
@@ -92,7 +92,7 @@
 - [x] **RD04 — Local Managed Documents and Portable Export** — Sol / High. **Source-complete and verified.** [Report](RD04-Completion-Report.md), [evidence](RD04-Verification.json), [guide](ROMDex/rdx/MANAGED-DOCUMENTS.md). Data/RDX service/CLI, durable journal, atomic working checkpoints/recovery and offline portable export. 107 focused checks; 31 managed checks under bundled runtime, plus seven final provenance rechecks in both. Existing maps/UI/installed app unchanged; integration/adoption remain later tasks.
 - [x] **RD05 — NPCDex Map Import and Update Preview** — Sol / High. One map per input; stable-ID update previews, shared dependencies and newer-draft protection. Complete snapshots may propose archival of covered omissions; partial files imply no removal. Preserve original UI and archive history.
 - [x] **RD06 — ROMDex Plan Import and Destination Mapping** — Sol / High. User-selected PMON destination; preview tier changes, retain complete subtrees and map editable fields/comments/attachments. Omitted tasks survive; explicit deletion is reviewed. Idempotent restart/reimport, no implicit publish or dispatch. Source-complete October 18; [report](RD06-Completion-Report.md). Live proof remains RD07.
-- [ ] **RD07 — Document Bindings and Bidirectional Cloud Sync** — Sol / High. Bind local files after preview; publish record/asset deltas; fold accepted YouTrack edits back into managed `.rdx`. **Acceptance:** a test file imports, maps to real isolated YouTrack records, accepts a local change and a native YouTrack change, then retains both after reopen/export. Preserve conflict recovery, shared controls and credentials.
+- [x] **RD07 — Document Bindings and Bidirectional Cloud Sync** — Sol / High. Source-complete October 19; [report](RD07-Completion-Report.md). Explicit bindings, incremental delivery, native map/plan pullback and review/recovery. **Live acceptance passed:** a compressed test file imported, mapped to eleven real isolated NPCD records, accepted local and native changes, and retained both after reopen/export and second-instance readback. Shared controls and credentials preserved; installed production data unchanged.
 - [ ] **RD08 — Windows RDX File Integration** — Sol / Medium. Use the exact existing **Pokéball favicon artwork** as the `.rdx` file icon. Register/open into validated previews through the single-instance app; no silent execution/publication/replacement. Preserve Data and association ownership on upgrade/uninstall.
 - [ ] **RD09 — Agent Authoring and Portable Workflow Guide** — Sol / Medium. Versioned schemas/examples and extraction/ROM-mapping/pack/unpack/validate instructions for map/plan `.rdx`, JSON Map Packages and returned `.rdx`. Distinguish fixtures from real ROM extraction; required agent assets accessible on YouTrack.
 - [ ] **RD10 — Adopt RDX for All Existing Maps** — Sol / High. Only after the RD07 proof: fresh authoritative backup and reviewed preview, then move all current maps to managed `.rdx` files. Retain NPCD records/identities as the synced backend; preserve exact content, assets, notes/flags/proposals/history/testing, queued edits and all credentials. Verify each map and restoration before completion.
@@ -593,3 +593,15 @@ Next: **RD06 — ROMDex Plan Import and Destination Mapping, Sol / High**, with 
 - [x] Kept installed 0.5.14, current production maps, live queues, credentials and YouTrack unchanged. [Completion report](RD06-Completion-Report.md).
 
 Next: **RD07 — Document Bindings and Bidirectional Cloud Sync, Sol / High**, with a new PASSKEY. Automatic native-change pullback/shared bindings and the real isolated two-way proof remain RD07; fresh production adoption remains RD10.
+
+## RD07 Completed — October 19, 2026
+
+- [x] Add explicit private map binding/publication previews, durable delivery intents and incremental artifacts/assets without whole-save uploads per edit.
+- [x] Fold accepted native changes into managed map/plan files, preserving local drafts, exact files, history and review/testing boundaries.
+- [x] Support explicit PMON task matching on another instance; verify existing comment/file evidence and avoid duplicate posts.
+- [x] Preserve shared Save/Auto-Sync Off behavior and expose native/branch conflicts plus bounded recovery. Cache verified manifests/files; stop unchanged-conflict and no-progress loops.
+- [x] Pass 25 new checks in bundled Electron, affected source regressions/focused repairs, shared-status checks, nine map UI checks, eight plan UI checks and the desktop-service smoke check. [Evidence](RD07-Verification.json).
+- [x] Pass the real backend criterion with a unique fictional map: eleven private NPCD records, local note publication, reviewed native title change, exact image bytes, reopen/export and second-instance readback. Final-source live delta/readback also passed.
+- [x] Preserve installed 0.5.14, current production maps/tasks, Data/queues and all remembered connections. Keep the portable fictional test file and clearly identify retained private QA records. [Report](RD07-Completion-Report.md).
+
+Next: **RD08 — Windows RDX File Integration, Sol / Medium**, under a new PASSKEY. Current-map adoption remains RD10 after a fresh accepted preview that preserves the original NPCD issue identities.

@@ -4,10 +4,11 @@ export const STATES = {grey:'To do',yellow:'In Progress',blue:'Standby',purple:'
 export const FIELDS = ['summary','description','state','priority','complexity','parentId','assignedState','assignee','dueDate','tags'];
 export const isEditableField=key=>FIELDS.includes(key)||/^custom:[-\w]{1,100}$/.test(key);
 export const clone = x => structuredClone(x);
+export const planNeedsReview=state=>Object.values(state?.rdxImports||{}).some(ledger=>!!ledger.review||Object.values(ledger.batches||{}).some(b=>['blocked','needs-review'].includes(b.status)));
 export function saveNeedsAttention(state, connection, dirtyFields = {}) {
-  const pending = !!(state?.operations?.length || state?.blocked || dirtyFields.summary || dirtyFields.description);
+  const pending = !!(planNeedsReview(state)||state?.operations?.length || state?.blocked || dirtyFields.summary || dirtyFields.description);
   const unavailable = connection?.connected !== true || connection?.automaticSyncEnabled === false
-    || connection?.mode === 'manual' || connection?.failures > 0 || connection?.missingStates?.length || state?.blocked;
+    || connection?.mode === 'manual' || connection?.failures > 0 || connection?.missingStates?.length || state?.blocked||planNeedsReview(state);
   return pending && !!unavailable;
 }
 export const hasMeaningfulNotes = text => Boolean(String(text||'').replace(/^_Migrated from ClickUp:.*_\s*$/gm,'').replace(/^\s*---\s*$/gm,'').trim());

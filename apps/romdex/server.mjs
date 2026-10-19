@@ -121,7 +121,7 @@ async function api(req,res,url){
  if(req.method==='POST'&&url.pathname==='/api/sync-settings'){const {enabled}=await body(req);await syncSettings.set(enabled);return send(res,200,syncStatus());}
  if(req.method==='POST'&&url.pathname==='/api/complexity-setup'){connection=await (await readyClient()).setupComplexity();return send(res,200,syncStatus());}
  if(req.method==='GET'&&url.pathname==='/api/snapshot'){if(skipAutomatic(res))return;const items=await (await readyClient()).all();return send(res,200,{items,at:Date.now(),...syncStatus()});}
- if(req.method==='GET'&&url.pathname==='/api/comments'){if(skipAutomatic(res))return;const comments=await (await readyClient()).comments(url.searchParams.get('id'));return send(res,200,{comments,...syncStatus()});}
+ if(req.method==='GET'&&url.pathname==='/api/comments'){if(url.searchParams.get('manual')!=='true'&&skipAutomatic(res))return;const comments=await (await readyClient()).comments(url.searchParams.get('id'));return send(res,200,{comments,...syncStatus()});}
  if(req.method==='POST'&&url.pathname==='/api/connect'){
   const input=await body(req);if(typeof input.token!=='string'||input.token.length<10)throw new Error('Enter your YouTrack permanent token.');
   const next=new YouTrack(input.token.trim(),assignedStatuses),info=await next.connect();

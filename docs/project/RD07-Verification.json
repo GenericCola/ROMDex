@@ -1,0 +1,265 @@
+{
+  "task": "RD07",
+  "status": "source-complete-with-live-proof",
+  "date": "2026-10-19",
+  "installedVersionUnchanged": "0.5.14",
+  "productionMapsConverted": false,
+  "productionDataChanged": false,
+  "existingUserIssuesChanged": false,
+  "rememberedConnectionsPreserved": true,
+  "uniqueRelevantChecks": 176,
+  "suites": {
+    "newRDXCloudAndNativePlan": 25,
+    "existingPlanImport": 30,
+    "existingMapImport": 26,
+    "existingCoreBulkHierarchyAttachmentsSyncPolicy": 86,
+    "sharedSyncStatus": 9
+  },
+  "execution": {
+    "affectedRegressionRun": {
+      "tests": 159,
+      "pass": 158,
+      "fail": 1,
+      "note": "Native plan review-token failure repaired and rechecked in the final bundled suite."
+    },
+    "targetedCoreAndSharedStatusRun": {
+      "tests": 48,
+      "pass": 48,
+      "fail": 0
+    },
+    "finalFocusedRepairRun": {
+      "tests": 6,
+      "pass": 6,
+      "fail": 0
+    },
+    "lastNativeReviewPinRecheck": {
+      "tests": 2,
+      "pass": 2,
+      "fail": 0
+    }
+  },
+  "bundled": {
+    "task": "RD07",
+    "scope": "Bundled Electron in Node mode; isolated RDX cloud, native plan pullback, conflict/recovery and authority checks",
+    "credentialsUsed": false,
+    "productionDataAccessed": false,
+    "exitCode": 0,
+    "status": "passed"
+  },
+  "mapUI": {
+    "task": "RD07",
+    "status": "passed",
+    "scope": "Isolated desktop assets in headless Chromium, not the installed Electron application",
+    "synthetic": true,
+    "credentialsUsed": false,
+    "liveDataAccessed": false,
+    "checks": [
+      "Offline empty workspace exposes local RDX import and dependency preview",
+      "Confirmed import opens the map through the existing NPCDex renderer",
+      "Original contextual note and flag controls save into the managed RDX",
+      "Current map export downloads a verified portable RDX with the UI edits",
+      "Update preview remains scrollable above its fixed actions at 620px height",
+      "Shared-context conflict blocks confirmation until an explicit choice, and retains newer local notes",
+      "A padded publication preview requires explicit binding and preserves Auto-Sync Off",
+      "Native title evidence is reviewed through an explicit choice without replacing local notes",
+      "No browser runtime errors or external network access"
+    ],
+    "geometry": {
+      "bodyBottom": 531.703125,
+      "footerTop": 543.703125,
+      "footerBottom": 595,
+      "height": 620
+    }
+  },
+  "planUI": {
+    "task": "RD07",
+    "status": "passed",
+    "scope": "Actual plan dialog module and styles in isolated headless Chromium; no installed native-window acceptance",
+    "synthetic": true,
+    "productionDataAccessed": false,
+    "credentialsUsed": false,
+    "backendWrites": 0,
+    "checks": [
+      "Import previews and saves locally without queuing native operations",
+      "Local task editor preserves names and exact notes",
+      "Verified RDX export includes local edits without backend bindings",
+      "Tier rebasing is visible and publication waits for explicit assignee mapping",
+      "Short-window preview scrolls above its separate action footer",
+      "Explicit existing-task matching previews conflicts and queues an edit instead of a duplicate create",
+      "Explicit queue preserves Auto-Sync Off and exposes durable batch progress",
+      "No browser runtime errors or external network requests"
+    ],
+    "geometry": {
+      "bodyBottom": 534.5,
+      "footerTop": 546.5,
+      "footerBottom": 582,
+      "height": 620
+    }
+  },
+  "serviceSmoke": {
+    "status": "passed",
+    "scope": "Actual desktop-service RPC with disposable offline profile",
+    "checks": [
+      "Offline import",
+      "Shared Data/RDX ownership",
+      "Unchanged NPCDex selection",
+      "Lifecycle suspension/resume",
+      "Checkpoint/shutdown",
+      "Store ownership released"
+    ]
+  },
+  "liveProof": {
+    "task": "RD07",
+    "scope": "Actual NPCD round trip with unique fictional RDX data",
+    "startedAt": "2026-10-19T03:29:17.388Z",
+    "synthetic": true,
+    "productionSavesChanged": false,
+    "existingYouTrackRecordsChanged": false,
+    "credentialsReentered": false,
+    "checks": [
+      "A real compressed RDX imports and binds only after a fresh preview",
+      "Private NPCD record tree and exact artifact/image attachments read back",
+      "A local NPCDex note reaches the verified backend commit",
+      "An independent native YouTrack title change enters review and is accepted into the managed RDX",
+      "Reopen and portable export retain the local note, accepted native title and exact original image bytes",
+      "A separate local instance matches the observed registry and downloads both changes without duplicating content records"
+    ],
+    "cleanup": "Retained private, uniquely marked QA records and a portable test RDX for review; no production records edited",
+    "documentKey": "bee1285b5880337cbffd6c1501190c7337683c2aea0a28e2c7c5d051aa2a2a1a",
+    "datasetId": "fixture:rd07-8ec3ed21-6395-48ad-85c2-a7433a75786e",
+    "registryIssueId": "3-615",
+    "records": [
+      {
+        "issueId": "3-616",
+        "recordId": "fixture:region"
+      },
+      {
+        "issueId": "3-617",
+        "recordId": "fixture:map"
+      },
+      {
+        "issueId": "3-618",
+        "recordId": "fixture:exterior"
+      },
+      {
+        "issueId": "3-619",
+        "recordId": "fixture:profile-guide"
+      },
+      {
+        "issueId": "3-620",
+        "recordId": "fixture:profile-visitor"
+      },
+      {
+        "issueId": "3-621",
+        "recordId": "fixture:profile-newcomer"
+      },
+      {
+        "issueId": "3-622",
+        "recordId": "fixture:progression"
+      },
+      {
+        "issueId": "3-623",
+        "recordId": "fixture:guide"
+      },
+      {
+        "issueId": "3-624",
+        "recordId": "fixture:visitor"
+      },
+      {
+        "issueId": "3-625",
+        "recordId": "fixture:newcomer"
+      },
+      {
+        "issueId": "3-626",
+        "recordId": "fixture:scene"
+      }
+    ],
+    "exportedRevision": "de53a5ce63cdd96102843e65afcd632b740db1ec1e0bd0f04531769cf66d1c5c",
+    "automaticSyncStayedOff": true,
+    "status": "passed",
+    "finishedAt": "2026-10-19T03:32:04.502Z"
+  },
+  "finalLiveProof": {
+    "task": "RD07",
+    "scope": "Final source in Windows/Electron against the existing isolated QA tree",
+    "productionDataChanged": false,
+    "existingUserRecordsChanged": false,
+    "startedAt": "2026-10-19T03:59:29.477Z",
+    "credentialCiphertextUnchanged": true,
+    "registryIssueId": "3-615",
+    "recordCount": 11,
+    "finalRevision": "75d700db901014668b7084c154e04058c0438bed077aa5e23a25093f64040241",
+    "exportSHA256": "f874bee7fc6f7e578eb74a11b3aa739da6a13844e03c0874a6b210b51266ebcd",
+    "automaticSyncStayedOff": true,
+    "sourceSHA256": {
+      "rdx/cloud-parts.mjs": "3a1822ee0f0ec96cd20605610badcba0207bd53a707ca34f0e8ffeec71275307",
+      "rdx/document-cloud.mjs": "53c7bc03dc5933167015d3fb2e24dc3feeba72faf0c1f4ad3d14b165fad1c92a",
+      "rdx/youtrack-store.mjs": "18f10b52b494417653e0ab42878cfbc974c1747da8c3a5a7f18b03d5ac600a8a",
+      "rdx/map-workspace.mjs": "daa3fda34ac183f0de413f77a6e750ef579c405f0a85f85f8b9e7e64bacd8c05"
+    },
+    "status": "passed",
+    "finishedAt": "2026-10-19T04:00:18.082Z"
+  },
+  "postLiveGuard": {
+    "changedFiles": [
+      "rdx/document-cloud.mjs"
+    ],
+    "description": "Native-review approval additionally pins the local document head, preventing a later local edit from being overwritten. Normal and stale-review paths passed focused checks; the final 25-case bundled suite passed. No further live writes were needed for this guard."
+  },
+  "helper": {
+    "task": "RD07",
+    "status": "stopped",
+    "pid": 11724,
+    "at": "2026-10-19T04:04:10.993Z",
+    "productionAppTouched": false
+  },
+  "example": {
+    "path": "RD07-Examples/Verified-Test-Map.rdx",
+    "bytes": 24552,
+    "sha256": "f874bee7fc6f7e578eb74a11b3aa739da6a13844e03c0874a6b210b51266ebcd",
+    "synthetic": true
+  },
+  "syntax": [
+    "rdx/cloud-parts.mjs",
+    "rdx/document-cloud.mjs",
+    "rdx/youtrack-store.mjs",
+    "rdx/plan-pull.mjs",
+    "rdx/map-workspace.mjs",
+    "rdx/plan-workspace.mjs",
+    "rdx/plan-import.mjs",
+    "desktop/service.mjs",
+    "public/plan-import-view.mjs",
+    "public/app.mjs",
+    "public/core.mjs",
+    "public/shell.mjs",
+    "content/import-ui.js",
+    "content/desktop-ui.js",
+    "server.mjs",
+    "tests/rdx-cloud.test.mjs"
+  ],
+  "sourceSHA256": {
+    "rdx/cloud-parts.mjs": "3a1822ee0f0ec96cd20605610badcba0207bd53a707ca34f0e8ffeec71275307",
+    "rdx/document-cloud.mjs": "a0267960d957af3555a6bdb2eefbeee5c2bf14212ff90fee33230980de6d0a59",
+    "rdx/youtrack-store.mjs": "18f10b52b494417653e0ab42878cfbc974c1747da8c3a5a7f18b03d5ac600a8a",
+    "rdx/plan-pull.mjs": "c4026a00305d6312056d8adc2c0487f989a92ded12be0c1ab9f2a2061ece8c2b",
+    "rdx/map-workspace.mjs": "daa3fda34ac183f0de413f77a6e750ef579c405f0a85f85f8b9e7e64bacd8c05",
+    "rdx/plan-workspace.mjs": "e860a8c3c45e316a4aca59f6739a45726aef2baf6a541223c1016f2716fc8f48",
+    "rdx/plan-import.mjs": "dff23d44b5a63855dde985f1eac83d3480259084f674e7f2a22910b5293cf3d8",
+    "desktop/service.mjs": "52351dcc85ac5bf29c18005f0611cb653214d43a6115ba7f7767077647bf46da",
+    "public/plan-import-view.mjs": "141e24096b353c6150e28a9cf1e46801e2026ab1cdd437026457bc2b9c3c6fd3",
+    "public/app.mjs": "3fe6da7a812db4565751ac3e6a4e085e299b5dab42fff3adf1ebf98247bbadb3",
+    "public/core.mjs": "e6894ba169e965b5e62f1050f79c15d8bac9d31d8ba1c7eaa3db218860b5709e",
+    "public/shell.mjs": "c6fd7113d5f55260ec59c99bcdfb90cbf805b128def2346a898aa496dfcb1f96",
+    "content/import-ui.js": "114c95624d1de1ea09f8fdefa6849b8cdeb4fcf7fe6cb32f8afb97a79f37231a",
+    "content/desktop-ui.js": "1cdaf69955e97ad6c659c72bc64bec1cd7327639faffa5478dd613fd7e9c61f9",
+    "server.mjs": "6de169ae33100ea2e73f95fa9ffef93dd6627156dfd72c60b9ed5666adc5350f",
+    "tests/rdx-cloud.test.mjs": "acf5f453ee6575f7dba327dfd3ebd3d6a5c010e5ee1578310cc32bffab4b04b3"
+  },
+  "limits": [
+    "Source-only; installed 0.5.14 is unchanged",
+    "UI evidence is isolated desktop assets in Chromium, not installed native-window acceptance",
+    "Shared context/native pin mismatches need coordinated review",
+    "Current production NPCD identities must be adopted explicitly under RD10",
+    "No agent dispatch, returned-result reconciliation or human-testing completion enabled"
+  ]
+}

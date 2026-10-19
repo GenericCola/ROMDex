@@ -9,7 +9,7 @@ RD05 source implementation. These controls are not in installed ROMDex 0.5.14 ye
 3. For an existing document, review updates and any conflicts. Expand **Local Version** and **Imported Version**, then choose explicitly. Confirmation remains unavailable while a conflict is unresolved.
 4. Optionally select eligible archival proposals from a complete snapshot. Omitted content stays present; selecting archival stages a REMOVE proposal and preserves history. Partial snapshots imply no archival.
 5. Choose **Import Local Map**. NPCDex opens the map using its existing tiles, flags, notes, change tags and contextual editors.
-6. Edit normally. Local changes checkpoint into the managed `.rdx` through the version journal. **Save Changes** finishes the local checkpoint; it does not publish this unbound map to YouTrack.
+6. Edit normally. Local changes checkpoint into the managed `.rdx` through the version journal. **Save Changes** finishes the local checkpoint. An unbound map stays local. A map explicitly bound through RD07 also performs one incoming/outgoing cycle while Auto-Sync is Off and leaves it Off.
 7. Tray 2 settings → **Export Current Map RDX** prepares a verified download containing current content, proposals, notes, images and retained history. Export does not overwrite the original input. The browser/desktop download location is separate from the managed working file.
 
 The settings menu lists imported maps and offers **Return to Synced Content** when the existing NPCD provider is available. Each document keeps its own unfinished editor drafts and view position. Switching reloads only the NPCDex frame, after flushing its current edits; the ROMDex task workspace remains mounted.
@@ -30,4 +30,4 @@ Portable testing claims are historical claims, not authenticated human verificat
 
 Local documents are deliberately **unbound**. There is no implicit NPCD publication, task creation or agent dispatch. The existing connected content provider continues independently and is unchanged when a local map is open. Task-plan files are routed away from the map importer; RD06 supplies their workflow. Agent-result files are held for the later task-bound reconciliation/testing workflow.
 
-RD07 must prove real, isolated two-way YouTrack binding. RD08 adds Windows file association. RD09 supplies the agent extraction/production guide. RD10 requires a fresh production preview and acceptance before replacing current maps with RDX working documents. No existing map adoption or successful live RDX synchronization is claimed by RD05.
+RD07 has now passed real, isolated two-way YouTrack binding. See [binding, review and recovery controls](CLOUD-SYNC.md). RD08 adds Windows file association. RD09 supplies the agent extraction/production guide. RD10 still requires a fresh production preview and acceptance before replacing current maps with RDX working documents. RD05 itself did not perform existing-map adoption or live synchronization.

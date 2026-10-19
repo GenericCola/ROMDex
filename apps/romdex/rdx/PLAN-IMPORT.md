@@ -1,6 +1,6 @@
 # ROMDex RDX Task Plans
 
-RD06 is source-complete, not installed or released. Installed 0.5.14 and existing saves are unchanged. Real isolated YouTrack acceptance and managed-file pullback belong to RD07.
+RD06 is source-complete, not installed or released. Installed 0.5.14 and existing saves are unchanged. RD07 now adds [native plan pullback, review and explicit matching](CLOUD-SYNC.md), and has passed the mandatory isolated map/YouTrack proof.
 
 ## Import and Edit Locally
 
@@ -34,5 +34,5 @@ Partial publication uses the existing service's recovery/review behavior. A lost
 
 - At most 1,000 tasks, 128 hierarchy levels and 12 MiB of queued operation JSON per reviewed publication. Container and attachment bounds apply separately. A larger valid local document may still be refused for publication with an explanation.
 - Destination selection uses existing PMON records; the importer does not infer bindings from imported YouTrack IDs or match unrelated existing tickets by title.
-- Native bindings are currently local. Sharing bindings across computers and folding accepted Work Pane/YouTrack changes back into managed RDX files are RD07 work.
-- This task proves deterministic source behavior with synthetic data. No installed native-window acceptance, live YouTrack publication or production-map conversion is claimed. RD07 supplies the live two-way proof; RD10 remains the separate fresh-data adoption gate.
+- Binding tables remain local and separately verified. RD07 adds explicit existing-task matching for another instance and folds accepted Work Pane/YouTrack changes into the managed RDX. Imported IDs never establish authority.
+- RD06 itself proved deterministic source behavior with synthetic data. RD07 has now passed the real isolated map two-way proof. Installed native-window acceptance and production-map conversion are still separate gates; RD10 remains the fresh-data adoption task.

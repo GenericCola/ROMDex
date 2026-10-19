@@ -1,3 +1,12 @@
+## Unreleased — RD07 RDX Bindings and Two-Way Sync
+
+- Add reviewed private NPCD map binding, incremental immutable artifact/asset delivery and accepted incoming RDX checkpoints.
+- Preserve exact historical document/image bytes with factored cloud objects; cache verified history and native files across transfer checkpoints.
+- Add native metadata/conflict review, concurrent branch joins, durable frozen-intent recovery and bounded no-progress holds.
+- Fold accepted PMON fields/comments/files into managed plans; explicitly match existing tasks on another instance without duplicate posts.
+- Include held plan reviews in shared save attention; preserve Auto-Sync Off and stop unchanged conflicts from repeatedly downloading files.
+- Pass the real isolated RDX → YouTrack → RDX proof. Installed 0.5.14 and production maps remain unchanged; adoption is still RD10.
+
 ## Unreleased — RD06 ROMDex RDX Task Plan Import
 
 - Import and edit plans locally, preserve original files and export verified portable copies.
