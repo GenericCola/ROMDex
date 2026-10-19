@@ -1,0 +1,136 @@
+{
+  "task": "RD03",
+  "source": "Latest preserved 0.5.14 native-content baseline, opened read-only; all 998 cached immutable objects including original image bytes and retained JSON/history. No source bytes or credentials exported.",
+  "method": "One independent process per level, each input encoded and decoded once with equality/hash verification. Store original bytes when compression expands them. Peak RSS sampled every 2 ms; not an operating-system hard peak.",
+  "measurements": [
+    {
+      "level": 1,
+      "objects": 998,
+      "rawBytes": 32218266,
+      "encodedBytes": 11327268,
+      "savedPercent": 64.84,
+      "encodeMs": 644,
+      "decodeMs": 342,
+      "sampledPeakRSS": 187809792,
+      "maxEntryBytes": 9915298,
+      "categories": {
+        "json": {
+          "count": 941,
+          "rawBytes": 22286233,
+          "storedBytes": 7163312,
+          "storeFallbacks": 0
+        },
+        "png": {
+          "count": 37,
+          "rawBytes": 488583,
+          "storedBytes": 442524,
+          "storeFallbacks": 1
+        },
+        "jpeg": {
+          "count": 1,
+          "rawBytes": 42348,
+          "storedBytes": 42317,
+          "storeFallbacks": 0
+        },
+        "webp": {
+          "count": 1,
+          "rawBytes": 10092,
+          "storedBytes": 10092,
+          "storeFallbacks": 1
+        },
+        "other": {
+          "count": 18,
+          "rawBytes": 9391010,
+          "storedBytes": 3669023,
+          "storeFallbacks": 0
+        }
+      }
+    },
+    {
+      "level": 6,
+      "objects": 998,
+      "rawBytes": 32218266,
+      "encodedBytes": 10608042,
+      "savedPercent": 67.07,
+      "encodeMs": 880,
+      "decodeMs": 337,
+      "sampledPeakRSS": 188801024,
+      "maxEntryBytes": 9915298,
+      "categories": {
+        "json": {
+          "count": 941,
+          "rawBytes": 22286233,
+          "storedBytes": 6655275,
+          "storeFallbacks": 0
+        },
+        "png": {
+          "count": 37,
+          "rawBytes": 488583,
+          "storedBytes": 440652,
+          "storeFallbacks": 1
+        },
+        "jpeg": {
+          "count": 1,
+          "rawBytes": 42348,
+          "storedBytes": 42317,
+          "storeFallbacks": 0
+        },
+        "webp": {
+          "count": 1,
+          "rawBytes": 10092,
+          "storedBytes": 10092,
+          "storeFallbacks": 1
+        },
+        "other": {
+          "count": 18,
+          "rawBytes": 9391010,
+          "storedBytes": 3459706,
+          "storeFallbacks": 0
+        }
+      }
+    },
+    {
+      "level": 9,
+      "objects": 998,
+      "rawBytes": 32218266,
+      "encodedBytes": 10540985,
+      "savedPercent": 67.28,
+      "encodeMs": 1064,
+      "decodeMs": 331,
+      "sampledPeakRSS": 188534784,
+      "maxEntryBytes": 9915298,
+      "categories": {
+        "json": {
+          "count": 941,
+          "rawBytes": 22286233,
+          "storedBytes": 6602031,
+          "storeFallbacks": 0
+        },
+        "png": {
+          "count": 37,
+          "rawBytes": 488583,
+          "storedBytes": 440519,
+          "storeFallbacks": 1
+        },
+        "jpeg": {
+          "count": 1,
+          "rawBytes": 42348,
+          "storedBytes": 42317,
+          "storeFallbacks": 0
+        },
+        "webp": {
+          "count": 1,
+          "rawBytes": 10092,
+          "storedBytes": 10092,
+          "storeFallbacks": 1
+        },
+        "other": {
+          "count": 18,
+          "rawBytes": 9391010,
+          "storedBytes": 3446026,
+          "storeFallbacks": 0
+        }
+      }
+    }
+  ]
+}

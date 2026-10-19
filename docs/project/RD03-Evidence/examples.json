@@ -1,0 +1,51 @@
+{
+  "task": "RD03",
+  "examples": [
+    {
+      "filename": "FixtureMap.rdx",
+      "synthetic": true,
+      "bytes": 4462,
+      "decodedBytes": 20065,
+      "packMs": 42.3,
+      "decodeMs": 12.1,
+      "sha256": "fcad5e9431285dabcdb51ceaab5f3c5e9e402fc3fbc7f47664fee0ce94e59f96",
+      "documentRevision": "832905897f45a0cb8650b0f80198dc3885b903e5643253aae2f46ed7247615d1",
+      "requiresHumanTesting": false
+    },
+    {
+      "filename": "FixturePlan.rdx",
+      "synthetic": true,
+      "bytes": 1790,
+      "decodedBytes": 2865,
+      "packMs": 5.67,
+      "decodeMs": 2.31,
+      "sha256": "6f4911c4a4343d75399c9fd151db387481efae3e1010caa32f87f79f542b10c9",
+      "documentRevision": "43e160973f4019db5b3a78ab30bb6981db8f9f505a74485e1725f7ecc72efdfb",
+      "requiresHumanTesting": false
+    },
+    {
+      "filename": "FixtureReturnedMap.rdx",
+      "synthetic": true,
+      "bytes": 9087,
+      "decodedBytes": 43711,
+      "packMs": 20.9,
+      "decodeMs": 12.49,
+      "sha256": "c5bc48d2a014e809edae559eb1ae43e4a719235fed960cba862c6526f28e96a2",
+      "documentRevision": "a434efe2037cecadb1d70d07ae21eac88381fe6eb8c6e707009841dc5c27f758",
+      "requiresHumanTesting": true
+    },
+    {
+      "filename": "FixtureOptionalExtension.rdx",
+      "synthetic": true,
+      "bytes": 4512,
+      "decodedBytes": 20174,
+      "packMs": 10.1,
+      "decodeMs": 5.93,
+      "sha256": "e704cd27cca4415ce8aec4ba0d34cb174d30205d8978e31c248bd31eebd14d2a",
+      "documentRevision": "2c66a0a575509ae348c19b3cde427848ed73e47f377e49ee0a12236e87ea316d",
+      "requiresHumanTesting": false
+    }
+  ],
+  "installedImporterAvailable": false,
+  "liveYouTrackProof": false
+}

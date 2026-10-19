@@ -1,0 +1,143 @@
+{
+  "task": "RD03",
+  "status": "source-complete-verified",
+  "date": "2026-10-18",
+  "sourceVersion": "0.5.14 with unreleased RD02/RD03 changes",
+  "installedVersion": "0.5.14 unchanged",
+  "focusedTests": {
+    "total": 93,
+    "passed": 93,
+    "failed": 0,
+    "newRdxTests": 48,
+    "existingCompatibilityChecks": 45,
+    "log": "RD03-Evidence/focused-final.log"
+  },
+  "bundledTests": {
+    "total": 48,
+    "passed": 48,
+    "failed": 0,
+    "scope": "Existing Electron, Node mode; synthetic fixtures, no new desktop installer"
+  },
+  "syntaxChecks": 6,
+  "examples": "RD03-Evidence/examples.json",
+  "compression": "RD03-Evidence/compression.json",
+  "capacity": "RD03-Evidence/capacity.json",
+  "source": [
+    {
+      "file": "rdx/cli.mjs",
+      "bytes": 3856,
+      "sha256": "1b20cb74fea32657b7017f4485a2fa5601647c05e4b36d8528c08e71732f32bf",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "rdx/container.mjs",
+      "bytes": 9256,
+      "sha256": "49b122986671d10812fac69a70ac0c00a45c822220e5492e1679de4533ba365f",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "rdx/contracts.schema.json",
+      "bytes": 104831,
+      "sha256": "f4bb4c44840057566b1fd6eda07671c8537df4ab83adfda4f403cf80670c5b0e",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "rdx/document.mjs",
+      "bytes": 10263,
+      "sha256": "a6fcdbf943f7d0c06d5cd56a1135f3d81edf47bb11a37f8d62ad31d17238d3ce",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "rdx/limits.mjs",
+      "bytes": 1403,
+      "sha256": "db9bb1aa79c2fd7580e0de939a3b08b81ca9af5460b43f60e80cd56a4bd6b3cd",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "rdx/README.md",
+      "bytes": 7517,
+      "sha256": "528fe2509e920143a41108e50261ed6cfc0c559f6c641d9bf139b2ba968ee601",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "rdx/schema.mjs",
+      "bytes": 3894,
+      "sha256": "07082cb0a383f83b736e6e66d79f82aee130c0f7da6019bf6256964701c71b99",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "tests/fixtures/rdx/blobs/054edec1d0211f624fed0cbca9d4f9400b0e491c43742af2c5b0abebf0c990d8.bin",
+      "bytes": 4,
+      "sha256": "054edec1d0211f624fed0cbca9d4f9400b0e491c43742af2c5b0abebf0c990d8",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "tests/fixtures/rdx/blobs/a497d10d9e1e0afc7d0b42ce473100fcca122c9c4a9006b577fc005da23fdfe8.bin",
+      "bytes": 19993,
+      "sha256": "a497d10d9e1e0afc7d0b42ce473100fcca122c9c4a9006b577fc005da23fdfe8",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "tests/fixtures/rdx/blobs/f6d6acb2dcf66d4e1b6419962726cf72cb16371556bc7dbdfd4e66e2caee2b8c.bin",
+      "bytes": 68,
+      "sha256": "f6d6acb2dcf66d4e1b6419962726cf72cb16371556bc7dbdfd4e66e2caee2b8c",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "tests/fixtures/rdx/map.document.json",
+      "bytes": 30440,
+      "sha256": "e1cb27b3f7d18e84ea4309caf81ea70729aaca93cc6986513df4eaa8700b9fd3",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "tests/fixtures/rdx/optional-extension.document.json",
+      "bytes": 30591,
+      "sha256": "5cec417cc6096d3ffd438fa21e92c708aeb332e89e0e0a3b850dbb87763a36d5",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "tests/fixtures/rdx/plan.document.json",
+      "bytes": 4090,
+      "sha256": "b6cb7d86b5c5ddeb0f65589d9824ea027d0a9ada79bc697a2e89c59be7273579",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "tests/fixtures/rdx/returned-map.document.json",
+      "bytes": 36080,
+      "sha256": "04f6e9dabcb45fa27a9009ad0d4a1f2618b43a6a604c31217a193a91e324e7b9",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "tests/rdx-container.test.mjs",
+      "bytes": 15119,
+      "sha256": "625c98543912a50ce3cea5851d3faf37b844b2b5450451903ff987f84ec3668e",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "package.json",
+      "bytes": 563,
+      "sha256": "8175c99b24796aa24cec0de9df5f6345b43d7ecc88d7fd5be91ccaf5fb3c85d1",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "CHANGELOG.md",
+      "bytes": 5106,
+      "sha256": "0fcbbb3d18db5791b7b7070cd0497636467a2756a209d788763a71fbb748e4ae",
+      "repositoryMirrorMatches": true
+    }
+  ],
+  "boundaries": {
+    "sourceComplete": true,
+    "installedApplicationChanged": false,
+    "productionSavesChanged": false,
+    "credentialsChanged": false,
+    "liveYouTrackWrites": 0,
+    "realYouTrackRdxAcceptance": false,
+    "productionMapsConverted": false,
+    "windowsFileAssociationChanged": false,
+    "schemasFetched": false,
+    "aiRequiredForFileOperations": false,
+    "wholeMapFreshDataAdoptionProven": false
+  },
+  "next": "RD04 — Sol / High, new PASSKEY required"
+}

@@ -1,3 +1,11 @@
+## Unreleased — RD03 RDX Container and Tools
+
+- Add lossless map/plan RDX packing, validation and unpacking with hash-deduplicated assets.
+- Preserve exact content, original image bytes, retained history and optional extension values.
+- Enforce routing, version/capability checks, bounded streaming inflation and cancellation.
+- Keep legacy browser migration and JSON map imports on their dedicated readers.
+- Provide local CLI tools and synthetic files; no installer, live-data migration or backend writes yet.
+
 ## Unreleased — RD02 Sync and Recovery
 
 - Make uncertain-only upload recovery accessible through Content Tools and Connection Details.

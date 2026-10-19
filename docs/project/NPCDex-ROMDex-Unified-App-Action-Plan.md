@@ -3,10 +3,10 @@
 **Date:** October 14, 2026  
 **Revised:** October 18, 2026.
 
-**Status:** U01–U20I and RD01 are complete. RD02 source implementation and focused verification are complete; [report](RD02-Completion-Report.md). Installed ROMDex remains 0.5.14; the fix is prepared for the later RDX release.
+**Status:** U01–U20I and RD01 are complete. RD02 and RD03 source implementation and focused verification are complete; [RD03 report](RD03-Completion-Report.md). Installed ROMDex remains 0.5.14; these changes are prepared for the later RDX release.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
-**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). RD01 is approved and complete; RD02 is source-complete with 107 focused tests, bundled-runtime and isolated UI checks. Next: **RD03 — RDX Container, Validator and Tooling, Sol / High**, under a new PASSKEY.
+**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). RD03 is source-complete with 93 focused tests, 48 RDX checks under bundled Electron and measured compression/capacity. Next: **RD04 — Local Managed Documents and Portable Export, Sol / High**, under a new PASSKEY.
 
 ## Working Agreement
 
@@ -191,7 +191,7 @@ Execute RD01 → RD02 → RD03, with a separate PASSKEY and completion report fo
 | --- | --- | --- | --- |
 | RD01 — RDX and JSON Workflow Contracts | **Complete and user-approved October 18:** [contracts, schema and examples](RD01-Contracts/README.md), [review report](RD01-Review-Report.md). Defines envelope/map/plan schemas, portable IDs/bindings, coverage, provenance, removals, recovery, compatibility and testing markers. | Six walkthroughs and 70 isolated checks pass. User accepted the concrete contracts; compressed-file/live two-way proof remains RD03/RD07. | Sol / High |
 | RD02 — Bounded Sync and Upload Recovery | **Source-complete:** [report](RD02-Completion-Report.md), [evidence](RD02-Verification.json). Expose uncertain-only reviewed retry; separate read/write deadlines; checkpoint progress, reuse verified immutable uploads and avoid repeated full-history work. Give no-progress failures an actionable bounded stop instead of a retry loop. | Focused interrupted-upload, slow-read, restart and no-progress checks preserve ownership/hash/conflict guards; no blind resends or duplicate records. Existing queues and credentials remain intact. | Sol / High |
-| RD03 — RDX Container, Validator and Tooling | Implement lossless packing/unpacking, hash-addressed assets, manifest routing/version checks and deterministic validation. Benchmark compression on representative data. Safely dispatch the legacy migration format separately. | Exact byte/content round-trip, bounded malformed/oversized archives and safe paths; unknown required capabilities fail clearly. Document measured codec choice; reusable CLI works without AI. | Sol / High |
+| RD03 — RDX Container, Validator and Tooling | **Source-complete:** [report](RD03-Completion-Report.md), [tools](ROMDex/rdx/README.md), [examples](RD03-Examples/README.md). Lossless packing/unpacking, deduplicated assets, routing, pinned contracts, bounded decoding/cancellation and explicit legacy dispatch. | 93 focused tests and 48 bundled-runtime RDX tests pass. Actual byte/content round-trips; malformed/oversized inputs fail safely. Level 9 selected from measured corpus. Installed 0.5.14 unchanged. | Sol / High |
 
 ## Phase 6 — Managed Documents, Imports and Cloud Publication
 
@@ -278,7 +278,7 @@ Scheduled after U30 so notifications do not delay cloud persistence or the packa
 
 Tasks later in the plan are provisional until their design checkpoints are completed. Current desktop/cloud behavior remains available while the content architecture is reviewed and proved. Earlier completion narratives below are historical checkpoints; the status and checklist at the top control current execution.
 
-**Current boundary:** RD01 is approved and complete; RD02 is source-complete and verified. The installed 0.5.14 app, live Data/queue and credentials remain unchanged; later RDX packaging will include this fix. RD03 is next, Sol / High, under a new PASSKEY. RD03–RD10 and U21–U33 remain separately gated.
+**Current boundary:** RD01 is approved; RD02 and RD03 are source-complete and verified. The installed 0.5.14 app, live Data/queue and credentials remain unchanged; later RDX packaging will include these changes. RD04 is next, Sol / High, under a new PASSKEY. RD04–RD10 and U21–U33 remain separately gated.
 
 
 ## R08 — Release Completed, October 14, 2026

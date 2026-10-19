@@ -1,0 +1,148 @@
+{
+  "format": "RDXDocument/1",
+  "documentId": "rdx:fixture-plan",
+  "datasetId": "fixture:workspace",
+  "parents": [],
+  "createdAt": "2026-10-18T16:00:00.000Z",
+  "origin": {
+    "role": "extractor",
+    "generator": "rd01-fictional-example",
+    "synthetic": true
+  },
+  "capabilities": {
+    "required": [
+      "org.romdex.rdx.plan-v1"
+    ],
+    "optional": []
+  },
+  "extensions": {},
+  "assetInventory": [
+    {
+      "assetId": "fixture:asset",
+      "sha256": "054edec1d0211f624fed0cbca9d4f9400b0e491c43742af2c5b0abebf0c990d8",
+      "bytes": 4,
+      "mime": "application/octet-stream",
+      "purpose": "attachment"
+    },
+    {
+      "assetId": "content:asset-f6d6acb2dcf66d4e1b6419962726cf72cb16371556bc7dbdfd4e66e2caee2b8c",
+      "sha256": "f6d6acb2dcf66d4e1b6419962726cf72cb16371556bc7dbdfd4e66e2caee2b8c",
+      "bytes": 68,
+      "mime": "image/png",
+      "purpose": "image"
+    }
+  ],
+  "namespace": "org.romdex.tasks",
+  "kind": "plan",
+  "schemaVersion": 1,
+  "content": {
+    "roots": [
+      "fixture:task-1"
+    ],
+    "tasks": [
+      {
+        "taskId": "fixture:task-1",
+        "parentTaskId": null,
+        "declaredTier": "epic",
+        "title": "Fixture epic",
+        "description": "Synthetic import task.",
+        "status": "untouched",
+        "priority": "normal",
+        "complexity": null,
+        "fields": [],
+        "comments": [
+          {
+            "commentId": "fixture:comment-1",
+            "body": "Original imported context; not agent dispatch.",
+            "authorClaim": "fixture:original-author",
+            "createdAt": "2026-10-18T16:00:00.000Z"
+          }
+        ],
+        "attachments": [],
+        "baseRevision": null
+      },
+      {
+        "taskId": "fixture:task-2",
+        "parentTaskId": "fixture:task-1",
+        "declaredTier": "saga",
+        "title": "Fixture saga",
+        "description": "Synthetic import task.",
+        "status": "untouched",
+        "priority": "normal",
+        "complexity": null,
+        "fields": [],
+        "comments": [],
+        "attachments": [],
+        "baseRevision": null
+      },
+      {
+        "taskId": "fixture:task-3",
+        "parentTaskId": "fixture:task-2",
+        "declaredTier": "story",
+        "title": "Fixture story",
+        "description": "Synthetic import task.",
+        "status": "untouched",
+        "priority": "normal",
+        "complexity": null,
+        "fields": [],
+        "comments": [],
+        "attachments": [],
+        "baseRevision": null
+      },
+      {
+        "taskId": "fixture:task-4",
+        "parentTaskId": "fixture:task-3",
+        "declaredTier": "verse",
+        "title": "Fixture verse",
+        "description": "Synthetic import task.",
+        "status": "untouched",
+        "priority": "normal",
+        "complexity": null,
+        "fields": [],
+        "comments": [],
+        "attachments": [],
+        "baseRevision": null
+      },
+      {
+        "taskId": "fixture:task-5",
+        "parentTaskId": "fixture:task-4",
+        "declaredTier": "task",
+        "title": "Fixture task",
+        "description": "Synthetic import task.",
+        "status": "untouched",
+        "priority": "normal",
+        "complexity": null,
+        "fields": [
+          {
+            "key": "assignee",
+            "type": "user",
+            "value": {
+              "login": "fictional-agent",
+              "displayName": "Fictional Agent"
+            },
+            "readOnly": false
+          },
+          {
+            "key": "due-date",
+            "type": "date",
+            "value": "2026-11-01",
+            "readOnly": false
+          }
+        ],
+        "comments": [],
+        "attachments": [
+          {
+            "attachmentId": "fixture:attachment-1",
+            "assetId": "content:asset-f6d6acb2dcf66d4e1b6419962726cf72cb16371556bc7dbdfd4e66e2caee2b8c",
+            "name": "sprite-example.png"
+          }
+        ],
+        "baseRevision": null
+      }
+    ],
+    "deletionRequests": [],
+    "history": []
+  },
+  "result": null,
+  "revision": "43e160973f4019db5b3a78ab30bb6981db8f9f505a74485e1725f7ecc72efdfb"
+}

@@ -405,3 +405,10 @@ The user explicitly approved the contracts and automatic safe reconciliation of 
 ## October 18, 2026 — RD02 Source Complete
 
 [RD02](RD02-Completion-Report.md) adds recovery access for uncertain-only uploads, visible progress/manual checks, independent cumulative write budgets, pinned verified-upload reuse and a durable three-attempt no-progress hold. Incoming reads remain active during an outgoing hold; ownership/privacy, hashes, request/write caps and final readback remain enforced. Passed 107 focused tests, 14 new tests under the bundled runtime and isolated recovery UI review. No live data or credential was used for QA. Installed 0.5.14 remains unchanged; include the source fix in later RDX packaging rather than reinstall for every foundation task. RD03 is next, Sol / High, with a new PASSKEY.
+
+
+## October 18, 2026 — RD03 Source Complete
+
+The user supplied PASSKEY for RD03. Actual RDX files, strict local contract/container validation, raw-DEFLATE/store codecs, hash-deduplicated assets, bounded streaming inflation/cancellation and local pack/unpack/validate tools are implemented. Unknown required features are unsupported; optional extensions survive; legacy inputs require their dedicated context-bound handlers. Passed 93 focused tests, 48 RDX checks under bundled Electron and six syntax checks. Surveyed preserved content bytes read-only: level 9 saves 67.28% of body bytes with approximately one second encoding, so it is the default. Expanding entries remain stored verbatim. The bounded decoder materializes validated buffers; hard limits are not a constant-memory promise.
+
+Installed 0.5.14, live data/queue and remembered credentials are unchanged. Four fictional RDX files are developer-tool examples, not completed app import or YouTrack proof. RD04 (managed documents/portable export) is next, Sol / High, under a separate PASSKEY. RD07 proof, RD08 file association, RD10 accepted adoption and returned-result authorization/testing gates remain in place.

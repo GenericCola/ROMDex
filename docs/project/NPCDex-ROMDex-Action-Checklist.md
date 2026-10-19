@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** **RD01 is approved and complete; RD02 source implementation is complete and verified.** [RD02 report](RD02-Completion-Report.md). Installed 0.5.14, live Data/queue and credentials remain unchanged pending the later RDX release. Next: **RD03 — RDX Container, Validator and Tooling, Sol / High**, requiring a new PASSKEY.
+**Current:** **RD01 is approved; RD02 and RD03 are source-complete and verified.** [RD03 report](RD03-Completion-Report.md). Installed 0.5.14, live Data/queue and credentials remain unchanged pending the later RDX release. Next: **RD04 — Local Managed Documents and Portable Export, Sol / High**, requiring a new PASSKEY.
 
 ## Completed Foundation
 
@@ -85,7 +85,7 @@
   - [x] Pass 70 isolated design checks; clearly distinguish them from live/importer proof.
   - [x] User accepted the RD01 contracts, including automatic safe reconciliation and mandatory human testing.
 - [x] **RD02 — Bounded Sync and Upload Recovery** — Sol / High. **Source-complete and verified.** [Report](RD02-Completion-Report.md), [evidence](RD02-Verification.json). Reviewed retry for uncertain-only uploads; independent read/write budgets, durable progress, verified-upload reuse and bounded no-progress handling. Preserve integrity/ownership/conflict checks; no blind resends or repeated full-history loops.
-- [ ] **RD03 — RDX Container, Validator and Tooling** — Sol / High. Lossless compressed JSON/assets, deduplication, routing/version checks, safe bounds, deterministic pack/unpack/validate tools and measured compression choice. Exact round-trip; no AI involvement.
+- [x] **RD03 — RDX Container, Validator and Tooling** — Sol / High. **Source-complete and verified.** [Report](RD03-Completion-Report.md), [evidence](RD03-Verification.json), [actual synthetic RDX examples](RD03-Examples/README.md). Lossless compressed JSON/assets, deduplication, routing/version checks, bounds/cancellation and deterministic tools. 93 focused tests; 48 RDX tests also pass in bundled runtime. Level 9 chosen from measured compression. No installed-app change.
 
 ## Phase 6 — Managed Documents, Imports and Cloud Publication
 
@@ -547,3 +547,14 @@ The corrective release passed its regression, focused, native visual, runtime, b
 - [x] Preserved installed 0.5.14, live saves/queue and all saved connections; avoid a separate installer cycle for this foundation change.
 
 Next is **RD03 — Sol / High**, under a new PASSKEY. Existing-map conversion remains gated on RD07 live two-way proof and RD10 acceptance.
+
+
+## RD03 Completed — October 18, 2026
+
+- [x] Implement actual RDX container, pinned contract validation, lossless codecs, exact asset deduplication and dedicated legacy dispatch.
+- [x] Enforce byte/JSON/work bounds, cancellation, hierarchy/reference checks and safe extraction paths.
+- [x] Pass 93 focused tests, 48 RDX tests under bundled Electron, six syntax checks and measured codec/capacity survey.
+- [x] Provide four fictional RDX files and reusable local CLI tools.
+- [x] Preserve installed 0.5.14, production saves/queue and credentials; no backend writes or installer.
+
+Next: **RD04 — Local Managed Documents and Portable Export, Sol / High**, with a new PASSKEY. RD07 live acceptance and RD10 fresh-data conversion remain mandatory.

@@ -1,0 +1,32 @@
+{
+  "task": "RD03",
+  "source": "Latest preserved installed-0.5.14 content baseline; consistent read-only SQLite transaction. This is a capacity/codec survey, not conversion or a live current-save acceptance.",
+  "objects": 998,
+  "totalBytes": 32218266,
+  "collections": {
+    "records": 211,
+    "plans": 93,
+    "reviews": 85,
+    "mappings": 210,
+    "assets": 40,
+    "revisions": 211
+  },
+  "jsonEntries": 940,
+  "incompleteJsonChunks": 1,
+  "maxJsonBytes": 9915298,
+  "maxNodes": 113224,
+  "maxDepth": 19,
+  "limits": {
+    "manifest": 1048576,
+    "stored": 536870912,
+    "decoded": 1073741824,
+    "entries": 10000,
+    "json": 16777216,
+    "blob": 52428800,
+    "depth": 64,
+    "nodes": 300000,
+    "milliseconds": 30000
+  },
+  "withinMeasuredEntryBounds": true,
+  "limitations": "Whole-map portable dependency closure is verified at RD05/RD10; no production RDX created. Cache includes chunked historical objects; logical history must independently meet structured-entry bounds without silent truncation."
+}
