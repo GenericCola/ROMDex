@@ -1,0 +1,8 @@
+{
+  "task": "RD04",
+  "scope": "Existing bundled Electron in Node mode; isolated managed documents, actual crash subprocesses and portable exports.",
+  "credentialsUsed": false,
+  "productionDataAccessed": false,
+  "exitCode": 0,
+  "status": "passed"
+}

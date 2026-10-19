@@ -1,6 +1,6 @@
 # RDX Container Tools
 
-RD03 implements the version 1 file container and deterministic local tooling. It does not connect the installed interface to RDX documents yet. Managed saves, import previews, backend binding and Windows association are RD04–RD08. No command here uploads, changes tickets, dispatches work or certifies human testing. No AI, connection or token is required.
+RD03 implements the version 1 file container and deterministic local tooling. RD04 adds [managed local documents and portable export](MANAGED-DOCUMENTS.md). The installed interface is unchanged; import previews, backend binding and Windows association follow in RD05–RD08. No command here uploads, changes tickets, dispatches work or certifies human testing. No AI, connection or token is required.
 
 ## Commands
 

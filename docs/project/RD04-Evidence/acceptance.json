@@ -1,0 +1,42 @@
+{
+  "task": "RD04",
+  "scope": "Synthetic offline acceptance; no live Data or connection.",
+  "samples": [
+    {
+      "kind": "Map",
+      "key": "ddc6ec70121942a20d29e309e8bc09ac359900a6c06f5b72e3dcbfbda12790b7",
+      "sourceOriginalUnchanged": true,
+      "oldRevision": "832905897f45a0cb8650b0f80198dc3885b903e5643253aae2f46ed7247615d1",
+      "revision": "e00cbab73696dc994f48f16f4d37581b6f40525d8f7580154a611d372ecc40a1",
+      "file": "FixtureLocalMap.rdx",
+      "bytes": 8548,
+      "sha256": "3f5d375da84c9308c5d173cbedf5cf1d44f166cf3ed957af18fb7ef510f0449b",
+      "origin": "user",
+      "historyEntries": 1,
+      "blobs": 3,
+      "reopened": true,
+      "cleanInstanceExact": true,
+      "repeatExportBytesExact": true,
+      "sync": "unbound-local"
+    },
+    {
+      "kind": "Plan",
+      "key": "e07cd7fa99aed030fa3badb74bf364062726cb443efdc593119e77a3bad14798",
+      "sourceOriginalUnchanged": true,
+      "oldRevision": "43e160973f4019db5b3a78ab30bb6981db8f9f505a74485e1725f7ecc72efdfb",
+      "revision": "7f69c348b3d9e0f5998c2eabf9985cc0541722a81415a84e9fffc359d23000e4",
+      "file": "FixtureLocalPlan.rdx",
+      "bytes": 3135,
+      "sha256": "58304d8ff0870298d4373c8e1abf57a64a030556bdf771500450f0903fca1d37",
+      "origin": "user",
+      "historyEntries": 1,
+      "blobs": 3,
+      "reopened": true,
+      "cleanInstanceExact": true,
+      "repeatExportBytesExact": true,
+      "sync": "unbound-local"
+    }
+  ],
+  "backendWrites": 0,
+  "installedApplicationChanged": false
+}

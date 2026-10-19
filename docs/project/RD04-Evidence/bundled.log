@@ -1,0 +1,39 @@
+✔ offline map import, edit, save, reopen, export and clean-instance import (1088.4903ms)
+✔ offline plan import, edit, save, reopen, export and clean-instance import (648.3581ms)
+✔ offline optional-extension import, edit, save, reopen, export and clean-instance import (832.1617ms)
+✔ offline returned-map import, edit, save, reopen, export and clean-instance import (900.0393ms)
+✔ new asset, native proposal, flags and notes survive portable export with original history (489.6165ms)
+✔ same import and no-op save do not duplicate history, journal or blobs (244.128ms)
+✔ stale saves, identity changes and existing-document imports require review (417.2894ms)
+✔ one store owns a Data folder; closing releases ownership without stale PID files (306.0846ms)
+✔ actual process crash recovers after-journal without losing newer draft or assets (980.0868ms)
+✔ actual process crash recovers during-write without losing newer draft or assets (913.6122ms)
+✔ actual process crash recovers after-stage-write without losing newer draft or assets (805.3369ms)
+✔ actual process crash recovers after-stage-verify without losing newer draft or assets (888.5155ms)
+✔ actual process crash recovers after-previous without losing newer draft or assets (895.3224ms)
+✔ actual process crash recovers after-replace without losing newer draft or assets (884.7826ms)
+✔ actual process crash recovers before-checkpoint-commit without losing newer draft or assets (879.5626ms)
+✔ actual process crash recovers after-checkpoint-commit without losing newer draft or assets (889.7185ms)
+✔ disk-full staging error retains durable newer head and blocks stale export until recovery (376.1054ms)
+✔ failure before durable journal preserves previous head and creates no false save (335.333ms)
+✔ incomplete staging file is retained separately and rebuilt from journal (571.6719ms)
+✔ lost working file and known-old rename recover the newest durable version (566.9044ms)
+✔ unknown external edits and corrupt checkpoints are preserved for review (273.978ms)
+✔ storage quota rejects a new document without dropping assets or history (146.0729ms)
+✔ imported agent testing and result evidence cannot be cleared through local save (258.4959ms)
+✔ export is no-overwrite, refuses managed paths and protects raced destinations (352.0802ms)
+✔ concurrent save/export is rejected instead of exporting an older revision as current (385.819ms)
+✔ invalid imports and missing assets do not establish a managed document (149.8845ms)
+✔ managed journal corruption refuses recovery rather than installing an older baseline (271.174ms)
+✔ local CLI supports disconnected import/show/save/export/list with no token (558.1762ms)
+✔ interrupted portable export never marks a partial output complete or damages the working file (259.3421ms)
+✔ a failed prior-checkpoint copy is retained and repaired without a retry loop (434.2233ms)
+✔ an established store with an unknown database version is never reset or reseeded (252.2636ms)
+ℹ tests 31
+ℹ suites 0
+ℹ pass 31
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 17722.1182

@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** **RD01 is approved; RD02 and RD03 are source-complete and verified.** [RD03 report](RD03-Completion-Report.md). Installed 0.5.14, live Data/queue and credentials remain unchanged pending the later RDX release. Next: **RD04 — Local Managed Documents and Portable Export, Sol / High**, requiring a new PASSKEY.
+**Current:** **RD01 is approved; RD02–RD04 are source-complete and verified.** [RD04 report](RD04-Completion-Report.md). Installed 0.5.14, current maps, live Data/queue and credentials remain unchanged pending later RDX integration/adoption. Next: **RD05 — NPCDex Map Import and Update Preview, Sol / High**, requiring a new PASSKEY.
 
 ## Completed Foundation
 
@@ -89,7 +89,7 @@
 
 ## Phase 6 — Managed Documents, Imports and Cloud Publication
 
-- [ ] **RD04 — Local Managed Documents and Portable Export** — Sol / High. App-managed `.rdx` in Data, atomic save/recovery and self-contained export; original input untouched. Import/view/edit/save without YouTrack, preserving all included content/assets/drafts/history.
+- [x] **RD04 — Local Managed Documents and Portable Export** — Sol / High. **Source-complete and verified.** [Report](RD04-Completion-Report.md), [evidence](RD04-Verification.json), [guide](ROMDex/rdx/MANAGED-DOCUMENTS.md). Data/RDX service/CLI, durable journal, atomic working checkpoints/recovery and offline portable export. 107 focused checks; 31 managed checks under bundled runtime, plus seven final provenance rechecks in both. Existing maps/UI/installed app unchanged; integration/adoption remain later tasks.
 - [ ] **RD05 — NPCDex Map Import and Update Preview** — Sol / High. One map per input; stable-ID update previews, shared dependencies and newer-draft protection. Complete snapshots may propose archival of covered omissions; partial files imply no removal. Preserve original UI and archive history.
 - [ ] **RD06 — ROMDex Plan Import and Destination Mapping** — Sol / High. User-selected PMON destination; preview tier changes, retain complete subtrees and map editable fields/comments/attachments. Omitted tasks survive; explicit deletion is reviewed. Idempotent restart/reimport, no implicit publish or dispatch.
 - [ ] **RD07 — Document Bindings and Bidirectional Cloud Sync** — Sol / High. Bind local files after preview; publish record/asset deltas; fold accepted YouTrack edits back into managed `.rdx`. **Acceptance:** a test file imports, maps to real isolated YouTrack records, accepts a local change and a native YouTrack change, then retains both after reopen/export. Preserve conflict recovery, shared controls and credentials.
@@ -558,3 +558,15 @@ Next is **RD03 — Sol / High**, under a new PASSKEY. Existing-map conversion re
 - [x] Preserve installed 0.5.14, production saves/queue and credentials; no backend writes or installer.
 
 Next: **RD04 — Local Managed Documents and Portable Export, Sol / High**, with a new PASSKEY. RD07 live acceptance and RD10 fresh-data conversion remain mandatory.
+
+
+## RD04 Completed — October 18, 2026
+
+- [x] Add explicit Data/RDX working files, version/blob journal and exclusive crash-released ownership.
+- [x] Preserve original inputs, exact assets, prior documents/proposals and human-testing provenance.
+- [x] Recover interrupted working saves; refuse stale, corrupt or externally changed checkpoints as current exports.
+- [x] Prove offline import/edit/save/reopen/export into a clean unbound instance with exact readback.
+- [x] Pass 107 focused checks, 31 bundled-runtime checks, seven final provenance rechecks in both and five syntax checks.
+- [x] Keep installed 0.5.14, current maps, queue, connections and YouTrack unchanged.
+
+Next: **RD05 — NPCDex Map Import and Update Preview, Sol / High**, with a new PASSKEY. Current maps are not RDX working files yet; RD07 live proof and RD10 accepted conversion remain mandatory.

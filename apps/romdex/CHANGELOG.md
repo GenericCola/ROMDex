@@ -1,3 +1,11 @@
+## Unreleased — RD04 Managed Documents and Export
+
+- Add isolated app-managed map/plan checkpoints under the selected Data/RDX folder.
+- Journal document versions and exact assets before replacing working files; recover interrupted saves without restoring stale content.
+- Preserve original inputs, prior versions, proposals/history and human-testing requirements.
+- Support disconnected import/view/edit/save/reopen/export through a reusable service and local CLI.
+- Keep existing native data, UI, cloud providers and installed 0.5.14 unchanged; import previews and backend integration remain later tasks.
+
 ## Unreleased — RD03 RDX Container and Tools
 
 - Add lossless map/plan RDX packing, validation and unpacking with hash-deduplicated assets.

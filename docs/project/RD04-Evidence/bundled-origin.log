@@ -1,0 +1,15 @@
+✔ offline map import, edit, save, reopen, export and clean-instance import (888.763ms)
+✔ offline plan import, edit, save, reopen, export and clean-instance import (611.1496ms)
+✔ offline optional-extension import, edit, save, reopen, export and clean-instance import (859.2292ms)
+✔ offline returned-map import, edit, save, reopen, export and clean-instance import (990.8452ms)
+✔ same import and no-op save do not duplicate history, journal or blobs (254.2933ms)
+✔ imported agent testing and result evidence cannot be cleared through local save (272.8643ms)
+✔ local CLI supports disconnected import/show/save/export/list with no token (592.894ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4709.9355

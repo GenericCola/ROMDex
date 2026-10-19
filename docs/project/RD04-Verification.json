@@ -1,0 +1,109 @@
+{
+  "task": "RD04",
+  "status": "source-complete-verified",
+  "date": "2026-10-18",
+  "sourceVersion": "0.5.14 with unreleased RD02–RD04 source changes",
+  "installedVersion": "0.5.14 unchanged",
+  "focusedTests": {
+    "passed": 107,
+    "failed": 0,
+    "managedTests": 31,
+    "existingRdxTests": 48,
+    "existingNativeCatalogTests": 28,
+    "log": "RD04-Evidence/focused-final.log"
+  },
+  "bundledTests": {
+    "passed": 31,
+    "failed": 0,
+    "scope": "Existing Electron, Node mode, isolated data and actual crash subprocesses"
+  },
+  "finalProvenanceRechecks": {
+    "nodePassed": 7,
+    "bundledPassed": 7,
+    "failed": 0,
+    "reason": "Ordinary local-edit origin correction after full focused run; affected cases only"
+  },
+  "syntaxChecks": 5,
+  "actualProcessExitPoints": [
+    "after-journal",
+    "during-write",
+    "after-stage-write",
+    "after-stage-verify",
+    "after-previous",
+    "after-replace",
+    "before-checkpoint-commit",
+    "after-checkpoint-commit"
+  ],
+  "portableAcceptance": "RD04-Evidence/acceptance.json",
+  "source": [
+    {
+      "file": "rdx/managed-files.mjs",
+      "bytes": 2951,
+      "sha256": "654ce214485a068a3a085f300dd24704f8257d252c423b4f5291948cc7b9d5fb",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "rdx/managed-store.mjs",
+      "bytes": 20376,
+      "sha256": "532f569905cd5f0cb1f58e33cee23492b5e653b3002084f81b1b802a0a4aa0ba",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "rdx/local-cli.mjs",
+      "bytes": 2419,
+      "sha256": "1145ae96f78a68f974ebcc978962b2bd2bb09f4ac7bf46122bd76163827dafc1",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "rdx/MANAGED-DOCUMENTS.md",
+      "bytes": 6940,
+      "sha256": "82f06e8c75e92e0c2fb3e8bccf59c59e3bc39115dfbd2dd59dd1bb3c519a96b1",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "rdx/README.md",
+      "bytes": 7559,
+      "sha256": "6d1f04ad53278b32ff7cd70264e9941b5d339a56082c5cdcf69092870e1aaa17",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "tests/rdx-managed.test.mjs",
+      "bytes": 15960,
+      "sha256": "c6f93a571c93cefd8f98fbbad3bd484974746cf66bc9f24bf7df47fcd6aad0de",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "tests/rdx-managed-crash-fixture.mjs",
+      "bytes": 534,
+      "sha256": "176b45e4a11cea0af9baa5bb90e06da5d53a53b45a7f862d012848bb48690398",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "package.json",
+      "bytes": 606,
+      "sha256": "1afa61e284833470387d414dfd6f945b8be36a401cb92b9bc5dbbd637cb45c42",
+      "repositoryMirrorMatches": true
+    },
+    {
+      "file": "CHANGELOG.md",
+      "bytes": 5716,
+      "sha256": "74647203bb142e622f62e27f27e9b8e44929b00c909b25d6ff98e018a5bc6dbe",
+      "repositoryMirrorMatches": true
+    }
+  ],
+  "boundaries": {
+    "sourceComplete": true,
+    "installedApplicationChanged": false,
+    "currentMapsConverted": false,
+    "importExportUiAdded": false,
+    "liveDataChanged": false,
+    "credentialsUsed": false,
+    "credentialsChanged": false,
+    "backendWrites": 0,
+    "liveYouTrackRdxProof": false,
+    "realPowerCutProven": false,
+    "noAutomaticHistoryDiscard": true,
+    "storeQuotaBytes": 2147483648
+  },
+  "next": "RD05 — Sol / High, new PASSKEY required"
+}

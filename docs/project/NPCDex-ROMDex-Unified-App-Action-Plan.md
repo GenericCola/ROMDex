@@ -3,10 +3,10 @@
 **Date:** October 14, 2026  
 **Revised:** October 18, 2026.
 
-**Status:** U01–U20I and RD01 are complete. RD02 and RD03 source implementation and focused verification are complete; [RD03 report](RD03-Completion-Report.md). Installed ROMDex remains 0.5.14; these changes are prepared for the later RDX release.
+**Status:** U01–U20I and RD01 are complete. RD02–RD04 source implementation and focused verification are complete; [RD04 report](RD04-Completion-Report.md). Installed ROMDex remains 0.5.14. Current maps are unchanged; the RDX foundation awaits later integration/adoption.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
-**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). RD03 is source-complete with 93 focused tests, 48 RDX checks under bundled Electron and measured compression/capacity. Next: **RD04 — Local Managed Documents and Portable Export, Sol / High**, under a new PASSKEY.
+**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). RD04 is source-complete: 107 focused checks, 31 managed-document checks under bundled Electron, seven final provenance rechecks in both and isolated portable acceptance. Next: **RD05 — NPCDex Map Import and Update Preview, Sol / High**, under a new PASSKEY.
 
 ## Working Agreement
 
@@ -197,7 +197,7 @@ Execute RD01 → RD02 → RD03, with a separate PASSKEY and completion report fo
 
 | Task | Deliverable | Completion Check | Model / Effort |
 | --- | --- | --- | --- |
-| RD04 — Local Managed Documents and Portable Export | Add app-managed working `.rdx` files, atomic saves/recovery, local-only map/plan operation and self-contained export. Retain the original imported file unchanged. | Offline import/edit/save/reopen/export into a clean instance retains exact content, assets, proposals and history; crash recovery cannot mark missing work saved. Existing native content remains usable. | Sol / High |
+| RD04 — Local Managed Documents and Portable Export | **Source-complete:** [report](RD04-Completion-Report.md), [guide](ROMDex/rdx/MANAGED-DOCUMENTS.md), [examples](RD04-Examples/README.md). Data/RDX service/CLI with a durable journal, atomic working checkpoints/recovery and portable local export. | 107 focused checks, 31 bundled checks and seven final provenance rechecks in both pass. Eight process-exit points recover newer drafts. Clean-instance exact content/assets/history acceptance passes. Existing maps/UI/native data remain unchanged. | Sol / High |
 | RD05 — NPCDex Map Import and Update Preview | Route one-map inputs into existing NPCDex views, including required region/shared dependencies. Preview ID-based updates, conflict alternatives and covered omissions from complete snapshots as archival candidates. | New and existing maps round-trip; partial inputs imply no archival; preserve shared profiles, local appearances, newer drafts and existing UI. Agent-result application remains separately gated under U24–U27. | Sol / High |
 | RD06 — ROMDex Plan Import and Destination Mapping | Choose an existing PMON destination, preview tier rebasing, map editable fields/comments/attachments, preserve subtree relationships and establish stable import identities. Retain omitted tasks; preview explicit deletions. | Retry/reimport creates no duplicate tasks, comments or files; interrupted multi-item publication recovers visibly. Local-only import does not publish or dispatch; destination limits fail with a clear preview. | Sol / High |
 | RD07 — Document Bindings and Bidirectional Cloud Sync | Connect local documents to chosen backend projects, preview publication, publish record/asset deltas and fold accepted native YouTrack changes back into working files. Preserve shared Save/Auto-Sync and manual one-cycle behavior. | Mandatory user criterion: a test `.rdx` imports, maps to real YouTrack QA records, sends a local change, receives a native YouTrack change and retains both after managed-file reopen/export. Prove offline/concurrent/uncertain outcomes without duplicate records or lost credentials. No whole-file upload per edit. | Sol / High |
@@ -278,7 +278,7 @@ Scheduled after U30 so notifications do not delay cloud persistence or the packa
 
 Tasks later in the plan are provisional until their design checkpoints are completed. Current desktop/cloud behavior remains available while the content architecture is reviewed and proved. Earlier completion narratives below are historical checkpoints; the status and checklist at the top control current execution.
 
-**Current boundary:** RD01 is approved; RD02 and RD03 are source-complete and verified. The installed 0.5.14 app, live Data/queue and credentials remain unchanged; later RDX packaging will include these changes. RD04 is next, Sol / High, under a new PASSKEY. RD04–RD10 and U21–U33 remain separately gated.
+**Current boundary:** RD01 is approved; RD02–RD04 are source-complete and verified. The installed 0.5.14 app, current maps, live Data/queue and credentials remain unchanged. RD04 is a local service/CLI foundation; UI integration and real two-way proof are later gates. RD05 is next, Sol / High, under a new PASSKEY. RD05–RD10 and U21–U33 remain separately gated.
 
 
 ## R08 — Release Completed, October 14, 2026
