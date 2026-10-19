@@ -5,7 +5,7 @@ import path from 'node:path';
 import os from 'node:os';
 import {WorkspaceEngine} from '../public/workspace-engine.mjs';
 import {WorkspaceClock} from '../public/workspace-runtime.mjs';
-import {SaveCoordinator} from '../public/save-coordinator.mjs';
+import {SaveCoordinator,coalesceSave,savingMessage} from '../public/save-coordinator.mjs';
 import {DurableJSONStorage} from '../durable-json-storage.mjs';
 const item={id:'PMON-1',summary:'Original',description:'Original Notes',parentId:null,state:'To do',assignedState:'To do',priority:'Normal',comments:[],updated:1};
 const status=enabled=>({connected:true,automaticSyncEnabled:enabled,syncControl:true,youtrackAvailable:true,connection:{missingStates:[]}});
@@ -25,3 +25,8 @@ test('duplicate provider ownership is rejected and unavailable cloud is not trea
 test('checkpoint failures stay independent and do not invoke remote save',async()=>{const c=coordinator().value;await c.init();let saved=0,kept=0;c.register('one',{status:()=>({}),save:()=>saved++,checkpoint:async()=>{throw Error('Disk Full');}});c.register('two',{status:()=>({}),save:()=>saved++,checkpoint:async()=>kept++});const results=await c.checkpoint();assert.equal(results[0].ok,false);assert.equal(results[1].ok,true);assert.equal(kept,1);assert.equal(saved,0);});
 test('failed coordinator metadata persistence remains visible instead of reporting an unqualified successful save',async()=>{const storage=memory(null),c=coordinator(storage).value;await c.init();storage.save=async()=>{throw Error('Disk Full');};c.register('native',{status:()=>({attention:false}),save:async()=>({ok:true})});const result=await c.save();assert.match(result.storageError,/Disk Full/);assert.equal(c.snapshot().attention,true);});
 test('unknown coordinator format is preserved and never overwritten',async()=>{const storage=memory({version:20,evidence:'keep'}),c=coordinator(storage).value;await assert.rejects(c.init(),/Unknown/);c.register('local',{status:()=>({}),save:async()=>({ok:true})});await c.save();assert.deepEqual(storage.value,{version:20,evidence:'keep'});});
+
+
+test('task and metadata providers share one full service cycle and later saves run fresh cycles',async()=>{let calls=0,release;const wait=new Promise(r=>release=r),save=coalesceSave(async()=>{calls++;await wait;return 'confirmed';});const one=save(),two=save();assert.equal(one,two);await Promise.resolve();assert.equal(calls,1);release();assert.equal(await one,'confirmed');assert.equal(await save(),'confirmed');assert.equal(calls,2);});
+
+test('manual progress identifies the remaining provider without treating pending work as completed',async()=>{const c=coordinator().value;await c.init();let release;const pending=new Promise(r=>release=r);c.register('tasks',{status:()=>({label:'Tasks',message:'Up to Date'}),save:async()=>({ok:true})});c.register('npc',{status:()=>({label:'NPCDex',message:'Reading YouTrack History'}),save:()=>pending});const run=c.save();await new Promise(r=>setImmediate(r));const view=c.snapshot();assert.equal(view.saving,true);assert.equal(view.saveProgress.tasks.state,'finished');assert.equal(view.saveProgress.npc.state,'running');assert.match(savingMessage(view),/NPCDex: Reading YouTrack History/);assert(!savingMessage(view).includes('Tasks:'));assert.equal(c.save(),run);release({ok:false,message:'Saved locally; remote delivery pending'});const result=await run;assert.equal(result.results[1].ok,false);assert.equal(c.snapshot().saving,false);});

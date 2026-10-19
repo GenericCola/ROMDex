@@ -75,3 +75,6 @@ test('credential replies stay on the private worker channel and failures disclos
  await waitFor(()=>child.calls.some(x=>x.credentialReply===8));
  assert.deepEqual(child.calls.find(x=>x.credentialReply===8),{credentialReply:8,error:'Windows Could Not Protect or Restore the Connection.'});assert.deepEqual(events,[]);
 });
+
+
+test('quit pauses remote delivery before checkpointing and resumes it after a local-save failure',async()=>{const calls=[];let fail=true;const q=new QuitController({pause:async()=>calls.push('pause'),checkpoint:async()=>{calls.push('checkpoint');if(fail)throw Error('Local checkpoint failed');},resume:async()=>calls.push('resume'),shutdown:async()=>calls.push('shutdown'),exit:()=>calls.push('exit'),onError:async()=>calls.push('error')});assert.equal(await q.request(),false);assert.deepEqual(calls,['pause','checkpoint','resume','error']);calls.length=0;fail=false;assert.equal(await q.request(),true);assert.deepEqual(calls,['pause','checkpoint','shutdown','exit']);});

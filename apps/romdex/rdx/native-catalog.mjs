@@ -13,7 +13,7 @@ export class NativeCatalog{
  constructor({maps,provider,changed=()=>{}}){Object.assign(this,{maps,provider,changed,ledger:null,domain:null,error:null,timer:null,closed:false});}
  async initialize(){this.ledger=this.maps.get('native-catalog');if(!this.ledger)return false;
   ensure(this.ledger.format==='ROMDexNativeCatalog/1'&&this.ledger.acceptance?.approved===true&&this.provider?.kind==='youtrack-content','RECOVERY','The Adopted Catalog Needs Its Original Native Provider.');
-  ensure(this.provider.reader.workspace===this.ledger.workspace,'RECOVERY','The Adopted Catalog Workspace Changed.');if(this.ledger.sourceHead)this.load();await this.refresh();return true;}
+  ensure(this.provider.reader.workspace===this.ledger.workspace,'RECOVERY','The Adopted Catalog Workspace Changed.');if(this.ledger.sourceHead)this.load();try{await this.refresh();}catch(error){if(!this.domain)throw error;this.error=error.message;this.changed();}return true;}
  load(){const values=this.ledger.maps.map(m=>this.maps.store.load(m.key,m.revision)),sharedDomain=this.provider.cache.unpackDomain(this.ledger.nativeSourceRefs);this.domain=joinNativeMaps(values,{source:this.ledger.sourceEvidence,sharedDomain});ensure(sha(canonical(this.domain))===this.ledger.domainSHA256,'RECOVERY','The Adopted Catalog Generation Failed Verification.');return this.domain;}
  owns(key){return !!this.ledger?.maps.some(m=>m.key===key);}
  source(){const work=this.provider.editor.working();ensure(work.domain,'RECOVERY','The Native Content Source Is Unavailable.');const publication=this.provider.cache.get('publication:'+work.remote.head);ensure(publication?.carrier?.bindings,'RECOVERY','The Verified Native Issue Bindings Are Missing.');return {...work,bindings:publication.carrier.bindings};}

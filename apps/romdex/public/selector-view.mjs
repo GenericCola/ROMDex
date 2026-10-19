@@ -27,7 +27,10 @@ export function renderSelectorTree({root,tree,selected,expanded,itemName,tier,es
       reveal.id=control;reveal.classList.toggle('expanded',open);reveal.inert=!open;
       const arrow=card.querySelector('.selector-expand');
       if (arrow) {arrow.setAttribute('aria-expanded',String(open));arrow.setAttribute('aria-label',`${open?'Collapse':'Expand'} ${label}`);arrow.title=`${open?'Collapse':'Expand'} ${label}`;}
-      walk(reveal.firstElementChild.firstElementChild,item.id);
+      // Hidden branches need no cards until revealed. Keep previously rendered
+      // children during collapse so the existing disclosure animation can finish.
+      if(open)walk(reveal.firstElementChild.firstElementChild,item.id);
+      else if(!expandable)reveal.firstElementChild.firstElementChild.replaceChildren();
     }
     for (const unused of existing.values()) unused.remove();
   }

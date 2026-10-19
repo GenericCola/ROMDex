@@ -26,10 +26,10 @@ export class ProfileLease {
 }
 
 export class QuitController {
- constructor({checkpoint,shutdown,exit,onError,onChange=()=>{}}){Object.assign(this,{checkpoint,shutdown,exit,onError,onChange});this.allowed=false;this.busy=null;}
+ constructor({checkpoint,shutdown,exit,onError,onChange=()=>{},pause=async()=>{},resume=async()=>{}}){Object.assign(this,{checkpoint,shutdown,exit,onError,onChange,pause,resume});this.allowed=false;this.busy=null;}
  request(){
   if(this.busy)return this.busy;
-  this.busy=Promise.resolve().then(async()=>{try{await this.checkpoint();await this.shutdown();this.allowed=true;this.exit();return true;}catch(error){await this.onError(error);return false;}}).finally(()=>{this.busy=null;if(!this.allowed)this.onChange();});this.onChange();
+  this.busy=Promise.resolve().then(async()=>{try{await this.pause();await this.checkpoint();await this.shutdown();this.allowed=true;this.exit();return true;}catch(error){try{await this.resume();}catch{}await this.onError(error);return false;}}).finally(()=>{this.busy=null;if(!this.allowed)this.onChange();});this.onChange();
   return this.busy;
  }
 }

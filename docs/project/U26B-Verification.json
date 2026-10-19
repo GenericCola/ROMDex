@@ -1,0 +1,1231 @@
+{
+  "task": "U26B",
+  "status": "source-verified-live-recovery-in-progress",
+  "installedVersion": "0.5.15",
+  "regressionPassed": 88,
+  "sourceSyntaxChecks": 3,
+  "installedSourceReview": {
+    "version": "0.5.15",
+    "readOnly": true,
+    "generalChangeListener": true,
+    "fullPanelRender": true,
+    "fullRowReplacement": true,
+    "preferenceBeforeExpansionPaint": true,
+    "selectorDelayAndDuration": true
+  },
+  "profiles": {
+    "300": {
+      "before": {
+        "label": "before",
+        "count": 300,
+        "scope": "Actual task renderer and DesktopWorkspace/WorkspaceEngine with isolated HTTP IPC simulation and file storage; no credentials or live writes",
+        "samples": [
+          {
+            "storageDelayMs": 0,
+            "action": "selector",
+            "latencies": [
+              136.5,
+              165,
+              107.09999996423721,
+              108.39999997615814
+            ],
+            "rendering": {
+              "selectors": {
+                "count": 8,
+                "total": 34.69999998807907,
+                "max": 6.5
+              },
+              "work": {
+                "count": 8,
+                "total": 72.30000001192093,
+                "max": 13.600000023841858
+              },
+              "details": {
+                "count": 8,
+                "total": 1.100000023841858,
+                "max": 0.30000001192092896
+              },
+              "render": {
+                "count": 8,
+                "total": 265.29999989271164,
+                "max": 43.19999998807907
+              }
+            },
+            "writes": 4,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 0,
+            "action": "work",
+            "latencies": [
+              510.7000000476837,
+              510.5999999642372,
+              396.69999998807907,
+              467.89999997615814
+            ],
+            "rendering": {
+              "selectors": {
+                "count": 8,
+                "total": 28.49999988079071,
+                "max": 5.5
+              },
+              "work": {
+                "count": 8,
+                "total": 373.70000010728836,
+                "max": 94
+              },
+              "details": {
+                "count": 8,
+                "total": 0.6000000834465027,
+                "max": 0.10000002384185791
+              },
+              "render": {
+                "count": 8,
+                "total": 1447.2000000476837,
+                "max": 379.39999997615814
+              }
+            },
+            "writes": 4,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 0,
+            "action": "details",
+            "latencies": [
+              303.80000001192093,
+              279.2000000476837,
+              281.7999999523163,
+              276.30000001192093
+            ],
+            "rendering": {
+              "details": {
+                "count": 8,
+                "total": 12.199999928474426,
+                "max": 1.9000000357627869
+              },
+              "work": {
+                "count": 8,
+                "total": 64.10000002384186,
+                "max": 11
+              },
+              "selectors": {
+                "count": 4,
+                "total": 16.700000047683716,
+                "max": 5.5
+              },
+              "render": {
+                "count": 4,
+                "total": 123.30000001192093,
+                "max": 31.599999964237213
+              }
+            },
+            "writes": 0,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 0,
+            "action": "status",
+            "latencies": [
+              62.80000001192093,
+              59.19999998807907,
+              68.30000001192093,
+              82.89999997615814
+            ],
+            "rendering": {
+              "selectors": {
+                "count": 4,
+                "total": 20.000000059604645,
+                "max": 5.400000035762787
+              },
+              "work": {
+                "count": 4,
+                "total": 27.69999998807907,
+                "max": 7.599999964237213
+              },
+              "details": {
+                "count": 4,
+                "total": 4.500000059604645,
+                "max": 1.600000023841858
+              },
+              "render": {
+                "count": 4,
+                "total": 118.90000003576279,
+                "max": 30.600000023841858
+              }
+            },
+            "writes": 0,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 60,
+            "action": "selector",
+            "latencies": [
+              172.39999997615814,
+              207.19999998807907,
+              170.30000001192093,
+              207.5
+            ],
+            "rendering": {
+              "selectors": {
+                "count": 8,
+                "total": 20.899999916553497,
+                "max": 3.800000011920929
+              },
+              "work": {
+                "count": 8,
+                "total": 51.80000001192093,
+                "max": 8.799999952316284
+              },
+              "details": {
+                "count": 8,
+                "total": 7.200000107288361,
+                "max": 1.600000023841858
+              },
+              "render": {
+                "count": 8,
+                "total": 206.49999994039536,
+                "max": 31.69999998807907
+              }
+            },
+            "writes": 4,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 60,
+            "action": "work",
+            "latencies": [
+              458.10000002384186,
+              556.5,
+              407.39999997615814,
+              496
+            ],
+            "rendering": {
+              "selectors": {
+                "count": 8,
+                "total": 25.100000023841858,
+                "max": 5.400000035762787
+              },
+              "work": {
+                "count": 8,
+                "total": 311.4000000357628,
+                "max": 78
+              },
+              "details": {
+                "count": 8,
+                "total": 6.600000083446503,
+                "max": 1.199999988079071
+              },
+              "render": {
+                "count": 8,
+                "total": 1235.5,
+                "max": 358.30000001192093
+              }
+            },
+            "writes": 4,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 60,
+            "action": "details",
+            "latencies": [
+              269.69999998807907,
+              270.5,
+              268.39999997615814,
+              294
+            ],
+            "rendering": {
+              "details": {
+                "count": 8,
+                "total": 7.399999976158142,
+                "max": 1.399999976158142
+              },
+              "work": {
+                "count": 8,
+                "total": 53.70000010728836,
+                "max": 11.599999964237213
+              },
+              "selectors": {
+                "count": 4,
+                "total": 11.700000047683716,
+                "max": 3.600000023841858
+              },
+              "render": {
+                "count": 4,
+                "total": 103.39999997615814,
+                "max": 28.30000001192093
+              }
+            },
+            "writes": 0,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 60,
+            "action": "status",
+            "latencies": [
+              56,
+              51,
+              53.30000001192093,
+              50.89999997615814
+            ],
+            "rendering": {
+              "selectors": {
+                "count": 4,
+                "total": 13.099999964237213,
+                "max": 4
+              },
+              "work": {
+                "count": 4,
+                "total": 29.700000047683716,
+                "max": 9.300000011920929
+              },
+              "details": {
+                "count": 4,
+                "total": 2.899999976158142,
+                "max": 0.800000011920929
+              },
+              "render": {
+                "count": 4,
+                "total": 101.00000005960464,
+                "max": 26.19999998807907
+              }
+            },
+            "writes": 0,
+            "rpcs": 4
+          }
+        ],
+        "storage": {
+          "writes": 16,
+          "maxMs": 78.74950000000172,
+          "meanMs": 37.35065000000003
+        },
+        "errors": [],
+        "status": "passed"
+      },
+      "after": {
+        "label": "after",
+        "count": 300,
+        "scope": "Actual task renderer and DesktopWorkspace/WorkspaceEngine with isolated HTTP IPC simulation and file storage; no credentials or live writes",
+        "samples": [
+          {
+            "storageDelayMs": 0,
+            "action": "selector",
+            "latencies": [
+              59.89999997615814,
+              100.30000001192093,
+              33.59999996423721,
+              104.89999997615814
+            ],
+            "rendering": {
+              "selectors": {
+                "count": 8,
+                "total": 9.899999916553497,
+                "max": 8.299999952316284
+              },
+              "work": {
+                "count": 4,
+                "total": 0.5999999642372131,
+                "max": 0.19999998807907104
+              },
+              "details": {
+                "count": 4,
+                "total": 0.30000001192092896,
+                "max": 0.10000002384185791
+              },
+              "render": {
+                "count": 4,
+                "total": 8.799999952316284,
+                "max": 3.5
+              }
+            },
+            "writes": 4,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 0,
+            "action": "work",
+            "latencies": [
+              172.89999997615814,
+              406.9000000357628,
+              178,
+              393.60000002384186
+            ],
+            "rendering": {
+              "work": {
+                "count": 8,
+                "total": 257.5,
+                "max": 95
+              },
+              "selectors": {
+                "count": 4,
+                "total": 0,
+                "max": 0
+              },
+              "details": {
+                "count": 4,
+                "total": 0.19999998807907104,
+                "max": 0.10000002384185791
+              },
+              "render": {
+                "count": 4,
+                "total": 11.100000083446503,
+                "max": 3.900000035762787
+              }
+            },
+            "writes": 4,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 0,
+            "action": "details",
+            "latencies": [
+              493.30000001192093,
+              327,
+              322.60000002384186,
+              341.7999999523163
+            ],
+            "rendering": {
+              "details": {
+                "count": 8,
+                "total": 15.699999868869781,
+                "max": 6.399999976158142
+              },
+              "work": {
+                "count": 8,
+                "total": 75.79999995231628,
+                "max": 21.5
+              },
+              "selectors": {
+                "count": 4,
+                "total": 0.20000004768371582,
+                "max": 0.10000002384185791
+              },
+              "render": {
+                "count": 4,
+                "total": 8.700000047683716,
+                "max": 2.900000035762787
+              }
+            },
+            "writes": 0,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 0,
+            "action": "status",
+            "latencies": [
+              89.5,
+              105.40000003576279,
+              86.80000001192093,
+              98.60000002384186
+            ],
+            "rendering": {
+              "selectors": {
+                "count": 4,
+                "total": 0,
+                "max": 0
+              },
+              "work": {
+                "count": 4,
+                "total": 0.6000000238418579,
+                "max": 0.20000004768371582
+              },
+              "details": {
+                "count": 4,
+                "total": 0,
+                "max": 0
+              },
+              "render": {
+                "count": 4,
+                "total": 6.400000035762787,
+                "max": 1.800000011920929
+              }
+            },
+            "writes": 0,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 60,
+            "action": "selector",
+            "latencies": [
+              34.69999998807907,
+              36.40000003576279,
+              37,
+              47.30000001192093
+            ],
+            "rendering": {
+              "selectors": {
+                "count": 7,
+                "total": 2.5000001192092896,
+                "max": 0.800000011920929
+              },
+              "work": {
+                "count": 3,
+                "total": 0.6999999284744263,
+                "max": 0.2999999523162842
+              },
+              "details": {
+                "count": 3,
+                "total": 0,
+                "max": 0
+              },
+              "render": {
+                "count": 3,
+                "total": 7.099999964237213,
+                "max": 3.399999976158142
+              }
+            },
+            "writes": 4,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 60,
+            "action": "work",
+            "latencies": [
+              151.39999997615814,
+              366.5999999642372,
+              126.39999997615814,
+              394.60000002384186
+            ],
+            "rendering": {
+              "selectors": {
+                "count": 5,
+                "total": 0,
+                "max": 0
+              },
+              "work": {
+                "count": 9,
+                "total": 172.30000007152557,
+                "max": 76.70000004768372
+              },
+              "details": {
+                "count": 5,
+                "total": 0.10000002384185791,
+                "max": 0.10000002384185791
+              },
+              "render": {
+                "count": 5,
+                "total": 8.20000010728836,
+                "max": 1.9000000357627869
+              }
+            },
+            "writes": 4,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 60,
+            "action": "details",
+            "latencies": [
+              341.60000002384186,
+              316.89999997615814,
+              325.0999999642372,
+              315.19999998807907
+            ],
+            "rendering": {
+              "details": {
+                "count": 8,
+                "total": 12.800000011920929,
+                "max": 4.600000023841858
+              },
+              "work": {
+                "count": 8,
+                "total": 73.09999996423721,
+                "max": 25.30000001192093
+              },
+              "selectors": {
+                "count": 4,
+                "total": 0.10000002384185791,
+                "max": 0.10000002384185791
+              },
+              "render": {
+                "count": 4,
+                "total": 7.199999988079071,
+                "max": 2.100000023841858
+              }
+            },
+            "writes": 0,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 60,
+            "action": "status",
+            "latencies": [
+              87.09999996423721,
+              107.39999997615814,
+              70.80000001192093,
+              63
+            ],
+            "rendering": {
+              "selectors": {
+                "count": 4,
+                "total": 0,
+                "max": 0
+              },
+              "work": {
+                "count": 4,
+                "total": 0.4999999403953552,
+                "max": 0.19999998807907104
+              },
+              "details": {
+                "count": 4,
+                "total": 0,
+                "max": 0
+              },
+              "render": {
+                "count": 4,
+                "total": 5.899999976158142,
+                "max": 1.7999999523162842
+              }
+            },
+            "writes": 0,
+            "rpcs": 4
+          }
+        ],
+        "checks": [
+          "Status snapshots retain existing rows/selects, focused note text and trailing whitespace",
+          "Checkbox selection stays selected and does not reopen collapsed Details",
+          "Draft flush remains durable and queued while background snapshots preserve checkbox selection",
+          "Rename-by-double-click still avoids opening Details and retains the active draft across snapshots",
+          "Lazy selector branches reveal the latest remote content rather than a stale hidden card",
+          "Tray handle reopens/resizes Details and persists the same layout",
+          "Failed view persistence rolls back the latest optimistic expansion and reports the failure without touching task edits",
+          "Search and remote row updates still invalidate the visible task projection"
+        ],
+        "storage": {
+          "writes": 21,
+          "maxMs": 82.11809999999969,
+          "meanMs": 47.08601428571425
+        },
+        "errors": [],
+        "status": "passed"
+      }
+    },
+    "1000": {
+      "before": {
+        "label": "before",
+        "count": 1000,
+        "scope": "Actual task renderer and DesktopWorkspace/WorkspaceEngine with isolated HTTP IPC simulation and file storage; no credentials or live writes",
+        "samples": [
+          {
+            "storageDelayMs": 0,
+            "action": "selector",
+            "latencies": [
+              478.19999998807907,
+              544.1000000238419,
+              451.19999998807907,
+              433.7999999523163
+            ],
+            "rendering": {
+              "selectors": {
+                "count": 8,
+                "total": 120.90000003576279,
+                "max": 23.80000001192093
+              },
+              "work": {
+                "count": 8,
+                "total": 273.09999990463257,
+                "max": 46.299999952316284
+              },
+              "details": {
+                "count": 8,
+                "total": 0.8000000715255737,
+                "max": 0.19999998807907104
+              },
+              "render": {
+                "count": 8,
+                "total": 866.7000000476837,
+                "max": 134.30000001192093
+              }
+            },
+            "writes": 4,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 0,
+            "action": "work",
+            "latencies": [
+              1955,
+              2005.800000011921,
+              1805,
+              1777.800000011921
+            ],
+            "rendering": {
+              "selectors": {
+                "count": 8,
+                "total": 115.19999998807907,
+                "max": 25.099999964237213
+              },
+              "work": {
+                "count": 8,
+                "total": 1609.7000000476837,
+                "max": 478.60000002384186
+              },
+              "details": {
+                "count": 8,
+                "total": 0.3999999761581421,
+                "max": 0.19999998807907104
+              },
+              "render": {
+                "count": 8,
+                "total": 5723.8999999165535,
+                "max": 1495.699999988079
+              }
+            },
+            "writes": 4,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 0,
+            "action": "details",
+            "latencies": [
+              470.0999999642372,
+              439.0999999642372,
+              423.10000002384186,
+              342.30000001192093
+            ],
+            "rendering": {
+              "details": {
+                "count": 8,
+                "total": 18.300000071525574,
+                "max": 3.400000035762787
+              },
+              "work": {
+                "count": 8,
+                "total": 236.9000000357628,
+                "max": 40.30000001192093
+              },
+              "selectors": {
+                "count": 4,
+                "total": 38.700000047683716,
+                "max": 14.399999976158142
+              },
+              "render": {
+                "count": 4,
+                "total": 359.5,
+                "max": 106
+              }
+            },
+            "writes": 0,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 0,
+            "action": "status",
+            "latencies": [
+              246,
+              188.69999998807907,
+              190.5999999642372,
+              200.19999998807907
+            ],
+            "rendering": {
+              "selectors": {
+                "count": 4,
+                "total": 29.100000023841858,
+                "max": 9.699999988079071
+              },
+              "work": {
+                "count": 4,
+                "total": 88.60000002384186,
+                "max": 26.69999998807907
+              },
+              "details": {
+                "count": 4,
+                "total": 6.599999964237213,
+                "max": 1.699999988079071
+              },
+              "render": {
+                "count": 4,
+                "total": 301.89999997615814,
+                "max": 80
+              }
+            },
+            "writes": 0,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 60,
+            "action": "selector",
+            "latencies": [
+              491.19999998807907,
+              537.6000000238419,
+              577.1000000238419,
+              588.3999999761581
+            ],
+            "rendering": {
+              "selectors": {
+                "count": 8,
+                "total": 81.3999999165535,
+                "max": 12.5
+              },
+              "work": {
+                "count": 8,
+                "total": 209.39999997615814,
+                "max": 31.19999998807907
+              },
+              "details": {
+                "count": 8,
+                "total": 15.699999988079071,
+                "max": 2.800000011920929
+              },
+              "render": {
+                "count": 8,
+                "total": 738.1999999880791,
+                "max": 103.30000001192093
+              }
+            },
+            "writes": 4,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 60,
+            "action": "work",
+            "latencies": [
+              1522.2999999523163,
+              1598.699999988079,
+              1750,
+              1902.800000011921
+            ],
+            "rendering": {
+              "selectors": {
+                "count": 8,
+                "total": 67.00000011920929,
+                "max": 11
+              },
+              "work": {
+                "count": 8,
+                "total": 1458.0999999642372,
+                "max": 522.8000000119209
+              },
+              "details": {
+                "count": 8,
+                "total": 14.399999976158142,
+                "max": 2.5
+              },
+              "render": {
+                "count": 8,
+                "total": 5036.1000000834465,
+                "max": 1401.2999999523163
+              }
+            },
+            "writes": 4,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 60,
+            "action": "details",
+            "latencies": [
+              460.39999997615814,
+              432,
+              395.10000002384186,
+              433.2999999523163
+            ],
+            "rendering": {
+              "details": {
+                "count": 8,
+                "total": 19.800000071525574,
+                "max": 4.100000023841858
+              },
+              "work": {
+                "count": 8,
+                "total": 210.70000004768372,
+                "max": 36.89999997615814
+              },
+              "selectors": {
+                "count": 4,
+                "total": 43.299999952316284,
+                "max": 13.5
+              },
+              "render": {
+                "count": 4,
+                "total": 339.60000002384186,
+                "max": 96.90000003576279
+              }
+            },
+            "writes": 0,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 60,
+            "action": "status",
+            "latencies": [
+              287.19999998807907,
+              214.5,
+              201.69999998807907,
+              241.29999995231628
+            ],
+            "rendering": {
+              "selectors": {
+                "count": 4,
+                "total": 35.90000003576279,
+                "max": 9.899999976158142
+              },
+              "work": {
+                "count": 4,
+                "total": 90.5,
+                "max": 26.80000001192093
+              },
+              "details": {
+                "count": 4,
+                "total": 6.399999916553497,
+                "max": 1.699999988079071
+              },
+              "render": {
+                "count": 4,
+                "total": 338.7999999523163,
+                "max": 95.69999998807907
+              }
+            },
+            "writes": 0,
+            "rpcs": 4
+          }
+        ],
+        "storage": {
+          "writes": 16,
+          "maxMs": 83.23059999999896,
+          "meanMs": 43.88296250000059
+        },
+        "errors": [],
+        "status": "passed"
+      },
+      "after": {
+        "label": "after",
+        "count": 1000,
+        "scope": "Actual task renderer and DesktopWorkspace/WorkspaceEngine with isolated HTTP IPC simulation and file storage; no credentials or live writes",
+        "samples": [
+          {
+            "storageDelayMs": 0,
+            "action": "selector",
+            "latencies": [
+              100.09999996423721,
+              110.59999996423721,
+              77.79999995231628,
+              63.5
+            ],
+            "rendering": {
+              "selectors": {
+                "count": 7,
+                "total": 8.5,
+                "max": 5.699999988079071
+              },
+              "work": {
+                "count": 3,
+                "total": 1.6999999284744263,
+                "max": 0.699999988079071
+              },
+              "details": {
+                "count": 3,
+                "total": 0,
+                "max": 0
+              },
+              "render": {
+                "count": 3,
+                "total": 22.399999976158142,
+                "max": 10.399999976158142
+              }
+            },
+            "writes": 4,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 0,
+            "action": "work",
+            "latencies": [
+              527.9000000357628,
+              862.8000000119209,
+              494,
+              835.8000000119209
+            ],
+            "rendering": {
+              "work": {
+                "count": 7,
+                "total": 473.9999998807907,
+                "max": 151.79999995231628
+              },
+              "selectors": {
+                "count": 3,
+                "total": 0.10000002384185791,
+                "max": 0.10000002384185791
+              },
+              "details": {
+                "count": 3,
+                "total": 0.40000003576278687,
+                "max": 0.20000004768371582
+              },
+              "render": {
+                "count": 3,
+                "total": 25.5,
+                "max": 11.699999988079071
+              }
+            },
+            "writes": 4,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 0,
+            "action": "details",
+            "latencies": [
+              438.5,
+              512.6000000238419,
+              545.3999999761581,
+              549.5
+            ],
+            "rendering": {
+              "details": {
+                "count": 8,
+                "total": 14.799999952316284,
+                "max": 5.5
+              },
+              "work": {
+                "count": 8,
+                "total": 202.00000005960464,
+                "max": 61.19999998807907
+              },
+              "selectors": {
+                "count": 4,
+                "total": 0.09999996423721313,
+                "max": 0.09999996423721313
+              },
+              "render": {
+                "count": 4,
+                "total": 25.799999952316284,
+                "max": 8.400000035762787
+              }
+            },
+            "writes": 0,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 0,
+            "action": "status",
+            "latencies": [
+              187.19999998807907,
+              195.89999997615814,
+              158.69999998807907,
+              141.5999999642372
+            ],
+            "rendering": {
+              "selectors": {
+                "count": 4,
+                "total": 0.30000001192092896,
+                "max": 0.10000002384185791
+              },
+              "work": {
+                "count": 4,
+                "total": 1.5,
+                "max": 0.40000003576278687
+              },
+              "details": {
+                "count": 4,
+                "total": 0,
+                "max": 0
+              },
+              "render": {
+                "count": 4,
+                "total": 23.19999998807907,
+                "max": 6.599999964237213
+              }
+            },
+            "writes": 0,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 60,
+            "action": "selector",
+            "latencies": [
+              56.5,
+              76.89999997615814,
+              92.19999998807907,
+              80.69999998807907
+            ],
+            "rendering": {
+              "selectors": {
+                "count": 7,
+                "total": 4.199999928474426,
+                "max": 1.800000011920929
+              },
+              "work": {
+                "count": 3,
+                "total": 1.300000011920929,
+                "max": 0.6000000238418579
+              },
+              "details": {
+                "count": 3,
+                "total": 0,
+                "max": 0
+              },
+              "render": {
+                "count": 3,
+                "total": 15.399999976158142,
+                "max": 5.699999988079071
+              }
+            },
+            "writes": 4,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 60,
+            "action": "work",
+            "latencies": [
+              385,
+              526.6000000238419,
+              411.5,
+              560.8000000119209
+            ],
+            "rendering": {
+              "selectors": {
+                "count": 4,
+                "total": 0,
+                "max": 0
+              },
+              "work": {
+                "count": 8,
+                "total": 303.9000000357628,
+                "max": 83.19999998807907
+              },
+              "details": {
+                "count": 4,
+                "total": 0,
+                "max": 0
+              },
+              "render": {
+                "count": 4,
+                "total": 30.799999952316284,
+                "max": 9.699999988079071
+              }
+            },
+            "writes": 4,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 60,
+            "action": "details",
+            "latencies": [
+              502.89999997615814,
+              501.60000002384186,
+              484.5,
+              516.1000000238419
+            ],
+            "rendering": {
+              "details": {
+                "count": 8,
+                "total": 13.900000035762787,
+                "max": 5.5
+              },
+              "work": {
+                "count": 8,
+                "total": 201.69999992847443,
+                "max": 60.299999952316284
+              },
+              "selectors": {
+                "count": 4,
+                "total": 0,
+                "max": 0
+              },
+              "render": {
+                "count": 4,
+                "total": 22.899999976158142,
+                "max": 7
+              }
+            },
+            "writes": 0,
+            "rpcs": 4
+          },
+          {
+            "storageDelayMs": 60,
+            "action": "status",
+            "latencies": [
+              197.30000001192093,
+              171.30000001192093,
+              180.4000000357628,
+              182.9000000357628
+            ],
+            "rendering": {
+              "selectors": {
+                "count": 4,
+                "total": 0,
+                "max": 0
+              },
+              "work": {
+                "count": 4,
+                "total": 1.5,
+                "max": 0.5
+              },
+              "details": {
+                "count": 4,
+                "total": 0.09999996423721313,
+                "max": 0.09999996423721313
+              },
+              "render": {
+                "count": 4,
+                "total": 24.999999940395355,
+                "max": 8.199999988079071
+              }
+            },
+            "writes": 0,
+            "rpcs": 4
+          }
+        ],
+        "storage": {
+          "writes": 16,
+          "maxMs": 86.92510000000038,
+          "meanMs": 48.38549375000002
+        },
+        "errors": [],
+        "status": "passed"
+      }
+    }
+  },
+  "liveWrites": false,
+  "installerChanged": false,
+  "timingCaveat": "Four samples per operation per storage condition; headless Chromium, synthetic state, HTTP simulation of native snapshots and actual isolated file writes. Frame timing varies with machine load. These are not installed Electron or production YouTrack latency measurements.",
+  "uiChecks": [
+    "Status snapshots retain existing rows/selects, focused note text and trailing whitespace",
+    "Checkbox selection stays selected and does not reopen collapsed Details",
+    "Draft flush remains durable and queued while background snapshots preserve checkbox selection",
+    "Rename-by-double-click still avoids opening Details and retains the active draft across snapshots",
+    "Lazy selector branches reveal the latest remote content rather than a stale hidden card",
+    "Tray handle reopens/resizes Details and persists the same layout",
+    "Failed view persistence rolls back the latest optimistic expansion and reports the failure without touching task edits",
+    "Search and remote row updates still invalidate the visible task projection"
+  ],
+  "focusedRecoveryTests": 22,
+  "sharedSaveTests": 21,
+  "sourceUIPreservationChecks": 9,
+  "sharedShellChecks": 3,
+  "liveCloudDeliveryComplete": false,
+  "recoveryPreservation": {
+    "status": "passed",
+    "preservedOperations": 110,
+    "changedOperations": 1,
+    "remainingQueued": 78,
+    "preservedImmutableObjects": 1091,
+    "credentialFilesUnchanged": 3,
+    "networkRequests": 0
+  },
+  "installedRepair": {
+    "version": "0.5.15",
+    "files": [
+      {
+        "file": "content/delivery-recovery.mjs",
+        "before": null,
+        "after": "1c6a1d12840a2da60ade3856b2b7782e91b818cb685dd752edac98afff8114e8"
+      },
+      {
+        "file": "rdx/native-catalog.mjs",
+        "before": "968b316c96efdcf13399108e120c96a1df7e98371414bd7d2195b3d9cbe1debf",
+        "after": "a4536a6c00c742a2b0a9ce2ca8d31f7900044e140a4fc8dcecf3e0a02084bc7d"
+      },
+      {
+        "file": "content/writer.mjs",
+        "before": "775f2b9d7cbfb26cc5a6dc1cf990f2b31c63d7e4c240dd245351f364d22b2d64",
+        "after": "dbf58228b82ae5db2537120f46352b215e083cbc3a37b4a27988d9f3528c050e"
+      }
+    ],
+    "dataReplaced": false
+  },
+  "startupIsolatedTimingMs": {
+    "openProvider": 1244.1614,
+    "load": 1754.098,
+    "refresh": 338.5006999999996,
+    "mapsInitialize": 4260.877,
+    "view": 1302.6678999999995
+  }
+}
