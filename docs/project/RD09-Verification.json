@@ -1,0 +1,338 @@
+{
+  "task": "RD09",
+  "status": "passed",
+  "date": "2026-10-19",
+  "focusedTests": 8,
+  "syntaxChecks": 3,
+  "kit": {
+    "task": "RD09",
+    "status": "passed",
+    "runtime": "v24.19.0",
+    "files": 42,
+    "checks": [
+      "Every extracted kit file matches its delivered hash/byte inventory",
+      "All 8 local guide links resolve within the kit",
+      "Documented starter/build/validate/inspect commands run using only extracted kit files",
+      "Documented unpack/repack preserves the complete RDX bytes in this runtime",
+      "Packaged JSON/binding/return example integrity checks require no external service or authority",
+      "Two separate local instances import/export/show the same self-contained map identity/revision",
+      "Returned map packs/validates with the mandatory human-testing marker"
+    ],
+    "commands": [
+      {
+        "args": [
+          "rdx/authoring/build-example.mjs",
+          "scratch-lantern"
+        ],
+        "exitCode": 0
+      },
+      {
+        "args": [
+          "rdx/cli.mjs",
+          "validate",
+          "scratch-lantern/LanternHarborMap.rdx"
+        ],
+        "exitCode": 0
+      },
+      {
+        "args": [
+          "rdx/cli.mjs",
+          "inspect",
+          "scratch-lantern/LanternHarborPlan.rdx"
+        ],
+        "exitCode": 0
+      },
+      {
+        "args": [
+          "rdx/cli.mjs",
+          "unpack",
+          "scratch-lantern/LanternHarborMap.rdx",
+          "scratch-unpacked"
+        ],
+        "exitCode": 0
+      },
+      {
+        "args": [
+          "rdx/cli.mjs",
+          "pack",
+          "scratch-unpacked/document.json",
+          "scratch-unpacked/blobs",
+          "scratch-copy.rdx"
+        ],
+        "exitCode": 0
+      },
+      {
+        "args": [
+          "rdx/authoring/check-reference.mjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "args": [
+          "rdx/local-cli.mjs",
+          "import",
+          "scratch-instance-a",
+          "scratch-lantern/LanternHarborMap.rdx"
+        ],
+        "exitCode": 0
+      },
+      {
+        "args": [
+          "rdx/local-cli.mjs",
+          "list",
+          "scratch-instance-a"
+        ],
+        "exitCode": 0
+      },
+      {
+        "args": [
+          "rdx/local-cli.mjs",
+          "export",
+          "scratch-instance-a",
+          "fd98405cce9925f8333c6fa8f6588c4cd46f473fe22c9878c34c97ac841b13d3",
+          "scratch-transfer.rdx"
+        ],
+        "exitCode": 0
+      },
+      {
+        "args": [
+          "rdx/local-cli.mjs",
+          "import",
+          "scratch-instance-b",
+          "scratch-transfer.rdx"
+        ],
+        "exitCode": 0
+      },
+      {
+        "args": [
+          "rdx/local-cli.mjs",
+          "show",
+          "scratch-instance-b",
+          "fd98405cce9925f8333c6fa8f6588c4cd46f473fe22c9878c34c97ac841b13d3"
+        ],
+        "exitCode": 0
+      },
+      {
+        "args": [
+          "rdx/cli.mjs",
+          "pack",
+          "rdx/authoring/examples/v1/contract-reference/returned-map.document.json",
+          "rdx/authoring/examples/v1/contract-reference/blobs",
+          "scratch-returned.rdx"
+        ],
+        "exitCode": 0
+      },
+      {
+        "args": [
+          "rdx/cli.mjs",
+          "validate",
+          "scratch-returned.rdx"
+        ],
+        "exitCode": 0
+      }
+    ],
+    "liveDataAccessed": false,
+    "credentialsUsed": false,
+    "backendWrites": false,
+    "romExtracted": false
+  },
+  "finalArchive": {
+    "task": "RD09",
+    "status": "passed",
+    "files": 43,
+    "runtimeAndExampleFilesUnchanged": 31,
+    "guideLinks": 9,
+    "fullCliProofReusedByExactHashes": true,
+    "changedReferenceCheckerRechecked": {
+      "referenceIntegrity": true,
+      "documents": 4,
+      "requests": 4,
+      "groups": 3,
+      "packageByteSha256": "6b4c009d0806e31d5d4c721c14e3ffa564027960ec99fc9b3079d6cebde848a1",
+      "requiresHumanTesting": true,
+      "authorization": "not-established",
+      "backendWrites": false,
+      "romExecution": false
+    },
+    "cliCommands": 13,
+    "focusedCliRechecks": 1,
+    "archive": {
+      "path": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\RD09-Agent-Authoring-Kit.zip",
+      "bytes": 115447,
+      "sha256": "20c80727fcb730ce687e263b4577f8c1c8b66d83561ff78c1d5da4b9fa06ece2",
+      "files": 44,
+      "archiveIntegrity": "passed",
+      "sourceBytes": 496948
+    }
+  },
+  "historicalReferenceFilesUnchanged": [
+    {
+      "path": "map.document.json",
+      "sha256": "e1cb27b3f7d18e84ea4309caf81ea70729aaca93cc6986513df4eaa8700b9fd3"
+    },
+    {
+      "path": "plan.document.json",
+      "sha256": "b6cb7d86b5c5ddeb0f65589d9824ea027d0a9ada79bc697a2e89c59be7273579"
+    },
+    {
+      "path": "returned-map.document.json",
+      "sha256": "04f6e9dabcb45fa27a9009ad0d4a1f2618b43a6a604c31217a193a91e324e7b9"
+    },
+    {
+      "path": "optional-extension.document.json",
+      "sha256": "5cec417cc6096d3ffd438fa21e92c708aeb332e89e0e0a3b850dbb87763a36d5"
+    },
+    {
+      "path": "map-package.json",
+      "sha256": "6b4c009d0806e31d5d4c721c14e3ffa564027960ec99fc9b3079d6cebde848a1"
+    },
+    {
+      "path": "task-binding.json",
+      "sha256": "6ee89ee1d62fd877608b5a6f1804616faeef10105b360104f34b959c09a8d951"
+    }
+  ],
+  "pinnedSchemasUnchanged": true,
+  "sourceFiles": [
+    {
+      "path": "rdx/README.md",
+      "bytes": 8001,
+      "sha256": "69c1e7d877915758c7e38718516ac02a5af3211e1b58bbb977681b64f7c63a78"
+    },
+    {
+      "path": "tests/rdx-authoring.test.mjs",
+      "bytes": 7041,
+      "sha256": "7184a234eb02ca50b8c5b7217fd7d995c3bc841269a48652cb3a9ed1896510fa"
+    },
+    {
+      "path": "rdx/authoring/AGENT-HANDOFF.md",
+      "bytes": 6395,
+      "sha256": "92723e86e0af85ba214e39f931bc1c3fbfe157ea7557924c101c4083618cb244"
+    },
+    {
+      "path": "rdx/authoring/build-example.mjs",
+      "bytes": 7069,
+      "sha256": "4f9bc3a81880a3252978c2b3905e541a98e2c6513e659f635d8719b3f5119596"
+    },
+    {
+      "path": "rdx/authoring/check-reference.mjs",
+      "bytes": 4480,
+      "sha256": "46350b8c5b767cf19b490a36f5060a48caedc908673fed515abffde35c0a7d3b"
+    },
+    {
+      "path": "rdx/authoring/examples/v1/contract-reference/blobs/054edec1d0211f624fed0cbca9d4f9400b0e491c43742af2c5b0abebf0c990d8.bin",
+      "bytes": 4,
+      "sha256": "054edec1d0211f624fed0cbca9d4f9400b0e491c43742af2c5b0abebf0c990d8"
+    },
+    {
+      "path": "rdx/authoring/examples/v1/contract-reference/blobs/a497d10d9e1e0afc7d0b42ce473100fcca122c9c4a9006b577fc005da23fdfe8.bin",
+      "bytes": 19993,
+      "sha256": "a497d10d9e1e0afc7d0b42ce473100fcca122c9c4a9006b577fc005da23fdfe8"
+    },
+    {
+      "path": "rdx/authoring/examples/v1/contract-reference/blobs/f6d6acb2dcf66d4e1b6419962726cf72cb16371556bc7dbdfd4e66e2caee2b8c.bin",
+      "bytes": 68,
+      "sha256": "f6d6acb2dcf66d4e1b6419962726cf72cb16371556bc7dbdfd4e66e2caee2b8c"
+    },
+    {
+      "path": "rdx/authoring/examples/v1/contract-reference/map-package.json",
+      "bytes": 29804,
+      "sha256": "6b4c009d0806e31d5d4c721c14e3ffa564027960ec99fc9b3079d6cebde848a1"
+    },
+    {
+      "path": "rdx/authoring/examples/v1/contract-reference/map.document.json",
+      "bytes": 30440,
+      "sha256": "e1cb27b3f7d18e84ea4309caf81ea70729aaca93cc6986513df4eaa8700b9fd3"
+    },
+    {
+      "path": "rdx/authoring/examples/v1/contract-reference/optional-extension.document.json",
+      "bytes": 30591,
+      "sha256": "5cec417cc6096d3ffd438fa21e92c708aeb332e89e0e0a3b850dbb87763a36d5"
+    },
+    {
+      "path": "rdx/authoring/examples/v1/contract-reference/plan.document.json",
+      "bytes": 4090,
+      "sha256": "b6cb7d86b5c5ddeb0f65589d9824ea027d0a9ada79bc697a2e89c59be7273579"
+    },
+    {
+      "path": "rdx/authoring/examples/v1/contract-reference/returned-map.document.json",
+      "bytes": 36080,
+      "sha256": "04f6e9dabcb45fa27a9009ad0d4a1f2618b43a6a604c31217a193a91e324e7b9"
+    },
+    {
+      "path": "rdx/authoring/examples/v1/contract-reference/task-binding.json",
+      "bytes": 525,
+      "sha256": "6ee89ee1d62fd877608b5a6f1804616faeef10105b360104f34b959c09a8d951"
+    },
+    {
+      "path": "rdx/authoring/examples/v1/README.md",
+      "bytes": 3400,
+      "sha256": "1e6a18f3237292f0a65aad3a2ab88ca9eb3550ba6331138b0d2cef1bdc050e00"
+    },
+    {
+      "path": "rdx/authoring/examples/v1/starter/blobs/431ced6916a2a21a156e38701afe55bbd7f88969fbbfc56d7fe099d47f265460.bin",
+      "bytes": 68,
+      "sha256": "431ced6916a2a21a156e38701afe55bbd7f88969fbbfc56d7fe099d47f265460"
+    },
+    {
+      "path": "rdx/authoring/examples/v1/starter/blobs/934b371b3732a0894c747f6fc36d358fb2a0d4a4c3e3d6d4b1899c50bc3e37b8.bin",
+      "bytes": 390,
+      "sha256": "934b371b3732a0894c747f6fc36d358fb2a0d4a4c3e3d6d4b1899c50bc3e37b8"
+    },
+    {
+      "path": "rdx/authoring/examples/v1/starter/fixture-source.json",
+      "bytes": 390,
+      "sha256": "934b371b3732a0894c747f6fc36d358fb2a0d4a4c3e3d6d4b1899c50bc3e37b8"
+    },
+    {
+      "path": "rdx/authoring/examples/v1/starter/LanternHarborMap.rdx",
+      "bytes": 3173,
+      "sha256": "55f96972470a6334cfff7c8ba10fa611a92c44bf3c14d8b30f810b6f01506add"
+    },
+    {
+      "path": "rdx/authoring/examples/v1/starter/LanternHarborPlan.rdx",
+      "bytes": 2089,
+      "sha256": "051a1f7174ca240f76521954700b49fd1e59b4bdc9a7c0c2ce0e2a6b3c379a42"
+    },
+    {
+      "path": "rdx/authoring/examples/v1/starter/map.document.json",
+      "bytes": 11919,
+      "sha256": "35aeb0f696f328ebca06e8557885a58f2d83d3d334f0299acfee2d133922d112"
+    },
+    {
+      "path": "rdx/authoring/examples/v1/starter/plan.document.json",
+      "bytes": 4411,
+      "sha256": "7b5942ba4b506cae69910ac6335a14f67da7df6b6ba6cf2c7c45e99a4b03a6ea"
+    },
+    {
+      "path": "rdx/authoring/EXISTING-DATA-AND-PORTABILITY.md",
+      "bytes": 4387,
+      "sha256": "44ef08e957971bc0cabc22c0b7a00ac090d2e7c19e77f1ed1197b6f3fd8ff3b6"
+    },
+    {
+      "path": "rdx/authoring/MAP-AUTHORING.md",
+      "bytes": 9985,
+      "sha256": "ee0fd64011167c54bd28532e8417505b4e75d3a3e16c0cba3129d6dad0fff7b1"
+    },
+    {
+      "path": "rdx/authoring/PACKAGES-AND-RETURNS.md",
+      "bytes": 7838,
+      "sha256": "09a4c5e2c57dbe0f069a72fe5e35ef43c6c0c71c3157487d1590d60f730403eb"
+    },
+    {
+      "path": "rdx/authoring/PLAN-AUTHORING.md",
+      "bytes": 5310,
+      "sha256": "8b86e829d40f6c4726ed56e961e78c3bda77c2fa7d62c1817de5ea8c5625a87d"
+    },
+    {
+      "path": "rdx/authoring/README.md",
+      "bytes": 7480,
+      "sha256": "47a27aaf0fc235cdc1156aeeaf0a2e89e6b82f8cdf0f004a8d361ed4432073ae"
+    }
+  ],
+  "installedVersion": "0.5.14",
+  "productionDataTouched": false,
+  "credentialsUsed": false,
+  "backendWrites": false,
+  "realRomExtracted": false,
+  "productionMapsAdopted": false
+}

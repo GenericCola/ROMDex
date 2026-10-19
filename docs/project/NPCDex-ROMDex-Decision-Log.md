@@ -448,3 +448,10 @@ The live milestone is met; production adoption is not authorized by it. RD10 mus
 The PASSKEY authorized the existing RD08 scope and a pixel-art rendition of the Pokédex application icon matching the suite Pokéball. Preserve original PNG/ICO/SVG bytes. The .rdx file icon remains the exact original Pokéball, independently of application branding.
 
 Validated OS file opens use ordinary local map/plan previews and the single-instance app. Busy editors are preserved, imports/publication remain explicit, and returned agent results cannot bypass task reconciliation/testing. Register per-user owned ProgID/Open With/capability values; preserve Windows UserChoice, other defaults/handlers and Data. Native and disposable installer acceptance passed. Source-complete; installed production remains 0.5.14. RD09 requires a separate PASSKEY, with Sol / Medium as planned.
+
+
+## RD09 — Agent Authoring Kit, October 19, 2026
+
+Completed under its own PASSKEY. Deliver the same .rdx extension with internal map/plan discriminators, fixed /2 JSON Map Packages and separate exact-byte task bindings. The portable Node 24 kit includes pinned local schemas, deterministic tools, a from-scratch fictional starter, unchanged approved reference bytes and extraction/identity/mapping/return prompts. It needs no app-side AI, account or private save-repository access for local authoring/validation.
+
+Current import/export/binding behavior is distinguished from U21 package attachment and U23–U27 authenticated return automation. Agent returns always require human review/testing; tasks stay open until verified. RD10 separately adopts existing maps from fresh authoritative native data, preserving original NPCD identities and all content/history/credentials rather than repeating migration. Installed production remains 0.5.14. Next model/effort: Sol / High; wait for RD10 PASSKEY and accepted data preview.

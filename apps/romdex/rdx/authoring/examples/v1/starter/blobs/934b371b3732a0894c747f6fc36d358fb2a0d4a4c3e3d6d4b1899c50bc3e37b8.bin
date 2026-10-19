@@ -1,0 +1,16 @@
+{
+  "format": "RD09FictionalSource/1",
+  "synthetic": true,
+  "mapKey": "lantern-harbor",
+  "subzoneKey": "dock",
+  "eventKey": "dock-guide",
+  "scriptKey": "talk-dock-guide",
+  "messageKey": "welcome",
+  "text": "Welcome to Lantern Harbor.\n  Keep the leading spaces. ",
+  "rawMessageData": {
+    "encoding": "fictional-utf8",
+    "controlTokens": [
+      "fixture:line-break"
+    ]
+  }
+}

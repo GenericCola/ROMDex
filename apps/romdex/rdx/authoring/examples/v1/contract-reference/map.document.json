@@ -1,0 +1,932 @@
+{
+  "format": "RDXDocument/1",
+  "documentId": "rdx:fixture-map",
+  "datasetId": "fixture:workspace",
+  "parents": [],
+  "createdAt": "2026-10-18T16:00:00.000Z",
+  "origin": {
+    "role": "extractor",
+    "generator": "rd01-fictional-example",
+    "synthetic": true
+  },
+  "capabilities": {
+    "required": [
+      "org.romdex.rdx.map-v1",
+      "org.romdex.npcdex.content-v1"
+    ],
+    "optional": []
+  },
+  "extensions": {},
+  "assetInventory": [
+    {
+      "assetId": "fixture:asset",
+      "sha256": "054edec1d0211f624fed0cbca9d4f9400b0e491c43742af2c5b0abebf0c990d8",
+      "bytes": 4,
+      "mime": "application/octet-stream",
+      "purpose": "attachment"
+    },
+    {
+      "assetId": "content:asset-f6d6acb2dcf66d4e1b6419962726cf72cb16371556bc7dbdfd4e66e2caee2b8c",
+      "sha256": "f6d6acb2dcf66d4e1b6419962726cf72cb16371556bc7dbdfd4e66e2caee2b8c",
+      "bytes": 68,
+      "mime": "image/png",
+      "purpose": "image"
+    }
+  ],
+  "namespace": "org.romdex.npcdex",
+  "kind": "map",
+  "schemaVersion": 1,
+  "scope": {
+    "mode": "complete",
+    "mapRecordId": "fixture:map",
+    "ownedRecordIds": [
+      "fixture:map",
+      "fixture:exterior",
+      "fixture:guide",
+      "fixture:visitor",
+      "fixture:newcomer",
+      "fixture:scene"
+    ],
+    "contextRecordIds": [
+      "fixture:region",
+      "fixture:profile-guide",
+      "fixture:profile-visitor",
+      "fixture:profile-newcomer",
+      "fixture:progression"
+    ],
+    "completeForParentIds": [
+      "fixture:map",
+      "fixture:exterior"
+    ],
+    "baselineInventory": [
+      {
+        "recordId": "fixture:map",
+        "revisionId": "6ea37dece030b51fe405b08f06b395ddbb723f2cecd5f5e2f8ee515fcbc991e3",
+        "parentRecordId": "fixture:region"
+      },
+      {
+        "recordId": "fixture:exterior",
+        "revisionId": "0699789b86454e697cec822dcf00424e513df95bb276e462fa502698174d1c8b",
+        "parentRecordId": "fixture:map"
+      },
+      {
+        "recordId": "fixture:guide",
+        "revisionId": "3a612eeb423506dd4c9590a8d8fd63b970f317d88b8349d0db3aa4ecf85ea169",
+        "parentRecordId": "fixture:exterior"
+      },
+      {
+        "recordId": "fixture:visitor",
+        "revisionId": "8323188629ddad12fa0526933eac1156bcf81eee055e4680c6c9be407fe60c5a",
+        "parentRecordId": "fixture:exterior"
+      },
+      {
+        "recordId": "fixture:newcomer",
+        "revisionId": "0c34d8ac69841b6c3e664d2f1b8af96c27b3eab71632aafbf6e5ee5c9a6900cf",
+        "parentRecordId": "fixture:exterior"
+      },
+      {
+        "recordId": "fixture:scene",
+        "revisionId": "660ea5dd1340fa7e8ba25fc895de764e3179fcb11cb03091cd216433bcc38e87",
+        "parentRecordId": "fixture:exterior"
+      }
+    ]
+  },
+  "content": {
+    "records": [
+      {
+        "schema": "NPCDexContentRevision/1",
+        "workspaceId": "fixture:workspace",
+        "operationId": "fixture:seed-region",
+        "createdAt": "2026-10-16T12:00:00.000Z",
+        "actorClaim": "fixture:owner",
+        "recordId": "fixture:region",
+        "kind": "region",
+        "parentRecordId": null,
+        "parents": [],
+        "current": {
+          "lifecycle": "active",
+          "payload": {
+            "name": "Illustrative Region",
+            "regionKey": "fixture-region"
+          }
+        },
+        "mappingRefs": [],
+        "legacyRefs": [],
+        "legacyData": {},
+        "revisionId": "03907b24a8baf1b24b6e2534a1956284f38aedaa5feb3f723aa37a5ac0554542"
+      },
+      {
+        "schema": "NPCDexContentRevision/1",
+        "workspaceId": "fixture:workspace",
+        "operationId": "fixture:seed-map",
+        "createdAt": "2026-10-16T12:00:00.000Z",
+        "actorClaim": "fixture:owner",
+        "recordId": "fixture:map",
+        "kind": "map",
+        "parentRecordId": "fixture:region",
+        "parents": [],
+        "current": {
+          "lifecycle": "active",
+          "payload": {
+            "name": "Illustrative Map",
+            "regionId": "fixture:region",
+            "sourceMapKeys": [
+              "fixture-map"
+            ],
+            "subzoneIds": [
+              "fixture:exterior"
+            ],
+            "timelineRef": "fixture:progression"
+          }
+        },
+        "mappingRefs": [],
+        "legacyRefs": [],
+        "legacyData": {},
+        "revisionId": "6ea37dece030b51fe405b08f06b395ddbb723f2cecd5f5e2f8ee515fcbc991e3"
+      },
+      {
+        "schema": "NPCDexContentRevision/1",
+        "workspaceId": "fixture:workspace",
+        "operationId": "fixture:seed-exterior",
+        "createdAt": "2026-10-16T12:00:00.000Z",
+        "actorClaim": "fixture:owner",
+        "recordId": "fixture:exterior",
+        "kind": "subzone",
+        "parentRecordId": "fixture:map",
+        "parents": [],
+        "current": {
+          "lifecycle": "active",
+          "payload": {
+            "name": "Exterior",
+            "mapId": "fixture:map",
+            "sourceAreaKeys": [
+              "fixture-area"
+            ],
+            "appearanceIds": [
+              "fixture:guide",
+              "fixture:visitor",
+              "fixture:newcomer"
+            ],
+            "sceneIds": [
+              "fixture:scene"
+            ],
+            "interactiveIds": [],
+            "aliasRefs": []
+          }
+        },
+        "mappingRefs": [],
+        "legacyRefs": [],
+        "legacyData": {},
+        "revisionId": "0699789b86454e697cec822dcf00424e513df95bb276e462fa502698174d1c8b"
+      },
+      {
+        "schema": "NPCDexContentRevision/1",
+        "workspaceId": "fixture:workspace",
+        "operationId": "fixture:seed-profile-guide",
+        "createdAt": "2026-10-16T12:00:00.000Z",
+        "actorClaim": "fixture:owner",
+        "recordId": "fixture:profile-guide",
+        "kind": "profile",
+        "parentRecordId": null,
+        "parents": [],
+        "current": {
+          "lifecycle": "active",
+          "payload": {
+            "name": "Guide",
+            "baseImageId": null,
+            "identityEvidence": [
+              {
+                "label": "Illustrative locator, not a real ROM finding",
+                "sourceId": "fixture:source",
+                "excerpt": "Synthetic contract example",
+                "locator": null
+              }
+            ]
+          }
+        },
+        "mappingRefs": [],
+        "legacyRefs": [],
+        "legacyData": {},
+        "revisionId": "2f69db907444ec420b9825b96c4a41daa54cb69e216eb4b685465059435d5c1a"
+      },
+      {
+        "schema": "NPCDexContentRevision/1",
+        "workspaceId": "fixture:workspace",
+        "operationId": "fixture:seed-profile-visitor",
+        "createdAt": "2026-10-16T12:00:00.000Z",
+        "actorClaim": "fixture:owner",
+        "recordId": "fixture:profile-visitor",
+        "kind": "profile",
+        "parentRecordId": null,
+        "parents": [],
+        "current": {
+          "lifecycle": "active",
+          "payload": {
+            "name": "Visitor",
+            "baseImageId": null,
+            "identityEvidence": [
+              {
+                "label": "Illustrative locator, not a real ROM finding",
+                "sourceId": "fixture:source",
+                "excerpt": "Synthetic contract example",
+                "locator": null
+              }
+            ]
+          }
+        },
+        "mappingRefs": [],
+        "legacyRefs": [],
+        "legacyData": {},
+        "revisionId": "1245c7db598d2dcbbba2b189a6a26289850a37aedab139909119504be280dde6"
+      },
+      {
+        "schema": "NPCDexContentRevision/1",
+        "workspaceId": "fixture:workspace",
+        "operationId": "fixture:seed-profile-newcomer",
+        "createdAt": "2026-10-16T12:00:00.000Z",
+        "actorClaim": "fixture:owner",
+        "recordId": "fixture:profile-newcomer",
+        "kind": "profile",
+        "parentRecordId": null,
+        "parents": [],
+        "current": {
+          "lifecycle": "active",
+          "payload": {
+            "name": "Newcomer",
+            "baseImageId": null,
+            "identityEvidence": [
+              {
+                "label": "Illustrative locator, not a real ROM finding",
+                "sourceId": "fixture:source",
+                "excerpt": "Synthetic contract example",
+                "locator": null
+              }
+            ]
+          }
+        },
+        "mappingRefs": [],
+        "legacyRefs": [],
+        "legacyData": {},
+        "revisionId": "18b2fc35eba9fdd1bd367b87284809dd52bad93e27bd9943497a2c2ebc1a9807"
+      },
+      {
+        "schema": "NPCDexContentRevision/1",
+        "workspaceId": "fixture:workspace",
+        "operationId": "fixture:seed-progression",
+        "createdAt": "2026-10-16T12:00:00.000Z",
+        "actorClaim": "fixture:owner",
+        "recordId": "fixture:progression",
+        "kind": "shared",
+        "parentRecordId": null,
+        "parents": [],
+        "current": {
+          "lifecycle": "active",
+          "payload": {
+            "name": "Progression",
+            "sharedType": "progression",
+            "definitions": {
+              "stageIds": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G",
+                "H",
+                "I",
+                "J"
+              ]
+            }
+          }
+        },
+        "mappingRefs": [],
+        "legacyRefs": [],
+        "legacyData": {},
+        "revisionId": "b92fed7469c7a49a3c7d74489bf46bd48b7449da32a42784e34f1d1ffd69b5a3"
+      },
+      {
+        "schema": "NPCDexContentRevision/1",
+        "workspaceId": "fixture:workspace",
+        "operationId": "fixture:seed-guide",
+        "createdAt": "2026-10-16T12:00:00.000Z",
+        "actorClaim": "fixture:owner",
+        "recordId": "fixture:guide",
+        "kind": "appearance",
+        "parentRecordId": "fixture:exterior",
+        "parents": [],
+        "current": {
+          "lifecycle": "active",
+          "payload": {
+            "name": "Guide",
+            "profileId": "fixture:profile-guide",
+            "profileByPlayerGender": {
+              "male": null,
+              "female": null
+            },
+            "sourceAreaKeys": [
+              "fixture-area"
+            ],
+            "sourceElementIds": [],
+            "points": {
+              "fixture:point-guide": {
+                "id": "fixture:point-guide",
+                "condition": "Always",
+                "stageIds": [
+                  "A"
+                ],
+                "sourceIds": [
+                  "fixture:source"
+                ],
+                "participantIds": [
+                  "fixture:guide"
+                ],
+                "evidence": [
+                  {
+                    "label": "Illustrative locator, not a real ROM finding",
+                    "sourceId": "fixture:source",
+                    "excerpt": "Synthetic contract example",
+                    "locator": null
+                  }
+                ],
+                "blocks": {
+                  "fixture:block-guide": {
+                    "id": "fixture:block-guide",
+                    "kind": "dialogue",
+                    "text": "Welcome.",
+                    "speaker": "fixture:profile-guide",
+                    "gender": "both",
+                    "reviewKey": "fixture:prompt-guide",
+                    "sourceBlockId": null,
+                    "sourceIds": [],
+                    "rawMessageData": null,
+                    "legacyData": {},
+                    "archived": false
+                  }
+                },
+                "blockOrder": [
+                  "fixture:block-guide"
+                ],
+                "legacyData": {}
+              }
+            },
+            "pointOrder": [
+              "fixture:point-guide"
+            ],
+            "sceneIds": [
+              "fixture:scene"
+            ],
+            "overrides": {
+              "displayName": null,
+              "imageAssetId": null
+            }
+          }
+        },
+        "mappingRefs": [
+          "044e8d0c4186f09e802e82fbdc7d3620a7eaa215c253429eff5157cf03035a52"
+        ],
+        "legacyRefs": [],
+        "legacyData": {},
+        "revisionId": "3a612eeb423506dd4c9590a8d8fd63b970f317d88b8349d0db3aa4ecf85ea169"
+      },
+      {
+        "schema": "NPCDexContentRevision/1",
+        "workspaceId": "fixture:workspace",
+        "operationId": "fixture:seed-visitor",
+        "createdAt": "2026-10-16T12:00:00.000Z",
+        "actorClaim": "fixture:owner",
+        "recordId": "fixture:visitor",
+        "kind": "appearance",
+        "parentRecordId": "fixture:exterior",
+        "parents": [],
+        "current": {
+          "lifecycle": "active",
+          "payload": {
+            "name": "Visitor",
+            "profileId": "fixture:profile-visitor",
+            "profileByPlayerGender": {
+              "male": null,
+              "female": null
+            },
+            "sourceAreaKeys": [
+              "fixture-area"
+            ],
+            "sourceElementIds": [],
+            "points": {},
+            "pointOrder": [],
+            "sceneIds": [
+              "fixture:scene"
+            ],
+            "overrides": {
+              "displayName": null,
+              "imageAssetId": null
+            }
+          }
+        },
+        "mappingRefs": [],
+        "legacyRefs": [],
+        "legacyData": {},
+        "revisionId": "8323188629ddad12fa0526933eac1156bcf81eee055e4680c6c9be407fe60c5a"
+      },
+      {
+        "schema": "NPCDexContentRevision/1",
+        "workspaceId": "fixture:workspace",
+        "operationId": "fixture:seed-newcomer",
+        "createdAt": "2026-10-16T12:00:00.000Z",
+        "actorClaim": "fixture:owner",
+        "recordId": "fixture:newcomer",
+        "kind": "appearance",
+        "parentRecordId": "fixture:exterior",
+        "parents": [],
+        "current": {
+          "lifecycle": "planned",
+          "payload": {
+            "name": "Newcomer",
+            "profileId": "fixture:profile-newcomer",
+            "profileByPlayerGender": {
+              "male": null,
+              "female": null
+            },
+            "sourceAreaKeys": [
+              "fixture-area"
+            ],
+            "sourceElementIds": [],
+            "points": {},
+            "pointOrder": [],
+            "sceneIds": [],
+            "overrides": {
+              "displayName": null,
+              "imageAssetId": null
+            }
+          }
+        },
+        "mappingRefs": [],
+        "legacyRefs": [],
+        "legacyData": {},
+        "revisionId": "0c34d8ac69841b6c3e664d2f1b8af96c27b3eab71632aafbf6e5ee5c9a6900cf"
+      },
+      {
+        "schema": "NPCDexContentRevision/1",
+        "workspaceId": "fixture:workspace",
+        "operationId": "fixture:seed-scene",
+        "createdAt": "2026-10-16T12:00:00.000Z",
+        "actorClaim": "fixture:owner",
+        "recordId": "fixture:scene",
+        "kind": "scene",
+        "parentRecordId": "fixture:exterior",
+        "parents": [],
+        "current": {
+          "lifecycle": "active",
+          "payload": {
+            "name": "Greeting Scene",
+            "participantIds": [
+              "fixture:guide",
+              "fixture:visitor"
+            ],
+            "points": {},
+            "pointOrder": []
+          }
+        },
+        "mappingRefs": [],
+        "legacyRefs": [],
+        "legacyData": {},
+        "revisionId": "660ea5dd1340fa7e8ba25fc895de764e3179fcb11cb03091cd216433bcc38e87"
+      }
+    ],
+    "recordHeads": [
+      {
+        "recordId": "fixture:region",
+        "revisionId": "03907b24a8baf1b24b6e2534a1956284f38aedaa5feb3f723aa37a5ac0554542"
+      },
+      {
+        "recordId": "fixture:map",
+        "revisionId": "6ea37dece030b51fe405b08f06b395ddbb723f2cecd5f5e2f8ee515fcbc991e3"
+      },
+      {
+        "recordId": "fixture:exterior",
+        "revisionId": "0699789b86454e697cec822dcf00424e513df95bb276e462fa502698174d1c8b"
+      },
+      {
+        "recordId": "fixture:profile-guide",
+        "revisionId": "2f69db907444ec420b9825b96c4a41daa54cb69e216eb4b685465059435d5c1a"
+      },
+      {
+        "recordId": "fixture:profile-visitor",
+        "revisionId": "1245c7db598d2dcbbba2b189a6a26289850a37aedab139909119504be280dde6"
+      },
+      {
+        "recordId": "fixture:profile-newcomer",
+        "revisionId": "18b2fc35eba9fdd1bd367b87284809dd52bad93e27bd9943497a2c2ebc1a9807"
+      },
+      {
+        "recordId": "fixture:progression",
+        "revisionId": "b92fed7469c7a49a3c7d74489bf46bd48b7449da32a42784e34f1d1ffd69b5a3"
+      },
+      {
+        "recordId": "fixture:guide",
+        "revisionId": "3a612eeb423506dd4c9590a8d8fd63b970f317d88b8349d0db3aa4ecf85ea169"
+      },
+      {
+        "recordId": "fixture:visitor",
+        "revisionId": "8323188629ddad12fa0526933eac1156bcf81eee055e4680c6c9be407fe60c5a"
+      },
+      {
+        "recordId": "fixture:newcomer",
+        "revisionId": "0c34d8ac69841b6c3e664d2f1b8af96c27b3eab71632aafbf6e5ee5c9a6900cf"
+      },
+      {
+        "recordId": "fixture:scene",
+        "revisionId": "660ea5dd1340fa7e8ba25fc895de764e3179fcb11cb03091cd216433bcc38e87"
+      }
+    ],
+    "mappings": [
+      {
+        "schema": "NPCDexROMMapping/1",
+        "workspaceId": "fixture:workspace",
+        "operationId": "fixture:mapping",
+        "createdAt": "2026-10-16T12:00:00.000Z",
+        "actorClaim": "fixture:owner",
+        "mappingId": "fixture:mapping",
+        "recordId": "fixture:guide",
+        "source": {
+          "repositoryId": "fixture:rom",
+          "revision": "fixture-source-v1",
+          "artifactSha256": "56605143ac0166c5110dcc5171a1673d771988dc3df663a87c0c378fb012db36",
+          "verification": "illustrative"
+        },
+        "status": "documented",
+        "locators": [
+          {
+            "kind": "script",
+            "adapter": "fixture-json/1",
+            "path": "maps/fixture-map.json",
+            "fileSha256": "1dc5ff38cd3658eb1488baa399f66c9c14bce1f3e543b86db52730fd9daf7c61",
+            "selectors": {
+              "mapKey": "fixture-map",
+              "eventKey": "guide-event",
+              "scriptKey": "talk-guide",
+              "messageKey": "guide-line"
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "label": "Illustrative locator, not a real ROM finding",
+            "sourceId": "fixture:source",
+            "excerpt": "Synthetic contract example",
+            "locator": null
+          }
+        ],
+        "digest": "044e8d0c4186f09e802e82fbdc7d3620a7eaa215c253429eff5157cf03035a52"
+      }
+    ],
+    "plans": [
+      {
+        "schema": "NPCDexPlanRevision/1",
+        "workspaceId": "fixture:workspace",
+        "operationId": "fixture:plan-dialogue",
+        "createdAt": "2026-10-16T12:00:00.000Z",
+        "actorClaim": "fixture:owner",
+        "planId": "fixture:plan-dialogue",
+        "version": 1,
+        "parents": [],
+        "target": {
+          "recordId": "fixture:guide",
+          "pointId": "fixture:point-guide",
+          "blockIds": [
+            "fixture:block-guide"
+          ],
+          "promptKey": "fixture:prompt-guide",
+          "gender": "both"
+        },
+        "intent": "UPDATE",
+        "workflow": "ready",
+        "instructions": "Replace only this guide prompt; retain its identity and conditions.",
+        "proposedDialogue": "The lab is east of here.",
+        "baseline": {
+          "recordId": "fixture:guide",
+          "revisionId": "3a612eeb423506dd4c9590a8d8fd63b970f317d88b8349d0db3aa4ecf85ea169"
+        },
+        "readSet": [
+          {
+            "recordId": "fixture:guide",
+            "revisionId": "3a612eeb423506dd4c9590a8d8fd63b970f317d88b8349d0db3aa4ecf85ea169"
+          },
+          {
+            "recordId": "fixture:exterior",
+            "revisionId": "0699789b86454e697cec822dcf00424e513df95bb276e462fa502698174d1c8b"
+          },
+          {
+            "recordId": "fixture:map",
+            "revisionId": "6ea37dece030b51fe405b08f06b395ddbb723f2cecd5f5e2f8ee515fcbc991e3"
+          },
+          {
+            "recordId": "fixture:region",
+            "revisionId": "03907b24a8baf1b24b6e2534a1956284f38aedaa5feb3f723aa37a5ac0554542"
+          },
+          {
+            "recordId": "fixture:progression",
+            "revisionId": "b92fed7469c7a49a3c7d74489bf46bd48b7449da32a42784e34f1d1ffd69b5a3"
+          },
+          {
+            "recordId": "fixture:profile-guide",
+            "revisionId": "2f69db907444ec420b9825b96c4a41daa54cb69e216eb4b685465059435d5c1a"
+          }
+        ],
+        "changes": [
+          {
+            "recordId": "fixture:guide",
+            "path": "/payload/points/fixture:point-guide/blocks/fixture:block-guide/text",
+            "before": {
+              "exists": true,
+              "value": "Welcome."
+            },
+            "after": {
+              "exists": true,
+              "value": "The lab is east of here."
+            }
+          }
+        ],
+        "requiredAssetIds": [],
+        "reviewRefs": [],
+        "legacyRefs": [],
+        "digest": "b1281f44f60b87b658c7e7abec870a60ad1b3ae9713c61ae10b5931cbbbb1bc5"
+      },
+      {
+        "schema": "NPCDexPlanRevision/1",
+        "workspaceId": "fixture:workspace",
+        "operationId": "fixture:plan-remove",
+        "createdAt": "2026-10-16T12:00:00.000Z",
+        "actorClaim": "fixture:owner",
+        "planId": "fixture:plan-remove",
+        "version": 1,
+        "parents": [],
+        "target": {
+          "recordId": "fixture:visitor",
+          "pointId": null,
+          "blockIds": [],
+          "promptKey": null,
+          "gender": null
+        },
+        "intent": "REMOVE",
+        "workflow": "ready",
+        "instructions": "Remove this local appearance from the ROM; keep the shared profile and archived record.",
+        "proposedDialogue": "",
+        "baseline": {
+          "recordId": "fixture:visitor",
+          "revisionId": "8323188629ddad12fa0526933eac1156bcf81eee055e4680c6c9be407fe60c5a"
+        },
+        "readSet": [
+          {
+            "recordId": "fixture:visitor",
+            "revisionId": "8323188629ddad12fa0526933eac1156bcf81eee055e4680c6c9be407fe60c5a"
+          },
+          {
+            "recordId": "fixture:exterior",
+            "revisionId": "0699789b86454e697cec822dcf00424e513df95bb276e462fa502698174d1c8b"
+          },
+          {
+            "recordId": "fixture:map",
+            "revisionId": "6ea37dece030b51fe405b08f06b395ddbb723f2cecd5f5e2f8ee515fcbc991e3"
+          },
+          {
+            "recordId": "fixture:region",
+            "revisionId": "03907b24a8baf1b24b6e2534a1956284f38aedaa5feb3f723aa37a5ac0554542"
+          },
+          {
+            "recordId": "fixture:progression",
+            "revisionId": "b92fed7469c7a49a3c7d74489bf46bd48b7449da32a42784e34f1d1ffd69b5a3"
+          },
+          {
+            "recordId": "fixture:profile-visitor",
+            "revisionId": "1245c7db598d2dcbbba2b189a6a26289850a37aedab139909119504be280dde6"
+          }
+        ],
+        "changes": [
+          {
+            "recordId": "fixture:visitor",
+            "path": "/lifecycle",
+            "before": {
+              "exists": true,
+              "value": "active"
+            },
+            "after": {
+              "exists": true,
+              "value": "archived"
+            }
+          }
+        ],
+        "requiredAssetIds": [],
+        "reviewRefs": [],
+        "legacyRefs": [],
+        "digest": "f92f4892b31ce310df348b4067ce5faf5dae3cd8fbee20d949867ffabc8abc39"
+      },
+      {
+        "schema": "NPCDexPlanRevision/1",
+        "workspaceId": "fixture:workspace",
+        "operationId": "fixture:plan-scene",
+        "createdAt": "2026-10-16T12:00:00.000Z",
+        "actorClaim": "fixture:owner",
+        "planId": "fixture:plan-scene",
+        "version": 1,
+        "parents": [],
+        "target": {
+          "recordId": "fixture:scene",
+          "pointId": null,
+          "blockIds": [],
+          "promptKey": null,
+          "gender": null
+        },
+        "intent": "UPDATE",
+        "workflow": "ready",
+        "instructions": "Remove only Visitor from this shared scene; preserve Guide.",
+        "proposedDialogue": "",
+        "baseline": {
+          "recordId": "fixture:scene",
+          "revisionId": "660ea5dd1340fa7e8ba25fc895de764e3179fcb11cb03091cd216433bcc38e87"
+        },
+        "readSet": [
+          {
+            "recordId": "fixture:scene",
+            "revisionId": "660ea5dd1340fa7e8ba25fc895de764e3179fcb11cb03091cd216433bcc38e87"
+          },
+          {
+            "recordId": "fixture:exterior",
+            "revisionId": "0699789b86454e697cec822dcf00424e513df95bb276e462fa502698174d1c8b"
+          },
+          {
+            "recordId": "fixture:map",
+            "revisionId": "6ea37dece030b51fe405b08f06b395ddbb723f2cecd5f5e2f8ee515fcbc991e3"
+          },
+          {
+            "recordId": "fixture:region",
+            "revisionId": "03907b24a8baf1b24b6e2534a1956284f38aedaa5feb3f723aa37a5ac0554542"
+          },
+          {
+            "recordId": "fixture:progression",
+            "revisionId": "b92fed7469c7a49a3c7d74489bf46bd48b7449da32a42784e34f1d1ffd69b5a3"
+          },
+          {
+            "recordId": "fixture:profile-guide",
+            "revisionId": "2f69db907444ec420b9825b96c4a41daa54cb69e216eb4b685465059435d5c1a"
+          },
+          {
+            "recordId": "fixture:profile-visitor",
+            "revisionId": "1245c7db598d2dcbbba2b189a6a26289850a37aedab139909119504be280dde6"
+          }
+        ],
+        "changes": [
+          {
+            "recordId": "fixture:scene",
+            "path": "/payload/participantIds",
+            "before": {
+              "exists": true,
+              "value": [
+                "fixture:guide",
+                "fixture:visitor"
+              ]
+            },
+            "after": {
+              "exists": true,
+              "value": [
+                "fixture:guide"
+              ]
+            }
+          }
+        ],
+        "requiredAssetIds": [],
+        "reviewRefs": [],
+        "legacyRefs": [],
+        "digest": "df72c9a19a8d6ae43a6f52d6c4ec5d570a6e4fed9f7b828231d9a47e6d60cfe1"
+      },
+      {
+        "schema": "NPCDexPlanRevision/1",
+        "workspaceId": "fixture:workspace",
+        "operationId": "fixture:plan-addition",
+        "createdAt": "2026-10-16T12:00:00.000Z",
+        "actorClaim": "fixture:owner",
+        "planId": "fixture:plan-addition",
+        "version": 1,
+        "parents": [],
+        "target": {
+          "recordId": "fixture:newcomer",
+          "pointId": null,
+          "blockIds": [],
+          "promptKey": null,
+          "gender": null
+        },
+        "intent": "ADD",
+        "workflow": "ready",
+        "instructions": "Implement the planned newcomer and record verified event/script mapping before confirming activation.",
+        "proposedDialogue": "",
+        "baseline": {
+          "recordId": "fixture:newcomer",
+          "revisionId": "0c34d8ac69841b6c3e664d2f1b8af96c27b3eab71632aafbf6e5ee5c9a6900cf"
+        },
+        "readSet": [
+          {
+            "recordId": "fixture:newcomer",
+            "revisionId": "0c34d8ac69841b6c3e664d2f1b8af96c27b3eab71632aafbf6e5ee5c9a6900cf"
+          },
+          {
+            "recordId": "fixture:exterior",
+            "revisionId": "0699789b86454e697cec822dcf00424e513df95bb276e462fa502698174d1c8b"
+          },
+          {
+            "recordId": "fixture:map",
+            "revisionId": "6ea37dece030b51fe405b08f06b395ddbb723f2cecd5f5e2f8ee515fcbc991e3"
+          },
+          {
+            "recordId": "fixture:region",
+            "revisionId": "03907b24a8baf1b24b6e2534a1956284f38aedaa5feb3f723aa37a5ac0554542"
+          },
+          {
+            "recordId": "fixture:progression",
+            "revisionId": "b92fed7469c7a49a3c7d74489bf46bd48b7449da32a42784e34f1d1ffd69b5a3"
+          },
+          {
+            "recordId": "fixture:profile-newcomer",
+            "revisionId": "18b2fc35eba9fdd1bd367b87284809dd52bad93e27bd9943497a2c2ebc1a9807"
+          }
+        ],
+        "changes": [
+          {
+            "recordId": "fixture:newcomer",
+            "path": "/lifecycle",
+            "before": {
+              "exists": true,
+              "value": "planned"
+            },
+            "after": {
+              "exists": true,
+              "value": "active"
+            }
+          }
+        ],
+        "requiredAssetIds": [
+          "fixture:asset"
+        ],
+        "reviewRefs": [],
+        "legacyRefs": [],
+        "digest": "7006ceae2707da1ef4ec836296c47393b20a418acf6484db873ead9285471cd9"
+      }
+    ],
+    "reviews": [
+      {
+        "schema": "NPCDexReviewRevision/1",
+        "workspaceId": "fixture:workspace",
+        "operationId": "fixture:note",
+        "createdAt": "2026-10-16T12:00:00.000Z",
+        "actorClaim": "fixture:owner",
+        "reviewId": "fixture:note",
+        "parents": [],
+        "target": {
+          "recordId": "fixture:guide",
+          "pointId": "fixture:point-guide",
+          "blockIds": [
+            "fixture:block-guide"
+          ],
+          "promptKey": "fixture:prompt-guide",
+          "gender": "both"
+        },
+        "baseline": {
+          "recordId": "fixture:guide",
+          "revisionId": "3a612eeb423506dd4c9590a8d8fd63b970f317d88b8349d0db3aa4ecf85ea169"
+        },
+        "flag": "standard",
+        "note": "Observation only: verify route wording during playtesting.",
+        "testStatus": "unreviewed",
+        "digest": "5919b64d0eda955cf9ccb11a8d82c7e5c6db7d5b0b7c971db5821bdcffddcff4"
+      }
+    ],
+    "views": [
+      {
+        "schema": "NPCDexViewRevision/1",
+        "workspaceId": "fixture:workspace",
+        "operationId": "fixture:rd01-view",
+        "createdAt": "2026-10-18T16:00:00.000Z",
+        "actorClaim": "fixture:owner",
+        "viewId": "view:fixture:guide",
+        "recordId": "fixture:guide",
+        "parents": [],
+        "source": {
+          "sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+          "recordRevision": "3a612eeb423506dd4c9590a8d8fd63b970f317d88b8349d0db3aa4ecf85ea169"
+        },
+        "payload": {
+          "fields": {
+            "image": {
+              "format": "NPCDexViewImage/1",
+              "assetId": "content:asset-f6d6acb2dcf66d4e1b6419962726cf72cb16371556bc7dbdfd4e66e2caee2b8c"
+            }
+          }
+        },
+        "digest": "28959f9ee08f5ad9a0b85dbdec4a989a3effdd31cdccc9caf52b5264364d133c"
+      }
+    ],
+    "history": [],
+    "archivalRequests": []
+  },
+  "result": null,
+  "revision": "832905897f45a0cb8650b0f80198dc3885b903e5643253aae2f46ed7247615d1"
+}

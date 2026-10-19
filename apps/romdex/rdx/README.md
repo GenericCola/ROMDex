@@ -1,10 +1,10 @@
 # RDX Container Tools
 
-RD03 implements the version 1 file container and deterministic local tooling. RD04 adds [managed local documents and portable export](MANAGED-DOCUMENTS.md). RD05 adds [NPCDex map import/update previews and export](MAP-IMPORT.md). RD06 adds [local task-plan import and reviewed PMON publication](PLAN-IMPORT.md). RD07 adds [bindings and two-way sync](CLOUD-SYNC.md), with a real isolated YouTrack proof. These are source implementations; installed 0.5.14 is unchanged. Windows association follows in RD08; current-map adoption remains RD10. The CLI commands below never upload, change tickets, dispatch work or certify human testing. No AI, connection or token is required for local tooling.
+RD03 implements the version 1 file container and deterministic local tooling. RD04 adds [managed local documents and portable export](MANAGED-DOCUMENTS.md). RD05 adds [NPCDex map import/update previews and export](MAP-IMPORT.md). RD06 adds [local task-plan import and reviewed PMON publication](PLAN-IMPORT.md). RD07 adds [bindings and two-way sync](CLOUD-SYNC.md), with a real isolated YouTrack proof. These are source implementations; installed 0.5.14 is unchanged. RD08 adds verified [Windows file integration](WINDOWS-FILES.md). RD09 supplies the [agent authoring guide and portable kit](authoring/README.md); current-map adoption remains RD10. The CLI commands below never upload, change tickets, dispatch work or certify human testing. No AI, connection or token is required for local tooling.
 
 ## Commands
 
-Run from the application source folder with Node 22 or newer:
+Run from the application source folder with Node 24 for the verified CLI and managed-document exercises:
 
 ```powershell
 node rdx/cli.mjs pack map.document.json blobs NewBarkMap.rdx

@@ -1,0 +1,372 @@
+{
+  "format": "RDXDocument/1",
+  "datasetId": "fixture:rd09",
+  "parents": [],
+  "createdAt": "2026-10-19T00:00:00.000Z",
+  "origin": {
+    "role": "extractor",
+    "generator": "romdex-rd09-example/1",
+    "synthetic": true
+  },
+  "extensions": {},
+  "assetInventory": [
+    {
+      "assetId": "fixture:rd09-source",
+      "sha256": "934b371b3732a0894c747f6fc36d358fb2a0d4a4c3e3d6d4b1899c50bc3e37b8",
+      "bytes": 390,
+      "mime": "application/json",
+      "purpose": "attachment"
+    },
+    {
+      "assetId": "content:asset-431ced6916a2a21a156e38701afe55bbd7f88969fbbfc56d7fe099d47f265460",
+      "sha256": "431ced6916a2a21a156e38701afe55bbd7f88969fbbfc56d7fe099d47f265460",
+      "bytes": 68,
+      "mime": "image/png",
+      "purpose": "image"
+    }
+  ],
+  "schemaVersion": 1,
+  "result": null,
+  "documentId": "fixture:rd09-map-document",
+  "namespace": "org.romdex.npcdex",
+  "kind": "map",
+  "capabilities": {
+    "required": [
+      "org.romdex.rdx.map-v1",
+      "org.romdex.npcdex.content-v1"
+    ],
+    "optional": []
+  },
+  "scope": {
+    "mode": "partial",
+    "mapRecordId": "fixture:rd09-map",
+    "ownedRecordIds": [
+      "fixture:rd09-map",
+      "fixture:rd09-dock",
+      "fixture:rd09-guide"
+    ],
+    "contextRecordIds": [
+      "fixture:rd09-region",
+      "fixture:rd09-timeline",
+      "fixture:rd09-profile"
+    ],
+    "completeForParentIds": [],
+    "baselineInventory": []
+  },
+  "content": {
+    "records": [
+      {
+        "workspaceId": "fixture:rd09",
+        "createdAt": "2026-10-19T00:00:00.000Z",
+        "actorClaim": "fixture:rd09-extractor",
+        "schema": "NPCDexContentRevision/1",
+        "operationId": "fixture:rd09-seed-region",
+        "recordId": "fixture:rd09-region",
+        "kind": "region",
+        "parentRecordId": null,
+        "parents": [],
+        "current": {
+          "lifecycle": "active",
+          "payload": {
+            "name": "Fictional Coast",
+            "regionKey": "fixture-coast"
+          }
+        },
+        "mappingRefs": [],
+        "legacyRefs": [],
+        "legacyData": {},
+        "revisionId": "daef43362933ecba5420310167d2d1febe15aaaad2201e040987e3f0c33ba977"
+      },
+      {
+        "workspaceId": "fixture:rd09",
+        "createdAt": "2026-10-19T00:00:00.000Z",
+        "actorClaim": "fixture:rd09-extractor",
+        "schema": "NPCDexContentRevision/1",
+        "operationId": "fixture:rd09-seed-timeline",
+        "recordId": "fixture:rd09-timeline",
+        "kind": "shared",
+        "parentRecordId": null,
+        "parents": [],
+        "current": {
+          "lifecycle": "active",
+          "payload": {
+            "name": "Fictional Progression",
+            "sharedType": "progression",
+            "definitions": {
+              "stageIds": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G",
+                "H",
+                "I",
+                "J"
+              ]
+            }
+          }
+        },
+        "mappingRefs": [],
+        "legacyRefs": [],
+        "legacyData": {},
+        "revisionId": "9906077d06dcdfcc0b18fbe1035df3c197de18a56af2afa40cc827107d4d99cd"
+      },
+      {
+        "workspaceId": "fixture:rd09",
+        "createdAt": "2026-10-19T00:00:00.000Z",
+        "actorClaim": "fixture:rd09-extractor",
+        "schema": "NPCDexContentRevision/1",
+        "operationId": "fixture:rd09-seed-map",
+        "recordId": "fixture:rd09-map",
+        "kind": "map",
+        "parentRecordId": "fixture:rd09-region",
+        "parents": [],
+        "current": {
+          "lifecycle": "active",
+          "payload": {
+            "name": "Lantern Harbor",
+            "regionId": "fixture:rd09-region",
+            "sourceMapKeys": [
+              "lantern-harbor"
+            ],
+            "subzoneIds": [
+              "fixture:rd09-dock"
+            ],
+            "timelineRef": "fixture:rd09-timeline"
+          }
+        },
+        "mappingRefs": [],
+        "legacyRefs": [],
+        "legacyData": {},
+        "revisionId": "ca31584e991fc5214715a803e613b1997be2df6738cea42c3688326b1cfec699"
+      },
+      {
+        "workspaceId": "fixture:rd09",
+        "createdAt": "2026-10-19T00:00:00.000Z",
+        "actorClaim": "fixture:rd09-extractor",
+        "schema": "NPCDexContentRevision/1",
+        "operationId": "fixture:rd09-seed-dock",
+        "recordId": "fixture:rd09-dock",
+        "kind": "subzone",
+        "parentRecordId": "fixture:rd09-map",
+        "parents": [],
+        "current": {
+          "lifecycle": "active",
+          "payload": {
+            "name": "Dock",
+            "mapId": "fixture:rd09-map",
+            "sourceAreaKeys": [
+              "dock"
+            ],
+            "appearanceIds": [
+              "fixture:rd09-guide"
+            ],
+            "sceneIds": [],
+            "interactiveIds": [],
+            "aliasRefs": []
+          }
+        },
+        "mappingRefs": [],
+        "legacyRefs": [],
+        "legacyData": {},
+        "revisionId": "c119f8a85f3c1ef570bdf690de5fb2c2f6edd3f9a9d09419b2a38888fce72e77"
+      },
+      {
+        "workspaceId": "fixture:rd09",
+        "createdAt": "2026-10-19T00:00:00.000Z",
+        "actorClaim": "fixture:rd09-extractor",
+        "schema": "NPCDexContentRevision/1",
+        "operationId": "fixture:rd09-seed-profile",
+        "recordId": "fixture:rd09-profile",
+        "kind": "profile",
+        "parentRecordId": null,
+        "parents": [],
+        "current": {
+          "lifecycle": "active",
+          "payload": {
+            "name": "Harbor Guide",
+            "baseImageId": "content:asset-431ced6916a2a21a156e38701afe55bbd7f88969fbbfc56d7fe099d47f265460",
+            "identityEvidence": [
+              {
+                "label": "Fictional source only; no actual ROM was extracted",
+                "sourceId": "fixture:rd09-source",
+                "excerpt": "Exact fixture-source.json bytes accompany this example.",
+                "locator": null
+              }
+            ]
+          }
+        },
+        "mappingRefs": [],
+        "legacyRefs": [],
+        "legacyData": {},
+        "revisionId": "3d9a777ab419f8829685d43e25b1e65c60f448817057785ad1cebb04fbb7c6b9"
+      },
+      {
+        "workspaceId": "fixture:rd09",
+        "createdAt": "2026-10-19T00:00:00.000Z",
+        "actorClaim": "fixture:rd09-extractor",
+        "schema": "NPCDexContentRevision/1",
+        "operationId": "fixture:rd09-seed-guide",
+        "recordId": "fixture:rd09-guide",
+        "kind": "appearance",
+        "parentRecordId": "fixture:rd09-dock",
+        "parents": [],
+        "current": {
+          "lifecycle": "active",
+          "payload": {
+            "name": "Harbor Guide",
+            "profileId": "fixture:rd09-profile",
+            "profileByPlayerGender": {
+              "male": null,
+              "female": null
+            },
+            "sourceAreaKeys": [
+              "dock"
+            ],
+            "sourceElementIds": [
+              "dock-guide"
+            ],
+            "points": {
+              "fixture:rd09-point": {
+                "id": "fixture:rd09-point",
+                "condition": "Always",
+                "stageIds": [
+                  "A"
+                ],
+                "sourceIds": [
+                  "fixture:rd09-source"
+                ],
+                "participantIds": [
+                  "fixture:rd09-guide"
+                ],
+                "evidence": [
+                  {
+                    "label": "Fictional source only; no actual ROM was extracted",
+                    "sourceId": "fixture:rd09-source",
+                    "excerpt": "Exact fixture-source.json bytes accompany this example.",
+                    "locator": null
+                  }
+                ],
+                "blocks": {
+                  "fixture:rd09-block": {
+                    "id": "fixture:rd09-block",
+                    "kind": "dialogue",
+                    "text": "Welcome to Lantern Harbor.\n  Keep the leading spaces. ",
+                    "speaker": "fixture:rd09-profile",
+                    "gender": "both",
+                    "reviewKey": "fixture:rd09-prompt",
+                    "sourceBlockId": "welcome",
+                    "sourceIds": [
+                      "fixture:rd09-source"
+                    ],
+                    "rawMessageData": {
+                      "encoding": "fictional-utf8",
+                      "controlTokens": [
+                        "fixture:line-break"
+                      ]
+                    },
+                    "legacyData": {},
+                    "archived": false
+                  }
+                },
+                "blockOrder": [
+                  "fixture:rd09-block"
+                ],
+                "legacyData": {}
+              }
+            },
+            "pointOrder": [
+              "fixture:rd09-point"
+            ],
+            "sceneIds": [],
+            "overrides": {
+              "displayName": null,
+              "imageAssetId": null
+            }
+          }
+        },
+        "mappingRefs": [
+          "a7249a9d8ba205d609a9c627f3e1cf72afef9f457fcec5597f4ed93b0a460d06"
+        ],
+        "legacyRefs": [],
+        "legacyData": {},
+        "revisionId": "9a6fe83e9fb17d7e5b80d527ba5a2e21beac4c47f558651a8128b4ae3ea2d505"
+      }
+    ],
+    "recordHeads": [
+      {
+        "recordId": "fixture:rd09-region",
+        "revisionId": "daef43362933ecba5420310167d2d1febe15aaaad2201e040987e3f0c33ba977"
+      },
+      {
+        "recordId": "fixture:rd09-timeline",
+        "revisionId": "9906077d06dcdfcc0b18fbe1035df3c197de18a56af2afa40cc827107d4d99cd"
+      },
+      {
+        "recordId": "fixture:rd09-map",
+        "revisionId": "ca31584e991fc5214715a803e613b1997be2df6738cea42c3688326b1cfec699"
+      },
+      {
+        "recordId": "fixture:rd09-dock",
+        "revisionId": "c119f8a85f3c1ef570bdf690de5fb2c2f6edd3f9a9d09419b2a38888fce72e77"
+      },
+      {
+        "recordId": "fixture:rd09-profile",
+        "revisionId": "3d9a777ab419f8829685d43e25b1e65c60f448817057785ad1cebb04fbb7c6b9"
+      },
+      {
+        "recordId": "fixture:rd09-guide",
+        "revisionId": "9a6fe83e9fb17d7e5b80d527ba5a2e21beac4c47f558651a8128b4ae3ea2d505"
+      }
+    ],
+    "mappings": [
+      {
+        "workspaceId": "fixture:rd09",
+        "createdAt": "2026-10-19T00:00:00.000Z",
+        "actorClaim": "fixture:rd09-extractor",
+        "schema": "NPCDexROMMapping/1",
+        "operationId": "fixture:rd09-mapping-operation",
+        "mappingId": "fixture:rd09-mapping",
+        "recordId": "fixture:rd09-guide",
+        "source": {
+          "repositoryId": "fixture:rd09-fictional-rom",
+          "revision": "fictional-source-v1",
+          "artifactSha256": "934b371b3732a0894c747f6fc36d358fb2a0d4a4c3e3d6d4b1899c50bc3e37b8",
+          "verification": "illustrative"
+        },
+        "status": "documented",
+        "locators": [
+          {
+            "kind": "script",
+            "adapter": "fixture-json/1",
+            "path": "fixture-source.json",
+            "fileSha256": "934b371b3732a0894c747f6fc36d358fb2a0d4a4c3e3d6d4b1899c50bc3e37b8",
+            "selectors": {
+              "mapKey": "lantern-harbor",
+              "eventKey": "dock-guide",
+              "scriptKey": "talk-dock-guide",
+              "messageKey": "welcome"
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "label": "Fictional source only; no actual ROM was extracted",
+            "sourceId": "fixture:rd09-source",
+            "excerpt": "Exact fixture-source.json bytes accompany this example.",
+            "locator": null
+          }
+        ],
+        "digest": "a7249a9d8ba205d609a9c627f3e1cf72afef9f457fcec5597f4ed93b0a460d06"
+      }
+    ],
+    "plans": [],
+    "reviews": [],
+    "views": [],
+    "history": [],
+    "archivalRequests": []
+  },
+  "revision": "3c203b2c9b60fd91c4eafb298428b88c962ba014cc457d54a07b310cc17d98f7"
+}
