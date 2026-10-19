@@ -460,3 +460,10 @@ Current import/export/binding behavior is distinguished from U21 package attachm
 ## RD10 — One-Map Adoption Completed, October 19, 2026
 
 The original accepted current-data preview and explicit subsequent one-map-per-RDX correction were combined without changing the source dataset. The revised files contain one map and required dependencies; shared collections and full recovery remain separate. Preserved all 211 existing NPCD identities, the original synchronization journal, history and all three protected connections. Fresh complete backup/restoration and local/remote baseline checks preceded activation; installed 0.5.15 acceptance passed. Phase 6 is complete. The requested authoring report recommends reusing the existing compiler/portable kit and inspecting the latest ROM/project before choosing a game-specific extractor; this recommendation does not authorize another implementation task. U21 requires a new PASSKEY.
+
+
+## October 19, 2026 — ROM Extraction Deferred; Local Cleanup Authorized
+
+The user supplied the latest ROM at `C:/Users/mrgen/OneDrive/Apps/melonDS/melonDS-1.1-windows-x86_64/TEST/0.6.3_noduplicates.nds` and deferred self-contained ROM extraction/JSON authoring/RDX compilation and a possible ROM Import workspace until after the main build. Phase 11 records investigation, a real one-map proof, and a separately reviewed workspace; no extraction has begun. Preserve the ROM outside Git and installers.
+
+The user requested the latest installation, removal of any remaining older installed versions, and consolidation of obsolete ROMDex/NPCDex outputs into one clearly identified folder for manual deletion. Current 0.5.15, application Data/connections, current source, build dependencies, authoring kit, original suite assets and the newest verified complete recovery backup remain retained. Windows registry review found only the current product plus its matching current-version auxiliary .msq entry; there were no older registered products to uninstall. Portable previews and historical verification copies are cleanup candidates, not separate installed products.

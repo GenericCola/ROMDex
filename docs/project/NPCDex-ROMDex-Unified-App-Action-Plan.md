@@ -257,6 +257,16 @@ Scheduled after U30 so notifications do not delay cloud persistence or the packa
 | U32 | Implement the approved activity retrieval and durable event/unread store, reusing existing YouTrack/service adapters where appropriate. Preserve source identity, ticket/comment/message references and discovery progress; distinguish incoming agent activity from the user's own actions and ROMDex's automation. | Catch-up after offline periods/restart loses no eligible events; repeated retrieval does not duplicate events. Access boundaries and the approved Auto-Sync policy hold. | Sol / High |
 | U33 | Add approved Windows notifications and in-app activity access with click-through to the relevant ticket, comment or message. Support the preferences approved at U31 and verify installed-app/tray behavior. | Test all three event types, hidden-window delivery, click-through, unread/read transitions, permissions, muted/burst activity, restart/catch-up and duplicate suppression. Report fully-quit behavior accurately; issue a tested release with retained saves/credentials. | Sol / High |
 
+## Phase 11 — ROM Import and RDX Extraction Stretch Goal
+
+Deferred until after the main release (U30); it does not delay U21–U30. The supplied reference is `C:/Users/mrgen/OneDrive/Apps/melonDS/melonDS-1.1-windows-x86_64/TEST/0.6.3_noduplicates.nds`. Keep the ROM read-only and outside source control/releases. Its extraction coverage is not yet verified. Coordinate scheduling with the other post-release stretch goals.
+
+| Task | Action and Deliverable | Completion Check | Model / Effort |
+| --- | --- | --- | --- |
+| RI01 | Inspect the supplied ROM and any matching editable project/tools. Identify game/build, dialogue/script/map formats and limitations; agree on one representative map and extraction coverage. | User approves an evidence-based scope; no promise of complete extraction before inspecting the actual formats. | Sol / High |
+| RI02 | Build a deterministic game-specific extraction route: ROM → structured map JSON/assets → existing RDX compiler → one map RDX. Reuse the portable authoring kit and retain stable identities/source targets. | One real map imports with verified dialogue/entities/events/assets and ROM mappings, accepts local/native YouTrack updates, and exports without losing proposals or testing history. Record unsupported data explicitly. | Sol / High |
+| RI03 | Scope and implement a dedicated ROM Import workspace around the proven extractor: build identification, map selection, preview, diagnostics and explicit export/import. | Read-only ROM handling; one RDX per map; no AI needed at runtime; repeat imports preserve identities/plans/assets; no automatic task dispatch. User reviews the workspace design before implementation. | Sol / High |
+
 ## Deferred Decisions and Explicit Gates
 
 | Decision | Resolve By |

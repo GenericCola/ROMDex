@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "registeredVersions": [
+    "0.5.15"
+  ],
+  "olderRegisteredProducts": 0,
+  "uninstallsNeeded": 0,
+  "currentProductAuxiliaryRegistration": "{C2F3FD55-538B-49E0-A59B-388047292BA3}.msq",
+  "note": "Both entries describe the same current product. No older product was skipped.",
+  "evidence": "installed-versions.json"
+}

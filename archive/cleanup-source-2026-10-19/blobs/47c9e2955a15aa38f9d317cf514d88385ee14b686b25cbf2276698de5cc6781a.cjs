@@ -1,0 +1,4 @@
+const fs=require('fs');let s=fs.readFileSync('work/npcdex-template.html','utf8');
+s=s.replace("testStatus:checked?value:'unreviewed'", "testStatus:checked?value:'unreviewed',scope:'passage'");
+s=s.replace("$('line-only').onchange=()=>{flushNote();scopeOverride=$('line-only').checked;renderDialogue(true)}", "$('line-only').onchange=()=>{const input=$('entry-note-text'),pending=input&&input.value!==ann(editorialTarget(p,entry).key).note,draft=input?.value;if(!pending)flushNote();scopeOverride=$('line-only').checked;renderDialogue(true);if(pending){$('entry-note-editor').classList.remove('hidden');$('entry-note-text').value=draft;$('entry-note-text').focus()}};");
+fs.writeFileSync('work/npcdex-template.html',s);const d=JSON.parse(fs.readFileSync('outputs/npcdex-data.json','utf8'));fs.writeFileSync('outputs/npcdex.html',s.replace('/*__NPCDEX_DATA__*/',JSON.stringify(d).replace(/</g,'\\u003c')));

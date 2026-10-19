@@ -1,0 +1,1 @@
+const fs=require('fs');let s=fs.readFileSync('work/test-scope-export.cjs','utf8');s=s.replaceAll("await p.reload();", "await p.evaluate(async()=>{exportDirectory=null;data=structuredClone(ORIGINAL);expandedTowns.clear();scopeOverride=null;await start()});");s=s.replaceAll("window.pickerCount),0", "window.pickerCount),1");fs.writeFileSync('work/test-scope-export.cjs',s);

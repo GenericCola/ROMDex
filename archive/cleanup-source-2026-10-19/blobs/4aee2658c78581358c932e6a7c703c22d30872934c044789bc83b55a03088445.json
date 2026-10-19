@@ -1,0 +1,26 @@
+{
+  "name": "romdex",
+  "version": "0.5.16",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "desktop": "electron .",
+    "rdx": "node rdx/cli.mjs",
+    "rdx:local": "node rdx/local-cli.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "main": "desktop/main.cjs",
+  "desktopRuntime": {
+    "electron": "44.7.2",
+    "platform": "win32",
+    "arch": "x64",
+    "manifest": "desktop/runtime-lock.json"
+  },
+  "productName": "ROMDex",
+  "author": "ROMDex Project",
+  "description": "ROMDex Workspace with NPCDex Add-On"
+}

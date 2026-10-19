@@ -1,0 +1,12 @@
+const fs=require('fs');let s=fs.readFileSync('work/npcdex-template.html','utf8');s=s.replace("gender='male',selected=", "gender=['male','female'].includes(data.preferences?.gender)?data.preferences.gender:'male',selected=");fs.writeFileSync('work/npcdex-template.html',s);fs.writeFileSync('outputs/npcdex.html',s.replace('/*__NPCDEX_DATA__*/',JSON.stringify(JSON.parse(fs.readFileSync('outputs/npcdex-data.json','utf8'))).replace(/</g,'\\u003c')));
+let doc=fs.readFileSync('outputs/NPCDex-README.md','utf8').replace('Version 2.14','Version 2.15');doc=doc.replace('## This build',`## Shared character images
+
+Character images default to sharing across regions through stable character identities. Lyra and Ethan have separate image slots controlled by the master player selector; the existing Lyra image now appears in Route 29 as well as New Bark Town. Recurring Marill records share the friend’s Marill identity. Generic unnamed residents keep separate identities unless an author explicitly links them.
+
+Use the character tile cog to upload or download an image, then Apply changes. Leave **Use image only in this region** unchecked to assign/remove that identity’s shared image everywhere. Check it for a regional override; that region’s override stays independent of later shared-image changes. Applying an empty regional draft hides the image in that region only. Unchecking the option and applying returns the tile to the shared image.
+
+The Agent Export embeds shared images once in characterImages, keyed by identity. Characters retain their original IDs and add identityId or identityByGender. For a recurring character in a new region, reuse the same identityId; Lyra/Ethan use identityByGender: {male: 'lyra', female: 'ethan'}. Optional character.regionalImages is keyed by identity and contains an embedded image or null. Existing local images migrate automatically; conflicting existing regional images are retained as overrides. Character annotations remain local and keep their original keys.
+
+NPC Name editing and intentional linking to an existing NPC are discussed follow-ups, not implemented in this build. Image identities are independent of display names, so future renaming will not break image links.
+
+## Previous content update`);doc=doc.replace('Four reviewed flags/notes are cleared and their prompts reset to Unreviewed.','Four reviewed flags/notes were cleared and their prompts reset to Unreviewed in version 2.14. This image update preserves any subsequent tester verification.');fs.writeFileSync('outputs/NPCDex-README.md',doc);

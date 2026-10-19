@@ -1,0 +1,1 @@
+const fs=require('fs');let s=fs.readFileSync('work/test-scope-export.cjs','utf8');s=s.replace("channel:'chrome',headless:true", "executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true,args:['--disable-crashpad-for-testing']");fs.writeFileSync('work/test-scope-export.cjs',s);

@@ -1,0 +1,1 @@
+const fs=require('fs');let s=fs.readFileSync('work/test-speaker-inventory.cjs','utf8');s=s.replace("includes('Floor 2')","includes('Elm’s Lab · family residence')");s=s.replaceAll("locator('#speaker-label').innerText()","locator('#speaker-label').textContent()");fs.writeFileSync('work/test-speaker-inventory.cjs',s);

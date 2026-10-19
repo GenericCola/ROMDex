@@ -1,0 +1,7 @@
+const fs=require('fs');let t=fs.readFileSync('outputs/npcdex-template.html','utf8');
+const marker='updated.revision=Math.max(updated.revision||0,saved.revision||0)';
+const preservation="if((saved.contentRevision||0)>=3){for(const savedTown of saved.towns){const i=updated.towns.findIndex(t=>t.id===savedTown.id);if(i>=0)updated.towns[i]=structuredClone(savedTown)}updated.index={...updated.index,...structuredClone(saved.index||{})};if(saved.sourceBaseline)updated.sourceBaseline=structuredClone(saved.sourceBaseline);updated.sourceBaselines={...updated.sourceBaselines,...structuredClone(saved.sourceBaselines||{})};updated.sources=[...new Set([...updated.sources,...saved.sources||[]])];updated.provenance={...updated.provenance,...structuredClone(saved.provenance||{}),sourceFiles:[...new Set([...updated.provenance.sourceFiles,...saved.provenance?.sourceFiles||[]])]};}updated.history=[...new Map([...(saved.history||[]),...(ORIGINAL.history||[])].map(h=>[h.id,h])).values()];";
+if(!t.includes(marker))throw Error('Upgrade function boundary not found');t=t.replace(marker,preservation+marker);
+t=t.replace('function render(){if(town()?.archived)','function render(){if(!town()||town()?.archived)');
+t=t.replace('<a href="NPCDex-README.md">Extension guide</a>','<a href="cherrygrove_city_dialogue_guide.md">Cherrygrove City dialogue guide</a> · <a href="cherrygrove_city_content_map.md">Cherrygrove City content map</a> · <a href="NPCDex-README.md">Extension guide</a>');
+fs.writeFileSync('outputs/npcdex-template.html',t);fs.writeFileSync('work/npcdex-template.html',t);

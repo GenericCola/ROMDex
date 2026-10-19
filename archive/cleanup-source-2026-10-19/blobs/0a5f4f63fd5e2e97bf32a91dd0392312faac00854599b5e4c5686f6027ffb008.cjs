@@ -1,0 +1,1 @@
+const fs=require('fs');const file='work/npcdex-change-engine.js';let s=fs.readFileSync(file,'utf8');s=s.replace("label,...details,patches}", "label,...structuredClone(details),patches:structuredClone(patches)}");fs.writeFileSync(file,s);

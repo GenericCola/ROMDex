@@ -1,0 +1,1 @@
+const fs=require('fs');fs.mkdirSync('work/downloads',{recursive:true});let s=fs.readFileSync('work/test-v2.cjs','utf8');s=s.replace("chromium.launch({headless:true,channel:'chrome'})","chromium.launch({headless:true,channel:'chrome',downloadsPath:path.resolve('work/downloads')})");fs.writeFileSync('work/test-v2.cjs',s);

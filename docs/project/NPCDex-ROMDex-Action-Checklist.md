@@ -135,6 +135,14 @@ RD10 execution checklist:
 - [ ] **U32 — Durable Agent Activity Retrieval** — Sol / High. Implement approved event discovery/unread storage, offline/restart catch-up and duplicate suppression.
 - [ ] **U33 — Windows Notifications and Activity Access** — Sol / High. Implement approved alerts and click-through; verify installed/tray behavior and deliver a tested release.
 
+## Phase 11 — ROM Import and RDX Extraction Stretch Goal
+
+After U30, separately authorized; the supplied `0.6.3_noduplicates.nds` remains read-only and outside Git/releases. No extraction or workspace implementation is authorized by recording this stretch goal.
+
+- [ ] **RI01 — Inspect ROM and Agree Extraction Coverage** — Sol / High. Identify build/formats/tools, choose a representative map and document uncertainties before promising complete coverage.
+- [ ] **RI02 — Prove ROM → JSON → One-Map RDX** — Sol / High. Extract real dialogue/scripts/entities/assets with stable source targets, compile using the existing kit, verify import and local/YouTrack changes without losing proposals/history.
+- [ ] **RI03 — ROM Import Workspace** — Sol / High. Review the design, then wrap the proven extractor with ROM identification, map selection, preview, diagnostics and explicit import/export; deterministic runtime, read-only ROM, one map per RDX.
+
 **Historical planning updates:** October 15 introduced map-level JSON handoff/receipt return; U20 later selected direct content-record updates. The October 18 amendment now supersedes that normal agent return route with updated map `.rdx` attachments reconciled by ROMDex. JSON Map Packages remain the readable execution document; notifications still follow U30. Earlier completion records below describe historical boundaries, not current authorization.
 
 ## Completion Records

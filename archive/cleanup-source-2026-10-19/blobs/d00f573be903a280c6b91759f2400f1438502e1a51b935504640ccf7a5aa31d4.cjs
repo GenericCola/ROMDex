@@ -1,0 +1,3 @@
+const fs=require('fs');let s=fs.readFileSync('work/npcdex-template.html','utf8');
+for(const [a,b] of [['background:#35a85c;box-shadow:0 0 5px #35a85c80;vertical-align:middle','background:#81c79a;box-shadow:0 0 0 2px #681421;vertical-align:middle'],['background:#e83e42;box-shadow:0 0 5px #e83e4280','background:#ef8273;box-shadow:0 0 0 2px #681421']]){if(!s.includes(a))throw Error('Missing indicator style');s=s.replace(a,b)}
+fs.writeFileSync('work/npcdex-template.html',s);fs.writeFileSync('outputs/npcdex.html',s.replace('/*__NPCDEX_DATA__*/',fs.readFileSync('outputs/npcdex-data.json','utf8').replace(/</g,'\\u003c')));

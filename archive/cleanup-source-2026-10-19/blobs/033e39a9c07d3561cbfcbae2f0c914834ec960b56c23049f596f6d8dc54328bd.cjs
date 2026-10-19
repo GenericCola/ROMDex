@@ -1,0 +1,1 @@
+const fs=require('fs');let s=fs.readFileSync('work/test-inline-status-228.cjs','utf8');s=s.replace("$('entry-verified').click();", "$('entry-verified').checked=true;$('entry-verified').onchange();");fs.writeFileSync('work/test-inline-status-228.cjs',s);

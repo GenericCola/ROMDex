@@ -4,7 +4,7 @@ Phase 6 is complete: the 0.5.15 installer has run successfully, and the installe
 
 For the coding agent, I need:
 
-1. **The latest ROM and its game/build version**, preferably with the matching editable modding/source project. Tell me which map to extract. The actual ROM/source files have not been supplied or inspected yet.
+1. **The latest ROM and its game/build version**, preferably with the matching editable modding/source project. Tell me which map to extract. The latest ROM has now been supplied (October 19); it has not been parsed. Extraction and a possible ROM Import workspace are deferred stretch goals after the main release.
 2. **Node 24 and the [Agent Authoring Kit](RD09-Agent-Authoring-Kit.zip).** The kit contains the format rules, examples, schemas, compiler and validator. Its RD09 release-availability notes are historical; the installed application is now 0.5.15. No npm installation, ROMDex installation or account token is needed to compile locally.
 3. **One document.json per map and its referenced asset files.** The agent creates these from extracted map/sub-zone/entity/dialogue/event data, with stable identities and verified ROM source locations. Images, flags, notes and proposals belong inside that map's RDX. Follow the [map authoring instructions](ROMDex/rdx/authoring/MAP-AUTHORING.md).
 

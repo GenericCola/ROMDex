@@ -1,0 +1,3 @@
+const fs=require('fs');let s=fs.readFileSync('work/npcdex-template.html','utf8');s=s.replaceAll('#45d97e70','#45d97e38').replaceAll('#ff424890','#ff424848');
+const a='<span class="save-light" aria-hidden="true"></span>';if(!s.includes(a))throw Error('Missing light');s=s.replace(a,'<span class="save-light" aria-hidden="true" title="Left: lens reflection"></span><span class="save-light no-reflection" aria-hidden="true" title="Right: no lens reflection"></span>');s=s.replace('.gender label{','.save-light.no-reflection{background-image:none}.gender label{');
+fs.writeFileSync('work/npcdex-template.html',s);fs.writeFileSync('outputs/npcdex.html',s.replace('/*__NPCDEX_DATA__*/',fs.readFileSync('outputs/npcdex-data.json','utf8').replace(/</g,'\\u003c')));

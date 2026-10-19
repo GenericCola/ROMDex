@@ -1,0 +1,5 @@
+const fs=require('fs');const file='outputs/npcdex-template.html';let html=fs.readFileSync(file,'utf8');html=html.replace('</style>',`.timeline-light.grey::after{background:#b8b8b8}
+:is(.stage,#conditional)[aria-pressed=true] .timeline-light.grey::after{background:#606060}
+</style>`);fs.writeFileSync(file,html);
+for(const name of ['npcdex-data.json','npcdex-agent-export.json']){const d=JSON.parse(fs.readFileSync('outputs/'+name));d.buildVersion='2.36';d.interfaceBuild='2.36';fs.writeFileSync('outputs/'+name,JSON.stringify(d,null,2));}
+fs.writeFileSync('outputs/npcdex-update-notes.md','# NPCDex 2.36 · Unset timeline-light contrast\n\nUnset timeline lights use lighter grey on red backgrounds, with a contrasting grey on the selected yellow background. Their 4px size, off state, status mapping and all other indicator colors/animations are preserved. Contrast is measured from browser-computed colors for normal, selected and hover states against a minimum 3:1 target.\n\n'+fs.readFileSync('outputs/npcdex-update-notes.md','utf8'));

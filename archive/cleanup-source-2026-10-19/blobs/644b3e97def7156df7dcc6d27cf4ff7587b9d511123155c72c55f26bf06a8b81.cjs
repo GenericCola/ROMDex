@@ -1,0 +1,10 @@
+const fs=require('fs');let s=fs.readFileSync('work/npcdex-template.html','utf8');
+s=s.replace('.group-head h3{','.area-thumbnail{width:35px;height:28px;object-fit:contain;border-radius:3px;background:#10241e}.group-head h3{');
+s=s.replace('<div class="group-head"><h3>', '<div class="group-head">${a.image?.dataUrl?`<img class="area-thumbnail" src="${esc(a.image.dataUrl)}" alt="${esc(a.name)}">`:""}<h3>');
+s=s.replace("$('entry-flag').onclick=()=>{setAnn", "$('entry-flag').onclick=()=>{flushNote();setAnn");
+s=s.replace("dirty=false;$('save').classList.remove('dirty');$('save').textContent='Save changes ↓';$('save-status').textContent='Saved locally · export downloaded'", "dirty=editEpoch!==savingEpoch;$('save').classList.toggle('dirty',dirty);$('save').textContent=dirty?'Save changes ●':'Save changes ↓';$('save-status').textContent=dirty?'Snapshot saved · newer edits pending':'Saved locally · export downloaded'");
+s=s.replace('dirty=false,db=null','dirty=false,editEpoch=0,db=null');
+s=s.replace('function markDirty(){dirty=true;','function markDirty(){editEpoch++;dirty=true;');
+s=s.replace('const snapshot=structuredClone(data);await writeDB(snapshot);','const snapshot=structuredClone(data),savingEpoch=editEpoch;await writeDB(snapshot);');
+s=s.replace("if(c.target.type==='town'){locationId=null;selected=null}","if(c.target.type==='area'){locationId=t.locations.find(l=>l.areaIds.includes(c.target.id))?.id||null;selected=null}if(c.target.type==='town'){locationId=null;selected=null}");
+fs.writeFileSync('work/npcdex-template.html',s);

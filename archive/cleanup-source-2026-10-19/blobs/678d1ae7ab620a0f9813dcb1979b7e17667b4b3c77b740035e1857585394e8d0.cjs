@@ -1,0 +1,13 @@
+const fs=require('fs');const file='outputs/npcdex-planning-ui.js';let js=fs.readFileSync(file,'utf8');
+const helper=`function reviewHasPendingChange(key,a,pending){const town=reviewTownForAnnotation(key,a);return pending.some(p=>p.target.townId===town?.id&&(key===(p.target.type==='prompt'?p.target.id:p.target.type+':'+p.target.id)||(p.target.type==='prompt'&&a.scope==='passage'&&a.context?.promptKey===p.target.id)))}
+`;
+js=js.replace('function renderReviewMenu(){',helper+'function renderReviewMenu(){');
+js=js.replace('reviewMenuEntries=[];const categories=',"reviewMenuEntries=[];const pending=Object.values(data.changePlans).filter(p=>['UPDATE','REMOVE'].includes(p.intent)&&p.workflow!=='implemented');const categories=");
+js=js.replace(".filter(([key,a])=>a.flag||a.note).map", ".filter(([key,a])=>(a.flag||a.note)&&(!reviewHasPendingChange(key,a,pending)||!!a.note?.trim())).map");
+js=js.replace("entries:Object.values(data.changePlans).filter(p=>['UPDATE','REMOVE'].includes(p.intent)&&p.workflow!=='implemented').map",'entries:pending.map');
+js=js.replace("function reviewPlanHTML(p){const a=ann", "function reviewPlanHTML(p){const flag=tileFlag(p.target.type,p.target.id,p.target.townId),a=ann");
+js=js.replace("return intentHTML(p.target.type,p.target.id,p.target.townId)+' '+esc", "return intentHTML(p.target.type,p.target.id,p.target.townId)+' '+(flag.flag?'<span class=\"'+(flag.critical?'flag-critical':'flag-standard')+'\">⚑ '+(flag.critical?'Critical':'Standard')+'</span> ':'')+esc");
+fs.writeFileSync(file,js);
+const html='outputs/npcdex-template.html';fs.writeFileSync(html,fs.readFileSync(html,'utf8').replace('Items with feedback and a change ticket can appear in both categories, linking to the same record.','Flags without notes belong only in Changes when a pending change exists. Notes remain in Flags/Notes; items with both notes and changes appear in both categories.'));
+for(const name of ['npcdex-data.json','npcdex-agent-export.json']){const d=JSON.parse(fs.readFileSync('outputs/'+name));d.buildVersion='2.42';d.interfaceBuild='2.42';fs.writeFileSync('outputs/'+name,JSON.stringify(d,null,2));}
+const notes='outputs/npcdex-update-notes.md';fs.writeFileSync(notes,'# NPCDex 2.42 · Clarified Review Category Rules\n\nA pending change with a flag but no note appears only in Changes. A flag/note without a pending change appears in Flags/Notes. A pending change with a note appears in both relevant categories, sharing one record. Critical flags remain visible on Changes cards. All pending tickets remain listed; underlying flags, notes and decisions are unchanged.\n\n'+fs.readFileSync(notes,'utf8'));
