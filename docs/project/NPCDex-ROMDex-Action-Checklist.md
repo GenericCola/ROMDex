@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** **U21 is complete in source**, verified October 19 with 197 targeted tests, five native desktop checks and six isolated real YouTrack checks. Fixed JSON map packages use familiar CHANGE/REMOVE/FINAL selection, context-only support and explicit existing/new task attachment. [Completion report](U21-Completion-Report.md). Installed ROMDex remains **0.5.15**; U21 is not installed until a later packaged release. **Next: U22 — Sol / High; await a new PASSKEY.**
+**Current:** **U22 is complete in source**, with exact task/map/package/target links, fixed item/group delivery progress and separate unreported implementation/testing dimensions. 77 focused tests and eight source-interface checks passed. [Completion report](U22-Completion-Report.md). Installed ROMDex remains **0.5.15** pending a later packaged release. **Next: U23 — Sol / High; await a new PASSKEY.**
 
 ## Completed Foundation
 
@@ -113,7 +113,7 @@ RD10 execution checklist:
 ## Phase 7 — JSON Map Packages and Actionable Tasks
 
 - [x] **U21 — Map Document Preview and Task Attachment** — Sol / High. After RD01–RD10: readable immutable `.json` Map Package, whole-map pending work preselected, stable ROM targets/base hashes/instructions and accessible YouTrack asset references. Existing/new task chooser, explicit attach, duplicate-safe retry; newer drafts preserved and no agent dispatch. Completed October 19 in source; [report](U21-Completion-Report.md). No hidden Draft/Ready gate; FINAL/flags/notes stay context, and context-only packages are allowed.
-- [ ] **U22 — Linked Navigation and Package Progress** — Sol / High. Exact task/map/package links and per-item/group progress; distinguish staged, attached, implemented and awaiting testing. No implicit task completion.
+- [x] **U22 — Linked Navigation and Package Progress** — Sol / High. Exact task/map/package links and per-item/group progress; distinguish delivery from implementation/human testing. Completed October 19 in source; [report](U22-Completion-Report.md). Unverified agent claims and task completion cannot establish result/testing progress. No implicit task completion.
 
 ## Phase 8 — Returned RDX Reconciliation, Review and Testing
 

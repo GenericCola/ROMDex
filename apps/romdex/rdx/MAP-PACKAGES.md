@@ -19,3 +19,5 @@ The complete working RDX, excluded plans/notes and unrelated history stay local.
 After attachment, hand the task to the coding agent separately. Recorded mappings may be documented extraction evidence rather than proof of the latest ROM. The agent must resolve every target against the actual ROM/source before implementation. All results must remain open for human review and in-game testing; U21 does not enable automatic agent returns or mark tasks complete.
 
 Limits: one physical map, 2,000 selectable entries, 64 distinct required files, 50 MiB per file, 128 MiB of required files and 16 MiB of JSON. Nothing is silently dropped to meet a limit. The local ledger holds up to 1,000 fixed package versions before an explicit retention review is required.
+
+[U22 navigation and progress](PACKAGE-NAVIGATION.md) adds exact reciprocal task/map/version/target links and read-only delivery facts. Implementation/testing remain separately gated.

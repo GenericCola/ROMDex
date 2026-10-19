@@ -1,3 +1,10 @@
+## Unreleased — U22 Package Navigation and Progress
+
+- Link task Details to exact maps/package versions, and packages to their tasks, managed maps and individual content targets.
+- Show fixed selected items/dependency groups, upload/verification counts and native recovery holds without treating task completion as verified implementation or testing.
+- Checkpoint before cross-document navigation, protect editors and report missing targets without guessing names. No imports, publication, dispatch or task-status changes from links.
+- Pass 77 focused tests and eight source UI checks; installed 0.5.15 remains unchanged.
+
 ## Unreleased — U21 Fixed JSON Map Packages
 
 - Add whole-map readable CHANGE/REMOVE/FINAL and notes/flags selection, context-only packages, explicit existing/new PMON task destinations and immutable versions.

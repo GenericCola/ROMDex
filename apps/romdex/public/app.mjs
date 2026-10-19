@@ -1,4 +1,5 @@
-let markWorkspaceReady;window.romdexWorkspace={kind:"romdex",get engine(){return ws;},resize:()=>paneSplit?.apply(),flush:()=>flushEditors(),prepareQuit:async()=>{await selectionQueue;await flushEditors();retainCommentDraft();if(draft?.text?.trim()||renameId||groupDraft||Object.values(editorDirty).some(Boolean)||document.querySelector('dialog[open]')||[...commentDrafts.values()].some(text=>text.trim())||fileDrops?.busy||attachmentView.busy)throw Error('Finish or Cancel the Current ROMDex Editor Before Quitting.');},editorStatus:()=>({...editorDirty}),ready:new Promise(resolve=>markWorkspaceReady=resolve)};
+import {renderPackageLinks} from './package-links.mjs';
+let markWorkspaceReady;window.romdexWorkspace={kind:"romdex",openTask:openLinkedTask,get engine(){return ws;},resize:()=>paneSplit?.apply(),flush:()=>flushEditors(),prepareQuit:async()=>{await selectionQueue;await flushEditors();retainCommentDraft();if(draft?.text?.trim()||renameId||groupDraft||Object.values(editorDirty).some(Boolean)||document.querySelector('dialog[open]')||[...commentDrafts.values()].some(text=>text.trim())||fileDrops?.busy||attachmentView.busy)throw Error('Finish or Cancel the Current ROMDex Editor Before Quitting.');},editorStatus:()=>({...editorDirty}),ready:new Promise(resolve=>markWorkspaceReady=resolve)};
 import {mountHeader} from './shared-ui/header.mjs';
 import {AttachmentsView,paperclip} from './attachment-view.mjs';
 import {attachmentCount} from './attachment-core.mjs';
@@ -103,6 +104,7 @@ function renderWork(){
 }
 async function choose(id){clearTimeout(workOpenTimer);await selectionQueue;await flushEditors();retainCommentDraft();workSelection.clear();groupDraft=null;selected=id||null;draft=null;renameId=null;detailId=null;lastDetail=null;detailNavigation.reset();await ws.preferences({selected});render();}
 async function openDetails(id,fromChild=false,reopen=true){await selectionQueue;await flushEditors();if(!tree.byId.has(id))return;workSelection.clear();groupDraft=null;detailNavigation.open(detailId,id,fromChild);if(reopen)paneSplit?.reopen();displayDetails(id);}
+async function openLinkedTask(id){await selectionQueue;if(!tree?.byId.has(id))throw Error('The Linked Task Is Not in the Current Local Snapshot. Sync or Restore It Before Opening.');if(document.querySelector('dialog[open]')||renameId||groupDraft||draft?.text?.trim()||fileDrops?.busy||attachmentView.busy)throw Error('Finish or Cancel the Current ROMDex Editor Before Following This Link.');await openDetails(id);focusWorkspace();}
 function retainCommentDraft(){if(detailId){const text=$('comment-input').value;if(text)commentDrafts.set(detailId,text);else commentDrafts.delete(detailId);}}
 function displayDetails(id){retainCommentDraft();detailId=id;lastDetail=null;renderDetails();renderWork();if(ws.connected&&!id.startsWith('local-'))loadComments(id);}
 async function backDetails(){await flushEditors();const id=detailNavigation.back(tree.byId);if(id)displayDetails(id);else renderDetails();}
@@ -128,6 +130,7 @@ function renderDetails(){
  if(multiple){$('detail-content').hidden=true;$('detail-placeholder').hidden=false;$('detail-id').textContent='Task Details';$('detail-back').disabled=true;return;}
  const previous=tree.byId.get(detailNavigation.destination(tree.byId));$('detail-back').disabled=!previous;$('detail-back').title=previous?'Back to '+itemName(previous):'Starting Item';$('detail-back').setAttribute('aria-label',previous?'Back to '+itemName(previous):'Back');
  const item=tree.byId.get(detailId);if(!item){$('detail-content').hidden=true;$('detail-placeholder').hidden=false;$('detail-id').textContent='Task Details';detailId=null;lastDetail=null;return;}
+ let packageHost=$('detail-packages');if(!packageHost){packageHost=document.createElement('section');packageHost.id='detail-packages';packageHost.setAttribute('aria-label','Linked Map Packages');$('detail-extra').after(packageHost);}renderPackageLinks(packageHost,{state:ws.state,issueId:detailId,open:link=>{const nav=window.parent.romdexPackageNavigation;if(!nav)throw Error('Package Links Require the Desktop Workspaces.');return nav.open(link);},error:toast});
  $('detail-content').hidden=false;$('detail-placeholder').hidden=true;const fresh=lastDetail!==detailId;$('detail-id').textContent=item.id.startsWith('local-')?'New Item · Pending':item.id;
  if(fresh)$('comment-input').value=commentDrafts.get(detailId)||'';
  $('detail-parent').textContent=trail(item.parentId).map(itemName).join(' / ')||'Top-Level Epic';

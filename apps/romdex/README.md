@@ -1,6 +1,6 @@
 # ROMDex — Desktop Source
 
-Installed production is **0.5.15**, with managed one-map RDX files and two-way YouTrack content sync. **U21 is complete in source and awaits a later packaged release.** It adds [Package Map Changes](rdx/MAP-PACKAGES.md): fixed readable JSON, familiar request selection, context-only packages, required assets and explicit attachment to an existing/new task. No extra Draft/Ready step or automatic agent dispatch is introduced.
+Installed production is **0.5.15**, with managed one-map RDX files and two-way YouTrack content sync. **U21–U22 are complete in source and await a later packaged release.** It adds [Package Map Changes](rdx/MAP-PACKAGES.md): fixed readable JSON, familiar request selection, context-only packages, required assets and explicit attachment to an existing/new task. No extra Draft/Ready step or automatic agent dispatch is introduced. [U22 navigation and progress](rdx/PACKAGE-NAVIGATION.md) adds exact task/map/package/target links and read-only item/group delivery progress.
 
 Use the installed Windows ROMDex shortcut for current work. Saves and remembered connections live in its application Data folder. See [desktop storage/upgrade guidance](U13A-Desktop-Guide.md), [RDX authoring](rdx/authoring/README.md) and [package/return boundaries](rdx/authoring/PACKAGES-AND-RETURNS.md). U23–U27 returned-file automation is not enabled by U21.
 

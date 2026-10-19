@@ -1,0 +1,84 @@
+{
+  "task": "U22",
+  "status": "passed",
+  "scope": "source-only",
+  "installedVersion": "0.5.15",
+  "regressionTests": 77,
+  "uiChecks": 8,
+  "uiScope": "Actual source shell, task UI and NPCDex assets in headless Chromium with an isolated native facade; no Windows, credential or network-write claim",
+  "syntaxChecks": [
+    "rdx/map-package-workspace.mjs",
+    "public/package-progress.mjs",
+    "public/package-navigation.mjs",
+    "public/package-links.mjs",
+    "public/app.mjs",
+    "public/shell.mjs",
+    "content/map-packages.js",
+    "tests/map-package.test.mjs",
+    "tests/package-navigation.test.mjs"
+  ],
+  "liveWrites": false,
+  "installedAppChanged": false,
+  "sourceFiles": [
+    {
+      "path": "rdx/map-package-workspace.mjs",
+      "sha256": "fdc2d6cd6c6c5d18bfef9bff2951d82b57d0a9548196ce97760980efc7b28e97"
+    },
+    {
+      "path": "public/package-progress.mjs",
+      "sha256": "6057b4bfae0a13196dd1e1265fec57da58d8c3e8e338810218c59ba88da4f64a"
+    },
+    {
+      "path": "public/package-navigation.mjs",
+      "sha256": "6e9d7bc8a01a1d5f4b0b052d40168e1c0c01f469f1f69d629a6fdc39006c4379"
+    },
+    {
+      "path": "public/package-links.mjs",
+      "sha256": "03af9fd49c4bd4a2993c0fc3a85c7a14ca5ad969fdd9cb2356d1e16070c54fc2"
+    },
+    {
+      "path": "public/app.mjs",
+      "sha256": "403b0a149a8376a78bd6d5ce9530ad340f7267735153aee8d11415311a3e725d"
+    },
+    {
+      "path": "public/shell.mjs",
+      "sha256": "6581723ed666e29ae9af8d017d00b2d4b19e079e647027f8458b48f8ad70f842"
+    },
+    {
+      "path": "public/styles.css",
+      "sha256": "f3c48a3d1f7a62fda2027a27aad4f421df50402ee1bab14b57100202813365c2"
+    },
+    {
+      "path": "content/map-packages.js",
+      "sha256": "c81d52f2777c1b75a39ae804310cb2be2189b100a8a4820c5f0acfc47ef4d49b"
+    },
+    {
+      "path": "content/native.css",
+      "sha256": "5edd9006cb4d439c83397a2a8947cd5cc4393eadcd6b395003e42bb3c6087c42"
+    },
+    {
+      "path": "tests/map-package.test.mjs",
+      "sha256": "32758397a2d5b57bb5a192dd9029dd745c74ae893eca01bf41fbafec268d1641"
+    },
+    {
+      "path": "tests/package-navigation.test.mjs",
+      "sha256": "b90b4cf8e6fe96a4fd63655c8983fe798f8665d28fdd04b110a68468e3db98ff"
+    },
+    {
+      "path": "rdx/PACKAGE-NAVIGATION.md",
+      "sha256": "832c3b7714b3626d1dd7c4510c463fdda3b9eddb8d4ea4d48543dec29e2710c4"
+    },
+    {
+      "path": "rdx/MAP-PACKAGES.md",
+      "sha256": "e7fd77ede96c965e1b6c5c907a62580c167adc55bf2f9402363d29a9639b23a7"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "b57da07076ad2d7847f3f459fdca5c062128d45aa1f5908585f6b690228bc20c"
+    },
+    {
+      "path": "README.md",
+      "sha256": "12d7b3246581a899353a4f010455890805215fc27e7d414373acf412071872fb"
+    }
+  ]
+}

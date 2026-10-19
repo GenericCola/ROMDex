@@ -1,0 +1,22 @@
+{
+  "task": "U22",
+  "scope": "Actual source shell, task UI and NPCDex assets in headless Chromium with an isolated native facade; no Windows, credential or network-write claim",
+  "checks": [
+    "Real Tray 2 menu opens the exact fixed version with five selected items and dependency-group progress",
+    "Package \u00e2\u2020\u2019 Task opens the exact task Details and its reciprocal fixed-version links",
+    "Task \u00e2\u2020\u2019 View Package returns to the same immutable version without changing the map",
+    "Cross-document Open Target reloads the exact managed map, selects its NPC/dialogue point and closes the package modal",
+    "Task \u00e2\u2020\u2019 Open Map restores the linked physical map without importing or publishing",
+    "A missing exact content target reports review instead of selecting a similar character",
+    "Progress and navigation remain scrollable above the footer at 620px height",
+    "Navigation preserves task content/status, package count and queue; no renderer errors or external requests"
+  ],
+  "geometry": {
+    "bodyBottom": 428.703125,
+    "footerTop": 440.703125,
+    "footerBottom": 492,
+    "viewport": 517
+  },
+  "status": "passed",
+  "finishedAt": "2026-10-19T15:14:20.106Z"
+}

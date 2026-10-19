@@ -4,7 +4,7 @@ Private development home for ROMDex and its NPCDex add-on.
 
 Latest published and installed private release: [ROMDex 0.5.15](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.15), with separate managed RDX map files and all saved connections preserved. [RD10 acceptance](docs/project/RD10-Completion-Report.md).
 
-**U21 is complete in source**, with fixed JSON Map Package previews, familiar CHANGE/REMOVE/FINAL selection, context-only packages and explicit existing/new PMON task attachment. 197 targeted tests, native UI/quit checks and real private synthetic-task delivery passed. [U21 report](docs/project/U21-Completion-Report.md), [package guide](apps/romdex/rdx/MAP-PACKAGES.md). Installed 0.5.15 awaits a later packaged release for U21. **Next: U22 — Sol / High**, under a new PASSKEY. Returned-RDX automation remains U23–U27; ROM extraction is a post-release stretch goal.
+**U21–U22 are complete in source**, with fixed JSON Map Package previews, familiar CHANGE/REMOVE/FINAL selection, context-only packages and explicit existing/new PMON task attachment. 197 targeted tests, native UI/quit checks and real private synthetic-task delivery passed. [U21 report](docs/project/U21-Completion-Report.md), [package guide](apps/romdex/rdx/MAP-PACKAGES.md). U22 adds exact task/map/package/target links and item/group delivery progress; [report](docs/project/U22-Completion-Report.md). Installed 0.5.15 awaits a later packaged release for these features. **Next: U23 — Sol / High**, under a new PASSKEY. Returned-RDX automation remains U23–U27; ROM extraction is a post-release stretch goal.
 
 - **apps/romdex/** — current application source, desktop host, web UI and tests.
 - **packages/tool-suite-ui/** — reusable suite assets, including the Standard Settings Icon.

@@ -3,10 +3,10 @@
 **Date:** October 14, 2026  
 **Revised:** October 19, 2026.
 
-**Status:** U01–U20I and RD01–RD10 are complete. Installed ROMDex is 0.5.15; Phase 6 acceptance and the three separate managed map files are verified. U21 is complete in source; U22 is next under a separate PASSKEY. ROM extraction remains a post-release stretch goal.
+**Status:** U01–U20I and RD01–RD10 are complete. Installed ROMDex is 0.5.15; Phase 6 acceptance and the three separate managed map files are verified. U21 and U22 are complete in source; U23 is next under a separate PASSKEY. ROM extraction remains a post-release stretch goal.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
-**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). **Phase 6 is complete.** RD10 is verified in installed ROMDex 0.5.15 with three strictly separate map files, unchanged existing NPCD identities, fresh backup/restoration and all saved connections preserved. [Completion report](RD10-Completion-Report.md), [requested tooling report](Phase-6-RDX-Authoring-Report.md). **U21 is source-complete** ([report](U21-Completion-Report.md)); it is not installed yet. **U22 — Sol / High** is next and requires a new PASSKEY.
+**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). **Phase 6 is complete.** RD10 is verified in installed ROMDex 0.5.15 with three strictly separate map files, unchanged existing NPCD identities, fresh backup/restoration and all saved connections preserved. [Completion report](RD10-Completion-Report.md), [requested tooling report](Phase-6-RDX-Authoring-Report.md). **U21 is source-complete** ([report](U21-Completion-Report.md)); it is not installed yet. **U22 is also source-complete** ([report](U22-Completion-Report.md)). **U23 — Sol / High** is next and requires a new PASSKEY.
 
 ## Working Agreement
 
@@ -288,7 +288,7 @@ Deferred until after the main release (U30); it does not delay U21–U30. The su
 
 Tasks later in the plan are provisional until their design checkpoints are completed. Current desktop/cloud behavior remains available while the content architecture is reviewed and proved. Earlier completion narratives below are historical checkpoints; the status and checklist at the top control current execution.
 
-**Current boundary:** RD01–RD10 are complete within their approved scopes. The real isolated import/YouTrack/two-way proof passed before all three existing maps adopted managed one-map RDX working files in 0.5.15. Shared/global content and protected recovery remain separate. **U21 is complete in source** after its PASSKEY and isolated native/YouTrack proof; installed production stays 0.5.15. **U22** is the next separately gated task. Task-bound returned-file reconciliation and human testing gates remain mandatory later work.
+**Current boundary:** RD01–RD10 are complete within their approved scopes. The real isolated import/YouTrack/two-way proof passed before all three existing maps adopted managed one-map RDX working files in 0.5.15. Shared/global content and protected recovery remain separate. **U21 is complete in source** after its PASSKEY and isolated native/YouTrack proof; installed production stays 0.5.15. **U22 is complete in source** with exact navigation and delivery progress; **U23** is the next separately gated task. Task-bound returned-file reconciliation and human testing gates remain mandatory later work.
 
 
 ## R08 — Release Completed, October 14, 2026

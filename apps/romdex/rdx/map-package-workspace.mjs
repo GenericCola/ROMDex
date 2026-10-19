@@ -4,6 +4,7 @@ import {inspectMapPackage,buildMapPackage,packageName} from './map-package.mjs';
 import {validateShape} from './schema.mjs';
 import {ensure,LIMITS} from './limits.mjs';
 import {MAX_FILE_BYTES} from '../public/attachment-core.mjs';
+import {packageSummary,packageProgress} from '../public/package-progress.mjs';
 
 const BASE='https://thegobindsingh.youtrack.cloud',CHUNK=512*1024;
 const cleanDestination=(input,items)=>{
@@ -26,7 +27,10 @@ export class MapPackageWorkspace{
   const value=await this.maps.store.view(key);ensure(value.status.saved,'RECOVERY','Finish the Map RDX Checkpoint Before Packaging.');
   return {key,value};
  }
- status(){return this.entries().map(e=>({id:e.id,key:e.key,mapName:e.mapName,packageId:e.packageId,version:e.version,status:e.status,issueId:e.issueId,error:e.error||null,contextOnly:e.contextOnly,newerDrafts:this.maps.store?.row(e.key).head!==e.revision,binding:e.binding||null,packageHash:e.packageHash||null,uploads:e.uploads.map(f=>({role:f.role,name:f.name,complete:!!f.completed,verified:!!f.verified,error:f.error||null}))}));}
+ status(){return this.entries().map(e=>({...packageSummary(e,this.engine.state.blocked),newerDrafts:this.maps.store?.row(e.key).head!==e.revision,binding:e.binding||null,packageHash:e.packageHash||null,uploads:e.uploads.map(f=>({role:f.role,name:f.name,complete:!!f.completed,verified:!!f.verified,error:f.error||null}))}));}
+ frozen(id){const entry=this.engine.state.mapPackages?.[id];ensure(entry,'NOT_FOUND','This Fixed Package Is No Longer Available.');const value=this.maps.store.load(entry.key,entry.revision);ensure(sha(value.documentBytes)===entry.baseDocumentHash,'INTEGRITY','The Frozen Package Baseline Changed.');return {entry,prepared:inspectMapPackage(value,{selection:entry.selection})};}
+ details(id){const {entry,prepared}=this.frozen(id);return {...packageProgress(entry,prepared,this.engine.state.blocked),binding:entry.binding||null,packageHash:entry.packageHash||null,taskName:this.engine.items.find(t=>t.id===entry.issueId)?.summary||null,newerDrafts:this.maps.store.row(entry.key).head!==entry.revision};}
+ navigation(input){const {entry,prepared}=this.frozen(input.id),row=input.targetKey?prepared.rows.find(r=>r.selected&&r.key===input.targetKey):null;ensure(!input.targetKey||row,'NOT_FOUND','The Target Is Not in This Fixed Package.');const artifact=row&&(row.key.startsWith('plan:')?prepared.requests.find(p=>p.digest===row.key.slice(5)):prepared.observations.find(r=>r.digest===row.key.slice(7)));return {id:entry.id,issueId:entry.issueId,key:entry.key,context:this.maps.adoption?.owns(entry.key)?null:entry.key,mapRecordId:prepared.document.scope.mapRecordId,target:artifact?structuredClone(artifact.target):null};}
  async preview(input){
   ensure(this.engine.state,'NOT_READY','Wait for the Task Workspace to Load.');await this.engine.lock;
   const captured=await this.capture(input),p=inspectMapPackage(captured.value,{selection:input.selection??null}),dest=input.destination?cleanDestination(input.destination,this.engine.items):null;
@@ -120,6 +124,8 @@ export class MapPackageWorkspace{
   if(route.endsWith('/deliver')){ensure(input.approved===true,'REVIEW_REQUIRED','Confirm the One-Time Package Delivery Attempt.');await this.cycle(true);return {entries:this.status()};}
   return this.maps.execute(async()=>{
    ensure(!this.paused,'NOT_READY','Map Packages Are Paused for Desktop Lifecycle Work.');
+   if(route.endsWith('/details'))return this.details(input.id);
+   if(route.endsWith('/navigation'))return this.navigation(input);
    if(route.endsWith('/preview'))return (await this.preview(input)).response;
    if(route.endsWith('/stage'))return this.stage(input);
    if(route.endsWith('/download')){const entry=this.engine.state.mapPackages?.[input.id];ensure(entry?.packageHash,'NOT_READY','The Exact JSON Package Is Available After Its Assets Are Verified.');const bytes=this.blob(entry.packageHash);this.download={id:randomUUID(),bytes,expires:Date.now()+15*60*1000};return {id:this.download.id,bytes:bytes.length,sha256:sha(bytes),name:packageName(entry.packageId,entry.version)};}

@@ -1,3 +1,4 @@
+import {mountPackageNavigation} from './package-navigation.mjs';
 import {guardMetadataEditors} from './metadata-edit-guard.mjs';
 import {mountCloudReview} from './cloud-review.mjs';
 import {mountHeader} from './shared-ui/header.mjs';
@@ -56,4 +57,5 @@ window.addEventListener('resize',()=>host.resize());window.romdexShell={host,coo
 await coordinator.init().catch(error=>{coordinator.storageError=error.message;coordinator.emit();});
 try{await native.init();await host.activate('romdex');}catch(error){nativeError=error.message;tell(error.message);}
 try{if(nativeError)await host.activate('npcdex');else await host.load('npcdex');host.resize();}catch(error){npcError=error.message;tell(error.message);}finally{$('shell-loading').hidden=true;mirror();if(desktop)desktop.profileInfo().then(info=>{if(!info.migrated)tell('Isolated Desktop Verification Profile · Your Live Saves Are Separate.');}).catch(()=>{});}
+if(desktop)window.romdexPackageNavigation=mountPackageNavigation({host,desktop,tell});
 if(desktop)window.romdexNativeRdx=mountNativeRdx({desktop,host,tell});

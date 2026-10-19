@@ -64,3 +64,4 @@
 .map-package-dialog footer{flex-wrap:wrap}
 .map-package-dialog .map-package-tag{font-size:11px;border:1px solid currentColor;border-radius:3px;padding:2px 6px;white-space:nowrap}
 .map-package-dialog .map-package-tag.final{color:#a8dbb2}.map-package-dialog .map-package-tag.update{color:#f4c55b}.map-package-dialog .map-package-tag.remove{color:#ff9299}
+.map-package-links{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:12px}.map-package-identity p{overflow-wrap:anywhere}.map-package-progress-group{border:1px solid var(--line,#536d59);border-radius:8px;padding:12px;margin:12px 0}.map-package-progress-item{border-top:1px solid var(--line,#536d59);padding:8px 0}.map-package-progress-item p{white-space:pre-wrap;overflow-wrap:anywhere}
