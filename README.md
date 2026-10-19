@@ -2,7 +2,7 @@
 
 Private development home for ROMDex and its NPCDex add-on.
 
-Latest published private release: [ROMDex 0.5.14](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.14). Installed and verified with the native NPCD transition committed, its queue empty, current content and all saved connections preserved. [U20I completion report](docs/project/U20I-Completion-Report.md). Next: **U21 — Map Document Preview and Task Attachment, Sol / High**, after a new PASSKEY.
+Latest published private release: [ROMDex 0.5.14](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.14). Installed and verified with the native NPCD transition committed, its queue empty, current content and all saved connections preserved. [U20I completion report](docs/project/U20I-Completion-Report.md). The RDX roadmap now precedes U21: RD01 is approved; RD02–RD05 are source-complete without changing installed production maps. Next: **RD06 — ROMDex Plan Import and Destination Mapping, Sol / High**, after a new PASSKEY. [RD05 report](docs/project/RD05-Completion-Report.md).
 
 - **apps/romdex/** — current application source, desktop host, web UI and tests.
 - **packages/tool-suite-ui/** — reusable suite assets, including the Standard Settings Icon.

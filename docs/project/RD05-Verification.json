@@ -1,0 +1,87 @@
+{
+  "task": "RD05",
+  "status": "source-complete",
+  "installedVersionUnchanged": "0.5.14",
+  "productionMapsConverted": false,
+  "backendWrites": 0,
+  "credentialsUsed": false,
+  "distinctRelevantChecks": 178,
+  "suites": {
+    "mapImportAndWorkspace": 26,
+    "existingContainer": 48,
+    "existingManagedDocuments": 31,
+    "existingEditorClassicNativeCatalogPolicy": 73
+  },
+  "finalFocusedRechecks": 4,
+  "bundled": {
+    "task": "RD05",
+    "scope": "Bundled Electron in Node mode; isolated map import/update and local document adapter",
+    "credentialsUsed": false,
+    "productionDataAccessed": false,
+    "exitCode": 0,
+    "status": "passed"
+  },
+  "ui": {
+    "task": "RD05",
+    "status": "passed",
+    "scope": "Isolated desktop assets in headless Chromium, not the installed Electron application",
+    "synthetic": true,
+    "credentialsUsed": false,
+    "liveDataAccessed": false,
+    "checks": [
+      "Offline empty workspace exposes local RDX import and dependency preview",
+      "Confirmed import opens the map through the existing NPCDex renderer",
+      "Original contextual note and flag controls save into the managed RDX",
+      "Current map export downloads a verified portable RDX with the UI edits",
+      "Update preview remains scrollable above its fixed actions at 620px height",
+      "Shared-context conflict blocks confirmation until an explicit choice, and retains newer local notes",
+      "No browser runtime errors or external network access"
+    ],
+    "geometry": {
+      "bodyBottom": 531.703125,
+      "footerTop": 543.703125,
+      "footerBottom": 595,
+      "height": 620
+    }
+  },
+  "serviceSmoke": "RD05 desktop service: offline view, RDX routes, application Data root, checkpoint, shutdown and released ownership passed.\r\n",
+  "syntax": [
+    "rdx/map-import.mjs",
+    "rdx/map-workspace.mjs",
+    "tests/rdx-map-import.test.mjs",
+    "content/authorization.mjs",
+    "content/desktop-assets.mjs",
+    "content/desktop-ui.js",
+    "content/import-ui.js",
+    "content/preview.js",
+    "desktop/service.mjs"
+  ],
+  "sourceHashes": {
+    "rdx/map-import.mjs": "6d6238110735303cef6ec3f950b8532dbba63380f3dbfe3fc1ea82c49aecc07f",
+    "rdx/map-workspace.mjs": "a71e2ff682ed951d598ffd498b1298e7872d7dc10b20719098bffb9328a70ace",
+    "rdx/MAP-IMPORT.md": "0f3e9221a8f9bffddc957490d7b038fdaf90a7b7f902e962f6a4a5f9196711de",
+    "rdx/README.md": "a35706c5cbd6d7c9f37c0676863e5f0c7079d8a7751669ea0d1012d392161b79",
+    "tests/rdx-map-import.test.mjs": "bbc6f0c3f9a764a80937573b0ad3a6a3f8bbb02ab8368dc7349e564816af80fc",
+    "content/authorization.mjs": "ad4de0f75f65a43d53bd70c8fc4838071c48772aa947c20ddeb5e2ff1d3d68b2",
+    "content/desktop-assets.mjs": "9604b46b1ea4e4d951c650ee7139cbb58a95a3011a807408a02893d8bd7a332a",
+    "content/desktop-ui.js": "5cc292f57b3a4a0f5ada128e4af7ecdf23662e6f1e947e2c319e899753dc2eef",
+    "content/import-ui.js": "4a0e5547dbb6dd5d0c30826c29bc93b598e7dacd123059a52eeea01d58dec4f7",
+    "content/native.css": "2a1c90b95b58d9c9e9526e8045764e9d2e60dd8f036be2f30cc496a3e9496e8c",
+    "content/preview.js": "e6ffc92cfe0e5022d224c8a9fa1d1a75fea6c399503b1258ec292f54e3700038",
+    "desktop/service.mjs": "32d3f03de2fba0ffc18e171061e77b27d10de3161a74302b527530c86dbce9ab",
+    "CHANGELOG.md": "47c11d5f8271d8a67cda416926361de24301308403793c78fd500c32fb53bb04"
+  },
+  "limits": [
+    "Source-only; no installer or native-window/live backend acceptance",
+    "Cross-document shared context differences require coordinated review",
+    "Record kind/parent rebinding refused",
+    "Invalid presentation rejected before commit",
+    "Managed-store quota retains history without automatic compaction"
+  ],
+  "next": {
+    "task": "RD06",
+    "model": "Sol",
+    "reasoning": "High",
+    "requiresNewPasskey": true
+  }
+}

@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** **RD01 is approved; RD02–RD04 are source-complete and verified.** [RD04 report](RD04-Completion-Report.md). Installed 0.5.14, current maps, live Data/queue and credentials remain unchanged pending later RDX integration/adoption. Next: **RD05 — NPCDex Map Import and Update Preview, Sol / High**, requiring a new PASSKEY.
+**Current:** **RD01 is approved; RD02–RD05 are source-complete and verified.** [RD05 report](RD05-Completion-Report.md). Installed 0.5.14 and current production maps are unchanged; real RDX binding/adoption remain later gates. Next: **RD06 — ROMDex Plan Import and Destination Mapping, Sol / High**, requiring a new PASSKEY.
 
 ## Completed Foundation
 
@@ -90,7 +90,7 @@
 ## Phase 6 — Managed Documents, Imports and Cloud Publication
 
 - [x] **RD04 — Local Managed Documents and Portable Export** — Sol / High. **Source-complete and verified.** [Report](RD04-Completion-Report.md), [evidence](RD04-Verification.json), [guide](ROMDex/rdx/MANAGED-DOCUMENTS.md). Data/RDX service/CLI, durable journal, atomic working checkpoints/recovery and offline portable export. 107 focused checks; 31 managed checks under bundled runtime, plus seven final provenance rechecks in both. Existing maps/UI/installed app unchanged; integration/adoption remain later tasks.
-- [ ] **RD05 — NPCDex Map Import and Update Preview** — Sol / High. One map per input; stable-ID update previews, shared dependencies and newer-draft protection. Complete snapshots may propose archival of covered omissions; partial files imply no removal. Preserve original UI and archive history.
+- [x] **RD05 — NPCDex Map Import and Update Preview** — Sol / High. One map per input; stable-ID update previews, shared dependencies and newer-draft protection. Complete snapshots may propose archival of covered omissions; partial files imply no removal. Preserve original UI and archive history.
 - [ ] **RD06 — ROMDex Plan Import and Destination Mapping** — Sol / High. User-selected PMON destination; preview tier changes, retain complete subtrees and map editable fields/comments/attachments. Omitted tasks survive; explicit deletion is reviewed. Idempotent restart/reimport, no implicit publish or dispatch.
 - [ ] **RD07 — Document Bindings and Bidirectional Cloud Sync** — Sol / High. Bind local files after preview; publish record/asset deltas; fold accepted YouTrack edits back into managed `.rdx`. **Acceptance:** a test file imports, maps to real isolated YouTrack records, accepts a local change and a native YouTrack change, then retains both after reopen/export. Preserve conflict recovery, shared controls and credentials.
 - [ ] **RD08 — Windows RDX File Integration** — Sol / Medium. Use the exact existing **Pokéball favicon artwork** as the `.rdx` file icon. Register/open into validated previews through the single-instance app; no silent execution/publication/replacement. Preserve Data and association ownership on upgrade/uninstall.
@@ -570,3 +570,15 @@ Next: **RD04 — Local Managed Documents and Portable Export, Sol / High**, with
 - [x] Keep installed 0.5.14, current maps, queue, connections and YouTrack unchanged.
 
 Next: **RD05 — NPCDex Map Import and Update Preview, Sol / High**, with a new PASSKEY. Current maps are not RDX working files yet; RD07 live proof and RD10 accepted conversion remain mandatory.
+
+## RD05 Completed — October 18, 2026
+
+- [x] Add Tray 2 map RDX import, explicit dependency/update previews and verified export through the existing NPCDex interface.
+- [x] Preserve newer drafts and exact alternatives; require choices for overlaps/shared context and pin accepted previews.
+- [x] Retain omissions, with optional pinned archival/REMOVE proposals for covered complete snapshots.
+- [x] Support offline local editing, document/view/draft selection and restart; protect against stale-frame writes.
+- [x] Keep portable verification claims unreviewed and retain original claim/correction evidence.
+- [x] Pass 178 distinct relevant checks, 26 bundled-runtime checks, four final rechecks, seven isolated UI checks and desktop-service smoke checks.
+- [x] Preserve installed 0.5.14, production maps, live queue, credentials and backend data.
+
+Next: **RD06 — ROMDex Plan Import and Destination Mapping, Sol / High**, with a new PASSKEY. No current production map has become an RDX working file; RD07 proof and RD10 accepted adoption remain required.

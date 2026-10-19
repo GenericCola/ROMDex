@@ -12,6 +12,8 @@
  $('save').onclick=async()=>{if(busy)return;busy=true;$('save').disabled=true;try{await window.romdexClassic?.flush();status(await request('/api/sync',{}));await refresh(true);}catch(error){$('save-status').textContent=error.message;}finally{busy=false;$('save').disabled=false;}};
  if($('content-auto'))$('content-auto').onclick=async()=>{if(busy)return;busy=true;try{const enabled=$('content-auto').getAttribute('aria-pressed')!=='true';status(await request('/api/auto',{enabled}));}catch(error){$('save-status').textContent=error.message;}finally{busy=false;}};
  document.addEventListener('click',event=>{if(event.target.closest('#male,#female')){queueMicrotask(()=>refresh(true));return;}queueMicrotask(()=>{appendProposals();lockControls();});});
- render();lockControls();refresh(true);if(!window.romdexContentAPI)setInterval(()=>refresh(),10000);
+ if(window.romdexMapPosition){const p=window.romdexMapPosition;if(data.towns.some(t=>t.id===p.townId)){townId=p.townId;locationId=p.locationId;roomAreaId=p.roomAreaId;expandedLocationId=p.expandedLocationId;gender=p.gender==='female'?'female':'male';selected=p.selected;stage=p.stage||'A';pointId=p.pointId;pageIndex=p.pageIndex||0;reviewEntryKey=p.reviewEntryKey;scopeOverride=p.scopeOverride;expandedTowns=new Set(p.expandedTowns||[]);}}
+ render();if(window.romdexMapPosition)window.romdexClassic?.restoreView(window.romdexMapPosition.scroll);lockControls();refresh(true);if(!window.romdexContentAPI)setInterval(()=>refresh(),10000);
+ document.addEventListener('DOMContentLoaded',()=>{if(window.romdexMapPosition)window.romdexClassic?.restoreView(window.romdexMapPosition.scroll);},{once:true});
  window.romdexContentPreview={refresh,lockControls,status:()=>({head,readOnly:true,workspace:'fixture:workspace'})};
 })();

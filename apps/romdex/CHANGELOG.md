@@ -1,3 +1,11 @@
+## Unreleased — RD05 NPCDex RDX Map Import and Update
+
+- Add previewed local map imports, conflict choices, optional archival proposals and portable exports in Tray 2 Content Tools.
+- Keep the original tiles, contextual notes/flags/change controls and independent connected content provider.
+- Preserve newer drafts, exact assets, alternate revisions and correction evidence; reject stale previews and cross-document writes.
+- Treat portable testing claims as unreviewed; keep maps unbound until the later YouTrack proof.
+- Installed 0.5.14 and current production maps remain unchanged.
+
 ## Unreleased — RD04 Managed Documents and Export
 
 - Add isolated app-managed map/plan checkpoints under the selected Data/RDX folder.

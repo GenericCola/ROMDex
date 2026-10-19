@@ -6,7 +6,7 @@
 **Status:** U01–U20I and RD01 are complete. RD02–RD04 source implementation and focused verification are complete; [RD04 report](RD04-Completion-Report.md). Installed ROMDex remains 0.5.14. Current maps are unchanged; the RDX foundation awaits later integration/adoption.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
-**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). RD04 is source-complete: 107 focused checks, 31 managed-document checks under bundled Electron, seven final provenance rechecks in both and isolated portable acceptance. Next: **RD05 — NPCDex Map Import and Update Preview, Sol / High**, under a new PASSKEY.
+**Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). RD05 is source-complete: map import/update previews, original editing controls, unbound local working files and verified portable export. [RD05 report](RD05-Completion-Report.md). Next: **RD06 — ROMDex Plan Import and Destination Mapping, Sol / High**, under a new PASSKEY.
 
 ## Working Agreement
 
@@ -278,7 +278,7 @@ Scheduled after U30 so notifications do not delay cloud persistence or the packa
 
 Tasks later in the plan are provisional until their design checkpoints are completed. Current desktop/cloud behavior remains available while the content architecture is reviewed and proved. Earlier completion narratives below are historical checkpoints; the status and checklist at the top control current execution.
 
-**Current boundary:** RD01 is approved; RD02–RD04 are source-complete and verified. The installed 0.5.14 app, current maps, live Data/queue and credentials remain unchanged. RD04 is a local service/CLI foundation; UI integration and real two-way proof are later gates. RD05 is next, Sol / High, under a new PASSKEY. RD05–RD10 and U21–U33 remain separately gated.
+**Current boundary:** RD01 is approved; RD02–RD05 are source-complete and verified. Installed 0.5.14, current production maps, live Data/queue and credentials remain unchanged. RD05 integrates local NPCDex map import/update/export; it does not establish live YouTrack bindings or convert existing maps. Next: RD06, Sol / High, under a new PASSKEY. RD07 live two-way proof, RD10 fresh accepted adoption and subsequent task-result gates remain mandatory.
 
 
 ## R08 — Release Completed, October 14, 2026
