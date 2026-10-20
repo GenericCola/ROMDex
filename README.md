@@ -4,7 +4,7 @@ Private development home for ROMDex and its NPCDex add-on.
 
 Latest published and installed private release: [ROMDex 0.5.15](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.15), with separate managed RDX map files and all saved connections preserved. [RD10 acceptance](docs/project/RD10-Completion-Report.md).
 
-**U21–U22 are complete in source**, with fixed JSON Map Package previews, familiar CHANGE/REMOVE/FINAL selection, context-only packages and explicit existing/new PMON task attachment. 197 targeted tests, native UI/quit checks and real private synthetic-task delivery passed. [U21 report](docs/project/U21-Completion-Report.md), [package guide](apps/romdex/rdx/MAP-PACKAGES.md). U22 adds exact task/map/package/target links and item/group delivery progress; [report](docs/project/U22-Completion-Report.md). Installed 0.5.15 awaits a later packaged release for these features. **Next: U23 — Sol / High**, under a new PASSKEY. Returned-RDX automation remains U23–U27; ROM extraction is a post-release stretch goal.
+**U21–U26A are complete in source** and await a later packaged release. U26B's targeted responsiveness, saving and warning-free shutdown repairs are installed in the existing 0.5.15 application. **U26C is complete:** a clean one-map RDX imported, accepted local and reviewed native YouTrack changes, exported and recovered into empty profiles without duplicate records. Temporary QA records were removed. Production NPCDex cloud sync remains explicitly paused, local saving enabled and all 133 queued entries preserved. [U26C report](docs/project/U26C-Completion-Report.md), [fictional examples](docs/project/U26C-Examples/README.md). **Next: U27 — Sol / High**, under a new PASSKEY. ROM extraction remains a post-release stretch goal.
 
 - **apps/romdex/** — current application source, desktop host, web UI and tests.
 - **packages/tool-suite-ui/** — reusable suite assets, including the Standard Settings Icon.
@@ -24,4 +24,4 @@ Run application tests from apps/romdex with Node 24: `node --test tests/*.test.m
 
 ## Current Work
 
-U20I and RD01–RD10 are complete. U21 source is verified without changing the current installed app, production saves or existing user tasks. Task-bound returned files, reconciliation and human-testing gates remain separately authorized later work.
+U26C acceptance is complete. U27 adds verification-gated task completion; U28–U30 cover final integrated acceptance and the next packaged release. A production dataset replacement is not authorized by the isolated proof and requires a current preview and acceptance.

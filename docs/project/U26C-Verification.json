@@ -1,0 +1,207 @@
+{
+  "task": "U26C",
+  "status": "complete",
+  "date": "2026-10-19",
+  "installedVersion": "0.5.15",
+  "appCodeChanged": false,
+  "installerRequired": false,
+  "localUI": {
+    "task": "U26C",
+    "status": "passed",
+    "scope": "Isolated desktop assets in headless Chromium, not the installed Electron application",
+    "synthetic": true,
+    "credentialsUsed": false,
+    "liveDataAccessed": false,
+    "checks": [
+      "Offline empty workspace exposes local RDX import and dependency preview",
+      "Confirmed import opens the map through the existing NPCDex renderer",
+      "Original contextual note and flag controls save into the managed RDX",
+      "Current map export downloads a verified portable RDX with the UI edits",
+      "Closed and reopened managed storage retains the exact exported revision and one map",
+      "No browser runtime errors or external network access"
+    ]
+  },
+  "liveRoundTrip": {
+    "task": "U26C",
+    "scope": "Actual NPCD round trip with unique fictional RDX data",
+    "startedAt": "2026-10-20T01:40:12.972Z",
+    "synthetic": true,
+    "productionSavesChanged": false,
+    "existingYouTrackRecordsChanged": false,
+    "credentialsReentered": false,
+    "checks": [
+      "A real compressed RDX imports and binds only after a fresh preview",
+      "Private NPCD record tree and exact artifact/image attachments read back",
+      "A local NPCDex note reaches the verified backend commit",
+      "An independent native YouTrack title change enters review and is accepted into the managed RDX",
+      "Reopen and portable export retain the local note, accepted native title and exact original image bytes",
+      "A separate local instance matches the observed registry and downloads both changes without duplicating content records"
+    ],
+    "cleanup": "Retained one private, uniquely identified fictional QA document tree and a portable test RDX for review; no production records edited",
+    "documentKey": "571339cfb592e5ef8f430b117513ac5b0a8e31b3e360e43599a786190f6ce890",
+    "datasetId": "fixture:u26c-8dfad821-8008-431e-85e0-e323a72874fc",
+    "registryIssueId": "3-648",
+    "records": [
+      {
+        "issueId": "3-649",
+        "recordId": "fixture:region"
+      },
+      {
+        "issueId": "3-650",
+        "recordId": "fixture:map"
+      },
+      {
+        "issueId": "3-651",
+        "recordId": "fixture:exterior"
+      },
+      {
+        "issueId": "3-652",
+        "recordId": "fixture:profile-guide"
+      },
+      {
+        "issueId": "3-653",
+        "recordId": "fixture:profile-visitor"
+      },
+      {
+        "issueId": "3-654",
+        "recordId": "fixture:profile-newcomer"
+      },
+      {
+        "issueId": "3-655",
+        "recordId": "fixture:progression"
+      },
+      {
+        "issueId": "3-656",
+        "recordId": "fixture:guide"
+      },
+      {
+        "issueId": "3-657",
+        "recordId": "fixture:visitor"
+      },
+      {
+        "issueId": "3-658",
+        "recordId": "fixture:newcomer"
+      },
+      {
+        "issueId": "3-659",
+        "recordId": "fixture:scene"
+      }
+    ],
+    "exportedRevision": "052c35335e48a48f988475c3e9b76c6b9fa3f4a9ef1db3513dc8ed0f2f238d4b",
+    "automaticSyncStayedOff": true,
+    "status": "passed",
+    "finishedAt": "2026-10-20T01:42:57.483Z"
+  },
+  "portability": {
+    "task": "U26C",
+    "scope": "Portable exported map import and preservation",
+    "checks": [
+      "One map, stable record identities, original artifact history and exact image/attachment bytes retained",
+      "Final exported RDX imports through chunk/preview/confirmation APIs into an empty offline profile",
+      "Local UI note and accepted native title are visible, with human testing unreviewed and no inherited cloud authority"
+    ],
+    "status": "passed",
+    "export": {
+      "bytes": 19522,
+      "sha256": "7703a1869ea3fa4537a1e4aa5c4b760a6df2a2605dfd42ff67d84926107cbfe0",
+      "revision": "052c35335e48a48f988475c3e9b76c6b9fa3f4a9ef1db3513dc8ed0f2f238d4b",
+      "records": 11,
+      "assetOccurrences": 7
+    }
+  },
+  "nativeRuntime": {
+    "task": "U26C",
+    "scope": "Native Electron window using installed NPCDex assets and isolated RDX data",
+    "productionDataChanged": false,
+    "credentialsInWindow": false,
+    "status": "closed-owned-hidden-test",
+    "documentKey": "571339cfb592e5ef8f430b117513ac5b0a8e31b3e360e43599a786190f6ce890",
+    "revision": "052c35335e48a48f988475c3e9b76c6b9fa3f4a9ef1db3513dc8ed0f2f238d4b",
+    "visualReview": "Not performed: hidden test window was inaccessible. Exact installed UI round trip passed in isolated Chromium; native Electron loaded the final map.",
+    "productionAppTouched": false
+  },
+  "cleanup": {
+    "task": "U26C",
+    "scope": "Remove only this completed fictional proof tree",
+    "deleted": [
+      "3-659",
+      "3-658",
+      "3-657",
+      "3-656",
+      "3-655",
+      "3-654",
+      "3-653",
+      "3-652",
+      "3-651",
+      "3-650",
+      "3-649",
+      "3-648"
+    ],
+    "productionRecordsChanged": false,
+    "status": "passed"
+  },
+  "preservation": {
+    "task": "U26C",
+    "scope": "Read-only remembered-connection preflight",
+    "remoteWrites": 0,
+    "productionDataWrites": 0,
+    "binding": {
+      "instance": "https://thegobindsingh.youtrack.cloud",
+      "projectId": "0-2",
+      "project": "NPCD",
+      "ownerId": "2-2"
+    },
+    "preservation": {
+      "policy": {
+        "format": "ROMDexNPCDexSyncPolicy/1",
+        "paused": true,
+        "reason": "User-requested pause before isolated clean RDX workflow acceptance",
+        "localSavesEnabled": true
+      },
+      "pending": 133,
+      "states": {
+        "committed": 32,
+        "blocked": 1,
+        "queued": 132
+      },
+      "integrity": "ok"
+    },
+    "status": "passed"
+  },
+  "backup": {
+    "files": 158,
+    "bytes": 308593829,
+    "existingBackupReused": true,
+    "productionWorkingMapsMatch": true
+  },
+  "moduleHashes": {
+    "task": "U26C",
+    "installedVersion": "0.5.15",
+    "applicationFilesChanged": false,
+    "sha256": {
+      "rdx/container.mjs": "49b122986671d10812fac69a70ac0c00a45c822220e5492e1679de4533ba365f",
+      "rdx/document.mjs": "ef46f502d3f4aba61d5c898365fa8576ed8159f967dbc46c7d2d1ddf3b8561b5",
+      "rdx/map-workspace.mjs": "fab4985a31f37dbe3822894b9504d96bf7aeacea910b6a211e58fb4de25d261e",
+      "rdx/managed-store.mjs": "309c0e487c20561b7bb2a3124145515a42e75b538c3d45a71a4b4046991cc095",
+      "rdx/map-import.mjs": "6d6238110735303cef6ec3f950b8532dbba63380f3dbfe3fc1ea82c49aecc07f",
+      "rdx/document-cloud.mjs": "a0267960d957af3555a6bdb2eefbeee5c2bf14212ff90fee33230980de6d0a59",
+      "rdx/youtrack-store.mjs": "18f10b52b494417653e0ab42878cfbc974c1747da8c3a5a7f18b03d5ac600a8a",
+      "content/desktop-assets.mjs": "9604b46b1ea4e4d951c650ee7139cbb58a95a3011a807408a02893d8bd7a332a",
+      "content/classic-ui.js": "1bf9de5c6352adf3ad19e44fb4a7aec7357cb4353ca7f024981e89fe248435ef",
+      "content/import-ui.js": "5cef9cc63193ec8311f20087218fc3940c78378f2d0b1aedc6c144b03b36df49",
+      "public/addons/npcdex/index.html": "941e7f1c9392914e7279dc81e40a03b070b1d8c97fbe0fb00e1a82697515e91f"
+    }
+  },
+  "helper": {
+    "task": "U26C",
+    "scope": "Close only the owned hidden synthetic window and finish cleanup/preservation",
+    "productionAppTouched": false,
+    "status": "passed"
+  },
+  "limits": [
+    "Synthetic map, not ROM extraction or in-game verification",
+    "Native window loaded but was hidden; no native visual acceptance claimed",
+    "Production cloud remains paused with legacy queue preserved",
+    "U21\u2013U26A source features are not deployed by this task"
+  ]
+}
