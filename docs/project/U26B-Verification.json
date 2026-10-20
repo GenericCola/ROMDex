@@ -1,6 +1,6 @@
 {
   "task": "U26B",
-  "status": "complete-installed-with-user-requested-npcdex-cloud-pause",
+  "status": "reopened-shutdown-warning",
   "installedVersion": "0.5.15",
   "regressionPassed": 88,
   "sourceSyntaxChecks": 3,
@@ -1253,6 +1253,14 @@
     "reopenedQueueCount": 133,
     "saveButtonEnabled": true,
     "forcedTermination": false,
-    "legacyCloudDeliveryCompleted": false
+    "legacyCloudDeliveryCompleted": false,
+    "warningFreeQuit": false,
+    "shutdownWarningCorrection": {
+      "cause": "RDX file-open polling rejected during lifecycle work",
+      "installedFiles": 3,
+      "focusedChecksPassed": 4,
+      "dataChanged": false,
+      "warningFreeNativeQuit": "pending"
+    }
   }
 }

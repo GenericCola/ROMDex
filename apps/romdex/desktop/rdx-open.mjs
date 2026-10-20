@@ -2,6 +2,17 @@ import path from 'node:path';
 import {randomUUID} from 'node:crypto';
 import {readBoundedFile,unpackRdx} from '../rdx/container.mjs';
 
+// Listing is a read-only peek at opaque IDs, safe even while Quit checkpoints.
+// Reading files, changing requests and staging imports retain the lifecycle gate.
+export function routeRdxOpen(broker,action,value,lifecycleBusy=false){
+ if(action==='list')return broker.list();
+ if(lifecycleBusy)throw Error('Wait for the Application Lifecycle Work to Finish.');
+ if(action==='inspect'&&typeof value==='string')return broker.inspect(value);
+ if(action==='dismiss'&&typeof value==='string')return broker.dismiss(value);
+ if(action==='stage'&&value&&typeof value==='object')return broker.stage(value);
+ throw Error('Invalid RDX Open Request.');
+}
+
 // Only OS launch arguments supply paths. The renderer receives opaque IDs and
 // bounded transfer metadata; it cannot ask this broker to read arbitrary files.
 export class RdxOpenBroker {
