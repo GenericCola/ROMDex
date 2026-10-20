@@ -508,3 +508,8 @@ The user explicitly approved the revised ROM-only New Bark proof scope and RI02A
 ## RI02A — Source Reader and Mappings Complete
 
 Completed under its own PASSKEY. The reader inventories the supplied .nds directly without editable project/agent-prepared content. All 540 physical map headers and their event resources are validated; New Bark's scoped identities and native source mappings preserve exact bytes and reopen unchanged in another process. Known ambiguous object IDs/unresolved warp references remain explicit rather than being repaired or silently trusted. Seventeen focused tests and eight real-ROM proof checks pass. No production or runtime deployment changed. Next separately gated task: RI02B — Dialogue, Events and Appearance Extraction, Sol / High. Per-map Roman-numeral timelines remain RI02T, and the decisive actual RDX/native round trip remains RI02C.
+
+
+## October 20 — Violet City ROM-only testbed
+
+The user authorized RI02B and replaced the active New Bark proof with Violet City to avoid conflating it with existing data. ROM location section 128 determines its eight physical areas; Sprout Tower stays separate. Earlier New Bark evidence remains historical. RI02B is source-complete; RI02T and RI02C continue with Violet City. Static/runtime ambiguity stays visible, and production saves, queues and the sync pause remain untouched.

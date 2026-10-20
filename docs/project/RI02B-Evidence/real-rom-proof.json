@@ -1,0 +1,65 @@
+{
+  "format": "ROMDexRI02BRealROMProof/1",
+  "testbed": {
+    "key": "violet-city",
+    "locationSection": 128,
+    "headerIds": [
+      73,
+      135,
+      157,
+      158,
+      159,
+      160,
+      162,
+      167
+    ],
+    "excludes": "Sprout Tower; separate location identity"
+  },
+  "sourceSHA256": "cb743eb01fe18f8599e54911faa28701474b84a6b9d9764a9478bf8a7be1babd",
+  "sourceBytes": 192240096,
+  "extractionDigest": "90233882912c2214b20147baf392a7beae9cbdec6ec5ddce939a568d27e1d461",
+  "identityDigest": "73ade6dcfb5ccd96edfd9530edd6508eef9ec2cb70e81a49ec592db7b140170a",
+  "inventoryDigest": "1bf6f1b1f44eaca374bd1e73c0e81fd228eba882a38e7bea673c986bc559239d",
+  "coverage": {
+    "readOnly": true,
+    "aiRequired": false,
+    "sourcePinned": true,
+    "branchRepresentation": "control-flow graph; possible branches, not proof of runtime reachability",
+    "localEntryCount": 48,
+    "flowCount": 89,
+    "messageCount": 329,
+    "appearanceCount": 50,
+    "renderedAppearanceCount": 50,
+    "uniqueTexturePNGs": 354,
+    "unresolvedInstructionRanges": 0,
+    "dynamicMessageSites": 19,
+    "runtimeEmulated": false,
+    "rdxCompiled": false,
+    "cloudPublished": false
+  },
+  "events": {
+    "overworlds": 50,
+    "backgrounds": 13,
+    "warps": 19,
+    "triggers": 2
+  },
+  "checks": {
+    "allDistinctSourceLocatorsReopened": 5140,
+    "decodedMessagesCompared": 329,
+    "compressedTrainerNamesDecoded": 738,
+    "renderedFramePaletteBindings": 790,
+    "uniqueTexturePNGs": 354,
+    "sameSourceIdentitiesReused": true,
+    "existingOutputRefused": true,
+    "fullROMHashUnchanged": true,
+    "noCloudAccess": true,
+    "noProductionDataAccess": true
+  },
+  "warningCounts": {
+    "SCRIPT_RESTART_CONTEXT": 22,
+    "PALETTE_BINDING_REQUIRES_RUNTIME": 2
+  },
+  "nativeDependencyCommands": 58,
+  "mapMilestoneCandidates": 31,
+  "elapsedMs": 21252
+}
