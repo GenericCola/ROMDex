@@ -17,3 +17,7 @@ Reference file hashes used for the generated facts:
 - generated JSON: `4cb7a7d27e97f392e772be14983cf025e6514e0c1a6026987d67755c863b2c91`
 
 The exact supplied ROM also supplies independently reopened evidence: the 30-row script namespace table, standard-message-bank table, menu bank-load instructions, map headers, scripts, encrypted message ranges, palettes and texture frames. Public constants are never used to fill in missing ROM content. Support for another modified ROM requires a reviewed profile, not merely the same game code.
+
+## Readable area labels
+
+`public/hgss-area-names.mjs` records 540 `(header ID, internal code, symbolic label)` interoperability facts from the same pinned [maps.h](https://github.com/pret/pokeheartgold/blob/6988158691eb6178cff697cda0428045ddcba5fb/include/constants/maps.h). A label is used only when both the ROM's internal code and numeric header match. It supplies display hints, not missing map/dialogue/script content or proof of a modified building's purpose. Unknown or changed entries receive a review label. Current user names override these hints. Raw codes remain available under Source Details, and file contents/identities are unchanged by formatting the view.

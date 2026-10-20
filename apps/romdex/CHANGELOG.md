@@ -1,3 +1,10 @@
+## 0.5.19 — Readable Map Contents
+
+- Explicitly show one map RDX containing all selected sub-areas; sub-areas are not separate files.
+- Show readable area/building/floor reference labels in MAPDex, retaining source codes under Source Details.
+- Preserve user-reviewed area names and all existing document identities/content; unknown source codes require naming review.
+- Suggest the selected map's name in the native RDX export dialog.
+
 ## 0.5.18 — Visible Quit Review
 
 - Unchanged Connection Details inspection no longer blocks Quit, including when its task workspace is hidden behind MAPDex.

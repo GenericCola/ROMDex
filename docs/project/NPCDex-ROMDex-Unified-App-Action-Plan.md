@@ -474,3 +474,7 @@ At the user's request, installed 0.5.16 after focused/native verification, a ful
 ## MAPDex Correction and Compatibility Requirement — October 20, 2026
 
 The Violet City proof scope must not constrain the product's catalog, default title or selected-map compiler. Corrective 0.5.18 removes those restrictions, validates the supplied ROM's complete catalog and two independent maps, and preserves current Data/connections. Each supported ROM must expose all its maps/zones. Additional ROM revisions and Pokémon game families require validated adapters and an explicit compatibility report; neither one reviewed HGSS fingerprint nor this corrective delivery completes universal input support or broader RI03C. The user's live NPCDex/NPCD round trip also remains open. [Report](MAPDex-0.5.18-Completion-Report.md).
+
+## MAPDex Readability Correction — October 20, 2026
+
+0.5.19 makes the established hierarchy explicit: one RDX for a logical map such as New Bark Town, containing all selected sub-areas. Included-area rows are not separate RDX documents. Use readable building/floor labels, preserve user names, retain source IDs in optional details, and suggest the selected map's export filename. Native export proved one map with eight child sub-areas. This is a presentation/export-naming correction; document structure and current source identities remain unchanged. [Report](MAPDex-0.5.19-Completion-Report.md).

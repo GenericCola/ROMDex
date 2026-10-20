@@ -707,3 +707,15 @@ The supplied ROM directly produced one Violet City RDX with eight areas, 50 plac
 - [ ] Complete the user's real NPCDex/NPCD edit-and-return acceptance. No production map was imported by this correction.
 
 [Completion report](MAPDex-0.5.18-Completion-Report.md). Broader RI03C remains open.
+
+## MAPDex 0.5.19 — Readable Single-Map Contents, October 20, 2026
+
+- [x] Verify the existing New Bark Town RDX already contains one map with eight child sub-areas.
+- [x] Replace raw included-area codes with readable building/floor labels; keep technical IDs in collapsed Source Details.
+- [x] Explicitly show one named map file and preserve user-edited area names.
+- [x] Suggest the selected map's filename in the native export picker.
+- [x] Pass four focused checks, six source UI checks and three packaged checks, including one-map/eight-child native export.
+- [x] Back up/restore current Data, preserve connections and current preparation, install and verify 0.5.19.
+- [x] Collect another 784 MB of obsolete installer/build/test files for manual deletion; retain the current installer and compressed recovery copies.
+
+[Completion report](MAPDex-0.5.19-Completion-Report.md). Broader RI03C and the live NPCD round trip remain open.

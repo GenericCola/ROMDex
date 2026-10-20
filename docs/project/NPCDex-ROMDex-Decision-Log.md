@@ -556,3 +556,7 @@ The user requested the actual MAPDex build instead of a source-only empty NPCDex
 ## October 20 — Proof Scope Is Not a Product Restriction
 
 The user rejected being locked to Violet City and required the map catalog to come from the ROM. Correct 0.5.18 accordingly: neutral Tray 2 title, complete catalog, selected-map area/compiler scope and local source-derived stages. Preserve old identities, map-specific preparations/drafts and saved connections. The provided ROM passed the source/UI/native/installed loading proofs. A hidden unchanged Connection Details dialog was also corrected: it no longer blocks Quit; genuine input remains protected and its workspace is revealed. Additional Pokémon ROM layouts remain explicit RI03C work rather than being represented as implemented universal compatibility. [Report](MAPDex-0.5.18-Completion-Report.md).
+
+## October 20 — One Map File, Readable Sub-Areas
+
+The user clarified that New Bark Town is the RDX and buildings/floors are contained sub-areas. Inspection confirmed that the existing file already has one map and eight children; the confusing technical labels/wording were the defect. 0.5.19 adds an explicit one-file summary, readable reference labels with user-name precedence, collapsed source IDs and a named native export. Keep the portable format and source mappings unchanged. Modified building purposes remain reviewable rather than inferred from their ID alone. [Report](MAPDex-0.5.19-Completion-Report.md).
