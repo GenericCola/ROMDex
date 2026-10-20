@@ -65,3 +65,8 @@ For updates, preserve old sealed artifacts exactly. Append a revised record with
 For each asset, store its exact decoded bytes as `blobs/<lowercase-sha256>.bin` and list `assetId`, hash, byte count, MIME and purpose (`image`, `attachment`, `history`). Reference image IDs from profiles/overrides/views; use `NPCDexViewImage/1` for view images. Historical JSON entries have their original schema/media type and seals. Identical bytes can share one hash blob. An existing asset ID cannot be rebound to different bytes; allocate a new asset ID for a changed sprite and retain the old bytes/history.
 
 Finally run `pack`, `validate`, `inspect` and unpack/repack as shown in the main guide. Deliver the map RDX, source evidence/inventory and validation output. Preview locally and establish a backend binding separately. Existing production adoption uses RD10's verified existing NPCD identities; the new-map publication route must not recreate the current catalog.
+
+
+## Map-specific timelines (RI02T)
+
+Use the map record’s `timelineRef` to select its own progression record. Declare ordered stable IDs, names and event/access conditions in `definitions.stages`; point `stageIds` must belong to that map, or use `all`/an empty list. Roman numerals are display labels, never IDs. Do not pad a map to ten stages or reuse a different map’s chronology. Preserve IDs when renaming/reordering, and keep independent/unknown conditions explicit. See [Map Timelines](../../content/MAP-TIMELINES.md) for legacy compatibility and versioned correction rules.

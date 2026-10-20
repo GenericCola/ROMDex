@@ -1,7 +1,8 @@
 import {requireThat,validateGraph,sha} from './contracts.mjs';
 import {projectLegacyNPCDex} from './legacy-projection.mjs';
 import {hasNativeViews,projectNativeNPCDex} from './native-projection.mjs';
-export const PROJECTION_VERSION='NPCDexContentProjection/3';
+import {applySnapshotTimelines} from './timelines.mjs';
+export const PROJECTION_VERSION='NPCDexContentProjection/4';
 const heads=(values,identity)=>{const parents=new Set(values.flatMap(x=>x.parents||[]));const visible=values.filter(x=>!parents.has(x.digest));const groups=new Map();for(const a of visible){const id=a[identity];if(!groups.has(id))groups.set(id,[]);groups.get(id).push(a);}return [...groups.values()].flat();};
 
 // Explicit adapter to NPCDex v2 presentation. No embedded baseline or YouTrack task State.
@@ -29,9 +30,6 @@ export function projectNPCDex(domain,{revision=1,assetBytes=()=>null,gender='mal
   towns.push(town);
  }
  requireThat(towns.length>0,'No Map Content Is Available for NPCDex.');
- const progression=domain.records.find(r=>r.kind==='shared'&&r.current.payload.sharedType==='progression');const definitions=progression?.current.payload.definitions;
- const stages=Array.from({length:10},(_,i)=>({id:String.fromCharCode(65+i),name:'Stage '+String.fromCharCode(65+i),event:'Timeline Definition Not Yet Supplied'}));
- if(definitions?.stages){requireThat(Array.isArray(definitions.stages)&&definitions.stages.length===10,'Unsupported Timeline Projection.');for(let i=0;i<10;i++){const s=definitions.stages[i];requireThat(s.id===stages[i].id&&typeof s.name==='string'&&typeof s.event==='string','Invalid Timeline Stage.');stages[i]={...s};}}
  const reviews=heads(domain.reviews,'reviewId'),reviewStates=reviews.map(r=>({digest:r.digest,status:records.get(r.target.recordId).revisionId===r.baseline.revisionId?r.testStatus:'unreviewed',stale:records.get(r.target.recordId).revisionId!==r.baseline.revisionId}));
- return {version:2,revision,savedAt:null,contentRevision:0,towns,stages,annotations:{},characterImages:{},characterNames:{},preferences:{gender,sortBySubArea:false},changePlans:{},history:[],implementationReceipts:[],liveMappings:{},romReversalResolutions:[],legacyChangePlans:{},decisionConflicts:[],promptStatusUnset:{},sourceBaselines:{},reconciliations:[],sources:[],index:{},contentPreview:{readOnly:true,records:domain.records.map(r=>({id:r.recordId,kind:r.kind,lifecycle:r.current.lifecycle,revisionId:r.revisionId,legacyRefs:r.legacyRefs,legacyData:r.legacyData})),plans:heads(domain.plans,'planId'),reviews,reviewStates,mappingCount:domain.mappings.length}};
+ return applySnapshotTimelines({version:2,revision,savedAt:null,contentRevision:0,towns,stages:[],annotations:{},characterImages:{},characterNames:{},preferences:{gender,sortBySubArea:false},changePlans:{},history:[],implementationReceipts:[],liveMappings:{},romReversalResolutions:[],legacyChangePlans:{},decisionConflicts:[],promptStatusUnset:{},sourceBaselines:{},reconciliations:[],sources:[],index:{},contentPreview:{readOnly:true,records:domain.records.map(r=>({id:r.recordId,kind:r.kind,lifecycle:r.current.lifecycle,revisionId:r.revisionId,legacyRefs:r.legacyRefs,legacyData:r.legacyData})),plans:heads(domain.plans,'planId'),reviews,reviewStates,mappingCount:domain.mappings.length}},domain.records);
 }

@@ -1,6 +1,7 @@
 // Builds the familiar interface from records + individually versioned view
 // metadata. It never reads an original export or migration index.
 import {requireThat,sha,pointPayload,validateGraph} from './contracts.mjs';
+import {applySnapshotTimelines} from './timelines.mjs';
 const heads=values=>{const parents=new Set(values.flatMap(x=>x.parents||[]));return values.filter(x=>!parents.has(x.digest));};
 export const hasNativeViews=domain=>(domain.views||[]).some(v=>v.viewId==='view:root');
 export function projectNativeNPCDex(domain,{revision=1,gender='male',assetBytes=()=>null}={}){
@@ -28,7 +29,7 @@ export function projectNativeNPCDex(domain,{revision=1,gender='male',assetBytes=
   const sort=(items,order=[])=>items.sort((a,b)=>(order.includes(a.id)?order.indexOf(a.id):order.length)-(order.includes(b.id)?order.indexOf(b.id):order.length));sort(town.areas,mv?.payload.areaOrder);sort(town.locations,mv?.payload.locationOrder);towns.push(town);
  }
  for(const r of domain.records.filter(r=>r.kind==='profile'&&changed(r))){const identity=view(r)?.payload.identityKey;if(identity){out.characterNames||={};out.characterImages||={};out.characterNames[identity]=r.current.payload.name;if(r.current.payload.baseImageId)out.characterImages[identity]={...out.characterImages[identity],...imageObject(r.current.payload.baseImageId)};else delete out.characterImages[identity];}}
- const progression=domain.records.find(r=>r.kind==='shared'&&r.current.payload.sharedType==='progression');requireThat(progression?.current.payload.definitions.stages?.length===10,'Native Timeline Definition Is Missing.');out.stages=structuredClone(progression.current.payload.definitions.stages);out.revision=Math.max(out.revision||0,revision);out.preferences={...out.preferences,gender};
+ applySnapshotTimelines(out,domain.records);out.revision=Math.max(out.revision||0,revision);out.preferences={...out.preferences,gender};
  const plans=heads(domain.plans),reviews=heads(domain.reviews);for(const p of plans){const ref=p.legacyRefs?.find(x=>x.kind==='plan');if(ref&&p.parents.length&&out.changePlans?.[ref.id]&&plans.filter(x=>x.planId===p.planId).length===1)out.changePlans[ref.id]={...out.changePlans[ref.id],intent:p.intent,instructions:p.instructions,proposedDialogue:p.proposedDialogue,workflow:p.workflow};}
  const reviewStates=reviews.map(r=>({digest:r.digest,status:records.get(r.target.recordId).revisionId===r.baseline.revisionId?r.testStatus:'unreviewed',stale:records.get(r.target.recordId).revisionId!==r.baseline.revisionId}));for(const review of reviews){const binding=root.payload.reviewBindings.find(b=>b.reviewId===review.reviewId),state=reviewStates.find(s=>s.digest===review.digest);if(binding&&(review.parents.length||state.stale)&&reviews.filter(x=>x.reviewId===review.reviewId).length===1)out.annotations[binding.legacyKey]={...out.annotations[binding.legacyKey],flag:review.flag!=='none',critical:review.flag==='critical',note:review.note,testStatus:state.status};}
  out.contentPreview={readOnly:true,nativeTree:true,records:domain.records.map(r=>({id:r.recordId,kind:r.kind,lifecycle:r.current.lifecycle,revisionId:r.revisionId,legacyRefs:r.legacyRefs,legacyData:r.legacyData})),plans,reviews,reviewStates,reviewBindings:structuredClone(root.payload.reviewBindings),mappingCount:domain.mappings.length};return out;

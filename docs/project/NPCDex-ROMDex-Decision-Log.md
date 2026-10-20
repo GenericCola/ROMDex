@@ -513,3 +513,8 @@ Completed under its own PASSKEY. The reader inventories the supplied .nds direct
 ## October 20 — Violet City ROM-only testbed
 
 The user authorized RI02B and replaced the active New Bark proof with Violet City to avoid conflating it with existing data. ROM location section 128 determines its eight physical areas; Sprout Tower stays separate. Earlier New Bark evidence remains historical. RI02B is source-complete; RI02T and RI02C continue with Violet City. Static/runtime ambiguity stays visible, and production saves, queues and the sync pause remain untouched.
+
+
+## October 20 — Map-specific timeline source support
+
+RI02T is complete in source. Maps select their own referenced progression; stable stage IDs remain separate from names, order and Roman labels. Legacy A–J identities, original recovery bytes and current review/proposal data are preserved. Violet City source-state evidence is local to the proof and does not establish a complete gameplay chronology. RI02C remains the real one-map RDX/native round-trip gate. No production sync, queue or installed application was changed.

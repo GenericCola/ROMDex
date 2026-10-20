@@ -1,3 +1,4 @@
+import {validateSnapshot as validateTimelines} from '../content/timelines.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {randomUUID} from 'node:crypto';
@@ -15,7 +16,7 @@ import {ensure,LIMITS} from './limits.mjs';
 import {NativeCatalog} from './native-catalog.mjs';
 
 const CHUNK=512*1024;
-export function emptyMapView(){return {active:true,provider:'rdx-local',head:'local:empty',snapshot:{version:2,revision:0,towns:[{id:'local:empty',name:'Import a Map',areas:[],locations:[],characters:[]}],stages:Array.from({length:10},(_,i)=>({id:String.fromCharCode(65+i),name:'Stage '+String.fromCharCode(65+i),event:''})),annotations:{},changePlans:{},history:[],preferences:{gender:'male'},characterImages:{},characterNames:{},contentPreview:{records:[],plans:[],reviews:[],reviewStates:[]}},status:{label:'NPCDex',cloud:false,localCheckpoint:true,connection:'local',automaticRemote:false,pendingWrites:0,attention:false,message:'Import an RDX Map to Work Locally. Existing Synced Content Is Unchanged.'},documentKey:null};}
+export function emptyMapView(){return {active:true,provider:'rdx-local',head:'local:empty',snapshot:{version:2,revision:0,towns:[{id:'local:empty',name:'Import a Map',areas:[],locations:[],characters:[]}],stages:[],annotations:{},changePlans:{},history:[],preferences:{gender:'male'},characterImages:{},characterNames:{},contentPreview:{records:[],plans:[],reviews:[],reviewStates:[]}},status:{label:'NPCDex',cloud:false,localCheckpoint:true,connection:'local',automaticRemote:false,pendingWrites:0,attention:false,message:'Import an RDX Map to Work Locally. Existing Synced Content Is Unchanged.'},documentKey:null};}
 
 // Local map owner. All file paths are host-generated; no renderer path, token or
 // backend transport is accepted. The cloud provider continues independently.
@@ -106,6 +107,6 @@ export class MapWorkspace{
   ensure(false,'UNSUPPORTED','This Action Is Unavailable for an Unpublished Local RDX Map.');
  }
  transfer(input){const u=this.upload;ensure(u&&input?.id===u.id&&Date.now()<=u.expires,'INVALID','RDX Import Session Expired. Choose the File Again.');return u;}
- displayShape(snapshot){const object=v=>v&&typeof v==='object'&&!Array.isArray(v);ensure(snapshot.version===2&&Number.isSafeInteger(snapshot.revision)&&snapshot.revision>=0&&Array.isArray(snapshot.stages)&&snapshot.stages.length===10&&object(snapshot.annotations)&&object(snapshot.changePlans)&&object(snapshot.preferences),'UNSUPPORTED','The RDX Presentation Metadata Is Not Supported by This NPCDex Build.');for(const a of Object.values(snapshot.annotations))ensure(object(a)&&typeof a.note==='string'&&typeof a.flag==='boolean','INVALID','Invalid RDX Flag or Note Presentation.');return snapshot;}
+ displayShape(snapshot){const object=v=>v&&typeof v==='object'&&!Array.isArray(v);ensure(snapshot.version===2&&Number.isSafeInteger(snapshot.revision)&&snapshot.revision>=0&&Array.isArray(snapshot.stages)&&snapshot.stages.length<=256&&object(snapshot.annotations)&&object(snapshot.changePlans)&&object(snapshot.preferences),'UNSUPPORTED','The RDX Presentation Metadata Is Not Supported by This NPCDex Build.');validateTimelines(snapshot);for(const a of Object.values(snapshot.annotations))ensure(object(a)&&typeof a.note==='string'&&typeof a.flag==='boolean','INVALID','Invalid RDX Flag or Note Presentation.');return snapshot;}
  async cancelUpload(){const u=this.upload;if(!u)return;await u.handle?.close();await regular(u.file);await fs.unlink(u.file);this.upload=null;}
 }

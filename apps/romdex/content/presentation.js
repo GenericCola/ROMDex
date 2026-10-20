@@ -29,7 +29,7 @@
  const draftKey=d=>JSON.stringify([d.mode,d.fields?.recordId||'',d.fields?.pointId||'',d.fields?.blockId||'']);
  function drafts(value){if(!value)return [];const {otherDrafts=[],...active}=value;return [active,...otherDrafts].filter(d=>d.mode&&d.fields).filter((d,i,all)=>all.findIndex(x=>draftKey(x)===draftKey(d))===i);}
  function saveDraft(value,draft,remove=false){const others=drafts(value).filter(d=>draftKey(d)!==draftKey(draft));const all=remove?others:[draft,...others];return all.length?{...all[0],...(all.length>1?{otherDrafts:all.slice(1)}:{})}:null;}
- const stageFor=(point,current)=>point?.stageIds?.includes(current)?current:point?.stageIds?.[0]||'conditional';
+ const stageFor=(point,current)=>typeof activeStages==='function'?globalThis.romdexTimelines.chooseStage(activeStages(),current,point):point?.stageIds?.includes('all')?current||'conditional':point?.stageIds?.includes(current)?current:point?.stageIds?.[0]||'conditional';
  const testingFor=(review,record)=>review.baseline?.revisionId===record.revisionId?review.testStatus:'unreviewed';
  globalThis.romdexContentModel={id,payload,points,legacy,heads,title,point,block,resolve,ancestry,label,zones,sameTarget,entries,draftKey,drafts,saveDraft,stageFor,testingFor};
 })();
