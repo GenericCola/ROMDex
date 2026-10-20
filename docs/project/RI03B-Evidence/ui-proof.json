@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "distinctBehaviors": 11,
+  "checks": [
+    "MAPDex selectable through the shared header",
+    "Actual source sprite, local cleanup and Roman stages render",
+    "Workspace switching preserves selection and pane state",
+    "RDX export retains local edits",
+    "Inline handoff reports paused cloud and keeps MAPDex open",
+    "Optional navigation opens the handed-off map in NPCDex",
+    "Final MAPDex layout fits a short 1024-pixel desktop window",
+    "Rapid item selection cannot apply an older preview to the newer item",
+    "Contextual stage filtering keeps unknown conditions accessible",
+    "Local save failure is visible in shared status and retry preserves the draft",
+    "Shared checkpoint remains local and closes without lifecycle errors"
+  ],
+  "checkpointMetric": "Checkpoint 95 ms",
+  "errors": [],
+  "initialStillOpeningGuard": "The checkpoint was retried only after the current iframe document was ready.",
+  "nativeWindowAcceptance": false,
+  "screenshotsRetainedLocally": true
+}

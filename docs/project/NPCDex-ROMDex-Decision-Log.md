@@ -527,3 +527,15 @@ The user approved the concrete three-tray design: read-only ROM catalog/maps in 
 Preparation remains local and recoverable. Export RDX produces a portable copy; Send to NPCDex is an explicit reviewed handoff that keeps the workspace open. Shared Auto-Sync applies after handoff and cannot override the explicit NPCDex pause. Existing-map updates preserve newer edits and recheck their baseline. Bounded worker cancellation/checkpoints and shutdown independent of cloud backlogs are accepted.
 
 At the user's request, add RI03P — Map Cloud-Delivery Performance after RI03B and before RI03C to reduce cold-publication/later-sync request overhead without losing exact data, stable hierarchy or conflict safety. Final sequence: RI03B → RI03P → RI03C → U28–U30. RI03A is complete; each following task still needs its own PASSKEY. No production saves, queue, credentials, sync pause or installed build changed.
+
+
+## October 20 — MAPDex Workspace Name
+
+During authorized RI03B implementation, the user named the ROM/map import-preparation workspace **MAPDex**. Use MAPDex in the workspace switcher, shared header and Windows tray menu. Internal module/storage identifiers may retain rom-import for compatibility; this is a display name correction, not a new provider or sync change.
+
+
+## October 20 — RI03B MAPDex Complete in Source
+
+Completed the authorized offline workspace: separate managed staging, embedded source-identity recovery, bounded worker, contextual preview and presentation cleanup, per-map Roman stages, explicit reviewed NPCDex handoff and recoverable local publication intent. Cloud preflight stays in the existing cancellable owner and honors the explicit pause. Display/lineage summaries are cached by immutable heads while writes/export/handoff verify current bytes. Failed local saves are visible and retryable; unknown staging formats remain untouched without preventing healthy task work or safe Quit.
+
+106 distinct focused checks passed, plus the ROM-only/source UI/payload proofs. Final selected-area repair was replayed from the completed extraction rather than repeating ROM decoding. This is source completion, not an installation, production reset or sync resumption. Next is RI03P — Sol / High, under a separate PASSKEY; RI03C and U28–U30 remain later gates.

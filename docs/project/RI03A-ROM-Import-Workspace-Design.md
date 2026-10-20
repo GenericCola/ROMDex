@@ -80,4 +80,8 @@ References: [approved ROM-only scope](RI01-ROM-Only-Extraction-Scope.md), [RI02C
 
 The user reviewed the recorded decisions and concrete workspace preview, then selected “Approve RI03A Design” on October 20, 2026. RI03A is complete and checked off. RI03B requires its own subsequent PASSKEY; RI03C and U28–U30 retain their separate acceptance/release gates.
 
-The approval covers the tray division/action labels, local staging and explicit handoff, recoverable jobs and managed identities, plus the RI03B → RI03P → RI03C sequence. It completes the design gate only; implementation and installed-app acceptance remain separately gated. See the [completion report](../History/RI03A/RI03A-Completion-Report.md).
+The approval covers the tray division/action labels, local staging and explicit handoff, recoverable jobs and managed identities, plus the RI03B → RI03P → RI03C sequence. It completes the design gate only; implementation and installed-app acceptance remain separately gated. See the [completion report](RI03A-Completion-Report.md).
+
+## Implementation naming clarification
+
+During RI03B, the user named this workspace **MAPDex**. The earlier ROM Import title remains the design/task identifier for traceability. [RI03B completion](RI03B-Completion-Report.md).

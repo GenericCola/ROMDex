@@ -1,6 +1,6 @@
 # ROM-only HGSS extraction
 
-Source implementation for RI02A, RI02B and RI02C. The [reader/mapping reference](READER-AND-MAPPING.md) preserves its CLI, locator and identity contracts. It is not wired into the installed application yet. RI02T provides map-specific timeline integration. The [RDX compiler guide](COMPILING-RDX.md) documents direct ROM-to-RDX compilation and the boundary between source evidence and human verification.
+Source implementation for RI02A–RI03B. [MAPDex](MAPDEX.md) wraps the reader/compiler in the approved local three-tray workspace. The [reader/mapping reference](READER-AND-MAPPING.md) preserves its CLI, locator and identity contracts. It is not wired into the installed application yet. RI02T provides map-specific timeline integration. The [RDX compiler guide](COMPILING-RDX.md) documents direct ROM-to-RDX compilation and the boundary between source evidence and human verification.
 
 `node rom/cli.mjs extract INPUT.nds NEW_OUTPUT_DIRECTORY`
 

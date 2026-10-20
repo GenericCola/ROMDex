@@ -1,3 +1,11 @@
+## Unreleased — RI03B Offline MAPDex Workspace
+
+- Add the named MAPDex workspace to the shared header/chooser and tray menu, with local ROM preparation in three trays.
+- Add a bounded ROM worker, managed portable source identities, optional presentation cleanup, per-map Roman stages/condition preview and RDX export.
+- Add fresh-baseline handoff, crash-recoverable local publication intent, pause-aware cloud preflight and visible local save error/retry.
+- Cache immutable display/lineage summaries, preserve unknown formats and prior drafts, and provide recorded-scratch cleanup.
+- Include the ROM modules/tables in the curated source payload. Source-verified; broader performance/coverage and Windows release acceptance remain RI03P/RI03C/U28–U30.
+
 ## Unreleased — RI02A ROM Reader and Source Mapping
 
 - Add a bounded, read-only supplied-build ROM/filesystem/NARC reader with explicit unsupported-build/relocation diagnostics and actual map/event/warp inventory.

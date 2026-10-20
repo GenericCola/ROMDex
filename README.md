@@ -4,7 +4,7 @@ Private development home for ROMDex and its NPCDex add-on.
 
 Latest published and installed private release: [ROMDex 0.5.15](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.15), with separate managed RDX map files and all saved connections preserved. [RD10 acceptance](docs/project/RD10-Completion-Report.md).
 
-**U21–U27 and RI02A–RI02C are complete in source.** The ROM-only Violet City compiler produced a real one-map RDX and passed local editing, reviewed native YouTrack changes, portable recovery and owned QA cleanup. [RI02C report](docs/project/RI02C-Completion-Report.md), [compiler guide](apps/romdex/rom/COMPILING-RDX.md). ROM import is core work before U28–U30; **RI03A — Sol / High** is next under a separate PASSKEY. Installed production remains 0.5.15 plus U26B repairs, with NPCDex cloud sync paused, local saving enabled and all 133 queued entries preserved.
+**U21–U27 and RI02A–RI03B are complete in source.** The [MAPDex workspace](apps/romdex/rom/MAPDEX.md) prepares a ROM-derived map locally, retains source identities and exact evidence, supports presentation cleanup/Roman stages and exports a portable RDX or explicitly hands it to NPCDex. [RI03B report](docs/project/RI03B-Completion-Report.md). Extraction is currently verified for the supplied build and Violet City; other catalog groups are marked unverified. **Next: RI03P — Map Cloud-Delivery Performance, Sol / High**, under a new PASSKEY; then RI03C and U28–U30. Installed production remains 0.5.15 plus its existing repairs, with NPCDex cloud sync paused and local saving enabled. This source task did not alter its Data or queue.
 
 - **apps/romdex/** — current application source, desktop host, web UI and tests.
 - **packages/tool-suite-ui/** — reusable suite assets, including the Standard Settings Icon.
@@ -24,4 +24,4 @@ Run application tests from apps/romdex with Node 24: `node --test tests/*.test.m
 
 ## Current Work
 
-RI02C acceptance is complete in source. RI03A reviews the ROM Import workspace; RI03B implements the approved design; RI03C proves broader/new-build coverage. U28–U30 cover integrated acceptance and the next packaged release. The isolated proof does not authorize replacing production data or resuming its queue.
+RI03A design is user-approved and RI03B/MAPDex is complete in source. RI03P addresses cloud-delivery performance before RI03C broader/build/identity acceptance. U28–U30 cover integrated acceptance and the next packaged release. Source test helpers may require separately retained local ROM/RDX artifacts; those game files and test profiles are excluded from Git. Use desktop/package-source.mjs for future payloads so the ROM worker and pinned format tables are included.

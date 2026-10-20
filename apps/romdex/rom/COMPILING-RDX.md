@@ -1,6 +1,6 @@
 # ROM-only RDX compilation
 
-RI02C adds a source-level compiler for the reviewed English HeartGold build and Violet City. It runs locally without AI, an editable ROM project, prepared agent JSON or existing NPCDex saves. The ROM is read-only. This is a bounded proof, not the ROM Import workspace or a general-purpose emulator.
+RI02C adds a source-level compiler for the reviewed English HeartGold build and Violet City. It runs locally without AI, an editable ROM project, prepared agent JSON or existing NPCDex saves. The ROM is read-only. This CLI remains a bounded source tool; [MAPDex](MAPDEX.md) now provides its app-managed offline preparation workflow in source. Neither is a general-purpose emulator.
 
 Run with the Node runtime used by ROMDex:
 
@@ -14,7 +14,7 @@ The new directory contains `VioletCityMap.rdx`, `identities.json` and `compilati
 node rom/cli.mjs compile INPUT.nds ANOTHER_NEW_DIRECTORY --previous-identities=PREVIOUS_DIRECTORY/identities.json
 ```
 
-Outputs never overwrite an existing directory. No command here publishes to YouTrack. A changed ROM/source layout requires identity and adapter review rather than silently reusing matching indices. The forthcoming workspace will manage these bindings; it is not implemented by this CLI task.
+Outputs never overwrite an existing directory. No command here publishes to YouTrack. A changed ROM/source layout requires identity and adapter review rather than silently reusing matching indices. MAPDex manages these bindings from its working files and portable source index; the sidecar instructions above apply to direct CLI use.
 
 The compiler performs inventory and extraction directly from the ROM, translates native region/map/subzone/profile/appearance/interactive/scene records, seals their source mappings, validates the graph and RDX contracts, then compresses one logical map. Violet City's interiors are subzones; Sprout Tower is excluded as a separate map identity.
 

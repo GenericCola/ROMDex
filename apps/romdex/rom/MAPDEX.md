@@ -1,0 +1,25 @@
+# MAPDex — Local ROM Import and Preparation
+
+RI03B implements MAPDex in source. It is not part of installed 0.5.15 yet; RI03P/RI03C and U28–U30 retain their performance, acceptance and release gates.
+
+Open the small red workspace chooser in the shared header and select **MAPDex**. **Open ROM…** selects an `.nds` through Windows. The ROM is read-only and stays at its original external path. MAPDex stores a path/fingerprint, not another full ROM copy, in the application's Data folder.
+
+Tray 1 lists suggested map/zone groups from the ROM catalog. The first verified extraction is Violet City in the reviewed supplied HeartGold build. Other groups have neutral source labels and are explicitly marked unverified; listing a group does not mean that it can be extracted yet. Broader maps and newer builds require RI03C proof. Sprout Tower remains separate from Violet City.
+
+In Tray 2, choose the included areas and click **Prepare Map**. Preparation runs in a bounded worker while the last verified map remains available. **Cancel** retains that previous preparation. Changing included areas requires preparing again. Areas excluded from staging are not silently deleted from existing NPCDex content. Local plans/notes on an excluded area require review instead of being discarded.
+
+Preparation is saved under `Data/<project>/ROMImport/` (currently `Data/thegobindsingh-PMON/ROMImport/`), independently of the NPCDex catalog and sync queue. Its managed working files live in `Data/<project>/ROMImport/RDX/working/`; filenames use internal document identities. Use **Export RDX** for a clearly named portable copy. Avoid editing managed working files directly. The importer's identity registry is recovered from the RDX's own source index, including when a matching map was imported on another instance; ordinary users do not manage an identity JSON sidecar.
+
+Display cleanup changes map/region/item names, source thumbnails and the map's stage labels/order. It preserves exact source dialogue, scripts, sprites, predicates, stable IDs and correction history. Stages use Roman numerals and remain map-specific. The preview can show all source conditions, a selected stage or Other / Unassigned Conditions. Uncertain palette/chronology/runtime meanings remain warnings; choosing a thumbnail or label does not prove a runtime interpretation. Proposed ROM changes continue to be planned in NPCDex.
+
+Preparation and unfinished editor text are checkpointed locally across workspace switches and restarts. Shared **Save Changes** checkpoints MAPDex as a local provider; preparing/saving/exporting does not publish a map. Failed local saves appear in MAPDex and the shared Save/Connection status. Retrying Save preserves the pending text. An unknown staging format stays untouched and is reported unavailable rather than preventing healthy task work or safe Quit.
+
+**Send to NPCDex** opens an inline review with destination, additions/updates, exact conflicting alternatives and the resulting sync state. Existing-map updates require a fresh baseline and preserve newer plans, notes, flags and testing history. A changed preview cannot be confirmed using an older token. Confirming the handoff adds or updates the local NPCDex document and keeps MAPDex open. **Open in NPCDex** is optional.
+
+The handoff also journals an explicit publication intent. Shared Auto-Sync controls later delivery; Off leaves it queued until manual sync or Auto-Sync. The explicit NPCDex cloud pause is always honored. Binding and owner/project verification run inside the existing cancellable cloud cycle, not the local staging/checkpoint lock. Local handoff success is not remote confirmation. ROM extraction never authorizes an agent, generates actionable tickets or marks content tested.
+
+The source reader remains pinned to the reviewed ROM. Matching filenames, game codes or offsets alone cannot authorize a changed build or source-identity rebinding. Ambiguous existing source lineages require a choice; existing adopted NPCD journals and conflicting ownership require their established review/reconciliation route. Broken structure or unusable mappings block output. Semantic warnings can accompany a reviewed, usable map.
+
+When offered, **Clear Extraction Scratch** removes only recorded disposable extraction files. It cannot delete source ROMs, prepared working maps, queued operations, unrecognized files or exports. Jobs reserve free scratch space; shutdown cancels/checkpoints local work without waiting for a cloud backlog. An interrupted extraction preserves the last completed preparation.
+
+For packaging, use `desktop/package-source.mjs` and include its full `rom/` directory, worker and pinned tables. This source-only copier excludes application Data, credentials, ROMs and developer test folders. The RI03B payload was checked with bundled Electron 44.7.2 / Node 24.21.0. Windows installer/native-window acceptance remains a later release check; browser UI evidence must not be described as installed-app acceptance.
