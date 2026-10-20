@@ -659,3 +659,15 @@ The supplied ROM directly produced one Violet City RDX with eight areas, 50 plac
 - [x] Kept production Data, the installed release and remembered connections unchanged.
 
 **Next: RI03P — Map Cloud-Delivery Performance, Sol / High; new PASSKEY required.**
+
+
+## RI03P — Cloud-Delivery Performance Complete in Source, October 20, 2026
+
+- [x] Added MAPDex handoff and publication loading bars, including queued, paused, review and verified completion states.
+- [x] Reduced full-map delivery attachments and payload bytes by about 65%, preserving exact content and existing bindings.
+- [x] Measured full-map unchanged sync at 9.3 seconds, one note's cloud delivery at 34.8 seconds, and second-profile recovery at 58.4 seconds. The separate local editor/checkpoint step took 19.2 seconds.
+- [x] Passed 61 distinct focused checks, ten syntax checks, five source-UI behaviors and the isolated real YouTrack proof.
+- [x] Verified all 135 temporary test records absent; preserved the installed app, production Data, queued work, remembered connections and NPCDex sync pause.
+- [x] Backed up reviewed source, evidence and documentation to the private ROMDex repository.
+
+**Next: RI03C — Broader MAPDex Acceptance, Sol / High; new PASSKEY required.** See the [completion report](RI03P-Completion-Report.md).
