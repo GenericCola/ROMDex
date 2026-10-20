@@ -1,6 +1,6 @@
 {
   "format": "RI01ScopeEvidence/1",
-  "status": "inspection-passed-scope-approval-pending",
+  "status": "inspection-passed-scope-approved",
   "input": "0.6.3_noduplicates.nds",
   "inputMode": "ROM-only; public format references; no editable project or prepared content",
   "bytes": 192240096,
@@ -213,5 +213,20 @@
       "workspace-runtime.js validates global A-J while stageLabel renders Roman numerals"
     ],
     "runtimeChanged": false
+  },
+  "scopeApproved": {
+    "date": "2026-10-19",
+    "authority": "explicit human approval in this chat",
+    "timelineRevisionIncluded": true,
+    "implementationAuthorized": false,
+    "sequence": [
+      "RI02A",
+      "RI02B",
+      "RI02T",
+      "RI02C",
+      "RI03A",
+      "RI03B",
+      "RI03C"
+    ]
   }
 }

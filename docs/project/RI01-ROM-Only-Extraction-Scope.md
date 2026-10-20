@@ -1,6 +1,6 @@
-# RI01 — ROM-Only Extraction Scope for Approval
+# RI01 — Approved ROM-Only Extraction Scope
 
-Prepared October 19, 2026. This is the scope-review gate for the core ROM Import feature. Investigation is authorized; the production extractor, workspace and live-data replacement are not yet implemented or approved by this document.
+Approved by the user October 19, 2026, including map-specific timelines with Roman-numeral labels. RI01 is complete. This approves the design baseline and task sequence; each implementation task requires a separate PASSKEY. The production extractor/workspace and live-data replacement have not been implemented or authorized by this approval.
 
 ## The requirement
 
@@ -81,6 +81,6 @@ Public references inspected:
 - [pret/pokeheartgold](https://github.com/pret/pokeheartgold/tree/6988158691eb6178cff697cda0428045ddcba5fb), including [map header structure](https://github.com/pret/pokeheartgold/blob/6988158691eb6178cff697cda0428045ddcba5fb/include/map_header.h), [script encodings](https://github.com/pret/pokeheartgold/blob/6988158691eb6178cff697cda0428045ddcba5fb/asm/macros/script.inc), and [message allocation/encoding](https://github.com/pret/pokeheartgold/blob/6988158691eb6178cff697cda0428045ddcba5fb/tools/msgenc/MessagesConverter.h). These are public format references, not an editable copy of the user's project.
 - [ndspy NARC documentation](https://ndspy.readthedocs.io/en/stable/api/narc.html) describes container-level reading; it does not supply game-specific NPC/script interpretation.
 
-## Decision requested
+## Accepted decision
 
-Approve the ROM-only requirement, New Bark Town eight-area POC, map-specific timelines with Roman-numeral stage labels, explicit semantic limits and the refined sequence **RI02A → RI02B → RI02T → RI02C → RI03A → RI03B → RI03C**. Approval completes RI01's scope gate only. The next implementation task, RI02A, still needs its own PASSKEY.
+The user approved the ROM-only requirement, New Bark Town eight-area POC, map-specific timelines with Roman-numeral stage labels, explicit semantic limits and the refined sequence **RI02A → RI02B → RI02T → RI02C → RI03A → RI03B → RI03C**. This completes RI01's scope gate only. The next implementation task, RI02A, still needs its own PASSKEY.

@@ -498,3 +498,8 @@ The user clarified that the proof must succeed using the supplied ROM alone; edi
 The user requires every map/zone RDX to define its own clearly specified timeline from changes/stages relevant to that map, instead of imposing a universal timeline. Stage labels use Roman numerals, preserving the current visible convention. Existing internal A–J IDs are legacy references, not a mandatory stage vocabulary or count. Separate stable stage identity from ordinal/label; preserve contextual notes, plans, flags, source mappings and testing when stage names/order change. Shared world predicates can be referenced without importing unrelated stages; conditional branches remain explicit rather than being forced into an invented linear chronology.
 
 Source inspection found the current native projection and legacy validation still require ten stages. The revised RI01 proposal adds RI02T, before RI02C, to implement per-map storage/projection/filtering/validation and portable mapping, with differing-count/order and legacy-preservation checks. No runtime code or live timeline was changed. RI01's overall scope acceptance remains pending; this clarification is recorded as a required design correction.
+
+
+## RI01 — Revised Scope Accepted, October 19, 2026
+
+The user explicitly approved the revised ROM-only New Bark proof scope and RI02A/RI02B/RI02T/RI02C/RI03A/RI03B/RI03C sequence, including per-map timelines displayed with Roman numerals. RI01 is complete and checked off. Earlier pending-approval entries above are historical checkpoints. The next separately authorized task is RI02A — ROM Reader and Source Mapping, Sol / High. This acceptance does not start implementation, replace maps or resume production NPCDex sync.
