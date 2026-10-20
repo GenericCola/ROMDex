@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "runtime": {
+    "passed": true,
+    "node": "24.21.0",
+    "electron": "44.7.2",
+    "cloudVersion": 2
+  },
+  "sourcePayloadOnly": true,
+  "installerBuilt": false,
+  "productionChanged": false
+}

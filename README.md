@@ -4,7 +4,7 @@ Private development home for ROMDex and its NPCDex add-on.
 
 Latest published and installed private release: [ROMDex 0.5.15](https://github.com/GenericCola/ROMDex/releases/tag/v0.5.15), with separate managed RDX map files and all saved connections preserved. [RD10 acceptance](docs/project/RD10-Completion-Report.md).
 
-**U21–U27 and RI02A–RI03B are complete in source.** The [MAPDex workspace](apps/romdex/rom/MAPDEX.md) prepares a ROM-derived map locally, retains source identities and exact evidence, supports presentation cleanup/Roman stages and exports a portable RDX or explicitly hands it to NPCDex. [RI03B report](docs/project/RI03B-Completion-Report.md). Extraction is currently verified for the supplied build and Violet City; other catalog groups are marked unverified. **Next: RI03P — Map Cloud-Delivery Performance, Sol / High**, under a new PASSKEY; then RI03C and U28–U30. Installed production remains 0.5.15 plus its existing repairs, with NPCDex cloud sync paused and local saving enabled. This source task did not alter its Data or queue.
+**U21–U27 and RI02A–RI03P are complete in source.** [MAPDex](apps/romdex/rom/MAPDEX.md) provides offline ROM preparation and an explicit reviewed NPCDex handoff. [RI03P cloud delivery](docs/project/RI03P-Completion-Report.md) reduces the same real Violet City map's object attachments/payload by about 65%, with measured cold/delta/unchanged/native/recovery checks and private QA cleanup. **Next: RI03C — Coverage and Integrated Feature Acceptance, Sol / High**, requiring a new PASSKEY; then U28–U30. Installed production remains 0.5.15 plus its existing repairs, with NPCDex cloud sync paused and local saving enabled. This source task did not alter its Data, queue or credentials.
 
 - **apps/romdex/** — current application source, desktop host, web UI and tests.
 - **packages/tool-suite-ui/** — reusable suite assets, including the Standard Settings Icon.
@@ -24,4 +24,4 @@ Run application tests from apps/romdex with Node 24: `node --test tests/*.test.m
 
 ## Current Work
 
-RI03A design is user-approved and RI03B/MAPDex is complete in source. RI03P addresses cloud-delivery performance before RI03C broader/build/identity acceptance. U28–U30 cover integrated acceptance and the next packaged release. Source test helpers may require separately retained local ROM/RDX artifacts; those game files and test profiles are excluded from Git. Use desktop/package-source.mjs for future payloads so the ROM worker and pinned format tables are included.
+RI03A design is approved; RI03B/MAPDex and RI03P cloud performance are source-complete. RI03C owns broader/build/identity feature acceptance before U28–U30 integrated review and the next packaged release. Cloud commit v2 requires upgraded readers; frozen v1 intents remain compatible. Source test helpers require separately retained local ROM-derived artifacts and isolated profiles, which are excluded from Git. No production reset or sync resumption is authorized.

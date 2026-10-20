@@ -1,0 +1,106 @@
+{
+  "status": "passed",
+  "measurements": {
+    "verifiedUploadResume": {
+      "milliseconds": 33552,
+      "cycles": 1,
+      "requests": 276,
+      "writes": 0,
+      "uploadedBytes": 0,
+      "downloadedBytes": 507108
+    },
+    "localNoteDelta": {
+      "milliseconds": 39964,
+      "cycles": 1,
+      "requests": 109,
+      "writes": 0,
+      "uploadedBytes": 0,
+      "downloadedBytes": 289484
+    },
+    "unchangedSync": {
+      "milliseconds": 40114,
+      "cycles": 1,
+      "requests": 109,
+      "writes": 0,
+      "uploadedBytes": 0,
+      "downloadedBytes": 289484
+    },
+    "reviewedNativeDelta": {
+      "milliseconds": 67399,
+      "cycles": 1,
+      "requests": 210,
+      "writes": 3,
+      "uploadedBytes": 367685,
+      "downloadedBytes": 1479641
+    },
+    "secondProfileRecovery": {
+      "milliseconds": 138583,
+      "cycles": 1,
+      "requests": 486,
+      "writes": 0,
+      "uploadedBytes": 0,
+      "downloadedBytes": 3473890
+    }
+  },
+  "finalMeasurements": {
+    "unchangedSync": {
+      "milliseconds": 9290,
+      "requests": 109,
+      "writes": 0,
+      "uploadedBytes": 0,
+      "downloadedBytes": 290188
+    },
+    "localNoteDelta": {
+      "milliseconds": 34768,
+      "requests": 209,
+      "writes": 3,
+      "uploadedBytes": 363480,
+      "downloadedBytes": 1473677
+    },
+    "secondProfileDelta": {
+      "milliseconds": 58350,
+      "requests": 276,
+      "writes": 0,
+      "uploadedBytes": 0,
+      "downloadedBytes": 834304
+    }
+  },
+  "finalLocalSaveMilliseconds": 19164,
+  "harnessCorrection": {
+    "reason": "A safe import merge may retain another wrapper revision; current content, feedback, mappings, views and every retained asset/history byte must match or preserve the primary version.",
+    "primaryRevision": "cae7b12a6fda1f260aafd67c896e6cd9da7aee7b883ddd682381fbec76841cb2",
+    "secondaryRevision": "c99506f8281da436714ddf28e52dc3a94c8ea88760ed31df1f718bb7b1cea842",
+    "exactContentVerified": true
+  },
+  "records": 134,
+  "cleanup": {
+    "status": "passed",
+    "verifiedAbsent": 135
+  },
+  "initialAttempt": {
+    "initialHelperStartedAt": "2026-10-20T17:55:32.033Z",
+    "checkpoint": {
+      "phase": "coldPublication",
+      "cycle": 13,
+      "progress": {
+        "objectsComplete": 595,
+        "objectsTotal": 595,
+        "phase": "Verifying Cloud Commit",
+        "recordsComplete": 134,
+        "recordsTotal": 134
+      },
+      "error": "YouTrack Response Was Interrupted; Saved Intent Is Retained.",
+      "held": false
+    },
+    "reason": "Final attachment metadata verification was serial in the already-running helper; resume verified uploads with bounded parallel prefetch.",
+    "observedTotalMilliseconds": 1332221
+  },
+  "checks": [
+    "Cold publication retains real-map identities, hierarchy, exact source/sprite bytes and commit-last verification",
+    "Local note/flag and reviewed native title update round-trip without dropping proposals or human-testing obligations; unchanged sync writes nothing",
+    "Independent profile preserves every current record, feedback, mapping, view, source/image and retained history byte; merge bookkeeping may have a different wrapper revision",
+    "Final-code unchanged/local-note/incoming-delta measurements use the complete 134-record map and existing tree; no repeated publication"
+  ],
+  "purpose": null,
+  "productionChanged": false
+}

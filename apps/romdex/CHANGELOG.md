@@ -1,3 +1,10 @@
+## Unreleased — RI03P Map Cloud Delivery
+
+- Compress new immutable registry objects while preserving native tickets, prior references, exact bytes/history and one logical map per RDX.
+- Reuse dataset discovery, freshly batch native snapshots and prefetch document/shared-context attachment metadata eight at a time.
+- Add immediate local handoff and counted publication bars; preserve focus while polling and distinguish queued/paused/verified states.
+- Separate successful synchronization from attempted checks; preserve legacy intents, conflict/cancellation/recovery guards and the production pause. Source-only, with isolated live performance/recovery proof.
+
 ## Unreleased — RI03B Offline MAPDex Workspace
 
 - Add the named MAPDex workspace to the shared header/chooser and tray menu, with local ROM preparation in three trays.
