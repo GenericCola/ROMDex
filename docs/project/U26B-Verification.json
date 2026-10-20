@@ -1,6 +1,6 @@
 {
   "task": "U26B",
-  "status": "reopened-shutdown-warning",
+  "status": "complete-installed-warning-free-quit-verified",
   "installedVersion": "0.5.15",
   "regressionPassed": 88,
   "sourceSyntaxChecks": 3,
@@ -1254,13 +1254,14 @@
     "saveButtonEnabled": true,
     "forcedTermination": false,
     "legacyCloudDeliveryCompleted": false,
-    "warningFreeQuit": false,
+    "warningFreeQuit": true,
     "shutdownWarningCorrection": {
       "cause": "RDX file-open polling rejected during lifecycle work",
       "installedFiles": 3,
       "focusedChecksPassed": 4,
       "dataChanged": false,
-      "warningFreeNativeQuit": "pending"
+      "warningFreeNativeQuit": "passed-user-confirmed-and-exit-verified",
+      "relaunch": "passed"
     }
   }
 }

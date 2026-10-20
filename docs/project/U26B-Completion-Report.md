@@ -1,6 +1,6 @@
 # U26B — Task Manager Responsiveness
 
-**Reopened for shutdown warning:** October 19, 2026. The targeted responsiveness, draft/checkpoint and startup/shutdown corrections are installed in ROMDex **0.5.15**. NPCDex cloud synchronization is persistently paused by user request; local saves and ROMDex task/metadata syncing remain enabled. No installer or whole-save replacement was used. Process exit/relaunch and preservation passed, but the user subsequently reported an error before exit. Warning-free shutdown remains unresolved.
+**Complete and installed:** October 19, 2026. Targeted responsiveness, draft/checkpoint and shutdown corrections are installed in ROMDex **0.5.15**. The user confirmed warning-free tray Quit, and independent checks verified process exit, relaunch and preserved saves. NPCDex cloud sync remains paused by user request; local saving and task/metadata syncing remain enabled. No installer or whole-save replacement was used.
 
 ## What Changed
 
@@ -83,10 +83,16 @@ The user selected **Quit ROMDex** from the Windows notification-area menu. Indep
 
 ROMDex reopened normally with a new process and the existing saved connection. The native UI confirmed **299 tasks**, **YouTrack Tasks Up to Date**, **ROMDex Metadata Up to Date**, an enabled **Save Changes** button, and **NPCDex Cloud Sync Paused · Local Saves Enabled · 133 Queued Entries Preserved**. Three working map files and the checked YouTrack/GitHub encrypted connection files match the verified backup. No additional code change or redundant regression run was needed for this acceptance.
 
-**U26B was reopened after the user reported a warning before exit; final completion is withdrawn pending that correction.** The legacy cloud attachment-integrity issue remains preserved and paused for separate review rather than claimed resolved. No data has been cleared. U26C will prove the clean RDX workflow in isolation before any previewed production replacement.
+**U26B was reopened for the warning before exit; that correction is now accepted in the warning-free check below.** The legacy cloud attachment-integrity issue remains preserved and paused for separate review rather than claimed resolved. No data has been cleared. U26C will prove the clean RDX workflow in isolation before any previewed production replacement.
 
 ## Shutdown Warning Follow-up
 
 The user confirmed the remaining message was “Wait for the Application Lifecycle Work to Finish.” The native `.rdx` file-open poll calls the list IPC after 1.5 seconds, including after the Quit guard has become active. The original guard rejected even a read-only list call, and the renderer displayed it as an error although shutdown could finish. This warning was missed by checking only process exit and data preservation; U26B was reopened.
 
-The correction sends lifecycle-busy events to pause the poll and prevents in-flight list/inspect responses from opening import UI during shutdown. Polling resumes if Quit fails/cancels. Listing opaque IDs remains safe during the lifecycle gate; inspect, dismiss and stage remain blocked. Four focused checks pass, including normal error visibility and preservation of pending file requests. Installed warning-free Quit acceptance remains pending.
+The correction sends lifecycle-busy events to pause the poll and prevents in-flight list/inspect responses from opening import UI during shutdown. Polling resumes if Quit fails/cancels. Listing opaque IDs remains safe during the lifecycle gate; inspect, dismiss and stage remain blocked. Four focused checks pass, including normal error visibility and preservation of pending file requests. Installed warning-free Quit acceptance passed as recorded below.
+
+## Warning-free Shutdown Acceptance
+
+The user selected tray Quit in the corrected build and confirmed **“Closed Without Any Error.”** The window and profile ownership file were independently confirmed absent. A consistent closed-app database copy passed its integrity check and retained all 133 queued entries and the editor draft; the task store retained 299 tasks with zero pending task operations. No force termination or cloud-queue reset was used.
+
+Normal relaunch succeeded. The native header showed **Cloud Sync Paused · Local Saves Enabled · 133 Queued Entries Preserved**, tasks and metadata Up to Date, and an enabled Save Changes button. **U26B is complete.** The next task is the separately authorized U26C clean RDX round-trip exercise; current datasets remain intact and the known legacy cloud attachment-integrity issue remains preserved and paused.
