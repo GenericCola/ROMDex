@@ -1,6 +1,6 @@
 {
   "task": "U26B",
-  "status": "source-verified-live-recovery-in-progress",
+  "status": "installed-final-quit-reopen-pending",
   "installedVersion": "0.5.15",
   "regressionPassed": 88,
   "sourceSyntaxChecks": 3,
@@ -1227,5 +1227,23 @@
     "refresh": 338.5006999999996,
     "mapsInitialize": 4260.877,
     "view": 1302.6678999999995
+  },
+  "finalRecovery": {
+    "npcdexCloudPaused": true,
+    "localSavesEnabled": true,
+    "taskMetadataSyncEnabled": true,
+    "dataReplaced": false,
+    "backlogDiscarded": false,
+    "backupFiles": 158,
+    "backupBytes": 308593829,
+    "retainedPending": 133,
+    "retainedBlocked": 1,
+    "cloudIntegrityIssue": "Content Attachment Bytes Do Not Match",
+    "targetedInstalledFiles": 12,
+    "candidateUI": 9,
+    "draftUI": 2,
+    "newFocusedRegressions": 2,
+    "pausePolicyCheck": true,
+    "servicePauseCheck": true
   }
 }

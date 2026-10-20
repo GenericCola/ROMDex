@@ -2,7 +2,7 @@
 
 Reported October 19, 2026. The user clarified that the sluggishness is in **ROMDex Task Manager**, especially expanding/collapsing dropdowns and loading trays. NPCDex is not the reported focus.
 
-Authorized under its own PASSKEY before U27. [Completion report](U26B-Completion-Report.md). The reported Save/quit/startup failure extends this correction. A minimal three-file repair is applied to installed 0.5.15, with a complete verified Data backup. Further responsiveness and shared Save changes remain source-only. Recommended model/effort: Sol / High.
+Authorized under its own PASSKEY before U27. [Completion report](../History/U26B/U26B-Completion-Report.md). The reported Save/quit/startup failure extends this correction. A minimal three-file repair is applied to installed 0.5.15, with a complete verified Data backup. Further responsiveness and shared Save changes remain source-only. Recommended model/effort: Sol / High.
 
 ## Investigation
 
@@ -21,3 +21,8 @@ Initial source inspection found candidates, not a measured root cause: the gener
 ## Urgent Live Recovery
 
 The user reported a prolonged manual Save, red attention despite Auto-Sync On, failed tray Quit, and service exit (1) after ending the process. A copied profile reproduced a blocked prewrite DOMException timeout that hid a dependent queue from the checkpoint source; the retained map history guard correctly refused the resulting regression. Recover only the exact legacy prewrite failure with no recorded write slots. Preserve all immutable content and sending-slot review protections, and retain launch access to a verified catalog if a newer checkpoint needs recovery. Verify normal launch/quit and investigate the remaining cloud read duration; do not declare queued edits delivered.
+
+
+## October 19 Acceptance Scope Update
+
+The user authorized pausing NPCDex cloud sync, preserving a complete backup and retaining local saving so U26B can close before isolated clean RDX acceptance. Do not drain, batch, cancel or silently reset the legacy cloud backlog to finish this task. The persistent pause is NPCDex-only; task and organization-metadata sync remain enabled. U26B still requires installed normal Quit/reopen acceptance. The clean dataset exercise is U26C before U27, with production replacement separately previewed after success.

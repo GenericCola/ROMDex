@@ -1,6 +1,6 @@
 # U26B — Task Manager Responsiveness
 
-**Source corrections verified; live recovery in progress:** October 19, 2026. Installed ROMDex remains **0.5.15**, with a minimal three-file startup repair. No installer or whole-save replacement was used. Normal quit and the remaining NPCDex sync duration are still being checked.
+**Final installed acceptance in progress:** October 19, 2026. The targeted responsiveness, draft/checkpoint and startup/shutdown corrections are installed in ROMDex **0.5.15**. NPCDex cloud synchronization is persistently paused by user request; local saves and ROMDex task/metadata syncing remain enabled. No installer or whole-save replacement was used. Final normal tray Quit/reopen acceptance is pending.
 
 ## What Changed
 
@@ -46,7 +46,7 @@ The existing **220 ms single-click guard before opening Details remains**, prese
 - **88 focused regression tests passed:** cache invalidation, hierarchy/status rollup, manual order, selector rules, Work filtering, selection, editor preservation, tray splitting, keyboard routing, Details navigation and bulk hierarchy operations.
 - **Nine source UI preservation checks passed:** row/select identity and draft whitespace during snapshots; checkbox selection with collapsed Details; durable queued notes; rename draft and double-click behavior; refreshed lazy selector content; persisted tray resizing; reported/rolled-back view-save failure without changing task edits; search and remote row invalidation; focused clean editors defer incoming text until blur and then refresh.
 - **Three changed source-module syntax checks passed.** The actual renderer, DesktopWorkspace and WorkspaceEngine were exercised against an isolated HTTP IPC simulation and file persistence. No credential or remote write was used.
-- The task renderer changes remain source-only. A separately scoped three-file repair was applied to the exact installed 0.5.15 content writer/catalog after the urgent startup report. Native packaged acceptance for the broader source changes remains at the release gate.
+- The targeted renderer corrections are now installed in the existing 0.5.15 build. Its application differs from newer source features, so only U26B changes were transplanted; unrelated U21–U26A source features were not installed. Eight task UI preservation checks and a separate focused-editor check passed against this exact candidate. The first transplant failed an isolated syntax check and was corrected before installation; a later fixture selector ambiguity was corrected without changing app code.
 
 See [verification data](U26B-Verification.json). Private Git backup identity is recorded separately after publication.
 
@@ -58,6 +58,21 @@ A full closed-app Data backup was verified file by file: 148 files, 255,063,611 
 
 The correction treats transport timeout/abort as retryable unless a sending slot requires uncertain-delivery review. Legacy recovery is restricted to blocked code 23, the exact timeout message, and zero slots; it retains the prior error as recovery evidence. The copy proof preserved all 110 journal entries, the 78 pending operations, 1,091 immutable objects and three encrypted credential files. Only the one incorrectly blocked operation changed delivery state. Startup also retains access to a verified loaded catalog when a newer checkpoint fails; corruption of the accepted generation still fails verification.
 
-The three changed installed files and their original versions are hash recorded and backed up separately. The user confirmed the repaired app opens, although slowly. A live read-only check showed the recovery applied, database integrity OK, no blocked/uncertain operation or recorded error, and 81 queued operations after newer edits. A subsequent UI view showed 86 pending. This is **not** evidence of finished cloud delivery.
+All changed installed files and their original versions are hash recorded and backed up separately. The user confirmed the repaired app opens, although slowly. A live read-only check showed the recovery applied, database integrity OK, no blocked/uncertain operation or recorded error, and 81 queued operations after newer edits. A subsequent UI view showed 86 pending. This is **not** evidence of finished cloud delivery.
 
 Additional source checks passed: 22 content recovery/delivery/catalog tests; 21 shared Save/status tests; three actual-shell checks with isolated providers. Shared manual Save coalesces the task/metadata service call, reports the outstanding provider, and keeps Save enabled so another click opens Connection Details without resending. Healthy flowing edits stay green; real offline/review failures remain red. Slow remote history reads remain a live diagnostic item.
+
+
+## Final Recovery and Temporary NPCDex Cloud Pause
+
+The user explicitly chose to pause NPCDex cloud delivery and retain local saves before a later clean-data RDX workflow test. Delivering or batching the legacy backlog is no longer part of this acceptance. No pending operation was deleted, cancelled, batched or marked delivered. The experimental batching helper was removed from shipping source without use on live data.
+
+The final closed-app backup is `outputs/Protected/U26B-Final-Data-Backup-2026-10-19`: **158 files, 308,593,829 bytes**, each copied file SHA-256 verified. It includes all saves, three working map RDX files and previous generations, editor drafts, queues and Windows-protected connections. It is private local recovery material and was not uploaded to GitHub. The original code is separately preserved in `outputs/Protected/U26B-Before-Final-Repair`.
+
+The final backup's content database passes integrity checking and retains **165 journal entries: 32 committed, one blocked and 132 queued**. The blocked entry reports **Content Attachment Bytes Do Not Match**, with two verified upload slots. This remains a cloud integrity/review issue; it has not been silently retried or declared resolved. Pausing cloud sync prevents further reads/writes for NPCDex, including a manual Save override and new map cloud binding. Existing task and metadata syncing continue. The pause is stored separately from the shared Auto-Sync setting and survives relaunch.
+
+The old shutdown loop combined three problems: background checkpointing retried blocked feedback; draft snapshots could contain undefined optional properties and fail strict JSON serialization; and a blocked delivery entry was excluded from the local overlay, making its dependent history disappear from the proposed RDX checkpoint. The history guard correctly rejected that incomplete checkpoint. Local projection now retains blocked work while cloud publication and editing review gates remain enforced. Checkpointing saves editor drafts without retrying blocked edits, and overlapping provider checkpoints share one operation. Export/history validation is unchanged.
+
+Additional focused evidence: persistent pause/status isolation check; service fixture with local task edit, checkpoint, resume and shutdown and zero external requests; two real-UI draft preservation/reopen checks after a synthetic review rejection; blocked-preview/review-gate regression; and overlapping checkpoint coalescing regression. Installed startup shows **299 tasks** and explicit **Cloud Sync Paused · Local Saves Enabled · 133 Queued Entries Preserved**. Save remains enabled. Final tray Quit/reopen is recorded separately when confirmed.
+
+No dataset has been cleared. A clean RDX round-trip test must use an isolated dataset first; replacing existing content still requires a preview that preserves the full backup and avoids unintended archival/deletion of shared NPCD content. U21–U26A features remain source-complete rather than deployed, as documented in their reports. U26B does not change that release boundary.
