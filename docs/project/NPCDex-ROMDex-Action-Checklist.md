@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](Documentation/History/Earlier-Plans-and-Releases/ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** **U27 is complete in source**; [report](Documentation/History/U27/U27-Completion-Report.md). Next is **U28 — Integrated Failure and Concurrency Review, Astra / High**, awaiting a new PASSKEY. Installed production remains 0.5.15 with NPCDex cloud sync paused, local saves enabled and all 133 queued entries preserved. No production reset is authorized.
+**Current:** **U27 is complete in source**; [report](Documentation/History/U27/U27-Completion-Report.md). Next is **RI01 — Inspect ROM and Agree Extraction Coverage, Sol / High**, awaiting a new PASSKEY. Core ROM import/extraction now precedes Phase 9; U28 follows the completed scoped feature. Installed production remains 0.5.15 with NPCDex cloud sync paused, local saves enabled and all 133 queued entries preserved. No production reset is authorized.
 
 ## Completed Foundation
 
@@ -127,11 +127,19 @@ RD10 execution checklist:
 - [x] **U26C — Isolated Clean RDX Round-Trip Acceptance** — Sol / High. Completed October 19. One fictional map imported into an empty isolated workspace, displayed tiles, saved contextual UI edits, reopened/exported, published to private NPCD after explicit test binding, accepted a reviewed native title change, and recovered into two additional empty profiles without duplicate records. Exact asset bytes/history and human-testing obligations retained. All 12 QA records removed; production integrity, pause, local saving and 133 pending entries unchanged. Native runtime loaded the map but its hidden window was not visually inspected; exact installed UI was checked in isolated Chromium. No application-code change, installer, production reset or broad regression rerun. [Report](Documentation/History/U26C/U26C-Completion-Report.md).
 - [x] **U27 — History, Reversal and Verification-Gated Completion** — Sol / High. Completed October 19 in source: flashing-amber Needs Testing, private immutable build/content verification history, completion guards, recoverable readiness notices and reversal reference without automatic ROM undo. Focused model, metadata, transport, service and interface checks passed. Installed production remains unchanged; integrated/fresh-instance review and live release remain U28–U30. [Report](Documentation/History/U27/U27-Completion-Report.md).
 
+## Phase 11 — Core ROM Import and RDX Extraction
+
+Approved as a core feature before Phase 9 final review and release. Retain Phase 11 and RI01–RI03 identifiers for traceability; their position here reflects the revised execution order. **Next: RI01 → RI02 → RI03 → U28 → U29 → U30.** Notifications remain after U30. Initial support is bounded to the supplied ROM/game and explicitly agreed content coverage; arbitrary-ROM support is not assumed. RI01 must refine the scope, uncertainties, acceptance criteria and any additional task breakdown before implementation. Each task still requires its own PASSKEY; this scheduling approval authorizes no ROM inspection, extraction, live migration or workspace implementation. Keep the supplied `0.6.3_noduplicates.nds` read-only and outside Git/releases; do not replace existing maps without a separately accepted preview.
+
+- [ ] **RI01 — Inspect ROM and Agree Extraction Coverage** — Sol / High. Identify build/formats/tools, choose a representative map, agree supported content/source mappings, document uncertainties and refine the implementation tasks and acceptance criteria before promising coverage.
+- [ ] **RI02 — Prove ROM → JSON → One-Map RDX** — Sol / High. Extract real dialogue/scripts/entities/assets with stable source targets, compile using the existing kit, verify import and local/YouTrack changes without losing proposals/history.
+- [ ] **RI03 — ROM Import Workspace** — Sol / High. Review the design, then wrap the proven extractor with ROM identification, map selection, preview, diagnostics and explicit import/export; deterministic runtime, read-only ROM, one map per RDX.
+
 ## Phase 9 — Final Review and Release
 
-- [ ] **U28 — Integrated Failure and Concurrency Review** — Astra / High. Full `.rdx`/JSON/task/return/testing loop plus offline, sync, portability and failure boundaries; reuse valid prior evidence and avoid redundant full-suite runs.
-- [ ] **U29 — Guided Live-Workspace Acceptance** — Sol / High. Fresh preview/backups and isolated QA; user confirms original UI, cross-instance transfer, native YouTrack changes and human-only completion gates. Do not repeat completed migrations.
-- [ ] **U30 — Verified Installer and Handoff Documentation** — Sol / Medium. Include `.rdx` icon/association, schemas/tools/examples, agent guide, limitations, backup/restore, optional cloud setup and QA report. Preserve all saves/credentials.
+- [ ] **U28 — Integrated Failure and Concurrency Review** — Astra / High. After the approved core extraction scope is implemented, review real ROM → JSON/assets → one-map `.rdx` → NPCDex/YouTrack → JSON/task/return/testing, plus offline, sync, portability and failure boundaries; reuse valid prior evidence and avoid redundant full-suite runs.
+- [ ] **U29 — Guided Live-Workspace Acceptance** — Sol / High. Fresh preview/backups and isolated QA; user confirms original UI, supported ROM extraction/import, cross-instance transfer, native YouTrack changes and human-only completion gates. Do not repeat completed migrations.
+- [ ] **U30 — Verified Installer and Handoff Documentation** — Sol / Medium. Include the supported ROM extractor/workspace, `.rdx` icon/association, schemas/tools/examples, agent guide, extraction limitations, backup/restore, optional cloud setup and QA report. Preserve all saves/credentials.
 
 ## Phase 10 — Agent Contact Notifications After the Principal Release
 
@@ -139,13 +147,6 @@ RD10 execution checklist:
 - [ ] **U32 — Durable Agent Activity Retrieval** — Sol / High. Implement approved event discovery/unread storage, offline/restart catch-up and duplicate suppression.
 - [ ] **U33 — Windows Notifications and Activity Access** — Sol / High. Implement approved alerts and click-through; verify installed/tray behavior and deliver a tested release.
 
-## Phase 11 — ROM Import and RDX Extraction Stretch Goal
-
-After U30, separately authorized; the supplied `0.6.3_noduplicates.nds` remains read-only and outside Git/releases. No extraction or workspace implementation is authorized by recording this stretch goal.
-
-- [ ] **RI01 — Inspect ROM and Agree Extraction Coverage** — Sol / High. Identify build/formats/tools, choose a representative map and document uncertainties before promising complete coverage.
-- [ ] **RI02 — Prove ROM → JSON → One-Map RDX** — Sol / High. Extract real dialogue/scripts/entities/assets with stable source targets, compile using the existing kit, verify import and local/YouTrack changes without losing proposals/history.
-- [ ] **RI03 — ROM Import Workspace** — Sol / High. Review the design, then wrap the proven extractor with ROM identification, map selection, preview, diagnostics and explicit import/export; deterministic runtime, read-only ROM, one map per RDX.
 
 **Historical planning updates:** October 15 introduced map-level JSON handoff/receipt return; U20 later selected direct content-record updates. The October 18 amendment now supersedes that normal agent return route with updated map `.rdx` attachments reconciled by ROMDex. JSON Map Packages remain the readable execution document; notifications still follow U30. Earlier completion records below describe historical boundaries, not current authorization.
 
