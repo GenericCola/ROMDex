@@ -486,3 +486,8 @@ Completed under its own PASSKEY. Add reciprocal task/map/fixed-version links, in
 The user approved moving former Phase 11 ahead of Phase 9 final acceptance/release. This supersedes the earlier post-release deferral. Preserve existing phase/task identifiers for traceability; execution is RI01 (evidence-based scoping) → RI02 (real one-map ROM/JSON/RDX proof) → RI03 (reviewed deterministic ROM Import workspace) → U28/U29/U30 (integrated review, guided acceptance, installer). Notifications remain after U30. Initial coverage is bounded to the supported ROM/game and agreed content, with uncertainties and additional task breakdown resolved during RI01. Reuse valid prior verification; check changed boundaries and the real extraction workflow before final acceptance.
 
 This is approval of the roadmap change only. RI01 needs its own PASSKEY with Sol / High; no ROM has been inspected, no extraction or production replacement authorized, and no saves/sync policy changed. Keep ROM bytes out of Git/releases and read-only.
+
+
+## RI01 — ROM-only Input Requirement, October 19, 2026
+
+The user clarified that the proof must succeed using the supplied ROM alone; editable project files and another coding agent's prepared JSON are not acceptable dependencies. Open-source tools such as DSPRE may be incorporated, subject to pinned compatibility and redistribution review. Public format references are permitted; the ROM remains the content authority. Investigation has established a structurally readable New Bark candidate and a relocated sprite table. The proposed scope and RI02A–RI03C task breakdown await RI01 acceptance; a completed portable-file/cloud proof has not been claimed. Existing production data and NPCDex pause remain untouched.

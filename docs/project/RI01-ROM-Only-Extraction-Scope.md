@@ -1,0 +1,73 @@
+# RI01 — ROM-Only Extraction Scope for Approval
+
+Prepared October 19, 2026. This is the scope-review gate for the core ROM Import feature. Investigation is authorized; the production extractor, workspace and live-data replacement are not yet implemented or approved by this document.
+
+## The requirement
+
+ROMDex must read the supplied `.nds` itself, generate map JSON/assets and compile a usable one-map `.rdx`. It must not depend on an editable project, another agent's extraction, DSPRE export folders, hand-authored dialogue or an AI service. Open-source format readers/tools may be incorporated with pinned versions and appropriate license/attribution review. The final app must bundle its required runtime and work offline for local extraction/import.
+
+The original ROM stays read-only. This feature reads and exports; it does not patch, rebuild or run the ROM. Actual ROM changes remain the coding agent's separate task-bound workflow.
+
+## What this investigation established
+
+The input is `0.6.3_noduplicates.nds`, 192,240,096 bytes, SHA-256 `cb743eb01fe18f8599e54911faa28701474b84a6b9d9764a9478bf8a7be1babd`. Its header identifies `POKEMON HG`, English game code `IPKE`. Its 537 filesystem entries include 384 named files and 308 NARC archives. All inspected filesystem/archive ranges fit the supplied file. No ROM payload was uploaded or changed.
+
+The expected English HeartGold ARM9 header-table location contains structurally consistent records. Nineteen ARM9 pointer literals reference that table's RAM address. This supports the candidate layout; it is not proof that every runtime path uses it, nor that every retail constant applies to the modified build.
+
+New Bark Town is the recommended first proof map, containing eight physical map headers: **60–66 and 384**. They resolve to script banks **842–849**, message banks **542–549**, and event banks **57–63 and 341**. Their location-name entries decode to New Bark Town. Public retail area names are useful annotations, but the authoritative hierarchy must be checked against this ROM's headers, warps and scripts rather than imported from a vanilla content list.
+
+| Probe result | What it means |
+| --- | --- |
+| 24 overworld placements | NPCs and other placed objects, not a promise of 24 distinct named characters. |
+| 230 message entries | All entries in those banks decoded without unknown character codes. Some may be unused or share context; they are not automatically 230 distinct spoken prompts. Control codes remain explicit. |
+| 52 local script entry points | A bounded walk using public fixed-width command definitions found no unknown instruction widths in these local flows. This does not resolve every native command's meaning, movement list, shared script, external message or runtime condition. |
+| 1,656 sprite-table rows | A relocated table was found through overlay 1's pointer into overlay 131. Relevant static entries resolve to BTX0 texture members. Dynamic sprite ID 101 is not a static table row and needs conditional resolution. |
+
+This is **ROM-only feasibility evidence**, not a finished extraction/RDX/YouTrack POC. Sprite rendering, complete dialogue attribution, shared calls and fresh RDX import/readback still have to pass the proof tasks below.
+
+## Proposed initial coverage
+
+Read the actual map catalog and let the user select a map/zone. New Bark Town's outdoor area and seven interiors form **one logical map RDX**, with physical areas represented as sub-zones. Reuse the existing region → map → sub-zone → entity model, shared character profiles/local appearances, assets, locators and portable revision machinery.
+
+The extractor should retain:
+
+- Header/map IDs, physical-area relationships, warps, NPC/object local IDs, placements, sprite references, visibility flags and interaction/trigger links.
+- Exact message/control data, gender alternatives, script entry points and branches, concrete variable/flag conditions, relevant shared-script/external-message dependencies, and movement/event references. The output must distinguish bank entries from actual dialogue prompts and keep ambiguous attribution visible.
+- ROM-derived appearance images with the correct textures/palettes and conditional alternatives. Never substitute a stock sprite when this ROM supplies a different one.
+- Stable entity/prompt identities, the source ROM/resource hashes and exact archive/member/script/message selectors needed by the implementing agent. Offsets remain revision-specific evidence, not permanent identity.
+- Coverage diagnostics and retained references for unsupported native behavior. Unknown commands/data must not be guessed, silently skipped or described as fully decoded. A structurally complete snapshot is permitted only for explicitly surveyed parents; ordinary incomplete extraction stays partial and cannot silently archive omitted content.
+
+A static extractor cannot determine every possible playthrough or assign editorial story meanings to all flags. It must preserve actual predicates and identify unresolved behavior. Human-friendly character names, scene titles and the existing A–J timeline are editorial metadata where the ROM does not uniquely encode them. Use ROM-proven names where available and stable neutral labels otherwise; allow user corrections. Do not invent character identities or manufacture story-stage assignments to fill the UI. This is a review/enrichment step, not a dependency on another agent's prepared JSON.
+
+Repeat extraction of the same ROM must reuse identities. When comparing a newer build, retain the existing RDX/identity registry and its plans, flags, notes, views and testing history. Changed IDs, moved events or ambiguous matches require previewed review rather than new duplicate records. ROM hash changes alone must not create a new map identity. A first-time user needs only the ROM; an existing map's own saved RDX/registry supplies its editing lineage.
+
+## Proposed proof and implementation tasks
+
+Keep RI01 as the investigation/design gate. Refine the earlier RI02/RI03 umbrella tasks into separately authorized steps:
+
+| Task | Deliverable and acceptance | Model / effort |
+| --- | --- | --- |
+| RI02A — ROM reader and source mapping | Bounded read-only reader, build fingerprint, actual header/relocation discovery, map/warp/event inventory and portable locator/identity manifest. Validate ranges/references; detect unsupported builds and ambiguity explicitly. No external editable project or prepared map input. | Sol / High |
+| RI02B — Dialogue, events and appearance extraction | Resolve the eight-area New Bark proof's local/shared dialogue dependencies, control/gender branches, visibility conditions and dynamic sprites. Render the ROM's assets. Compare decoded structures to their exact source locations; account for each relevant object, message reference and unresolved dependency. Native behavior that cannot be interpreted remains explicit and cannot be counted as understood. | Sol / High |
+| RI02C — Compile and prove the real one-map RDX | Build NewBarkMap.rdx directly from the ROM-only extraction, validate/unpack/repack, import into an empty isolated profile, display both gender views and images, save a local note/flag/change, publish only clearly marked isolated YouTrack records, accept a reviewed native edit, then export/reimport into another empty profile. Preserve exact content/assets, stable identities, proposals and human-testing obligations; clean owned test records. No production reset or queue resumption. This is the decisive POC. | Sol / High |
+| RI03A — Review ROM Import workspace design | Review map selection/grouping, build support, coverage warnings, preview, existing-map matching and explicit import/export. Confirm how neutral names and unresolved conditions appear without disrupting familiar NPCDex editing. Approve a concrete design before implementation. | Sol / High |
+| RI03B — Implement the offline workspace | Wrap the proven decoder/compiler with native file selection, progress/cancellation, bounded scratch use, explicit actions and recoverable checkpoints. No AI, source-project requirement, automatic publication or task dispatch. ROMs stay outside application backups/releases unless separately requested. | Sol / High |
+| RI03C — Coverage and integrated feature acceptance | Check a contrasting second area such as Route 29, plus a structurally different scene/interior selected from actual inventory. Verify repeat extraction, newer-build comparison, ambiguous identities, malformed/unknown formats and preservation of user edits. Document supported coverage and honest per-map limitations before U28. | Sol / High |
+
+RI02C must succeed before the feature is considered to have replaced the other agent's extraction work. Parsing archives or producing plausible text alone does not satisfy it. Existing production maps remain protected; any later replacement needs a fresh accepted preview and verified backup.
+
+## Tools and boundaries
+
+Prefer a small deterministic adapter integrated with the existing RDX compiler. DSPRE, pret/pokeheartgold and ndspy provide useful format/reference implementations; no tool's retail compatibility claim establishes compatibility with this modified build. Resolve relocation/custom formats from this ROM. Pin any adopted component, review its redistribution requirements before packaging, and retain required notices. Do not make the user install a full editor or invoke its write/repack workflow simply to extract a map.
+
+No new cloud provider, token, billing setup or production data migration is needed for RI01. The later isolated cloud proof uses the existing protected connection through the established Windows verification route. A live helper should be requested only when those checks are ready.
+
+Public references inspected:
+
+- [DSPRE](https://github.com/DS-Pokemon-Rom-Editor/DSPRE/tree/e751187b45d6ddf237a24dab8407a5a6cf0d36dd), particularly [RomInfo](https://github.com/DS-Pokemon-Rom-Editor/DSPRE/blob/e751187b45d6ddf237a24dab8407a5a6cf0d36dd/DS_Map/RomInfo.cs), [event format](https://github.com/DS-Pokemon-Rom-Editor/DSPRE/blob/e751187b45d6ddf237a24dab8407a5a6cf0d36dd/DS_Map/ROMFiles/EventFile.cs) and its [license](https://github.com/DS-Pokemon-Rom-Editor/DSPRE/blob/e751187b45d6ddf237a24dab8407a5a6cf0d36dd/LICENSE). References distinguish relocated HGSS sprite tables from vanilla fixed offsets.
+- [pret/pokeheartgold](https://github.com/pret/pokeheartgold/tree/6988158691eb6178cff697cda0428045ddcba5fb), including [map header structure](https://github.com/pret/pokeheartgold/blob/6988158691eb6178cff697cda0428045ddcba5fb/include/map_header.h), [script encodings](https://github.com/pret/pokeheartgold/blob/6988158691eb6178cff697cda0428045ddcba5fb/asm/macros/script.inc), and [message allocation/encoding](https://github.com/pret/pokeheartgold/blob/6988158691eb6178cff697cda0428045ddcba5fb/tools/msgenc/MessagesConverter.h). These are public format references, not an editable copy of the user's project.
+- [ndspy NARC documentation](https://ndspy.readthedocs.io/en/stable/api/narc.html) describes container-level reading; it does not supply game-specific NPC/script interpretation.
+
+## Decision requested
+
+Approve the ROM-only requirement, New Bark Town eight-area POC, explicit semantic limits and the refined RI02A–RI03C task sequence. Approval completes RI01's scope gate only. The next implementation task, RI02A, still needs its own PASSKEY.

@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](Documentation/History/Earlier-Plans-and-Releases/ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** **U27 is complete in source**; [report](Documentation/History/U27/U27-Completion-Report.md). Next is **RI01 — Inspect ROM and Agree Extraction Coverage, Sol / High**, awaiting a new PASSKEY. Core ROM import/extraction now precedes Phase 9; U28 follows the completed scoped feature. Installed production remains 0.5.15 with NPCDex cloud sync paused, local saves enabled and all 133 queued entries preserved. No production reset is authorized.
+**Current:** **U27 is complete in source**; [report](Documentation/History/U27/U27-Completion-Report.md). **RI01 — Inspect ROM and Agree Extraction Coverage, Sol / High, is in progress** under its PASSKEY; ROM-only investigation is complete and the [scope](Documentation/Project/RI01-ROM-Only-Extraction-Scope.md) awaits user acceptance. Core ROM import/extraction now precedes Phase 9; U28 follows the completed scoped feature. Installed production remains 0.5.15 with NPCDex cloud sync paused, local saves enabled and all 133 queued entries preserved. No production reset is authorized.
 
 ## Completed Foundation
 
@@ -131,7 +131,7 @@ RD10 execution checklist:
 
 Approved as a core feature before Phase 9 final review and release. Retain Phase 11 and RI01–RI03 identifiers for traceability; their position here reflects the revised execution order. **Next: RI01 → RI02 → RI03 → U28 → U29 → U30.** Notifications remain after U30. Initial support is bounded to the supplied ROM/game and explicitly agreed content coverage; arbitrary-ROM support is not assumed. RI01 must refine the scope, uncertainties, acceptance criteria and any additional task breakdown before implementation. Each task still requires its own PASSKEY; this scheduling approval authorizes no ROM inspection, extraction, live migration or workspace implementation. Keep the supplied `0.6.3_noduplicates.nds` read-only and outside Git/releases; do not replace existing maps without a separately accepted preview.
 
-- [ ] **RI01 — Inspect ROM and Agree Extraction Coverage** — Sol / High. Identify build/formats/tools, choose a representative map, agree supported content/source mappings, document uncertainties and refine the implementation tasks and acceptance criteria before promising coverage.
+- [ ] **RI01 — Inspect ROM and Agree Extraction Coverage** — Sol / High. Investigation passed; [ROM-only scope](Documentation/Project/RI01-ROM-Only-Extraction-Scope.md) and refined RI02A–RI03C sequence await scope acceptance; not implemented. Identify build/formats/tools, choose a representative map, agree supported content/source mappings, document uncertainties and refine the implementation tasks and acceptance criteria before promising coverage.
 - [ ] **RI02 — Prove ROM → JSON → One-Map RDX** — Sol / High. Extract real dialogue/scripts/entities/assets with stable source targets, compile using the existing kit, verify import and local/YouTrack changes without losing proposals/history.
 - [ ] **RI03 — ROM Import Workspace** — Sol / High. Review the design, then wrap the proven extractor with ROM identification, map selection, preview, diagnostics and explicit import/export; deterministic runtime, read-only ROM, one map per RDX.
 
