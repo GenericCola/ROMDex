@@ -503,3 +503,8 @@ Source inspection found the current native projection and legacy validation stil
 ## RI01 — Revised Scope Accepted, October 19, 2026
 
 The user explicitly approved the revised ROM-only New Bark proof scope and RI02A/RI02B/RI02T/RI02C/RI03A/RI03B/RI03C sequence, including per-map timelines displayed with Roman numerals. RI01 is complete and checked off. Earlier pending-approval entries above are historical checkpoints. The next separately authorized task is RI02A — ROM Reader and Source Mapping, Sol / High. This acceptance does not start implementation, replace maps or resume production NPCDex sync.
+
+
+## RI02A — Source Reader and Mappings Complete
+
+Completed under its own PASSKEY. The reader inventories the supplied .nds directly without editable project/agent-prepared content. All 540 physical map headers and their event resources are validated; New Bark's scoped identities and native source mappings preserve exact bytes and reopen unchanged in another process. Known ambiguous object IDs/unresolved warp references remain explicit rather than being repaired or silently trusted. Seventeen focused tests and eight real-ROM proof checks pass. No production or runtime deployment changed. Next separately gated task: RI02B — Dialogue, Events and Appearance Extraction, Sol / High. Per-map Roman-numeral timelines remain RI02T, and the decisive actual RDX/native round trip remains RI02C.

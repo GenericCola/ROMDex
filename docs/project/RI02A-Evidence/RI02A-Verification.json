@@ -1,0 +1,21 @@
+{
+  "task": "RI02A",
+  "status": "passed",
+  "focusedTests": 17,
+  "overlappingFinalIdentityRecheck": 6,
+  "syntaxFiles": [
+    "rom/reader.mjs",
+    "rom/profiles.mjs",
+    "rom/locators.mjs",
+    "rom/hgss.mjs",
+    "rom/identities.mjs",
+    "rom/native-mapping.mjs",
+    "rom/cli.mjs",
+    "tests/rom-reader-fixture.mjs",
+    "tests/rom-reader.test.mjs",
+    "tests/rom-identities.test.mjs"
+  ],
+  "actualSourceProof": "RI02A-Real-ROM-Proof.json",
+  "fullApplicationSuiteRerun": false,
+  "installedOrLiveCloudCheck": false
+}

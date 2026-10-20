@@ -1,3 +1,9 @@
+## Unreleased — RI02A ROM Reader and Source Mapping
+
+- Add a bounded, read-only supplied-build ROM/filesystem/NARC reader with explicit unsupported-build/relocation diagnostics and actual map/event/warp inventory.
+- Add portable map-scoped source identities, pinned native locators and a batch mapping session that preserves identity and avoids repeated whole-catalog validation.
+- Pass 17 focused tests and eight real-ROM proof checks, including 617 independently resolved locators and separate-process identity preservation. Source-only; no RDX compilation, cloud publication or installed change.
+
 ## Unreleased — U27 Human Testing and Result History
 
 - Add private causal testing history pinned to accepted results, current affected revisions and the tested build; concurrent decisions preserve both versions and require fresh verification.
