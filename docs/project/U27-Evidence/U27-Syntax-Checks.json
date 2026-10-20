@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "files": [
+    "rdx/human-testing-contract.mjs",
+    "rdx/human-testing.mjs",
+    "rdx/result-readiness.mjs",
+    "readiness-comment.mjs",
+    "public/testing-state.mjs",
+    "public/core.mjs",
+    "public/task-presentation.mjs",
+    "public/desktop-workspace.mjs",
+    "public/workspace-engine.mjs",
+    "cloud/metadata-core.mjs",
+    "cloud/metadata-projection.mjs",
+    "cloud/metadata-sync.mjs",
+    "rdx/result-application.mjs",
+    "rdx/map-package-workspace.mjs",
+    "desktop/service.mjs",
+    "server.mjs",
+    "youtrack.mjs",
+    "content/map-packages.js",
+    "content/workspace-runtime.js",
+    "content/preview.js",
+    "tests/human-testing.test.mjs",
+    "tests/human-testing-metadata.test.mjs",
+    "tests/testing-completion.test.mjs",
+    "tests/testing-native-status.test.mjs",
+    "tests/core.test.mjs"
+  ]
+}

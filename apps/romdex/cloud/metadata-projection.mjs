@@ -32,7 +32,8 @@ export class MetadataProjection{
     if(doc.version>=2)next.packageAuthorizations=structuredClone(doc.authorizations);
     else if(Object.hasOwn(next,'packageAuthorizations'))next.packageAuthorizations={};
     if(doc.version>=3)next.resultAcceptances=structuredClone(doc.acceptances);else if(Object.hasOwn(next,'resultAcceptances'))next.resultAcceptances={};
-    if(doc.version===4)next.returnReviewDecisions=structuredClone(doc.reviews);else if(Object.hasOwn(next,'returnReviewDecisions'))next.returnReviewDecisions={};
+    if(doc.version>=4)next.returnReviewDecisions=structuredClone(doc.reviews);else if(Object.hasOwn(next,'returnReviewDecisions'))next.returnReviewDecisions={};
+    if(doc.version>=5)next.resultTesting=structuredClone(doc.testing);else if(Object.hasOwn(next,'resultTesting'))next.resultTesting={};
     const localImages=Object.fromEntries(Object.entries(next.images||{}).filter(([id])=>id.startsWith('local-')));next.images={...doc.images,...localImages};
     const hierarchyPending=next.operations.some(op=>['create','delete'].includes(op.type)||op.patch&&'parentId'in op.patch);
     if(!hierarchyPending)next.order=projectOrder(doc,next.remote,next.order,previous);

@@ -93,3 +93,8 @@
 .suite-popover button:focus-visible,.workspace-switcher:focus-visible,.suite-settings-slot:focus-visible,.header-connection:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
 @media(max-width:700px){.device-header .header-actions{margin-right:12px;padding-right:0;gap:8px}.suite-tray{border-width:4px}}
 @media(prefers-reduced-motion:reduce){.device-header #workspace-switcher{transition:none}}
+
+/* Needs Testing uses the existing lens, distinct from fading In Progress. */
+.bulb.amber::after{background:#f6cd61;animation:indicator-amber-blink 1.2s steps(1,end) infinite}
+@keyframes indicator-amber-blink{0%{background:#f6cd61;box-shadow:0 0 var(--indicator-glow-blur) var(--indicator-glow-spread) #f6cd6148}50%,100%{background:#8d4d17;box-shadow:none}}
+@media(prefers-reduced-motion:reduce){.bulb.amber::after{animation:none}}

@@ -1,3 +1,4 @@
+import {deliverReadinessComment,isReadinessComment} from './readiness-comment.mjs';
 import http from 'node:http';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -23,6 +24,8 @@ const jsonStores=new Map();
 async function writeJSON(file,value){if(!jsonStores.has(file))jsonStores.set(file,new DurableJSONStorage(path.join(dataDir,file)));return jsonStores.get(file).save(value);}
 let journal=await readJSON('journal.json',{}),client=null,connection=null,queue=Promise.resolve();
 const uploads=new UploadStorage(dataDir),attachmentService=new AttachmentService({storage:uploads,client:()=>requireClient(),journal,persist:()=>writeJSON('journal.json',journal)});
+let testingPolicy={indicators:()=>({}),guard:()=>{}};
+export function setDesktopTestingPolicy(policy){if(typeof policy?.indicators!=='function'||typeof policy?.guard!=='function')throw Error('Invalid Desktop Testing Policy.');testingPolicy=policy;}
 let rememberedConnection=false;
 try{rememberedConnection=(await fs.stat(path.join(dataDir,'connection.encrypted'))).isFile();}catch(error){if(error.code!=='ENOENT')throw error;}
 const syncSettings=new SyncSettings(await readJSON('sync-settings.json',{}),value=>writeJSON('sync-settings.json',value));
@@ -45,13 +48,13 @@ const port=Number(process.env.ROMDEX_PORT||4322),origin=`http://127.0.0.1:${port
 if(profile.shared&&port!==4322)throw new Error('The shared ROMDex profile uses port 4322. Set ROMDEX_DATA_DIR for an isolated service on another port.');
 function send(res,status,value){res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'});res.end(JSON.stringify(value));}
 async function body(req){let text='';for await(const chunk of req){text+=chunk;if(text.length>16*1024*1024)throw new Error('Request too large.');}return text?JSON.parse(text):{};}
-function requireClient(){if(!client){const e=new Error('Connect ROMDex to YouTrack first.');e.status=401;throw e;}return client;}
+function requireClient(){if(!client){const e=new Error('Connect ROMDex to YouTrack first.');e.status=401;throw e;}client.testingPolicy=testingPolicy;return client;}
 function syncStatus(){return {connected:!!client,connection,rememberedConnection,automaticSyncEnabled:syncSettings.enabled,syncControl:true,youtrackAvailable:client?.ready===true&&client.healthy===true};}
 async function readyClient(){const yt=requireClient();if(!yt.ready)connection=await yt.connect();return yt;}
 function skipAutomatic(res){if(syncSettings.enabled)return false;send(res,200,{...syncStatus(),syncDisabled:true});return true;}
 function validOp(op){if(!op||!/^[-\w]{1,100}$/.test(op.opId||''))throw new Error('Invalid operation ID.');if(!['edit','create','comment','delete','attachment','attachment-delete'].includes(op.type))throw new Error('Invalid operation.');if(op.type==='attachment')validateUpload(op);if(op.type==='attachment-delete')validateAttachmentDelete(op);if(op.type==='edit'){if(!op.base||!op.patch||Object.keys(op.patch).some(k=>!isEditableField(k)))throw new Error('Invalid edit.');if('summary'in op.patch&&!op.patch.summary.trim())throw new Error('Title cannot be blank.');}if(op.type==='create'&&!op.item?.summary?.trim())throw new Error('Title cannot be blank.');if(op.type==='comment'&&!op.text?.trim())throw new Error('Comment cannot be blank.');}
 async function processOp(original,mapping){
- validOp(original);const op=remapOperation(original,mapping),record=journal[op.opId];
+ validOp(original);const op=remapOperation(original,mapping),record=journal[op.opId];if(op.type==='edit')testingPolicy.guard(op.issueId,op.patch);
  if(op.patch&&'assignedState'in op.patch&&!Object.values(STATES).includes(op.patch.assignedState))throw new Error('Choose a supported assigned status.');
  if(op.item&&'assignedState'in op.item&&!Object.values(STATES).includes(op.item.assignedState))throw new Error('Choose a supported assigned status.');
  if(op.type==='attachment-delete')return attachmentService.delete(op);
@@ -71,7 +74,7 @@ async function processOp(original,mapping){
   }
  }
  if(op.type==='edit'){
-  const remote=await yt.get(op.issueId);let base=op.base; if(record?.tagsApplied){const tags=new Set(base.tags||[]);for(const action of record.tagsApplied)action.present?tags.add(action.id):tags.delete(action.id);base={...base,tags:[...tags].sort()};}
+  const remote=await yt.get(op.issueId);testingPolicy.guard(op.issueId,op.patch,remote);let base=op.base; if(record?.tagsApplied){const tags=new Set(base.tags||[]);for(const action of record.tagsApplied)action.present?tags.add(action.id):tags.delete(action.id);base={...base,tags:[...tags].sort()};}
   if(record?.phase==='parent-detached'&&remote&&remote.parentId===null)base={...base,parentId:null};
   const merged=reconcile(base,op.patch,remote);
   if(merged.conflicts.length)return {conflicts:merged.conflicts,remote};
@@ -93,6 +96,7 @@ async function processOp(original,mapping){
   const result={mapping:{[original.issueId]:issue.id}};journal[op.opId]={status:'done',result};await writeJSON('journal.json',journal);return result;
  }
  if(op.type==='comment'){
+  if(isReadinessComment(op))return deliverReadinessComment(op,record,{comments:()=>yt.comments(op.issueId),post:text=>yt.addComment(op.issueId,text),save:async value=>{journal[op.opId]=value;await writeJSON('journal.json',journal);}});
   if(record?.status==='running')return {uncertain:true,message:'The comment may already have been posted. Review the comments before retrying.',operation:op};
   journal[op.opId]={status:'running'};await writeJSON('journal.json',journal);await yt.addComment(op.issueId,op.text);
  }

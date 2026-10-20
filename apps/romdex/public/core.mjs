@@ -1,7 +1,7 @@
 import {applyPlanSync} from './plan-queue.mjs';
 import {applyMapPackageSync} from './map-package-queue.mjs';
-export const STATUS = {grey:'Untouched',yellow:'In Progress',blue:'Standby',purple:'In Development',green:'Complete',red:'Critical'};
-export const STATES = {grey:'To do',yellow:'In Progress',blue:'Standby',purple:'In Development',green:'Done',red:'Critical / Debugging'};
+export const STATUS = {grey:'Untouched',yellow:'In Progress',blue:'Standby',purple:'In Development',amber:'Needs Testing',green:'Complete',red:'Critical'};
+export const STATES = {grey:'To do',yellow:'In Progress',blue:'Standby',purple:'In Development',amber:'Needs Testing',green:'Done',red:'Critical / Debugging'};
 export const FIELDS = ['summary','description','state','priority','complexity','parentId','assignedState','assignee','dueDate','tags'];
 export const isEditableField=key=>FIELDS.includes(key)||/^custom:[-\w]{1,100}$/.test(key);
 export const clone = x => structuredClone(x);
@@ -21,6 +21,7 @@ export function statusOf(value){
   if(['Standby','Prompt Ready'].includes(value)) return 'blue';
   if(['Critical / Debugging','Critical','Debugging','Blocked'].includes(value)) return 'red';
   if(value==='In Development')return 'purple';
+  if(value==='Needs Testing')return 'amber';
   if(value==='In Progress') return 'yellow';
   return 'grey';
 }
@@ -28,6 +29,7 @@ export function rollup(colors){
   if(!colors.length) return null;
   if(colors.includes('red')) return 'red';
   if(colors.includes('purple'))return 'purple';
+  if(colors.includes('amber'))return 'amber';
   if(colors.every(x=>x==='grey')) return 'grey';
   if(colors.some(x=>x==='grey'||x==='yellow')) return 'yellow';
   if(colors.includes('blue')) return 'blue';
@@ -38,7 +40,7 @@ export function indexTree(items,order={}){
   for(const item of items){const key=byId.has(item.parentId)?item.parentId:null;if(!children.has(key))children.set(key,[]);children.get(key).push(item);}
   for(const list of children.values()) list.sort((a,b)=>(order[a.id]??Number.MAX_SAFE_INTEGER)-(order[b.id]??Number.MAX_SAFE_INTEGER)||a.id.localeCompare(b.id,undefined,{numeric:true}));
   const depths=new Map(),colors=new Map(),visiting=new Set();
-  function visit(item,depth){if(visiting.has(item.id))throw new Error('A circular parent relationship was found.');visiting.add(item.id);depths.set(item.id,depth);const kids=children.get(item.id)||[];kids.forEach(c=>visit(c,depth+1));colors.set(item.id,rollup(kids.map(c=>colors.get(c.id)))||statusOf(item.assignedState??item.state));visiting.delete(item.id);}
+  function visit(item,depth){if(visiting.has(item.id))throw new Error('A circular parent relationship was found.');visiting.add(item.id);depths.set(item.id,depth);const kids=children.get(item.id)||[];kids.forEach(c=>visit(c,depth+1));const own=statusOf(item.assignedState??item.state),inherited=rollup(kids.map(c=>colors.get(c.id)))||own;colors.set(item.id,item.needsHumanTesting?rollup([inherited,'amber',...(['red','purple'].includes(own)?[own]:[])]):inherited);visiting.delete(item.id);}
   (children.get(null)||[]).forEach(x=>visit(x,0));
   if(depths.size!==items.length)throw new Error('The hierarchy contains an unreachable cycle.');
   return {byId,children,depths,colors};

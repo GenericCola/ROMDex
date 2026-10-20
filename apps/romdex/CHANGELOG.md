@@ -1,3 +1,10 @@
+## Unreleased — U27 Human Testing and Result History
+
+- Add private causal testing history pinned to accepted results, current affected revisions and the tested build; concurrent decisions preserve both versions and require fresh verification.
+- Add flashing-amber Needs Testing in existing lights, deterministic readiness notices and guarded completion across editing, delivery, conflict review and native writes.
+- Add readable result history and full reversal-reference export; retain ordinary dialogue reviews and preserve content without automatic ROM reversal or task completion.
+- Source-only; see [human testing guidance](rdx/HUMAN-TESTING.md). Installed 0.5.15, its NPCDex pause and preserved queue remain unchanged pending U28–U30.
+
 ## Unreleased — U26 Returned-File Review
 
 - Add read-only three-way values, changed read context, long-value viewing, complete-group/archival previews and durable defer/reject/retry controls in Map Package Delivery.

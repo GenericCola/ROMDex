@@ -2,12 +2,12 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {rollup,indexTree,validateMove,reconcile,materialize,remapOperation,mergeIncoming,applySyncResult,hasMeaningfulNotes,statusOf,STATUS,STATES} from '../public/core.mjs';
 test('every status combination follows the agreed parent rules',()=>{
- const colors=['grey','yellow','red','green','blue','purple'];
- for(const a of colors)for(const b of colors)for(const c of colors){const list=[a,b,c];const expected=list.every(x=>x==='grey')?'grey':list.includes('red')?'red':list.includes('purple')?'purple':list.some(x=>['grey','yellow'].includes(x))?'yellow':list.includes('blue')?'blue':'green';assert.equal(rollup(list),expected);}
+ const colors=['grey','yellow','red','green','blue','purple','amber'];
+ for(const a of colors)for(const b of colors)for(const c of colors){const list=[a,b,c];const expected=list.every(x=>x==='grey')?'grey':list.includes('red')?'red':list.includes('purple')?'purple':list.includes('amber')?'amber':list.some(x=>['grey','yellow'].includes(x))?'yellow':list.includes('blue')?'blue':'green';assert.equal(rollup(list),expected);}
  assert.equal(rollup([]),null);
 });
 test('development menu follows preparation, readiness, implementation, and completion order',()=>{
- assert.deepEqual(Object.values(STATUS),['Untouched','In Progress','Standby','In Development','Complete','Critical']);
+ assert.deepEqual(Object.values(STATUS),['Untouched','In Progress','Standby','In Development','Needs Testing','Complete','Critical']);
  assert.equal(statusOf('In Development'),'purple');assert.equal(STATES.purple,'In Development');
 });
 test('purple propagates recursively, red overrides it, and removing children restores the saved assignment',()=>{

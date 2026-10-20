@@ -1,12 +1,13 @@
+import {testingItems} from './testing-state.mjs';
 import {materialize,indexTree} from './core.mjs';
 
 // Desktop snapshots have new object identities even when only connection status
 // changed. Cache by the complete task inputs, never by the snapshot reference.
 export class TaskPresentation {
   read(state) {
-    const signature=JSON.stringify([state.remote,state.operations,state.order||{}]);
+    const signature=JSON.stringify([state.remote,state.operations,state.order||{},state.testingIndicators||{}]);
     if(signature===this.signature)return this.value;
-    const items=materialize(state.remote,state.operations),tree=indexTree(items,state.order);
+    const items=testingItems(materialize(state.remote,state.operations),state.testingIndicators),tree=indexTree(items,state.order);
     this.signature=signature;this.value={items,tree};return this.value;
   }
 }

@@ -70,3 +70,8 @@
 .return-review-values{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.return-review-values section{min-width:0}.return-review-values pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:240px;overflow:auto;padding:10px;border:1px solid var(--edge,#4d6857);border-radius:6px}.return-review-group{min-width:0}.return-review-change{margin-block:10px}@media(max-width:850px){.return-review-values{grid-template-columns:1fr}}
 
 .related-feedback{margin:8px 0;font-size:11px}.related-feedback button{display:block;margin:6px 0;max-width:100%;text-align:left;overflow-wrap:anywhere}
+
+.content-light.amber::after{background:#f6cd61;animation:content-amber-blink 1.2s steps(1,end) infinite}
+@keyframes content-amber-blink{0%{background:#f6cd61}50%,100%{background:#8d4d17}}
+@media(prefers-reduced-motion:reduce){.content-light.amber::after{animation:none}}
+.human-testing-history details{margin:12px 0}.human-testing-history pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:240px;overflow:auto}.human-testing-history textarea,.human-testing-history input{width:100%;padding:10px 14px}.human-testing-history label{display:block;margin:12px 0}.human-testing-history .human-confirm{display:flex;align-items:flex-start;gap:10px}.human-testing-history .human-confirm input{width:auto}

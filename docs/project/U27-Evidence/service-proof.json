@@ -1,0 +1,13 @@
+{
+  "task": "U27",
+  "status": "passed",
+  "checks": [
+    "Fixture service initializes with Auto-Sync Off and no network calls",
+    "Native package status/manual discovery route works without a linked package and makes no network request",
+    "Native manual check rejects a stale renderer map context",
+    "Review preview/full-value native routes reject unrecognized retained packages without network access",
+    "Testing routes reject unknown or unconfirmed requests without private metadata or network writes",
+    "Suspend/resume, update quiescence, checkpoint and shutdown drain discovery without network calls or leaked timers"
+  ],
+  "externalRequests": 0
+}

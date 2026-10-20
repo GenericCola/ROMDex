@@ -1,9 +1,10 @@
+import {testingItems} from './testing-state.mjs';
 import {materialize} from './core.mjs';
 import {METHODS} from './desktop-methods.mjs';
 export class DesktopWorkspace extends EventTarget{
  constructor(bridge){super();this.bridge=bridge;this.state=null;this.inflight=new Set();this.lock=Promise.resolve();this.callsPending=0;this.enginePendingWrites=0;this.automaticSyncEnabled=true;this.message='Opening Desktop Service…';this.files={get:async()=>null};bridge.onEvent(event=>this.receive(event));}
  get pendingWrites(){return this.callsPending+this.enginePendingWrites;}
- get items(){return materialize(this.state.remote,this.state.operations);}
+ get items(){return testingItems(materialize(this.state.remote,this.state.operations),this.state.testingIndicators);}
  receive(event){if(event.type==='snapshot'){const {pendingWrites,...values}=event.value;Object.assign(this,values);this.enginePendingWrites=pendingWrites||0;this.inflight=new Set(event.value.inflight||[]);this.emit();}else this.dispatchEvent(new CustomEvent(event.type,{detail:event.detail}));}
  emit(){this.dispatchEvent(new Event('change'));}
  init(){if(!this.initializing)this.initializing=this.invoke('init',[]);return this.initializing;}

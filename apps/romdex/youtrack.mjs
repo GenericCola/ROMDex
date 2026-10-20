@@ -1,3 +1,4 @@
+import {testingItems} from './public/testing-state.mjs';
 import {indexTree,validateMove,reconcile,STATES,FIELDS,same} from './public/core.mjs';
 import {AssignedStatuses,AssignedStatusConflict} from './assigned-statuses.mjs';
 import {COMPLEXITY_VALUES,PROJECT_FIELDS,complexityConfiguration,ensureComplexity} from './complexity-field.mjs';
@@ -119,7 +120,9 @@ export class YouTrack {
  async delete(id){await this.request(`issues/${id}`,{method:'DELETE'});}
  async writeEffectiveState(id,state,expectedAssigned,baseAssigned=expectedAssigned){
   const current=await this.require(id);
+  this.testingPolicy?.guard(id,{state},current);
   if(expectedAssigned!==undefined&&!same(current.assignedState,expectedAssigned))throw new AssignedStatusConflict(baseAssigned,expectedAssigned,current);
+  if(state==='Needs Testing'&&this.testingPolicy?.indicators()[id]?.pending&&['Done','Fixed','Complete'].includes(current.assignedState))await this.assignedStatuses.assign(id,'Needs Testing');
   if(current.state===state)return current;
   await this.assignedStatuses.prepareWrite(id,state);
   await this.request(`issues/${id}`,{method:'POST',body:{customFields:this.customPayload({state},current)}});
@@ -128,15 +131,16 @@ export class YouTrack {
   await this.assignedStatuses.confirmWrite(id,state);return after;
  }
  async setAssignedState(id,value,expected){
-  const all=await this.all(),current=all.find(x=>x.id===id);if(!current)throw new Error('The item no longer exists.');
+  this.testingPolicy?.guard(id,{assignedState:value});
+  const all=await this.all(),current=all.find(x=>x.id===id);if(!current)throw new Error('The item no longer exists.');this.testingPolicy?.guard(id,{assignedState:value},current);
   if(!same(current.assignedState,expected)&&!same(current.assignedState,value))throw new AssignedStatusConflict(expected,value,current);
   await this.assignedStatuses.assign(id,value);
-  const tree=indexTree(all.map(x=>x.id===id?{...x,assignedState:value}:x));
+  const tree=indexTree(testingItems(all.map(x=>x.id===id?{...x,assignedState:value}:x),this.testingPolicy?.indicators()));
   await this.writeEffectiveState(id,STATES[tree.colors.get(id)],value,current.assignedState);
  }
  async derivedStatuses(){
-  const all=await this.all(),tree=indexTree(all),changes=[];
-  for(const item of [...all].sort((a,b)=>tree.depths.get(b.id)-tree.depths.get(a.id))){const parent=(tree.children.get(item.id)||[]).length>0,state=parent?STATES[tree.colors.get(item.id)]:item.assignedState;if(item.state!==state){try{await this.writeEffectiveState(item.id,state,parent?undefined:item.assignedState);changes.push(item.id);}catch(error){if(!(error instanceof AssignedStatusConflict))throw error;}}}
+  const all=await this.all(),indicators=this.testingPolicy?.indicators()||{},tree=indexTree(testingItems(all,indicators)),changes=[];
+  for(const item of [...all].sort((a,b)=>tree.depths.get(b.id)-tree.depths.get(a.id))){const parent=(tree.children.get(item.id)||[]).length>0,state=parent||indicators[item.id]?.pending?STATES[tree.colors.get(item.id)]:item.assignedState;if(item.state!==state){try{await this.writeEffectiveState(item.id,state,parent?undefined:item.assignedState);changes.push(item.id);}catch(error){if(!(error instanceof AssignedStatusConflict))throw error;}}}
   return changes;
  }
 }

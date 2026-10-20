@@ -2,7 +2,7 @@ import {clone,materialize,remapOperation,reconcile,indexTree,validateMove,mergeI
 import {stageBulk} from './bulk-hierarchy.mjs';
 import {validateFile,MAX_FILES,attachmentMetadata,validateAttachmentDelete,sameAttachment} from './attachment-core.mjs';
 export class WorkspaceEngine extends EventTarget {
- constructor({transport,storage,files,upload,preferenceCache={load:state=>state.automaticSyncEnabled!==false,save:()=>{}},now=()=>Date.now()}={}){super();if(!transport||!storage?.load||!storage?.save)throw Error('Workspace Requires Transport and Durable Storage.');this.preferenceCache=preferenceCache;this.now=now;this.request=transport;this.storage=storage;this.files=files;this.upload=upload;this.staging=null;this.state=null;this.db=null;this.busy=false;this.refreshing=false;this.connected=false;this.mode='offline';this.message='Connect to YouTrack';this.failures=0;this.lock=Promise.resolve();this.timer=null;this.backupTimer=null;this.pendingWrites=0;this.inflight=new Set();this.automaticSyncEnabled=true;this.youtrackAvailable=false;this.serviceAvailable=false;this.syncControl=false;this.settingBusy=false;this.statusGeneration=0;this.statusTask=null;this.manualSyncActive=false;this.lastAttempt=0;}
+ constructor({transport,storage,files,upload,preferenceCache={load:state=>state.automaticSyncEnabled!==false,save:()=>{}},now=()=>Date.now()}={}){super();if(!transport||!storage?.load||!storage?.save)throw Error('Workspace Requires Transport and Durable Storage.');this.completionGuard=()=>{};this.preferenceCache=preferenceCache;this.now=now;this.request=transport;this.storage=storage;this.files=files;this.upload=upload;this.staging=null;this.state=null;this.db=null;this.busy=false;this.refreshing=false;this.connected=false;this.mode='offline';this.message='Connect to YouTrack';this.failures=0;this.lock=Promise.resolve();this.timer=null;this.backupTimer=null;this.pendingWrites=0;this.inflight=new Set();this.automaticSyncEnabled=true;this.youtrackAvailable=false;this.serviceAvailable=false;this.syncControl=false;this.settingBusy=false;this.statusGeneration=0;this.statusTask=null;this.manualSyncActive=false;this.lastAttempt=0;}
  get items(){return materialize(this.state.remote,this.state.operations);}
  emit(){this.dispatchEvent(new Event('change'));}
  init(){if(!this.initializing)this.initializing=this.initialize();return this.initializing;}
@@ -62,6 +62,7 @@ export class WorkspaceEngine extends EventTarget {
  async edit(id,patch,baseOverride={}){
   await this.transaction(s=>{
    const item=materialize(s.remote,s.operations).find(x=>x.id===id);if(!item)throw new Error('The item no longer exists.');
+   this.completionGuard(id,patch,s);
    const last=[...s.operations].reverse().find(x=>x.issueId===id);
    if(last?.type==='create'&&!this.inflight.has(last.opId)){Object.assign(last.item,patch);return;}
    if(last?.type==='edit'&&!last.group&&!this.inflight.has(last.opId)&&s.blocked?.opId!==last.opId){for(const key of Object.keys(patch))if(!(key in last.patch))last.base[key]=Object.prototype.hasOwnProperty.call(baseOverride,key)?baseOverride[key]:item[key];Object.assign(last.patch,patch);return;}
@@ -166,7 +167,7 @@ export class WorkspaceEngine extends EventTarget {
   this.busy=true;this.manualSyncActive=manual;this.lastAttempt=this.now();this.mode='syncing';this.message='Synchronizing with YouTrack…';this.emit();
   try{
    if(!manual){if(!await this.checkStatus()||!this.automaticSyncEnabled)return;}
-   await this.lock;const sent=clone(this.state.operations.slice(0,1000));this.inflight=new Set(sent.map(x=>x.opId));
+   await this.lock;const sent=clone(this.state.operations.slice(0,1000));for(const op of sent)if(op.type==='edit')try{this.completionGuard(op.issueId,op.patch,this.state);}catch(e){e.operationId=op.opId;throw e;}this.inflight=new Set(sent.map(x=>x.opId));
    await this.cleanupUploads();await this.stageUploads(sent);
    const result=await this.request('/api/sync',{operations:sent,manual});this.applyStatus(result);
    if(result.syncDisabled){this.resting();return;}
@@ -174,7 +175,7 @@ export class WorkspaceEngine extends EventTarget {
    await this.transaction(s=>applySyncResult(s,result));for(const op of sent.filter(x=>x.type==='attachment'&&result.completed.includes(x.opId)))await this.files.remove(op.uploadId).catch(()=>{});this.dispatchEvent(new Event('refreshed'));
    if(result.blocked||result.error){this.mode='manual';this.message=result.blocked?.conflicts?'Review Conflicting Changes':result.blocked?.message||result.blocked?.error||result.error;if(manual&&this.state.blocked)this.dispatchEvent(new Event('reviewneeded'));}
    else{this.failures=0;this.resting();}
-  }catch(e){this.connectionFailure(e);this.failures++;this.mode=manual||this.failures>=2?'manual':'syncing';this.message=this.mode==='manual'?'Save Needed · '+e.message:'Connection Interrupted · Retrying';}
+  }catch(e){if(e.code==='TESTING_REQUIRED'){if(e.operationId)await this.transaction(s=>s.blocked={opId:e.operationId,error:e.message,testing:true});this.mode='manual';this.message=e.message;if(manual)this.dispatchEvent(new Event('reviewneeded'));}else{this.connectionFailure(e);this.failures++;this.mode=manual||this.failures>=2?'manual':'syncing';this.message=this.mode==='manual'?'Save Needed · '+e.message:'Connection Interrupted · Retrying';}}
   finally{this.busy=false;this.manualSyncActive=false;this.inflight.clear();if(!this.automaticSyncEnabled)this.resting();this.emit();if(this.automaticSyncEnabled&&this.state.operations.length&&this.mode==='syncing')this.dispatchEvent(new CustomEvent('schedule-sync',{detail:1500}));}
  }
  async resolve(choices){
@@ -195,6 +196,7 @@ export class WorkspaceEngine extends EventTarget {
     if(block.conflicts.some(x=>x.field==='__children__'))throw new Error('The subtree changed. Cancel this deletion and select it again to review all affected items.');
     for(const c of block.conflicts)op.bases[c.id]=c.remote;
    }
+   if(op.type==='edit'&&!choices.discard)this.completionGuard(op.issueId,op.patch,s);
    s.blocked=null;
   });await this.cleanupUploads().catch(()=>{});this.mode='syncing';await this.sync(true);
  }

@@ -1,0 +1,15 @@
+{
+  "task": "U27",
+  "scope": "Real source interface in headless Chromium with isolated in-memory native task transport; no live network writes",
+  "checks": [
+    "Accepted group opens readable source, before/after and human testing history in the existing dialog",
+    "Verification requires a build and explicit human confirmation; private proof clears the gate without completing the task or enabling Auto-Sync",
+    "Requesting reversal records history and reopens testing while current content and original result remain unchanged",
+    "Full history/reference export preserves original and inverse values and carries no execution authorization",
+    "History and testing form stays above its action footer at 620px height",
+    "NPCDex and task manager use the existing flashing-amber light and approved status-menu order",
+    "Reduced-motion preference keeps both existing light lenses static"
+  ],
+  "status": "passed",
+  "finishedAt": "2026-10-20T02:58:15.384Z"
+}
