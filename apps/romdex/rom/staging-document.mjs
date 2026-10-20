@@ -16,6 +16,8 @@ export function recoverSourceIdentities(value){
  return identities;
 }
 
+export function recoverSourceScope(value){const source=value.document.extensions?.['org.romdex.rom-source'],entry=value.document.assetInventory.find(a=>a.assetId===source?.sourceAsset);requireRom(entry&&value.blobs.has(entry.sha256),'INTEGRITY','Missing Source Scope.');return structuredClone(parseJSON(value.blobs.get(entry.sha256)).header.testbed);}
+
 export function selectPreparedAreas(value,headers){
  const identities=recoverSourceIdentities(value),selected=[...headers].sort((a,b)=>a-b);
  requireRom(selected.length&&new Set(selected).size===selected.length&&selected.every(h=>identities.headerIds.includes(h)),'INVALID','Choose Distinct Areas in the Reviewed Map.');
@@ -25,7 +27,7 @@ export function selectPreparedAreas(value,headers){
  const profiles=new Set(records.filter(r=>keep.has(r.recordId)&&r.kind==='appearance').flatMap(r=>[r.current.payload.profileId,...Object.values(r.current.payload.profileByPlayerGender||{})]).filter(Boolean));
  for(const r of records)if(['region','shared'].includes(r.kind)||profiles.has(r.recordId))keep.add(r.recordId);
  const chosen=records.filter(r=>keep.has(r.recordId)).map(r=>{const n=structuredClone(r),p=n.current.payload;
-  if(n.kind==='map'){p.name='Violet City';p.subzoneIds=p.subzoneIds.filter(id=>keep.has(id));n.legacyData.romExtraction.testOnly=false;}
+  if(n.kind==='map'){p.subzoneIds=p.subzoneIds.filter(id=>keep.has(id));n.legacyData.romExtraction.testOnly=false;}
   if(n.kind==='subzone')for(const key of ['appearanceIds','interactiveIds','sceneIds'])p[key]=p[key].filter(id=>keep.has(id));
   return seal(n);
  });

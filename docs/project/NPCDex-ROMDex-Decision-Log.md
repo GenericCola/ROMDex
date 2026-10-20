@@ -552,3 +552,7 @@ The user explicitly authorized archiving existing NPCDex data, clearing its YouT
 ## October 20 — MAPDex Evaluation Delivery
 
 The user requested the actual MAPDex build instead of a source-only empty NPCDex screen. Deliver 0.5.16 with functional import actions and Violet City ROM extraction after 29 focused tests, ten packaged/native checks, verified backup/restoration and installed connection checks. Preserve the freshly reset dataset and all future test work; do not silently import a map or clear Data again. Extraction of other catalog groups remains blocked until supported; broader RI03C remains a separate gate. [Report](MAPDex-0.5.16-Delivery-Report.md).
+
+## October 20 — Proof Scope Is Not a Product Restriction
+
+The user rejected being locked to Violet City and required the map catalog to come from the ROM. Correct 0.5.18 accordingly: neutral Tray 2 title, complete catalog, selected-map area/compiler scope and local source-derived stages. Preserve old identities, map-specific preparations/drafts and saved connections. The provided ROM passed the source/UI/native/installed loading proofs. A hidden unchanged Connection Details dialog was also corrected: it no longer blocks Quit; genuine input remains protected and its workspace is revealed. Additional Pokémon ROM layouts remain explicit RI03C work rather than being represented as implemented universal compatibility. [Report](MAPDex-0.5.18-Completion-Report.md).

@@ -1,6 +1,7 @@
 import {TaskPresentation,renderTaskRows} from './task-presentation.mjs';
 import {renderPackageLinks} from './package-links.mjs';
-let markWorkspaceReady;window.romdexWorkspace={kind:"romdex",openTask:openLinkedTask,get engine(){return ws;},resize:()=>paneSplit?.apply(),flush:()=>flushEditors(),prepareQuit:async()=>{await selectionQueue;await flushEditors();retainCommentDraft();if(draft?.text?.trim()||renameId||groupDraft||Object.values(editorDirty).some(Boolean)||document.querySelector('dialog[open]')||[...commentDrafts.values()].some(text=>text.trim())||fileDrops?.busy||attachmentView.busy)throw Error('Finish or Cancel the Current ROMDex Editor Before Quitting.');},editorStatus:()=>({...editorDirty}),ready:new Promise(resolve=>markWorkspaceReady=resolve)};
+import {dismissUnchangedConnectionDialog} from './quit-editors.mjs';
+let markWorkspaceReady;window.romdexWorkspace={kind:"romdex",openTask:openLinkedTask,get engine(){return ws;},resize:()=>paneSplit?.apply(),flush:()=>flushEditors(),prepareQuit:async()=>{await selectionQueue;await flushEditors();retainCommentDraft();dismissUnchangedConnectionDialog(document,ws.rememberedConnection);if(draft?.text?.trim()||renameId||groupDraft||Object.values(editorDirty).some(Boolean)||document.querySelector('dialog[open]')||[...commentDrafts.values()].some(text=>text.trim())||fileDrops?.busy||attachmentView.busy)throw Error('Finish or Cancel the Current ROMDex Editor Before Quitting.');},editorStatus:()=>({...editorDirty}),ready:new Promise(resolve=>markWorkspaceReady=resolve)};
 import {mountHeader} from './shared-ui/header.mjs';
 import {AttachmentsView,paperclip} from './attachment-view.mjs';
 import {attachmentCount} from './attachment-core.mjs';

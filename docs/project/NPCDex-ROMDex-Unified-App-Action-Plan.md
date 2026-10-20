@@ -470,3 +470,7 @@ The user authorized archiving existing NPCDex data, clearing its NPCD records an
 ## Operational Delivery — MAPDex Evaluation Build, October 20, 2026
 
 At the user's request, installed 0.5.16 after focused/native verification, a full current Data backup and verified restoration. The empty NPCDex import actions work, and MAPDex can scan the supplied ROM, prepare Violet City, export one map and explicitly hand it to NPCDex with publication progress. Current saves/connections were preserved; the live app remains ready with 299 tasks and no maps. This delivers the test build without marking broader RI03C acceptance complete. The clean live round trip and another supported extraction remain open. [Report](MAPDex-0.5.16-Delivery-Report.md).
+
+## MAPDex Correction and Compatibility Requirement — October 20, 2026
+
+The Violet City proof scope must not constrain the product's catalog, default title or selected-map compiler. Corrective 0.5.18 removes those restrictions, validates the supplied ROM's complete catalog and two independent maps, and preserves current Data/connections. Each supported ROM must expose all its maps/zones. Additional ROM revisions and Pokémon game families require validated adapters and an explicit compatibility report; neither one reviewed HGSS fingerprint nor this corrective delivery completes universal input support or broader RI03C. The user's live NPCDex/NPCD round trip also remains open. [Report](MAPDex-0.5.18-Completion-Report.md).

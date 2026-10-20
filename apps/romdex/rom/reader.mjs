@@ -29,8 +29,10 @@ export class RomReader{
   requireRom(Date.now()<=this.deadline,'LIMIT','ROM work exceeded its time budget.');
  }
  async assertUnchanged(){
+  // ctime also changes for Windows/OneDrive metadata updates, not only ROM writes.
+  // Keep file identity, byte length and content-modification time pinned.
   this.check();const now=await this.#handle.stat({bigint:true});
-  requireRom(['size','mtimeNs','ctimeNs','ino','dev'].every(k=>now[k]===this.#baseline[k]),'SOURCE_CHANGED','The ROM changed during inspection. Reopen and preview it again.');
+  requireRom(['size','mtimeNs','ino','dev'].every(k=>now[k]===this.#baseline[k]),'SOURCE_CHANGED','The ROM changed during inspection. Reopen and preview it again.');
  }
  async read(offset,length){
   this.check();requireRom(safeInteger(offset)&&safeInteger(length)&&offset<=this.size&&length<=this.size-offset,'BOUNDS','ROM range is outside the input file.');

@@ -1,0 +1,224 @@
+{
+  "version": "0.5.18",
+  "purpose": "Correct the ROM-loading error and remove the Violet City proof restriction from the product",
+  "distinctFocusedChecks": 45,
+  "additionalQuitRegressionChecks": 7,
+  "priorCatalogNative": {
+    "version": "0.5.17",
+    "checks": [
+      "Native MAPDex opens without a fixed city",
+      "Packaged Open ROM displays all 540 headers / 121 named map groups with no forced selection",
+      "New Bark Town can be selected independently with its eight areas",
+      "Selected Route 29 compiles independently with its own source stage data",
+      "Native export yields a validated single-map Route 29 RDX",
+      "Explicit local handoff populates NPCDex from the selected map, without cloud writes",
+      "Normal Quit/restart preserves the selected map, catalog and local NPCDex document"
+    ],
+    "productionChanged": false,
+    "records": 38,
+    "status": "passed"
+  },
+  "sourceCatalog": {
+    "status": "passed",
+    "headers": 540,
+    "groups": 121,
+    "initialSelection": null,
+    "sourceSHA256": "cb743eb01fe18f8599e54911faa28701474b84a6b9d9764a9478bf8a7be1babd",
+    "selectedOtherGroup": "section:126",
+    "selectedOtherHeaders": 8
+  },
+  "sourcePreparation": {
+    "maps": [
+      {
+        "name": "New Bark Town",
+        "selected": "section:126",
+        "areas": 8,
+        "records": 95,
+        "stages": 12,
+        "bytes": 637072
+      },
+      {
+        "name": "Route 29",
+        "selected": "section:177",
+        "areas": 2,
+        "records": 38,
+        "stages": 1,
+        "bytes": 227842
+      }
+    ],
+    "productionChanged": false,
+    "status": "passed"
+  },
+  "sourceUI": {
+    "status": "passed",
+    "checks": [
+      "No artificial city or selection before opening a ROM",
+      "Open ROM populates all 121 named groups from the actual source with no forced selection",
+      "New Bark Town selection displays its own eight areas and enables preparation",
+      "Route 29 displays its independently compiled map and map-specific stages"
+    ],
+    "errors": [],
+    "productionChanged": false
+  },
+  "native": {
+    "version": "0.5.18",
+    "checks": [
+      "Actual packaged app quits normally with unchanged Connection Details hidden behind MAPDex",
+      "Genuine connection input remains intact, blocks Quit and reveals the correct workspace",
+      "After finishing the input, a normal Quit retry succeeds"
+    ],
+    "productionChanged": false,
+    "status": "passed",
+    "priorCatalogProof": "../mapdex-0517/native-proof.json"
+  },
+  "installerValidation": {
+    "version": "0.5.18",
+    "windowsInstallerVersion": "0.5.18.0",
+    "productCode": "{5D89DF32-0CA1-472C-A7D8-4ADE3AB6260C}",
+    "upgradeCode": "{C3861991-512B-4F7D-B1C1-9D8EC7230FDA}",
+    "productName": "ROMDex",
+    "status": "passed"
+  },
+  "installed": {
+    "version": "0.5.18",
+    "status": "passed",
+    "application": {
+      "workspace": "rom-import",
+      "romImportReady": true,
+      "sourceAlreadyLoaded": true,
+      "readOnlyROMScan": true,
+      "sourceHeaders": 540,
+      "catalogUI": {
+        "groups": 121,
+        "heading": "Select a Map / Zone"
+      },
+      "npcdexDocuments": 0,
+      "connected": true,
+      "tasks": 299
+    },
+    "pid": 8352,
+    "noDataReset": true,
+    "credentialsReused": true,
+    "installedApplicationOpen": true
+  },
+  "preservation": {
+    "backup": {
+      "status": "verified",
+      "source": "C:\\Users\\mrgen\\AppData\\Local\\ROMDexDesktop\\Data",
+      "archive": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\Protected\\Before-MAPDex-0.5.18\\Data.zip",
+      "files": 117,
+      "sourceBytes": 28333511,
+      "archiveBytes": 4499865,
+      "sha256": "50080b8f36bc21b2f2328a21eac01c69ba3936f9dcf614f638147e5c59dadf24"
+    },
+    "restoration": {
+      "status": "verified",
+      "files": 117,
+      "liveDataChanged": false
+    },
+    "savedConnectionsVerified": true,
+    "installerExitCode": 0,
+    "dataPreservedExactly": true,
+    "applicationFilesVerified": 378
+  },
+  "installer": {
+    "path": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\ROMDex-Installer-0.5.18\\ROMDex-0.5.18-x64.msi",
+    "bytes": 162341920,
+    "sha256": "7254144c1605652a27ad0af55b02cedd040e13f0a164a0e2690d276d842bb8a5"
+  },
+  "universalPokemonROMSupport": false,
+  "cleanup": {
+    "at": "2026-10-20T23:24:24.582Z",
+    "folder": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\MAPDex-0.5.18-build-leftovers",
+    "moved": [
+      {
+        "source": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\mapdex-0516\\tmp",
+        "destination": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\MAPDex-0.5.18-build-leftovers\\work\\mapdex-0516\\tmp",
+        "bytes": 251544,
+        "files": 2
+      },
+      {
+        "source": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\mapdex-0516\\private-profile",
+        "destination": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\MAPDex-0.5.18-build-leftovers\\work\\mapdex-0516\\private-profile",
+        "bytes": 1116592,
+        "files": 15
+      },
+      {
+        "source": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\mapdex-0517\\package",
+        "destination": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\MAPDex-0.5.18-build-leftovers\\work\\mapdex-0517\\package",
+        "bytes": 397479479,
+        "files": 377
+      },
+      {
+        "source": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\mapdex-0517\\make",
+        "destination": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\MAPDex-0.5.18-build-leftovers\\work\\mapdex-0517\\make",
+        "bytes": 165237626,
+        "files": 4
+      },
+      {
+        "source": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\mapdex-0517\\qa-profile",
+        "destination": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\MAPDex-0.5.18-build-leftovers\\work\\mapdex-0517\\qa-profile",
+        "bytes": 12773933,
+        "files": 77
+      },
+      {
+        "source": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\mapdex-0517\\Route29-Packaged.rdx",
+        "destination": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\MAPDex-0.5.18-build-leftovers\\work\\mapdex-0517\\Route29-Packaged.rdx",
+        "bytes": 227841,
+        "files": 1
+      },
+      {
+        "source": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\mapdex-0518\\package",
+        "destination": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\MAPDex-0.5.18-build-leftovers\\work\\mapdex-0518\\package",
+        "bytes": 397481020,
+        "files": 378
+      },
+      {
+        "source": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\mapdex-0518\\make",
+        "destination": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\MAPDex-0.5.18-build-leftovers\\work\\mapdex-0518\\make",
+        "bytes": 165244781,
+        "files": 4
+      },
+      {
+        "source": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\mapdex-0518\\qa-profile",
+        "destination": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\MAPDex-0.5.18-build-leftovers\\work\\mapdex-0518\\qa-profile",
+        "bytes": 8708581,
+        "files": 71
+      },
+      {
+        "source": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\mapdex-0518\\tmp",
+        "destination": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\MAPDex-0.5.18-build-leftovers\\work\\mapdex-0518\\tmp",
+        "bytes": 251544,
+        "files": 2
+      },
+      {
+        "source": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\ROMDex-Installer-0.5.16",
+        "destination": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\MAPDex-0.5.18-build-leftovers\\outputs\\ROMDex-Installer-0.5.16",
+        "bytes": 162402339,
+        "files": 2
+      },
+      {
+        "source": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\ROMDex-Installer-0.5.17",
+        "destination": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\MAPDex-0.5.18-build-leftovers\\outputs\\ROMDex-Installer-0.5.17",
+        "bytes": 162406759,
+        "files": 2
+      },
+      {
+        "source": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\Protected\\Before-MAPDex-0.5.17\\Restore-Verification",
+        "destination": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\MAPDex-0.5.18-build-leftovers\\outputs\\Protected\\Before-MAPDex-0.5.17\\Restore-Verification",
+        "bytes": 28333473,
+        "files": 117
+      },
+      {
+        "source": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\Protected\\Before-MAPDex-0.5.18\\Restore-Verification",
+        "destination": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\MAPDex-0.5.18-build-leftovers\\outputs\\Protected\\Before-MAPDex-0.5.18\\Restore-Verification",
+        "bytes": 28333511,
+        "files": 117
+      }
+    ],
+    "skipped": [],
+    "bytes": 1530249023,
+    "installedApplicationChanged": false,
+    "permanentlyDeleted": false
+  }
+}

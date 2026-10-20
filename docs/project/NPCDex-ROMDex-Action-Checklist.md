@@ -691,4 +691,19 @@ The supplied ROM directly produced one Violet City RDX with eight areas, 50 plac
 - [x] Keep the current installer/recovery ZIPs; collect another 782 MB of obsolete build/test files for manual deletion.
 - [ ] Complete the user's live RDX/NPCD round trip and broader RI03C coverage, including another supported map.
 
-**Violet City's eight areas are supported for extraction; other catalog groups remain unverified. RI03C remains open and needs its own PASSKEY for further implementation.** [Delivery report](MAPDex-0.5.16-Delivery-Report.md).
+**Historical 0.5.16 scope:** Violet City's eight areas were then verified. The 0.5.18 correction below adds the complete catalog and independent New Bark Town/Route 29 proofs; broader RI03C still remains open. [Delivery report](MAPDex-0.5.16-Delivery-Report.md).
+
+## MAPDex 0.5.18 — Loading and City Restriction Correction, October 20, 2026
+
+- [x] Correct metadata-only source-change false positives while retaining modification/identity/hash validation.
+- [x] Show the supplied ROM's complete 540-header / 121-group named catalog, with no automatic city selection.
+- [x] Prevent hidden unchanged Connection Details from blocking Quit; preserve genuine edits and reveal their workspace.
+- [x] Use **Select a Map / Zone** as Tray 2's neutral title, then the selected ROM-derived map name.
+- [x] Remove the proof-only preparation scope; derive areas and observed source stages from the chosen map.
+- [x] Preserve map-specific preparation, identity lineage and local drafts; prove New Bark Town and Route 29 independently.
+- [x] Pass 45 distinct focused checks, isolated source/UI proof, seven preceding catalog workflow checks and three final packaged quit checks; back up/verify current Data and install/reopen 0.5.18 with the live catalog.
+- [x] Collect another 1.53 GB of obsolete installers/builds/test copies in the clearly marked manual-delete folder; keep the current installer and protected compressed backups.
+- [ ] RI03C: validate additional ROM revisions and game-family readers, with explicit compatibility reporting; universal Pokémon ROM support remains unimplemented.
+- [ ] Complete the user's real NPCDex/NPCD edit-and-return acceptance. No production map was imported by this correction.
+
+[Completion report](MAPDex-0.5.18-Completion-Report.md). Broader RI03C remains open.

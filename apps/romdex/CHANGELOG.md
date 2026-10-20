@@ -1,3 +1,18 @@
+## 0.5.18 — Visible Quit Review
+
+- Unchanged Connection Details inspection no longer blocks Quit, including when its task workspace is hidden behind MAPDex.
+- Connection input, changed remember settings, running connection requests and genuine editors retain their quit protections.
+- Bring the workspace requiring review into view rather than leaving its editor hidden behind another workspace.
+- Includes the complete ROM catalog and selected-map compilation corrections from 0.5.17.
+
+## 0.5.17 — ROM Catalog and Map Selection Correction
+
+- Ignore metadata-only ctime updates when checking whether a ROM changed; preserve size, modification time, file identity and fingerprint checks.
+- Derive every map/zone group and display name from the ROM; no city is preselected.
+- Prepare the selected map's areas and observed source stages instead of compiling only the Violet City proof scope.
+- Retain independent map drafts, saved preparations, source identities and original ROM bytes.
+- The current source reader supports the reviewed HGSS layout; other game/build layouts still require their own validated adapters.
+
 ## 0.5.16 — MAPDex Evaluation Build
 
 - Package the current MAPDex workspace, ROM workers and ROM format tables alongside NPCDex and the task manager.
