@@ -1,6 +1,6 @@
 # U26B — Task Manager Responsiveness
 
-**Final installed acceptance in progress:** October 19, 2026. The targeted responsiveness, draft/checkpoint and startup/shutdown corrections are installed in ROMDex **0.5.15**. NPCDex cloud synchronization is persistently paused by user request; local saves and ROMDex task/metadata syncing remain enabled. No installer or whole-save replacement was used. Final normal tray Quit/reopen acceptance is pending.
+**Complete and installed:** October 19, 2026. The targeted responsiveness, draft/checkpoint and startup/shutdown corrections are installed in ROMDex **0.5.15**. NPCDex cloud synchronization is persistently paused by user request; local saves and ROMDex task/metadata syncing remain enabled. No installer or whole-save replacement was used. Normal tray Quit and relaunch acceptance passed.
 
 ## What Changed
 
@@ -50,7 +50,7 @@ The existing **220 ms single-click guard before opening Details remains**, prese
 
 See [verification data](U26B-Verification.json). Private Git backup identity is recorded separately after publication.
 
-**Following the U26B recovery gate: U27 — History, Reversal and Verification-Gated Completion. Recommended: Sol / High. A new PASSKEY is required.**
+**Next: U26C — Isolated Clean RDX Round-Trip Acceptance. Recommended: Sol / High. A new PASSKEY is required; U27 follows that acceptance exercise.**
 
 ## Urgent Startup and Save Recovery
 
@@ -73,6 +73,14 @@ The final backup's content database passes integrity checking and retains **165 
 
 The old shutdown loop combined three problems: background checkpointing retried blocked feedback; draft snapshots could contain undefined optional properties and fail strict JSON serialization; and a blocked delivery entry was excluded from the local overlay, making its dependent history disappear from the proposed RDX checkpoint. The history guard correctly rejected that incomplete checkpoint. Local projection now retains blocked work while cloud publication and editing review gates remain enforced. Checkpointing saves editor drafts without retrying blocked edits, and overlapping provider checkpoints share one operation. Export/history validation is unchanged.
 
-Additional focused evidence: persistent pause/status isolation check; service fixture with local task edit, checkpoint, resume and shutdown and zero external requests; two real-UI draft preservation/reopen checks after a synthetic review rejection; blocked-preview/review-gate regression; and overlapping checkpoint coalescing regression. Installed startup shows **299 tasks** and explicit **Cloud Sync Paused · Local Saves Enabled · 133 Queued Entries Preserved**. Save remains enabled. Final tray Quit/reopen is recorded separately when confirmed.
+Additional focused evidence: persistent pause/status isolation check; service fixture with local task edit, checkpoint, resume and shutdown and zero external requests; two real-UI draft preservation/reopen checks after a synthetic review rejection; blocked-preview/review-gate regression; and overlapping checkpoint coalescing regression. Installed startup shows **299 tasks** and explicit **Cloud Sync Paused · Local Saves Enabled · 133 Queued Entries Preserved**. Save remains enabled. Final tray Quit/reopen passed as recorded below.
 
 No dataset has been cleared. A clean RDX round-trip test must use an isolated dataset first; replacing existing content still requires a preview that preserves the full backup and avoids unintended archival/deletion of shared NPCD content. U21–U26A features remain source-complete rather than deployed, as documented in their reports. U26B does not change that release boundary.
+
+## Final Installed Acceptance — October 19
+
+The user selected **Quit ROMDex** from the Windows notification-area menu. Independent checks confirmed the ROMDex window was absent and the profile ownership file was released. A consistent closed-app database copy passed integrity checking, retained all **133 pending entries**, and retained the editor draft. No forced termination was used.
+
+ROMDex reopened normally with a new process and the existing saved connection. The native UI confirmed **299 tasks**, **YouTrack Tasks Up to Date**, **ROMDex Metadata Up to Date**, an enabled **Save Changes** button, and **NPCDex Cloud Sync Paused · Local Saves Enabled · 133 Queued Entries Preserved**. Three working map files and the checked YouTrack/GitHub encrypted connection files match the verified backup. No additional code change or redundant regression run was needed for this acceptance.
+
+**U26B is complete within the user's revised scope.** The legacy cloud attachment-integrity issue remains preserved and paused for separate review rather than claimed resolved. No data has been cleared. U26C will prove the clean RDX workflow in isolation before any previewed production replacement.

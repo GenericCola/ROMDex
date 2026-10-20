@@ -1,6 +1,6 @@
 {
   "task": "U26B",
-  "status": "installed-final-quit-reopen-pending",
+  "status": "complete-installed-with-user-requested-npcdex-cloud-pause",
   "installedVersion": "0.5.15",
   "regressionPassed": 88,
   "sourceSyntaxChecks": 3,
@@ -1244,6 +1244,15 @@
     "draftUI": 2,
     "newFocusedRegressions": 2,
     "pausePolicyCheck": true,
-    "servicePauseCheck": true
+    "servicePauseCheck": true,
+    "normalTrayQuit": true,
+    "relaunch": true,
+    "ownershipReleased": true,
+    "editorDraftRetained": true,
+    "reopenedTaskCount": 299,
+    "reopenedQueueCount": 133,
+    "saveButtonEnabled": true,
+    "forcedTermination": false,
+    "legacyCloudDeliveryCompleted": false
   }
 }

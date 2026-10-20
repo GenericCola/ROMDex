@@ -25,4 +25,4 @@ The user reported a prolonged manual Save, red attention despite Auto-Sync On, f
 
 ## October 19 Acceptance Scope Update
 
-The user authorized pausing NPCDex cloud sync, preserving a complete backup and retaining local saving so U26B can close before isolated clean RDX acceptance. Do not drain, batch, cancel or silently reset the legacy cloud backlog to finish this task. The persistent pause is NPCDex-only; task and organization-metadata sync remain enabled. U26B still requires installed normal Quit/reopen acceptance. The clean dataset exercise is U26C before U27, with production replacement separately previewed after success.
+The user authorized pausing NPCDex cloud sync, preserving a complete backup and retaining local saving so U26B can close before isolated clean RDX acceptance. Do not drain, batch, cancel or silently reset the legacy cloud backlog to finish this task. The persistent pause is NPCDex-only; task and organization-metadata sync remain enabled. Installed normal tray Quit/reopen acceptance passed on October 19; U26B is complete. The clean dataset exercise is U26C before U27, with production replacement separately previewed after success.
