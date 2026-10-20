@@ -2,7 +2,7 @@
 
 Installed production remains **0.5.15 with targeted U26B repairs**, local saving enabled and NPCDex cloud sync explicitly paused. **U21–U27 are complete in source and await integrated review and a later packaged release.** [Package Map Changes](rdx/MAP-PACKAGES.md), [navigation](rdx/PACKAGE-NAVIGATION.md), returned-file review and [human testing/history](rdx/HUMAN-TESTING.md) preserve explicit package authorization and human-only completion. U27 adds flashing-amber Needs Testing and reversal evidence; it does not install source changes, resume the preserved queue or automatically complete tasks.
 
-**RI02A adds the source-only [ROM reader and source-mapping foundation](rom/README.md)** for the exact supplied HeartGold build. It reads the ROM itself; dialogue/sprite extraction, per-map timeline support and the real RDX/cloud proof remain separately gated. No installed feature or cloud policy is changed.
+**RI02A–RI02C are complete in source:** the [ROM-only compiler](rom/COMPILING-RDX.md) produces a real Violet City RDX from the supplied ROM, preserves source identities/text/images and passes isolated local/YouTrack round trips. Map-specific Roman-numeral timelines are supported; unresolved gameplay semantics remain explicit. The ROM Import workspace design is next under RI03A. These features are not installed yet.
 
 Use the installed Windows ROMDex shortcut for current work. Saves and remembered connections live in its application Data folder. See [desktop storage/upgrade guidance](U13A-Desktop-Guide.md), [RDX authoring](rdx/authoring/README.md) and [package/return boundaries](rdx/authoring/PACKAGES-AND-RETURNS.md). U23–U27 returned-file automation is not enabled by U21.
 

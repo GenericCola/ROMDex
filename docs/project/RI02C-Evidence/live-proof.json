@@ -1,0 +1,21 @@
+{
+  "task": "RI02C",
+  "checks": [
+    "The isolated real-map publication completed with all 134 native records and a verified cloud commit",
+    "A deliberate YouTrack title correction completed through the normal review API and published into the managed RDX",
+    "The exported RDX reopened and the second profile accepted the same published head; final exact preservation/status recheck queued",
+    "The separate profile recovered the accepted backend correction, exact assets, notes, critical flag, proposal and human-testing obligation without duplicate records",
+    "Fresh read-only cycles using the corrected source clear a recovered connection error in both profiles without any remote writes"
+  ],
+  "source": "Saved reviewed-publication checkpoint and two converged read-only journals",
+  "productionDataAccess": false,
+  "status": "passed",
+  "cleanup": "Complete; all owned proof issues verified absent",
+  "exportedRevision": "5a44d93c2a6f1b051cd395d95329608c7050dc1dd91e10a90c313b6e030acf05",
+  "exportSHA256": "0d5a290c086b1efc2d42ab53f94bd27ef1c17da31aaea69217913c26361a0708",
+  "finalRecheckRemoteWrites": false,
+  "finishedAt": "2026-10-20T15:09:38.968Z",
+  "publishedContentRecords": 134,
+  "temporaryIssuesRemoved": 135,
+  "fullLocalEvidenceSHA256": "77088f14af3c2d49645cd76099bc47b550ec0d950c9774ae61b5f36d25b33f28"
+}

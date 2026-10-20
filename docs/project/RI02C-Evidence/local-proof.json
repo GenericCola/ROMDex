@@ -1,0 +1,22 @@
+{
+  "task": "RI02C",
+  "testbed": "Violet City",
+  "scope": "Real ROM-derived RDX in empty local profiles",
+  "productionDataAccess": false,
+  "checks": [
+    "Container unpack/repack preserves exact bytes",
+    "All 329 source texts, controls, raw tokens and extraction sections reconstruct exactly",
+    "Both player-gender snapshots display eight areas, 50 objects and 48 unambiguous sprite thumbnails; two ambiguous palettes retain all alternatives without a guessed default",
+    "Local note, critical flag and proposed dialogue persist without changing recorded ROM content",
+    "Reopen and second empty profile retain every source/image byte, stable identity, note, flag, proposal and human-testing requirement"
+  ],
+  "status": "passed",
+  "sourceSHA256": "cb743eb01fe18f8599e54911faa28701474b84a6b9d9764a9478bf8a7be1babd",
+  "extractionDigest": "90233882912c2214b20147baf392a7beae9cbdec6ec5ddce939a568d27e1d461",
+  "inputSHA256": "be868307dc1668f9366716251776ffd23b54eec2e70f5a5ba0c08c08f4d56d8b",
+  "inputBytes": 1001582,
+  "records": 134,
+  "images": 354,
+  "genderSpecificBlocks": 6,
+  "fullLocalEvidenceSHA256": "c72d660ba5073b32412a14644b31d63c91bb361115be081525f362343e35ea53"
+}

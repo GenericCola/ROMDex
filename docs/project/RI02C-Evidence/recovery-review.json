@@ -1,0 +1,16 @@
+{
+  "task": "RI02C",
+  "scope": "Read-only ownership and exact-byte/absence review before retrying only the isolated frozen upload",
+  "reviewed": [
+    {
+      "expectedSHA256": "3986f660b1ab2bc58a838ab50fa2818311a468610cbf8e3ee261eac477d8c278",
+      "bytes": 524288,
+      "observed": "confirmed absent",
+      "knownAttachmentId": false
+    }
+  ],
+  "productionDataChanged": false,
+  "remoteWrites": false,
+  "status": "reviewed-retry-recorded",
+  "fullLocalEvidenceSHA256": "e9c717a51f9287cfe7fb8f6a7f62b762d17179578472ba1326a84d586469d6b8"
+}

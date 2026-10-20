@@ -1,0 +1,7 @@
+{
+  "task": "RI02C",
+  "productionProcessesTouched": false,
+  "status": "needs-review",
+  "error": "Unexpected end of JSON input",
+  "fullLocalEvidenceSHA256": "f3b8f0b959173b2c2899df4f11681457341f84d35b554f0903b02900e093cdc8"
+}

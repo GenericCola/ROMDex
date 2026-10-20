@@ -1,0 +1,14 @@
+{
+  "task": "RI02C",
+  "status": "passed",
+  "scope": "Current source desktop assets in one isolated headless Chromium session",
+  "checks": [
+    "Real ROM RDX imports from the familiar menu and contextual note/flag controls save into the managed document",
+    "Source-derived map-specific stages render with Roman labels and the player-gender switch operates",
+    "Actual extracted sprite PNGs load in the existing NPCDex renderer without browser errors"
+  ],
+  "loadedImages": 49,
+  "externalNetworkAccess": false,
+  "productionDataAccess": false,
+  "fullLocalEvidenceSHA256": "b1739e7379a2963461f09f0aa3a7996b20afa6c39bd9ae1f06d178db55258478"
+}
