@@ -518,3 +518,12 @@ The user authorized RI02B and replaced the active New Bark proof with Violet Cit
 ## October 20 — Map-specific timeline source support
 
 RI02T is complete in source. Maps select their own referenced progression; stable stage IDs remain separate from names, order and Roman labels. Legacy A–J identities, original recovery bytes and current review/proposal data are preserved. Violet City source-state evidence is local to the proof and does not establish a complete gameplay chronology. RI02C remains the real one-map RDX/native round-trip gate. No production sync, queue or installed application was changed.
+
+
+## October 20 — RI03A ROM Import Design Approved
+
+The user approved the concrete three-tray design: read-only ROM catalog/maps in Tray 1; locally saved selected-map setup/preparation in Tray 2; contextual content, source evidence, per-map Roman stages, warnings and inline handoff review in Tray 3. Suggested area groups remain adjustable; every prepared/exported RDX contains one logical map. Optional cleanup changes display metadata while retaining source content, stable identities and uncertainty. Semantic warnings may proceed with review; broken structure/unusable mappings block output.
+
+Preparation remains local and recoverable. Export RDX produces a portable copy; Send to NPCDex is an explicit reviewed handoff that keeps the workspace open. Shared Auto-Sync applies after handoff and cannot override the explicit NPCDex pause. Existing-map updates preserve newer edits and recheck their baseline. Bounded worker cancellation/checkpoints and shutdown independent of cloud backlogs are accepted.
+
+At the user's request, add RI03P — Map Cloud-Delivery Performance after RI03B and before RI03C to reduce cold-publication/later-sync request overhead without losing exact data, stable hierarchy or conflict safety. Final sequence: RI03B → RI03P → RI03C → U28–U30. RI03A is complete; each following task still needs its own PASSKEY. No production saves, queue, credentials, sync pause or installed build changed.
