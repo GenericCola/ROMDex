@@ -78,3 +78,4 @@
 
 /* Each map supplies its own bounded stage list; longer lists scroll. */
 .timeline-stages{grid-template-columns:repeat(var(--stage-count,1),minmax(80px,1fr));overflow-x:auto;overflow-y:hidden}
+.npcdex-empty-workspace #flags,.npcdex-empty-workspace .gender,.npcdex-empty-workspace [data-add-character],.npcdex-empty-workspace #add-character,.npcdex-empty-workspace #content-add-character{display:none}.npcdex-empty-selector{padding:12px}.npcdex-empty-panel{padding:24px;max-width:560px}.npcdex-empty-panel p{line-height:1.5}.npcdex-empty-actions{display:flex;gap:12px;flex-wrap:wrap}.npcdex-empty-workspace .timeline[hidden]{display:none}

@@ -1,0 +1,138 @@
+{
+  "version": "0.5.16",
+  "purpose": "Private MAPDex evaluation delivery; RI03C broader acceptance remains open",
+  "focusedChecks": 29,
+  "native": {
+    "version": "0.5.16",
+    "scope": "Packaged native app, isolated local data, actual read-only ROM, no credentials or cloud writes",
+    "checks": [
+      "Empty NPCDex shows real import actions and no fake map tile or Add Character control",
+      "Empty-state Import RDX Map opens the working reviewed file importer",
+      "Open MAPDex switches to the packaged three-tray compiler workspace",
+      "Read-only ROM picker scans a real ROM and populates the map catalog",
+      "The packaged compiler prepares the complete 134-record Violet City map and actual source preview",
+      "Native Export produces a validated portable one-map RDX",
+      "Explicit handoff persists the real map locally and displays publication progress without claiming a cloud confirmation",
+      "NPCDex replaces the empty state with tiles generated from the handed-off RDX",
+      "Original ROM bytes are unchanged",
+      "Normal Quit/restart retains both the NPCDex map and independent MAPDex preparation"
+    ],
+    "preparedRecords": 134,
+    "exportBytes": 1001350,
+    "status": "passed",
+    "quitObservation": {
+      "result": true,
+      "messages": []
+    },
+    "productionChanged": false
+  },
+  "installerValidation": {
+    "version": "0.5.16",
+    "windowsInstallerVersion": "0.5.16.0",
+    "productCode": "{52D3289A-48B6-423C-BD3F-82E186D3C284}",
+    "upgradeCode": "{C3861991-512B-4F7D-B1C1-9D8EC7230FDA}",
+    "productName": "ROMDex",
+    "status": "passed"
+  },
+  "installed": {
+    "version": "0.5.16",
+    "status": "passed",
+    "application": {
+      "workspace": "rom-import",
+      "romImportReady": true,
+      "sourceAlreadyLoaded": false,
+      "npcdexDocuments": 0,
+      "connected": true,
+      "tasks": 299
+    },
+    "pid": 15848,
+    "noDataReset": true,
+    "credentialsReused": true,
+    "installedApplicationOpen": true
+  },
+  "preservation": {
+    "backup": {
+      "status": "verified",
+      "source": "C:\\Users\\mrgen\\AppData\\Local\\ROMDexDesktop\\Data",
+      "archive": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\Protected\\Before-MAPDex-0.5.16\\Data.zip",
+      "files": 113,
+      "sourceBytes": 28210016,
+      "archiveBytes": 4496949,
+      "sha256": "9906913c54f1b1877cbb95668501200805e7400b39027f4cbbe5d7d4ec7629cc"
+    },
+    "restoration": {
+      "status": "verified",
+      "files": 113,
+      "liveDataChanged": false
+    },
+    "savedConnectionsVerified": true,
+    "installerExitCode": 0,
+    "dataPreservedExactly": true,
+    "applicationFilesVerified": 376
+  },
+  "installer": {
+    "path": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\ROMDex-Installer-0.5.16\\ROMDex-0.5.16-x64.msi",
+    "bytes": 162337514,
+    "sha256": "245eab5ffe0e2aa394f82a8c738cdd34c401d405c0f0cc1bf8babf81224201a1"
+  },
+  "cleanup": {
+    "at": "2026-10-20T22:01:50.955832+00:00",
+    "folder": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\MAPDex-0.5.16-build-leftovers",
+    "moved": [
+      {
+        "source": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\mapdex-0516\\package",
+        "destination": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\MAPDex-0.5.16-build-leftovers\\work\\mapdex-0516\\package",
+        "bytes": 397474244,
+        "files": 376
+      },
+      {
+        "source": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\mapdex-0516\\make",
+        "destination": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\MAPDex-0.5.16-build-leftovers\\work\\mapdex-0516\\make",
+        "bytes": 165226420,
+        "files": 4
+      },
+      {
+        "source": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\mapdex-0516\\qa-profile",
+        "destination": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\MAPDex-0.5.16-build-leftovers\\work\\mapdex-0516\\qa-profile",
+        "bytes": 27872629,
+        "files": 97
+      },
+      {
+        "source": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\mapdex-0516\\VioletCity-Packaged-Export.rdx",
+        "destination": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\MAPDex-0.5.16-build-leftovers\\work\\mapdex-0516\\VioletCity-Packaged-Export.rdx",
+        "bytes": 1001350,
+        "files": 1
+      },
+      {
+        "source": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\ROMDex-Installer-0.5.15",
+        "destination": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\MAPDex-0.5.16-build-leftovers\\outputs\\ROMDex-Installer-0.5.15",
+        "bytes": 162141463,
+        "files": 3
+      },
+      {
+        "source": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\Protected\\Before-MAPDex-0.5.16\\Restore-Verification",
+        "destination": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\MAPDex-0.5.16-build-leftovers\\outputs\\Protected\\Before-MAPDex-0.5.16\\Restore-Verification",
+        "bytes": 28210016,
+        "files": 113
+      }
+    ],
+    "skipped": [
+      {
+        "path": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\mapdex-0516\\tmp",
+        "error": "[WinError 5] Access is denied: 'C:\\\\Users\\\\mrgen\\\\Documents\\\\Codex\\\\2026-10-13\\\\can\\\\work\\\\mapdex-0516\\\\tmp' -> 'C:\\\\Users\\\\mrgen\\\\Documents\\\\Codex\\\\2026-10-13\\\\can\\\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\\\MAPDex-0.5.16-build-leftovers\\\\work\\\\mapdex-0516\\\\tmp'"
+      },
+      {
+        "path": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\mapdex-0516\\private-profile",
+        "error": "[WinError 5] Access is denied: 'C:\\\\Users\\\\mrgen\\\\Documents\\\\Codex\\\\2026-10-13\\\\can\\\\work\\\\mapdex-0516\\\\private-profile' -> 'C:\\\\Users\\\\mrgen\\\\Documents\\\\Codex\\\\2026-10-13\\\\can\\\\DELETE-ME-ROMDEX-NPCDEX-OLD-FILES-2026-10-20\\\\MAPDex-0.5.16-build-leftovers\\\\work\\\\mapdex-0516\\\\private-profile'"
+      }
+    ],
+    "bytes": 781926122,
+    "installedApplicationChanged": false,
+    "permanentlyDeleted": false
+  },
+  "knownTestHarnessIssuesResolved": [
+    "Wait for workspace document readiness before Quit; no product guard bypass",
+    "Refresh the reviewed continuation before releasing a stalled test; restart an exited helper",
+    "Pass a native Windows path to MSI; first failed attempt stopped at CostFinalize before installation"
+  ]
+}

@@ -16,7 +16,7 @@ import {ensure,LIMITS} from './limits.mjs';
 import {NativeCatalog} from './native-catalog.mjs';
 
 const CHUNK=512*1024;
-export function emptyMapView(){return {active:true,provider:'rdx-local',head:'local:empty',snapshot:{version:2,revision:0,towns:[{id:'local:empty',name:'Import a Map',areas:[],locations:[],characters:[]}],stages:[],annotations:{},changePlans:{},history:[],preferences:{gender:'male'},characterImages:{},characterNames:{},contentPreview:{records:[],plans:[],reviews:[],reviewStates:[]}},status:{label:'NPCDex',cloud:false,localCheckpoint:true,connection:'local',automaticRemote:false,pendingWrites:0,attention:false,message:'Import an RDX Map to Work Locally. Existing Synced Content Is Unchanged.'},documentKey:null};}
+export function emptyMapView(){return {active:true,provider:'rdx-local',head:'local:empty',snapshot:{version:2,revision:0,towns:[{id:'local:empty',name:'Import a Map',areas:[],locations:[],characters:[]}],stages:[],annotations:{},changePlans:{},history:[],preferences:{gender:'male'},characterImages:{},characterNames:{},contentPreview:{emptyWorkspace:true,records:[],plans:[],reviews:[],reviewStates:[]}},status:{label:'NPCDex',cloud:false,localCheckpoint:true,connection:'local',automaticRemote:false,pendingWrites:0,attention:false,message:'Import an RDX Map to Work Locally. Existing Synced Content Is Unchanged.'},documentKey:null};}
 
 // Local map owner. All file paths are host-generated; no renderer path, token or
 // backend transport is accepted. The cloud provider continues independently.

@@ -466,3 +466,7 @@ The user approved the native preview of the current saved NPCDex revision 73. Ex
 ## Operational Update — Clean RDX User Test, October 20, 2026
 
 The user authorized archiving existing NPCDex data, clearing its NPCD records and reconnecting for a clean RDX test. Complete local/backend archives passed verification; all 224 exact records were removed, the legacy provider/queue was retired, and the empty installed workspace reopened with the saved connection and NPCDex sync enabled. No PMON task, metadata store, token or installer was replaced. The user will test import → local edits → reviewed NPCD publication/mapping → accepted incoming edits reflected in the RDX, then MAPDex extraction/another map after packaged acceptance. This operation does not complete RI03C. [Report](NPCDex-Clean-RDX-Test-Preparation.md).
+
+## Operational Delivery — MAPDex Evaluation Build, October 20, 2026
+
+At the user's request, installed 0.5.16 after focused/native verification, a full current Data backup and verified restoration. The empty NPCDex import actions work, and MAPDex can scan the supplied ROM, prepare Violet City, export one map and explicitly hand it to NPCDex with publication progress. Current saves/connections were preserved; the live app remains ready with 299 tasks and no maps. This delivers the test build without marking broader RI03C acceptance complete. The clean live round trip and another supported extraction remain open. [Report](MAPDex-0.5.16-Delivery-Report.md).

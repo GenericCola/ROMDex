@@ -1,3 +1,11 @@
+## 0.5.16 — MAPDex Evaluation Build
+
+- Package the current MAPDex workspace, ROM workers and ROM format tables alongside NPCDex and the task manager.
+- Replace the synthetic empty map tile with working Import RDX Map and Open MAPDex actions.
+- Include the verified RI03P compact cloud delivery and local/publication loading bars.
+- Preserve current Data, queues, credentials, file associations and the installed pixel-art icons during upgrade.
+- Extraction coverage in this build is Violet City and its eight reviewed areas; other catalog groups remain unsupported for extraction. Broader RI03C coverage and integrated release acceptance remain open.
+
 ## Unreleased — RI03P Map Cloud Delivery
 
 - Compress new immutable registry objects while preserving native tickets, prior references, exact bytes/history and one logical map per RDX.

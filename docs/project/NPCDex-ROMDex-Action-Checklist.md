@@ -681,3 +681,14 @@ The supplied ROM directly produced one Violet City RDX with eight areas, 50 plac
 - [ ] User acceptance: import a map RDX, edit locally, verify the NPCD tree, accept a YouTrack edit back into the managed/exported RDX; then test MAPDex extraction and another map after packaged acceptance.
 
 [Reset and cleanup report](NPCDex-Clean-RDX-Test-Preparation.md). **Next gated development task remains RI03C — Sol / High.**
+
+## MAPDex 0.5.16 Evaluation Delivery — October 20, 2026
+
+- [x] Replace the fake empty map tile with functional RDX import and MAPDex actions.
+- [x] Package MAPDex, ROM workers/tables and RI03P progress/delivery changes in the private 0.5.16 installer.
+- [x] Pass 29 focused tests, ten native workflow/restart checks, MSI checks and installed connection verification.
+- [x] Verify the complete current Data backup/restoration and preserved credentials, then upgrade and reopen MAPDex: 299 tasks, zero NPCDex maps.
+- [x] Keep the current installer/recovery ZIPs; collect another 782 MB of obsolete build/test files for manual deletion.
+- [ ] Complete the user's live RDX/NPCD round trip and broader RI03C coverage, including another supported map.
+
+**Violet City's eight areas are supported for extraction; other catalog groups remain unverified. RI03C remains open and needs its own PASSKEY for further implementation.** [Delivery report](MAPDex-0.5.16-Delivery-Report.md).
