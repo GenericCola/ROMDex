@@ -202,5 +202,16 @@
   "references": {
     "DSPRE": "e751187b45d6ddf237a24dab8407a5a6cf0d36dd",
     "pret/pokeheartgold": "6988158691eb6178cff697cda0428045ddcba5fb"
+  },
+  "scopeRevision": {
+    "timeline": "map-specific, based on relevant ROM changes and predicates",
+    "display": "Roman numerals",
+    "stableIdentity": "map-scoped; separate from ordinal/label",
+    "implementationPrerequisite": "RI02T before RI02C",
+    "existingAssumptionsObserved": [
+      "native-projection.mjs requires ten stages",
+      "workspace-runtime.js validates global A-J while stageLabel renders Roman numerals"
+    ],
+    "runtimeChanged": false
   }
 }

@@ -246,6 +246,8 @@ Approved as a core feature before Phase 9 final review and release. Retain Phase
 | RI02 | Build a deterministic game-specific extraction route: ROM → structured map JSON/assets → existing RDX compiler → one map RDX. Reuse the portable authoring kit and retain stable identities/source targets. | One real map imports with verified dialogue/entities/events/assets and ROM mappings, accepts local/native YouTrack updates, and exports without losing proposals or testing history. Record unsupported data explicitly. | Sol / High |
 | RI03 | Scope and implement a dedicated ROM Import workspace around the proven extractor: build identification, map selection, preview, diagnostics and explicit export/import. | Read-only ROM handling; one RDX per map; no AI needed at runtime; repeat imports preserve identities/plans/assets; no automatic task dispatch. User reviews the workspace design before implementation. | Sol / High |
 
+**Timeline requirement clarified by the user:** each map/zone RDX defines stages that actually apply to its content, displayed with Roman numerals. Stage identity is stable and map-scoped; labels/order changes preserve prompts, plans, annotations and testing. No compulsory global or fixed-ten-stage timeline. The [revised RI01 scope](Documentation/Project/RI01-ROM-Only-Extraction-Scope.md) adds proposed RI02T between RI02B and RI02C to remove current projection/validation assumptions and verify portability; overall scope acceptance remains pending.
+
 **Reference ROM:** `C:/Users/mrgen/OneDrive/Apps/melonDS/melonDS-1.1-windows-x86_64/TEST/0.6.3_noduplicates.nds`. Its extraction coverage is not yet verified.
 
 ## Phase 9 — Final Quality Review and Release

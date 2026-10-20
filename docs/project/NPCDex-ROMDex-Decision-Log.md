@@ -491,3 +491,10 @@ This is approval of the roadmap change only. RI01 needs its own PASSKEY with Sol
 ## RI01 — ROM-only Input Requirement, October 19, 2026
 
 The user clarified that the proof must succeed using the supplied ROM alone; editable project files and another coding agent's prepared JSON are not acceptable dependencies. Open-source tools such as DSPRE may be incorporated, subject to pinned compatibility and redistribution review. Public format references are permitted; the ROM remains the content authority. Investigation has established a structurally readable New Bark candidate and a relocated sprite table. The proposed scope and RI02A–RI03C task breakdown await RI01 acceptance; a completed portable-file/cloud proof has not been claimed. Existing production data and NPCDex pause remain untouched.
+
+
+## RI01 — Per-Map Timelines and Roman-Numeral Stages, October 19, 2026
+
+The user requires every map/zone RDX to define its own clearly specified timeline from changes/stages relevant to that map, instead of imposing a universal timeline. Stage labels use Roman numerals, preserving the current visible convention. Existing internal A–J IDs are legacy references, not a mandatory stage vocabulary or count. Separate stable stage identity from ordinal/label; preserve contextual notes, plans, flags, source mappings and testing when stage names/order change. Shared world predicates can be referenced without importing unrelated stages; conditional branches remain explicit rather than being forced into an invented linear chronology.
+
+Source inspection found the current native projection and legacy validation still require ten stages. The revised RI01 proposal adds RI02T, before RI02C, to implement per-map storage/projection/filtering/validation and portable mapping, with differing-count/order and legacy-preservation checks. No runtime code or live timeline was changed. RI01's overall scope acceptance remains pending; this clarification is recorded as a required design correction.
