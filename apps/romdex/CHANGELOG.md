@@ -1,3 +1,9 @@
+# 0.5.20
+
+- Readable source-derived entity labels grouped by sub-area; original identifiers remain in Source Evidence.
+- Front-standing thumbnail defaults for reviewed HGSS sprite layouts; preserve palette uncertainty and explicit user choices.
+- Save presentation into prepared/exported map RDX documents and preserve existing preparation/history.
+
 ## 0.5.19 — Readable Map Contents
 
 - Explicitly show one map RDX containing all selected sub-areas; sub-areas are not separate files.

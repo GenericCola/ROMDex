@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** **RI03P — Map Cloud-Delivery Performance is complete in source, October 20, 2026.** [Completion report](RI03P-Completion-Report.md). Compressed delivery, bounded metadata checks and MAPDex publication progress passed targeted/live checks; exact owned QA records are absent. The separately user-authorized clean NPCDex reset is complete: its legacy data/queue are archived, 224 prior NPCD records cleared, and the saved connection/sync re-established. See the operational update below. **Next: RI03C — Coverage and Integrated Feature Acceptance, Sol / High, awaiting a separate PASSKEY**, then U28–U30.
+**Current:** MAPDex 0.5.20 is installed and verified: source-derived entity labels, grouped sub-area contents and front-standing sprite previews preserve the current prepared map and remembered connections. **Next: editable parent/child map groups, with location-preview feasibility scoped alongside it; new PASSKEY required.** Broader RI03C, the live NPCDex/YouTrack round trip and NPCD tier Type labels remain open. See the latest correction and follow-up entries below.
 
 ## Completed Foundation
 
@@ -719,3 +719,25 @@ The supplied ROM directly produced one Violet City RDX with eight areas, 50 plac
 - [x] Collect another 784 MB of obsolete installer/build/test files for manual deletion; retain the current installer and compressed recovery copies.
 
 [Completion report](MAPDex-0.5.19-Completion-Report.md). Broader RI03C and the live NPCD round trip remain open.
+
+
+## MAPDex Follow-up — Editable Map Groups
+
+- [ ] Add **Edit Map Group** before broader RI03C acceptance: select a destination logical map and include areas from other suggested groups (for example, Violet City plus Sprout Tower). Let the user explicitly choose parent and child: Violet City → Sprout Tower → existing floors/areas → entities. Move all descendants with their parent and preserve their relationships. Preview one output map/RDX retaining this nesting, rather than flattening the child group. Extend the current sub-zone contract as needed before activation.
+- [ ] Persist custom group membership and source identities; show already-prepared/imported memberships and review conflicts rather than duplicate or silently replace content. Existing independent maps require explicit migration review.
+- [ ] Verify regrouping, saved edits, export, NPCDex handoff and YouTrack hierarchy. Keep raw ROM mappings intact.
+- [ ] Scope **Zone/Sub-zone Location Previews** alongside grouping: prove actual ROM-derived location rendering, then show a recognizable area image with entrances and NPC/interaction markers. A parent zone lists its child floors/areas; selecting one shows that specific location, and a marker opens its entity. Keep source IDs secondary. Carry approved preview images in the portable map RDX so NPCDex and another installation can display them without the original ROM. Verify render/extraction feasibility and licensing before selecting dependencies; do not substitute a fabricated image or claim this renderer already exists.
+- [ ] Complete the live NPCD tier Type mapping separately: current publisher links parents/children but does not assign Epic/Saga/Story/Verse, and NPCD currently offers Milestone/Task/Subtask. Do not report tier mapping complete.
+
+Finish the active naming/front-sprite correction first. This follow-up is the next MAPDex task and requires its own PASSKEY.
+
+
+## MAPDex 0.5.20 — Entity Labels and Front-Sprite Correction
+
+- [x] Group prepared entities by sub-area with deterministic, evidence-based names and dialogue cues; retain technical IDs in Source Evidence.
+- [x] Select front-standing defaults for recognized source layouts, label frame/palette alternatives and preserve explicit custom choices.
+- [x] Persist corrected presentation in the prepared/exported RDX, retaining source data, identities, history and user edits.
+- [x] Pass 27 focused checks and three actual-ROM UI/export checks.
+- [x] Verify the Windows package/installer; back up and restore current Data, install 0.5.20 and verify the saved preparation/connections.
+
+[Correction report](MAPDex-0.5.20-Completion-Report.md). Editable parent/child map groups are the next MAPDex task; broader RI03C and the live NPCD round trip remain open.

@@ -21,3 +21,12 @@ The exact supplied ROM also supplies independently reopened evidence: the 30-row
 ## Readable area labels
 
 `public/hgss-area-names.mjs` records 540 `(header ID, internal code, symbolic label)` interoperability facts from the same pinned [maps.h](https://github.com/pret/pokeheartgold/blob/6988158691eb6178cff697cda0428045ddcba5fb/include/constants/maps.h). A label is used only when both the ROM's internal code and numeric header match. It supplies display hints, not missing map/dialogue/script content or proof of a modified building's purpose. Unknown or changed entries receive a review label. Current user names override these hints. Raw codes remain available under Source Details, and file contents/identities are unchanged by formatting the view.
+
+
+## Source-derived entity presentation
+
+`rom/presentation.mjs` uses fixed rules, never an AI service. Explicit leading dialogue-speaker labels and self-introductions can supply labels; source texture classes supply role hints; unnamed actors and interactions include a short attached dialogue cue. These are reviewable presentation hints, not new character identities or runtime-reachability claims. Shared graphics never merge records. Unsupported classes retain a neutral label. Original names, event IDs and naming basis remain in Source Evidence.
+
+The actual supplied ROM frame sheets were inspected: ordinary 16-frame resources have a front-standing texture numbered `.5`; the reviewed `tsure_poke` eight-frame layout has front textures `.11`/`.12`. Texture names are lexicographically stored, so array order is not direction order. Select defaults only for recognized complete layouts with an unambiguous source palette. Multi-palette resources keep their ambiguity and expose labeled frame/palette choices. Custom overrides win. Presentation corrections are versioned descendants in the local prepared RDX with the exact previous document retained, so exports and NPCDex receive the same labels/images without changing immutable source evidence.
+
+Role-reference facts were checked against the pinned [sprites.h](https://github.com/pret/pokeheartgold/blob/6988158691eb6178cff697cda0428045ddcba5fb/include/constants/sprites.h) and [global.fieldmap.h](https://github.com/pret/pokeheartgold/blob/6988158691eb6178cff697cda0428045ddcba5fb/include/constants/global.fieldmap.h). A reused sprite does not identify a named individual; for example, the same man graphic is used by both a photographer and another resident.

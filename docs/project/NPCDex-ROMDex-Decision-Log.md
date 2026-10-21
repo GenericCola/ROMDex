@@ -560,3 +560,8 @@ The user rejected being locked to Violet City and required the map catalog to co
 ## October 20 — One Map File, Readable Sub-Areas
 
 The user clarified that New Bark Town is the RDX and buildings/floors are contained sub-areas. Inspection confirmed that the existing file already has one map and eight children; the confusing technical labels/wording were the defect. 0.5.19 adds an explicit one-file summary, readable reference labels with user-name precedence, collapsed source IDs and a named native export. Keep the portable format and source mappings unchanged. Modified building purposes remain reviewable rather than inferred from their ID alone. [Report](MAPDex-0.5.19-Completion-Report.md).
+
+
+## October 20 — Readable Entity Presentation and Nested Map Groups
+
+Use deterministic source-derived labels, with no runtime AI requirement, and front-standing thumbnails for recognized source layouts. Store presentation in the prepared map RDX with exact source/history preservation and user-override precedence. The next MAPDex task must let the user choose parent and child (Violet City → Sprout Tower → floors/areas → entities), preserving all descendant relationships rather than flattening them. Review existing prepared/imported maps and extend the nested sub-zone contract as needed. Location previews must be recognizable ROM-derived images with entrance/entity markers; validate rendering feasibility before implementation. NPCD currently links parent/child records but its Milestone/Task/Subtask Type values do not yet implement the intended tier labels; track this gap explicitly.
