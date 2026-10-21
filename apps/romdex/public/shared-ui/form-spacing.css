@@ -1,0 +1,16 @@
+/* Shared form spacing; compact tile/row/status controls keep their own geometry. */
+:root{--form-control-gap:10px;--form-button-pad-block:8px;--form-button-pad-inline:12px}
+.suite-button{padding:var(--form-button-pad-block) var(--form-button-pad-inline);line-height:1.45}
+:is(label.checkrow,label.check-label,label.remember-control,label.cloud-review-accept,dialog label:has(>input[type=checkbox]),dialog label:has(>input[type=radio])){display:flex;align-items:flex-start;column-gap:var(--form-control-gap);row-gap:6px}
+:is(label.checkrow,label.check-label,label.remember-control,label.cloud-review-accept,dialog label)>:is(input[type=checkbox],input[type=radio]){order:-1;flex:0 0 auto;width:auto;min-width:0;max-width:none;padding:0;margin:3px 0 0}
+:is(label.checkrow,label.check-label,dialog label:has(>input[type=checkbox]))>span{min-width:0}
+dialog :is(.actions,.dialog-actions,.image-actions,.content-editor-toolbar,footer){gap:var(--form-control-gap)}
+dialog footer{display:flex;flex-wrap:wrap;justify-content:flex-end}
+dialog :is(.actions,.dialog-actions,.image-actions,footer)>button,dialog form>button,dialog>button{padding:var(--form-button-pad-block) var(--form-button-pad-inline);height:auto;min-height:34px;line-height:1.4;white-space:normal}
+:is(dialog,.import-setup,.import-preview) :is(input:not([type=checkbox]):not([type=radio]),select,textarea,label)+button:not([aria-label]){margin-block-start:var(--form-control-gap)}
+.import-actions{gap:var(--form-control-gap)}
+.import-setup>.suite-button,.import-setup #setup-fields>.suite-button,.import-setup #display-cleanup>.suite-button{margin-block:var(--form-control-gap)}
+.import-setup .stage-row>.suite-button{margin:0}
+#character-link-controls label.checkrow{display:flex;align-items:flex-start;gap:var(--form-control-gap);padding-block:10px}
+#character-link-controls label.checkrow>span{flex:1;min-width:0}
+#character-link-controls .import-actions{margin-block:12px 4px}

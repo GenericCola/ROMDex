@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** Preparation corrections are delivered in installed ROMDex 0.5.25: immediate sprite preview, reviewed shared-character tiles, readable region names and source-linked scene context. Complete Data/connections are preserved. Narrative-phase acceptance and two actual ROM builds remain open. [Report](MAPDex-0.5.25-Completion-Report.md).
+**Current:** Installed ROMDex 0.5.26 includes the verified form-spacing correction. Current saves, preparation and all remembered connections are preserved. A broader MAPDex overhaul remains for owner evaluation; existing narrative-phase and two-actual-build acceptance gaps remain open. [Report](UI-Spacing-0.5.26-Completion-Report.md).
 
 ## Completed Foundation
 
@@ -785,3 +785,13 @@ Delivered in 0.5.25 after the saved-map startup correction. [Completion report](
 - [x] Replace generated raw scene-variable names with source-linked scene descriptions, Roman numeral display and expandable dialogue/actions/technical evidence; preserve custom stage names/order.
 - [x] Verify real New Bark Town/Marill UI, focused preservation/regression checks, native handoff/restart and installer; back up/restore complete Data and remembered credentials before installation. Cold saved-data startup passed in final 0.5.25.
 - [ ] **Broader RI03C acceptance remains open:** establish useful per-map narrative phases and condition-aware availability from the ROM's script transitions, with independent/reversible conditions and uncertain chronology represented honestly. Source scene descriptions are useful evidence, not proof of a complete story timeline; no fixed global timeline or runtime AI is introduced.
+
+
+## Form Spacing Correction — 0.5.26
+
+The owner requested this focused correction before evaluating a broader MAPDex overhaul. [Source report](UI-Spacing-0.5.26-Source-Report.md).
+
+- [x] Restore checkbox/text gaps and separate character-link/thumbnail actions from nearby controls.
+- [x] Apply consistent form-action padding/gaps in MAPDex, ROMDex dialogs, NPCDex native dialogs and Updates; review narrow layouts and preserve header geometry.
+- [x] Validate the packaged correction and installer, back up/restore complete Data and remembered credentials, install and verify the reopened workspace.
+- [ ] Evaluate MAPDex's broader layout with the owner before scoping an overhaul.

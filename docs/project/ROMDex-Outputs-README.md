@@ -1,7 +1,8 @@
 # ROMDex Outputs — Start Here
 
-Current installed evaluation build: **0.5.25**, with reviewed cross-ROM map updates, parent/child grouping and readable source previews. Connection Details stays closed during background retries. Two-actual-build acceptance remains deferred. The supplied ROM exposes all 121 named groups; additional ROM layouts and broader RI03C acceptance remain open. Latest published private updater release: **0.5.15**. This folder contains current deliverables and organized reference material. Runtime saves and credentials remain in the installed application's Data folder.
+Current installed evaluation build: **0.5.26**, with reviewed cross-ROM map updates, parent/child grouping and readable source previews. Connection Details stays closed during background retries. Two-actual-build acceptance remains deferred. The supplied ROM exposes all 121 named groups; additional ROM layouts and broader RI03C acceptance remain open. Latest published private updater release: **0.5.15**. This folder contains current deliverables and organized reference material. Runtime saves and credentials remain in the installed application's Data folder.
 
+- [Form Spacing Correction](UI-Spacing-0.5.26-Completion-Report.md)
 - [MAPDex Preparation Corrections and Character Linking](MAPDex-0.5.25-Completion-Report.md)
 - [RI03U Cross-ROM Updates and Connection Dialog Correction](RI03U-Completion-Report.md)
 - [MAPDex 0.5.22 Hover Settings Correction](MAPDex-0.5.22-Completion-Report.md)
@@ -13,7 +14,7 @@ Current installed evaluation build: **0.5.25**, with reviewed cross-ROM map upda
 - [MAPDex 0.5.16 Delivery and Test Steps](MAPDex-0.5.16-Delivery-Report.md)
 - [Overall Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md)
 - [Phase and Task Checklist](NPCDex-ROMDex-Action-Checklist.md)
-- [Current Installer](ROMDex-Installer-0.5.25/ROMDex-0.5.25-x64.msi)
+- [Current Installer](ROMDex-Installer-0.5.26/ROMDex-0.5.26-x64.msi)
 - [RDX Agent Authoring Kit](RDX-Reference/RD09-Agent-Authoring-Kit.zip)
 - [RDX Tooling and Deferred ROM Extraction](Phase-6-RDX-Authoring-Report.md)
 - [Project Scope](NPCDex-ROMDex-Unified-App-Scope.md) and [Decision Log](NPCDex-ROMDex-Decision-Log.md)
@@ -28,8 +29,8 @@ Current installed evaluation build: **0.5.25**, with reviewed cross-ROM map upda
 | Folder | Contents |
 | --- | --- |
 | ROMDex | Current application source and tests. |
-| ROMDex-Installer-0.5.25 | Current verified evaluation installer and application manifest. |
-| Protected/Before-MAPDex-0.5.25 | Latest verified complete Data and prior-source ZIPs; preserve them. |
+| ROMDex-Installer-0.5.26 | Current verified evaluation installer and application manifest. |
+| Protected/Before-MAPDex-0.5.26 | Latest verified complete Data and prior-source ZIPs; preserve them. |
 | Protected/Before-MAPDex-0.5.18 | Latest verified complete Data and prior-source ZIPs; preserve them. |
 | Protected/NPCDex-Archive-2026-10-20 | Verified complete pre-reset Data, YouTrack and older recovery ZIPs; preserve them. |
 | Documentation | Project decisions, cleanup records and historical reports/evidence grouped by task. |

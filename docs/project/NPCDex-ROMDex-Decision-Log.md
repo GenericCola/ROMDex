@@ -587,3 +587,8 @@ Approved: explicitly link builds to a persistent ROM project; use Update Existin
 ## October 20 — Preparation Feedback and Shared Characters
 
 The owner chose one character tile containing linked placements. MAPDex and NPCDex now expose explicit reviewed linking while retaining each placement's source mapping and local content/history. Sprite selection previews immediately and commits explicitly; generated regions use the HGSS enum. Stage descriptions show ROM evidence without claiming a completed narrative timeline. The first installed startup exposed the 30-second service deadline being exceeded by a saved-map presentation checkpoint; final 0.5.25 defers it until MAPDex loading and passed actual saved-data cold-start checks. Full narrative-phase acceptance remains open in RI03C. [Report](MAPDex-0.5.25-Completion-Report.md).
+
+
+## Form Spacing Before MAPDex Evaluation
+
+The owner requested consistent checkbox/text gaps and proper button padding, then evaluation before a broader MAPDex overhaul. 0.5.26 corrects the overridden character-link checkbox layout and shared form/action spacing, including wrapped Updates buttons, without changing header geometry or backend behavior. The reviewed correction is installed with complete Data/credential preservation. The broader redesign remains to be scoped after evaluation. [Report](UI-Spacing-0.5.26-Completion-Report.md).

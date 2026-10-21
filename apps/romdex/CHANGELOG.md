@@ -1,3 +1,13 @@
+# 0.5.26
+
+- Give checkbox labels a consistent gap and natural checkbox width across MAPDex and application dialogs.
+- Space thumbnail and character-link actions away from nearby fields; standardize text-button padding and dialog action gaps.
+- Let update-window buttons expand for wrapped labels. Keep existing compact tile/header/status control geometry.
+
+# 0.5.25
+
+- Defer saved-map presentation checkpoints until MAPDex loads so large preparations do not exceed the desktop service startup deadline.
+
 # 0.5.24
 
 - Preview source sprite choices immediately in MAPDex while the durable local save runs; retain the selected frame and report its save state.

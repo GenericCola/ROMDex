@@ -31,3 +31,6 @@ RI03A design is approved; RI03B/MAPDex and RI03P cloud performance are source-co
 
 
 0.5.25 is installed and verified: immediate sprite preview with explicit apply, reviewed shared-character tiles, readable regions and source-linked scene context. Cold saved-data startup and normal quit/restart passed after deferring presentation checkpoints until MAPDex loads. Full narrative-phase extraction remains open. [Completion and limits](docs/project/MAPDex-0.5.25-Completion-Report.md).
+
+
+0.5.26 delivers consistent checkbox/text gaps and form-action padding across MAPDex, task dialogs, NPCDex native dialogs and Updates, preserving header geometry and current Data/connections. The owner will evaluate MAPDex before scoping a broader overhaul. [Completion and evidence](docs/project/UI-Spacing-0.5.26-Completion-Report.md).
