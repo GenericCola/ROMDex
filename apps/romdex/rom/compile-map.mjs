@@ -5,6 +5,7 @@ import {validateExtraction,extractHGSS} from './extract.mjs';
 import {createNativeMappingSession} from './native-mapping.mjs';
 import {inventoryHGSS} from './hgss.mjs';
 import {requireRom} from './reader.mjs';
+import {stagePresentation} from './source-context.mjs';
 
 // Deterministic translation of a pinned extraction, never a ROM interpreter or
 // an AI-generated account of gameplay. Source bindings must survive recompiles.
@@ -30,7 +31,7 @@ export async function compileMapExtraction(extraction,assets,inventory,{createdA
  for(const m of writes){const [variable,value]=m.operands,key=variable+':'+value;if(!states.has(key))states.set(key,{variable,value,evidence:[]});states.get(key).evidence.push(m.locator);}
  const stages=[...states.values()].sort((a,b)=>a.variable-b.variable||a.value-b.value).map(s=>({id:id('scene-value',s.variable,s.value),name:'Scene variable 0x'+s.variable.toString(16)+' = '+s.value,event:'Observed '+mapName+' source state. Numeric display order is not verified gameplay chronology; independent flags are retained separately.',uncertain:true,condition:{variable:s.variable,value:s.value},evidence:s.evidence}));
  add(regionId,'region',null,{name:regionName,regionKey});
- add(timelineId,'shared',null,{name:mapName+' — Source States (Chronology Requires Review)',sharedType:'progression',definitions:{stages,scope:'this-map-only',chronologyVerified:false,initialStateNotInferred:true,milestoneCandidates:x.timeline.milestoneCandidates,warning:x.timeline.warning}});
+ add(timelineId,'shared',null,{name:mapName+' — Map Scenes (Story Order Needs Review)',sharedType:'progression',definitions:{stages:stages.map(s=>stagePresentation(x,s)),scope:'this-map-only',chronologyVerified:false,initialStateNotInferred:true,milestoneCandidates:x.timeline.milestoneCandidates,warning:x.timeline.warning}});
  const zoneIds=x.areas.map(a=>a.sourceId);add(mapId,'map',regionId,{name:mapName,regionId,sourceMapKeys:[mapKey],subzoneIds:zoneIds,timelineRef:timelineId},{extra:{testOnly:true,excludes:x.testbed.excludes||'Areas outside the selected map / zone group',coverage:x.coverage,warnings:x.warnings}});
  const flows=new Map(x.flows.map(f=>[f.key,f])),messages=new Map(x.messages.map(m=>[m.key,m])),links=new Map();for(const link of x.flowReferences){if(!links.has(link.from))links.set(link.from,[]);links.get(link.from).push(link.flow);}
  const assignedMessages=new Set(),sourceId=key=>x.identities.entries.find(e=>e.key===key)?.id;

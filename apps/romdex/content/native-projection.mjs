@@ -3,6 +3,7 @@
 import {requireThat,sha,pointPayload,validateGraph} from './contracts.mjs';
 import {zonePath} from './hierarchy.mjs';
 import {applySnapshotTimelines} from './timelines.mjs';
+import {groupCharacterTiles} from './character-tiles.mjs';
 const heads=values=>{const parents=new Set(values.flatMap(x=>x.parents||[]));return values.filter(x=>!parents.has(x.digest));};
 export const hasNativeViews=domain=>(domain.views||[]).some(v=>v.viewId==='view:root');
 export function projectNativeNPCDex(domain,{revision=1,gender='male',assetBytes=()=>null}={}){
@@ -27,7 +28,7 @@ export function projectNativeNPCDex(domain,{revision=1,gender='male',assetBytes=
   }
   for(const entry of mv?.payload.roster||[]){const fields=decode(entry.fields);town.characters.push({...fields,elementIds:entry.elements.map(id=>uiId(records.get(id))),sceneIds:entry.scenes.map(id=>uiId(records.get(id)))});}
   const rosterElements=new Set((mv?.payload.roster||[]).flatMap(e=>e.elements));for(const zone of zones)for(const rid of zone.current.payload.appearanceIds||[]){const r=records.get(rid);if(rosterElements.has(rid)||r.legacyData.sceneParticipantOnly)continue;const rp=r.current.payload,profile=records.get(rp.profileByPlayerGender[gender]||rp.profileId);town.characters.push({id:r.recordId,name:(rp.overrides.displayName||profile?.current.payload.name||rp.name)+(r.current.lifecycle==='planned'?' (Planned Addition)':''),gender:'both',elementIds:[uiId(r)],sceneIds:[...rp.sceneIds].map(id=>uiId(records.get(id))),image:rp.overrides.imageAssetId||profile?.current.payload.baseImageId?imageObject(rp.overrides.imageAssetId||profile.current.payload.baseImageId):null,archived:r.current.lifecycle==='archived',contentRecordId:r.recordId});}
-  const sort=(items,order=[])=>items.sort((a,b)=>(order.includes(a.id)?order.indexOf(a.id):order.length)-(order.includes(b.id)?order.indexOf(b.id):order.length));sort(town.areas,mv?.payload.areaOrder);sort(town.locations,mv?.payload.locationOrder);towns.push(town);
+  const sort=(items,order=[])=>items.sort((a,b)=>(order.includes(a.id)?order.indexOf(a.id):order.length)-(order.includes(b.id)?order.indexOf(b.id):order.length));sort(town.areas,mv?.payload.areaOrder);sort(town.locations,mv?.payload.locationOrder);towns.push(groupCharacterTiles(town,domain.records,gender));
  }
  for(const r of domain.records.filter(r=>r.kind==='profile'&&changed(r))){const identity=view(r)?.payload.identityKey;if(identity){out.characterNames||={};out.characterImages||={};out.characterNames[identity]=r.current.payload.name;if(r.current.payload.baseImageId)out.characterImages[identity]={...out.characterImages[identity],...imageObject(r.current.payload.baseImageId)};else delete out.characterImages[identity];}}
  applySnapshotTimelines(out,domain.records);out.revision=Math.max(out.revision||0,revision);out.preferences={...out.preferences,gender};

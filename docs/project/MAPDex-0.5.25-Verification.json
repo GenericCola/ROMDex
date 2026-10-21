@@ -1,0 +1,126 @@
+{
+  "version": "0.5.25",
+  "status": "passed",
+  "focusedUniqueCases": 121,
+  "workspaceRecheckCases": 21,
+  "source": [
+    {
+      "file": "content/character-links.mjs",
+      "sha256": "098e9275bad51ee341effef154fefc051e0631a239b4b068a7e97cd6e5a337a7"
+    },
+    {
+      "file": "content/character-tiles.mjs",
+      "sha256": "7bb0ccf2f82a9105939ca5857debe8197243202a9e27a6b992cee954bc8fae01"
+    },
+    {
+      "file": "content/edits.mjs",
+      "sha256": "fef6b917b8bd283249fc2c2e2b082c26f79a7ec9afd45a40e76ee09b17aaa505"
+    },
+    {
+      "file": "content/projection.mjs",
+      "sha256": "18c34dd39b771693697f7ae5921a6404b0757bddfda7f1af0293683d4ca00e47"
+    },
+    {
+      "file": "content/native-projection.mjs",
+      "sha256": "c95365f430896759e5b582c046bd5a85d04ffb0c9bd7c84ec7dded472756aa92"
+    },
+    {
+      "file": "content/editor-ui.js",
+      "sha256": "4d7ac02d0ea5dc4d30118f89c0d8ab49be7add95ba7f292168184a1cd8cf88d8"
+    },
+    {
+      "file": "content/classic-ui.js",
+      "sha256": "e460d176ca17f48b62914f1ade07f397f9249a21c60d72f29a98c037faafaedd"
+    },
+    {
+      "file": "rom/source-context.mjs",
+      "sha256": "e911fc57cdb55d8b8f4bbab604043c4cda465a5cb5f617eddf3f5cf63f1fa9bd"
+    },
+    {
+      "file": "rom/presentation.mjs",
+      "sha256": "ef3509b04a23423c31a89125120ba3291100078a3a471ad19e131bdc389d0d86"
+    },
+    {
+      "file": "rom/compile-map.mjs",
+      "sha256": "8ebb823745bfb321a340d8857b81d2efba88b770621aaa79bc65e6c1bec89d67"
+    },
+    {
+      "file": "rom/workspace.mjs",
+      "sha256": "b6ababd56c30beebea7071a67338165870d5088b4d0debbb84937eef34ef1cd0"
+    },
+    {
+      "file": "public/rom-import.mjs",
+      "sha256": "7c80068e216ccb707abb595ced00743b6e0fdb1461dcbba42c85c92fa2ab3e58"
+    },
+    {
+      "file": "public/map-character-links.mjs",
+      "sha256": "1b1bd232db5d8fefb569ed7053410c686cd250a1d79b0bc857d91265c046afbf"
+    }
+  ],
+  "actualROMBrowser": {
+    "source": "Read-only cached actual 0.6.3 New Bark Town extraction",
+    "records": 95,
+    "linkedMarillPlacements": 2,
+    "AIRequired": false,
+    "productionChanged": false
+  },
+  "coldSavedDataNative": {
+    "version": "0.5.25",
+    "checks": [
+      "Desktop window opens within the service deadline using the actual pre-update saved preparation",
+      "The existing saved map completes its label checkpoint after service readiness and retains its records and selected map",
+      "Cold saved-map conversion quits without lifecycle warnings",
+      "A second desktop process restores the converted preparation and quits normally"
+    ],
+    "productionChanged": false,
+    "tokensCopied": false,
+    "windowOpeningMs": 4064,
+    "preparedRecords": 95,
+    "selected": "section:126",
+    "status": "passed",
+    "featureChecksReused": [
+      "Packaged MAPDex restores Johto, readable map-specific scene contexts and the preserved stage identities",
+      "Packaged Tray 3 and Display Cleanup restore the same saved source sprite",
+      "Explicit local handoff displays one Marill character tile with both real source placements in NPCDex",
+      "NPCDex character settings expose a populated Link Character Placements editor that closes normally",
+      "Normal quit remains warning-free after handoff and identity review",
+      "A fresh desktop process restores the prepared map and grouped NPCDex character without cloud access"
+    ]
+  },
+  "msi": {
+    "version": "0.5.25",
+    "windowsInstallerVersion": "0.5.25.0",
+    "productCode": "{BFD2BC1C-900A-4C2B-9CCD-C7FB39E8C038}",
+    "upgradeCode": "{C3861991-512B-4F7D-B1C1-9D8EC7230FDA}",
+    "productName": "ROMDex",
+    "status": "passed"
+  },
+  "installer": {
+    "bytes": 162389775,
+    "sha256": "9c3a6420c25042ceb35ee4875d9ffdb8e6567a8244861344b8306feb5fbbd853",
+    "unsignedPrivateEvaluation": true
+  },
+  "preservation": {
+    "backupFiles": 131,
+    "backupBytes": 80363813,
+    "backupSHA256": "6f06b955c835eed792e20d1fb3b82702379387c1b70fb4556e616008d089f0bb",
+    "restoredFiles": 131,
+    "savedConnectionsVerified": true,
+    "dataPreservedExactlyBeforeReopen": true,
+    "installedFilesVerified": 395,
+    "installerExitCode": 0
+  },
+  "reopened": {
+    "connected": true,
+    "taskCount": 299,
+    "NPCDexDocuments": 0,
+    "NPCDexSyncPaused": false,
+    "selectedMapPreserved": true,
+    "connectionDialogOpen": false
+  },
+  "limitations": [
+    "Generated scene descriptions do not establish complete narrative phases or runtime availability.",
+    "Large RDX checkpoints remain slower than browsing previews.",
+    "No second actual ROM build exists for RI03U acceptance."
+  ]
+}

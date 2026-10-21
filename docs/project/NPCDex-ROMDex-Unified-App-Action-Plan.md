@@ -3,7 +3,7 @@
 **Date:** October 14, 2026  
 **Revised:** October 20, 2026.
 
-**Status:** RI03U implementation is complete in installed ROMDex 0.5.23. Reviewed cross-ROM map updates and the repeated Connection Details correction passed isolated/backend/native checks; current Data and all connections are preserved. Two actual ROM builds remain deferred. [Report](RI03U-Completion-Report.md).
+**Status:** Preparation corrections are delivered in installed ROMDex 0.5.25: immediate sprite preview, reviewed shared-character tiles, readable region names and source-linked scene context. Complete Data/connections are preserved. Narrative-phase acceptance and two actual ROM builds remain open. [Report](MAPDex-0.5.25-Completion-Report.md).
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
 **Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). Phase 6 and the core U21–U27/RI02–RI03P implementations are included in the installed evaluation. MAPDex grouping/readable source previews and RI03U are delivered in 0.5.23. RI03C broader compatibility and the user’s production RDX round trip remain open, followed by U28–U30. RI03U’s two-actual-build acceptance is explicitly deferred until another supported build exists; LP01–LP03 location rendering remains separately scoped. Stop at the next task-specific PASSKEY.
@@ -532,3 +532,15 @@ The parent/child grouping task is complete in installed 0.5.21. Entry point: sel
 - [x] Verify a fresh complete Data backup/restoration and all remembered credentials, install 0.5.22, and verify the reopened app.
 
 [Correction report](MAPDex-0.5.22-Completion-Report.md). RI03U implementation is delivered in 0.5.23; its actual two-build acceptance remains deferred.
+
+
+## MAPDex 0.5.24 — Preparation Feedback and Character Identity
+
+Delivered in 0.5.25 after the saved-map startup correction. [Completion report](MAPDex-0.5.25-Completion-Report.md).
+
+- [x] Make source sprite selection preview immediately, with Apply Thumbnail / Save Changes committing the choice and clear local-save feedback.
+- [x] Link confirmed character placements in MAPDex or NPCDex into one tile while retaining source records, dialogue, images, annotations, hierarchy and history.
+- [x] Correct generated HGSS region labels to Johto/Kanto without changing identities or custom labels.
+- [x] Replace generated raw scene-variable names with source-linked scene descriptions, Roman numeral display and expandable dialogue/actions/technical evidence; preserve custom stage names/order.
+- [x] Verify real New Bark Town/Marill UI, focused preservation/regression checks, native handoff/restart and installer; back up/restore complete Data and remembered credentials before installation. Cold saved-data startup passed in final 0.5.25.
+- [ ] **Broader RI03C acceptance remains open:** establish useful per-map narrative phases and condition-aware availability from the ROM's script transitions, with independent/reversible conditions and uncertain chronology represented honestly. Source scene descriptions are useful evidence, not proof of a complete story timeline; no fixed global timeline or runtime AI is introduced.

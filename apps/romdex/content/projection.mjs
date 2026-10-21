@@ -3,6 +3,7 @@ import {projectLegacyNPCDex} from './legacy-projection.mjs';
 import {hasNativeViews,projectNativeNPCDex} from './native-projection.mjs';
 import {zonePath,descendantZones} from './hierarchy.mjs';
 import {applySnapshotTimelines} from './timelines.mjs';
+import {groupCharacterTiles} from './character-tiles.mjs';
 export const PROJECTION_VERSION='NPCDexContentProjection/4';
 const heads=(values,identity)=>{const parents=new Set(values.flatMap(x=>x.parents||[]));const visible=values.filter(x=>!parents.has(x.digest));const groups=new Map();for(const a of visible){const id=a[identity];if(!groups.has(id))groups.set(id,[]);groups.get(id).push(a);}return [...groups.values()].flat();};
 
@@ -28,7 +29,7 @@ export function projectNPCDex(domain,{revision=1,assetBytes=()=>null,gender='mal
     if(profile)town.characters.push({id:rid,name:element.name,gender:'both',elementIds:[rid],sceneIds:[...payload.sceneIds],image:image(payload.overrides.imageAssetId||profile.current.payload.baseImageId),archived:element.archived,profileId:profile.recordId,contentRecordId:rid});
    }
   }
-  towns.push(town);
+  towns.push(groupCharacterTiles(town,domain.records,gender));
  }
  requireThat(towns.length>0,'No Map Content Is Available for NPCDex.');
  const reviews=heads(domain.reviews,'reviewId'),reviewStates=reviews.map(r=>({digest:r.digest,status:records.get(r.target.recordId).revisionId===r.baseline.revisionId?r.testStatus:'unreviewed',stale:records.get(r.target.recordId).revisionId!==r.baseline.revisionId}));

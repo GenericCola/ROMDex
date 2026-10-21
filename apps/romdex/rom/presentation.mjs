@@ -2,6 +2,7 @@ import {canonical,seal,sha} from '../content/contracts.mjs';
 import {mapDomain,retainDocument} from '../rdx/map-import.mjs';
 import {documentRevision,validateDocument} from '../rdx/document.mjs';
 import {areaDisplayName} from '../public/area-presentation.mjs';
+import {extractionFromDocument,stagePresentation,regionDisplayName} from './source-context.mjs';
 
 // Presentation rules only: never change source text, locators, event IDs or identity.
 const VERSION='ROMDexSourcePresentation/1';
@@ -38,7 +39,9 @@ export function preparePresentation(value){
  // Repeated placements remain distinct; don't merge characters because they share a sprite.
  const duplicates=new Map();for(const [id,p]of proposals){const r=byId.get(id),key=r.parentRecordId+'|'+p.name;if(!duplicates.has(key))duplicates.set(key,[]);duplicates.get(key).push(id);}for(const ids of duplicates.values())if(ids.length>1)ids.forEach((id,i)=>proposals.get(id).name+=' · Placement '+(i+1));
  for(const r of records.filter(r=>r.kind==='appearance')){const profile=byId.get(r.current.payload.profileId),p=proposals.get(r.recordId);if(p&&profile&&raw(profile))proposals.set(profile.recordId,p);}
- const changes=[];for(const r of records){const p=proposals.get(r.recordId),next=structuredClone(r),frames=r.legacyData?.romExtraction?.frameBindings||[],front=frontFrame(frames);let changed=false;
+ const changes=[];let extraction;for(const r of records){const p=proposals.get(r.recordId),next=structuredClone(r),frames=r.legacyData?.romExtraction?.frameBindings||[],front=frontFrame(frames);let changed=false;
+  if(r.kind==='region'&&/^ROM Region [01]$/.test(r.current.payload.name)){next.current.payload.name=regionDisplayName(Number(r.current.payload.name.at(-1)));next.legacyData.romPresentation={...next.legacyData.romPresentation,format:VERSION,originalName:r.current.payload.name,namingBasis:'HGSS MapRegion enum'};changed=true;}
+  if(r.kind==='shared'&&r.current.payload.sharedType==='progression'&&r.current.payload.definitions.stages.some(s=>/^Scene variable 0x/.test(s.name))){extraction??=extractionFromDocument(value);if(extraction){next.current.payload.definitions.stages=next.current.payload.definitions.stages.map(s=>/^Scene variable 0x/.test(s.name)?stagePresentation(extraction,s):s);next.legacyData.romPresentation={...next.legacyData.romPresentation,format:VERSION,stageLabelsCorrected:true,namingBasis:'Source-linked scene dialogue and actions; chronology remains unverified'};changed=true;}}
   if(p){next.current.payload.name=p.name;next.legacyData.romPresentation={format:VERSION,originalName:r.current.payload.name,namingBasis:p.basis};changed=true;}
   if(r.kind==='profile'&&front&&r.current.payload.baseImageId==='content:asset-'+frames[0]?.sha256&&!r.legacyData?.romPresentation?.thumbnailCorrected){next.current.payload.baseImageId='content:asset-'+front.sha256;next.legacyData.romPresentation={...next.legacyData.romPresentation,format:VERSION,thumbnailCorrected:true,thumbnailBasis:'Front-standing texture in the reviewed HGSS frame layout'};changed=true;}
   if(changed){next.parents=[r.revisionId];next.actorClaim='romdex:source-presentation';next.operationId='content:presentation-'+sha(canonical({parent:r.revisionId,current:next.current,legacy:next.legacyData.romPresentation})).slice(0,40);changes.push(seal(next));}

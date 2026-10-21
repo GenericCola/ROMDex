@@ -1,3 +1,10 @@
+# 0.5.24
+
+- Preview source sprite choices immediately in MAPDex while the durable local save runs; retain the selected frame and report its save state.
+- Link reviewed character placements in MAPDex or NPCDex into a shared identity and one character tile, preserving each source placement, dialogue, note, image and mapping.
+- Decode HGSS region names as Johto/Kanto, keeping existing record identities and user region labels.
+- Replace raw scene-variable stage titles with map-local source scene context, including readable dialogue excerpts, deterministic topic cues and expandable event/trigger evidence. Story chronology remains explicitly unverified; user stage labels/order stay editable.
+
 # 0.5.23
 
 - MAPDex links ROM builds to a persistent project and offers Update Existing Map in each map tile’s settings.

@@ -28,3 +28,6 @@ RI03A design is approved; RI03B/MAPDex and RI03P cloud performance are source-co
 
 
 0.5.23 delivers reviewed updates across linked ROM builds: a stable existing map, side-by-side entity/passage matching, retained planning and mandatory human testing. The backend proof preserved issue IDs and nested parent links, recovered exact data in another profile, and removed all marked test records. Verification uses actual 0.6.3 extraction and explicitly controlled cross-build cases; another real build is unavailable. The repeated Connection Details popup is also corrected. [Operator guide](apps/romdex/rom/UPDATING-MAPS.md) · [Completion/evidence](docs/project/RI03U-Completion-Report.md).
+
+
+0.5.25 is installed and verified: immediate sprite preview with explicit apply, reviewed shared-character tiles, readable regions and source-linked scene context. Cold saved-data startup and normal quit/restart passed after deferring presentation checkpoints until MAPDex loads. Full narrative-phase extraction remains open. [Completion and limits](docs/project/MAPDex-0.5.25-Completion-Report.md).
