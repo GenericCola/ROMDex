@@ -29,6 +29,7 @@ export class WorkspaceEngine extends EventTarget {
  resting(){
   if(!this.automaticSyncEnabled){this.mode='paused';this.message=this.state.blocked?'Review Conflicting Changes · Auto-Sync Data Is Off':this.state.operations.length?'Manual Save Required · Auto-Sync Data Is Off':'Auto-Sync Data Is Off · All Changes Saved';}
   else if(!this.connected){this.mode='manual';this.message='Imported Copy · Connect to YouTrack';}
+  else if(this.connection?.missingStates?.length){this.mode='manual';this.message='YouTrack Setup Required · Open Connection Details';}
   else if(this.state.blocked){this.mode='manual';this.message=this.state.blocked.conflicts?'Review Conflicting Changes':this.state.blocked.error||this.state.blocked.message||'Manual Save Required';}
   else if(this.failures){this.mode='manual';this.message='Connection Interrupted · Changes Kept Locally';}
   else{this.mode=this.state.operations.length?'syncing':'synced';this.message=this.state.operations.length?'Saving Changes…':'All Changes Saved to YouTrack';}
@@ -161,8 +162,7 @@ export class WorkspaceEngine extends EventTarget {
  }
  async performSync(manual=false){
   if(this.busy||this.settingBusy||(!manual&&!this.automaticSyncEnabled))return;
-  if(!this.connected){this.dispatchEvent(new Event('connectneeded'));return;}
-  if(this.connection?.missingStates?.length){this.dispatchEvent(new Event('connectneeded'));return;}
+  if(!this.connected||this.connection?.missingStates?.length){this.resting();this.emit();if(manual)this.dispatchEvent(new Event('connectneeded'));return;}
   if(this.state.blocked?.conflicts||this.state.blocked?.uncertain){this.dispatchEvent(new Event('reviewneeded'));return;}
   this.busy=true;this.manualSyncActive=manual;this.lastAttempt=this.now();this.mode='syncing';this.message='Synchronizing with YouTrack…';this.emit();
   try{

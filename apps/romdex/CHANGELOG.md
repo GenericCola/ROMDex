@@ -1,3 +1,12 @@
+# 0.5.23
+
+- MAPDex links ROM builds to a persistent project and offers Update Existing Map in each map tile’s settings.
+- Whole-map review preserves stable identities, nested membership, presentation overrides, notes, flags, planning and history. Ambiguous entity and passage matches require explicit choices.
+- Reviewed source relocations update existing NPCD parent links through a resumable, ownership-checked journal. Existing issue IDs remain unchanged.
+- Exact structured fulfillment can be confirmed while human testing remains outstanding. Local testing evidence drives the existing indicator lights and completion guard.
+- Changed fingerprints require matching validated reader code/layout evidence. Compatibility with a second actual ROM build remains pending; current proof uses 0.6.3 and clearly labeled controlled cases.
+- Background connection/setup retries report status without repeatedly reopening Connection Details. The dialog opens from an explicit user action.
+
 # 0.5.22
 
 - Place each MAPDex settings cog inside its map tile’s top-right corner.

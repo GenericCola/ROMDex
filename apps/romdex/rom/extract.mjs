@@ -12,7 +12,7 @@ import {analyzeScriptState} from './script-state.mjs';
 export async function extractHGSS(rom,{inventory=null,previousIdentities=null,headerIds=null,scope=null,allowScopeExtension=false,progress=()=>{}}={}){
  inventory=inventory||await inventoryHGSS(rom,{progress});validateInventory(inventory);
  requireRom(inventory.source.sha256===(await rom.fingerprint()).sha256,'SOURCE_CHANGED','Extraction inventory belongs to another ROM.');
- const profile=PROFILES.find(p=>p.id===inventory.profile&&p.sha256===inventory.source.sha256);
+ const profile=PROFILES.find(p=>p.id===inventory.profile&&(p.sha256===inventory.source.sha256||rom.validatedSourceSHA256===inventory.source.sha256&&rom.validatedLayout?.digest===inventory.layout?.digest));
  requireRom(profile,'UNSUPPORTED_BUILD','Extraction needs a reviewed source profile.');
  const selectedHeaders=headerIds||profile.candidateGroup.headers,maps=inventory.maps.filter(m=>selectedHeaders.includes(m.headerId));
  requireRom(maps.length>0&&maps.length===new Set(selectedHeaders).size,'INVALID_REFERENCE','The Selected Map Areas Differ from the ROM Catalog.');

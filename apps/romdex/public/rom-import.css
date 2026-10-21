@@ -12,3 +12,7 @@
 .source-ids>summary,#display-cleanup>summary{font-size:14px;line-height:1.45;font-weight:400}
 
 #map-list .map-tile:hover .map-settings,#map-list .map-tile:has(:focus-visible) .map-settings,#map-list .map-tile:has(.map-tile-menu:not([hidden])) .map-settings{opacity:1;pointer-events:auto}
+
+.update-comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.update-comparison section{min-width:0}.update-comparison .source-text{max-height:360px;overflow:auto;white-space:pre-wrap}.update-sprite{image-rendering:pixelated;max-width:96px;max-height:96px}#map-update-review details{padding:8px;border-bottom:1px solid var(--suite-border,#52694e)}#map-update-review .import-actions{position:static;flex-wrap:wrap}#map-update-review select{max-width:100%}@media(max-width:800px){.update-comparison{grid-template-columns:1fr}}
+
+#source-testing-notes{display:block;width:100%;min-height:90px;padding:9px 12px;border:1px solid var(--line);border-radius:6px;background:#11251f;color:var(--ink);font:inherit;resize:vertical}

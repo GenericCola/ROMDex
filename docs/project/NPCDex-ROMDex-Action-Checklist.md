@@ -4,7 +4,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** MAPDex 0.5.22 is installed and verified, including the standard cog inside each tile’s top-right corner on hover. The 0.5.21 grouping/dialogue/context/keyboard changes are retained. Next required scope: RI03U cross-ROM update continuity under a new PASSKEY; location rendering and other open acceptance items remain tracked below.
+**Current:** RI03U implementation is complete in installed ROMDex 0.5.23. Reviewed cross-ROM map updates and the repeated Connection Details correction passed isolated/backend/native checks; current Data and all connections are preserved. Two actual ROM builds remain deferred. [Report](RI03U-Completion-Report.md).
 
 ## Completed Foundation
 
@@ -89,7 +89,7 @@
 
 ## Phase 6 — Managed Documents, Imports and Cloud Publication
 
-- [x] **RD04 — Local Managed Documents and Portable Export** — Sol / High. **Source-complete and verified.** [Report](RD04-Completion-Report.md), [evidence](RD04-Verification.json), [guide](../../apps/romdex/rdx/MANAGED-DOCUMENTS.md). Data/RDX service/CLI, durable journal, atomic working checkpoints/recovery and offline portable export. 107 focused checks; 31 managed checks under bundled runtime, plus seven final provenance rechecks in both. Existing maps/UI/installed app unchanged; integration/adoption remain later tasks.
+- [x] **RD04 — Local Managed Documents and Portable Export** — Sol / High. **Source-complete and verified.** [Report](RD04-Completion-Report.md), [evidence](RD04-Verification.json), [guide](ROMDex/rdx/MANAGED-DOCUMENTS.md). Data/RDX service/CLI, durable journal, atomic working checkpoints/recovery and offline portable export. 107 focused checks; 31 managed checks under bundled runtime, plus seven final provenance rechecks in both. Existing maps/UI/installed app unchanged; integration/adoption remain later tasks.
 - [x] **RD05 — NPCDex Map Import and Update Preview** — Sol / High. One map per input; stable-ID update previews, shared dependencies and newer-draft protection. Complete snapshots may propose archival of covered omissions; partial files imply no removal. Preserve original UI and archive history.
 - [x] **RD06 — ROMDex Plan Import and Destination Mapping** — Sol / High. User-selected PMON destination; preview tier changes, retain complete subtrees and map editable fields/comments/attachments. Omitted tasks survive; explicit deletion is reviewed. Idempotent restart/reimport, no implicit publish or dispatch. Source-complete October 18; [report](RD06-Completion-Report.md). Live proof remains RD07.
 - [x] **RD07 — Document Bindings and Bidirectional Cloud Sync** — Sol / High. Source-complete October 19; [report](RD07-Completion-Report.md). Explicit bindings, incremental delivery, native map/plan pullback and review/recovery. **Live acceptance passed:** a compressed test file imported, mapped to eleven real isolated NPCD records, accepted local and native changes, and retained both after reopen/export and second-instance readback. Shared controls and credentials preserved; installed production data unchanged.
@@ -757,11 +757,12 @@ The parent/child grouping task is complete in installed 0.5.21. Entry point: sel
 
 ## Required Follow-up — RI03U: Update an Existing Map from a New ROM Version
 
-- [ ] Scope and review the explicit Update Existing Map from New ROM workflow before accepting the repeated ROM → NPCDex → agent → newer ROM cycle. Preserve the logical map/dataset and entity identities across changed ROM fingerprints; fingerprints identify source revisions.
-- [ ] Require the user to choose the existing target map/lineage. Compare source inventories, mappings and prior package/return provenance; use deterministic validated matches, retain local notes/plans/testing, and hold ambiguous or conflicting matches for review. Never match solely on the map name, silently duplicate it, or replace its history.
-- [ ] Handle added/removed/moved entities and changed scripts/source locators without conflating unrelated same-name maps. Keep both ROM-version provenance and current source evidence in the RDX. Preserve newer proposals and mandatory human testing.
-- [ ] Prove with two actual supported ROM revisions: prepare/publish the earlier map, retain user planning, re-extract the changed ROM, review updates into the same map, publish/recover, and verify one backend tree and an updated portable RDX. Fictional fixtures alone do not complete this acceptance.
-- [ ] Deliver documentation and a verified installer under a new task-specific PASSKEY. This follow-up is recorded after 0.5.21; implementation has not started. Broader compatibility and the production round trip remain separate acceptance items.
+- [x] Scope and review the explicit Update Existing Map from New ROM workflow before accepting the repeated ROM → NPCDex → agent → newer ROM cycle. Preserve the logical map/dataset and entity identities across changed ROM fingerprints; fingerprints identify source revisions.
+- [x] Require the user to choose the existing target map/lineage. Compare source inventories, mappings and prior package/return provenance; use deterministic validated matches, retain local notes/plans/testing, and hold ambiguous or conflicting matches for review. Never match solely on the map name, silently duplicate it, or replace its history.
+- [x] Handle added/removed/moved entities and changed scripts/source locators without conflating unrelated same-name maps. Keep both ROM-version provenance and current source evidence in the RDX. Preserve newer proposals and mandatory human testing.
+- [x] Verify implementation using the available 0.6.3 ROM plus clearly labeled controlled cross-build cases, isolated backend/RDX recovery, changed UI and native installer checks. The user approved this verification scope and confirmed no updated ROM exists yet.
+- [ ] **Deferred real-build acceptance:** when a second actual supported ROM revision exists, prepare/publish the earlier map, retain user planning, re-extract the changed ROM, review updates into the same map, publish/recover, and verify one backend tree and an updated portable RDX. Controlled fixtures do not complete this item; its absence need not block implementation/installer delivery.
+- [x] Deliver documentation and verified installed 0.5.23 under the existing October 20 RI03U PASSKEY, including the requested repeated Connection Details correction. [Completion report](RI03U-Completion-Report.md). Broader compatibility and the production round trip remain separate acceptance items.
 
 
 ## MAPDex 0.5.22 — Map-Tile Cog Placement Correction
@@ -771,4 +772,4 @@ The parent/child grouping task is complete in installed 0.5.21. Entry point: sel
 - [x] Pass three focused browser checks, four native packaged checks and MSI validation; reuse unchanged grouping/backend evidence by hash.
 - [x] Verify a fresh complete Data backup/restoration and all remembered credentials, install 0.5.22, and verify the reopened app.
 
-[Correction report](MAPDex-0.5.22-Completion-Report.md). RI03U remains the required next scope before repeated cross-ROM update acceptance.
+[Correction report](MAPDex-0.5.22-Completion-Report.md). RI03U implementation is delivered in 0.5.23; its actual two-build acceptance remains deferred.

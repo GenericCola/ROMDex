@@ -3,6 +3,7 @@ import {documentRevision,validateDocument} from '../rdx/document.mjs';
 import {mapDomain,previewMapImport,retainDocument} from '../rdx/map-import.mjs';
 import {validateIdentityManifest} from './identities.mjs';
 import {requireRom} from './reader.mjs';
+import {validateUpdateMetadata} from './update-contract.mjs';
 
 // The portable file carries its own lineage. No user-managed sidecar is needed.
 export function recoverSourceIdentities(value){
@@ -11,7 +12,7 @@ export function recoverSourceIdentities(value){
  requireRom(entry&&value.blobs.has(entry.sha256),'INTEGRITY','This Map Has No Recoverable ROM Source Index.');
  const index=parseJSON(value.blobs.get(entry.sha256));
  requireRom(index.format==='ROMDexExtractionIndex/1'&&index.extractionDigest===source.extractionDigest,'INTEGRITY','The ROM Source Index Differs.');
- const identities=validateIdentityManifest(index.header.identities);
+ const identities=validateUpdateMetadata(value.document,value.blobs)?.identities||validateIdentityManifest(index.header.identities);
  requireRom(identities.projectId===source.projectId&&identities.sourceSHA256===source.sourceSHA256,'INTEGRITY','The Portable ROM Identity Lineage Differs.');
  return identities;
 }

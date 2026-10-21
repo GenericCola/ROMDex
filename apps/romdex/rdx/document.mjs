@@ -3,8 +3,9 @@ import {checkImageBounds} from '../content/image-bounds.mjs';
 import {validateViews} from '../content/view-contract.mjs';
 import {validateShape} from './schema.mjs';
 import {bounds,ensure} from './limits.mjs';
+import {validateUpdateMetadata,UPDATE_CAPABILITY} from '../rom/update-contract.mjs';
 
-export const CAPABILITIES=Object.freeze(['org.romdex.rdx.container-v1','org.romdex.rdx.map-v1','org.romdex.rdx.plan-v1','org.romdex.npcdex.content-v1','org.romdex.npcdex.nested-zones-v1']);
+export const CAPABILITIES=Object.freeze(['org.romdex.rdx.container-v1','org.romdex.rdx.map-v1','org.romdex.rdx.plan-v1','org.romdex.npcdex.content-v1','org.romdex.npcdex.nested-zones-v1',UPDATE_CAPABILITY]);
 export function requireCapabilities(required){
  ensure(Array.isArray(required),'INVALID','Missing RDX Capabilities.');
  const missing=required.filter(x=>!CAPABILITIES.includes(x));
@@ -108,6 +109,7 @@ export function validateDocument(bytes,{blobs=new Map(),limits:overrides,check=(
  }
  ensure(blobs.size===hashes.size&&[...blobs.keys()].every(h=>hashes.has(h)),'INVALID','Unlisted RDX Blob.');
  if(doc.kind==='map'){
+  validateUpdateMetadata(doc,blobs);
   for(const h of doc.content.history)ensure(doc.assetInventory.some(a=>a.sha256===h.sha256&&a.purpose==='history'&&a.mime===h.mediaType)&&historyTypes.get(h.sha256)===h.schema,'INVALID','Missing or Mismatched Typed RDX History.');
   mapModel(doc,history);
  }else planModel(doc);

@@ -92,6 +92,17 @@ test('lost service marks the connection unavailable without discarding local wor
  const {ws}=fixture(t,{handler:path=>{if(path==='/api/status')throw new Error('Service unavailable');}});
  await ws.edit(item.id,{summary:'Pending'});clearTimeout(ws.timer);await ws.tick(true);assert.equal(ws.serviceAvailable,false);assert.equal(ws.youtrackAvailable,false);assert.equal(ws.state.operations.length,1);
 });
+
+test('background connection/setup retries never reopen Connection Details; manual requests remain available',async t=>{
+ const {ws,calls}=fixture(t);let opens=0;ws.addEventListener('connectneeded',()=>opens++);
+ for(const connected of [false,true]){
+  ws.connected=connected;ws.connection={missingStates:connected?['Needs Testing']:[]};
+  for(let n=0;n<3;n++)await ws.sync();
+  assert.equal(opens,connected?1:0);assert.equal(ws.mode,'manual');assert.equal(calls.length,0);
+  if(connected)assert.match(ws.message,/Setup Required/);
+  await ws.sync(true);assert.equal(opens,connected?2:1);
+ }
+});
 test('failed YouTrack sync turns connection red; the next successful cycle restores blue',async t=>{
  let fail=true;const {ws}=fixture(t,{handler:path=>{if(path==='/api/sync'&&fail)throw new Error('Network interrupted');}});
  await ws.edit(item.id,{summary:'Pending'});clearTimeout(ws.timer);await ws.sync(true);assert.equal(connectionIndicator(ws).color,'red');assert.equal(ws.state.operations.length,1);

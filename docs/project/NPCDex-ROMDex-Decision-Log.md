@@ -376,7 +376,7 @@ The accepted native-content transition is committed and verified in installed 0.
 
 ## October 18, 2026 — RDX Documents and JSON Map Packages
 
-The user requested a planning revision before implementation. [Revised phases and contracts](../../NPCDex-ROMDex-Unified-App-Action-Plan.md) and [execution checklist](../NPCDex-ROMDex-Action-Checklist.md) add RD01–RD10 before U21, preserving every completed task and the installed 0.5.14 baseline.
+The user requested a planning revision before implementation. [Revised phases and contracts](../../NPCDex-ROMDex-Unified-App-Action-Plan.md) and [execution checklist](../../NPCDex-ROMDex-Action-Checklist.md) add RD01–RD10 before U21, preserving every completed task and the installed 0.5.14 baseline.
 
 - Use one `.rdx` extension with internal workspace/add-on, object kind and version routing: ROMDex objects are plans; NPCDex objects are maps. Filenames do not determine format. Preserve recognition of the older browser-migration `.rdx` separately.
 - Use a lossless compressed container containing structured JSON and exact binary assets, deduplicated by content hash; codec/limits require contract review and measurement. Supply deterministic pack/unpack/validate tools, schemas, examples and agent extraction/ROM-mapping instructions. Application import/mapping uses no AI.
@@ -577,3 +577,8 @@ The user clarified the repeated lifecycle: prepare a map from one ROM, plan/exec
 ## October 20 — Correct Tile Settings Placement
 
 The map settings cog belongs inside the top-right corner of its tile and appears on hover, with equivalent keyboard-visible focus access. Persistent cogs beside tiles were incorrect. Corrected 0.5.22 verifies interior bounds and hide-on-leave behavior, including after mouse selection. All grouping/backend logic and the user’s current Data/connections are preserved.
+
+
+## October 20 — RI03U Cross-ROM Update Decisions and Delivery
+
+Approved: explicitly link builds to a persistent ROM project; use Update Existing Map in the standard hover cog; compare uncertain entity/passage identity side by side; review the whole map before applying; preserve unmatched annotations/history and current planning; confirm exact structured fulfillment with human testing still required; one current map per project with reviewed rollback. No new ROM exists yet, so controlled cases and actual 0.6.3 extraction support implementation delivery while actual two-build acceptance stays unchecked. Portable project/update metadata preserves lineage, while trusted testing evidence stays private. Verified 0.5.23 preserves the complete Data folder and three remembered credentials. The added background connection-dialog correction prevents retry-driven reopening. [Report](RI03U-Completion-Report.md).

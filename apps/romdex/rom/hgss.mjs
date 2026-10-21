@@ -3,9 +3,16 @@ import {requireRom,sha256} from './reader.mjs';
 import {PROFILES,HGSS_ADAPTER} from './profiles.mjs';
 import {makeLocator} from './locators.mjs';
 
-export async function identifyRom(rom){
+export async function readerLayout(rom,profile){
+ const names=decodeMapNames(await rom.readFile(rom.fileInfo(profile.internalNames).fileId)),arm=await rom.read(rom.header.arm9.offset,rom.header.arm9.bytes),end=profile.headerOffset+names.length*profile.headerWidth;
+ requireRom(end<=arm.length,'UNSUPPORTED_BUILD','The Map Table Layout Changed. A Reader Profile Review Is Required.');
+ const overlays=[];for(const id of [...new Set([profile.spritePointer.overlay,profile.spritePointer.owner,profile.textSemantics.overlay])]){const o=await rom.systemInfo('overlay',id);requireRom(!o.compressed,'UNSUPPORTED_BUILD','The Reader Layout Uses an Unsupported Compressed Overlay.');overlays.push({id,ramAddress:o.ramAddress,ramBytes:o.ramBytes,sha256:await rom.fileHash(o.fileId)});}
+ const value={format:'ROMDexReaderLayout/1',profile:profile.id,gameCode:rom.header.gameCode,arm9Address:rom.header.arm9.ramAddress,arm9Bytes:arm.length,mapCount:names.length,headerOffset:profile.headerOffset,codeBefore:sha256(arm.subarray(0,profile.headerOffset)),codeAfter:sha256(arm.subarray(end)),overlays};return {...value,digest:sha256(Buffer.from(canonical(value)))};
+}
+export async function identifyRom(rom,{compatibility=[]}={}){
  const source=await rom.fingerprint(),profile=PROFILES.find(p=>p.sha256===source.sha256);
- if(profile&&profile.gameCode===source.gameCode)return {source,support:'known-build',adapter:HGSS_ADAPTER,profile:profile.id};
+ if(profile&&profile.gameCode===source.gameCode){const layout=await readerLayout(rom,profile);rom.validatedLayout=layout;rom.validatedSourceSHA256=source.sha256;return {source,support:'known-build',adapter:HGSS_ADAPTER,profile:profile.id,layout};}
+ for(const basis of Array.isArray(compatibility)?compatibility:[compatibility]){const p=PROFILES.find(p=>p.id===basis?.profile&&p.gameCode===source.gameCode);if(!p)continue;const layout=await readerLayout(rom,p);if(canonical(layout)===canonical(basis)){rom.validatedLayout=layout;rom.validatedSourceSHA256=source.sha256;return {source,support:'validated-layout',adapter:HGSS_ADAPTER,profile:p.id,layout};}}
  return {source,support:source.gameCode==='IPKE'?'unreviewed-build':'unsupported-build',adapter:null,profile:null,reason:'A game code alone does not establish support for a modified ROM. Preserve the fingerprint and review its source layout before extraction.'};
 }
 export function decodeMapNames(bytes,width=16,max=10000){
@@ -57,8 +64,8 @@ async function spriteTable(rom,profile){
  requireRom(at+2<=table.length,'BOUNDS','Relocated sprite table is unterminated.');
  return {pointer,ownerOverlay:owner.id,rows,locator:await makeLocator(rom,{kind:'source-document',sourceType:'overlay',overlayId:owner.id,offset:owner.relative,bytes:at+2,selectors:{table:'overworld-sprites'}})};
 }
-export async function inventoryHGSS(rom,{progress=()=>{}}={}){
- const identification=await identifyRom(rom);requireRom(identification.support==='known-build','UNSUPPORTED_BUILD',identification.reason||'Unsupported ROM build.',{identification});
+export async function inventoryHGSS(rom,{progress=()=>{},compatibility=[]}={}){
+ const identification=await identifyRom(rom,{compatibility});requireRom(['known-build','validated-layout'].includes(identification.support),'UNSUPPORTED_BUILD',identification.reason||'Unsupported ROM build.',{identification});
  const profile=PROFILES.find(p=>p.id===identification.profile),arm9=rom.header.arm9;
  requireRom(arm9.bytes>=0xbb8&&(await rom.read(arm9.offset+0xbb4,4)).readUInt32LE(0)===0,'UNSUPPORTED','Compressed ARM9 decoding is not supported by this reader version.');
  const namesFile=rom.fileInfo(profile.internalNames),names=decodeMapNames(await rom.readFile(namesFile.fileId),16),tableBytes=names.length*24;
@@ -81,7 +88,7 @@ export async function inventoryHGSS(rom,{progress=()=>{}}={}){
  const sprites=await spriteTable(rom,profile);requireRom(sprites.rows.every(r=>r.spriteMember<archives.sprites.members),'INVALID_REFERENCE','Relocated sprite table references a missing texture.');
  const warps=linkWarps(maps);for(const link of warps)if(link.state!=='resolved')warnings.push({code:link.state==='runtime-dependent'?'DYNAMIC_WARP':'UNRESOLVED_WARP',...link});
  const result={format:'ROMDexSourceInventory/1',adapter:HGSS_ADAPTER,profile:profile.id,source:identification.source,catalog:{mapCount:names.length,namesPath:namesFile.path,namesSHA256:await rom.fileHash(namesFile.fileId),headerSource:'arm9',headerByteOffset:profile.headerOffset,headerWidth:24,headerPointerOffsets},archives,maps,warps,spriteTable:sprites,scopeCandidate:{...structuredClone(profile.candidateGroup),authority:'User-selected Violet City testbed; ROM location section 128, independently decoded as Violet City'},warnings,coverage:{dialogueDecoded:false,scriptsDecoded:false,spritesRendered:false,timelinesDerived:false,rdxCompiled:false,cloudPublished:false}};
- result.digest=inventoryDigest(result);await rom.assertUnchanged();progress({stage:'complete',maps:maps.length});return result;
+ result.layout=identification.layout;result.digest=inventoryDigest(result);await rom.assertUnchanged();progress({stage:'complete',maps:maps.length});return result;
 }
 export function inventoryDigest(inventory){const value={...inventory};delete value.digest;return sha256(Buffer.from(canonical(value)));}
 export function validateInventory(inventory){
