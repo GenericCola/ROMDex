@@ -3,7 +3,7 @@
 **Date:** October 14, 2026  
 **Revised:** October 20, 2026.
 
-**Status:** Foundation, RDX adoption and the accepted workflow milestones are recorded below. Current installed evaluation: **0.5.20**, with MAPDex, complete supplied-ROM catalog, readable one-map preparation, saved entity labels and front-standing sprite previews. The clean NPCDex dataset and remembered connections are preserved. **Next: editable parent/child map groups; scope ROM-derived zone/sub-zone previews alongside grouping.** Broader RI03C, the live NPCDex/YouTrack round trip and NPCD tier Type assignment remain open; new development tasks retain their PASSKEY gates.
+**Status:** Installed evaluation 0.5.22 includes corrected map-tile hover settings, verified nested grouping, visible dialogue and contextual actions. Current Data/connections are preserved. RI03U cross-ROM update continuity remains required before the repeated ROM/agent cycle is accepted; location previews and broader acceptance retain their later gates.
 **References:** [Scope](NPCDex-ROMDex-Unified-App-Scope.md), [Decision Log](NPCDex-ROMDex-Decision-Log.md).
 
 **Execution tracking:** [Action Checklist](NPCDex-ROMDex-Action-Checklist.md). **Phase 6 is complete.** RD10 is verified in installed ROMDex 0.5.15 with three strictly separate map files, unchanged existing NPCD identities, fresh backup/restoration and all saved connections preserved. [Completion report](RD10-Completion-Report.md), [requested tooling report](Phase-6-RDX-Authoring-Report.md). **U21 is source-complete** ([report](U21-Completion-Report.md)); it is not installed yet. **U22 is also source-complete** ([report](U22-Completion-Report.md)). **U23 and U23A are complete** ([U23A source report](U23A-Completion-Report.md)). **U24 is complete in source** ([report](U24-Completion-Report.md)). **U25 is complete in source** ([report](U25-Completion-Report.md)); **U26 is complete in source** ([report](U26-Completion-Report.md)); **U26A is complete in source** ([report](U26A-Completion-Report.md)); **U26B is complete in the installed build, including warning-free shutdown** ([report](U26B-Completion-Report.md)); **U26C is complete** ([report](U26C-Completion-Report.md)); **U27 is complete in source** ([report](U27-Completion-Report.md)); **RI01 is complete and user-approved** ([scope](RI01-ROM-Only-Extraction-Scope.md)); **RI02A is complete in source** ([report](RI02A-Completion-Report.md)); **RI02B is complete in source using Violet City**; **RI02T is complete in source**; **RI02C is complete in source**; **RI03A is complete and user-approved** ([design](RI03A-ROM-Import-Workspace-Design.md), [report](RI03A-Completion-Report.md)); **RI03B/MAPDex is complete in source** ([report](RI03B-Completion-Report.md)); **RI03P is complete in source** ([report](RI03P-Completion-Report.md)); **next: RI03C — Sol / High, awaiting a new PASSKEY**; core ROM extraction/import now precedes U28–U30. See the [accepted decision review](U23-Decision-Review.md). The accepted application path is source-complete; human review controls are source-complete in U26; annotation corrections are source-complete in U26A and testing/completion controls are source-complete in U27.
@@ -482,13 +482,13 @@ The Violet City proof scope must not constrain the product's catalog, default ti
 
 ## MAPDex Follow-up — Editable Map Groups
 
-- [ ] Add **Edit Map Group** before broader RI03C acceptance: select a destination logical map and include areas from other suggested groups (for example, Violet City plus Sprout Tower). Let the user explicitly choose parent and child: Violet City → Sprout Tower → existing floors/areas → entities. Move all descendants with their parent and preserve their relationships. Preview one output map/RDX retaining this nesting, rather than flattening the child group. Extend the current sub-zone contract as needed before activation.
-- [ ] Persist custom group membership and source identities; show already-prepared/imported memberships and review conflicts rather than duplicate or silently replace content. Existing independent maps require explicit migration review.
-- [ ] Verify regrouping, saved edits, export, NPCDex handoff and YouTrack hierarchy. Keep raw ROM mappings intact.
-- [ ] Scope **Zone/Sub-zone Location Previews** alongside grouping: prove actual ROM-derived location rendering, then show a recognizable area image with entrances and NPC/interaction markers. A parent zone lists its child floors/areas; selecting one shows that specific location, and a marker opens its entity. Keep source IDs secondary. Carry approved preview images in the portable map RDX so NPCDex and another installation can display them without the original ROM. Verify render/extraction feasibility and licensing before selecting dependencies; do not substitute a fabricated image or claim this renderer already exists.
+- [x] Add **Map tile Settings → Assign to Parent** before broader RI03C acceptance: select a destination logical map and include areas from other suggested groups (for example, Violet City plus Sprout Tower). Let the user explicitly choose parent and child: Violet City → Sprout Tower → existing floors/areas → entities. Move all descendants with their parent and preserve their relationships. Preview one output map/RDX retaining this nesting, rather than flattening the child group. Extend the current sub-zone contract as needed before activation.
+- [x] Persist custom group membership and source identities; show already-prepared/imported memberships and review conflicts rather than duplicate or silently replace content. Existing independent maps require explicit migration review.
+- [x] Verify regrouping, saved edits, export, NPCDex handoff and YouTrack hierarchy. Keep raw ROM mappings intact.
+- [x] Scope **Zone/Sub-zone Location Previews** alongside grouping: prove actual ROM-derived location rendering, then show a recognizable area image with entrances and NPC/interaction markers. A parent zone lists its child floors/areas; selecting one shows that specific location, and a marker opens its entity. Keep source IDs secondary. Carry approved preview images in the portable map RDX so NPCDex and another installation can display them without the original ROM. Verify render/extraction feasibility and licensing before selecting dependencies; do not substitute a fabricated image or claim this renderer already exists.
 - [ ] Complete the live NPCD tier Type mapping separately: current publisher links parents/children but does not assign Epic/Saga/Story/Verse, and NPCD currently offers Milestone/Task/Subtask. Do not report tier mapping complete.
 
-Finish the active naming/front-sprite correction first. This follow-up is the next MAPDex task and requires its own PASSKEY.
+The parent/child grouping task is complete in installed 0.5.21. Entry point: select a map → map tile Settings → Assign to Parent → review → apply → Prepare Map. Independently saved child datasets/published maps remain protected for explicit migration review. Location preview implementation is split into LP01 rendering proof → LP02 contextual/portable previews → LP03 native acceptance; each requires a later PASSKEY. See [preview scope](MAPDex-Location-Preview-Scope.md).
 
 
 ## MAPDex 0.5.20 — Entity Labels and Front-Sprite Correction
@@ -500,3 +500,34 @@ Finish the active naming/front-sprite correction first. This follow-up is the ne
 - [x] Verify the Windows package/installer; back up and restore current Data, install 0.5.20 and verify the saved preparation/connections.
 
 [Correction report](MAPDex-0.5.20-Completion-Report.md). Editable parent/child map groups are the next MAPDex task; broader RI03C and the live NPCD round trip remain open.
+
+
+## MAPDex 0.5.21 — Completed Parent/Child Grouping Update
+
+- [x] Deliver contextual map-tile Settings → Assign to Parent, with nested child catalog entries and one parent RDX.
+- [x] Preserve all source areas/entities, edited presentation, plans, images and source identities during same-ROM parent extension; protect independently saved/published maps for migration review.
+- [x] Verify actual-ROM grouped export/NPCDex handoff and a small isolated live YouTrack nested-tree proof.
+- [x] Show linked dialogue expanded with readable headings and filter recovery; remove pane-size button and retain TAB cycling.
+- [x] Scope recognizable zone/sub-zone previews as LP01 → LP02 → LP03, including rendering dependencies and portable RDX assets.
+- [x] Complete Windows package checks, fresh complete Data backup/restoration, credential preservation and installed 0.5.21 verification.
+
+
+[Completion and limits](MAPDex-0.5.21-Completion-Report.md). The installed build is 0.5.21. Independent-map migration and the user’s production NPCDex/YouTrack round trip remain open.
+
+## Required Follow-up — RI03U: Update an Existing Map from a New ROM Version
+
+- [ ] Scope and review the explicit Update Existing Map from New ROM workflow before accepting the repeated ROM → NPCDex → agent → newer ROM cycle. Preserve the logical map/dataset and entity identities across changed ROM fingerprints; fingerprints identify source revisions.
+- [ ] Require the user to choose the existing target map/lineage. Compare source inventories, mappings and prior package/return provenance; use deterministic validated matches, retain local notes/plans/testing, and hold ambiguous or conflicting matches for review. Never match solely on the map name, silently duplicate it, or replace its history.
+- [ ] Handle added/removed/moved entities and changed scripts/source locators without conflating unrelated same-name maps. Keep both ROM-version provenance and current source evidence in the RDX. Preserve newer proposals and mandatory human testing.
+- [ ] Prove with two actual supported ROM revisions: prepare/publish the earlier map, retain user planning, re-extract the changed ROM, review updates into the same map, publish/recover, and verify one backend tree and an updated portable RDX. Fictional fixtures alone do not complete this acceptance.
+- [ ] Deliver documentation and a verified installer under a new task-specific PASSKEY. This follow-up is recorded after 0.5.21; implementation has not started. Broader compatibility and the production round trip remain separate acceptance items.
+
+
+## MAPDex 0.5.22 — Map-Tile Cog Placement Correction
+
+- [x] Put the standard settings cog inside each tile’s top-right corner; remove its separate layout column.
+- [x] Reveal on hover/keyboard-visible focus and hide after mouse leave, including after selection; keep the context menu usable.
+- [x] Pass three focused browser checks, four native packaged checks and MSI validation; reuse unchanged grouping/backend evidence by hash.
+- [x] Verify a fresh complete Data backup/restoration and all remembered credentials, install 0.5.22, and verify the reopened app.
+
+[Correction report](MAPDex-0.5.22-Completion-Report.md). RI03U remains the required next scope before repeated cross-ROM update acceptance.

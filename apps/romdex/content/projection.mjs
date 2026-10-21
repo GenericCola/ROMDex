@@ -1,6 +1,7 @@
 import {requireThat,validateGraph,sha} from './contracts.mjs';
 import {projectLegacyNPCDex} from './legacy-projection.mjs';
 import {hasNativeViews,projectNativeNPCDex} from './native-projection.mjs';
+import {zonePath,descendantZones} from './hierarchy.mjs';
 import {applySnapshotTimelines} from './timelines.mjs';
 export const PROJECTION_VERSION='NPCDexContentProjection/4';
 const heads=(values,identity)=>{const parents=new Set(values.flatMap(x=>x.parents||[]));const visible=values.filter(x=>!parents.has(x.digest));const groups=new Map();for(const a of visible){const id=a[identity];if(!groups.has(id))groups.set(id,[]);groups.get(id).push(a);}return [...groups.values()].flat();};
@@ -18,7 +19,7 @@ export function projectNPCDex(domain,{revision=1,assetBytes=()=>null,gender='mal
  const towns=[];
  for(const map of domain.records.filter(r=>r.kind==='map')){
   const p=map.current.payload,town={id:map.recordId,name:p.name,subtitle:records.get(p.regionId).current.payload.name,areas:[],locations:[],characters:[],archived:map.current.lifecycle==='archived',contentRecordId:map.recordId};
-  for(const id of p.subzoneIds){const zone=records.get(id),z=zone.current.payload,area={id:zone.recordId,name:z.name,elements:[],archived:zone.current.lifecycle==='archived',contentRecordId:zone.recordId};town.areas.push(area);town.locations.push({id:zone.recordId,name:z.name,areaIds:[zone.recordId],archived:area.archived});
+  for(const id of p.subzoneIds){const zone=records.get(id),z=zone.current.payload,area={id:zone.recordId,name:zonePath(zone,records),parentAreaId:zone.parentRecordId===map.recordId?null:zone.parentRecordId,elements:[],archived:zone.current.lifecycle==='archived',contentRecordId:zone.recordId};town.areas.push(area);town.locations.push({id:zone.recordId,name:zonePath(zone,records),parentLocationId:zone.parentRecordId===map.recordId?null:zone.parentRecordId,areaIds:descendantZones(zone,records),archived:area.archived});
    for(const rid of [...z.appearanceIds,...z.sceneIds,...z.interactiveIds]){const record=records.get(rid),payload=record.current.payload,planned=record.current.lifecycle==='planned';
     const profile=record.kind==='appearance'?records.get(payload.profileByPlayerGender[gender]||payload.profileId):null;
     const name=payload.overrides?.displayName||profile?.current.payload.name||payload.name;

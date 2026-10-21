@@ -9,14 +9,14 @@ import {scriptEntries,decodeScriptGraph,decodeLevelScripts,resolveScriptNumber,s
 import {readBTX,renderTexture,encodePNG} from './textures.mjs';
 import {analyzeScriptState} from './script-state.mjs';
 
-export async function extractHGSS(rom,{inventory=null,previousIdentities=null,headerIds=null,scope=null,progress=()=>{}}={}){
+export async function extractHGSS(rom,{inventory=null,previousIdentities=null,headerIds=null,scope=null,allowScopeExtension=false,progress=()=>{}}={}){
  inventory=inventory||await inventoryHGSS(rom,{progress});validateInventory(inventory);
  requireRom(inventory.source.sha256===(await rom.fingerprint()).sha256,'SOURCE_CHANGED','Extraction inventory belongs to another ROM.');
  const profile=PROFILES.find(p=>p.id===inventory.profile&&p.sha256===inventory.source.sha256);
  requireRom(profile,'UNSUPPORTED_BUILD','Extraction needs a reviewed source profile.');
  const selectedHeaders=headerIds||profile.candidateGroup.headers,maps=inventory.maps.filter(m=>selectedHeaders.includes(m.headerId));
  requireRom(maps.length>0&&maps.length===new Set(selectedHeaders).size,'INVALID_REFERENCE','The Selected Map Areas Differ from the ROM Catalog.');
- const identities=createIdentityManifest(inventory,{headerIds:selectedHeaders,previous:previousIdentities});
+ const identities=createIdentityManifest(inventory,{headerIds:selectedHeaders,previous:previousIdentities,allowExtension:allowScopeExtension});
  const idByKey=new Map(identities.entries.map(e=>[e.key,e.id])),warnings=[],assets=new Map(),messageCache=new Map(),scriptCache=new Map(),graphs=new Map(),messages=new Map(),messageBanks=new Map();
  const sourcePin=inventory.source.sha256,member=(kind,id)=>rom.member(inventory.archives[kind].fileId,id);
  const locator=(kind,archive,id,offset,bytes,selectors={})=>makeLocator(rom,{kind,fileId:inventory.archives[archive].fileId,memberId:id,offset,bytes,selectors});

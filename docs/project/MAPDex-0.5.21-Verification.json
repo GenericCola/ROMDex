@@ -1,0 +1,305 @@
+{
+  "version": "0.5.21",
+  "orderedSourceReview": {
+    "status": "passed",
+    "ordered": [
+      "Parent/child merging and full descendant preservation, real ROM export/local handoff, isolated live hierarchy and recovery",
+      "Zone/sub-zone preview scope recorded; no renderer claimed",
+      "Expanded exact dialogue and explicit stage-filter recovery",
+      "TAB pane cycling without a size button",
+      "Map tile settings with contextual Prepare Map and Assign to Parent; preserve checked areas",
+      "Equal adjacent Export RDX and Send to NPCDex",
+      "Matching Source Details and Display Cleanup heading size/weight"
+    ],
+    "uniqueRegressionTests": 194,
+    "sourceBrowserChecks": 9,
+    "unrelatedPreparationByteMatch": true
+  },
+  "actualROM": {
+    "productionChanged": false,
+    "checks": [
+      "Actual ROM grouping retains one map, all eleven areas and nested tower floors, original IDs, custom display name, appended child source archive, and untouched New Bark Town preparation.",
+      "Portable export and isolated NPCDex handoff retain the nested physical tree and a selectable Sprout Tower location containing its floors"
+    ],
+    "reusedCompletedExtraction": true,
+    "summary": {
+      "records": 174,
+      "entities": 93,
+      "sourceAreas": 11,
+      "groupContainers": 1,
+      "maps": 1,
+      "floors": 3,
+      "bytes": 4616479
+    },
+    "status": "passed"
+  },
+  "actualROMSourceUI": {
+    "status": "passed",
+    "checks": [
+      "User opens selected map tile settings, assigns Sprout Tower to Violet City, previews 11 areas and confirms one nested map group",
+      "Prepared hierarchy shows tower container with three navigable floors inside the single map",
+      "Exact associated ROM dialogue is visible expanded under a readable prompt excerpt, with technical evidence optional",
+      "No pane-size button remains; TAB cycles Default/Expanded/Collapsed from workspace content and retains normal form navigation"
+    ],
+    "errors": [],
+    "productionChanged": false
+  },
+  "focusedUIRevisions": {
+    "status": "passed",
+    "checks": [
+      "Stage filter hiding all entity text offers explicit Show All Source Dialogue and restores both exact gender alternatives",
+      "Shared settings art renders; selected child map supplies assignment context and current parent; ESC closes setup",
+      "Contextual Prepare Map retains the user\u2019s checked source areas instead of resetting them",
+      "Export RDX and Send to NPCDex are adjacent, equal-width and equal-weight alternatives",
+      "Source Details and Display Cleanup headings use identical font size and weight"
+    ],
+    "geometry": {
+      "width": [
+        244,
+        244
+      ],
+      "top": [
+        658.171875,
+        658.171875
+      ],
+      "height": [
+        36.296875,
+        36.296875
+      ],
+      "class": [
+        "suite-button",
+        "suite-button"
+      ],
+      "summary": [
+        "14px",
+        "14px",
+        "400",
+        "400"
+      ]
+    },
+    "errors": [],
+    "fixtureOnly": true
+  },
+  "isolatedLiveHierarchy": {
+    "task": "MAPDex 0.5.21",
+    "source": "Fictional 15-record nested-zone fixture; no production map data",
+    "startedAt": "2026-10-21T01:24:06.050Z",
+    "productionChanged": false,
+    "measurements": {
+      "coldPublication": {
+        "milliseconds": 64057,
+        "cycles": 2,
+        "requests": 170,
+        "writes": 52,
+        "uploadedBytes": 76813,
+        "downloadedBytes": 275596
+      },
+      "secondProfileRecovery": {
+        "milliseconds": 12118,
+        "cycles": 1,
+        "requests": 58,
+        "writes": 0,
+        "uploadedBytes": 0,
+        "downloadedBytes": 114031
+      }
+    },
+    "checks": [
+      "Fictional nested dataset publishes with exact identities, hierarchy and bytes through commit-last verification",
+      "Every actual YouTrack parent pin matches the nested map \u2192 child container \u2192 grandchild container \u2192 source area \u2192 entity tree",
+      "Independent profile reconstructs exact packed document/history and assets using the same backend tree, with no duplicate records"
+    ],
+    "key": "195f97fb2d7b8556459e9b54bb36b3d79a2e693b2a80d3127b54370a15cbc3af",
+    "datasetId": "rom-content:24811f3267541fb0c44db020afd49b0851e8125d",
+    "registryId": "3-930",
+    "records": [
+      {
+        "issueId": "3-931",
+        "recordId": "rom-content:766d7811b6276226ee74d2c095cf3a0d08508940"
+      },
+      {
+        "issueId": "3-932",
+        "recordId": "rom-content:f331698ba09b4a4cbdea1e94f25a410319b155b6"
+      },
+      {
+        "issueId": "3-933",
+        "recordId": "rom-content:7ebd5bddc400965ba4e017924a886311d4fa2afb"
+      },
+      {
+        "issueId": "3-934",
+        "recordId": "rom-content:eaef174759b4d8708815e66fcd84095cd42b1ba7"
+      },
+      {
+        "issueId": "3-935",
+        "recordId": "rom-source:8c1caaf4-d4fa-4b92-9cbc-24ded8b1f9a1"
+      },
+      {
+        "issueId": "3-936",
+        "recordId": "rom-source:91f13ca3-7e20-4041-861e-0d16901d0658"
+      },
+      {
+        "issueId": "3-937",
+        "recordId": "rom-content:da6a84e0f80c6cfa8af7ef0d87e127a9c50c5c2a"
+      },
+      {
+        "issueId": "3-938",
+        "recordId": "rom-content:690194dc895fd43f795208f798cf2c8b0e0293a9"
+      },
+      {
+        "issueId": "3-939",
+        "recordId": "rom-content:072c5ec25637680c891ce528f8630df911018dbf"
+      },
+      {
+        "issueId": "3-940",
+        "recordId": "rom-content:group-d48092bdf516178e6fa218128affbd978dd257b7"
+      },
+      {
+        "issueId": "3-941",
+        "recordId": "rom-source:3096f16d-dae9-4ad3-a72d-2009b2ef058d"
+      },
+      {
+        "issueId": "3-942",
+        "recordId": "rom-source:ee5722ef-1d80-464a-b46f-a2b09f0df128"
+      },
+      {
+        "issueId": "3-943",
+        "recordId": "rom-content:group-403a6d74967d0c037b577edcbf2943f96fd2c7f3"
+      },
+      {
+        "issueId": "3-944",
+        "recordId": "rom-source:9a7b7e9a-3668-4207-90c2-4bbe187130e3"
+      },
+      {
+        "issueId": "3-945",
+        "recordId": "rom-source:320e59eb-d5e5-45d4-8771-22d9009d2d5c"
+      }
+    ],
+    "status": "passed",
+    "cleanup": {
+      "status": "passed",
+      "verifiedAbsent": 16
+    },
+    "finishedAt": "2026-10-21T01:25:35.169Z"
+  },
+  "native": {
+    "version": "0.5.21",
+    "checks": [
+      "Packaged map tile uses shared settings art and contextual Prepare Map / Assign to Parent actions; ESC closes menu",
+      "Packaged one-map hierarchy exposes Sprout Tower beneath Violet City and navigates all three nested floors",
+      "Actual source dialogue displays expanded under readable headings with custom name retained and optional technical evidence",
+      "TAB cycles all three pane modes while ordinary form navigation leaves pane mode unchanged",
+      "Packaged output actions have equal size/weight and disclosure headings have matching typography",
+      "Native export preserves one primary map, its tower container and all floor/entity relationships",
+      "Packaged app quits normally without draft or lifecycle errors"
+    ],
+    "productionChanged": false,
+    "tokensCopied": false,
+    "export": {
+      "maps": 1,
+      "sourceAreas": 11,
+      "groupContainers": 1,
+      "nestedFloors": 3,
+      "bytes": 4616479
+    },
+    "status": "passed"
+  },
+  "installerValidation": {
+    "version": "0.5.21",
+    "windowsInstallerVersion": "0.5.21.0",
+    "productCode": "{FFD3DDC1-12D4-4A5D-A83D-80238DA61426}",
+    "upgradeCode": "{C3861991-512B-4F7D-B1C1-9D8EC7230FDA}",
+    "productName": "ROMDex",
+    "status": "passed"
+  },
+  "installed": {
+    "version": "0.5.21",
+    "status": "passed",
+    "application": {
+      "ui": {
+        "workspace": "rom-import",
+        "heading": "Bell Tower",
+        "filename": "Bell Tower.rdx",
+        "checked": [
+          111,
+          332,
+          333,
+          334,
+          335,
+          336,
+          337,
+          338,
+          339,
+          340,
+          341
+        ],
+        "labels": [
+          "Bell Tower \u2014 1F",
+          "Bell Tower \u2014 2F",
+          "Bell Tower \u2014 3F",
+          "Bell Tower \u2014 4F",
+          "Bell Tower \u2014 5F",
+          "Bell Tower \u2014 6F",
+          "Bell Tower \u2014 7F",
+          "Bell Tower \u2014 8F",
+          "Bell Tower \u2014 9F",
+          "Bell Tower Roof",
+          "Bell Tower \u2014 10F"
+        ],
+        "sourceDetailsOpen": false,
+        "catalogGroups": 121,
+        "entityGroups": 0,
+        "entityLabelCount": 0
+      },
+      "selected": "section:205",
+      "headers": [
+        111,
+        332,
+        333,
+        334,
+        335,
+        336,
+        337,
+        338,
+        339,
+        340,
+        341
+      ],
+      "preparedName": null,
+      "expectedName": "Bell Tower",
+      "sourceHeaders": 540,
+      "connected": true,
+      "tasks": 299,
+      "npcdexDocuments": 0,
+      "preparedEntityCount": 30
+    },
+    "savedContextPreserved": true,
+    "noMapImported": true,
+    "credentialsReused": true,
+    "installedApplicationOpen": true,
+    "pid": 19600
+  },
+  "preservation": {
+    "backup": {
+      "status": "verified",
+      "source": "C:\\Users\\mrgen\\AppData\\Local\\ROMDexDesktop\\Data",
+      "archive": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\Protected\\Before-MAPDex-0.5.21\\Data.zip",
+      "files": 122,
+      "sourceBytes": 53708532,
+      "archiveBytes": 10322164,
+      "sha256": "95f41bed8dfea841235bb5e72b123461af419e9e24d371c952a82afc806476da"
+    },
+    "restoration": {
+      "status": "verified",
+      "files": 122,
+      "liveDataChanged": false
+    },
+    "savedConnectionsVerified": true,
+    "installerExitCode": 0,
+    "dataPreservedExactly": true,
+    "applicationFilesVerified": 384
+  },
+  "installer": {
+    "path": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\ROMDex-Installer-0.5.21\\ROMDex-0.5.21-x64.msi",
+    "bytes": 162363376,
+    "sha256": "84c105508564aff6afc4c849a3f266fece10d20ac5fa9e61558109f19e15d79c"
+  }
+}

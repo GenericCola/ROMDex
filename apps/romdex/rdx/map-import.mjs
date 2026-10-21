@@ -71,8 +71,8 @@ export function previewMapImport(incoming,local=null,{choices={},archive=[]}={})
  ensure(archive.every(id=>candidates.some(c=>c.recordId===id)),'CONFLICT','Archival Choice Is Not an Observed, Unchanged Candidate.');
  // Omissions never remove graph members. Selecting a candidate records a proposal,
  // leaving current ROM content intact until implementation is confirmed.
- for(const r of [...heads.values()]){const fields=r.kind==='map'?['subzoneIds']:r.kind==='subzone'?['appearanceIds','sceneIds','interactiveIds']:[];const current=structuredClone(r.current);let changed=false;
-  for(const field of fields){const kind={subzoneIds:'subzone',appearanceIds:'appearance',sceneIds:'scene',interactiveIds:'interactive'}[field];for(const child of heads.values())if(child.kind===kind&&child.parentRecordId===r.recordId&&!current.payload[field].includes(child.recordId)){current.payload[field].push(child.recordId);changed=true;}}
+ for(const r of [...heads.values()]){const fields=r.kind==='map'?['subzoneIds']:r.kind==='subzone'?['appearanceIds','sceneIds','interactiveIds',...(r.current.payload.subzoneIds?['subzoneIds']:[])]:[];const current=structuredClone(r.current);let changed=false;
+  for(const field of fields){const kind={subzoneIds:'subzone',appearanceIds:'appearance',sceneIds:'scene',interactiveIds:'interactive'}[field];for(const child of heads.values())if(child.kind===kind&&(child.parentRecordId===r.recordId||r.kind==='map'&&kind==='subzone'&&child.current.payload.mapId===r.recordId)&&!current.payload[field].includes(child.recordId)){current.payload[field].push(child.recordId);changed=true;}}
   if(changed){const next=revision(r,[r.revisionId],current,operation+':membership-'+sha(r.recordId).slice(0,16));revisions.push(next);heads.set(r.recordId,next);}
  }
  for(const key of ['plans','reviews','views']){

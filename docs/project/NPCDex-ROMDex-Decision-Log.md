@@ -376,7 +376,7 @@ The accepted native-content transition is committed and verified in installed 0.
 
 ## October 18, 2026 — RDX Documents and JSON Map Packages
 
-The user requested a planning revision before implementation. [Revised phases and contracts](../../NPCDex-ROMDex-Unified-App-Action-Plan.md) and [execution checklist](../../NPCDex-ROMDex-Action-Checklist.md) add RD01–RD10 before U21, preserving every completed task and the installed 0.5.14 baseline.
+The user requested a planning revision before implementation. [Revised phases and contracts](../../NPCDex-ROMDex-Unified-App-Action-Plan.md) and [execution checklist](../NPCDex-ROMDex-Action-Checklist.md) add RD01–RD10 before U21, preserving every completed task and the installed 0.5.14 baseline.
 
 - Use one `.rdx` extension with internal workspace/add-on, object kind and version routing: ROMDex objects are plans; NPCDex objects are maps. Filenames do not determine format. Preserve recognition of the older browser-migration `.rdx` separately.
 - Use a lossless compressed container containing structured JSON and exact binary assets, deduplicated by content hash; codec/limits require contract review and measurement. Supply deterministic pack/unpack/validate tools, schemas, examples and agent extraction/ROM-mapping instructions. Application import/mapping uses no AI.
@@ -565,3 +565,15 @@ The user clarified that New Bark Town is the RDX and buildings/floors are contai
 ## October 20 — Readable Entity Presentation and Nested Map Groups
 
 Use deterministic source-derived labels, with no runtime AI requirement, and front-standing thumbnails for recognized source layouts. Store presentation in the prepared map RDX with exact source/history preservation and user-override precedence. The next MAPDex task must let the user choose parent and child (Violet City → Sprout Tower → floors/areas → entities), preserving all descendant relationships rather than flattening them. Review existing prepared/imported maps and extend the nested sub-zone contract as needed. Location previews must be recognizable ROM-derived images with entrance/entity markers; validate rendering feasibility before implementation. NPCD currently links parent/child records but its Milestone/Task/Subtask Type values do not yet implement the intended tier labels; track this gap explicitly.
+
+
+## October 20 — Contextual Parent/Child Grouping and Cross-ROM Continuity Gap
+
+0.5.21 puts Prepare Map and Assign to Parent in each map tile’s standard settings menu. Grouping moves the full subtree into one parent-map RDX. Child groups remain indented in the catalog; independently saved/published maps are protected for migration review. The live nested tree and second-profile recovery passed with 16 temporary records subsequently removed. Dialogue is expanded with readable headings; TAB cycles pane mode, output options share equal visual weight, and disclosure typography matches. Location preview rendering is scoped as LP01–LP03.
+
+The user clarified the repeated lifecycle: prepare a map from one ROM, plan/execute changes, then re-prepare the same logical map from a newer ROM. Current fresh extraction keys source lineage by fingerprint, so this does not yet guarantee reconciliation to the same map. RI03U must add explicit existing-map update/rebase with stable identities, deterministic reviewed matching, retained planning/history/testing and actual two-version acceptance. Record the gap; do not silently claim that a new fingerprint merges by name or start this task before its PASSKEY.
+
+
+## October 20 — Correct Tile Settings Placement
+
+The map settings cog belongs inside the top-right corner of its tile and appears on hover, with equivalent keyboard-visible focus access. Persistent cogs beside tiles were incorrect. Corrected 0.5.22 verifies interior bounds and hide-on-leave behavior, including after mouse selection. All grouping/backend logic and the user’s current Data/connections are preserved.

@@ -75,7 +75,7 @@ export async function compileMapExtraction(extraction,assets,inventory,{createdA
  return {document:doc,documentBytes,blobs,bytes,identities:x.identities,summary:{map:mapName,sourceSHA256:x.source.sha256,extractionDigest:x.digest,records:records.length,areas:x.areas.length,appearances:x.appearances.length,images:assetInventory.filter(a=>a.purpose==='image').length,decodedMessages:x.messages.length,mappedSourceMessages:assignedMessages.size,unassignedSourceMessages:unassigned.length,rdxBytes:bytes.length,rdxSHA256:sha(bytes),documentRevision:doc.revision,requiresHumanTesting:true,chronologyVerified:false,productionDataAccess:false}};
 }
 
-export async function compileRomMap(rom,{previousIdentities=null,headerIds=null,scope=null,progress=()=>{}}={}){
- const inventory=await inventoryHGSS(rom,{progress}),{extraction,assets}=await extractHGSS(rom,{inventory,previousIdentities,headerIds,scope,progress});
+export async function compileRomMap(rom,{previousIdentities=null,headerIds=null,scope=null,allowScopeExtension=false,progress=()=>{}}={}){
+ const inventory=await inventoryHGSS(rom,{progress}),{extraction,assets}=await extractHGSS(rom,{inventory,previousIdentities,headerIds,scope,allowScopeExtension,progress});
  const result=await compileMapExtraction(extraction,assets,inventory);await rom.assertUnchanged();return result;
 }

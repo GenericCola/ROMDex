@@ -31,9 +31,13 @@ export function previewIdentityUpdate(previous,inventory){
  }
  return {format:'ROMDexIdentityPreview/1',state:'needs-review',previousDigest:previous.digest,inventoryDigest:inventory.digest,sourceSHA256:inventory.source.sha256,requiresReview:true,assignments:current.map(e=>({...e,candidateId:before.get(e.key)?.id||null,evidenceUnchanged:before.get(e.key)?.evidenceSHA256===e.evidenceSHA256,reason:'Source revision changed. Matching source indices are candidates, not identity approval.'})),missing:previous.entries.filter(e=>!present.has(e.key)).map(e=>({...e,action:'retain-pending-review'}))};
 }
-export function createIdentityManifest(inventory,{previous=null,headerIds=null}={}){
+export function createIdentityManifest(inventory,{previous=null,headerIds=null,allowExtension=false}={}){
  validateInventory(inventory);
- requireRom(headerIds===null||Array.isArray(headerIds),'INVALID','Map header scope must be an array.');
+ requireRom(headerIds===null||Array.isArray(headerIds),'INVALID','Map header scope must be an array.');if(headerIds)headerIds=[...headerIds].sort((a,b)=>a-b);
+ if(previous&&allowExtension&&headerIds&&canonical([...headerIds].sort((a,b)=>a-b))!==canonical(previous.headerIds)){
+  validateIdentityManifest(previous);requireRom(previous.sourceSHA256===inventory.source.sha256&&previous.inventoryDigest===inventory.digest&&previous.headerIds.every(h=>headerIds.includes(h)),'REVIEW_REQUIRED','Grouping Can Only Extend the Same Verified ROM Identity Scope.');previewIdentityUpdate(previous,inventory);
+  const fresh=createIdentityManifest(inventory,{headerIds}),prior=new Map(previous.entries.map(e=>[e.key,e]));fresh.projectId=previous.projectId;fresh.entries=fresh.entries.map(e=>prior.get(e.key)||e);fresh.digest=digest(fresh);return validateIdentityManifest(fresh);
+ }
  if(previous){
   requireRom(headerIds===null||canonical(headerIds)===canonical(previous.headerIds),'REVIEW_REQUIRED','Changing the selected map scope needs identity review.');
   const preview=previewIdentityUpdate(previous,inventory);requireRom(!preview.requiresReview,'IDENTITY_REVIEW_REQUIRED','Review changed-source identity candidates before reusing or allocating identities.',{preview});return structuredClone(previous);

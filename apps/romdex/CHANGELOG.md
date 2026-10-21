@@ -1,4 +1,18 @@
-# 0.5.20
+# 0.5.22
+
+- Place each MAPDex settings cog inside its map tile’s top-right corner.
+- Reveal the cog on tile hover, keyboard-visible focus or an open tile menu; ordinary mouse selection does not leave it persistently visible.
+- Retain the verified 0.5.21 grouping, context-menu, dialogue and keyboard behavior.
+
+## 0.5.21
+
+- Map tile Settings → Assign to Parent previews and persists a selected map’s complete nested subtree inside one parent-map RDX.
+- Preserve source identities, reviewed names, current content, plans, images and history when extending an unpublished parent preparation; block conflicting independent/published datasets for migration review.
+- Show linked NPC/entity source dialogue expanded with readable prompt headings and an explicit recovery from stage filters.
+- Remove the MAPDex pane-size button; TAB cycles Default → Expanded → Collapsed from workspace content, retaining normal field/menu navigation.
+- Add portable nested-zone capability validation and preserve child links through NPCDex projection and backend publication.
+
+## 0.5.20
 
 - Readable source-derived entity labels grouped by sub-area; original identifiers remain in Source Evidence.
 - Front-standing thumbnail defaults for reviewed HGSS sprite layouts; preserve palette uncertainty and explicit user choices.

@@ -4,7 +4,7 @@ import {validateViews} from '../content/view-contract.mjs';
 import {validateShape} from './schema.mjs';
 import {bounds,ensure} from './limits.mjs';
 
-export const CAPABILITIES=Object.freeze(['org.romdex.rdx.container-v1','org.romdex.rdx.map-v1','org.romdex.rdx.plan-v1','org.romdex.npcdex.content-v1']);
+export const CAPABILITIES=Object.freeze(['org.romdex.rdx.container-v1','org.romdex.rdx.map-v1','org.romdex.rdx.plan-v1','org.romdex.npcdex.content-v1','org.romdex.npcdex.nested-zones-v1']);
 export function requireCapabilities(required){
  ensure(Array.isArray(required),'INVALID','Missing RDX Capabilities.');
  const missing=required.filter(x=>!CAPABILITIES.includes(x));
@@ -36,7 +36,7 @@ function mapModel(doc,history){
  const revisions=new Map(records.map(r=>[ref(r),r]));
  for(const a of [...c.records,...c.mappings,...c.plans,...c.reviews,...c.views]){verifyDigest(a);ensure(a.workspaceId===doc.datasetId,'INVALID','RDX Artifact Dataset Differs.');}
  const heads=c.recordHeads.map(h=>{const r=revisions.get(ref(h));ensure(r,'INVALID','Missing RDX Record Head Revision.');return r;});
- const byId=validateGraph(heads),need=id=>{const r=byId.get(id);ensure(r,'INVALID','Missing RDX Content Reference: '+id);return r;};
+ const byId=validateGraph(heads);if(heads.some(r=>r.kind==='subzone'&&byId.get(r.parentRecordId)?.kind==='subzone'))ensure(doc.capabilities.required.includes('org.romdex.npcdex.nested-zones-v1'),'UNSUPPORTED','Nested Areas Require the Nested-Zones Capability.');const need=id=>{const r=byId.get(id);ensure(r,'INVALID','Missing RDX Content Reference: '+id);return r;};
  const owned=new Set(scope.ownedRecordIds),context=new Set(scope.contextRecordIds);
  unique([...scope.ownedRecordIds,...scope.contextRecordIds],'RDX Scope Identity');
  ensure(same([...byId.keys()].sort(),[...owned,...context].sort()),'INVALID','RDX Scope Differs From Record Heads.');
