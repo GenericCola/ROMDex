@@ -1,0 +1,12 @@
+{
+  "name": "gimli",
+  "version": "0.29.0",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "40ecd4077b5ae9fd2e9e169b102c6c330d0605168eb0e8bf79952b256dbefffd",
+  "license": "MIT OR Apache-2.0",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

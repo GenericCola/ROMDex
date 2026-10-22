@@ -1,0 +1,12 @@
+{
+  "name": "crossbeam-utils",
+  "version": "0.8.20",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "22ec99545bb0ed0ea7bb9b8e1e9122ea386ff8a48c0922e43f36d45ab09e0e80",
+  "license": "MIT OR Apache-2.0",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "num-traits",
+  "version": "0.1.43",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "92e5113e9fd4cc14ded8e499429f396a20f98c772a47cc8622a736e1ec843c31",
+  "license": "MIT/Apache-2.0",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

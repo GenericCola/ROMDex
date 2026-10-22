@@ -1,0 +1,12 @@
+{
+  "name": "rand",
+  "version": "0.4.6",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "552840b97013b1a26992c11eac34bdd778e464601a4c2054b5f0bff7c6761293",
+  "license": "MIT/Apache-2.0",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

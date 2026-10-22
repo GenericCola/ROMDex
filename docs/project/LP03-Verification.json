@@ -1,0 +1,70 @@
+{
+  "status": "complete-in-source-and-packaged-candidate",
+  "date": "2026-10-21",
+  "native": {
+    "status": "passed",
+    "candidateVersion": "0.5.26-11c.1",
+    "checks": [
+      "Candidate contains the pinned decoder, dependency notices and exact reviewed source; no Data, token or ROM payload",
+      "Packaged MAPDex displays portable exact-floor images and both camera choices without access to the ROM",
+      "Tile cogs stay inside on hover; identity tools are inline; form Tab is retained and one Escape closes",
+      "Native MAPDex layout reviewed at 620px height with contained image, source controls and condition strip",
+      "Cached prepared-map status responds within the 5-second native acceptance bound",
+      "The packaged unsupported-resource display states the reason and supplies no invented image (synthetic UI case)",
+      "Explicit MAPDex handoff populates native NPCDex tiles and location preview while cloud sync remains paused",
+      "Nested NPCDex floor preview and source-marker navigation work in the packaged runtime",
+      "Packaged export produces a portable RDX without page script errors",
+      "Native candidate quits normally with the isolated handoff saved",
+      "The packaged ROM reader and bundled decoder render the actual mart from ROM bytes with visible progress and verified dependencies",
+      "Fresh ROM preparation is saved and the native renderer profile quits normally"
+    ],
+    "metrics": {
+      "warmStatusMilliseconds": 114
+    },
+    "productionChanged": false,
+    "tokensCopied": false,
+    "installerRun": false,
+    "reusedCompletedNativeChecks": true
+  },
+  "sourceAudit": {
+    "status": "passed",
+    "candidateVersion": "0.5.26-11c.1",
+    "packagedFiles": 1274,
+    "exactSourceAndMirrorFiles": 1202,
+    "onlyCandidateMetadataChange": "prerelease version and description",
+    "romIncluded": false,
+    "credentialsIncluded": false,
+    "productionInstalled": false
+  },
+  "portableExportAndBackendArtifacts": {
+    "status": "passed",
+    "process": "fresh Node process using exact packaged modules",
+    "fileSha256": "2c7db537e7e4fee55abd93148d7c4b47edbbdbc37ace409d000147527d8e574e",
+    "portableLocationTargets": 7,
+    "nestedGroupRetained": true,
+    "allImageBytesVerified": true,
+    "backendArtifactReconstruction": "exact document and all blobs; isolated in-memory object store, no live YouTrack",
+    "backendObjects": 533,
+    "romOpened": false,
+    "productionChanged": false
+  },
+  "visualReview": {
+    "mapdexMart": "passed; 620px window with expanded detail tray",
+    "npcdexNestedFloor": "passed; exact floor, source markers and independent scrolling",
+    "defaultMapdex": "scrolling retained; Tab expands the detail tray"
+  },
+  "proofBoundaries": {
+    "freshLiveYouTrackWrite": false,
+    "backendRecovery": "isolated object store; exact packaged modules; all document/blob bytes retained",
+    "unsupportedUI": "synthetic missing-resource display; renderer hard-failure cases covered by LP01 focused tests",
+    "productionInstaller": "U30",
+    "actualSecondROMBuild": "pending a second supplied supported build"
+  },
+  "nextTask": "MX05; separate PASSKEY required",
+  "postNativeFormatting": {
+    "whitespaceOnly": true,
+    "documentationBlankLineRemoved": true,
+    "files": 20,
+    "finalSourceAudit": "passed; no behavioral code changes or repeated native tests"
+  }
+}

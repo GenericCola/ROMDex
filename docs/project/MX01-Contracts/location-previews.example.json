@@ -1,0 +1,10 @@
+{
+  "schema":"NPCDexLocationPreviews/1",
+  "mapRecordId":"map:example-a",
+  "targetRecordId":"subzone:example-a:house-1f",
+  "status":"pending",
+  "reason":"Fictional floor preview; actual ROM rendering has not run.",
+  "candidates":[],
+  "selectedCandidateId":null,
+  "ownerOverride":false
+}

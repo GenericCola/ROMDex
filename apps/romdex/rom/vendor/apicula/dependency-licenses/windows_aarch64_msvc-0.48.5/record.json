@@ -1,0 +1,12 @@
+{
+  "name": "windows_aarch64_msvc",
+  "version": "0.48.5",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "dc35310971f3b2dbbf3f0690a219f40e2d9afcf64f9ab7cc1be722937c26b4bc",
+  "license": "MIT OR Apache-2.0",
+  "noticeFiles": [
+    "license-apache-2.0",
+    "license-mit"
+  ],
+  "status": "notices-retained"
+}

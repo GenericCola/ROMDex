@@ -10,6 +10,7 @@
  }
  function definitionStages(definitions){
   assert(object(definitions),'Timeline Definition Is Missing.');
+  if(definitions.conditionIndex){assert(definitions.conditionIndex.schema==='NPCDexConditionIndex/1'&&root.romdexConditions,'Unsupported Map Condition Model.');return validateStages(root.romdexConditions.stages(definitions.conditionIndex));}
   if(Object.hasOwn(definitions,'stages'))return validateStages(definitions.stages);
   // Historical portable files declared IDs only. Keep those identities and
   // explicitly unknown conditions; never synthesize ten global stages.
@@ -31,6 +32,7 @@
   return snapshot;
  }
  function chooseStage(stages,current,point=null){
+  if(stages.some(s=>s.conditionEffect)){const known=new Set(stages.map(s=>s.id));return current==='conditional'||current==='unresolved'||known.has(current)?current:'conditional';}
   const known=new Set(stages.map(s=>s.id));if(point){const ids=point.stages||point.stageIds||[];if(!ids.length)return 'conditional';if(ids.includes('all'))return known.has(current)?current:stages[0]?.id||'conditional';if(known.has(current)&&ids.includes(current))return current;return ids.find(id=>known.has(id))||'conditional';}
   return current==='conditional'||known.has(current)?current:stages[0]?.id||'conditional';
  }

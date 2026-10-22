@@ -1,0 +1,176 @@
+{
+  "task": "MX07",
+  "status": "complete-source-and-isolated-candidate",
+  "date": "2026-10-21",
+  "candidateVersion": "0.5.26-11d.1",
+  "productionChanged": false,
+  "installerRun": false,
+  "focusedCasesAcrossPhase11D": {
+    "distinctPassed": 131,
+    "unresolvedFailures": 0,
+    "fullSuiteRun": false
+  },
+  "native": {
+    "status": "passed",
+    "checks": [
+      "Packaged storage view shows inspected budgets and protected history at 620px",
+      "One Escape closes the mapping inspector after the latest source changes",
+      "Packaged local note checkpoints with production sync still paused",
+      "Candidate saves and quits normally after storage inspection",
+      "Fresh read after normal quit retains the exact native note"
+    ],
+    "productionChanged": false,
+    "tokensCopied": false,
+    "installerRun": false,
+    "localCheckpointMilliseconds": 517,
+    "quitMilliseconds": 499
+  },
+  "liveSmallMap": {
+    "task": "MX07",
+    "status": "passed",
+    "synthetic": true,
+    "productionChanged": false,
+    "checks": [
+      "Fresh routine check has zero writes and records actual HTTP/byte counts",
+      "One-field local save, cloud commit and second-profile incoming review data converge",
+      "Progress retains the last actual advancement independently of a pending check"
+    ],
+    "cleanup": "verified 10 exact test issues absent",
+    "metrics": [
+      {
+        "operation": "Initial small-map publication",
+        "complete": true,
+        "downloadedBytes": 208154,
+        "milliseconds": 37101,
+        "requests": 103,
+        "uploadedBytes": 76225,
+        "writes": 34
+      },
+      {
+        "operation": "Unchanged synchronization",
+        "complete": true,
+        "downloadedBytes": 27110,
+        "milliseconds": 2631,
+        "requests": 16,
+        "uploadedBytes": 0,
+        "writes": 0
+      },
+      {
+        "operation": "One-field outgoing edit",
+        "complete": true,
+        "downloadedBytes": 93821,
+        "milliseconds": 8044,
+        "requests": 30,
+        "uploadedBytes": 17991,
+        "writes": 3
+      },
+      {
+        "operation": "Incoming update into second profile",
+        "complete": true,
+        "downloadedBytes": 102508,
+        "milliseconds": 10051,
+        "requests": 41,
+        "uploadedBytes": 0,
+        "writes": 0
+      }
+    ],
+    "localCheckpointMilliseconds": 325,
+    "records": 9
+  },
+  "finalQueryOptimization": {
+    "task": "MX07",
+    "status": "passed",
+    "synthetic": true,
+    "productionChanged": false,
+    "checks": [
+      "Official filename-filtered paginated query discovers the exact owner-authored correction without scanning unrelated records",
+      "Fresh dataset metadata before shared inventories removes redundant issue GETs"
+    ],
+    "cleanup": "verified 1 exact test issues absent",
+    "metadataRequestComparison": {
+      "sameRecordBefore": 3,
+      "sameRecordAfter": 2,
+      "proof": "Both complete attachment inventory and fresh native metadata are retained; dataset snapshot supplies the existing issue cache"
+    }
+  },
+  "sameInputAdapterComparison": {
+    "inputBytes": 1001582,
+    "records": 134,
+    "inputSha256": "be868307dc1668f9366716251776ffd23b54eec2e70f5a5ba0c08c08f4d56d8b",
+    "measurement": "Same-input in-memory adapter calls and binary read bytes; observed before the legacy-save correction",
+    "before": {
+      "calls": 396,
+      "binaryBytes": 2926272,
+      "milliseconds": 7296
+    },
+    "after": {
+      "calls": 187,
+      "binaryBytes": 0,
+      "milliseconds": 1260
+    }
+  },
+  "largeLegacyMapPreservation": {
+    "status": "passed",
+    "checks": [
+      "Original 134 records, every prior revision, source/image blob and the new note survive the first legacy-file save",
+      "The upgraded and edited map reconstructs exactly through backend object tables without increasing bounds",
+      "A fresh file read displays the committed review and all portable content",
+      "A subsequent full-map local edit checkpoints successfully without another legacy conversion"
+    ],
+    "originalBytes": 1001582,
+    "originalRecords": 134,
+    "localCheckpointMilliseconds": 25132,
+    "documentNodes": 93901,
+    "subsequentCheckpointMilliseconds": 17406
+  },
+  "warmLargeMapCheckpoints": {
+    "status": "passed",
+    "input": "Same verified 134-record map after its supported legacy upgrade",
+    "cases": [
+      {
+        "localCheckpointMilliseconds": 10037,
+        "stages": {
+          "checkpointValue": 172,
+          "prepareSave": 6372,
+          "capacity": 23,
+          "checkpoint": 615,
+          "commit": 1255
+        }
+      },
+      {
+        "localCheckpointMilliseconds": 10694,
+        "stages": {
+          "checkpointValue": 148,
+          "prepareSave": 6559,
+          "capacity": 21,
+          "checkpoint": 610,
+          "commit": 1344
+        }
+      }
+    ]
+  },
+  "finalAudit": {
+    "at": "2026-10-21T18:46:47.973Z",
+    "status": "passed",
+    "sourceFilesCompared": 1214,
+    "mirrorTestsCompared": 146,
+    "candidateFiles": 1286,
+    "mismatches": [],
+    "forbidden": [],
+    "runtimeChanges": [],
+    "syntaxChecks": 38,
+    "syntaxFailures": [],
+    "gitDiffCheck": {
+      "passed": true,
+      "output": ""
+    },
+    "productionChanged": false,
+    "installerCreated": false
+  },
+  "knownLimitations": [
+    "Full 134-record legacy-map first upgrade/checkpoint measured 25132 ms; later complete local checkpoints measured 10037 and 10694 ms. This remains a performance acceptance item for U28/U29.",
+    "The final capability fast path was not rebenchmarked. Small-map WAN metrics and same-input in-memory adapter metrics are different workloads and must not be presented as one full-map WAN speed comparison.",
+    "Older adopted catalogs retain their existing publication owner. Automatic retirement of pre-existing independent child copies in other profiles is not claimed.",
+    "Actual two-ROM-build acceptance remains deferred because only one supported real ROM was supplied."
+  ]
+}

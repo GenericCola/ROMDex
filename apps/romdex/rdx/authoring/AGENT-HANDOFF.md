@@ -43,3 +43,8 @@ Use this prompt only after separate human handoff of an actionable task and the 
 The local fixture exercise and reference checker prove deterministic format use. RD07 separately proved two-way YouTrack behavior using eleven isolated real content records. None of these is proof that a particular real ROM extractor or in-game result has been tested.
 
 U23A adds deterministic [authorized handoff/file-transfer tools](../AGENT-FILE-TRANSFER.md). Copy Agent Instructions is a fixed template, not AI generation. New authorization supersedes older versions on the same task/map; their results require review. Returned-file discovery/application remain U24/U25, and the flashing-amber Needs Testing stage remains U27.
+
+
+## Current deterministic return tools
+
+Use [Bound Returns](BOUND-RETURNS.md) for the current fetch → template → build → validate → return commands, actual ROM evidence, exact prose review and mandatory human testing. Historical fixture-only examples do not establish ROM or gameplay verification.

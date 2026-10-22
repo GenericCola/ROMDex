@@ -1,0 +1,12 @@
+{
+  "name": "object",
+  "version": "0.36.2",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "3f203fa8daa7bb185f760ae12bd8e097f63d17041dcdcaf675ac54cdf863170e",
+  "license": "Apache-2.0 OR MIT",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

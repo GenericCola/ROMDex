@@ -1,0 +1,12 @@
+{
+  "name": "png",
+  "version": "0.17.13",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "06e4b0d3d1312775e782c86c91a111aa1f910cbb65e1337f9975b5f9a554b5e1",
+  "license": "MIT OR Apache-2.0",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "pin-project",
+  "version": "1.1.5",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "b6bf43b791c5b9e34c3d182969b4abb522f9343702850a2e57f460d00d09b4b3",
+  "license": "Apache-2.0 OR MIT",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

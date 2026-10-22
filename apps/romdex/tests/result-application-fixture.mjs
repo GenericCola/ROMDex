@@ -18,8 +18,8 @@ export async function packet(value=null,{all=false,independent=false}={}){
  return {value,prepared,files,put,built,binding,context,entry,event,result};
 }
 
-export async function applicationSetup(t,{all=false,bound=true,independent=false}={}){
- const f=await packet(null,{all,independent}),dir=await fs.mkdtemp(path.join(process.env.ROMDEX_TEST_SCRATCH||os.tmpdir(),'apply-')),maps=new MapWorkspace({dataDirectory:dir});await maps.open();const input=path.join(dir,'input.rdx');await fs.writeFile(input,await packRdx(f.value.documentBytes,f.value.blobs));const saved=await maps.store.ingest(input);f.entry.key=saved.key;maps.active=saved.key;maps.set('active',maps.active);const remote=new MemoryCloud(),cloud=new DocumentCloud({maps,transport:remote,enabled:()=>false});maps.cloud=cloud;if(bound){const p=await cloud.preview(saved.key);await cloud.bind(saved.key,{approved:true,token:p.token});await cloud.cycle(true);assert.equal(cloud.get(saved.key).publishedRevision,maps.store.row(saved.key).head);}
+export async function applicationSetup(t,{all=false,bound=true,independent=false,value=null}={}){
+ const f=await packet(value,{all,independent}),dir=await fs.mkdtemp(path.join(process.env.ROMDEX_TEST_SCRATCH||os.tmpdir(),'apply-')),maps=new MapWorkspace({dataDirectory:dir});await maps.open();const input=path.join(dir,'input.rdx');await fs.writeFile(input,await packRdx(f.value.documentBytes,f.value.blobs));const saved=await maps.store.ingest(input);f.entry.key=saved.key;maps.active=saved.key;maps.set('active',maps.active);const remote=new MemoryCloud(),cloud=new DocumentCloud({maps,transport:remote,enabled:()=>false});maps.cloud=cloud;if(bound){const p=await cloud.preview(saved.key);await cloud.bind(saved.key,{approved:true,token:p.token});await cloud.cycle(true);assert.equal(cloud.get(saved.key).publishedRevision,maps.store.row(saved.key).head);}
  return attachApplication(t,{f,maps,cloud,remote,dir});
 }
 export async function attachApplication(t,{f,maps,cloud=null,remote=null,dir,provider=null}){

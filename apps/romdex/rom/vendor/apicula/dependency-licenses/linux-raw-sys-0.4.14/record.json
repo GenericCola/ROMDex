@@ -1,0 +1,14 @@
+{
+  "name": "linux-raw-sys",
+  "version": "0.4.14",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "78b3ae25bc7c8c38cec158d1f2757ee79e9b3740fbc7ccf0e59e4b08d793fa89",
+  "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+  "noticeFiles": [
+    "COPYRIGHT",
+    "LICENSE-APACHE",
+    "LICENSE-Apache-2.0_WITH_LLVM-exception",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

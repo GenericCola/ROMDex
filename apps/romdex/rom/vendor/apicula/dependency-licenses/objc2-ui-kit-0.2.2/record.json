@@ -1,0 +1,16 @@
+{
+  "name": "objc2-ui-kit",
+  "version": "0.2.2",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "b8bb46798b20cd6b91cbd113524c490f1686f4c4e8f49502431415f3512e2b6f",
+  "license": "MIT",
+  "noticeFiles": [
+    "source-notice-README.md",
+    "LICENSE.txt"
+  ],
+  "status": "notices-retained",
+  "noticeSource": {
+    "repository": "madsmtm/objc2",
+    "revision": "e282618be4c3a3b9542957e0c8540e9588472ce8"
+  }
+}

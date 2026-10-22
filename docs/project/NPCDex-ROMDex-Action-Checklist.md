@@ -1,59 +1,61 @@
 # ROMDex — Desktop and Add-on Action Checklist
 
-**Started:** October 14, 2026.  
-**Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](ROMDex-Pre-Launcher-Enhancement-Plan.md).
+**Started:** October 14, 2026.
+**Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](Documentation/History/Earlier-Plans-and-Releases/ROMDex-Pre-Launcher-Enhancement-Plan.md).
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** Installed ROMDex 0.5.26 includes the verified form-spacing correction. Current saves, preparation and all remembered connections are preserved. A broader MAPDex overhaul remains for owner evaluation; existing narrative-phase and two-actual-build acceptance gaps remain open. [Report](UI-Spacing-0.5.26-Completion-Report.md).
+**Current — revised October 21:** Installed ROMDex 0.5.26 remains unchanged. **MX01 is complete and owner-approved**; [completion report](Documentation/Project/MX01-Completion-Report.md). The owner authorized **MX02**, then **MX03**, under the same explicit PASSKEY. **MX02 and MX03 are complete in source**; [MX03 report](Documentation/Project/MX03-Completion-Report.md). The owner has now authorized all of Phase 11C. **Phase 11C is complete in source and an isolated packaged candidate**: LP01, MX04, LP02 and LP03; [report](Documentation/Project/LP03-Completion-Report.md). The owner authorized all of Phase 11D: MX05 → MX06 → MX07, in order. **Phase 11D is complete in source and isolated candidate 0.5.26-11d.1**; [report](Documentation/Project/Phase-11D-Completion-Report.md). Phase 11E is now authorized through MX08 → MX09. MX08 and MX09 are complete in source and isolated candidate 0.5.26-11e.1; [Phase 11E report](Documentation/Project/Phase-11E-Completion-Report.md). RI03C is now authorized and active under the October 21 PASSKEY; stop before U28. Map-specific event conditions and automatic supported-ROM location images remain core requirements. Current Data and remembered connections stay preserved.
+
+**Approved sequence:** MX01 → MX02 → MX03 → LP01 → MX04 → LP02 → LP03 → MX05 → MX06 → MX07 → MX08 → MX09 → RI03C → U28 → U29 → U30 → U31–U33. One task at a time. The latest PASSKEY authorized all of Phase 11D; MX05 → MX06 → MX07 are now complete in source/candidate. Phase 11E is authorized in order; MX08 and MX09 are complete in source and isolated candidate 0.5.26-11e.1. RI03C is now authorized and active under the October 21 PASSKEY; stop before U28. Preserve current Data, preparation and all remembered connections.
 
 ## Completed Foundation
 
-- [x] **U01 — Baseline Inventory and Protected Backups** — Sol / Medium. Completed October 14; [inventory and verification](U01-Baseline-Inventory.md).
+- [x] **U01 — Baseline Inventory and Protected Backups** — Sol / Medium. Completed October 14; [inventory and verification](Documentation/History/U01/U01-Baseline-Inventory.md).
 
 ## ROMDex Enhancements Before Launcher Development
 
-- [x] **R01 — Details Opening and Context-Sensitive TAB** — Sol / Medium. Completed October 14; [completion report](R01-Completion-Report.md).
-- [x] **R02 — Compact Four-Tier Selector Tiles and Exclusive Expansion** — Sol / Medium. Completed October 14; [completion report](R02-Completion-Report.md).
-- [x] **R03 — Toolbar, ESC Behavior, and In Development Status** — Sol / Medium. Completed October 14; [completion report](R03-Completion-Report.md).
-- [x] **R04 — Dense Rows and Checkbox Selection** — Sol / High. Completed October 14; [completion report](R04-Completion-Report.md).
-- [x] **R05 — Same-Parent Grouping and Bulk Drag** — Sol / Extra High. Completed October 14; [completion report](R05-Completion-Report.md).
-- [x] **R06 — Full Edit Menu and All Editable PMON Fields, Including Tags** — Sol / High. Completed October 14; [completion report](R06-Completion-Report.md).
-- [x] **R07 — YouTrack Attachments and Previews** — Sol / High. Completed October 14; [completion report](R07-Completion-Report.md).
-- [x] **R08 — Enhancement QA and Release** — Sol / High. Completed October 14; [completion report](R08-Completion-Report.md).
+- [x] **R01 — Details Opening and Context-Sensitive TAB** — Sol / Medium. Completed October 14; [completion report](Documentation/History/R01/R01-Completion-Report.md).
+- [x] **R02 — Compact Four-Tier Selector Tiles and Exclusive Expansion** — Sol / Medium. Completed October 14; [completion report](Documentation/History/R02/R02-Completion-Report.md).
+- [x] **R03 — Toolbar, ESC Behavior, and In Development Status** — Sol / Medium. Completed October 14; [completion report](Documentation/History/R03/R03-Completion-Report.md).
+- [x] **R04 — Dense Rows and Checkbox Selection** — Sol / High. Completed October 14; [completion report](Documentation/History/R04/R04-Completion-Report.md).
+- [x] **R05 — Same-Parent Grouping and Bulk Drag** — Sol / Extra High. Completed October 14; [completion report](Documentation/History/R05/R05-Completion-Report.md).
+- [x] **R06 — Full Edit Menu and All Editable PMON Fields, Including Tags** — Sol / High. Completed October 14; [completion report](Documentation/History/R06/R06-Completion-Report.md).
+- [x] **R07 — YouTrack Attachments and Previews** — Sol / High. Completed October 14; [completion report](Documentation/History/R07/R07-Completion-Report.md).
+- [x] **R08 — Enhancement QA and Release** — Sol / High. Completed October 14; [completion report](Documentation/History/R08/R08-Completion-Report.md).
 
 ## Phase 0 — Remaining Architecture and Design
 
-- [x] **U02 — Desktop Host and Distribution Design** — Sol / High. Completed and user-approved October 14; [design](U02-Desktop-Host-and-Distribution-Design.md), [report](U02-Completion-Report.md).
-- [x] **U03 — Free Cloud Provider Comparison** — Sol / High. Completed and user-approved October 14; [YouTrack-first comparison](U03-Free-Cloud-and-YouTrack-Storage-Comparison.md), [report](U03-Completion-Report.md).
-- [x] **U04 — Data Ownership and Synchronization Contracts** — Astra / High. Completed and user-approved October 15; [contract](U04-Data-Ownership-and-Synchronization-Contracts.md), [report](U04-Review-Report.md).
-- [x] **U05 — Shared Header and Control Layout Review** — Sol / High. Completed and user-approved October 15; [footer placeholder and circle-order correction](U05-Review-Report.md).
+- [x] **U02 — Desktop Host and Distribution Design** — Sol / High. Completed and user-approved October 14; [design](Documentation/History/U02/U02-Desktop-Host-and-Distribution-Design.md), [report](Documentation/History/U02/U02-Completion-Report.md).
+- [x] **U03 — Free Cloud Provider Comparison** — Sol / High. Completed and user-approved October 14; [YouTrack-first comparison](Documentation/History/U03/U03-Free-Cloud-and-YouTrack-Storage-Comparison.md), [report](Documentation/History/U03/U03-Completion-Report.md).
+- [x] **U04 — Data Ownership and Synchronization Contracts** — Astra / High. Completed and user-approved October 15; [contract](Documentation/History/U04/U04-Data-Ownership-and-Synchronization-Contracts.md), [report](Documentation/History/U04/U04-Review-Report.md).
+- [x] **U05 — Shared Header and Control Layout Review** — Sol / High. Completed and user-approved October 15; [footer placeholder and circle-order correction](Documentation/History/U05/U05-Review-Report.md).
 
 ## Side Commit Before Phase 1
 
-- [x] **S01 — Attachment Controls and Startup Scope** — Sol / High. Completed October 15 in ROMDex 0.4.1; [report](S01-Completion-Report.md), [live verification](S01-Live-Verification.json).
+- [x] **S01 — Attachment Controls and Startup Scope** — Sol / High. Completed October 15 in ROMDex 0.4.1; [report](Documentation/History/S01/S01-Completion-Report.md), [live verification](Documentation/History/S01/S01-Live-Verification.json).
 
 ## Phase 1 — Combined Interfaces
 
-- [x] **U06 — Shared Theme and Approved Header** — Sol / Medium. Completed October 15; header workspace button at 80% control height, no footer, shared assets and red → yellow → green lamps. [Completion report](U06-Completion-Report.md).
-- [x] **U07 — Relocate NPCDex Controls** — Sol / Medium. Completed October 15; [report](U07-Completion-Report.md).
-- [x] **U08 — Tool Switching and Preserved Workspace Context** — Sol / High. Completed October 15 in ROMDex 0.4.2; [report](U08-Completion-Report.md).
-- [x] **H01 — Header Cog Removal and Connection Alignment** — Completed October 15; [report](Header-Correction-Report.md).
-- [x] **U09 — Shared Save and Auto-Sync Coordination** — Sol / High. Completed October 15 in ROMDex 0.4.3; [report](U09-Completion-Report.md).
+- [x] **U06 — Shared Theme and Approved Header** — Sol / Medium. Completed October 15; header workspace button at 80% control height, no footer, shared assets and red → yellow → green lamps. [Completion report](Documentation/History/U06/U06-Completion-Report.md).
+- [x] **U07 — Relocate NPCDex Controls** — Sol / Medium. Completed October 15; [report](Documentation/History/U07/U07-Completion-Report.md).
+- [x] **U08 — Tool Switching and Preserved Workspace Context** — Sol / High. Completed October 15 in ROMDex 0.4.2; [report](Documentation/History/U08/U08-Completion-Report.md).
+- [x] **H01 — Header Cog Removal and Connection Alignment** — Completed October 15; [report](Documentation/History/Header-Correction/Header-Correction-Report.md).
+- [x] **U09 — Shared Save and Auto-Sync Coordination** — Sol / High. Completed October 15 in ROMDex 0.4.3; [report](Documentation/History/U09/U09-Completion-Report.md).
 
 ## Phase 2 — Windows Desktop
 
-- [x] **U10 — Native Desktop Window and Local Service** — Sol / High. Completed October 15; [desktop preview report](U10-Completion-Report.md).
-- [x] **U10F — Desktop File Drop Attachments** — Sol / High. Completed October 15; [report](U10F-Completion-Report.md). After U10, before U11; reuse the native adapters and existing upload queue. [Scope](Desktop-File-Drop-Attachments-Plan.md).
-- [x] **UX01 — Application Command Placement Review** — Sol / Medium. User-approved October 15; existing header retained, application commands assigned to the Windows tray menu. [Approved placement](UX01-Application-Command-Placement-Proposal.md), [report](UX01-Completion-Report.md).
-- [x] **U11 — Tray Lifecycle and Orderly Quit** — Sol / High. Completed October 15 in 0.5.0-preview.11; approved tray commands, renderer/utility recovery, profile ownership and original Pokédex app icon. [Report](U11-Completion-Report.md).
-- [x] **U12 — Persistent Profile and Current-Data Migration** — Sol / High. Completed October 15 in 0.5.0-preview.12; current saves and protected connection migrated, live and build-folder restart checks passed. [Report](U12-Completion-Report.md).
-- [x] **U13A — Windows Installer and Upgrade/Uninstall Preservation** — Sol / Medium. Completed October 15 in installed ROMDex 0.5.2; current saves and protected connection verified, Data retained on uninstall. [Completion report](U13A-Completion-Report.md).
-- [x] **U13B — Approved Update Notifications and Installation** — Sol / High. Completed in installed 0.5.3; private signed delivery, consent, handoff and current-data/credential preservation verified. [Report](U13B-Completion-Report.md).
+- [x] **U10 — Native Desktop Window and Local Service** — Sol / High. Completed October 15; [desktop preview report](Documentation/History/U10/U10-Completion-Report.md).
+- [x] **U10F — Desktop File Drop Attachments** — Sol / High. Completed October 15; [report](Documentation/History/U10F/U10F-Completion-Report.md). After U10, before U11; reuse the native adapters and existing upload queue. [Scope](Documentation/History/Earlier-Plans-and-Releases/Desktop-File-Drop-Attachments-Plan.md).
+- [x] **UX01 — Application Command Placement Review** — Sol / Medium. User-approved October 15; existing header retained, application commands assigned to the Windows tray menu. [Approved placement](Documentation/History/UX01/UX01-Application-Command-Placement-Proposal.md), [report](Documentation/History/UX01/UX01-Completion-Report.md).
+- [x] **U11 — Tray Lifecycle and Orderly Quit** — Sol / High. Completed October 15 in 0.5.0-preview.11; approved tray commands, renderer/utility recovery, profile ownership and original Pokédex app icon. [Report](Documentation/History/U11/U11-Completion-Report.md).
+- [x] **U12 — Persistent Profile and Current-Data Migration** — Sol / High. Completed October 15 in 0.5.0-preview.12; current saves and protected connection migrated, live and build-folder restart checks passed. [Report](Documentation/History/U12/U12-Completion-Report.md).
+- [x] **U13A — Windows Installer and Upgrade/Uninstall Preservation** — Sol / Medium. Completed October 15 in installed ROMDex 0.5.2; current saves and protected connection verified, Data retained on uninstall. [Completion report](Documentation/History/U13A/U13A-Completion-Report.md).
+- [x] **U13B — Approved Update Notifications and Installation** — Sol / High. Completed in installed 0.5.3; private signed delivery, consent, handoff and current-data/credential preservation verified. [Report](Documentation/History/U13B/U13B-Completion-Report.md).
 
 ## Phase 3 — Cloud Persistence
 
-- [x] **U14 — Private Cloud Storage and Access Rules** — Sol / High. Private GitHub setup, access separation, transport proof and protected credentials verified; YouTrack retains all agent handoff material. [Report](U14-Completion-Report.md).
-- [x] **U15 — Previewed NPCDex Cloud Import** — Sol / High. User-approved revision 73 and exact original bytes verified remotely and in a fresh Windows process. [Report](U15-Completion-Report.md).
+- [x] **U14 — Private Cloud Storage and Access Rules** — Sol / High. Private GitHub setup, access separation, transport proof and protected credentials verified; YouTrack retains all agent handoff material. [Report](Documentation/History/U14/U14-Completion-Report.md).
+- [x] **U15 — Previewed NPCDex Cloud Import** — Sol / High. User-approved revision 73 and exact original bytes verified remotely and in a fresh Windows process. [Report](Documentation/History/U15/U15-Completion-Report.md).
 - [x] **U16 — Durable Incoming/Outgoing Sync** — Sol / Extra High.
 - [x] **U17 — Concurrent Edits and Conflict Review** — Sol / Extra High.
 - [x] **U18 — ROMDex Workspace Metadata Sync** — Sol / High.
@@ -61,40 +63,40 @@
 
 ## Phase 4 — Content Architecture Revision (Design Approved)
 
-- [x] **U20 — Content Architecture and Workflow Review** — Sol / Medium. User-approved October 16; [accepted design](U20-Consolidated-Architecture-and-Revised-Plan.md), [completion report](U20-Completion-Report.md). Later tasks remain separately gated.
-- [x] **U20A — Content Contracts and ROM Mapping Design** — Sol / High. User-approved October 16; contracts/schema/examples and extraction guide accepted, 45 checks pass. [Review report](U20A-Review-Report.md).
-- [x] **U20B — Content Project Access and Isolated Storage Proof** — Sol / High. Completed October 17. NPCD access, exact transfers, concurrent appends, separate-process recovery, complete groups and cleanup verified. [Report and limits](U20B-Completion-Report.md).
+- [x] **U20 — Content Architecture and Workflow Review** — Sol / Medium. User-approved October 16; [accepted design](Documentation/History/U20/U20-Consolidated-Architecture-and-Revised-Plan.md), [completion report](Documentation/History/U20/U20-Completion-Report.md). Later tasks remain separately gated.
+- [x] **U20A — Content Contracts and ROM Mapping Design** — Sol / High. User-approved October 16; contracts/schema/examples and extraction guide accepted, 45 checks pass. [Review report](Documentation/History/U20A/U20A-Review-Report.md).
+- [x] **U20B — Content Project Access and Isolated Storage Proof** — Sol / High. Completed October 17. NPCD access, exact transfers, concurrent appends, separate-process recovery, complete groups and cleanup verified. [Report and limits](Documentation/History/U20B/U20B-Completion-Report.md).
 - [x] **U20C — Dynamic Registry Reader and Durable Cache** — Sol / High.
 - [x] **U20D — Planning, Corrections and Content Lifecycle** — Sol / High.
-- [x] **U20E — Previewed Content Migration and Provider Cutover** — Sol / High. Completed October 18. [Report](U20E-Completion-Report.md).
-- [x] **U20F — Content Backend Acceptance and Private Release** — Sol / High. Completed October 18 in ROMDex 0.5.9; [completion report](U20F-Completion-Report.md), [verification](U20F-Verification.json).
+- [x] **U20E — Previewed Content Migration and Provider Cutover** — Sol / High. Completed October 18. [Report](Documentation/History/U20E/U20E-Completion-Report.md).
+- [x] **U20F — Content Backend Acceptance and Private Release** — Sol / High. Completed October 18 in ROMDex 0.5.9; [completion report](Documentation/History/U20F/U20F-Completion-Report.md), [verification](Documentation/History/U20F/U20F-Verification.json).
 
 ### Completed Content Prerequisites
 
-- [x] **U20G — Contextual Editing and Review Usability** — Sol / High. Completed October 18 in 0.5.10; [report](U20G-Completion-Report.md), [verification](U20G-Verification.json).
+- [x] **U20G — Contextual Editing and Review Usability** — Sol / High. Completed October 18 in 0.5.10; [report](Documentation/History/U20G/U20G-Completion-Report.md), [verification](Documentation/History/U20G/U20G-Verification.json).
 
-- [x] **U20H — Restore the Original NPCDex Feedback Interface** — Sol / High. Completed October 18 in 0.5.11; [report](U20H-Completion-Report.md), [verification](U20H-Verification.json).
+- [x] **U20H — Restore the Original NPCDex Feedback Interface** — Sol / High. Completed October 18 in 0.5.11; [report](Documentation/History/U20H/U20H-Completion-Report.md), [verification](Documentation/History/U20H/U20H-Verification.json).
 
-- [x] **U20I — Complete the Native Content Tree** — Sol / High. Native projection, reviewed imports and agent instructions are delivered. Human acceptance, installed backup/restoration, queue delivery, exact content preservation and final remote readback passed in 0.5.14. [Completion report](U20I-Completion-Report.md).
+- [x] **U20I — Complete the Native Content Tree** — Sol / High. Native projection, reviewed imports and agent instructions are delivered. Human acceptance, installed backup/restoration, queue delivery, exact content preservation and final remote readback passed in 0.5.14. [Completion report](Documentation/History/U20I/U20I-Completion-Report.md).
 
 ## Phase 5 — RDX Contracts, Reliable Sync and Container Tools
 
-- [x] **RD01 — RDX and JSON Workflow Contracts** — Sol / High. User-approved October 18; [completion report](RD01-Completion-Report.md). [Contracts/schema/examples](RDX-Reference/RD01-Contracts/README.md), [review report](RD01-Review-Report.md). Portable identities/bindings, complete/partial scope, compatibility, compression evaluation, atomic recovery, JSON packages and returned-RDX testing rules; legacy migration recognition retained.
+- [x] **RD01 — RDX and JSON Workflow Contracts** — Sol / High. User-approved October 18; [completion report](Documentation/History/RD01/RD01-Completion-Report.md). [Contracts/schema/examples](RDX-Reference/RD01-Contracts/README.md), [review report](Documentation/History/RD01/RD01-Review-Report.md). Portable identities/bindings, complete/partial scope, compatibility, compression evaluation, atomic recovery, JSON packages and returned-RDX testing rules; legacy migration recognition retained.
   - [x] Inspect current native import, storage and legacy-format boundaries.
   - [x] Prepare schemas, exact-asset examples and six workflow walkthroughs.
   - [x] Pass 70 isolated design checks; clearly distinguish them from live/importer proof.
   - [x] User accepted the RD01 contracts, including automatic safe reconciliation and mandatory human testing.
-- [x] **RD02 — Bounded Sync and Upload Recovery** — Sol / High. **Source-complete and verified.** [Report](RD02-Completion-Report.md), [evidence](RD02-Verification.json). Reviewed retry for uncertain-only uploads; independent read/write budgets, durable progress, verified-upload reuse and bounded no-progress handling. Preserve integrity/ownership/conflict checks; no blind resends or repeated full-history loops.
-- [x] **RD03 — RDX Container, Validator and Tooling** — Sol / High. **Source-complete and verified.** [Report](RD03-Completion-Report.md), [evidence](RD03-Verification.json), [actual synthetic RDX examples](RDX-Reference/RD03-Examples/README.md). Lossless compressed JSON/assets, deduplication, routing/version checks, bounds/cancellation and deterministic tools. 93 focused tests; 48 RDX tests also pass in bundled runtime. Level 9 chosen from measured compression. No installed-app change.
+- [x] **RD02 — Bounded Sync and Upload Recovery** — Sol / High. **Source-complete and verified.** [Report](Documentation/History/RD02/RD02-Completion-Report.md), [evidence](Documentation/History/RD02/RD02-Verification.json). Reviewed retry for uncertain-only uploads; independent read/write budgets, durable progress, verified-upload reuse and bounded no-progress handling. Preserve integrity/ownership/conflict checks; no blind resends or repeated full-history loops.
+- [x] **RD03 — RDX Container, Validator and Tooling** — Sol / High. **Source-complete and verified.** [Report](Documentation/History/RD03/RD03-Completion-Report.md), [evidence](Documentation/History/RD03/RD03-Verification.json), [actual synthetic RDX examples](RDX-Reference/RD03-Examples/README.md). Lossless compressed JSON/assets, deduplication, routing/version checks, bounds/cancellation and deterministic tools. 93 focused tests; 48 RDX tests also pass in bundled runtime. Level 9 chosen from measured compression. No installed-app change.
 
 ## Phase 6 — Managed Documents, Imports and Cloud Publication
 
-- [x] **RD04 — Local Managed Documents and Portable Export** — Sol / High. **Source-complete and verified.** [Report](RD04-Completion-Report.md), [evidence](RD04-Verification.json), [guide](ROMDex/rdx/MANAGED-DOCUMENTS.md). Data/RDX service/CLI, durable journal, atomic working checkpoints/recovery and offline portable export. 107 focused checks; 31 managed checks under bundled runtime, plus seven final provenance rechecks in both. Existing maps/UI/installed app unchanged; integration/adoption remain later tasks.
+- [x] **RD04 — Local Managed Documents and Portable Export** — Sol / High. **Source-complete and verified.** [Report](Documentation/History/RD04/RD04-Completion-Report.md), [evidence](Documentation/History/RD04/RD04-Verification.json), [guide](ROMDex/rdx/MANAGED-DOCUMENTS.md). Data/RDX service/CLI, durable journal, atomic working checkpoints/recovery and offline portable export. 107 focused checks; 31 managed checks under bundled runtime, plus seven final provenance rechecks in both. Existing maps/UI/installed app unchanged; integration/adoption remain later tasks.
 - [x] **RD05 — NPCDex Map Import and Update Preview** — Sol / High. One map per input; stable-ID update previews, shared dependencies and newer-draft protection. Complete snapshots may propose archival of covered omissions; partial files imply no removal. Preserve original UI and archive history.
-- [x] **RD06 — ROMDex Plan Import and Destination Mapping** — Sol / High. User-selected PMON destination; preview tier changes, retain complete subtrees and map editable fields/comments/attachments. Omitted tasks survive; explicit deletion is reviewed. Idempotent restart/reimport, no implicit publish or dispatch. Source-complete October 18; [report](RD06-Completion-Report.md). Live proof remains RD07.
-- [x] **RD07 — Document Bindings and Bidirectional Cloud Sync** — Sol / High. Source-complete October 19; [report](RD07-Completion-Report.md). Explicit bindings, incremental delivery, native map/plan pullback and review/recovery. **Live acceptance passed:** a compressed test file imported, mapped to eleven real isolated NPCD records, accepted local and native changes, and retained both after reopen/export and second-instance readback. Shared controls and credentials preserved; installed production data unchanged.
-- [x] **RD08 — Windows RDX File Integration** — Sol / Medium. Use the exact existing **Pokéball favicon artwork** as the `.rdx` file icon. Register/open into validated previews through the single-instance app; no silent execution/publication/replacement. Preserve Data and association ownership on upgrade/uninstall. **Completed October 19:** 38 focused checks, five targeted UI checks, seven packaged-app checks, registered-launcher observation and six installer acceptance checks passed. The authorized pixel-art app icon preserves the former PNG/ICO/SVG exactly. [Report](RD08-Completion-Report.md).
-- [x] **RD09 — Agent Authoring and Portable Workflow Guide** — Sol / Medium. Versioned schemas/examples and extraction/ROM-mapping/pack/unpack/validate instructions for map/plan `.rdx`, JSON Map Packages and returned `.rdx`. Distinguish fixtures from real ROM extraction; required agent assets accessible on YouTrack. **Completed October 19:** versioned guide/prompts/examples, pinned schemas and a 44-file portable kit; eight focused tests and 13 independent CLI commands passed. [Report](RD09-Completion-Report.md).
+- [x] **RD06 — ROMDex Plan Import and Destination Mapping** — Sol / High. User-selected PMON destination; preview tier changes, retain complete subtrees and map editable fields/comments/attachments. Omitted tasks survive; explicit deletion is reviewed. Idempotent restart/reimport, no implicit publish or dispatch. Source-complete October 18; [report](Documentation/History/RD06/RD06-Completion-Report.md). Live proof remains RD07.
+- [x] **RD07 — Document Bindings and Bidirectional Cloud Sync** — Sol / High. Source-complete October 19; [report](Documentation/History/RD07/RD07-Completion-Report.md). Explicit bindings, incremental delivery, native map/plan pullback and review/recovery. **Live acceptance passed:** a compressed test file imported, mapped to eleven real isolated NPCD records, accepted local and native changes, and retained both after reopen/export and second-instance readback. Shared controls and credentials preserved; installed production data unchanged.
+- [x] **RD08 — Windows RDX File Integration** — Sol / Medium. Use the exact existing **Pokéball favicon artwork** as the `.rdx` file icon. Register/open into validated previews through the single-instance app; no silent execution/publication/replacement. Preserve Data and association ownership on upgrade/uninstall. **Completed October 19:** 38 focused checks, five targeted UI checks, seven packaged-app checks, registered-launcher observation and six installer acceptance checks passed. The authorized pixel-art app icon preserves the former PNG/ICO/SVG exactly. [Report](Documentation/History/RD08/RD08-Completion-Report.md).
+- [x] **RD09 — Agent Authoring and Portable Workflow Guide** — Sol / Medium. Versioned schemas/examples and extraction/ROM-mapping/pack/unpack/validate instructions for map/plan `.rdx`, JSON Map Packages and returned `.rdx`. Distinguish fixtures from real ROM extraction; required agent assets accessible on YouTrack. **Completed October 19:** versioned guide/prompts/examples, pinned schemas and a 44-file portable kit; eight focused tests and 13 independent CLI commands passed. [Report](Documentation/History/RD09/RD09-Completion-Report.md).
 - [x] **RD10 — Adopt RDX for All Existing Maps** — Sol / High. Only after the RD07 proof: fresh authoritative backup and reviewed preview, then move all current maps to managed `.rdx` files. Retain NPCD records/identities as the synced backend; preserve exact content, assets, notes/flags/proposals/history/testing, queued edits and all credentials. Verify each map and restoration before completion.
 
 RD10 execution checklist:
@@ -112,40 +114,112 @@ RD10 execution checklist:
 
 ## Phase 7 — JSON Map Packages and Actionable Tasks
 
-- [x] **U21 — Map Document Preview and Task Attachment** — Sol / High. After RD01–RD10: readable immutable `.json` Map Package, whole-map pending work preselected, stable ROM targets/base hashes/instructions and accessible YouTrack asset references. Existing/new task chooser, explicit attach, duplicate-safe retry; newer drafts preserved and no agent dispatch. Completed October 19 in source; [report](U21-Completion-Report.md). No hidden Draft/Ready gate; FINAL/flags/notes stay context, and context-only packages are allowed.
-- [x] **U22 — Linked Navigation and Package Progress** — Sol / High. Exact task/map/package links and per-item/group progress; distinguish delivery from implementation/human testing. Completed October 19 in source; [report](U22-Completion-Report.md). Unverified agent claims and task completion cannot establish result/testing progress. No implicit task completion.
+- [x] **U21 — Map Document Preview and Task Attachment** — Sol / High. After RD01–RD10: readable immutable `.json` Map Package, whole-map pending work preselected, stable ROM targets/base hashes/instructions and accessible YouTrack asset references. Existing/new task chooser, explicit attach, duplicate-safe retry; newer drafts preserved and no agent dispatch. Completed October 19 in source; [report](Documentation/History/U21/U21-Completion-Report.md). No hidden Draft/Ready gate; FINAL/flags/notes stay context, and context-only packages are allowed.
+- [x] **U22 — Linked Navigation and Package Progress** — Sol / High. Exact task/map/package links and per-item/group progress; distinguish delivery from implementation/human testing. Completed October 19 in source; [report](Documentation/History/U22/U22-Completion-Report.md). Unverified agent claims and task completion cannot establish result/testing progress. No implicit task completion.
 
 ## Phase 8 — Returned RDX Reconciliation, Review and Testing
 
 - [x] **U23 — Agent Access and Returned RDX Contract Review** — Sol / High. JSON package → ROM changes → updated map `.rdx` on the same task. Verify actual identity/grants, package/base/source evidence, grouped outcomes and readiness notice before discovery/application.
-- [x] **U23A — Authorized Handoff and Agent File Transfer** — Sol / High. **Completed in source October 19;** [report](U23A-Completion-Report.md). Durable exact-package authorization/supersession/withdrawal, hard-coded Copy Agent Instructions, bounded sanitized return context and an actual agent-route download/upload proof. No AI generation or automatic dispatch. Prove a valid return using only agent-visible material before live work is enabled.
-- [x] **U24 — Durable Returned RDX Discovery** — Sol / High. Discover attachments on linked tasks; validate/stage, deduplicate and recover across restart/offline/manual cycles. Agent labels in files are not authentication. Completed October 19 in source; [report](U24-Completion-Report.md).
+- [x] **U23A — Authorized Handoff and Agent File Transfer** — Sol / High. **Completed in source October 19;** [report](Documentation/History/U23A/U23A-Completion-Report.md). Durable exact-package authorization/supersession/withdrawal, hard-coded Copy Agent Instructions, bounded sanitized return context and an actual agent-route download/upload proof. No AI generation or automatic dispatch. Prove a valid return using only agent-visible material before live work is enabled.
+- [x] **U24 — Durable Returned RDX Discovery** — Sol / High. Discover attachments on linked tasks; validate/stage, deduplicate and recover across restart/offline/manual cycles. Agent labels in files are not authentication. Completed October 19 in source; [report](Documentation/History/U24/U24-Completion-Report.md).
 - [x] **U25 — Validated Independent/Grouped Result Application** — Astra / High. ROMDex reconciles returned `.rdx` into NPCD and managed files, preserving newer drafts and conflict alternatives. Validate authorization/package scope/base/hashes; dependent groups apply together. Every accepted result requires human review/testing; no separate receipt file required.
 - [x] **U26 — Human Review and Controlled Resolution** — Sol / High. Preview/defer/reject/retry stale, conflicting, incomplete or unapproved results without losing either version; never partially apply dependent groups.
-- [x] **U26A — NPCDex Annotation and Settings Corrections** — Sol / High. Investigate New Bark Town tiles whose red flag remains after critical flags are cleared, including setting and clearing a new flag. Also restore broader flag/note visibility when Selected Line Only is unchecked; changing dialogue currently hides those annotations. Match original web scope semantics. Remove the redundant Add Note box at the bottom of Tray 2, preserving the button beside Flag Prompt. Populate the empty Tray 2 Content Controls menu, fix Close/Escape handling, and add Data/Flags for all flags/notes/changes within the current selector. Preserve real flags/notes and fix the saved-data/projection/icon path; verify after reload and sync. Source checks pass; installed startup/save recovery is in progress under the same PASSKEY; [report](U26A-Completion-Report.md). User clarified whole-current-prompt scope across passages and speaker turns. Installed 0.5.15 remains unchanged.
-- [x] **U26B — Task Manager Responsiveness** — Sol / High. Completed October 19 after warning-free native Quit/relaunch acceptance. Targeted rendering optimizations, duplicate-feedback suppression, durable local draft checkpoints and lifecycle-aware RDX polling are installed in 0.5.15. Focused checks passed; native exit released ownership, then relaunch preserved 299 tasks, the editor draft, all 133 queued content entries and the explicit NPCDex-only cloud pause. Full Data backup verified; no reset or claim of completed legacy cloud delivery. [Report](U26B-Completion-Report.md).
-- [x] **U26C — Isolated Clean RDX Round-Trip Acceptance** — Sol / High. Completed October 19. One fictional map imported into an empty isolated workspace, displayed tiles, saved contextual UI edits, reopened/exported, published to private NPCD after explicit test binding, accepted a reviewed native title change, and recovered into two additional empty profiles without duplicate records. Exact asset bytes/history and human-testing obligations retained. All 12 QA records removed; production integrity, pause, local saving and 133 pending entries unchanged. Native runtime loaded the map but its hidden window was not visually inspected; exact installed UI was checked in isolated Chromium. No application-code change, installer, production reset or broad regression rerun. [Report](U26C-Completion-Report.md).
-- [x] **U27 — History, Reversal and Verification-Gated Completion** — Sol / High. Completed October 19 in source: flashing-amber Needs Testing, private immutable build/content verification history, completion guards, recoverable readiness notices and reversal reference without automatic ROM undo. Focused model, metadata, transport, service and interface checks passed. Installed production remains unchanged; integrated/fresh-instance review and live release remain U28–U30. [Report](U27-Completion-Report.md).
+- [x] **U26A — NPCDex Annotation and Settings Corrections** — Sol / High. Investigate New Bark Town tiles whose red flag remains after critical flags are cleared, including setting and clearing a new flag. Also restore broader flag/note visibility when Selected Line Only is unchecked; changing dialogue currently hides those annotations. Match original web scope semantics. Remove the redundant Add Note box at the bottom of Tray 2, preserving the button beside Flag Prompt. Populate the empty Tray 2 Content Controls menu, fix Close/Escape handling, and add Data/Flags for all flags/notes/changes within the current selector. Preserve real flags/notes and fix the saved-data/projection/icon path; verify after reload and sync. Source checks pass; installed startup/save recovery is in progress under the same PASSKEY; [report](Documentation/History/U26A/U26A-Completion-Report.md). User clarified whole-current-prompt scope across passages and speaker turns. Installed 0.5.15 remains unchanged.
+- [x] **U26B — Task Manager Responsiveness** — Sol / High. Completed October 19 after warning-free native Quit/relaunch acceptance. Targeted rendering optimizations, duplicate-feedback suppression, durable local draft checkpoints and lifecycle-aware RDX polling are installed in 0.5.15. Focused checks passed; native exit released ownership, then relaunch preserved 299 tasks, the editor draft, all 133 queued content entries and the explicit NPCDex-only cloud pause. Full Data backup verified; no reset or claim of completed legacy cloud delivery. [Report](Documentation/History/U26B/U26B-Completion-Report.md).
+- [x] **U26C — Isolated Clean RDX Round-Trip Acceptance** — Sol / High. Completed October 19. One fictional map imported into an empty isolated workspace, displayed tiles, saved contextual UI edits, reopened/exported, published to private NPCD after explicit test binding, accepted a reviewed native title change, and recovered into two additional empty profiles without duplicate records. Exact asset bytes/history and human-testing obligations retained. All 12 QA records removed; production integrity, pause, local saving and 133 pending entries unchanged. Native runtime loaded the map but its hidden window was not visually inspected; exact installed UI was checked in isolated Chromium. No application-code change, installer, production reset or broad regression rerun. [Report](Documentation/History/U26C/U26C-Completion-Report.md).
+- [x] **U27 — History, Reversal and Verification-Gated Completion** — Sol / High. Completed October 19 in source: flashing-amber Needs Testing, private immutable build/content verification history, completion guards, recoverable readiness notices and reversal reference without automatic ROM undo. Focused model, metadata, transport, service and interface checks passed. Installed production remains unchanged; integrated/fresh-instance review and live release remain U28–U30. [Report](Documentation/History/U27/U27-Completion-Report.md).
 
 ## Phase 11 — Core ROM Import and RDX Extraction
 
-Approved as core work before Phase 9. Phase 11 is placed here in execution order; RI02 and RI03 remain umbrella/milestone references, now divided into separately authorized tasks. **RI02A, RI02B, RI02T and RI02C are complete in source; RI03A design is user-approved; RI03B/MAPDex and RI03P are complete in source. Remaining: RI03C → U28 → U29 → U30.** Notifications remain after U30. The [approved RI01 scope](RI01-ROM-Only-Extraction-Scope.md) requires the ROM alone, one logical map per RDX, map-specific timelines and Roman-numeral stage labels. Initial coverage is the supplied ROM/game and the user-selected Violet City proof (superseding New Bark Town on October 20), with explicit unsupported-data diagnostics. Keep the ROM read-only and outside Git/releases; production replacement still requires its own accepted preview and verified backup. Each task needs its own PASSKEY.
+Core work before Phase 9. Completed RI01–RI03P entries below retain their recorded proof boundaries. The October 21 gaps require 11A–11F before final acceptance: the Timeline is a map-specific event-condition/effect index, not a global storyline; LP01–LP03 automatic location imagery is required. Use the supplied ROM alone, New Bark Town versus Route 29 for condition relevance, and Violet City/Sprout Tower plus a contrasting interior for rendering/nesting. No ROM, Data or backend changes are authorized by this planning revision. Each task needs its own PASSKEY.
 
-- [x] **RI01 — Inspect ROM and Agree Extraction Coverage** — Sol / High. Completed October 19: read-only ROM inspection, New Bark candidate evidence and user-approved ROM-only scope, including per-map timelines and Roman-numeral stages. No complete RDX/cloud POC claimed. [Report](RI01-Completion-Report.md).
-- [x] **RI02A — ROM Reader and Source Mapping** — Sol / High. Completed in source: bounded read-only supplied-build reader, actual 540-header/event/warp catalog, relocated sprite metadata, portable/scoped identities and native source locators. Seventeen focused tests and eight real-ROM proof checks passed; 617 locators resolved, separate-process identities preserved, input unchanged. Known duplicate IDs/unresolved warps remain explicit. No RDX/cloud/installer claim. [Report](RI02A-Completion-Report.md).
-- [x] **RI02B — Dialogue, events and appearance extraction** — Sol / High. Resolve the eight-area Violet City proof's local/shared dialogue dependencies, control/gender branches, visibility conditions and dynamic sprites. Derive this map's relevant timeline milestones and retain concrete predicates/ambiguities. Render the ROM's assets. Compare decoded structures to their exact source locations; account for each relevant object, message reference and unresolved dependency. Native behavior that cannot be interpreted remains explicit and cannot be counted as understood. Completed in source using Violet City: 32 focused tests, 5,140 source locators, 329 text entries and actual frames for all 50 placed objects; dynamic/native limits remain explicit. [Report](RI02B-Completion-Report.md).
-- [x] **RI02T — Map-specific timelines and Roman-numeral stages** — Sol / High. Remove global/fixed-ten-stage assumptions across native/legacy projection, validation, filtering/editing and portable mapping. Use each map's stable timeline references, descriptive conditions and Roman-numeral labels. Verify maps with differing stage counts/orders, switching, legacy preservation, renamed/reordered stages and RDX export/import; preserve notes/plans/testing. Complete before the real-map round-trip proof. Completed in source; map-scoped validation/projection/editing, stable IDs, Roman labels, legacy preservation and isolated managed RDX round trips verified. [Report](RI02T-Completion-Report.md).
-- [x] **RI02C — Compile and prove the real one-map RDX** — Sol / High. **Complete in source; [report](RI02C-Completion-Report.md).** Build VioletCityMap.rdx directly from the ROM-only extraction, validate/unpack/repack, import into an empty isolated profile, display both gender views and images, save a local note/flag/change, publish only clearly marked isolated YouTrack records, accept a reviewed native edit, then export/reimport into another empty profile. Preserve exact content/assets, stable identities, proposals and human-testing obligations; clean owned test records. No production reset or queue resumption. This is the decisive POC.
-- [x] **RI03A — Review ROM Import workspace design** — Sol / High. **User-approved October 20; [design](RI03A-ROM-Import-Workspace-Design.md), [report](RI03A-Completion-Report.md).** Three trays: map catalog, local staging/setup, contextual preview/review; adjustable areas, optional presentation cleanup, per-map Roman stages, managed identity/recovery, explicit Send to NPCDex and accurate local/paused/remote states. RI03P follows RI03B before acceptance. No implementation/install or production sync change.
-- [x] **RI03B — Implement the offline MAPDex workspace** — Sol / High. **Complete in source; [report](RI03B-Completion-Report.md).** Native ROM/export pickers, independent local staging RDX, worker/progress/cancel, portable identity recovery, optional cleanup, contextual stages/conditions, fresh reviewed handoff and pause-aware local publication intent. 106 distinct focused checks plus real-ROM, source UI and bundled-runtime proof. No production install or cloud resumption.
-- [x] **RI03P — Map Cloud-Delivery Performance** — Sol / High. **Complete in source October 20; [report](RI03P-Completion-Report.md).** About 65% fewer object files/payload bytes, bounded metadata prefetch, visible handoff/publication bar, exact-data round trip and final-code routine-sync measurements. The RI03P proof preserved the then-active pause; the later user-authorized reset is recorded below. Reduce cold-publication and later-sync request overhead for real map RDX documents. Preserve exact source/image bytes, stable identities and backend hierarchy, immutable history, changed/missing-file detection, cancellation/recovery and conflict review. Measure a real map with explicit progress and honest local/queued/remote states. Keep one logical map per working/exported RDX. Complete before RI03C; separate PASSKEY required.
-- [ ] **RI03C — Coverage and integrated feature acceptance** — Sol / High. Check a contrasting second area such as Route 29, plus a structurally different scene/interior selected from actual inventory. Verify repeat extraction, newer-build comparison, ambiguous identities, malformed/unknown formats and preservation of user edits. Document supported coverage and honest per-map limitations before U28.
+- [x] **RI01 — Inspect ROM and Agree Extraction Coverage** — Sol / High. Completed October 19: read-only ROM inspection, New Bark candidate evidence and user-approved ROM-only scope, including per-map timelines and Roman-numeral stages. No complete RDX/cloud POC claimed. [Report](Documentation/History/RI01/RI01-Completion-Report.md).
+- [x] **RI02A — ROM Reader and Source Mapping** — Sol / High. Completed in source: bounded read-only supplied-build reader, actual 540-header/event/warp catalog, relocated sprite metadata, portable/scoped identities and native source locators. Seventeen focused tests and eight real-ROM proof checks passed; 617 locators resolved, separate-process identities preserved, input unchanged. Known duplicate IDs/unresolved warps remain explicit. No RDX/cloud/installer claim. [Report](Documentation/History/RI02A/RI02A-Completion-Report.md).
+- [x] **RI02B — Dialogue, events and appearance extraction** — Sol / High. Resolve the eight-area Violet City proof's local/shared dialogue dependencies, control/gender branches, visibility conditions and dynamic sprites. Derive this map's relevant timeline milestones and retain concrete predicates/ambiguities. Render the ROM's assets. Compare decoded structures to their exact source locations; account for each relevant object, message reference and unresolved dependency. Native behavior that cannot be interpreted remains explicit and cannot be counted as understood. Completed in source using Violet City: 32 focused tests, 5,140 source locators, 329 text entries and actual frames for all 50 placed objects; dynamic/native limits remain explicit. [Report](Documentation/History/RI02B/RI02B-Completion-Report.md).
+- [x] **RI02T — Map-specific timelines and Roman-numeral stages** — Sol / High. Remove global/fixed-ten-stage assumptions across native/legacy projection, validation, filtering/editing and portable mapping. Use each map's stable timeline references, descriptive conditions and Roman-numeral labels. Verify maps with differing stage counts/orders, switching, legacy preservation, renamed/reordered stages and RDX export/import; preserve notes/plans/testing. Complete before the real-map round-trip proof. Completed in source; map-scoped validation/projection/editing, stable IDs, Roman labels, legacy preservation and isolated managed RDX round trips verified. [Report](Documentation/History/RI02T/RI02T-Completion-Report.md).
+- [x] **RI02C — Compile and prove the real one-map RDX** — Sol / High. **Complete in source; [report](Documentation/History/RI02C/RI02C-Completion-Report.md).** Build VioletCityMap.rdx directly from the ROM-only extraction, validate/unpack/repack, import into an empty isolated profile, display both gender views and images, save a local note/flag/change, publish only clearly marked isolated YouTrack records, accept a reviewed native edit, then export/reimport into another empty profile. Preserve exact content/assets, stable identities, proposals and human-testing obligations; clean owned test records. No production reset or queue resumption. This is the decisive POC.
+- [x] **RI03A — Review ROM Import workspace design** — Sol / High. **User-approved October 20; [design](Documentation/Project/RI03A-ROM-Import-Workspace-Design.md), [report](Documentation/History/RI03A/RI03A-Completion-Report.md).** Three trays: map catalog, local staging/setup, contextual preview/review; adjustable areas, optional presentation cleanup, per-map Roman stages, managed identity/recovery, explicit Send to NPCDex and accurate local/paused/remote states. RI03P follows RI03B before acceptance. No implementation/install or production sync change.
+- [x] **RI03B — Implement the offline MAPDex workspace** — Sol / High. **Complete in source; [report](Documentation/History/RI03B/RI03B-Completion-Report.md).** Native ROM/export pickers, independent local staging RDX, worker/progress/cancel, portable identity recovery, optional cleanup, contextual stages/conditions, fresh reviewed handoff and pause-aware local publication intent. 106 distinct focused checks plus real-ROM, source UI and bundled-runtime proof. No production install or cloud resumption.
+- [x] **RI03P — Map Cloud-Delivery Performance** — Sol / High. **Complete in source October 20; [report](Documentation/History/RI03P/RI03P-Completion-Report.md).** About 65% fewer object files/payload bytes, bounded metadata prefetch, visible handoff/publication bar, exact-data round trip and final-code routine-sync measurements. The RI03P proof preserved the then-active pause; the later user-authorized reset is recorded below. Reduce cold-publication and later-sync request overhead for real map RDX documents. Preserve exact source/image bytes, stable identities and backend hierarchy, immutable history, changed/missing-file detection, cancellation/recovery and conflict review. Measure a real map with explicit progress and honest local/queued/remote states. Keep one logical map per working/exported RDX. Complete before RI03C; separate PASSKEY required.
+### 11A — Corrected contracts and suite UI review
+
+- [x] **MX01 — Event Condition Contracts and Suite UI Review** — Sol / High. Complete and owner-approved October 21; [report](Documentation/Project/MX01-Completion-Report.md), [design review](Documentation/Project/MX01-Design-Review.md), [concrete contract/schema/examples](RDX-Reference/MX01-Contracts/README.md). Twenty-one focused design cases passed, separate from ROM/runtime/backend acceptance.
+  - [x] Define set/unset flags, relevant variables and compound predicates, map relevance, affected placements/dialogue/scripts, raw source identifiers and explicit unknowns. Roman numerals are display indexes; review flags are a separate concept.
+  - [x] Define versioned RDX/backend representation for condition effects and generated location images, retaining stable identities, exact source evidence, proposals, annotations and testing authority.
+  - [x] Show the suite-consistent tray arrangement and every tool placement, including preparation, map grouping, source dialogue, thumbnails, character links/detach, conditions, native mapping, packages, returns and testing. Preserve existing header/cogs/status controls and shared spacing.
+  - [x] Agree supported native-edit semantics, hierarchy kind mapping, retention boundaries and typed/prose return authorization without global YouTrack changes or runtime AI.
+  - [x] Obtain owner acceptance of the concrete contracts/screens. The owner's acceptance also supplied the next explicit PASSKEY for MX02 then MX03.
+
+### 11B — Actual map event conditions
+
+- [x] **MX02 — Branch, Presence and Condition Extraction** — Sol / High. Complete in source October 21; [report](Documentation/Project/MX02-Completion-Report.md), [evidence](Documentation/Project/MX02-Verification.json). 35 focused checks and source-pinned New Bark Town/Route 29 proof pass; partial native/dynamic paths remain explicit. Installed application and production data unchanged.
+  - [x] Trace map-bound interactions, scene/load hooks, reachable shared calls and visibility into distinct dialogue alternatives and script/presence effects, retaining branch/call context and locators.
+  - [x] Preserve positive, negative and compound access predicates, including relevant scene variables and other runtime checks; report unsupported native/dynamic behavior rather than guess.
+  - [x] Independently derive New Bark Town and Route 29 relevance from the ROM. Exclude unrelated shared-bank entries, stale/global story stages and writes with no demonstrated local effect. Compare archived group discrepancies without seeding extraction.
+- [x] **MX03 — Condition RDX and Timeline Integration** — Sol / High. Complete in source October 21; [report](Documentation/Project/MX03-Completion-Report.md), [evidence](Documentation/Project/MX03-Verification.json). Installed 0.5.26 and live Data unchanged; local/isolated backend and browser checks are distinguished from later native/live acceptance.
+  - [x] Persist/version conditions and effects through compilation, managed RDX, MAPDex, NPCDex projection and cloud artifacts, preserving existing user work and compatibility checks.
+  - [x] Show short readable condition labels, required states, affected entities/prompts/scenes and their existing review/testing lights. Selecting a condition exposes alternatives and prerequisites, not a simulated game-save progression.
+  - [x] Prove different Route 29/New Bark lists, map-switch filter reset, shared-script relevance, negated/combined/independent conditions, nested child-zone scope and maps without event-dependent content.
+  - [x] Reopen/export/reimport and reconstruct through isolated backend storage; preserve exact condition identity, assets, notes, proposals and mandatory testing. Unknown conditions stay directly reachable.
+
+### 11C — Suite UI and automatic location images
+
+- [x] **LP01 — Prove Static Location Rendering** — Sol / High. Source proof complete October 21; [report](Documentation/Project/LP01-Completion-Report.md), [evidence](Documentation/Project/LP01-Verification.json). Render recognizable actual terrain, buildings/interiors and a tower floor from the supplied ROM; validate matrix/model/texture/palette and coordinate dependencies. Review licenses before adopting code. Record precise unsupported resources; do not substitute AI/stock artwork or count a point grid as success.
+- [x] **MX04 — Shared MAPDex and NPCDex Workflow Layout** — Sol / High. Source-complete October 21; see MX04 completion report.
+  - [x] Implement the MX01-approved map selector, entity browser, contextual identity/dialogue editor and condition strip with preserved selection and source evidence.
+  - [x] Separate map setup from entity cleanup; retain early map-cog Prepare/Assign/Update, equal Export/Send actions, grouped map tools and readable scoped flags/notes/changes.
+  - [x] Preserve original FINAL/CHANGE/REMOVE colors/size/behavior, one contextual note tool, whole-prompt versus selected-line scope, Add Character left of gender, hover cogs inside tiles, header geometry and no persistent expand button.
+  - [x] Verify shared padding/checkbox gaps, form Tab versus pane Tab, focus return, one Escape/Close, short windows, long text and non-overlapping dialog footers. Reuse existing corrected components.
+- [x] **LP02 — Automatic Portable Location Thumbnails** — Sol / High. Source-complete October 21; see LP02 completion report.
+  - [x] Generate and apply representative map, zone/building and exact-floor images automatically during preparation. Optional crop/camera or exterior/interior selection preserves owner overrides.
+  - [x] Show larger contextual previews, child-floor navigation and coordinate-verified entrance/entity markers linked to the actual source text in both workspaces.
+  - [x] Store exact image bytes, target references, source hashes and renderer/view settings in one map RDX and verified NPCD artifacts. Cache unchanged previews; another profile displays them without the ROM.
+- [x] **LP03 — Location and UI Native Acceptance** — Sol / High. Complete October 21 in isolated candidate 0.5.26-11c.1; 12 native checks, exact source/mirror audit and native-export/backend-artifact reconstruction passed. [Report](Documentation/Project/LP03-Completion-Report.md), [evidence](Documentation/Project/LP03-Verification.json). Verify recognizable exterior/interior/floor previews, markers, nested groups, unsupported-resource states, cached responsiveness and export/backend recovery in a packaged candidate. Reuse unchanged installer/spacing evidence. U30 owns the final production installer; no redundant installation or live reset.
+
+### 11D — Identity, backend mapping and synchronization
+
+- [x] **MX05 — Character and Published Map Organization** — Sol / High.
+  - [x] Provide clear link, inspect placements, detach/reassign and shared-profile scope actions; prove cross-map reuse without same-sprite conflation and retain per-placement dialogue/images/conditions.
+  - [x] Review regrouping independently prepared or published maps, coordinating all affected records/files while preserving nested descendants, issue identities, shared definitions, notes, proposals, assets and history.
+  - [x] Retain RI03U whole-map update/rollback review and newer-draft protection. Keep the two-actual-build test deferred until another build exists; fixtures do not complete it.
+- [x] **MX06 — Inspectable Hierarchy and Native Edit Reconciliation** — Sol / High.
+  - [x] Inspect exact region/map/nested-zone/entity and shared/system record kinds, stable IDs, parent links, issue links and verified publication revisions. Distinguish legitimate profile/placement records from duplicates.
+  - [x] Implement the approved native-edit/correction route and supported content/membership mapping. Accepted edits update NPCDex and the managed RDX; arbitrary ticket comments do not become content edits.
+  - [x] Prove fresh backend readback plus local → NPCD → second-profile and supported native → NPCDex → RDX convergence. Clearly show local saved, queued/paused/review and cloud verified; preserve explicit binding and native field constraints.
+- [x] **MX07 — Routine Sync, Local Responsiveness and Storage** — Sol / High. Complete October 21 in source/candidate; [report](Documentation/Project/MX07-Completion-Report.md).
+  - [x] Profile unchanged inventories/reconstruction and one-field outgoing/incoming work; improve request/byte counts against recorded RI03P figures without weakening identity/conflict/readback guarantees.
+  - [x] Measure local interaction/checkpoint latency separately from WAN work. Keep typing, navigation, Save feedback, Cancel and Quit responsive during slow/offline cloud cycles.
+  - [x] Show progress phase, last advancement and actionable holds. Define inspected storage usage and approved retention/cleanup protecting pinned package baselines, unsent work, credentials and recovery evidence; never blindly resend or silently prune history.
+
+**11D verification:** 131 distinct targeted cases, 12 native checks and six browser checks passed; all 38 exact temporary issues were confirmed absent. Large-map local saves still measured 10–11 seconds after a 25.1-second first upgrade; retain this limitation for U28/U29. No production installation or history deletion occurred.
+
+### 11E — Planning and coding-agent return compatibility
+
+- [x] **MX08 — Typed Plans and Reviewed Prose Results** — Sol / High. Complete in source October 21; [report](Documentation/Project/MX08-Completion-Report.md).
+  - [x] Keep ordinary contextual instructions and familiar status controls with no extra Draft/Ready gate; make supported structured changes and automatic-reconciliation eligibility understandable.
+  - [x] Add the MX01-approved exact-difference authorization path for prose-only results against fresh baselines. No AI scope inference, widened authorization, bypassed hard validation or implicit task completion.
+  - [x] Verify safe typed automatic application, newer/excluded draft retention, stale/superseded/invalid returns, dependent groups, reviewed overwrite and mandatory human testing.
+- [x] **MX09 — Deterministic Agent Return Tools and Real ROM Proof** — Sol / High. Complete October 21 in source/candidate; [report](Documentation/Project/MX09-Completion-Report.md).
+  - [x] Provide current fetch/validate/pack/return tools, bound return construction and hard-coded handoff instructions preserving package base, map/entity IDs, outcomes and actual output-ROM evidence.
+  - [x] Prove binary download/upload in the actual coding-agent environment using securely configured access. A comment-only MCP connection is not a file-transfer proof.
+  - [x] Complete one explicitly authorized real ROM change and task-attached return: typed automatic reconciliation plus a valid reviewed prose case, no duplicate application, updated NPCD/managed RDX, readiness and Needs Human Testing. Leave tasks open for the owner; do not dispatch an agent automatically.
+
+### 11F — Complete feature acceptance
+
+- [ ] **RI03C — Coverage and Integrated Feature Acceptance** — Sol / High. Authorized October 21; technical verification is complete in candidate 0.5.26-11f.2, with owner usability review pending. [Review](Documentation/Project/RI03C-Acceptance-Review.md). Execute after 11A–11E and the [audit acceptance checklist](Documentation/Project/MAPDex-NPCDex-Pipeline-Audit-2026-10-21.md).
+  - [ ] Accept distinct map condition/effect lists, readable dialogue alternatives, exact access rules and useful lights for New Bark Town versus Route 29; no global storyline or random dialogue labels.
+  - [ ] Accept automatic recognizable map/building/floor imagery, nested source mappings, safe unsupported states and portable display without the ROM.
+  - [ ] Accept preparation → NPCDex → verified NPCD hierarchy, local/native updates → current RDX, JSON/task → actual agent return → reconciliation → human testing, with preserved proposals/assets/history and recoverable interruption.
+  - [ ] State the supported ROM/layout matrix and remaining uncertainties. Keep actual-two-build acceptance explicitly deferred, and do not claim arbitrary Pokémon ROM support. No stale restoration or repeat of completed migrations.
+  - [ ] Record implemented, source-verified and user-accepted scopes separately; proceed to U28 only after the corrective workflow is useful and accepted.
+
+**Order within 11C:** LP01 → MX04 → LP02 → LP03. The owner authorized all of 11C on October 21; All four tasks are complete in source and an isolated packaged candidate. Phase 11D (MX05 → MX06 → MX07) is now authorized in order; all three tasks are complete in source and the isolated candidate. Phase 11E is also complete; stop before RI03C, which requires a new PASSKEY. Final production packaging/documentation remains U30; notifications remain after U30.
 
 ## Phase 9 — Final Review and Release
 
-- [ ] **U28 — Integrated Failure and Concurrency Review** — Astra / High. After the approved core extraction scope is implemented, review real ROM → JSON/assets → one-map `.rdx` → NPCDex/YouTrack → JSON/task/return/testing, plus offline, sync, portability and failure boundaries; reuse valid prior evidence and avoid redundant full-suite runs.
-- [ ] **U29 — Guided Live-Workspace Acceptance** — Sol / High. Fresh preview/backups and isolated QA; user confirms original UI, supported ROM extraction/import, cross-instance transfer, native YouTrack changes and human-only completion gates. Do not repeat completed migrations.
-- [ ] **U30 — Verified Installer and Handoff Documentation** — Sol / Medium. Include the supported ROM extractor/workspace, `.rdx` icon/association, schemas/tools/examples, agent guide, extraction limitations, backup/restore, optional cloud setup and QA report. Preserve all saves/credentials.
+- [ ] **U28 — Integrated Failure and Concurrency Review** — Astra / High. After 11A–11F, review condition semantics, generated location assets, hierarchy and ROM → RDX → NPCDex/NPCD → JSON/task → actual agent return → human testing, plus offline/concurrency/recovery. Include large 134-record checkpoint latency/native concurrency and review recovery/retirement when another instance already holds a former independent child copy. U29 must check shell notices do not obscure modal action rows; the Phase 11E transient QA notice overlapped its screenshot footer. Reuse valid targeted evidence; no redundant full-suite/full-map reruns.
+- [ ] **U29 — Guided Live-Workspace Acceptance** — Sol / High. With fresh backup and isolated QA, owner confirms the approved suite UI, Route 29/New Bark condition differences, recognizable exterior/interior/floor images, inspectable native hierarchy, both-way edits/current RDX, portability and human-only completion. Include practical large-map save latency, preserved recovery copies, and shell notices staying clear of modal actions. No repeat migration or stale restoration.
+- [ ] **U30 — Verified Installer and Handoff Documentation** — Sol / Medium. Package/install/reopen the final accepted condition model, suite UI, renderer/images, backend/agent tools and RDX association/icon. Verify full Data/credential preservation. Deliver current user/agent guides, supported-ROM matrix, schemas/examples, backup/recovery and QA report; clearly supersede outdated instructions. Exclude ROM/private source assets/secrets from development/release fixtures.
 
 ## Phase 10 — Agent Contact Notifications After the Principal Release
 
@@ -300,7 +374,7 @@ Next: **U04 — Data Ownership and Synchronization Contracts, Astra / High**. Aw
 
 - [x] Define ownership, identity, publication, discovery, durable queues, merge/receipt rules, limits, retention, access and migration gates.
 - [x] Exercise 43 local model scenarios, including 120 delivery permutations; verify six existing request/baseline hash pairs and unchanged released files.
-- [x] Produce the [contract](U04-Data-Ownership-and-Synchronization-Contracts.md) and [review report](U04-Review-Report.md); no live implementation or migration.
+- [x] Produce the [contract](Documentation/History/U04/U04-Data-Ownership-and-Synchronization-Contracts.md) and [review report](Documentation/History/U04/U04-Review-Report.md); no live implementation or migration.
 - [x] Obtained explicit user acceptance of versioned saves, eventual consistency and whole-receipt review when later offline conflicts arrive.
 - [x] Marked U04 complete after user approval; recommended U05, Sol / High. Await its separate PASSKEY.
 
@@ -308,7 +382,7 @@ Next: **U04 — Data Ownership and Synchronization Contracts, Astra / High**. Aw
 ### U05 — Completed and User-Approved, October 15, 2026
 
 - [x] Inspect existing NPCDex/ROMDex header assets and approved control placements.
-- [x] Produce initial comparison, then revise to the user-directed [Footer Workspace Menu](U05-Shared-Header-and-Control-Layout-Proposal.md); both header switchers are rejected.
+- [x] Produce initial comparison, then revise to the user-directed [Footer Workspace Menu](Documentation/History/U05/U05-Shared-Header-and-Control-Layout-Proposal.md); both header switchers are rejected.
 - [x] Verify geometry, original assets, fonts, controls and five responsive widths; confirm 69 release files unchanged.
 - [x] Add S01 before U06 for the three user-requested attachment/startup changes; record Sol / High and its separate approval gate.
 - [x] Confirm preserved view state means between workspaces in this app; verify footer menu dismissal, keyboard navigation and retained setting.
@@ -324,22 +398,22 @@ Next: **U04 — Data Ownership and Synchronization Contracts, Astra / High**. Aw
 - [x] Default fresh launches to All Tasks, preserving other preferences and in-session scope.
 - [x] Pass 227 tests, 52 syntax checks, 11 focused browser checks, 70 ZIP-entry checks and isolated startup/28 served-asset checks.
 - [x] User launched 0.4.1; verify running identity, saved connection, real disposable-file deletion/replay/neighbor bytes, QA cleanup and all original issue IDs.
-- [x] Preserve 0.4, protected baselines and credential ciphertext; record the [completion report](S01-Completion-Report.md).
+- [x] Preserve 0.4, protected baselines and credential ciphertext; record the [completion report](Documentation/History/S01/S01-Completion-Report.md).
 
 Next: **U06 — Shared Theme and Approved Header, Sol / Medium**. Await a new PASSKEY. No U06 implementation has begun.
 
 
 ## U06 — Completed October 15, 2026; Header Placement Supersedes Footer
 
-The user authorized U06 and moved the placeholder workspace switcher into the header, immediately left of the top-right controls, at 80% of their height. This supersedes all earlier footer-only instructions and illustrations; no footer space is reserved. U06 is complete in **0.4.1 + U06**: shared theme/header/assets, red → yellow → green decorative lamps, connection-light access and capability-gated settings. Verified 227 tests, 319 syntax checks, 20 focused/regression browser checks, original brand/Save geometry and 7 live-served assets. Credentials, Auto-Sync, NPCDex files, protected baseline and original ZIP remain preserved; no production YouTrack writes. [Completion report](U06-Completion-Report.md), [patch manifest](U06-Patch-Manifest.json). NPCDex is listed but disabled until U08 supplies its workspace. Next: **U07 — Relocate NPCDex Controls, Sol / Medium**, under a new PASSKEY.
+The user authorized U06 and moved the placeholder workspace switcher into the header, immediately left of the top-right controls, at 80% of their height. This supersedes all earlier footer-only instructions and illustrations; no footer space is reserved. U06 is complete in **0.4.1 + U06**: shared theme/header/assets, red → yellow → green decorative lamps, connection-light access and capability-gated settings. Verified 227 tests, 319 syntax checks, 20 focused/regression browser checks, original brand/Save geometry and 7 live-served assets. Credentials, Auto-Sync, NPCDex files, protected baseline and original ZIP remain preserved; no production YouTrack writes. [Completion report](Documentation/History/U06/U06-Completion-Report.md), [patch manifest](Documentation/History/U06/U06-Patch-Manifest.json). NPCDex is listed but disabled until U08 supplies its workspace. Next: **U07 — Relocate NPCDex Controls, Sol / Medium**, under a new PASSKEY.
 
 
 
 ## U07 — Completed October 15, 2026; File Drop Scheduled
 
-U07's PASSKEY authorized NPCDex control relocation. Flags & Notes is above Tray 1 selectors; Male/Female is immediately left of the Inventory cog in Tray 2; Data opens from Inventory Settings. The working source is **outputs/NPCDex**, staged for U08 integration. All 12 focused browser/preservation checks and 8 syntax checks passed; original Downloads files, current saved export and ROMDex credentials/installation remain unchanged. Current saved revision 72 was used only in isolated before/after QA; the packaged dataset remains untouched. [Report](U07-Completion-Report.md).
+U07's PASSKEY authorized NPCDex control relocation. Flags & Notes is above Tray 1 selectors; Male/Female is immediately left of the Inventory cog in Tray 2; Data opens from Inventory Settings. The working source is **outputs/NPCDex**, staged for U08 integration. All 12 focused browser/preservation checks and 8 syntax checks passed; original Downloads files, current saved export and ROMDex credentials/installation remain unchanged. Current saved revision 72 was used only in isolated before/after QA; the packaged dataset remains untouched. [Report](Documentation/History/U07/U07-Completion-Report.md).
 
-The user requested Explorer/desktop file drops onto tickets, permitting deferral to avoid duplication. Schedule **U10F — Desktop File Drop Attachments, Sol / High**, immediately after U10's native host/file adapters and before U11. Reuse existing attachment queue and validation; preserve hierarchy dragging. [Feature scope](Desktop-File-Drop-Attachments-Plan.md). Separate PASSKEY required.
+The user requested Explorer/desktop file drops onto tickets, permitting deferral to avoid duplication. Schedule **U10F — Desktop File Drop Attachments, Sol / High**, immediately after U10's native host/file adapters and before U11. Reuse existing attachment queue and validation; preserve hierarchy dragging. [Feature scope](Documentation/History/Earlier-Plans-and-Releases/Desktop-File-Drop-Attachments-Plan.md). Separate PASSKEY required.
 
 Next: **U08 — Tool Switching and Preserved Workspace Context, Sol / High**, awaiting its own PASSKEY.
 
@@ -348,14 +422,14 @@ Next: **U08 — Tool Switching and Preserved Workspace Context, Sol / High**, aw
 
 The authorized task connected ROMDex and NPCDex through the red header menu. Separate retained documents preserve scopes, filters, scroll, checkbox selection, pane layout, cursor positions, unfinished text and open modal forms. Workspace switches do not commit drafts. NPCDex's embedded first-launch baseline exactly matches the current saved revision 72; the old standalone database, Downloads package and exported save remain preserved. A distinct integrated NPCDex browser database avoids silently adopting an unrelated old-origin save.
 
-The user launched **outputs/ROMDex-v0.4.2/ROMDex** and live GET-only verification confirmed version/build/installation identity, remembered YouTrack connection, unchanged credential ciphertext and 38 served assets. Passed 227 automated tests, 15 browser checks, 57 syntax checks, real-service content-policy/failure/retry/image-import checks and 84 package hashes. [Completion report](U08-Completion-Report.md), [live record](U08-Live-Verification.json).
+The user launched **outputs/ROMDex-v0.4.2/ROMDex** and live GET-only verification confirmed version/build/installation identity, remembered YouTrack connection, unchanged credential ciphertext and 38 served assets. Passed 227 automated tests, 15 browser checks, 57 syntax checks, real-service content-policy/failure/retry/image-import checks and 84 package hashes. [Completion report](Documentation/History/U08/U08-Completion-Report.md), [live record](Documentation/History/U08/U08-Live-Verification.json).
 
 The header temporarily forwards existing manual save actions; NPCDex remains manual/local and its cloud connection is not claimed. U09 supplies the formal shared durable/headless coordinator. **Next: U09 — Shared Save and Auto-Sync Coordination, Sol / High**, under a new PASSKEY. U10F file-drop attachments remains after U10, before U11.
 
 
 ## H01 — Header Correction, October 15, 2026
 
-The user directly requested removing the application header cog, documenting its commands for later placement, and correcting the connection light. Implemented in **0.4.2 + H01**: no cog/menu or reserved space, Save/connection shifted right 36 px, actual light/ring centered by eliminating a 3.25 px text-baseline displacement. Six focused browser checks passed; changed assets were verified from the running service. Refresh only; no restart or token entry. [Report](Header-Correction-Report.md), [command inventory](Deferred-Application-Commands.md), [patch overlay](Header-Correction-Patch-Manifest.json).
+The user directly requested removing the application header cog, documenting its commands for later placement, and correcting the connection light. Implemented in **0.4.2 + H01**: no cog/menu or reserved space, Save/connection shifted right 36 px, actual light/ring centered by eliminating a 3.25 px text-baseline displacement. Six focused browser checks passed; changed assets were verified from the running service. Refresh only; no restart or token entry. [Report](Documentation/History/Header-Correction/Header-Correction-Report.md), [command inventory](Documentation/Project/Deferred-Application-Commands.md), [patch overlay](Documentation/History/Header-Correction/Header-Correction-Patch-Manifest.json).
 
 This supersedes prior header-cog placement instructions. Connection Details remains on the light; no substitute home has been chosen for the other commands. **UX01 — Application Command Placement Review, Sol / Medium**, is pending before U11. U09 remains pending under a separate PASSKEY, Sol / High.
 
@@ -364,7 +438,7 @@ This supersedes prior header-cog placement instructions. Connection Details rema
 
 U09 was individually authorized and is complete. Shared Save coordinates both providers, coalesces repeated attempts and retains independent failure results; manual Save while Off leaves Auto-Sync Off. The shell owns one native engine/queue/clock. The engine and coordinator have injectable storage/runtime boundaries, with Node disk/restart tests preparing U10. NPCDex accepted edits/notes gain local recovery checkpoints, including while Auto-Sync is Off; export races preserve newer edits and mismatched copies remain available for review. Unapplied modal forms are not silently committed.
 
-Passed **237 automated tests, 14 focused browser checks, 63 syntax checks and 91 package integrity checks**. The user launched **outputs/ROMDex-v0.4.3/ROMDex**; live GET-only verification confirmed build/installation identity, 42 served assets, remembered connection, unchanged credential ciphertext and Auto-Sync. Protected baselines, prior installation/ZIPs and H01's header correction remain preserved. No production YouTrack writes were made by verification. [Completion report](U09-Completion-Report.md), [live evidence](U09-Live-Verification.json), [provider contract](U09-Engine-and-Provider-Contract.md).
+Passed **237 automated tests, 14 focused browser checks, 63 syntax checks and 91 package integrity checks**. The user launched **outputs/ROMDex-v0.4.3/ROMDex**; live GET-only verification confirmed build/installation identity, 42 served assets, remembered connection, unchanged credential ciphertext and Auto-Sync. Protected baselines, prior installation/ZIPs and H01's header correction remain preserved. No production YouTrack writes were made by verification. [Completion report](Documentation/History/U09/U09-Completion-Report.md), [live evidence](Documentation/History/U09/U09-Live-Verification.json), [provider contract](Documentation/History/U09/U09-Engine-and-Provider-Contract.md).
 
 **NPCDex remains local-only; cloud persistence is U14–U19.** U14 storage, U15 current-data import and U16–U17 durable two-way sync/conflicts precede U18–U19 metadata/shared cloud controls. Browser closure still stops the runtime; Electron and tray behavior remain U10/U11. U12 must migrate latest working data and recovery records, never replace them with an older embedded baseline.
 
@@ -373,9 +447,9 @@ Phase 1 is complete. **Next: U10 — Native Desktop Window and Local Service, So
 
 ## U10 — Completed October 15, 2026; Native Desktop Preview
 
-The task-specific PASSKEY authorized U10. **ROMDex 0.5.0-preview.10** now includes the Windows x64 Electron 44.7.2 runtime, a sandboxed custom-protocol window, finite validated bridge, utility-owned native queue/clock and durable stores, native attachment selection and NPCDex export adapters. Retained first-party documents preserve the existing editing/context interfaces inside the native window; the [host contract](U10-Host-and-Bridge-Contract.md) records this container choice. The desktop does not open the browser HTTP listener.
+The task-specific PASSKEY authorized U10. **ROMDex 0.5.0-preview.10** now includes the Windows x64 Electron 44.7.2 runtime, a sandboxed custom-protocol window, finite validated bridge, utility-owned native queue/clock and durable stores, native attachment selection and NPCDex export adapters. Retained first-party documents preserve the existing editing/context interfaces inside the native window; the [host contract](Documentation/History/U10/U10-Host-and-Bridge-Contract.md) records this container choice. The desktop does not open the browser HTTP listener.
 
-The user launched the packaged preview normally. A custom-protocol registration on the wrong Electron session was corrected before successful graphical acceptance. Passed **240 tests under bundled Node 24.21.0, seven service/restart checks, nine desktop-facade checks, 14 browser regressions, eleven actual Electron checks, 70 syntax checks and 174 delivery hashes**. Automatic native fixture updates arrived through the utility clock while NPCDex was active. Native NPCDex export/reload, shared manual Save while Off, sandbox/bridge restrictions and the existing header correction passed. [Completion report](U10-Completion-Report.md), [Windows evidence](U10-Windows-Verification.json), [preservation](U10-Preservation-Verification.json).
+The user launched the packaged preview normally. A custom-protocol registration on the wrong Electron session was corrected before successful graphical acceptance. Passed **240 tests under bundled Node 24.21.0, seven service/restart checks, nine desktop-facade checks, 14 browser regressions, eleven actual Electron checks, 70 syntax checks and 174 delivery hashes**. Automatic native fixture updates arrived through the utility clock while NPCDex was active. Native NPCDex export/reload, shared manual Save while Off, sandbox/bridge restrictions and the existing header correction passed. [Completion report](Documentation/History/U10/U10-Completion-Report.md), [Windows evidence](Documentation/History/U10/U10-Windows-Verification.json), [preservation](Documentation/History/U10/U10-Preservation-Verification.json).
 
 Delivery: **outputs/ROMDex-Desktop-U10/ROMDex.exe**. This is an independent development preview; continue using **0.4.3** for the live project until U12. No browser saves, remembered credentials or original NPCDex files were migrated/overwritten. The 91-file old installation/checkpoint, ZIP and credential ciphertext are verified unchanged. The fixture-only verification session made no production YouTrack writes. Normal preview data lives outside program files, under ROMDexDesktopData/preview-u10.
 
@@ -386,7 +460,7 @@ U10 is complete; tray lifecycle, profile locking and supervised recovery remain 
 
 The task-specific PASSKEY authorized desktop file drops. **0.5.0-preview.10f** highlights the pointed Work Pane row and attaches disk files through the isolated preload and existing native queue. The drop does not open Details, alter checkbox selection, or move tasks. Existing limits, paused/offline storage, cancellation, previews and duplicate-safe delivery remain in use. Unsupported/changed file batches add no partial attachments, and original source paths are not stored in outgoing ticket metadata.
 
-Passed **245 tests, nine UI scenarios, eight service/restart scenarios, eight actual Electron checks, 73 syntax checks and 178 delivery hashes**. File bytes survive source removal and reload/process restart. Internal bulk moves and parent/descendant relationships passed. The old U10 desktop, protected source, 0.4.3 web release/ZIP and credential ciphertext remain unchanged; verification made no production YouTrack writes. [Report](U10F-Completion-Report.md), [Windows evidence](U10F-Windows-Verification.json), [preservation](U10F-Preservation-Verification.json).
+Passed **245 tests, nine UI scenarios, eight service/restart scenarios, eight actual Electron checks, 73 syntax checks and 178 delivery hashes**. File bytes survive source removal and reload/process restart. Internal bulk moves and parent/descendant relationships passed. The old U10 desktop, protected source, 0.4.3 web release/ZIP and credential ciphertext remain unchanged; verification made no production YouTrack writes. [Report](Documentation/History/U10F/U10F-Completion-Report.md), [Windows evidence](Documentation/History/U10F/U10F-Windows-Verification.json), [preservation](Documentation/History/U10F/U10F-Preservation-Verification.json).
 
 The user explicitly confirms **the live web save is authoritative; the desktop baseline differs**. Preserve both. U12 must preview and migrate the latest web state, recovery records, queues/files and remembered connection; no packaged desktop baseline or QA fixture may replace it. No migration was performed in U10F. Continue using the live web release until that gate. Delivery: **outputs/ROMDex-Desktop-U10F/ROMDex.exe**; preview profile identity remains unchanged.
 
@@ -397,7 +471,7 @@ The user explicitly confirms **the live web save is authoritative; the desktop b
 
 **0.5.0-preview.11** implements the approved tray menu, close-to-tray/restoration, shared Save/Auto-Sync shortcuts, explicit local-checkpoint Quit, single-instance/profile ownership and bounded renderer/utility recovery. The original Pokédex SVG is now the window/tray/executable icon. The header is unchanged; updater controls remain U13B.
 
-Passed **258 automated tests, six service/restart scenarios, twelve desktop scenarios, 76 syntax checks and 184 delivery hashes**. Actual hidden incoming changes, a second launch, forced renderer/utility interruptions, pending-edit recovery, unfinished-comment protection and process exit were checked in isolated fixtures. The [report](U11-Completion-Report.md) and [desktop evidence](U11-Desktop-Verification.json) record harness limitations and the final resumed checks.
+Passed **258 automated tests, six service/restart scenarios, twelve desktop scenarios, 76 syntax checks and 184 delivery hashes**. Actual hidden incoming changes, a second launch, forced renderer/utility interruptions, pending-edit recovery, unfinished-comment protection and process exit were checked in isolated fixtures. The [report](Documentation/History/U11/U11-Completion-Report.md) and [desktop evidence](Documentation/History/U11/U11-Desktop-Verification.json) record harness limitations and the final resumed checks.
 
 The old U10F desktop, protected baseline, live web release/ZIP and credential ciphertext are unchanged. No migration or production writes occurred. **Continue live work in browser 0.4.3; its latest save remains authoritative.** The new preview does not replace it.
 
@@ -410,26 +484,26 @@ The user authorized U12 and reviewed/accepted the native migration preview. Desk
 
 The stable Windows-account profile is outside build folders at **%LOCALAPPDATA%/ROMDexDesktopData/thegobindsingh-PMON**. Original browser/package files and protected backups remain intact. The importer stages, hashes, reviews and atomically publishes the profile; missing established saves refuse baseline fallback. The remembered connection was converted through Windows protection to Electron safeStorage and verified after restart without token entry. Saved parent statuses and operation journal match their originals exactly.
 
-Passed **272 automated tests, 83 syntax checks, 194 delivered-file hashes**, genuine YouTrack reads matching all 309 task fields, exact whole-document NPCDex comparison, hidden automatic sync and a checkpointed relaunch from a separate build folder. ROMDex then returned to its normal delivery executable with verification endpoints closed. No synthetic production edits were made. [Report](U12-Completion-Report.md), [live/restart evidence](U12-Desktop-Verification.json), [preservation](U12-Preservation-Verification.json).
+Passed **272 automated tests, 83 syntax checks, 194 delivered-file hashes**, genuine YouTrack reads matching all 309 task fields, exact whole-document NPCDex comparison, hidden automatic sync and a checkpointed relaunch from a separate build folder. ROMDex then returned to its normal delivery executable with verification endpoints closed. No synthetic production edits were made. [Report](Documentation/History/U12/U12-Completion-Report.md), [live/restart evidence](Documentation/History/U12/U12-Desktop-Verification.json), [preservation](Documentation/History/U12/U12-Preservation-Verification.json).
 
 **Use the desktop for current work; the old browser service is stopped. NPCDex remains local-only until U14–U19.** Installer upgrade/uninstall behavior remains U13A; update delivery U13B. **Next: U13A — Windows Installer and Upgrade/Uninstall Preservation, Sol / Medium**, requiring a new PASSKEY. No U13A implementation has begun.
 
 
 ## U13A — Completed October 15, 2026
 
-ROMDex **0.5.2** is installed and running normally with current data, the remembered connection and diagnostic ports closed. Saves are inside the application Data folder and retained on uninstall, superseding the earlier external-profile/Squirrel design. Current data: **299 tasks, 104 order entries, no pending work, NPCDex revision 72**; exact original NPCDex/order/images/credential preservation and genuine YouTrack field equality verified. Passed **287 tests, 89 syntax checks, 200 final application hashes**, real Windows encryption migration, isolated MSI install/upgrade/uninstall/reinstall and current-data/normal relaunch checks. Original U12 delivery and source data remain preserved. [Completion report](U13A-Completion-Report.md), [desktop evidence](U13A-Desktop-Verification.json).
+ROMDex **0.5.2** is installed and running normally with current data, the remembered connection and diagnostic ports closed. Saves are inside the application Data folder and retained on uninstall, superseding the earlier external-profile/Squirrel design. Current data: **299 tasks, 104 order entries, no pending work, NPCDex revision 72**; exact original NPCDex/order/images/credential preservation and genuine YouTrack field equality verified. Passed **287 tests, 89 syntax checks, 200 final application hashes**, real Windows encryption migration, isolated MSI install/upgrade/uninstall/reinstall and current-data/normal relaunch checks. Original U12 delivery and source data remain preserved. [Completion report](Documentation/History/U13A/U13A-Completion-Report.md), [desktop evidence](Documentation/History/U13A/U13A-Desktop-Verification.json).
 
 Private delivery remains unprovisioned: YouTrack upload settings returned HTTP 404 and server capacity is unverified; no upload or global-limit change occurred. **Next: U13B — Approved Update Notifications and Installation, Sol / High**, under a new PASSKEY. NPCDex cloud remains U14–U19.
 
 
 ## U13B — Completed October 15, 2026
 
-Installed ROMDex **0.5.3** adds approved private signed updates, separate download/install consent and a checkpointed Windows handoff. Private GenericCola/ROMDex now hosts organized source/history/deferred work and the verified installer. Passed **305 tests, 98 syntax checks, 214 installed hashes**, genuine isolated upgrade/reopen/uninstall, exact 96-file live Data preservation, genuine YouTrack equality, read-only private update access and normal automatic-sync relaunch with diagnostics closed. Current saves remain **299 tasks, 104 order entries, no pending work, NPCDex revision 72**. Credentials/private signing keys/live Data are excluded from Git. [Completion report](U13B-Completion-Report.md), [evidence](U13B-Desktop-Verification.json). NPCDex cloud remains U14–U19. **Next: U14 — Private YouTrack Storage and Access Rules, Sol / High**, requiring a new PASSKEY. No U14 work was performed.
+Installed ROMDex **0.5.3** adds approved private signed updates, separate download/install consent and a checkpointed Windows handoff. Private GenericCola/ROMDex now hosts organized source/history/deferred work and the verified installer. Passed **305 tests, 98 syntax checks, 214 installed hashes**, genuine isolated upgrade/reopen/uninstall, exact 96-file live Data preservation, genuine YouTrack equality, read-only private update access and normal automatic-sync relaunch with diagnostics closed. Current saves remain **299 tasks, 104 order entries, no pending work, NPCDex revision 72**. Credentials/private signing keys/live Data are excluded from Git. [Completion report](Documentation/History/U13B/U13B-Completion-Report.md), [evidence](Documentation/History/U13B/U13B-Desktop-Verification.json). NPCDex cloud remains U14–U19. **Next: U14 — Private YouTrack Storage and Access Rules, Sol / High**, requiring a new PASSKEY. No U14 work was performed.
 
 
 ## U14 Completed — Private GitHub Saves and YouTrack Agent Handoffs
 
-The user approved the hybrid provider revision: separate private GenericCola/ROMDex-Data for saves/assets/history and ROMDex metadata; YouTrack retains native tasks and every agent-required handoff dependency/receipt. Provisioned stable workspace identity with Actions disabled and no new collaborators. Passed nine focused tests, six live transport checks, anonymous/authenticated-unapproved access checks, separately scoped save-token write validation and protected restore in another Windows process. Both prior credentials and all 214 installed files remain unchanged. No real saves were uploaded and application cloud sync is not implemented. [Report](U14-Completion-Report.md), [evidence](U14-Storage-Verification.json). **Next: U15 — Previewed NPCDex Cloud Import, Sol / High**, requiring a new PASSKEY and preview acceptance before migration.
+The user approved the hybrid provider revision: separate private GenericCola/ROMDex-Data for saves/assets/history and ROMDex metadata; YouTrack retains native tasks and every agent-required handoff dependency/receipt. Provisioned stable workspace identity with Actions disabled and no new collaborators. Passed nine focused tests, six live transport checks, anonymous/authenticated-unapproved access checks, separately scoped save-token write validation and protected restore in another Windows process. Both prior credentials and all 214 installed files remain unchanged. No real saves were uploaded and application cloud sync is not implemented. [Report](Documentation/History/U14/U14-Completion-Report.md), [evidence](Documentation/History/U14/U14-Storage-Verification.json). **Next: U15 — Previewed NPCDex Cloud Import, Sol / High**, requiring a new PASSKEY and preview acceptance before migration.
 
 
 ## U15 — Import Acceptance Checklist
@@ -522,7 +596,7 @@ U20A is complete. The user approved the contracts and then separately authorized
 - [x] Prove actual attachment bytes/author/access, cross-project references, pagination/concurrent publication, uncertain-response recovery and complete dependent groups; clean up all four marked issues.
 - [x] Record the demonstrated carrier/limits/access boundary, check off U20B and stop before U20C (new PASSKEY required). No backend substitution or additional design change was needed; actual agent grants remain U23, configured quota remains unknown.
 
-The [U20C1/U20C2 scheduling contingency](U20C1-Independent-Reader-Plan.md) was not adopted: the user reported that owner setup is underway. Continue the original U20B → U20C sequence; no independent-reader implementation began. A separate request authorizes packaging the existing installer and documentation for owner review while setup proceeds.
+The [U20C1/U20C2 scheduling contingency](Documentation/History/U20C1/U20C1-Independent-Reader-Plan.md) was not adopted: the user reported that owner setup is underway. Continue the original U20B → U20C sequence; no independent-reader implementation began. A separate request authorizes packaging the existing installer and documentation for owner review while setup proceeds.
 
 
 ## U20C — Reader and Cache Checklist
@@ -535,7 +609,7 @@ The [U20C1/U20C2 scheduling contingency](U20C1-Independent-Reader-Plan.md) was n
 - [x] Delete only marked fixtures, preserve credentials/installed app and archive source/evidence.
 - [x] Stop before U20D; request its separate PASSKEY.
 
-**U20C is complete** after isolated dynamic reader/cache/projection implementation, 467 tests and live YouTrack attachment/restart/cleanup proof. [Report and limits](U20C-Completion-Report.md). Installed 0.5.7 and the existing GitHub-backed NPCDex remain authoritative. **Next: U20D — Backend Planning and Documentation Corrections, Sol / High; new PASSKEY required.**
+**U20C is complete** after isolated dynamic reader/cache/projection implementation, 467 tests and live YouTrack attachment/restart/cleanup proof. [Report and limits](Documentation/History/U20C/U20C-Completion-Report.md). Installed 0.5.7 and the existing GitHub-backed NPCDex remain authoritative. **Next: U20D — Backend Planning and Documentation Corrections, Sol / High; new PASSKEY required.**
 
 
 ## U20D — Planning and Correction Checklist
@@ -548,7 +622,7 @@ The [U20C1/U20C2 scheduling contingency](U20C1-Independent-Reader-Plan.md) was n
 - [x] Complete real Windows/YouTrack verification and remove only marked fixtures.
 - [x] Preserve credentials/installed app, archive source/evidence and stop before U20E.
 
-**U20E is complete.** ROMDex 0.5.8 is installed with the verified NPCD content provider. All 211 records, the original export and reconstructed frontend passed live readback; saved connections and recovery copies are preserved. [Completion report](U20E-Completion-Report.md). **Next: U20F — Content Backend Acceptance and Private Release, Sol / High.**
+**U20E is complete.** ROMDex 0.5.8 is installed with the verified NPCD content provider. All 211 records, the original export and reconstructed frontend passed live readback; saved connections and recovery copies are preserved. [Completion report](Documentation/History/U20E/U20E-Completion-Report.md). **Next: U20F — Content Backend Acceptance and Private Release, Sol / High.**
 
 
 ## U20E — Migration Preparation and Acceptance
@@ -556,18 +630,18 @@ The [U20C1/U20C2 scheduling contingency](U20C1-Independent-Reader-Plan.md) was n
 - [x] Read-only latest local/cloud capture; preserve credentials and originals.
 - [x] Full-size local reconstruction/retention and bounded-read improvements; 517 tests passed.
 - [x] Map all 870 identities, 44 plans and 85 annotations; verify exact original/frontend preservation.
-- [x] Prepare the [migration preview, backup policy and rollback procedure](U20E-Migration-Preview.md).
+- [x] Prepare the [migration preview, backup policy and rollback procedure](Documentation/History/U20E/U20E-Migration-Preview.md).
 - [x] Obtain the required migration-preview acceptance; recheck source freshness.
 - [x] Publish/read back the accepted dataset, prove actual YouTrack latency and perform a verified single-provider handoff.
 - [x] Complete U20E documentation/checkpoint and stop before U20F.
 
 ## U20F — Complete
 
-All acceptance gates passed: 540 regression tests, 10 final rechecks, actual Windows/YouTrack recovery and native review, complete Data restoration, packaged source/installer checks, private release and installed handoff. All three credentials were retained without token entry. [Completion report](U20F-Completion-Report.md). U21 remains unchecked and separately gated.
+All acceptance gates passed: 540 regression tests, 10 final rechecks, actual Windows/YouTrack recovery and native review, complete Data restoration, packaged source/installer checks, private release and installed handoff. All three credentials were retained without token entry. [Completion report](Documentation/History/U20F/U20F-Completion-Report.md). U21 remains unchecked and separately gated.
 
 ## U20G — Complete
 
-The corrective release passed its regression, focused, native visual, runtime, backup/restoration and installed handoff checks. [Completion report](U20G-Completion-Report.md). U21 remains unchecked and requires a new PASSKEY.
+The corrective release passed its regression, focused, native visual, runtime, backup/restoration and installed handoff checks. [Completion report](Documentation/History/U20G/U20G-Completion-Report.md). U21 remains unchecked and requires a new PASSKEY.
 
 ## RD01 and RD02 Completed — October 18, 2026
 
@@ -619,8 +693,8 @@ Next: **RD06 — ROMDex Plan Import and Destination Mapping, Sol / High**, with 
 - [x] Added explicit PMON placement, tier rebasing, typed field/value mapping, provenance-preserving comments and exact attachment staging.
 - [x] Retained omissions; reviewed explicit deletion targets/children and overlapping native edits. New siblings use local order metadata.
 - [x] Committed local bindings and queue actions atomically, retained partial progress and reused recovery identities after lost responses.
-- [x] Passed 142 distinct relevant checks, 30 plan checks in bundled Electron Node mode, seven isolated UI checks and an actual desktop-service smoke check. [Evidence](RD06-Verification.json).
-- [x] Kept installed 0.5.14, current production maps, live queues, credentials and YouTrack unchanged. [Completion report](RD06-Completion-Report.md).
+- [x] Passed 142 distinct relevant checks, 30 plan checks in bundled Electron Node mode, seven isolated UI checks and an actual desktop-service smoke check. [Evidence](Documentation/History/RD06/RD06-Verification.json).
+- [x] Kept installed 0.5.14, current production maps, live queues, credentials and YouTrack unchanged. [Completion report](Documentation/History/RD06/RD06-Completion-Report.md).
 
 Next: **RD07 — Document Bindings and Bidirectional Cloud Sync, Sol / High**, with a new PASSKEY. Automatic native-change pullback/shared bindings and the real isolated two-way proof remain RD07; fresh production adoption remains RD10.
 
@@ -630,15 +704,15 @@ Next: **RD07 — Document Bindings and Bidirectional Cloud Sync, Sol / High**, w
 - [x] Fold accepted native changes into managed map/plan files, preserving local drafts, exact files, history and review/testing boundaries.
 - [x] Support explicit PMON task matching on another instance; verify existing comment/file evidence and avoid duplicate posts.
 - [x] Preserve shared Save/Auto-Sync Off behavior and expose native/branch conflicts plus bounded recovery. Cache verified manifests/files; stop unchanged-conflict and no-progress loops.
-- [x] Pass 25 new checks in bundled Electron, affected source regressions/focused repairs, shared-status checks, nine map UI checks, eight plan UI checks and the desktop-service smoke check. [Evidence](RD07-Verification.json).
+- [x] Pass 25 new checks in bundled Electron, affected source regressions/focused repairs, shared-status checks, nine map UI checks, eight plan UI checks and the desktop-service smoke check. [Evidence](Documentation/History/RD07/RD07-Verification.json).
 - [x] Pass the real backend criterion with a unique fictional map: eleven private NPCD records, local note publication, reviewed native title change, exact image bytes, reopen/export and second-instance readback. Final-source live delta/readback also passed.
-- [x] Preserve installed 0.5.14, current production maps/tasks, Data/queues and all remembered connections. Keep the portable fictional test file and clearly identify retained private QA records. [Report](RD07-Completion-Report.md).
+- [x] Preserve installed 0.5.14, current production maps/tasks, Data/queues and all remembered connections. Keep the portable fictional test file and clearly identify retained private QA records. [Report](Documentation/History/RD07/RD07-Completion-Report.md).
 
 Next: **RD08 — Windows RDX File Integration, Sol / Medium**, under a new PASSKEY. Current-map adoption remains RD10 after a fresh accepted preview that preserves the original NPCD issue identities.
 
 ## RI02C — Completed in Source, October 20, 2026
 
-The supplied ROM directly produced one Violet City RDX with eight areas, 50 placed objects, 329 exact source texts and 354 sprite images. Local changes and a reviewed native YouTrack correction survived portable export/recovery with stable identities and human-testing obligations. The cold-import proof exposed and corrected redundant delivery reads and stale recovered-connection status; 56 distinct focused tests passed, including targeted rechecks after correcting a legacy-slot regression and the recovery status, and 17 syntax checks passed. All 135 ownership-verified temporary issues were removed. No production install, reset or queue resumption occurred. [Report](RI02C-Completion-Report.md). **Next: RI03A, Sol / High, under a separate PASSKEY.**
+The supplied ROM directly produced one Violet City RDX with eight areas, 50 placed objects, 329 exact source texts and 354 sprite images. Local changes and a reviewed native YouTrack correction survived portable export/recovery with stable identities and human-testing obligations. The cold-import proof exposed and corrected redundant delivery reads and stale recovered-connection status; 56 distinct focused tests passed, including targeted rechecks after correcting a legacy-slot regression and the recovery status, and 17 syntax checks passed. All 135 ownership-verified temporary issues were removed. No production install, reset or queue resumption occurred. [Report](Documentation/History/RI02C/RI02C-Completion-Report.md). **Next: RI03A, Sol / High, under a separate PASSKEY.**
 
 ## RI03A — Design Approved, October 20, 2026
 
@@ -647,7 +721,7 @@ The supplied ROM directly produced one Violet City RDX with eight areas, 50 plac
 - [x] Added separately gated RI03P cloud-delivery performance between RI03B and RI03C.
 - [x] Marked RI03A complete after the user selected “Approve RI03A Design.”
 
-**Next: RI03B — Implement the offline MAPDex workspace, Sol / High; new PASSKEY required.** [Completion report](RI03A-Completion-Report.md).
+**Next: RI03B — Implement the offline MAPDex workspace, Sol / High; new PASSKEY required.** [Completion report](Documentation/History/RI03A/RI03A-Completion-Report.md).
 
 ## RI03B — MAPDex Complete in Source, October 20, 2026
 
@@ -670,7 +744,7 @@ The supplied ROM directly produced one Violet City RDX with eight areas, 50 plac
 - [x] Verified all 135 temporary test records absent; preserved the installed app, production Data, queued work, remembered connections and NPCDex sync pause.
 - [x] Backed up reviewed source, evidence and documentation to the private ROMDex repository.
 
-**Next: RI03C — Broader MAPDex Acceptance, Sol / High; new PASSKEY required.** See the [completion report](RI03P-Completion-Report.md).
+**Historical next step at RI03P completion:** RI03C. The October 21 corrective sequence at the top now takes precedence; MX01 is next. See the [completion report](Documentation/History/RI03P/RI03P-Completion-Report.md).
 
 ## Operational Update — Clean NPCDex RDX Test Preparation, October 20, 2026
 
@@ -680,7 +754,7 @@ The supplied ROM directly produced one Violet City RDX with eight areas, 50 plac
 - [x] Preserve compressed recovery copies and collect obsolete files into one manual-delete folder.
 - [ ] User acceptance: import a map RDX, edit locally, verify the NPCD tree, accept a YouTrack edit back into the managed/exported RDX; then test MAPDex extraction and another map after packaged acceptance.
 
-[Reset and cleanup report](NPCDex-Clean-RDX-Test-Preparation.md). **Next gated development task remains RI03C — Sol / High.**
+[Reset and cleanup report](Documentation/History/NPCDex-Reset/NPCDex-Clean-RDX-Test-Preparation.md). Historical scheduling here is superseded by the October 21 phases 11A–11F; MX01 is the next proposed gated task.
 
 ## MAPDex 0.5.16 Evaluation Delivery — October 20, 2026
 
@@ -691,7 +765,7 @@ The supplied ROM directly produced one Violet City RDX with eight areas, 50 plac
 - [x] Keep the current installer/recovery ZIPs; collect another 782 MB of obsolete build/test files for manual deletion.
 - [ ] Complete the user's live RDX/NPCD round trip and broader RI03C coverage, including another supported map.
 
-**Historical 0.5.16 scope:** Violet City's eight areas were then verified. The 0.5.18 correction below adds the complete catalog and independent New Bark Town/Route 29 proofs; broader RI03C still remains open. [Delivery report](MAPDex-0.5.16-Delivery-Report.md).
+**Historical 0.5.16 scope:** Violet City's eight areas were then verified. The 0.5.18 correction below adds the complete catalog and independent New Bark Town/Route 29 proofs; broader RI03C still remains open. [Delivery report](Documentation/History/MAPDex-0.5.16/MAPDex-0.5.16-Delivery-Report.md).
 
 ## MAPDex 0.5.18 — Loading and City Restriction Correction, October 20, 2026
 
@@ -706,7 +780,7 @@ The supplied ROM directly produced one Violet City RDX with eight areas, 50 plac
 - [ ] RI03C: validate additional ROM revisions and game-family readers, with explicit compatibility reporting; universal Pokémon ROM support remains unimplemented.
 - [ ] Complete the user's real NPCDex/NPCD edit-and-return acceptance. No production map was imported by this correction.
 
-[Completion report](MAPDex-0.5.18-Completion-Report.md). Broader RI03C remains open.
+[Completion report](Documentation/History/MAPDex-0.5.18/MAPDex-0.5.18-Completion-Report.md). Broader RI03C remains open.
 
 ## MAPDex 0.5.19 — Readable Single-Map Contents, October 20, 2026
 
@@ -718,7 +792,7 @@ The supplied ROM directly produced one Violet City RDX with eight areas, 50 plac
 - [x] Back up/restore current Data, preserve connections and current preparation, install and verify 0.5.19.
 - [x] Collect another 784 MB of obsolete installer/build/test files for manual deletion; retain the current installer and compressed recovery copies.
 
-[Completion report](MAPDex-0.5.19-Completion-Report.md). Broader RI03C and the live NPCD round trip remain open.
+[Completion report](Documentation/History/MAPDex-0.5.19/MAPDex-0.5.19-Completion-Report.md). Broader RI03C and the live NPCD round trip remain open.
 
 
 ## MAPDex Follow-up — Editable Map Groups
@@ -729,7 +803,7 @@ The supplied ROM directly produced one Violet City RDX with eight areas, 50 plac
 - [x] Scope **Zone/Sub-zone Location Previews** alongside grouping: prove actual ROM-derived location rendering, then show a recognizable area image with entrances and NPC/interaction markers. A parent zone lists its child floors/areas; selecting one shows that specific location, and a marker opens its entity. Keep source IDs secondary. Carry approved preview images in the portable map RDX so NPCDex and another installation can display them without the original ROM. Verify render/extraction feasibility and licensing before selecting dependencies; do not substitute a fabricated image or claim this renderer already exists.
 - [ ] Complete the live NPCD tier Type mapping separately: current publisher links parents/children but does not assign Epic/Saga/Story/Verse, and NPCD currently offers Milestone/Task/Subtask. Do not report tier mapping complete.
 
-The parent/child grouping task is complete in installed 0.5.21. Entry point: select a map → map tile Settings → Assign to Parent → review → apply → Prepare Map. Independently saved child datasets/published maps remain protected for explicit migration review. Location preview implementation is split into LP01 rendering proof → LP02 contextual/portable previews → LP03 native acceptance; each requires a later PASSKEY. See [preview scope](MAPDex-Location-Preview-Scope.md).
+The parent/child grouping task is complete in installed 0.5.21. Entry point: select a map → map tile Settings → Assign to Parent → review → apply → Prepare Map. Independently saved child datasets/published maps remain protected for explicit migration review. Location preview implementation is split into LP01 rendering proof → LP02 contextual/portable previews → LP03 native acceptance; each requires a later PASSKEY. See [preview scope](Documentation/Project/MAPDex-Location-Preview-Scope.md).
 
 
 ## MAPDex 0.5.20 — Entity Labels and Front-Sprite Correction
@@ -740,7 +814,7 @@ The parent/child grouping task is complete in installed 0.5.21. Entry point: sel
 - [x] Pass 27 focused checks and three actual-ROM UI/export checks.
 - [x] Verify the Windows package/installer; back up and restore current Data, install 0.5.20 and verify the saved preparation/connections.
 
-[Correction report](MAPDex-0.5.20-Completion-Report.md). Editable parent/child map groups are the next MAPDex task; broader RI03C and the live NPCD round trip remain open.
+[Correction report](Documentation/History/MAPDex-0.5.20/MAPDex-0.5.20-Completion-Report.md). Editable parent/child map groups are the next MAPDex task; broader RI03C and the live NPCD round trip remain open.
 
 
 ## MAPDex 0.5.21 — Completed Parent/Child Grouping Update
@@ -753,7 +827,7 @@ The parent/child grouping task is complete in installed 0.5.21. Entry point: sel
 - [x] Complete Windows package checks, fresh complete Data backup/restoration, credential preservation and installed 0.5.21 verification.
 
 
-[Completion and limits](MAPDex-0.5.21-Completion-Report.md). The installed build is 0.5.21. Independent-map migration and the user’s production NPCDex/YouTrack round trip remain open.
+[Completion and limits](Documentation/History/MAPDex-0.5.21/MAPDex-0.5.21-Completion-Report.md). The installed build is 0.5.21. Independent-map migration and the user’s production NPCDex/YouTrack round trip remain open.
 
 ## Required Follow-up — RI03U: Update an Existing Map from a New ROM Version
 
@@ -762,7 +836,7 @@ The parent/child grouping task is complete in installed 0.5.21. Entry point: sel
 - [x] Handle added/removed/moved entities and changed scripts/source locators without conflating unrelated same-name maps. Keep both ROM-version provenance and current source evidence in the RDX. Preserve newer proposals and mandatory human testing.
 - [x] Verify implementation using the available 0.6.3 ROM plus clearly labeled controlled cross-build cases, isolated backend/RDX recovery, changed UI and native installer checks. The user approved this verification scope and confirmed no updated ROM exists yet.
 - [ ] **Deferred real-build acceptance:** when a second actual supported ROM revision exists, prepare/publish the earlier map, retain user planning, re-extract the changed ROM, review updates into the same map, publish/recover, and verify one backend tree and an updated portable RDX. Controlled fixtures do not complete this item; its absence need not block implementation/installer delivery.
-- [x] Deliver documentation and verified installed 0.5.23 under the existing October 20 RI03U PASSKEY, including the requested repeated Connection Details correction. [Completion report](RI03U-Completion-Report.md). Broader compatibility and the production round trip remain separate acceptance items.
+- [x] Deliver documentation and verified installed 0.5.23 under the existing October 20 RI03U PASSKEY, including the requested repeated Connection Details correction. [Completion report](Documentation/History/RI03U/RI03U-Completion-Report.md). Broader compatibility and the production round trip remain separate acceptance items.
 
 
 ## MAPDex 0.5.22 — Map-Tile Cog Placement Correction
@@ -772,26 +846,102 @@ The parent/child grouping task is complete in installed 0.5.21. Entry point: sel
 - [x] Pass three focused browser checks, four native packaged checks and MSI validation; reuse unchanged grouping/backend evidence by hash.
 - [x] Verify a fresh complete Data backup/restoration and all remembered credentials, install 0.5.22, and verify the reopened app.
 
-[Correction report](MAPDex-0.5.22-Completion-Report.md). RI03U implementation is delivered in 0.5.23; its actual two-build acceptance remains deferred.
+[Correction report](Documentation/History/MAPDex-0.5.22/MAPDex-0.5.22-Completion-Report.md). RI03U implementation is delivered in 0.5.23; its actual two-build acceptance remains deferred.
 
 
 ## MAPDex 0.5.24 — Preparation Feedback and Character Identity
 
-Delivered in 0.5.25 after the saved-map startup correction. [Completion report](MAPDex-0.5.25-Completion-Report.md).
+Delivered in 0.5.25 after the saved-map startup correction. [Completion report](Documentation/History/MAPDex-0.5.24/MAPDex-0.5.25-Completion-Report.md).
 
 - [x] Make source sprite selection preview immediately, with Apply Thumbnail / Save Changes committing the choice and clear local-save feedback.
 - [x] Link confirmed character placements in MAPDex or NPCDex into one tile while retaining source records, dialogue, images, annotations, hierarchy and history.
 - [x] Correct generated HGSS region labels to Johto/Kanto without changing identities or custom labels.
 - [x] Replace generated raw scene-variable names with source-linked scene descriptions, Roman numeral display and expandable dialogue/actions/technical evidence; preserve custom stage names/order.
 - [x] Verify real New Bark Town/Marill UI, focused preservation/regression checks, native handoff/restart and installer; back up/restore complete Data and remembered credentials before installation. Cold saved-data startup passed in final 0.5.25.
-- [ ] **Broader RI03C acceptance remains open:** establish useful per-map narrative phases and condition-aware availability from the ROM's script transitions, with independent/reversible conditions and uncertain chronology represented honestly. Source scene descriptions are useful evidence, not proof of a complete story timeline; no fixed global timeline or runtime AI is introduced.
+- [ ] **Acceptance revised October 21:** MX01–MX03 and RI03C must prove the map-specific event-condition/effect view, with exact local prerequisites and affected content. Route 29 and New Bark Town are independent; a shared storyline or scene-excerpt list does not satisfy the Timeline requirement.
 
 
 ## Form Spacing Correction — 0.5.26
 
-The owner requested this focused correction before evaluating a broader MAPDex overhaul. [Source report](UI-Spacing-0.5.26-Source-Report.md).
+The owner requested this focused correction before evaluating a broader MAPDex overhaul. [Source report](Documentation/History/UI-Spacing-0.5.26/UI-Spacing-Source-Report.md).
 
 - [x] Restore checkbox/text gaps and separate character-link/thumbnail actions from nearby controls.
 - [x] Apply consistent form-action padding/gaps in MAPDex, ROMDex dialogs, NPCDex native dialogs and Updates; review narrow layouts and preserve header geometry.
 - [x] Validate the packaged correction and installer, back up/restore complete Data and remembered credentials, install and verify the reopened workspace.
-- [ ] Evaluate MAPDex's broader layout with the owner before scoping an overhaul.
+- [x] Complete MX01’s concrete condition/UI contract review before implementing the scoped overhaul. Owner approval recorded October 21; retain installed spacing corrections and all existing data.
+
+
+## Phase 11D — Completed October 21, 2026 in Source/Candidate
+
+MX05, MX06 and MX07 completed in order under the Phase 11D PASSKEY. [Completion report](Documentation/Project/Phase-11D-Completion-Report.md). Installed 0.5.26 and production data/connections remain unchanged. Large-map latency remains an explicit U28/U29 acceptance item. Phase 11E subsequently completed under its own authorization; next is RI03C, requiring a new PASSKEY.
+
+
+### Phase 11E completion — October 21, 2026
+
+MX08 → MX09 completed in order, including the owner-approved exact prose result. [Completion report](Documentation/Project/Phase-11E-Completion-Report.md). Source/candidate only; installed 0.5.26 unchanged. Stop before RI03C; it needs its own PASSKEY.
+
+
+### RI03C authorization — October 21, 2026
+
+The owner authorized RI03C / Phase 11F. Reuse valid 11A–11E evidence and verify remaining integrated supported-ROM and owner acceptance boundaries in isolated profiles. Installed 0.5.26, production Data, credentials and NPCDex cloud pause remain preserved. Stop before U28.
+
+
+### RI03C technical verification — owner review pending
+
+Fresh New Bark Town/Route 29 preparation, automatic location images, portable artifact recovery and final packaged UI checks are complete. Candidate 0.5.26-11f.2 includes targeted empty-filter, read-only-dialog and material-label fixes. [Acceptance review](Documentation/Project/RI03C-Acceptance-Review.md). Keep RI03C open until owner review is recorded; stop before U28. Installed 0.5.26 and live Data remain unchanged.
+
+
+### RI03C owner review — corrective pass (October 21)
+
+The owner found 14 issues in the isolated candidate. RI03C is not accepted. Address these in the supplied order, preserve current data/identities, and stop before U28. The latest owner layout/menu direction supersedes MX01 inline/stacked choices where they conflict.
+
+- [x] **RI03C-C01:** Close the Tray 3 scrolling gap between the heading and location name.
+- [x] **RI03C-C02:** Fill tile image panes and exclude transparent/empty margins and generated room mattes without changing original image bytes.
+- [x] **RI03C-C03:** Use map-specific named events, Roman labels and one light per affected item; preserve exact raw checks in the inspector.
+- [x] **RI03C-C04:** Place Tray 3 hover/focus cog in its padded top-right corner; use a menu and reviewed pop-up editor behavior.
+- [x] **RI03C-C05:** Make location crop percentages visibly preview and persist the requested crop.
+- [x] **RI03C-C06:** Render contained locations/entities as suite tiles rather than a button list.
+- [x] **RI03C-C07:** Associate supported step/scene dialogue with the related characters, retaining exact source roots and uncertainty.
+- [x] **RI03C-C08:** Provide a clear Back action from entity dialogue to the containing entity list.
+- [x] **RI03C-C09:** Match NPCDex navigation/layout: left map/expandable zones, Tray 2 entities, Tray 3 dialogue; only prepared maps expand/show images. Keep saved/paused status compact and entity tiles discoverable in short windows. Keep saved/paused status compact and entity tiles discoverable in short windows.
+- [x] **RI03C-C10:** Keep same-speaker multipart dialogue scrollable; Next/Previous only change speakers in multi-speaker scenes.
+- [x] **RI03C-C11:** Add Update ROM next to Open ROM; reuse explicit project/build association and whole-map preservation/review.
+- [x] **RI03C-C12:** Add drag-and-drop map ordering and collapsible local folders in both workspaces, outside YouTrack/content data.
+- [x] **RI03C-C13:** Correct padding/spacing in every map cog popup.
+- [x] **RI03C-C14:** Provide ergonomic multi-placement character linking, inspection and updates in both MAPDex and NPCDex.
+
+
+### RI03C corrective decisions — October 21, 2026
+
+Owner direction: use map-specific readable event entries (for example After Talking to Mom / After Receiving Your Starter), Roman labels and affected-item lights matching the archived web presentation; retain exact technical checks in the inspector. Tray cogs open popup menus/tools. MAPDex and NPCDex keep separate local folders/order, excluded from YouTrack and portable content. Supported source events link to characters without inventing ambiguous speaker identities.
+
+The 14 findings are implemented with focused source evidence and passing isolated native checks in 0.5.26-11f.8 plus final preserved-profile layout/image checks in 0.5.26-11f.10. Renewed owner review remains pending. Checked corrective items record implementation/verification, not acceptance of RI03C as a whole. RI03C is not accepted and U28 is not authorized. See [the corrected acceptance guide](Documentation/Project/RI03C-Acceptance-Review.md). Production installation and sync remain unchanged.
+
+
+### RI03C second owner review — tile restoration
+
+The owner rejected the prior visual treatment. The supplied October 14 screenshot and archived web NPCDex source are authoritative for card appearance. Complete these in the supplied order; RI03C remains open until renewed owner usability acceptance.
+
+- [x] Restore common web tile markup, original grid sizing, borders, colors and left-aligned labels in MAPDex/NPCDex.
+- [x] Fill map/location image panes, retain inactive-map thumbnails, and avoid generated empty preview corners without changing source images.
+- [x] Reuse the Tray 2 standard settings asset with centered 18px buttons / 12px icons.
+- [x] Fully contain NPC/element images within half the pane at the same scale in both workspaces.
+- [x] Remove the unrequested movement buttons from tiles; retain drag/drop organization.
+- [x] Restore web-style disclosure positioning, rotation and animated nested expansion; keep children outside the parent card.
+- [ ] Record owner acceptance of the latest corrective candidate below; the 11f.13 review was rejected.
+
+Evidence: [acceptance guide](Documentation/Project/RI03C-Acceptance-Review.md). Installed 0.5.26 and production data/sync policy remain unchanged; stop before U28.
+
+
+### RI03C third owner review — four corrections
+
+The owner rejected 11f.13. Complete these in the supplied order; their latest MAPDex two-tray direction supersedes the earlier MAPDex dialogue-tray/Back design. NPCDex retains its dialogue tray. RI03C remains unaccepted.
+
+- [x] **R3-01:** Fill map/location image frames, crop empty/black margins and letterboxing, preserve originals; verify real New Bark and Route 29 images.
+- [x] **R3-02:** Restore building → room/floor selectors; preserve physical identities, mappings, images, plans/notes and portable import/repreparation compatibility.
+- [x] **R3-03:** Remove MAPDex Tray 3, expand Tray 2, and retain identity/link/map setup/handoff/update tools in explicit popups or dialogs.
+- [x] **R3-04 source:** Restore the web timeline rules and controls with map-specific named events and affected-content lights; refresh lights when map/location scope changes.
+- [x] Finish packaged verification of all four corrections in 0.5.26-11f.20, including the real after-starter branch guard. All 198 compared timeline style values match the web reference; 103 targeted source cases pass.
+- [ ] Record renewed owner usability acceptance before marking RI03C complete.
+
+Evidence: [review guide](Documentation/Project/RI03C-Acceptance-Review.md). Production 0.5.26, Data, credentials and paused sync remain unchanged. Stop before U28.

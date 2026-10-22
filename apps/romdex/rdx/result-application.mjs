@@ -62,7 +62,7 @@ export class ResultApplication{
   const pub=seal({schema:'NPCDexPublication/1',workspaceId:entry.datasetId,operationId:intent.receipt.applicationId,publicationId:intent.receipt.applicationId,createdAt:intent.receipt.createdAt,actorClaim:'content:rdx-reconciler',kind:'implementation',parentPublications:[local.document.revision],artifactDigests:facts.artifacts.map(a=>a.revisionId||a.digest),baseRevisions:facts.readSet,resultDigest:intent.receipt.digest,groupId:intent.groupId}),preview=applyPublication(mapDomain(local),pub,facts.artifacts,[],{implementationAuthority:r=>this.isAccepted(r)}),doc=structuredClone(local.document),blobs=new Map(local.blobs);
   doc.content.records=preview.revisions;doc.content.recordHeads=preview.records.map(r=>({recordId:r.recordId,revisionId:r.revisionId}));for(const k of ['plans','reviews','mappings','views'])doc.content[k]=preview[k]||[];
   for(const artifact of [...facts.artifacts,pub]){const raw=body(artifact),h=sha(raw);if(!doc.assetInventory.some(a=>a.sha256===h)){doc.assetInventory.push({assetId:'history:application-'+h,sha256:h,bytes:raw.length,mime:'application/json',purpose:'history'});doc.content.history.push({sha256:h,mediaType:'application/json',schema:artifact.schema,purpose:'Accepted Agent Result · Human Testing Required'});blobs.set(h,raw);}}
-  doc.result=null;doc.revision=documentRevision(doc);await this.maps.store.save(entry.key,{documentBytes:body(doc),blobs,expectedRevision:local.document.revision});
+  doc.result=null;doc.revision=documentRevision(doc);await this.maps.execute(()=>this.maps.store.save(entry.key,{documentBytes:body(doc),blobs,expectedRevision:local.document.revision}));
  }
  async finish(key,entry,intent){
   this.check(this.manual);if(intent.route==='native'){
@@ -80,8 +80,8 @@ export class ResultApplication{
  }
  async notify(entry,intent){if(!this.announce)return;const key=groupKey(entry,intent.groupId);try{await this.announce(entry,intent);if(intent.noticeError)this.put('return_applications',key,{...this.get('return_applications',key),noticeError:null});}catch{if(!intent.noticeError)this.put('return_applications',key,{...this.get('return_applications',key),noticeError:'The Readiness Notice Remains Pending. Review the Task and Save Once.'});}}
  async cycle(manual=false){
-  if(this.paused||!manual&&!this.enabled())return {skipped:true};if(this.running)return this.running;this.abort=new AbortController();this.manual=manual;this.dirty=false;
-  const run=async()=>{if(!this.packages.entries().some(e=>e.binding))return;await this.open();return this.maps.execute(async()=>{
+  if(this.paused||!manual&&!this.enabled())return {skipped:true};if(this.running)return this.running;this.abort=new AbortController();this.manual=manual;this.dirty=false;let reservedCloud=null;
+  const run=async()=>{if(!this.packages.entries().some(e=>e.binding))return;await this.open();const cloud=this.maps.cloud;if(cloud){defer(!cloud.reviewReserved&&!cloud.reviewTask,'Finish the Current Map Review Before Processing Returns.');cloud.reviewReserved=true;reservedCloud=cloud;await cloud.task;this.check(manual);}defer(!this.maps.get('external-group-hold'),'Finish the Coordinated Map Checkpoint Before Processing Returns.');return (async()=>{
    await this.reviewControls?.recover();if(this.announce)for(const applied of this.rows('return_applications').filter(i=>i.state==='applied')){const entry=this.packages.entries().find(e=>e.id===applied.entryId);if(entry)await this.notify(entry,applied);}
    let budget=4,filesLeft=4;for(const intent of this.rows('return_applications').filter(i=>!['applied','staged'].includes(i.state)&&(manual||(i.nextAt||0)<=this.now())).slice(0,4)){this.check(manual);if(!budget--)break;const entry=this.packages.entries().find(e=>e.id===intent.entryId);if(!entry)continue;try{const finished=await this.finish(intent.key,entry,intent);if(finished===false){this.put('return_applications',intent.key,{...intent,state:'staged'});budget++;}}catch(e){if(this.abort.signal.aborted)throw e;this.put('return_applications',intent.key,{...this.get('return_applications',intent.key),error:safeError(e),nextAt:this.now()+60000});}}
    if(budget<=0)return;for(const entry of this.packages.entries().filter(e=>e.binding)){
@@ -99,8 +99,8 @@ export class ResultApplication{
      }
     }
    }
-  });};
-  const task=run().catch(e=>{if(this.abort.signal.aborted)return {paused:true};throw e;});this.running=task;try{return await task;}finally{this.running=null;this.abort=null;if(this.dirty)this.changed();}
+  })();};
+  const task=run().catch(e=>{if(this.abort.signal.aborted)return {paused:true};throw e;});this.running=task;try{return await task;}finally{if(reservedCloud)reservedCloud.reviewReserved=false;this.running=null;this.abort=null;if(this.dirty)this.changed();}
  }
  note(entry,file,groupId,e){const key=hash({entry:entry.id,source:file.sha256,group:groupId}),old=this.get('return_application_reviews',key);this.put('return_application_reviews',key,{entryId:entry.id,sourceHash:file.sha256,groupId,held:e.code!=='DEFERRED',error:safeError(e),firstSeen:old?.firstSeen||this.now(),nextAt:this.now()+60000});}
  status(entry){if(!this.opened)return {groups:[],reviews:[],requiresHumanTesting:false};const testing=this.humanTesting?.status(entry)||[];const groups=this.rows('return_applications').filter(i=>i.entryId===entry.id).map(i=>({groupId:i.groupId,state:i.state,sourceHash:i.sourceHash,error:i.error||i.noticeError||null,requiresHumanTesting:testing.find(t=>t.key===i.key)?.requiresHumanTesting??true,testing:testing.find(t=>t.key===i.key)?.testing||'unreviewed',historyKey:i.key})),reviews=this.rows('return_application_reviews').filter(i=>i.entryId===entry.id).map(({key,...i})=>i);return {groups,reviews,requiresHumanTesting:groups.some(g=>['accepted','applied'].includes(g.state)&&g.requiresHumanTesting)};}

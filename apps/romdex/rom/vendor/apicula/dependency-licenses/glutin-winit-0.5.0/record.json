@@ -1,0 +1,11 @@
+{
+  "name": "glutin-winit",
+  "version": "0.5.0",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "85edca7075f8fc728f28cb8fbb111a96c3b89e930574369e3e9c27eb75d3788f",
+  "license": "MIT",
+  "noticeFiles": [
+    "LICENSE"
+  ],
+  "status": "notices-retained"
+}

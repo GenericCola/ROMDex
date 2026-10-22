@@ -1,0 +1,12 @@
+{
+  "name": "toml_edit",
+  "version": "0.21.1",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "6a8534fd7f78b5405e860340ad6575217ce99f38d4d5c8f2442cb5ecb50090e1",
+  "license": "MIT OR Apache-2.0",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

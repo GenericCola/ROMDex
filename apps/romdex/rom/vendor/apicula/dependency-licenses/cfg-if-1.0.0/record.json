@@ -1,0 +1,12 @@
+{
+  "name": "cfg-if",
+  "version": "1.0.0",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd",
+  "license": "MIT/Apache-2.0",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

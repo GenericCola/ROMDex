@@ -1,0 +1,25 @@
+{
+  "task": "MX08",
+  "status": "complete-source",
+  "date": "2026-10-21",
+  "focusedDistinctCasesPassed": 50,
+  "unresolvedFailures": 0,
+  "ui": {
+    "task": "MX08",
+    "scope": "Source UI in isolated Chromium with memory task transport; no live network writes",
+    "checks": [
+      "Prose result stays held without changing current dialogue",
+      "Exact prose differences use the existing three-way review and explain why approval is needed",
+      "Cancel preserves the held result and current content",
+      "Short-window review keeps actions clear of scroll content",
+      "Exact approval applies once with human testing required, task open and Auto-Sync Off"
+    ],
+    "productionChanged": false,
+    "status": "passed"
+  },
+  "productionChanged": false,
+  "installedVersion": "0.5.26",
+  "installerRun": false,
+  "liveProof": "MX09 next; no live writes in MX08",
+  "compatibility": "RDXReviewedScope/1 is explicit private exact-difference approval; old readers fail closed"
+}

@@ -18,3 +18,11 @@ export function mapRdxFilename(name){
  if(!stem)stem='Map';if(/^(?:CON|PRN|AUX|NUL|COM[1-9]|LPT[1-9])(?:\.|$)/i.test(stem))stem='Map-'+stem;
  return stem+'.rdx';
 }
+
+// Group only a catalog-confirmed HGSS interior code. Numeric IDs alone are not evidence.
+export function areaBuilding(area,mapName){
+ const code=area.internalName??area.name,entry=names.get(code);if(!entry||entry[0]!==area.headerId)return null;
+ const match=code.match(/^([TRW]\d+R\d{2})\d{2}$/);if(!match)return null;
+ const label=areaDisplayName(area,mapName),floor=label.match(/ — (B?\d+F)$/);
+ return {key:match[1],name:floor?label.slice(0,-floor[0].length):label,floor:floor?.[1]||null};
+}

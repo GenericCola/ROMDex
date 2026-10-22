@@ -1,0 +1,75 @@
+{
+  "phase": "11E",
+  "status": "complete-source-and-isolated-candidate",
+  "tasks": [
+    "MX08",
+    "MX09"
+  ],
+  "tests": {
+    "distinctPassingTests": 158,
+    "logs": [
+      {
+        "log": "work/mx08-focused.log",
+        "distinctPassingTitles": 49
+      },
+      {
+        "log": "work/mx08/queue-recheck.log",
+        "distinctPassingTitles": 1
+      },
+      {
+        "log": "work/mx09/tools-recheck.log",
+        "distinctPassingTitles": 16
+      },
+      {
+        "log": "work/mx09/final-regressions.log",
+        "distinctPassingTitles": 92,
+        "passingCasesIncludingDistinctParameters": 93
+      },
+      {
+        "log": "work/mx09/discovery-repair-recheck.log",
+        "distinctPassingTitles": 2
+      },
+      {
+        "log": "work/mx09/prose-history-recheck.log",
+        "distinctPassingTitles": 1
+      }
+    ],
+    "note": "Parameterized missing-author and different-author cases intentionally share a title; both are distinct passing tests. Repeated rechecks are excluded.",
+    "mx08PassingCases": 50,
+    "mx09PassingCases": 108
+  },
+  "browserChecks": 5,
+  "nativeChecks": 4,
+  "standaloneToolSmokeChecks": 3,
+  "cleanupVerifiedAbsent": 9,
+  "candidate": "0.5.26-11e.1",
+  "audit": {
+    "at": "2026-10-21T19:48:14.177Z",
+    "status": "passed",
+    "sourceFilesCompared": 1217,
+    "mirrorTestsCompared": 148,
+    "candidateFiles": 1289,
+    "mismatches": [],
+    "forbidden": [],
+    "runtimeChanges": [],
+    "syntaxChecks": 15,
+    "syntaxFailures": [],
+    "gitDiffCheck": {
+      "passed": true,
+      "output": ""
+    },
+    "productionChanged": false,
+    "installerCreated": false
+  },
+  "productionChanged": false,
+  "installerCreated": false,
+  "nextGate": "RI03C / Phase 11F; separate PASSKEY",
+  "limits": [
+    "one partial real NPC dataset; in-game testing outstanding",
+    "isolated private metadata harness; no new live GitHub proof",
+    "no external-agent dispatch",
+    "second actual ROM build unavailable",
+    "large-map checkpoint latency and former child-copy recovery remain U28/U29",
+    "transient QA notice overlaps captured modal action row; shell notice placement remains U29 visual acceptance"
+  ]
+}

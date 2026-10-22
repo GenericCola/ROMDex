@@ -1,0 +1,71 @@
+{
+  "status": "source-complete",
+  "focusedChecks": 35,
+  "newConditionCases": 20,
+  "existingAdjacentCases": 15,
+  "romOnlyProof": [
+    {
+      "map": "New Bark Town",
+      "headers": [
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        384
+      ],
+      "romSha256": "cb743eb01fe18f8599e54911faa28701474b84a6b9d9764a9478bf8a7be1babd",
+      "extractionDigest": "982329037faf97765958d23b8b969b5a1520906da9a3565154a734fe45512085",
+      "conditionDigest": "4c68d1a83c059118791fed5ddd8928fd5f0ba7a3e84e8699963afaa3873e1fda",
+      "conditions": 212,
+      "effects": 308,
+      "dialogueEffects": 196,
+      "roots": 66,
+      "completeRoots": 36,
+      "partialRoots": 30,
+      "excludedUnboundRoots": 52,
+      "states": 9921,
+      "knownConditions": 46,
+      "unresolvedConditions": 166
+    },
+    {
+      "map": "Route 29",
+      "headers": [
+        33,
+        134
+      ],
+      "romSha256": "cb743eb01fe18f8599e54911faa28701474b84a6b9d9764a9478bf8a7be1babd",
+      "extractionDigest": "d68318c787085be195408e6770c88a38b98ed1c04db3cbc07cf498be6be3cdbb",
+      "conditionDigest": "45eb22be637308e56aa6ff4f30d216cc4bc4d26c1556d79b5875ce9f9e0aa6ea",
+      "conditions": 82,
+      "effects": 86,
+      "dialogueEffects": 47,
+      "roots": 18,
+      "completeRoots": 7,
+      "partialRoots": 11,
+      "excludedUnboundRoots": 12,
+      "states": 2625,
+      "knownConditions": 8,
+      "unresolvedConditions": 74
+    }
+  ],
+  "sourceGraphsReplayed": true,
+  "productionChanged": false,
+  "runtimeEmulated": false,
+  "files": [
+    {
+      "file": "rom/condition-extraction.mjs",
+      "sha256": "2c1e8cb71cb6c94ba66cb9f1581973880f98a0e70c7b87016fcbfa2b56eacff2"
+    },
+    {
+      "file": "rom/extract.mjs",
+      "sha256": "7e1372914c6258547dbbdbe32f414728c1e7058ffb29991c3bff6b6c3f9db9ee"
+    },
+    {
+      "file": "tests/rom-conditions.test.mjs",
+      "sha256": "c3daa25b3a9ea64776c327be8d69d9b08d16a52566d485736a6f527d1914ac52"
+    }
+  ]
+}

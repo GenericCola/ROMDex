@@ -1,0 +1,16 @@
+{
+  "name": "gl_generator",
+  "version": "0.14.0",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "1a95dfc23a2b4a9a2f5ab41d194f8bfda3cabec42af4e39f08c339eb2a0c124d",
+  "license": "Apache-2.0",
+  "noticeFiles": [
+    "source-notice-README.md",
+    "LICENSE"
+  ],
+  "status": "notices-retained",
+  "noticeSource": {
+    "repository": "brendanzab/gl-rs",
+    "revision": "ea503e8d5fb6d73c6030e6191ce738cd3bf3433e"
+  }
+}

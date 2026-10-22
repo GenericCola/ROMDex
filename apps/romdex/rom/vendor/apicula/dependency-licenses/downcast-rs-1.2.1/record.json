@@ -1,0 +1,12 @@
+{
+  "name": "downcast-rs",
+  "version": "1.2.1",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "75b325c5dbd37f80359721ad39aca5a29fb04c89279657cffdda8736d0c0b9d2",
+  "license": "MIT/Apache-2.0",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

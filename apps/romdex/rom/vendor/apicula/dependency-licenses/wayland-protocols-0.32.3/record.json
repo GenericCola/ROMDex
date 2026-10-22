@@ -1,0 +1,12 @@
+{
+  "name": "wayland-protocols",
+  "version": "0.32.3",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "62989625a776e827cc0f15d41444a3cea5205b963c3a25be48ae1b52d6b4daaa",
+  "license": "MIT",
+  "noticeFiles": [
+    "LICENSE.txt",
+    "protocols-COPYING"
+  ],
+  "status": "notices-retained"
+}

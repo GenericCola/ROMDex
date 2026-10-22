@@ -1,10 +1,11 @@
 import {createHash} from 'node:crypto';
 import './timeline-core.js';
+import './condition-core.js';
 export const {validId,roman,validateStages,definitionStages,snapshotStages,validateSnapshot,chooseStage,label}=globalThis.romdexTimelines;
 const legacyProgressionId='content:shared-'+createHash('sha256').update('["progression"]').digest('hex').slice(0,32);
 export function timelineCatalog(records){
  for(const r of records.filter(r=>r.kind==='shared'&&r.current.payload.sharedType==='progression'))if(!validId(r.recordId))throw Error('Timeline Needs a Safe Stable Record Identity.');
- const timelines=Object.fromEntries(records.filter(r=>r.kind==='shared'&&r.current.payload.sharedType==='progression').map(r=>[r.recordId,{id:r.recordId,name:r.current.payload.name,stages:structuredClone(definitionStages(r.current.payload.definitions))}]));
+ const timelines=Object.fromEntries(records.filter(r=>r.kind==='shared'&&r.current.payload.sharedType==='progression').map(r=>[r.recordId,{id:r.recordId,name:r.current.payload.name,stages:structuredClone(definitionStages(r.current.payload.definitions)),...(r.current.payload.definitions.conditionIndex?{conditionIndex:structuredClone(r.current.payload.definitions.conditionIndex)}:{})}]));
  const keys=Object.keys(timelines),defaultTimelineRef=timelines[legacyProgressionId]?legacyProgressionId:keys.length===1?keys[0]:null;
  return {timelines,defaultTimelineRef,stages:structuredClone(defaultTimelineRef?timelines[defaultTimelineRef].stages:[])};
 }

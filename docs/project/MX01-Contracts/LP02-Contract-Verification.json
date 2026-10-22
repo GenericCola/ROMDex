@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "checks": 21,
+  "names": [
+    "fictional condition shape/references accepted",
+    "pending image is explicit and valid",
+    "unknown expression op rejected",
+    "unknown source fields rejected",
+    "missing display entry rejected",
+    "duplicated condition identity rejected",
+    "dangling effect condition rejected",
+    "unrelated map scope rejected",
+    "foreign effect target rejected",
+    "missing coverage rejected",
+    "unresolved coverage reason required",
+    "ready image without selection rejected",
+    "dangling image selection rejected",
+    "unsupported image must explain failure",
+    "manual override shape accepted without fake ROM provenance",
+    "out-of-bounds crop rejected",
+    "generated image requires renderer/dependencies",
+    "unknown presence remains in both illustrated dialogue guards",
+    "unknown logic cannot become unconditional",
+    "proven no-condition/no-speech map is representable",
+    "feature binding declaration shape"
+  ],
+  "limits": "Design-only schema-subset/reference cases. No complete RDX validation, image-byte decode, ROM extraction, installed app, YouTrack or migration proof."
+}

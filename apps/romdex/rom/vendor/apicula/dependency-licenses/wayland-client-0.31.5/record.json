@@ -1,0 +1,11 @@
+{
+  "name": "wayland-client",
+  "version": "0.31.5",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "7e321577a0a165911bdcfb39cf029302479d7527b517ee58ab0f6ad09edf0943",
+  "license": "MIT",
+  "noticeFiles": [
+    "LICENSE.txt"
+  ],
+  "status": "notices-retained"
+}

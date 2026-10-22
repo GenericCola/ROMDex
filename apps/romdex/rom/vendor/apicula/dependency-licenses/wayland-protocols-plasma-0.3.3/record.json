@@ -1,0 +1,12 @@
+{
+  "name": "wayland-protocols-plasma",
+  "version": "0.3.3",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "f79f2d57c7fcc6ab4d602adba364bf59a5c24de57bd194486bf9b8360e06bfc4",
+  "license": "MIT",
+  "noticeFiles": [
+    "LICENSE.txt",
+    "plasma-wayland-protocols-COPYING.LIB"
+  ],
+  "status": "notices-retained"
+}

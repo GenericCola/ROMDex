@@ -1,0 +1,12 @@
+{
+  "name": "serde",
+  "version": "1.0.204",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "bc76f558e0cbb2a839d37354c575f1dc3fdc6546b5be373ba43d95f231bf7c12",
+  "license": "MIT OR Apache-2.0",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

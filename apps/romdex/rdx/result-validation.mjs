@@ -2,6 +2,7 @@ import {canonical,parseJSON,sha,same,verifyDigest,validateArtifact} from '../con
 import {validateMapPackage} from './map-package.mjs';
 import {validateShape} from './schema.mjs';
 import {ensure} from './limits.mjs';
+import {currentDifferences,prosePermits} from './result-scope.mjs';
 
 const fail=(ok,message)=>ensure(ok,'REVIEW_REQUIRED',message);
 export function resultEvidence(receipt){
@@ -21,27 +22,36 @@ export function patchResult(value,change){const keys=parts(change.path);let at=v
 
 // Package requests, not returned claims, define every permitted current-state
 // byte. Group validation is pure and never imports returned drafts/views/tests.
-export function resultGroup(receipt){
+export function resultGroup(receipt,{inspectProse=false}={}){
  const {pkg,result}=resultEvidence(receipt),group=pkg.groups.find(g=>g.groupId===receipt.groupId),actual=result.groups.find(g=>g.groupId===receipt.groupId);
  fail(group&&actual&&same([...actual.outcomes.map(o=>o.planDigest)].sort(),group.planDigests.slice().sort()),'A Dependent Group Is Incomplete. Nothing in That Group Was Applied.');
  fail(actual.outcomes.every(o=>o.outcome==='implemented'&&o.checks.length),'This Group Has Unfinished Work or Missing Implementation Checks.');
  const plans=group.planDigests.map(d=>pkg.requests.find(p=>p.digest===d)),base=new Map(pkg.contextRecords.map(r=>[r.recordId,r])),changes=new Map(),writes=new Map();
- fail(plans.every(p=>p.changes.length),'Instructions-Only Requests Need Human Scope Review Before Application.');
- for(const p of plans){const outcome=actual.outcomes.find(o=>o.planDigest===p.digest),ids=[...new Set(p.changes.map(c=>c.recordId))].sort();fail(same(outcome.writes.map(w=>w.recordId).sort(),ids),'Returned Write Membership Differs From the Requested Changes.');
+ const prose=plans.filter(p=>!p.changes.length),scopeReview=receipt.review?.format==='RDXReviewedScope/1';
+ fail(!prose.length||inspectProse||scopeReview,'Instructions-Only Requests Need Human Scope Review Before Application.');
+ const effective=[];
+ for(const p of plans){const outcome=actual.outcomes.find(o=>o.planDigest===p.digest),ids=[...new Set(p.changes.length?p.changes.map(c=>c.recordId):[p.target.recordId])].sort();fail(same(outcome.writes.map(w=>w.recordId).sort(),ids),'Returned Write Membership Differs From the Requested Changes.');
   for(const change of p.changes){fail(group.writeRecordIds.includes(change.recordId)&&base.has(change.recordId),'A Returned Change Is Outside Its Group.');const list=changes.get(change.recordId)||[];for(const old of list)fail(old.path===change.path?same(old,change):!old.path.startsWith(change.path+'/')&&!change.path.startsWith(old.path+'/'),'Overlapping Request Patches Need Review.');if(!list.some(c=>same(c,change)))list.push(change);changes.set(change.recordId,list);}
   for(const w of outcome.writes){const old=writes.get(w.recordId);fail(!old||same(old,w),'Dependent Outcomes Disagree About a Written Revision.');writes.set(w.recordId,w);}
  }
- fail(same([...writes.keys()].sort(),[...changes.keys()].sort()),'Returned Group Writes Differ.');
- const updates=[];for(const [id,list]of changes){const before=base.get(id),w=writes.get(id),after=receipt.records.find(r=>r.recordId===id);fail(before&&after&&w.beforeRevision===before.revisionId&&w.afterRevision===after.revisionId,'A Returned Record Revision Pin Differs.');verifyDigest(after);
+ fail(same([...writes.keys()].sort(),[...new Set([...changes.keys(),...prose.map(p=>p.target.recordId)])].sort()),'Returned Group Writes Differ.');
+ const updates=[];for(const [id]of writes){const list=changes.get(id)||[];const before=base.get(id),w=writes.get(id),after=receipt.records.find(r=>r.recordId===id);fail(before&&after&&w.beforeRevision===before.revisionId&&w.afterRevision===after.revisionId,'A Returned Record Revision Pin Differs.');verifyDigest(after);
   fail(!['region','shared','profile'].includes(before.kind),'Shared or Cross-Map Writes Require Explicit Review.');
   fail(after.workspaceId===before.workspaceId&&after.kind===before.kind&&after.parentRecordId===before.parentRecordId&&same(after.parents,[before.revisionId])&&same(after.legacyRefs,before.legacyRefs)&&same(after.legacyData,before.legacyData),'A Return Cannot Rebind Stable Content Identity or Compatibility History.');
   const expected=structuredClone(before.current);for(const change of list){fail(same(patchState(before.current,change.path),change.before),'The Requested Before Value Differs From Its Fixed Baseline.');patchResult(expected,change);}
-  fail(!same(expected,before.current)&&same(expected,after.current),'Returned Content Differs From the Exact Requested Patches.');updates.push({before,after});
+  if(!same(expected,after.current)){
+   const extra=currentDifferences(id,expected,after.current);fail(extra.every(c=>prose.some(p=>prosePermits(p,c))),'Returned Content Differs From the Exact Requested Patches or Prose Target.');
+  }
+  // Typed fields retain their exact requested values even in a mixed prose group.
+  for(const c of list)fail(same(patchState(after.current,c.path),c.after),'Returned Content Differs From the Exact Requested Patches.');
+  fail(!same(before.current,after.current),'The Returned Group Contains No Content Change.');
+  effective.push(...currentDifferences(id,before.current,after.current));updates.push({before,after});
  }
  fail(receipt.records.length===updates.length&&new Set(receipt.records.map(r=>r.recordId)).size===updates.length,'The Application Contains Unrelated Record Revisions.');
  const required=new Set(updates.flatMap(u=>u.after.mappingRefs.filter(h=>!u.before.mappingRefs.includes(h))));fail(same([...required].sort(),receipt.mappings.map(m=>m.digest).sort()),'Returned Mapping Inventory Differs.');
  for(const m of receipt.mappings){validateArtifact(Buffer.from(canonical(m)),receipt.workspaceId);fail(updates.some(u=>u.after.recordId===m.recordId&&u.after.mappingRefs.includes(m.digest))&&m.source.repositoryId===result.source.repositoryId&&m.source.revision===result.source.afterRevision&&m.source.artifactSha256===result.source.afterArtifactSha256,'Updated Mapping Evidence Does Not Match the Returned Build.');for(const locator of m.locators)fail(!/^(?:[a-z]+:|[\\/])/i.test(locator.path)&&!locator.path.split(/[\\/]/).includes('..'),'Unsafe Returned ROM Locator.');}
- return {pkg,result,group,plans,updates};
+ if(scopeReview)fail(prose.length>0&&same(receipt.review.changes,effective),'Exact Human-Reviewed Returned Differences Differ.');
+ return {pkg,result,group,plans,updates,changes:effective,requiresScopeReview:prose.length>0};
 }
 
 export function validateResultEnvelope(value,pkg,binding){

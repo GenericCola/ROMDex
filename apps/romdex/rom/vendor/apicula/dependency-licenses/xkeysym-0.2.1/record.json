@@ -1,0 +1,13 @@
+{
+  "name": "xkeysym",
+  "version": "0.2.1",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "b9cc00251562a284751c9973bace760d86c0276c471b4be569fe6b068ee97a56",
+  "license": "MIT OR Apache-2.0 OR Zlib",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-MIT",
+    "LICENSE-ZLIB"
+  ],
+  "status": "notices-retained"
+}

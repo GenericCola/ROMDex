@@ -1,0 +1,46 @@
+{
+  "task": "MX05",
+  "status": "complete-source-and-isolated-candidate",
+  "productionChanged": false,
+  "focusedRegressionTests": 41,
+  "browser": {
+    "status": "passed",
+    "inlinePlacements": true,
+    "crossMapReassignment": true,
+    "explicitScope": true,
+    "cogParentMigrationPreview": true,
+    "bothStoresListed": true,
+    "shortWindow": true,
+    "pageErrors": [],
+    "productionChanged": false
+  },
+  "native": {
+    "status": "passed",
+    "checks": [
+      "Native Assign to Parent previews the exact MAPDex and NPCDex migrations",
+      "Reviewed grouping checkpoints both stores and retains the child beneath one parent map",
+      "Native NPCDex inline detach preserves the placement and creates no spurious editor draft",
+      "Candidate saves and quits normally after the coordinated edits"
+    ],
+    "productionChanged": false,
+    "tokensCopied": false,
+    "installerRun": false
+  },
+  "live": {
+    "task": "MX05",
+    "status": "passed",
+    "synthetic": true,
+    "productionChanged": false,
+    "checks": [
+      "Two independent RDX maps publish and reuse one verified shared-region issue",
+      "Reviewed regrouping retains every original NPCD issue identity",
+      "Fresh native issue reads confirm the complete nested parent tree",
+      "A fresh second profile reconstructs the exact merged RDX, images and retained history"
+    ],
+    "cleanup": "verified 17 exact test issues absent",
+    "records": 15,
+    "formerChildRegistry": "3-970"
+  },
+  "actualSecondBuildAcceptance": "deferred-no-second-ROM",
+  "installerRun": false
+}

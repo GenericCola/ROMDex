@@ -1,0 +1,11 @@
+{
+  "name": "tracing",
+  "version": "0.1.40",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "c3523ab5a71916ccf420eebdf5521fcef02141234bbc0b8a49f2fdc4544364ef",
+  "license": "MIT",
+  "noticeFiles": [
+    "LICENSE"
+  ],
+  "status": "notices-retained"
+}

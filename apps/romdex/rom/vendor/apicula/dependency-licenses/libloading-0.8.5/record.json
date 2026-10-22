@@ -1,0 +1,11 @@
+{
+  "name": "libloading",
+  "version": "0.8.5",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "4979f22fdb869068da03c9f7528f8297c6fd2606bc3a4affe42e6a823fdb8da4",
+  "license": "ISC",
+  "noticeFiles": [
+    "LICENSE"
+  ],
+  "status": "notices-retained"
+}

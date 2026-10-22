@@ -1,0 +1,16 @@
+{
+  "name": "objc2-app-kit",
+  "version": "0.2.2",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "e4e89ad9e3d7d297152b17d39ed92cd50ca8063a89a9fa569046d41568891eff",
+  "license": "MIT",
+  "noticeFiles": [
+    "source-notice-README.md",
+    "LICENSE.txt"
+  ],
+  "status": "notices-retained",
+  "noticeSource": {
+    "repository": "madsmtm/objc2",
+    "revision": "e282618be4c3a3b9542957e0c8540e9588472ce8"
+  }
+}

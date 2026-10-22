@@ -1,0 +1,11 @@
+{
+  "name": "android-properties",
+  "version": "0.2.2",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "fc7eb209b1518d6bb87b283c20095f5228ecda460da70b44f0802523dea6da04",
+  "license": "MIT",
+  "noticeFiles": [
+    "LICENSE"
+  ],
+  "status": "notices-retained"
+}

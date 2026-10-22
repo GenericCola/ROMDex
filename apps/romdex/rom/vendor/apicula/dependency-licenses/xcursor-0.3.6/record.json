@@ -1,0 +1,11 @@
+{
+  "name": "xcursor",
+  "version": "0.3.6",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "d491ee231a51ae64a5b762114c3ac2104b967aadba1de45c86ca42cf051513b7",
+  "license": "MIT",
+  "noticeFiles": [
+    "LICENSE"
+  ],
+  "status": "notices-retained"
+}

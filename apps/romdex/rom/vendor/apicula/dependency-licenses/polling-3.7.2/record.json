@@ -1,0 +1,12 @@
+{
+  "name": "polling",
+  "version": "3.7.2",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "a3ed00ed3fbf728b5816498ecd316d1716eecaced9c0c8d2c5a6740ca214985b",
+  "license": "Apache-2.0 OR MIT",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

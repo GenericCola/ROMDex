@@ -1,0 +1,12 @@
+{
+  "name": "windows-targets",
+  "version": "0.48.5",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "9a2fa6e2155d7247be68c096456083145c183cbbbc2764150dda45a87197940c",
+  "license": "MIT OR Apache-2.0",
+  "noticeFiles": [
+    "license-apache-2.0",
+    "license-mit"
+  ],
+  "status": "notices-retained"
+}

@@ -4,6 +4,8 @@ import {documentRevision,validateDocument} from './document.mjs';
 import {validateShape} from './schema.mjs';
 import {validateMapPackage} from './map-package.mjs';
 import {ensure,LIMITS} from './limits.mjs';
+import {FEATURE_EXTENSION,PREVIEW_CAPABILITY} from './features.mjs';
+import {ORGANIZATION_EXTENSION} from './organization-contract.mjs';
 
 const hash=x=>typeof x==='string'&&/^[a-f0-9]{64}$/.test(x);
 export const authorizationKey=entry=>sha(canonical({task:{instanceOrigin:entry.binding.task.instanceOrigin,projectId:entry.binding.task.projectId,issueId:entry.binding.task.issueId},dataset:entry.datasetId,map:entry.mapRecordId,packageId:entry.packageId}));
@@ -35,7 +37,9 @@ export function buildReturnContext(value,pkg,binding){
  while(pending.length){const r=pending.pop(),key=r.recordId+':'+r.revisionId;if(kept.has(key))continue;ensure(kept.size<10000,'LIMIT','Required Record Ancestry Exceeds the Return Context Bound.');kept.set(key,r);for(const parent of r.parents){const old=all.get(r.recordId+':'+parent);ensure(old,'INTEGRITY','Required Return Record Ancestry Is Missing.');pending.push(old);}}
  const records=[...kept.values()].sort((a,b)=>a.recordId.localeCompare(b.recordId)||a.revisionId.localeCompare(b.revisionId)),refs=new Set(records.flatMap(r=>r.mappingRefs)),mappings=domain.mappings.filter(m=>refs.has(m.digest));
  const assets=pkg.assets.map(a=>{const original=d.assetInventory.find(x=>x.assetId===a.assetId);ensure(original&&original.purpose!=='history'&&original.sha256===a.sha256&&original.bytes===a.bytes&&original.mime===a.mime,'INTEGRITY','Return Context Asset Differs.');return original;});
- const document={format:d.format,documentId:d.documentId,datasetId:d.datasetId,namespace:d.namespace,kind:d.kind,schemaVersion:d.schemaVersion,createdAt:d.createdAt,capabilities:structuredClone(d.capabilities),parents:[d.revision],origin:{role:'extractor',generator:'ROMDex Return Context/1',synthetic:d.origin.synthetic},extensions:{},assetInventory:assets,scope:{...d.scope,mode:'partial',completeForParentIds:[],archivalRequests:undefined},content:{records,recordHeads:structuredClone(d.content.recordHeads),mappings,plans:[],reviews:[],views:[],history:[],archivalRequests:[]},result:null};
+ const extensions={};if(d.extensions?.[FEATURE_EXTENSION])extensions[FEATURE_EXTENSION]={...structuredClone(d.extensions[FEATURE_EXTENSION]),locationPreviewViewIds:[]};if(d.extensions?.[ORGANIZATION_EXTENSION])extensions[ORGANIZATION_EXTENSION]=structuredClone(d.extensions[ORGANIZATION_EXTENSION]);
+ const capabilities={...structuredClone(d.capabilities),required:d.capabilities.required.filter(c=>c!==PREVIEW_CAPABILITY)};
+ const document={format:d.format,documentId:d.documentId,datasetId:d.datasetId,namespace:d.namespace,kind:d.kind,schemaVersion:d.schemaVersion,createdAt:d.createdAt,capabilities,parents:[d.revision],origin:{role:'extractor',generator:'ROMDex Return Context/1',synthetic:d.origin.synthetic},extensions,assetInventory:assets,scope:{...d.scope,mode:'partial',completeForParentIds:[],archivalRequests:undefined},content:{records,recordHeads:structuredClone(d.content.recordHeads),mappings,plans:[],reviews:[],views:[],history:[],archivalRequests:[]},result:null};
  delete document.scope.archivalRequests;document.revision=documentRevision(document);
  const blobs=new Map(assets.map(a=>[a.sha256,value.blobs.get(a.sha256)]));validateDocument(Buffer.from(canonical(document)),{blobs});
  const context=seal({format:'RDXReturnContext/1',binding:structuredClone(binding),baseDocument:structuredClone(pkg.baseDocument),document,assets:structuredClone(pkg.assets)}),bytes=Buffer.from(JSON.stringify(context,null,2)+'\n');
@@ -58,6 +62,8 @@ export function handoffText(entry,event){
   'Save this fixed handoff manifest as handoff.json for the file-transfer helper: '+JSON.stringify(handoffManifest(entry,event)),
   'Implement only the selected non-FINAL requests and dependency groups. FINAL decisions, flags and notes are context only. Context-only groups authorize no ROM changes.',
   'Use the deterministic rdx/agent-cli.mjs to fetch verified files, materialize the return baseline and upload the result using your securely configured YouTrack connection. Never paste a token into chat.',
+  'After implementing and checking the ROM, use agent-cli.mjs build HANDOFF.json FETCHED_DIRECTORY IMPLEMENTATION.json NEW_RESULT.rdx, then validate HANDOFF.json FETCHED_DIRECTORY RESULT.rdx. The builder hashes both actual ROMs, verifies source selections, seals updated mappings and always requires human testing. It does not edit the ROM or grant approval.',
+  'Typed changes must match the package exactly. Prose-only results wait for exact-difference owner review; do not widen passage/entity/dependency scope.',
   'Preserve stable identities. Return one map .rdx to this same task with origin.role agent-result, the exact original task binding/base, before/after source evidence and complete per-group outcomes. Set requiresHumanTesting true.',
   'Announce Ready for Human Review and Testing with implemented/unresolved groups and source/build checks. Leave the task open. Do not write NPCD directly.',
   'If a required file, source build or mapping cannot be verified, report the blocker before changing the ROM. Superseded or withdrawn packages are held for review.'].join('\n');

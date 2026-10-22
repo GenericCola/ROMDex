@@ -1,0 +1,12 @@
+{
+  "name": "windows-sys",
+  "version": "0.45.0",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "75283be5efb2831d37ea142365f009c02ec203cd29a3ebecbc093d52315b66d0",
+  "license": "MIT OR Apache-2.0",
+  "noticeFiles": [
+    "license-apache-2.0",
+    "license-mit"
+  ],
+  "status": "notices-retained"
+}

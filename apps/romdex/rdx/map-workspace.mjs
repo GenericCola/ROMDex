@@ -1,3 +1,11 @@
+import {upgradeBuildingHierarchy} from '../rom/building-hierarchy.mjs';
+import {sidebarThumbnail} from '../content/sidebar-thumbnails.mjs';
+import {saveWorkspaceOrganization} from '../content/workspace-organization.mjs';
+import {ORGANIZATION_CAPABILITY} from './organization-contract.mjs';
+import {compactRecords} from './compact-records.mjs';
+import {correctionTemplate} from './native-reconciliation.mjs';
+import {MapOrganization} from './map-organization.mjs';
+import {CharacterOrganization} from './character-organization.mjs';
 import {validateSnapshot as validateTimelines} from '../content/timelines.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -8,7 +16,7 @@ import {localDocumentAuthority} from '../content/authorization.mjs';
 import {projectNPCDex} from '../content/projection.mjs';
 import {viewHeads} from '../content/view-contract.mjs';
 import {ManagedDocuments,documentKey} from './managed-store.mjs';
-import {mapDomain,previewMapImport} from './map-import.mjs';
+import {mapDomain,previewMapImport,retainDocument} from './map-import.mjs';
 import {readRdxFile,readBoundedFile,unpackRdx} from './container.mjs';
 import {documentRevision} from './document.mjs';
 import {directory,regular} from './managed-files.mjs';
@@ -42,16 +50,27 @@ export class MapWorkspace{
  async dispatch(route,input,context=null){
   ensure(typeof route==='string'&&JSON.stringify(input??null).length<=1024*1024,'INVALID','Invalid RDX Workspace Request.');
   if(!this.active&&this.adoption&&(route.startsWith('/api/view')||['/api/editor','/api/draft','/api/edit','/api/recover','/api/sync'].includes(route))){if(input!==undefined&&input!==null)ensure(context===null,'CONFLICT','The Open Map Changed.');if(route==='/api/sync')return this.adoption.synchronize(input);return this.adoption.fastAPI(route,input);}
+  if(route==='/api/rdx/cloud-cancel'){await this.cloud?.cancelReview();return {cancelled:true};}
+  if(['/api/rdx/cloud-preview','/api/rdx/cloud-bind','/api/rdx/cloud-review','/api/rdx/cloud-resolve','/api/rdx/cloud-retry'].includes(route)&&this.cloud){ensure(context===this.active,'CONFLICT','The Open Map Changed.');const key=this.active;return this.cloud.remoteOperation(()=>{ensure(this.active===key,'CONFLICT','The Open Map Changed.');return this.api(route,input);});}
   if(route==='/api/sync'&&this.active&&this.cloud?.get(this.active)){ensure(context===this.active,'CONFLICT','The Open Map Changed.');await this.cloud.cycle(true);return this.view();}
+  if(input!==undefined&&input!==null&&this.store?.db&&this.get('external-group-hold'))ensure(false,'REVIEW_REQUIRED','Resume the Interrupted MAPDex Grouping Before Editing.');
   return this.execute(()=>{const writes=input!==undefined&&input!==null;if(writes)ensure(context===this.active,'CONFLICT','The Open Map Changed. Reopen NPCDex Before Editing.');return this.api(route,input);});
  }
  execute(fn){const task=(this.task||Promise.resolve()).catch(()=>{}).then(fn);this.task=task;return task;}
  async checkpoint(){await this.task?.catch(()=>{});await this.adoption?.checkpoint();if(this.store)this.store.db.exec('PRAGMA wal_checkpoint(FULL)');}
  async api(route,input){
+  if(route==='/api/ui/map-organization'){await this.open();const rows=[];for(const row of this.store.db.prepare("SELECT key,head FROM documents WHERE kind='map' ORDER BY key").all()){if(this.get('retired-map:'+row.key))continue;const adopted=this.adoption?.ledger.maps.find(m=>m.key===row.key),stored=this.store.db.prepare('SELECT document,byte_hash FROM versions WHERE key=? AND revision=?').get(row.key,row.head),bytes=Buffer.from(stored.document);ensure(sha(bytes)===stored.byte_hash,'INTEGRITY','Stored Map Metadata Changed.');const d=parseJSON(bytes),map=d.content.records.find(r=>r.kind==='map'&&d.content.recordHeads.some(h=>h.recordId===r.recordId&&h.revisionId===r.revisionId));if(!map)continue;const native=this.adoption?.domain?.views.find(v=>v.recordId===map.recordId);rows.push({id:map.recordId,key:row.key,name:adopted?.name||map.current.payload.name,uiId:native?.payload.fields?.id||map.recordId,image:sidebarThumbnail(d,map,h=>{const image=this.store.db.prepare('SELECT bytes FROM blobs WHERE hash=?').get(h);return image?Buffer.from(image.bytes):null;}),locationCount:d.content.records.filter(r=>r.kind==='subzone'&&r.parentRecordId===map.recordId&&d.content.recordHeads.some(h=>h.recordId===r.recordId&&h.revisionId===r.revisionId)).length});}const ids=rows.map(r=>r.id),previous=this.get('ui-map-organization:npcdex');if(input)this.set('ui-map-organization:npcdex',saveWorkspaceOrganization(previous,input,ids));return {rows,organization:globalThis.romdexWorkspaceOrganization.reconcile(this.get('ui-map-organization:npcdex'),ids)};}
+  if(route==='/api/rdx/storage'){await this.open();return (await import('./storage-report.mjs')).storageReport(this.store);}
+  if(route==='/api/rdx/hierarchy'){ensure(this.active,'NOT_FOUND','Open a Managed RDX Map First.');if(this.cloud)return this.cloud.inspectHierarchy(this.active);const {DocumentCloud}=await import('./document-cloud.mjs');return new DocumentCloud({maps:this}).inspectHierarchy(this.active);}
+  if(route==='/api/rdx/native-template'){ensure(this.active,'NOT_FOUND','Open a Managed RDX Map First.');return correctionTemplate(await this.store.view(this.active),input.recordId);}
+  if(route.startsWith('/api/rdx/organization/')){await this.open();const tools=new MapOrganization(this);if(route.endsWith('/preview'))return tools.preview(input);if(route.endsWith('/commit'))return tools.commit(input);}
+
+  if(route.startsWith('/api/rdx/characters/')){await this.open();const tools=new CharacterOrganization(this);if(route.endsWith('/list'))return tools.list();if(route.endsWith('/preview'))return tools.preview(input);if(route.endsWith('/commit'))return tools.commit(input);}
+
   if(route.startsWith('/api/rdx/cloud-')){ensure(this.active&&this.cloud,'NOT_FOUND','Open a Managed Map and Configure YouTrack First.');if(route.endsWith('cloud-preview'))return this.cloud.preview(this.active);if(route.endsWith('cloud-bind')){const result=await this.cloud.bind(this.active,input);if(this.cloud.enabled())queueMicrotask(()=>this.cloud.start());return result;}if(route.endsWith('cloud-review'))return this.cloud.review(this.active);if(route.endsWith('cloud-resolve'))return this.cloud.resolve(this.active,input);if(route.endsWith('cloud-retry'))return this.cloud.retry(this.active,input);}
-  if(route==='/api/rdx/status'){const documents=[];if(this.store)for(const row of this.store.db.prepare("SELECT * FROM documents WHERE kind='map' ORDER BY key").all()){const adopted=this.adoption?.ledger.maps.find(m=>m.key===row.key);if(adopted)documents.push({key:row.key,kind:'map',namespace:row.namespace,documentId:row.document_id,datasetId:row.dataset_id,revision:adopted.revision,name:adopted.name,adopted:true,saved:row.checkpoint_revision===adopted.revision,path:this.store.file(row.key)});else{const d=await this.store.status(row.key);documents.push({...d,name:mapDomain(this.store.load(d.key,d.revision)).records.find(r=>r.kind==='map').current.payload.name,adopted:false});}}return {active:this.active,adoptedCatalog:!!this.adoption,documents,hasSyncedContent:!!this.fallback,cloudBinding:this.active?this.cloud?.status(this.active)||null:null};}
+  if(route==='/api/rdx/status'){const documents=[];if(this.store)for(const row of this.store.db.prepare("SELECT * FROM documents WHERE kind='map' ORDER BY key").all()){if(this.get('retired-map:'+row.key))continue;const adopted=this.adoption?.ledger.maps.find(m=>m.key===row.key);if(adopted)documents.push({key:row.key,kind:'map',namespace:row.namespace,documentId:row.document_id,datasetId:row.dataset_id,revision:adopted.revision,name:adopted.name,adopted:true,saved:row.checkpoint_revision===adopted.revision,path:this.store.file(row.key)});else{const d=await this.store.status(row.key);documents.push({...d,name:mapDomain(this.store.load(d.key,d.revision)).records.find(r=>r.kind==='map').current.payload.name,adopted:false});}}return {active:this.active,adoptedCatalog:!!this.adoption,documents,hasSyncedContent:!!this.fallback,cloudBinding:this.active?this.cloud?.status(this.active)||null:null};}
   if(route==='/api/rdx/position'){await this.open();ensure(input?.position&&Buffer.byteLength(canonical(input.position))<65536,'INVALID','Invalid Map View Position.');this.set('position:'+(this.active||'native'),input.position);return true;}
-  if(route==='/api/rdx/open'){await this.open();if(input?.key!==null)ensure((await this.store.list()).some(d=>d.key===input?.key&&d.kind==='map'),'NOT_FOUND','Local Map Not Found.');if(this.adoption?.owns(input.key)){const map=this.adoption.ledger.maps.find(m=>m.key===input.key),view=this.adoption.domain.views.find(v=>v.recordId===map.mapRecordId),position=this.get('position:native')||{};this.set('position:native',{...position,townId:view?.payload.fields?.id||map.mapRecordId});this.active=null;}else this.active=input.key;this.set('active',this.active);return {reload:true};}
+  if(route==='/api/rdx/open'){await this.open();if(input?.key&&this.get('retired-map:'+input.key))input={...input,key:this.get('retired-map:'+input.key).parentKey};if(input?.key!==null)ensure((await this.store.list()).some(d=>d.key===input?.key&&d.kind==='map'),'NOT_FOUND','Local Map Not Found.');if(this.adoption?.owns(input.key)){const map=this.adoption.ledger.maps.find(m=>m.key===input.key),view=this.adoption.domain.views.find(v=>v.recordId===map.mapRecordId),position=this.get('position:native')||{};this.set('position:native',{...position,townId:view?.payload.fields?.id||map.mapRecordId});this.active=null;}else this.active=input.key;this.set('active',this.active);return {reload:true};}
   if(route==='/api/rdx/begin'){
    ensure(Number.isSafeInteger(input?.bytes)&&input.bytes>0&&input.bytes<=LIMITS.stored,'LIMIT','RDX File Size Limit Exceeded.');await this.open();await this.cancelUpload();await this.store.capacity(input.bytes);
    const root=await directory(path.join(this.store.root,'transfers')),id=randomUUID(),file=path.join(root,id+'.rdx'),handle=await fs.open(file,'wx');this.upload={id,file,handle,bytes:input.bytes,offset:0,expires:Date.now()+15*60*1000};return {id,chunkBytes:CHUNK};
@@ -60,7 +79,7 @@ export class MapWorkspace{
   if(route==='/api/rdx/cancel'){await this.cancelUpload();return true;}
   if(route==='/api/rdx/preview'||route==='/api/rdx/commit'){
    const u=this.transfer(input);ensure(u.offset===u.bytes,'INVALID','The RDX Transfer Is Incomplete.');if(u.handle){await u.handle.sync();await u.handle.close();u.handle=null;}
-   const incoming=await readRdxFile(u.file),key=documentKey(incoming.document),existing=this.store.db.prepare('SELECT * FROM documents WHERE key=?').get(key);
+   const incoming=upgradeBuildingHierarchy(await readRdxFile(u.file)),key=documentKey(incoming.document),existing=this.store.db.prepare('SELECT * FROM documents WHERE key=?').get(key);
    if(this.adoption?.owns(key)){const current=this.store.row(key);ensure(incoming.document.revision===current.head,'REVIEW_REQUIRED','This Existing NPCD Map Uses Its Original Sync Journal. Changed RDX Returns Require the Task-Bound Reconciliation Workflow; the Current Map Was Not Replaced.');}
    const collision=this.store.db.prepare("SELECT key,head FROM documents WHERE dataset_id=? AND kind='map' AND key<>?").all(incoming.document.datasetId,key).some(r=>this.store.load(r.key,r.head).document.scope.mapRecordId===incoming.document.scope?.mapRecordId);
    ensure(!collision,'CONFLICT','This Map Identity Already Belongs to Another Managed Document.');
@@ -78,7 +97,7 @@ export class MapWorkspace{
    ensure(input.approved===true&&input.token===result.preview.token,'CONFLICT','The Import Baseline or Choices Changed. Preview Again.');ensure(result.preview.conflicts.every(c=>c.choice),'REVIEW_REQUIRED','Choose Every Conflict Alternative Before Importing.');
    if(this.adoption?.owns(key)){await this.cancelUpload();this.active=null;this.set('active',null);return {saved:true,key,reload:true,unchanged:true};}
    if(!existing)await this.store.ingest(u.file);
-   else if(incoming.document.revision!==existing.head)await this.store.save(key,{documentBytes:Buffer.from(canonical(result.document)),blobs:result.blobs,expectedRevision:existing.head});
+   const savedHead=this.store.row(key).head;if((!existing||incoming.document.revision!==existing.head)&&result.document.revision!==savedHead)await this.store.save(key,{documentBytes:Buffer.from(canonical(result.document)),blobs:result.blobs,expectedRevision:savedHead});
    this.active=key;this.set('active',key);await this.cancelUpload();this.changed();return {saved:true,key,unbound:true,reload:true};
   }
   if(route==='/api/rdx/export'){const key=this.active|| (this.adoption? (await this.adoption.export(input)).key:null);ensure(key,'NOT_FOUND','Open a Local RDX Map First.');const status=await this.store.status(key);ensure(status.saved,'RECOVERY','Finish the RDX Checkpoint Before Exporting.');await regular(status.path);const bytes=await readBoundedFile(status.path,LIMITS.stored),value=await unpackRdx(bytes);ensure(value.containerSha256===this.store.row(key).checkpoint_hash&&value.document.revision===status.revision,'RECOVERY','The Working File Changed During Export.');this.download={id:randomUUID(),bytes,expires:Date.now()+15*60*1000};return {id:this.download.id,bytes:bytes.length,sha256:sha(bytes),chunkBytes:CHUNK};}
@@ -91,14 +110,14 @@ export class MapWorkspace{
   if(route==='/api/draft'){ensure(input&&Number.isSafeInteger(input.version)&&input.version>0&&(input.draft===null||input.draft&&typeof input.draft==='object'),'INVALID','Invalid Local Editor Draft.');const prior=this.get('draft:'+this.active);ensure(!prior||input.version>prior.version||same(input,prior),'CONFLICT','A Newer Local Draft Exists.');this.set('draft:'+this.active,input);return input;}
   if(route==='/api/edit'){
    ensure(input?.expectedHead===d.revision,'CONFLICT','The Local Map Changed. Review the Latest Version.');const ctx={workspace:d.datasetId,authorization:localDocumentAuthority(d.datasetId),operationId:'content:local-'+randomUUID(),createdAt:new Date().toISOString(),head:d.revision};
-   const edit=buildEdit(domain,input.command,ctx),next=structuredClone(d),c=next.content;
-   c.records=edit.preview.revisions;c.recordHeads=edit.preview.records.map(r=>({recordId:r.recordId,revisionId:r.revisionId}));for(const key of ['plans','reviews','mappings','views'])c[key]=edit.preview[key]||[];
+   const edit=buildEdit(domain,input.command,ctx),next=structuredClone(d),c=next.content;retainDocument(next,value.blobs,value);
+   if(input.command.type!=='locationPreview')c.records=edit.preview.records;c.recordHeads=edit.preview.records.map(r=>({recordId:r.recordId,revisionId:r.revisionId}));for(const key of ['plans','reviews','mappings','views'])c[key]=edit.preview[key]||[];
    // The helper's transient publication is not a YouTrack publication. RDX
    // ancestry journals the edit; retain its typed artifacts and correction
    // evidence without inventing a backend publication lineage.
    for(const artifact of edit.artifacts){const bytes=Buffer.from(canonical(artifact)),digest=sha(bytes),assetId='history:artifact-'+digest;if(!next.assetInventory.some(a=>a.assetId===assetId)){next.assetInventory.push({assetId,sha256:digest,bytes:bytes.length,mime:'application/json',purpose:'history'});c.history.push({sha256:digest,mediaType:'application/json',schema:artifact.schema,purpose:'Exact Local Edit Evidence'});value.blobs.set(digest,bytes);}}
    for(const asset of edit.assets){const {base64,...metadata}=asset,entry={...metadata,purpose:'image'},prior=next.assetInventory.find(a=>a.assetId===asset.assetId);ensure(!prior||same(prior,entry),'CONFLICT','An Existing Image Identity Has Different Bytes.');if(!prior)next.assetInventory.push(entry);value.blobs.set(asset.sha256,Buffer.from(base64,'base64'));}
-   next.scope.ownedRecordIds=edit.preview.records.filter(r=>!['region','profile','shared'].includes(r.kind)).map(r=>r.recordId);next.scope.contextRecordIds=edit.preview.records.filter(r=>['region','profile','shared'].includes(r.kind)).map(r=>r.recordId);next.revision=documentRevision(next);
+   next.scope.ownedRecordIds=edit.preview.records.filter(r=>!['region','profile','shared'].includes(r.kind)).map(r=>r.recordId);next.scope.contextRecordIds=edit.preview.records.filter(r=>['region','profile','shared'].includes(r.kind)).map(r=>r.recordId);if(input.command.type==='detachCharacter')next.capabilities.required=[...new Set([...next.capabilities.required,ORGANIZATION_CAPABILITY])];compactRecords(next,value.blobs);next.revision=documentRevision(next);
    await this.store.save(this.active,{documentBytes:Buffer.from(canonical(next)),blobs:value.blobs,expectedRevision:d.revision});
    const trusted=new Set(this.get('testing:'+this.active)||[]);for(const artifact of edit.artifacts)if(artifact.schema==='NPCDexReviewRevision/1')trusted.add(artifact.digest);this.set('testing:'+this.active,[...trusted]);this.changed();return {saved:true,head:this.store.row(this.active).head};
   }

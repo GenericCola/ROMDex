@@ -1,0 +1,12 @@
+{
+  "name": "proc-macro-crate",
+  "version": "3.1.0",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "6d37c51ca738a55da99dc0c4a34860fd675453b8b36209178c2249bb13651284",
+  "license": "MIT OR Apache-2.0",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

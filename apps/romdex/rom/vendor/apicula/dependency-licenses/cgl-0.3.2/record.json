@@ -1,0 +1,13 @@
+{
+  "name": "cgl",
+  "version": "0.3.2",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "0ced0551234e87afee12411d535648dd89d2e7f34c78b753395567aff3d447ff",
+  "license": "MIT / Apache-2.0",
+  "noticeFiles": [
+    "COPYING",
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

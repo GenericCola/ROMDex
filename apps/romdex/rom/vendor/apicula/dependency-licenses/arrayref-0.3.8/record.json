@@ -1,0 +1,11 @@
+{
+  "name": "arrayref",
+  "version": "0.3.8",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "9d151e35f61089500b617991b791fc8bfd237ae50cd5950803758a179b41e67a",
+  "license": "BSD-2-Clause",
+  "noticeFiles": [
+    "LICENSE"
+  ],
+  "status": "notices-retained"
+}

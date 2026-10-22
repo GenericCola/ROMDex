@@ -1,0 +1,620 @@
+{
+  "status": "source-complete",
+  "romOnly": true,
+  "productionChanged": false,
+  "checks": 10,
+  "renders": [
+    {
+      "header": 73,
+      "sourceRomSha256": "cb743eb01fe18f8599e54911faa28701474b84a6b9d9764a9478bf8a7be1babd",
+      "triangles": 5931,
+      "paintedSamples": 722906,
+      "cells": 4,
+      "placedBuildings": 40,
+      "imageSha256": "463acbe4cdec96078553e8705cb3461408eb29146f5c21314dde40c8207798d4",
+      "imageBytes": 112468,
+      "warps": [
+        {
+          "index": 0,
+          "status": "documented",
+          "sourceTile": [
+            511,
+            269
+          ],
+          "matrixCell": [
+            15,
+            8
+          ],
+          "world": [
+            7928,
+            0,
+            4056
+          ],
+          "conversion": "16 world units per tile; cell center origin at -256; half-tile center offset +8; source zero event height",
+          "imagePixel": [
+            762.8277541245761,
+            597.51380034929
+          ],
+          "rgba": [
+            140,
+            107,
+            74,
+            255
+          ]
+        },
+        {
+          "index": 1,
+          "status": "documented",
+          "sourceTile": [
+            511,
+            270
+          ],
+          "matrixCell": [
+            15,
+            8
+          ],
+          "world": [
+            7928,
+            0,
+            4072
+          ],
+          "conversion": "16 world units per tile; cell center origin at -256; half-tile center offset +8; source zero event height",
+          "imagePixel": [
+            762.8277541245761,
+            606.2038029911475
+          ],
+          "rgba": [
+            140,
+            107,
+            74,
+            255
+          ]
+        },
+        {
+          "index": 2,
+          "status": "documented",
+          "sourceTile": [
+            479,
+            257
+          ],
+          "matrixCell": [
+            14,
+            8
+          ],
+          "world": [
+            7416,
+            0,
+            3864
+          ],
+          "conversion": "16 world units per tile; cell center origin at -256; half-tile center offset +8; source zero event height",
+          "imagePixel": [
+            441.7285307943321,
+            493.23376864699844
+          ],
+          "rgba": [
+            181,
+            189,
+            189,
+            255
+          ]
+        },
+        {
+          "index": 3,
+          "status": "documented",
+          "sourceTile": [
+            454,
+            246
+          ],
+          "matrixCell": [
+            14,
+            7
+          ],
+          "world": [
+            7016,
+            0,
+            3688
+          ],
+          "conversion": "16 world units per tile; cell center origin at -256; half-tile center offset +8; source zero event height",
+          "imagePixel": [
+            190.86976256757862,
+            397.64373958656415
+          ],
+          "rgba": [
+            99,
+            76,
+            53,
+            255
+          ]
+        },
+        {
+          "index": 4,
+          "status": "documented",
+          "sourceTile": [
+            454,
+            247
+          ],
+          "matrixCell": [
+            14,
+            7
+          ],
+          "world": [
+            7016,
+            0,
+            3704
+          ],
+          "conversion": "16 world units per tile; cell center origin at -256; half-tile center offset +8; source zero event height",
+          "imagePixel": [
+            190.86976256757862,
+            406.3337422284219
+          ],
+          "rgba": [
+            132,
+            181,
+            49,
+            255
+          ]
+        },
+        {
+          "index": 5,
+          "status": "documented",
+          "sourceTile": [
+            487,
+            228
+          ],
+          "matrixCell": [
+            15,
+            7
+          ],
+          "world": [
+            7544,
+            0,
+            3400
+          ],
+          "conversion": "16 world units per tile; cell center origin at -256; half-tile center offset +8; source zero event height",
+          "imagePixel": [
+            522.0033366268926,
+            241.22369203312655
+          ],
+          "rgba": [
+            82,
+            158,
+            123,
+            255
+          ]
+        },
+        {
+          "index": 6,
+          "status": "documented",
+          "sourceTile": [
+            495,
+            257
+          ],
+          "matrixCell": [
+            15,
+            8
+          ],
+          "world": [
+            7672,
+            0,
+            3864
+          ],
+          "conversion": "16 world units per tile; cell center origin at -256; half-tile center offset +8; source zero event height",
+          "imagePixel": [
+            602.2781424594541,
+            493.23376864699844
+          ],
+          "rgba": [
+            181,
+            189,
+            189,
+            255
+          ]
+        },
+        {
+          "index": 7,
+          "status": "documented",
+          "sourceTile": [
+            497,
+            271
+          ],
+          "matrixCell": [
+            15,
+            8
+          ],
+          "world": [
+            7704,
+            0,
+            4088
+          ],
+          "conversion": "16 world units per tile; cell center origin at -256; half-tile center offset +8; source zero event height",
+          "imagePixel": [
+            622.346843917594,
+            614.8938056330055
+          ],
+          "rgba": [
+            181,
+            189,
+            189,
+            255
+          ]
+        },
+        {
+          "index": 8,
+          "status": "documented",
+          "sourceTile": [
+            459,
+            254
+          ],
+          "matrixCell": [
+            14,
+            7
+          ],
+          "world": [
+            7096,
+            0,
+            3816
+          ],
+          "conversion": "16 world units per tile; cell center origin at -256; half-tile center offset +8; source zero event height",
+          "imagePixel": [
+            241.0415162129293,
+            467.16376072142543
+          ],
+          "rgba": [
+            181,
+            181,
+            189,
+            255
+          ]
+        },
+        {
+          "index": 9,
+          "status": "documented",
+          "sourceTile": [
+            484,
+            277
+          ],
+          "matrixCell": [
+            15,
+            8
+          ],
+          "world": [
+            7496,
+            0,
+            4184
+          ],
+          "conversion": "16 world units per tile; cell center origin at -256; half-tile center offset +8; source zero event height",
+          "imagePixel": [
+            491.90028443968276,
+            667.0338214841515
+          ],
+          "rgba": [
+            189,
+            189,
+            198,
+            255
+          ]
+        },
+        {
+          "index": 10,
+          "status": "documented",
+          "sourceTile": [
+            469,
+            257
+          ],
+          "matrixCell": [
+            14,
+            8
+          ],
+          "world": [
+            7256,
+            0,
+            3864
+          ],
+          "conversion": "16 world units per tile; cell center origin at -256; half-tile center offset +8; source zero event height",
+          "imagePixel": [
+            341.3850235036307,
+            493.23376864699844
+          ],
+          "rgba": [
+            181,
+            189,
+            189,
+            255
+          ]
+        }
+      ]
+    },
+    {
+      "header": 157,
+      "sourceRomSha256": "cb743eb01fe18f8599e54911faa28701474b84a6b9d9764a9478bf8a7be1babd",
+      "triangles": 1563,
+      "paintedSamples": 627883,
+      "cells": 1,
+      "placedBuildings": 19,
+      "imageSha256": "8a97893caf53400da9138f3cb1287ac5cd3288abc21c4163a307d5c4448919c3",
+      "imageBytes": 41305,
+      "warps": [
+        {
+          "index": 0,
+          "status": "documented",
+          "sourceTile": [
+            4,
+            11
+          ],
+          "matrixCell": [
+            0,
+            0
+          ],
+          "world": [
+            -184,
+            0,
+            -72
+          ],
+          "conversion": "16 world units per tile; cell center origin at -256; half-tile center offset +8; source zero event height",
+          "imagePixel": [
+            315.5,
+            642.2063890065913
+          ],
+          "rgba": [
+            247,
+            66,
+            49,
+            255
+          ]
+        }
+      ]
+    },
+    {
+      "header": 110,
+      "sourceRomSha256": "cb743eb01fe18f8599e54911faa28701474b84a6b9d9764a9478bf8a7be1babd",
+      "triangles": 1539,
+      "paintedSamples": 601497,
+      "cells": 1,
+      "placedBuildings": 9,
+      "imageSha256": "7cbf518435effed011dd2a88e57edf07ff3a2764c7e948981803b2855796c074",
+      "imageBytes": 117595,
+      "warps": [
+        {
+          "index": 0,
+          "status": "documented",
+          "sourceTile": [
+            15,
+            28
+          ],
+          "matrixCell": [
+            0,
+            0
+          ],
+          "world": [
+            -8,
+            0,
+            200
+          ],
+          "conversion": "16 world units per tile; cell center origin at -256; half-tile center offset +8; source zero event height",
+          "imagePixel": [
+            448,
+            727.9547113894749
+          ],
+          "rgba": [
+            84,
+            84,
+            88,
+            255
+          ]
+        },
+        {
+          "index": 1,
+          "status": "documented",
+          "sourceTile": [
+            10,
+            15
+          ],
+          "matrixCell": [
+            0,
+            0
+          ],
+          "world": [
+            -88,
+            0,
+            -8
+          ],
+          "conversion": "16 world units per tile; cell center origin at -256; half-tile center offset +8; source zero event height",
+          "imagePixel": [
+            287.8172472386666,
+            331.8632992788947
+          ],
+          "rgba": [
+            67,
+            47,
+            35,
+            255
+          ]
+        },
+        {
+          "index": 2,
+          "status": "documented",
+          "sourceTile": [
+            24,
+            9
+          ],
+          "matrixCell": [
+            0,
+            0
+          ],
+          "world": [
+            136,
+            0,
+            -104
+          ],
+          "conversion": "16 world units per tile; cell center origin at -256; half-tile center offset +8; source zero event height",
+          "imagePixel": [
+            736.3289549704002,
+            149.05187830478076
+          ],
+          "rgba": [
+            86,
+            61,
+            45,
+            255
+          ]
+        },
+        {
+          "index": 3,
+          "status": "documented",
+          "sourceTile": [
+            6,
+            16
+          ],
+          "matrixCell": [
+            0,
+            0
+          ],
+          "world": [
+            -152,
+            0,
+            8
+          ],
+          "conversion": "16 world units per tile; cell center origin at -256; half-tile center offset +8; source zero event height",
+          "imagePixel": [
+            159.6710450295999,
+            362.331869441247
+          ],
+          "rgba": [
+            86,
+            61,
+            45,
+            255
+          ]
+        },
+        {
+          "index": 4,
+          "status": "documented",
+          "sourceTile": [
+            6,
+            15
+          ],
+          "matrixCell": [
+            0,
+            0
+          ],
+          "world": [
+            -152,
+            0,
+            -8
+          ],
+          "conversion": "16 world units per tile; cell center origin at -256; half-tile center offset +8; source zero event height",
+          "imagePixel": [
+            159.6710450295999,
+            331.8632992788947
+          ],
+          "rgba": [
+            98,
+            81,
+            64,
+            255
+          ]
+        },
+        {
+          "index": 5,
+          "status": "documented",
+          "sourceTile": [
+            10,
+            14
+          ],
+          "matrixCell": [
+            0,
+            0
+          ],
+          "world": [
+            -88,
+            0,
+            -24
+          ],
+          "conversion": "16 world units per tile; cell center origin at -256; half-tile center offset +8; source zero event height",
+          "imagePixel": [
+            287.8172472386666,
+            301.3947291165424
+          ],
+          "rgba": [
+            98,
+            81,
+            64,
+            255
+          ]
+        },
+        {
+          "index": 6,
+          "status": "documented",
+          "sourceTile": [
+            24,
+            8
+          ],
+          "matrixCell": [
+            0,
+            0
+          ],
+          "world": [
+            136,
+            0,
+            -120
+          ],
+          "conversion": "16 world units per tile; cell center origin at -256; half-tile center offset +8; source zero event height",
+          "imagePixel": [
+            736.3289549704002,
+            118.58330814242842
+          ],
+          "rgba": [
+            98,
+            81,
+            64,
+            255
+          ]
+        }
+      ]
+    }
+  ],
+  "bindings": [
+    {
+      "header": 73,
+      "models": 21,
+      "materials": 147,
+      "sourceNamespace": "header-selected area texture set and appropriate indoor/outdoor building set",
+      "uniqueTexturePaletteMatches": true
+    },
+    {
+      "header": 157,
+      "models": 13,
+      "materials": 35,
+      "sourceNamespace": "header-selected area texture set and appropriate indoor/outdoor building set",
+      "uniqueTexturePaletteMatches": true
+    },
+    {
+      "header": 110,
+      "models": 5,
+      "materials": 19,
+      "sourceNamespace": "header-selected area texture set and appropriate indoor/outdoor building set",
+      "uniqueTexturePaletteMatches": true
+    }
+  ],
+  "decoder": {
+    "name": "Apicula",
+    "version": "0.1.1-dev",
+    "commit": "3d4e91e14045392a49c89e86dab8cb936225588c",
+    "license": "0BSD",
+    "sha256": "b546d35960a9b48514457d9998a1ae8b214019fcbd2406c782cb7a15d98597d8"
+  },
+  "sourceFiles": [
+    {
+      "file": "rom/location-resources.mjs",
+      "sha256": "fcc7e2c49de365fa11cdc4190a9b333ac40ae20be7341ec56abc0347d1ea3b5a"
+    },
+    {
+      "file": "rom/location-geometry.mjs",
+      "sha256": "e96b6b317c02410bdf3e80c5287b2a49826c406412a45ac2216832f861c1460e"
+    },
+    {
+      "file": "tests/location-rendering.test.mjs",
+      "sha256": "d5e4b0c565f80a4cbbd17411e9defe17d1f498be2f3430865b7a41398fc876ca"
+    }
+  ]
+}

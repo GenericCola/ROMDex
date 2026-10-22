@@ -1,0 +1,317 @@
+{
+  "format": "MAPDexPipelineAuditEvidence/1",
+  "reviewDate": "2026-10-21",
+  "capturedAt": "2026-10-21T12:44:20.479819+00:00",
+  "applicationVersion": "0.5.26",
+  "applicationMutated": false,
+  "archiveRestored": false,
+  "archive": [
+    {
+      "map": "Cherrygrove City",
+      "records": 101,
+      "points": 64,
+      "stagedPoints": 54,
+      "unstagedPoints": 10,
+      "assignments": {
+        "E": 4,
+        "F": 3,
+        "all": 47,
+        "G": 2,
+        "H": 2,
+        "I": 2,
+        "J": 2
+      },
+      "stageCount": 10,
+      "entityKinds": {
+        "appearance": {
+          "entities": 30,
+          "points": 32,
+          "stagedPoints": 24
+        },
+        "interactive": {
+          "entities": 29,
+          "points": 29,
+          "stagedPoints": 27
+        },
+        "scene": {
+          "entities": 3,
+          "points": 3,
+          "stagedPoints": 3
+        }
+      }
+    },
+    {
+      "map": "Route 29",
+      "records": 34,
+      "points": 25,
+      "stagedPoints": 17,
+      "unstagedPoints": 8,
+      "assignments": {
+        "all": 17
+      },
+      "stageCount": 10,
+      "entityKinds": {
+        "appearance": {
+          "entities": 9,
+          "points": 15,
+          "stagedPoints": 8
+        },
+        "interactive": {
+          "entities": 9,
+          "points": 9,
+          "stagedPoints": 9
+        },
+        "scene": {
+          "entities": 1,
+          "points": 1,
+          "stagedPoints": 0
+        }
+      }
+    },
+    {
+      "map": "New Bark Town",
+      "records": 79,
+      "points": 91,
+      "stagedPoints": 66,
+      "unstagedPoints": 25,
+      "assignments": {
+        "B": 9,
+        "A": 8,
+        "C": 11,
+        "D": 10,
+        "E": 6,
+        "F": 10,
+        "G": 7,
+        "H": 13,
+        "I": 9,
+        "J": 9,
+        "all": 20
+      },
+      "stageCount": 10,
+      "entityKinds": {
+        "appearance": {
+          "entities": 29,
+          "points": 60,
+          "stagedPoints": 43
+        },
+        "interactive": {
+          "entities": 19,
+          "points": 23,
+          "stagedPoints": 15
+        },
+        "scene": {
+          "entities": 6,
+          "points": 8,
+          "stagedPoints": 8
+        }
+      }
+    }
+  ],
+  "current": [
+    {
+      "map": "New Bark Town",
+      "records": 95,
+      "points": 68,
+      "stagedPoints": 3,
+      "unstagedPoints": 65,
+      "assignments": {
+        "rom-content:fa6eb8a80b4ebe45531fad304b9faa1ebc0429ea": 1,
+        "rom-content:84eefe77b2050ea5a6710be1c0b3b391fc71203e": 1,
+        "rom-content:5af1c81da994a8449f5601c6d27c8336b3ef11bd": 1
+      },
+      "source": "RDX/working",
+      "stageCount": 12,
+      "entityKinds": {
+        "appearance": {
+          "entities": 24,
+          "points": 24,
+          "stagedPoints": 0
+        },
+        "interactive": {
+          "entities": 32,
+          "points": 32,
+          "stagedPoints": 1
+        },
+        "scene": {
+          "entities": 4,
+          "points": 12,
+          "stagedPoints": 2
+        }
+      }
+    },
+    {
+      "map": "Cherrygrove City",
+      "records": 86,
+      "points": 51,
+      "stagedPoints": 2,
+      "unstagedPoints": 49,
+      "assignments": {
+        "rom-content:49153d4a8ee2b82c7ad09e058a8cd45024da192a": 1,
+        "rom-content:383504e859cf3812c1d94e8e8c6ce7b087ef3b53": 1
+      },
+      "source": "ROMImport/RDX/working",
+      "stageCount": 5,
+      "entityKinds": {
+        "appearance": {
+          "entities": 30,
+          "points": 30,
+          "stagedPoints": 0
+        },
+        "interactive": {
+          "entities": 9,
+          "points": 9,
+          "stagedPoints": 0
+        },
+        "scene": {
+          "entities": 7,
+          "points": 12,
+          "stagedPoints": 2
+        }
+      }
+    },
+    {
+      "map": "Viridian Forest",
+      "records": 37,
+      "points": 21,
+      "stagedPoints": 0,
+      "unstagedPoints": 21,
+      "assignments": {},
+      "source": "ROMImport/RDX/working",
+      "stageCount": 1,
+      "entityKinds": {
+        "appearance": {
+          "entities": 12,
+          "points": 12,
+          "stagedPoints": 0
+        },
+        "interactive": {
+          "entities": 8,
+          "points": 8,
+          "stagedPoints": 0
+        },
+        "scene": {
+          "entities": 1,
+          "points": 1,
+          "stagedPoints": 0
+        }
+      }
+    },
+    {
+      "map": "New Bark Town",
+      "records": 95,
+      "points": 68,
+      "stagedPoints": 3,
+      "unstagedPoints": 65,
+      "assignments": {
+        "rom-content:fa6eb8a80b4ebe45531fad304b9faa1ebc0429ea": 1,
+        "rom-content:84eefe77b2050ea5a6710be1c0b3b391fc71203e": 1,
+        "rom-content:5af1c81da994a8449f5601c6d27c8336b3ef11bd": 1
+      },
+      "source": "ROMImport/RDX/working",
+      "stageCount": 12,
+      "entityKinds": {
+        "appearance": {
+          "entities": 24,
+          "points": 24,
+          "stagedPoints": 0
+        },
+        "interactive": {
+          "entities": 32,
+          "points": 32,
+          "stagedPoints": 1
+        },
+        "scene": {
+          "entities": 4,
+          "points": 12,
+          "stagedPoints": 2
+        }
+      }
+    }
+  ],
+  "newBarkComparison": {
+    "samePreparedAndNpcdexTimelineDefinitions": true,
+    "samePreparedAndNpcdexEntityStageAssignments": true
+  },
+  "files": [
+    {
+      "area": "RDX/working",
+      "name": "95be7b5eb55f03c7cee141208be768e067da01d06e982963207a34e073dfc153.rdx",
+      "bytes": 2992559,
+      "sha256": "ac32c157a51c0cbc3dfd1fc758cb79d6abc83f3e65c83b7a983cb37c58ad0069"
+    },
+    {
+      "area": "ROMImport/RDX/working",
+      "name": "2eec5cb30dba18bea0f71088ee9529bc58c0c07aea9eedab0752c186b0c503ab.rdx",
+      "bytes": 933575,
+      "sha256": "b16f6c63fb6771023e8b4fd95c9a44a56ca133820d07bcd10f6b4258fe96ccc2"
+    },
+    {
+      "area": "ROMImport/RDX/working",
+      "name": "45562164e87b7a587fc18cab51f4912c0ee740469c2c0aabbc04df82b361bbd5.rdx",
+      "bytes": 254513,
+      "sha256": "1092d9c868434c97b5068c73c0c92d3ac9d94a02cf306e391bb6bc5ca7264122"
+    },
+    {
+      "area": "ROMImport/RDX/working",
+      "name": "95be7b5eb55f03c7cee141208be768e067da01d06e982963207a34e073dfc153.rdx",
+      "bytes": 2992559,
+      "sha256": "ac32c157a51c0cbc3dfd1fc758cb79d6abc83f3e65c83b7a983cb37c58ad0069"
+    }
+  ],
+  "sourceHashes": {
+    "rom/compile-map.mjs": "8ebb823745bfb321a340d8857b81d2efba88b770621aaa79bc65e6c1bec89d67",
+    "rom/source-context.mjs": "e911fc57cdb55d8b8f4bbab604043c4cda465a5cb5f617eddf3f5cf63f1fa9bd",
+    "rom/profiles.mjs": "eca5bc40b7b4b37c3c9c81471e8842c83803ad531f2430f03d6bd5592dd28d75",
+    "rom/MAPDEX.md": "1cccf1aea641b0364a39d3822237207cd45e4926d80c41ae499229b509bf11fb",
+    "rom/workspace.mjs": "b6ababd56c30beebea7071a67338165870d5088b4d0debbb84937eef34ef1cd0",
+    "rom/grouped-document.mjs": "39cb65cd6522036fe6eeb422697ba346e5f3734c2b8eb6a4547269e5b09f3376",
+    "rom/extract.mjs": "493d80ffdf2cfb94f66b98d6d848f737959a39e8cc514803da787fc4a55d01b1",
+    "rom/textures.mjs": "ea1e8c2ee6c79666cacaea45265cd668bac1f78f4f7ca0e76286f72e6186ff91",
+    "content/projection.mjs": "18c34dd39b771693697f7ae5921a6404b0757bddfda7f1af0293683d4ca00e47",
+    "public/rom-import.html": "ad4c76a6f7c95997f3fcf197c917ff8de6ab42e7b1fa8e4c44e25d9e0afcccd7",
+    "public/rom-import.css": "4fa7848a54701c2f70d5aa36f2ce131145f8a4bdec076e0526b71d7c18aab46a",
+    "public/map-character-links.mjs": "2750317e657e56353b48a09673c2277525d15cf77a9b5172f2bc0f48ab08bf8b",
+    "content/native-projection.mjs": "c95365f430896759e5b582c046bd5a85d04ffb0c9bd7c84ec7dded472756aa92",
+    "content/character-tiles.mjs": "7bb0ccf2f82a9105939ca5857debe8197243202a9e27a6b992cee954bc8fae01",
+    "content/timeline-core.js": "f7e907579829ed1087ca227de05839a3009b64e980d26f34a4d75117dfc53f5e",
+    "rdx/youtrack-store.mjs": "351f3bd33a16087e49bd2eceb8c78cb3e8f6932321d9d7595a160b9e40fe1305",
+    "rdx/document-cloud.mjs": "7a24aa5c6d86d13af7149c9d7051f515ef8fa6b2911e0f6a8d27942b9b4bffb7",
+    "rdx/result-validation.mjs": "b003a329133c1dd9ba4924bae65a6b35a4598893dae5d55e3cb26412b96419e9",
+    "rdx/result-application.mjs": "d06415497808ddf843fcdc23382376ad248da42f0ee43e02d3959e57035aab4d"
+  },
+  "readOnlyYouTrackObservations": {
+    "authenticatedLogin": "GenericCola",
+    "query": "project: NPCD",
+    "returnedIssues": 0,
+    "hasNextPage": false,
+    "interpretation": "No fresh backend content/hierarchy verification can be claimed from this connector result.",
+    "typeEnum": [
+      "Milestone",
+      "Task",
+      "Subtask"
+    ],
+    "stateEnum": [
+      "Open",
+      "In Progress",
+      "In Review",
+      "On hold",
+      "Done",
+      "Canceled"
+    ]
+  },
+  "checksPerformed": [
+    "Read archived working RDX documents without restoration",
+    "Decode current prepared and NPCDex working RDX documents without writing them",
+    "Compare timeline definitions and per-entity point stage assignments",
+    "Read current source and existing delivery evidence",
+    "Inspect existing native UI screenshots",
+    "Read connector account, project field schema and issue search"
+  ],
+  "checksNotRepeated": [
+    "No extraction rerun",
+    "No application build or install",
+    "No live backend write",
+    "No new Windows UI acceptance",
+    "No full regression suite"
+  ]
+}

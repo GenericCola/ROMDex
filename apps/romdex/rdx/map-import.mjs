@@ -1,3 +1,5 @@
+import {upgradeBuildingHierarchy} from '../rom/building-hierarchy.mjs';
+import {verifiedJSON} from './verified-json.mjs';
 import {canonical,parseJSON,sha,same,seal} from '../content/contracts.mjs';
 import {validateDomain} from '../content/materialize.mjs';
 import {viewHeads} from '../content/view-contract.mjs';
@@ -11,7 +13,7 @@ const ref=r=>({recordId:r.recordId,revisionId:r.revisionId});
 // History bodies are already bounded and validated by the container reader.
 export function mapDomain(value){
  const d=value.document,c=d.content,history=[];
- for(const a of d.assetInventory.filter(a=>a.purpose==='history')){const old=parseJSON(value.blobs.get(a.sha256));if(old.format==='RDXDocument/1')history.push(...old.content.records||[],...old.content.mappings||[],...old.content.views||[]);else history.push(old);}
+ for(const a of d.assetInventory.filter(a=>a.purpose==='history')){const old=verifiedJSON(value.blobs.get(a.sha256),a.sha256,{clone:true}).value;if(old.format==='RDXDocument/1')history.push(...old.content.records||[],...old.content.mappings||[],...old.content.views||[]);else history.push(old);}
  const revisions=union(history.filter(a=>a.schema==='NPCDexContentRevision/1'),c.records),byHash=new Map(revisions.map(r=>[r.revisionId,r]));
  return validateDomain({records:c.recordHeads.map(r=>byHash.get(r.revisionId)),revisions,mappings:union(history.filter(a=>a.schema==='NPCDexROMMapping/1'),c.mappings),plans:c.plans,reviews:c.reviews,views:union(history.filter(a=>a.schema==='NPCDexViewRevision/1'),c.views),assets:d.assetInventory});
 }
@@ -34,7 +36,8 @@ function revision(template,parents,current,operation){return seal({...template,o
 
 // A pure preview: no filesystem, transport, publication or authority is acquired.
 // Choices select observed alternatives; every original remains in portable history.
-export function previewMapImport(incoming,local=null,{choices={},archive=[]}={}){
+export function previewMapImport(incoming,local=null,{choices={},archive=[],verifiedNative=false}={}){
+ incoming=upgradeBuildingHierarchy(incoming);if(local)local=upgradeBuildingHierarchy(local);
  const source=incoming.document,sourceUpdate=validateUpdateMetadata(source,incoming.blobs);ensure(source.kind==='map','WORKSPACE','This File Contains a ROMDex Plan. Use the Task Plan Importer.');
  ensure(source.origin.role!=='agent-result','REVIEW_REQUIRED','Agent Results Require the Task Reconciliation Workflow and Human Testing. This File Was Not Applied.');
  const keyOf=d=>d.datasetId+':'+d.documentId;
@@ -48,13 +51,13 @@ export function previewMapImport(incoming,local=null,{choices={},archive=[]}={})
  const revisions=union(here.revisions,remote.revisions),all=new Map(revisions.map(r=>[r.revisionId,r])),heads=new Map(here.records.map(r=>[r.recordId,r])),context=new Set(source.scope.contextRecordIds);
  const choose=(id,l,r,reason)=>{const selected=choices[id];ensure(selected===undefined||['local','incoming'].includes(selected),'INVALID','Invalid Import Choice.');conflicts.push({id,reason,local:l,incoming:r,choice:selected||null});return selected==='incoming'?r:l;};
  const reviewedBase=sourceUpdate?parseJSON(incoming.blobs.get(source.assetInventory.find(a=>a.assetId===sourceUpdate.baselineDocumentAsset).sha256)):null;
- for(const [id,value]of Object.entries(source.extensions)){if(!Object.hasOwn(doc.extensions,id))doc.extensions[id]=value;else if(!same(doc.extensions[id],value))doc.extensions[id]=reviewedBase&&Object.hasOwn(reviewedBase.extensions,id)&&same(doc.extensions[id],reviewedBase.extensions[id])?value:choose('extensions:'+id,doc.extensions[id],value,'Workspace Extension Has Different Values');}
+ for(const [id,value]of Object.entries(source.extensions)){if(!Object.hasOwn(doc.extensions,id))doc.extensions[id]=value;else if(!same(doc.extensions[id],value)&&verifiedNative&&id==='org.romdex.native-review')doc.extensions[id]={format:'NPCDexNativeReview/1',evidence:union(doc.extensions[id].evidence||[],value.evidence||[],v=>sha(canonical(v))),romChanged:false,humanTestingGranted:false};else if(!same(doc.extensions[id],value))doc.extensions[id]=reviewedBase&&Object.hasOwn(reviewedBase.extensions,id)&&same(doc.extensions[id],reviewedBase.extensions[id])?value:choose('extensions:'+id,doc.extensions[id],value,'Workspace Extension Has Different Values');}
  for(const key of ['required','optional'])doc.capabilities[key]=[...new Set([...doc.capabilities[key],...source.capabilities[key]])];
  for(const r of remote.records){const l=heads.get(r.recordId);let next=r,action='Add';
-  if(l){ensure(l.kind===r.kind&&(l.parentRecordId===r.parentRecordId||sourceUpdate&&ancestor(all,l.revisionId,r.revisionId)),'CONFLICT','An Existing Record Cannot Change Kind or Parent Without Reviewed ROM Update Ancestry.');
+  if(l){ensure(l.kind===r.kind&&(l.parentRecordId===r.parentRecordId||(sourceUpdate||verifiedNative)&&ancestor(all,l.revisionId,r.revisionId)),'CONFLICT','An Existing Record Cannot Change Kind or Parent Without Reviewed ROM Update Ancestry.');
    if(l.revisionId===r.revisionId){next=l;action='Unchanged';}
    else if(ancestor(all,r.revisionId,l.revisionId)){next=l;action='Keep Newer Local';}
-   else if(sourceUpdate&&ancestor(all,l.revisionId,r.revisionId)){next=r;action='Reviewed ROM Update';}
+   else if((sourceUpdate||verifiedNative)&&ancestor(all,l.revisionId,r.revisionId)){next=r;action='Reviewed ROM Update';}
    else if(context.has(r.recordId)){next=choose(r.recordId,l,r,'Shared Context Requires an Explicit Choice');action='Review Context';}
    else if(ancestor(all,l.revisionId,r.revisionId)){next=r;action='Update';}
    else {const bases=revisions.filter(b=>b.recordId===r.recordId&&ancestor(all,b.revisionId,l.revisionId)&&ancestor(all,b.revisionId,r.revisionId)),latest=bases.filter(b=>!bases.some(a=>a.revisionId!==b.revisionId&&ancestor(all,b.revisionId,a.revisionId)));const base=latest.length===1?latest[0]:null;

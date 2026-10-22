@@ -1,3 +1,4 @@
+import {upgradeBuildingHierarchy} from './building-hierarchy.mjs';
 import {canonical,seal,sha} from '../content/contracts.mjs';
 import {mapDomain,retainDocument} from '../rdx/map-import.mjs';
 import {documentRevision,validateDocument} from '../rdx/document.mjs';
@@ -46,6 +47,6 @@ export function preparePresentation(value){
   if(r.kind==='profile'&&front&&r.current.payload.baseImageId==='content:asset-'+frames[0]?.sha256&&!r.legacyData?.romPresentation?.thumbnailCorrected){next.current.payload.baseImageId='content:asset-'+front.sha256;next.legacyData.romPresentation={...next.legacyData.romPresentation,format:VERSION,thumbnailCorrected:true,thumbnailBasis:'Front-standing texture in the reviewed HGSS frame layout'};changed=true;}
   if(changed){next.parents=[r.revisionId];next.actorClaim='romdex:source-presentation';next.operationId='content:presentation-'+sha(canonical({parent:r.revisionId,current:next.current,legacy:next.legacyData.romPresentation})).slice(0,40);changes.push(seal(next));}
  }
- if(!changes.length)return value;
- const document=structuredClone(value.document),blobs=new Map(value.blobs);retainDocument(document,blobs,value);document.content.records.push(...changes);const heads=new Map(changes.map(r=>[r.recordId,r.revisionId]));document.content.recordHeads=document.content.recordHeads.map(h=>({recordId:h.recordId,revisionId:heads.get(h.recordId)||h.revisionId}));document.parents=[value.document.revision];document.revision=documentRevision(document);const documentBytes=Buffer.from(canonical(document));validateDocument(documentBytes,{blobs});return {...value,document,documentBytes,blobs};
+ if(!changes.length)return upgradeBuildingHierarchy(value);
+ const document=structuredClone(value.document),blobs=new Map(value.blobs);retainDocument(document,blobs,value);document.content.records.push(...changes);const heads=new Map(changes.map(r=>[r.recordId,r.revisionId]));document.content.recordHeads=document.content.recordHeads.map(h=>({recordId:h.recordId,revisionId:heads.get(h.recordId)||h.revisionId}));document.parents=[value.document.revision];document.revision=documentRevision(document);const documentBytes=Buffer.from(canonical(document));validateDocument(documentBytes,{blobs});return upgradeBuildingHierarchy({...value,document,documentBytes,blobs});
 }

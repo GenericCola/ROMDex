@@ -1,0 +1,13 @@
+{
+  "name": "dispatch",
+  "version": "0.2.0",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "bd0c93bb4b0c6d9b77f4435b0ae98c24d17f1c45b2ff844c6151a07256ca923b",
+  "license": "MIT",
+  "noticeFiles": [],
+  "status": "source-license-declaration-retained",
+  "noticeSource": {
+    "repository": "http://github.com/SSheldon/rust-dispatch",
+    "revision": "82d6c7a5b75dc0c71c3f46f87bb6c16a476f7748"
+  }
+}

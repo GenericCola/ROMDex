@@ -8,6 +8,7 @@ import {decodeMessage} from './messages.mjs';
 import {scriptEntries,decodeScriptGraph,decodeLevelScripts,resolveScriptNumber,spriteReference} from './scripts.mjs';
 import {readBTX,renderTexture,encodePNG} from './textures.mjs';
 import {analyzeScriptState} from './script-state.mjs';
+import {extractConditions,validateConditionExtraction} from './condition-extraction.mjs';
 
 export async function extractHGSS(rom,{inventory=null,previousIdentities=null,headerIds=null,scope=null,allowScopeExtension=false,progress=()=>{}}={}){
  inventory=inventory||await inventoryHGSS(rom,{progress});validateInventory(inventory);
@@ -143,7 +144,7 @@ export async function extractHGSS(rom,{inventory=null,previousIdentities=null,he
  for(const root of roots.filter(r=>r.kind==='scene-hook'))milestoneCandidates.push({key:'scene/'+root.headerId+'/'+root.flow,kind:'scene-variable',predicate:root.predicate,headerId:root.headerId,flow:root.flow,locator:root.locator,ordering:'not established',label:null});
  for(const appearance of appearances)if(appearance.visibility.flag)milestoneCandidates.push({key:'visibility/'+appearance.sourceId,kind:'visibility-flag',sourceId:appearance.sourceId,flag:appearance.visibility.flag,locator:appearance.visibility.locator,ordering:'not established',label:null});
  const value={format:'ROMDexMapExtraction/1',adapter:inventory.adapter,profile:profile.id,source:inventory.source,inventoryDigest:inventory.digest,testbed:{key:scope?.key||profile.candidateGroup.key,name:scope?.name||'Violet City',regionName:scope?.regionName||'Johto',regionKey:scope?.regionKey||'johto',locationSection:maps[0].locationSection,headerIds:areas.map(a=>a.headerId),excludes:'Areas outside the selected map / zone group'},identities,namespaces:{rows:namespaces,locator:namespaceLocator},areas,roots,flows:[...graphs.values()].map(g=>({...g,boundToEventOrHook:selectedFlows.has(g.key)})),flowReferences,messages:[...messages.values()],messageBanks:[...messageBanks.values()],appearances,trainerDialogues,movements,predicates,mutations,timeline:{scope:'this-map-only',milestoneCandidates,stageLabels:'Roman numerals assigned after ordering is established in RI02T',warning:'Predicates can be independent or reversible. Do not impose a chronological order from numeric IDs or source order.'},nativeDependencies:[...nativeDependencies.values()],warnings,coverage:{readOnly:true,aiRequired:false,sourcePinned:true,branchRepresentation:'control-flow graph; possible branches, not proof of runtime reachability',localEntryCount:roots.filter(r=>r.kind==='local-entry').length,flowCount:graphs.size,messageCount:messages.size,appearanceCount:appearances.length,renderedAppearanceCount:appearances.filter(a=>a.assets.length).length,uniqueTexturePNGs:assets.size,unresolvedInstructionRanges:warnings.filter(w=>w.code==='SCRIPT_DECODE_INCOMPLETE').length,dynamicMessageSites:[...graphs.values()].reduce((n,g)=>n+g.instructions.filter(i=>i.messageReferences.some(r=>r.dynamic)).length,0),runtimeEmulated:false,rdxCompiled:false,cloudPublished:false}};
- value.textSemantics=textSemantics;value.digest=extractionDigest(value);await rom.assertUnchanged();return {extraction:value,assets};
+ value.textSemantics=textSemantics;value.conditionAnalysis=extractConditions(value,{check:()=>rom.check(),progress});validateConditionExtraction(value.conditionAnalysis,value);value.digest=extractionDigest(value);await rom.assertUnchanged();return {extraction:value,assets};
 }
 export function extractionDigest(value){const copy={...value};delete copy.digest;return sha256(Buffer.from(canonical(copy)));}
 export function validateExtraction(value){
@@ -151,5 +152,6 @@ export function validateExtraction(value){
  requireRom(value.identities?.sourceSHA256===value.source?.sha256&&value.testbed?.headerIds?.length===value.areas?.length,'INTEGRITY','Extraction source/area identities differ.');
  const keys=new Set(value.messages.map(m=>m.key));
  for(const flow of value.flows)for(const row of flow.instructions)for(const reference of row.messageReferences||[])if(reference.message)requireRom(keys.has(reference.message),'INVALID_REFERENCE','Script points to an omitted decoded message.');
+ if(value.conditionAnalysis)validateConditionExtraction(value.conditionAnalysis,value);
  return value;
 }

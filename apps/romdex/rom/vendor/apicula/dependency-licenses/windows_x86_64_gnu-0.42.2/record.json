@@ -1,0 +1,12 @@
+{
+  "name": "windows_x86_64_gnu",
+  "version": "0.42.2",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "8de912b8b8feb55c064867cf047dda097f92d51efad5b491dfb98f6bbb70cb36",
+  "license": "MIT OR Apache-2.0",
+  "noticeFiles": [
+    "license-apache-2.0",
+    "license-mit"
+  ],
+  "status": "notices-retained"
+}

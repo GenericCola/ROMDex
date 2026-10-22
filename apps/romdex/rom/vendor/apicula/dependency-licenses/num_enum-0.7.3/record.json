@@ -1,0 +1,13 @@
+{
+  "name": "num_enum",
+  "version": "0.7.3",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "4e613fc340b2220f734a8595782c551f1250e969d87d3be1ae0579e8d4065179",
+  "license": "BSD-3-Clause OR MIT OR Apache-2.0",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-BSD",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

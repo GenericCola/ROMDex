@@ -1,3 +1,5 @@
+import {CONDITION_CAPABILITY} from './features.mjs';
+import {upgradeMapConditions} from '../rom/condition-upgrade.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {DatabaseSync} from 'node:sqlite';
@@ -40,7 +42,7 @@ export class ManagedDocuments{
    const store=new ManagedDocuments({root,db,lock,maxBytes,fault});if(autoRecover)await store.recover();return store;
   }catch(error){db?.close();if(lock)await releaseLock(lock);throw error;}
  }
- constructor({root,db,lock,maxBytes,fault}){Object.assign(this,{root,db,lock,maxBytes,fault,busy:false,closed:false});}
+ constructor({root,db,lock,maxBytes,fault}){Object.assign(this,{root,db,lock,maxBytes,fault,busy:false,closed:false});this.verifiedCheckpointIdentities=new Map();this.preparedContainers=new Map();}
  row(key){ensure(!this.closed,'CLOSED','The RDX Store Is Closed.');validKey(key);const row=this.db.prepare('SELECT * FROM documents WHERE key=?').get(key);ensure(row,'NOT_FOUND','Managed RDX Document Not Found.');return row;}
  file(key){validKey(key);return path.join(this.root,'working',key+'.rdx');}
  transaction(fn){this.db.exec('BEGIN IMMEDIATE');try{const result=fn();this.db.exec('COMMIT');return result;}catch(e){try{this.db.exec('ROLLBACK');}catch{}throw e;}}
@@ -61,7 +63,7 @@ export class ManagedDocuments{
  pending(key){return this.db.prepare("SELECT * FROM journal WHERE key=? AND state='pending'").get(key);}
  knownPrior(row,revision){
   let cursor=row.head;const seen=new Set();while(cursor&&!seen.has(cursor)&&seen.size<=10000){
-   if(cursor===revision)return true;seen.add(cursor);cursor=this.db.prepare("SELECT prior_revision FROM journal WHERE key=? AND next_revision=? AND reason='local-edit'").get(row.key,cursor)?.prior_revision;
+   if(cursor===revision)return true;seen.add(cursor);cursor=this.db.prepare("SELECT prior_revision FROM journal WHERE key=? AND next_revision=? AND reason IN ('local-edit','coordinated-edit')").get(row.key,cursor)?.prior_revision;
   }return false;
  }
  async status(key){
@@ -69,7 +71,15 @@ export class ManagedDocuments{
   if(!pending&&row.checkpoint_revision===row.head)try{const actual=await this.checkpointValue(row);saved=actual.document.revision===row.head&&actual.containerSha256===row.checkpoint_hash;}catch(e){error=e.message;}
   return {key,datasetId:row.dataset_id,documentId:row.document_id,namespace:row.namespace,kind:row.kind,revision:row.head,checkpointRevision:row.checkpoint_revision,path:this.file(key),saved,checkpointPending:!saved,error,requiresHumanTesting:!!row.needs_testing,humanVerification:'not-established',sync:'unbound-local'};
  }
- async checkpointValue(row){await regular(this.file(row.key));const value=await readRdxFile(this.file(row.key));ensure(documentKey(value.document)===row.key,'REVIEW_REQUIRED','Managed RDX File Identity Changed.');return value;}
+ // Every check still reads and hashes all current bytes. Only the expensive
+ // decode/schema pass is reused for an exactly identical, already verified hash.
+ // No file-stat shortcut or integrity check is removed; cache entries contain
+ // only document identity, never mutable content/asset objects.
+ async checkpointValue(row,file=this.file(row.key),options={}){
+  await regular(file);const bytes=await readBoundedFile(file,LIMITS.stored,options.signal),hash=sha(bytes),reusable=Object.keys(options).length===0;let identity=reusable?this.verifiedCheckpointIdentities.get(hash):null;
+  if(!identity){const v=await unpackRdx(bytes,options);identity={document:{datasetId:v.document.datasetId,documentId:v.document.documentId,revision:v.document.revision},containerSha256:v.containerSha256};if(this.verifiedCheckpointIdentities.size>=64)this.verifiedCheckpointIdentities.delete(this.verifiedCheckpointIdentities.keys().next().value);if(reusable)this.verifiedCheckpointIdentities.set(hash,identity);}
+  ensure(documentKey(identity.document)===row.key,'REVIEW_REQUIRED','Managed RDX File Identity Changed.');return structuredClone(identity);
+ }
  async view(key){const row=this.row(key),loaded=this.load(key,row.head);return {...loaded,status:await this.status(key)};}
  async list(){const result=[];for(const row of this.db.prepare('SELECT key FROM documents ORDER BY key').all())result.push(await this.status(row.key));return result;}
  async ingest(file,options={}){return this.exclusive(async()=>{
@@ -77,11 +87,11 @@ export class ManagedDocuments{
   if(existing){ensure(existing.head===value.document.revision,'REVIEW_REQUIRED','An Existing Document Needs an Update Preview; It Was Not Replaced.');return {...await this.status(key),alreadyPresent:true};}
   return this.commit(value,{key,reason:'local-import',prior:null,sourceHash:value.containerSha256,options});
  });}
- async save(key,{documentBytes,blobs,expectedRevision,nativeCheckpoint=false,...options}={}){return this.exclusive(async()=>{
+ async prepareSave(key,{documentBytes,blobs,expectedRevision,nativeCheckpoint=false,...options}={}){
   const row=this.row(key);ensure(row.head===expectedRevision,'CONFLICT','The Managed RDX Baseline Changed. Reload Before Saving.');ensure(!this.pending(key),'RECOVERY','Finish the Pending RDX Checkpoint Before Editing Again.');
   // Draft bytes come from an explicit local edit, not the untrusted RDX import
   // path. Only the outer revision is recomputed; nested artifact seals must pass.
-  const before=this.load(key,row.head),doc=parseJSON(documentBytes),nextBlobs=new Map(blobs||[]);
+  const before=this.load(key,row.head),draft=parseJSON(documentBytes);let nextBlobs=new Map(blobs||[]),doc=draft;
   ensure(documentKey(doc)===key&&doc.namespace===row.namespace&&doc.kind===row.kind,'CONFLICT','A Local Save Cannot Change RDX Identity or Workspace.');
   ensure(doc.kind!=='map'||doc.scope?.mapRecordId===before.document.scope.mapRecordId,'CONFLICT','A Local Save Cannot Replace the Primary Map Identity.');
   if(row.needs_testing)ensure(doc.origin?.role==='agent-result'&&same(doc.result,before.document.result),'REVIEW_REQUIRED','Pending Agent Result Evidence and Human Testing Cannot Be Cleared by Editing or Export.');
@@ -89,7 +99,8 @@ export class ManagedDocuments{
   const assets=new Map(doc.assetInventory.map(a=>[a.assetId,a]));ensure(assets.size===doc.assetInventory.length,'INVALID','Duplicate RDX Asset Identity.');
   for(const a of before.document.assetInventory){if(assets.has(a.assetId))ensure(same(assets.get(a.assetId),a),'CONFLICT','An Existing RDX Asset Identity Has Different Bytes.');else{doc.assetInventory.push(a);assets.set(a.assetId,a);}if(!nextBlobs.has(a.sha256))nextBlobs.set(a.sha256,before.blobs.get(a.sha256));}
   for(const h of before.document.content.history)if(!doc.content.history.some(v=>same(v,h)))doc.content.history.push(h);
-  const unchanged={...doc,revision:before.document.revision};if(same(unchanged,before.document)){validateDocument(Buffer.from(canonical(unchanged)),{blobs:nextBlobs});return {...await this.status(key),unchanged:true};}
+  if(!nativeCheckpoint&&!row.needs_testing&&!doc.capabilities.required.includes(CONDITION_CAPABILITY)){const upgraded=upgradeMapConditions({document:doc,documentBytes:Buffer.from(canonical(doc)),blobs:nextBlobs});doc=upgraded.document;nextBlobs=upgraded.blobs;}
+  const unchanged={...doc,revision:before.document.revision};if(same(unchanged,before.document)){validateDocument(Buffer.from(canonical(unchanged)),{blobs:nextBlobs});return {unchanged:{...await this.status(key),unchanged:true}};}
   if(nativeCheckpoint){
    ensure(!row.needs_testing&&doc.kind==='map'&&before.document.extensions?.['org.romdex.native-adoption']?.format==='ROMDexNativeMapEvidence/1'&&doc.extensions?.['org.romdex.native-adoption']?.format==='ROMDexNativeMapEvidence/1'&&doc.origin.role==='backend-sync','INVALID','Native Checkpoint Authority Differs.');
    // Generated wrapper versions remain in the immutable SQLite journal and
@@ -98,13 +109,30 @@ export class ManagedDocuments{
    for(const collection of ['records','plans','reviews','mappings','views'])for(const old of before.document.content[collection])if(!(collection==='views'&&old.actorClaim==='content:rdx-adapter'))ensure(doc.content[collection].some(a=>(a.revisionId||a.digest)===(old.revisionId||old.digest)&&same(a,old)),'RECOVERY','A Native Checkpoint Cannot Discard Artifact History.');
   }else if(!row.needs_testing)doc.origin={...doc.origin,role:'user',generator:'ROMDex Managed Documents/1'};
   const baseHash=sha(before.documentBytes),assetId='history:rdx-'+baseHash;
-  if(!nativeCheckpoint){if(!assets.has(assetId))doc.assetInventory.push({assetId,sha256:baseHash,bytes:before.documentBytes.length,mime:'application/json',purpose:'history'});
+  if(!nativeCheckpoint){if(!doc.assetInventory.some(a=>a.assetId===assetId))doc.assetInventory.push({assetId,sha256:baseHash,bytes:before.documentBytes.length,mime:'application/json',purpose:'history'});
    nextBlobs.set(baseHash,before.documentBytes);
    if(!doc.content.history.some(h=>h.sha256===baseHash))doc.content.history.push({sha256:baseHash,mediaType:'application/json',schema:'RDXDocument/1',purpose:'Exact Prior Managed Document'});}
   doc.parents=[...new Set([...doc.parents,row.head])];doc.revision=documentRevision(doc);
   const packed=await packRdx(Buffer.from(canonical(doc)),nextBlobs,options),value=await unpackRdx(packed,options);
-  return this.commit(value,{key,reason:'local-edit',prior:row.head,sourceHash:null,options});
+  if(Object.keys(options).length===0&&packed.length<=16*1024*1024){if(this.preparedContainers.size>=2)this.preparedContainers.delete(this.preparedContainers.keys().next().value);const hash=sha(packed);this.preparedContainers.set(key+':'+value.document.revision,{bytes:packed,hash,documentHash:sha(value.documentBytes)});if(this.verifiedCheckpointIdentities.size>=64)this.verifiedCheckpointIdentities.delete(this.verifiedCheckpointIdentities.keys().next().value);this.verifiedCheckpointIdentities.set(hash,{document:{datasetId:value.document.datasetId,documentId:value.document.documentId,revision:value.document.revision},containerSha256:value.containerSha256});}
+  return {value,row,options};
+ }
+ async save(key,input={}){return this.exclusive(async()=>{const prepared=await this.prepareSave(key,input);if(prepared.unchanged)return prepared.unchanged;const {value,row,options}=prepared;return this.commit(value,{key,reason:'local-edit',prior:row.head,sourceHash:null,options});});}
+ // Every selected document head and its private coordination metadata change
+ // in one SQLite transaction. Files remain recoverable journal checkpoints.
+ async saveBatch(inputs,{metadata=()=>{}}={}){return this.exclusive(async()=>{
+  ensure(Array.isArray(inputs)&&inputs.length>0&&inputs.length<=64&&new Set(inputs.map(x=>x.key)).size===inputs.length,'INVALID','Choose Distinct Documents for the Coordinated Edit.');
+  const values=[];for(const input of inputs){const prepared=await this.prepareSave(input.key,input);ensure(!prepared.unchanged,'INVALID','A Coordinated Document Has No Changes.');values.push({...prepared,key:input.key,id:randomUUID()});}
+  await this.capacity(values.reduce((n,{value})=>n+value.documentBytes.length+[...value.blobs.values()].reduce((sum,b)=>sum+b.length,0)*2,0));
+  this.transaction(()=>{for(const {value,row,key,id}of values){const d=value.document;ensure(this.row(key).head===row.head,'CONFLICT','A Coordinated Baseline Changed.');for(const [hash,bytes]of value.blobs){const existing=this.db.prepare('SELECT bytes FROM blobs WHERE hash=?').get(hash);ensure(!existing||Buffer.from(existing.bytes).equals(bytes),'RECOVERY','A Coordinated Blob Changed.');if(!existing)this.db.prepare('INSERT INTO blobs VALUES(?,?)').run(hash,bytes);}
+   this.db.prepare('INSERT OR IGNORE INTO versions VALUES(?,?,?,?)').run(key,d.revision,value.documentBytes,sha(value.documentBytes));
+   this.db.prepare('UPDATE documents SET head=?,needs_testing=max(needs_testing,?) WHERE key=?').run(d.revision,value.requiresHumanTesting?1:0,key);
+   this.db.prepare("INSERT INTO journal VALUES(?,?,?,?,?,?,?,'pending',NULL,NULL)").run(id,key,row.head,d.revision,'coordinated-edit',null,Buffer.from(canonical({beforeRevision:row.head,afterRevision:d.revision,assetHashes:d.assetInventory.map(a=>a.sha256),publishState:'coordinated-local'})));
+   this.fault('before-batch-commit',{key,id});}metadata(values.map(v=>({key:v.key,before:v.row.head,after:v.value.document.revision})));});
+  this.fault('after-batch-journal',{});for(const {key,options}of values)try{await this.checkpoint(key,options);}catch(error){this.recordError(key,error);throw error;}
+  return Promise.all(values.map(v=>this.status(v.key)));
  });}
+
  async commit(value,{key,reason,prior,sourceHash,options}){
   const d=value.document,id=randomUUID(),before=prior?this.load(key,prior).document:null;
   const delta={beforeRevision:prior,afterRevision:d.revision,changedRoots:Object.keys(d).filter(k=>!before||!same(d[k],before[k])),assetHashes:d.assetInventory.map(a=>a.sha256),publishState:'unbound-local'};
@@ -130,13 +158,13 @@ export class ManagedDocuments{
    ensure(this.knownPrior(row,actual.document.revision),'REVIEW_REQUIRED','The Working RDX Was Changed Outside the Journal. Both Versions Are Retained.');previousRevision=actual.document.revision;
   }
   const stage=path.join(this.root,'working',key+'.pending-'+intent.id+'.rdx');let candidate;
-  if(await regular(stage,{optional:true}))try{candidate=await readRdxFile(stage,options);ensure(candidate.document.revision===row.head&&documentKey(candidate.document)===key,'RECOVERY','The RDX Staging Identity Differs.');}catch(error){
+  if(await regular(stage,{optional:true}))try{candidate=await this.checkpointValue(row,stage,options);ensure(candidate.document.revision===row.head&&documentKey(candidate.document)===key,'RECOVERY','The RDX Staging Identity Differs.');}catch(error){
    if(options.signal?.aborted)throw error;
    await fs.rename(stage,path.join(this.root,'recovery',key+'.incomplete-'+randomUUID()+'.rdx'));candidate=null;
   }
   if(!candidate){
-   const loaded=this.load(key,row.head),bytes=await packRdx(loaded.documentBytes,loaded.blobs,options);await this.capacity(bytes.length*2);
-   await writeDurable(stage,bytes,{fault:this.fault,signal:options.signal});this.fault('after-stage-write',{key});candidate=await readRdxFile(stage,options);
+   const loaded=this.load(key,row.head),cached=Object.keys(options).length===0?this.preparedContainers.get(key+':'+row.head):null;if(cached)ensure(sha(cached.bytes)===cached.hash&&sha(loaded.documentBytes)===cached.documentHash,'RECOVERY','The Prepared RDX Container Changed.');const bytes=cached?cached.bytes:await packRdx(loaded.documentBytes,loaded.blobs,options);await this.capacity(bytes.length*2);
+   await writeDurable(stage,bytes,{fault:this.fault,signal:options.signal});this.fault('after-stage-write',{key});candidate=await this.checkpointValue(row,stage,options);
   }
   ensure(candidate.document.revision===row.head&&documentKey(candidate.document)===key,'RECOVERY','Staged RDX Failed Identity Verification.');
   const stagedHandle=await fs.open(stage,'r+');try{await stagedHandle.sync();}finally{await stagedHandle.close();}

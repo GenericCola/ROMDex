@@ -1,0 +1,373 @@
+{
+  "task": "RI03C",
+  "status": "third-corrective-verification-complete-owner-review-pending",
+  "candidateVersion": "0.5.26-11f.20",
+  "installedVersion": "0.5.26",
+  "source": {
+    "adapter": "org.romdex.hgss-nds/1",
+    "validatedProfile": "hg-en-0.6.3-noduplicates",
+    "gameCode": "IPKE",
+    "sha256": "cb743eb01fe18f8599e54911faa28701474b84a6b9d9764a9478bf8a7be1babd",
+    "catalogPhysicalHeaders": 540,
+    "sourceReadOnly": true
+  },
+  "compatibility": [
+    {
+      "input": "Supplied 0.6.3_noduplicates.nds",
+      "status": "validated-source-layout",
+      "coverage": "Static map/event/message/condition/sprite and supported location-resource extraction; runtime uncertainty remains explicit"
+    },
+    {
+      "input": "Another IPKE build",
+      "status": "conditional-layout-review-required",
+      "coverage": "Needs the recorded compatible-layout checks and explicit ROM-project/build/map review; game code alone is insufficient. Two actual builds have not been accepted."
+    },
+    {
+      "input": "Other HGSS revisions, SoulSilver, other languages, Diamond/Pearl/Platinum, GBA, 3DS or arbitrary Pokemon ROMs",
+      "status": "not-established-or-unsupported",
+      "coverage": "No adapter compatibility promise or guessed offsets/names"
+    }
+  ],
+  "boundaries": {
+    "oneLogicalMapPerRDX": true,
+    "nestedAreasRetained": true,
+    "conditions": "Known source predicates/effects only; Roman numbers are display indexes, not a verified story sequence. Raw flag IDs remain where the ROM supplies no semantic name.",
+    "images": "Static source geometry/textures; no live actors, animated textures, weather or time-of-day simulation. Unsafe output paths and unsupported resources still fail closed.",
+    "nativeEdits": "Safe names may apply; supported content/parent corrections require their structured reviewed route. Comments are discussion.",
+    "returns": "Fixed task/package authorization; exact typed matching or private exact-prose review; hard guards and mandatory human testing remain.",
+    "mapsNavigation": "One active managed RDX; other managed maps are exposed in the NPCDex left tray. Both workspaces have separate local organization.",
+    "productionInstallation": "U30; installed 0.5.26 is unchanged"
+  },
+  "acceptance": {
+    "implementation": true,
+    "technicalEvidence": true,
+    "ownerUsabilityReview": false,
+    "gameplayHumanTesting": false,
+    "actualTwoBuildTest": "deferred-no-second-ROM"
+  },
+  "newChecks": {
+    "freshPreparation": {
+      "task": "RI03C",
+      "status": "passed",
+      "productionChanged": false,
+      "tokensCopied": false,
+      "cloudWrites": false,
+      "maps": [
+        {
+          "name": "New Bark Town",
+          "id": "section:126",
+          "key": "f944262964bf57fe86c1f854d601ed62235555f0572668708556cfeab982f5a1",
+          "areas": 8,
+          "records": 95,
+          "appearances": 24,
+          "knownConditions": 46,
+          "conditions": 212,
+          "effects": 308,
+          "unresolved": 29,
+          "locationTargets": [
+            {
+              "recordId": "rom-source:f2451aa4-d954-4034-8cea-869aea2684f4",
+              "status": "ready",
+              "reason": "Static source geometry; actors, animation and current game flags are not simulated."
+            },
+            {
+              "recordId": "rom-source:cebcb099-b286-4635-9a5e-ca323fe4a622",
+              "status": "ready",
+              "reason": "Static source geometry; actors, animation and current game flags are not simulated."
+            },
+            {
+              "recordId": "rom-source:24e3051c-384e-408a-a9a0-bbae471d6f7e",
+              "status": "ready",
+              "reason": "Static source geometry; actors, animation and current game flags are not simulated."
+            },
+            {
+              "recordId": "rom-source:9b353ea6-7c34-47cf-8173-c7c38f50a12d",
+              "status": "ready",
+              "reason": "Static source geometry; actors, animation and current game flags are not simulated."
+            },
+            {
+              "recordId": "rom-source:60ffc1dc-6253-4c72-9f08-a49055070533",
+              "status": "ready",
+              "reason": "Static source geometry; actors, animation and current game flags are not simulated."
+            },
+            {
+              "recordId": "rom-source:5c56ca2c-f898-47d2-bdd4-3bb83f826b31",
+              "status": "ready",
+              "reason": "Static source geometry; actors, animation and current game flags are not simulated."
+            },
+            {
+              "recordId": "rom-source:62126e4f-6edf-4bf7-9612-015485a46977",
+              "status": "ready",
+              "reason": "Static source geometry; actors, animation and current game flags are not simulated."
+            },
+            {
+              "recordId": "rom-source:ac7b79d8-d50e-4964-818a-a88676596395",
+              "status": "ready",
+              "reason": "Static source geometry; actors, animation and current game flags are not simulated."
+            },
+            {
+              "recordId": "rom-content:87e2676fc1ebfe2f05bc75c30fbb41ee91be6ab0",
+              "status": "ready",
+              "reason": "Representative source area; child interiors and floors have their own images."
+            }
+          ],
+          "rdxBytes": 2887491,
+          "rdxSHA256": "11b063416053b3522781b8e992dd61615177c02d573c88439c0c7ad654517f25",
+          "exactBackendArtifactRecovery": true,
+          "liveCloudProof": false,
+          "sourceRetained": true
+        },
+        {
+          "name": "Route 29",
+          "id": "section:177",
+          "key": "a01d321c048a1cb4dd4199e53af4aa6666924ae797774b5b9a732d790c218942",
+          "areas": 2,
+          "records": 38,
+          "appearances": 13,
+          "knownConditions": 8,
+          "conditions": 82,
+          "effects": 86,
+          "unresolved": 13,
+          "locationTargets": [
+            {
+              "recordId": "rom-source:5c1f1af3-0ec2-4d0c-be0c-23418133b533",
+              "status": "ready",
+              "reason": "Static source geometry; actors, animation and current game flags are not simulated."
+            },
+            {
+              "recordId": "rom-source:7701a069-a521-4c7d-88ea-c9604f341696",
+              "status": "ready",
+              "reason": "Static source geometry; actors, animation and current game flags are not simulated."
+            },
+            {
+              "recordId": "rom-content:621150d1d49fdb28f5fb0f4def0901442e665aad",
+              "status": "ready",
+              "reason": "Representative source area; child interiors and floors have their own images."
+            }
+          ],
+          "rdxBytes": 701006,
+          "rdxSHA256": "fb3ce9076144cf824cbb2483a3941548d1f24338cdbc66a9d3b06a09d870953f",
+          "exactBackendArtifactRecovery": true,
+          "liveCloudProof": false,
+          "sourceRetained": true
+        }
+      ],
+      "checks": [
+        "Actual catalog worker opens the supplied ROM read-only, lists 540 physical headers and leaves no map selected",
+        "Fresh complete New Bark Town and Route 29 retain different source-bound condition/effect indexes, complete source mappings and explicit unresolved coverage",
+        "Both fresh preparations automatically assign location images and preserve every blob through portable RDX and backend-object reconstruction",
+        "Both explicit handoffs preserve record identities/assets, report local-only success and honor the NPCDex sync pause",
+        "The pinned decoder now distinguishes internal material labels from actual output filenames; all eight New Bark physical areas and its parent overview have generated images"
+      ],
+      "sourceSHA256": "cb743eb01fe18f8599e54911faa28701474b84a6b9d9764a9478bf8a7be1babd",
+      "reusedNestedLocationProof": {
+        "key": "4402b47efa04552877f78e223ab3f094e0e6848985712735919a34428eb55d9c",
+        "source": "LP03 and LP02 portable real-ROM image proof; five selected physical areas",
+        "sha256": "2c7db537e7e4fee55abd93148d7c4b47edbbdbc37ace409d000147527d8e574e"
+      },
+      "imageCorrection": {
+        "cause": "A colon in an internal material label was mistaken for an output filename",
+        "originalROMChanged": false,
+        "sourceModelsRewritten": false,
+        "unsafeOutputFilenamesStillRejected": true,
+        "previousUnsupportedAreas": [
+          63,
+          66
+        ],
+        "readyTargets": 9
+      }
+    },
+    "native": {
+      "task": "RI03C",
+      "status": "passed",
+      "checks": [
+        "Final Phase 11E candidate manifest is exact and contains no source ROM, credentials or live Data",
+        "Final packaged MAPDex shows complete New Bark preparation, automatic source location images, early contextual tools and equal Export/Send actions",
+        "Character source dialogue and access requirements remain beside inline identity tools; the selected condition is explicit",
+        "NPCDex uses the same map-specific condition index, location imagery and access inspector after handoff",
+        "Actual map controls switch New Bark to Route 29 with different relevant conditions, clear the old filter and keep unresolved content reachable",
+        "Previously verified nested Violet/Sprout floor content renders on the final candidate without another extraction or backend upload",
+        "An empty condition match explains the filter and returns to actual dialogue with one Show All Content action",
+        "At 620px height the shared dialog body ends above its footer, no horizontal overflow occurs and one Escape closes",
+        "Switching final workspaces preserves local state without reopening Connection Details or producing page errors",
+        "Final candidate saves and quits normally with the complete isolated maps preserved"
+      ],
+      "metrics": {
+        "startupMilliseconds": 37399,
+        "quitMilliseconds": 379
+      },
+      "productionChanged": false,
+      "tokensCopied": false,
+      "cloudWrites": false,
+      "installerRun": false,
+      "reusedCompletedChecks": 9
+    },
+    "locationFocusedTests": 20,
+    "newMaterialFilenameCases": 4,
+    "audit": {
+      "at": "2026-10-21T21:07:40.721Z",
+      "status": "passed",
+      "sourceFilesCompared": 1217,
+      "mirrorTestsCompared": 148,
+      "candidateFiles": 1289,
+      "mismatches": [],
+      "forbidden": [],
+      "runtimeChanges": [],
+      "syntaxChecks": 3,
+      "syntaxFailures": [],
+      "gitDiffCheck": {
+        "passed": true,
+        "output": ""
+      },
+      "productionChanged": false,
+      "installerCreated": false
+    }
+  },
+  "reusedEvidence": [
+    {
+      "report": "MX02-Verification.json",
+      "scope": "Map-bound tracing, negation/compound/shared-call/visibility and unresolved coverage"
+    },
+    {
+      "report": "MX03-Verification.json",
+      "scope": "Condition identity, RDX/backend-object preservation and map filter/reset integration"
+    },
+    {
+      "report": "LP03-Verification.json",
+      "scope": "Actual floor geometry, no-ROM portability and nested location UI"
+    },
+    {
+      "report": "Phase-11D-Verification.json",
+      "scope": "Actual private NPCD grouping/native-edit/recovery proofs and exact temporary-record cleanup"
+    },
+    {
+      "report": "Phase-11E-Verification.json",
+      "scope": "Actual ROM-copy typed/prose returns, real binary task file transfer, fresh NPCD/RDX reconstruction, duplicate guards and human-testing holds"
+    }
+  ],
+  "notRepeated": [
+    "Full regression suite",
+    "Full-map YouTrack publication/migration",
+    "Installer build or production upgrade",
+    "External-agent dispatch",
+    "Game emulator/in-game acceptance"
+  ],
+  "knownMetrics": {
+    "latestNativeStartupMilliseconds": 39599,
+    "latestNativeQuitMilliseconds": 1600,
+    "earlierThreeMapSwitchMilliseconds": 6355,
+    "mapSwitchMetricScope": "Earlier RI03C candidate before the two-house image correction; not a fresh final-candidate measurement",
+    "largeMapLatency": "U28/U29 still own full-map checkpoint responsiveness/concurrency review",
+    "latestMetricScope": "Historical 11f.8 lifecycle timing, not a measurement of the latest tile candidate."
+  },
+  "productionChanged": false,
+  "cloudWrites": false,
+  "correctivePass": {
+    "findings": 14,
+    "implementationOrder": "1 through 14",
+    "sourceRegressionCases": 114,
+    "changedJavaScriptSyntaxChecks": 37,
+    "nativeChecks": 12,
+    "reusedUnchangedMapdexChecks": 0,
+    "nativeMetrics": {
+      "startupMilliseconds": 39599,
+      "quitMilliseconds": 1600
+    },
+    "sourceEvidence": "work/ri03c-corrections",
+    "eventEntries": {
+      "New Bark Town": 8,
+      "Route 29": 1
+    },
+    "rawPredicatesPreserved": true,
+    "workspaceFolders": "separate, local only",
+    "ownerReviewRequired": true,
+    "productionChanged": false,
+    "cloudWrites": false,
+    "installerRun": false,
+    "additionalTargetedProgressImageCases": 8,
+    "newProgressImageRegressionCases": 4,
+    "functionalNativeCandidate": "0.5.26-11f.8",
+    "finalVisualNativeCandidate": "0.5.26-11f.10",
+    "finalCandidateReusedFunctionalChecks": 10,
+    "finalVisualEvidence": "work/ri03c-corrections/final-native-proof.json",
+    "tileImages": "Display-only alpha/black location matte framing; source/crop assets remain unchanged",
+    "pausedPublication": "Compact idle status; progress meter only for active local/cloud work"
+  },
+  "secondOwnerCorrections": {
+    "candidate": "0.5.26-11f.13",
+    "findings": 5,
+    "disclosureFollowup": true,
+    "reference": "Screenshot 2026-10-14 101721.png and archived web NPCDex CSS",
+    "sourceModuleCases": 7,
+    "imageCases": 4,
+    "sourceWebStyleParity": true,
+    "generatedLocationImagesVerified": 9,
+    "nativeChecks": [
+      "MAPDex uses web tile labels, half-pane contained sprites, a centered standard cog and no tile movement buttons",
+      "MAPDex map images fill the card; web-style label-corner disclosure animates without enclosing children in the card; the map menu escapes clipping",
+      "NPCDex matches MAPDex and the web card geometry, contains full-size-equivalent sprites and centers the same settings asset",
+      "NPCDex active and inactive maps retain image tiles; its original web disclosure still expands and collapses correctly"
+    ],
+    "cardStylesMatchAcrossWorkspaces": true,
+    "spritePaneFraction": 0.5,
+    "cogButtonPixels": 18,
+    "cogIconPixels": 12,
+    "tileMoveButtonsRemoved": true,
+    "sourceRDXRevisionPreserved": true,
+    "evidence": "work/ri03c-corrections",
+    "ownerAccepted": false,
+    "productionChanged": false,
+    "cloudWrites": false,
+    "nativeFunctionalCandidate": "0.5.26-11f.12",
+    "finalSidebarReview": "second-final-review-proof.json"
+  },
+  "thirdOwnerCorrections": {
+    "status": "verified-owner-review-pending",
+    "order": [
+      "Filled image viewports",
+      "Building and floor hierarchy",
+      "Two-tray MAPDex with popup tools",
+      "Original web timeline with map-specific events"
+    ],
+    "imageProof": "work/ri03c-corrections/third-01-proof.json",
+    "hierarchyProof": "work/ri03c-corrections/third-02-proof.json",
+    "importProof": "work/ri03c-corrections/third-02-import-proof.json",
+    "browserLayoutProof": "work/ri03c-corrections/third-03-proof.json",
+    "nativeProof": "work/ri03c-corrections/third-native-proof.json",
+    "sourceTests": "103 unique targeted cases, with focused reruns after fixes",
+    "productionChanged": false,
+    "nativeCandidate": "0.5.26-11f.20",
+    "nativeChecks": [
+      "The real Mother dialogue now shows after-starter branches, excludes the before-starter line and retains exact access requirements",
+      "The original compact timeline and Other Conditions control remain functional after state filtering",
+      "Route 29 retains its independent event timeline",
+      "MAPDex retains its two-tray layout and eight map-specific event nodes"
+    ],
+    "reusedStructuralCandidate": "0.5.26-11f.17",
+    "reusedStructuralChecks": [
+      "MAPDex has one full-height content tray, nested lab floors and the compact eight-event web timeline",
+      "Native identity and real local handoff previews open as popups; cancellation returns to the expanded content tray",
+      "NPCDex shows five building/location selectors with 1F and 2F beneath Elm’s Lab; event nodes have affected-item lights and the original Other Conditions control",
+      "Route 29 displays a filled cropped map image and its own single event instead of New Bark’s timeline",
+      "The two-tray layout stays usable at 620px without overlap"
+    ],
+    "styleComparison": {
+      "path": "work/ri03c-corrections/third-web-timeline-comparison.json",
+      "comparedValues": 198,
+      "differences": 0
+    },
+    "eventStateProof": "work/ri03c-corrections/third-real-event-state-proof.json",
+    "sourceIdentityProof": "work/ri03c-corrections/mother-native-identity.json",
+    "finalAudit": {
+      "passed": true,
+      "candidate": "0.5.26-11f.20",
+      "applicationFiles": 1229,
+      "mirroredTests": 155,
+      "changedSyntaxChecks": 47,
+      "candidateFiles": 1301,
+      "productionChanged": false,
+      "installerCreated": false,
+      "sourceRomWritten": false
+    }
+  }
+}

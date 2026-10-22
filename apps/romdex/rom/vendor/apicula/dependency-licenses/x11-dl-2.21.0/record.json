@@ -1,0 +1,11 @@
+{
+  "name": "x11-dl",
+  "version": "2.21.0",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "38735924fedd5314a6e548792904ed8c6de6636285cb9fec04d5b1db85c1516f",
+  "license": "MIT",
+  "noticeFiles": [
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

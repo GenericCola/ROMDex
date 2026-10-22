@@ -29,25 +29,29 @@ async function transformBytes(bytes,mode,maximum,op,level){
  if(mode==='inflate')ensure(transform.bytesWritten===bytes.length,'INVALID','RDX Compressed Entry Has Trailing or Concatenated Data.');
  op.check();return Buffer.concat(chunks,length);
 }
+const packedProofs=new WeakMap();
+const compressedEntries=new Map();let compressedBytes=0;
+const COMPRESSED_CACHE_BYTES=16*1024*1024;
+async function compressEntry(bytes,level,op){const key=level+':'+sha(bytes);let cached=compressedEntries.get(key);if(cached){if(cached.bytes)ensure(sha(cached.bytes)===cached.hash,'INTEGRITY','A Cached RDX Compression Entry Changed.');compressedEntries.delete(key);compressedEntries.set(key,cached);op.check();return cached.bytes;}const compressed=await transformBytes(bytes,'deflate',bytes.length+65536,op,level),selected=compressed.length<bytes.length?compressed:null;cached={bytes:selected,hash:selected?sha(selected):null};const size=selected?.length||0;if(size<=COMPRESSED_CACHE_BYTES){while((compressedBytes+size>COMPRESSED_CACHE_BYTES||compressedEntries.size>=1024)&&compressedEntries.size){const [id,old]=compressedEntries.entries().next().value;compressedEntries.delete(id);compressedBytes-=old.bytes?.length||0;}compressedEntries.set(key,cached);compressedBytes+=size;}return selected;}
 export async function packRdx(documentBytes,blobs=new Map(),options={}){
  const op=operation(options);try{
   const level=options.level??DEFAULT_LEVEL;ensure(Number.isInteger(level)&&level>=0&&level<=9,'INVALID','Invalid RDX Compression Level.');
   ensure(blobs instanceof Map,'INVALID','RDX Blobs Must Be Hash-Keyed.');
-  const {document,canonicalBytes}=validateDocument(documentBytes,{blobs,limits:op.limits,check:op.check});
+  const validated=validateDocument(documentBytes,{blobs,limits:op.limits,check:op.check}),{document,canonicalBytes}=validated;
   ensure(blobs.size+1<=op.limits.entries,'LIMIT','RDX Entry Count Limit Exceeded.');
   const entries=[],bodies=[];let offset=0,decoded=0;
   for(const [id,bytes]of [['document',canonicalBytes],...[...blobs].sort(([a],[b])=>a.localeCompare(b)).map(([h,b])=>['blob:'+h,b])]){
    op.check();decoded+=bytes.length;ensure(decoded<=op.limits.decoded,'LIMIT','RDX Decoded Aggregate Limit Exceeded.');
-   const compressed=options.compress===false?null:await transformBytes(bytes,'deflate',bytes.length+65536,op,level);
+   const compressed=options.compress===false?null:await compressEntry(bytes,level,op);
    const stored=compressed&&compressed.length<bytes.length?compressed:bytes;
    entries.push({id,codec:stored===bytes?'store':'deflate-raw',offset,storedBytes:stored.length,decodedBytes:bytes.length,sha256:sha(bytes)});
    bodies.push(stored);offset+=stored.length;ensure(offset<=op.limits.stored,'LIMIT','RDX Stored File Limit Exceeded.');
   }
-  const manifest={format:'RDXContainer/1',documentRevision:document.revision,requiredCapabilities:['org.romdex.rdx.container-v1'],entries};validateShape(manifest,'container');
+  const manifest={format:'RDXContainer/1',documentRevision:document.revision,requiredCapabilities:[...new Set(['org.romdex.rdx.container-v1',...document.capabilities.required])],entries};validateShape(manifest,'container');
   const header=Buffer.from(canonical(manifest));ensure(header.length<=op.limits.manifest,'LIMIT','RDX Manifest Limit Exceeded.');
   ensure(12+header.length+offset<=op.limits.stored,'LIMIT','RDX Stored File Limit Exceeded.');
   const prefix=Buffer.alloc(12);MAGIC.copy(prefix);prefix.writeUInt32LE(header.length,8);op.check();
-  return Buffer.concat([prefix,header,...bodies],12+header.length+offset);
+  const packed=Buffer.concat([prefix,header,...bodies],12+header.length+offset);packedProofs.set(packed,{digest:sha(packed),limits:canonical(op.limits),validated});return packed;
  }finally{op.close();}
 }
 export async function unpackRdx(bytes,options={}){
@@ -83,7 +87,7 @@ export async function unpackRdx(bytes,options={}){
    ensure(body.length===entry.decodedBytes&&sha(body)===entry.sha256,'INVALID','RDX Entry Hash or Decoded Length Differs.');
    if(entry.id==='document')documentBytes=body;else blobs.set(entry.sha256,body);
   }
-  const validated=validateDocument(documentBytes,{blobs,limits:op.limits,check:op.check});
+  const known=packedProofs.get(bytes),reusable=known&&known.digest===sha(bytes)&&known.limits===canonical(op.limits);if(reusable)packedProofs.delete(bytes);const validated=reusable?{...known.validated,document:structuredClone(known.validated.document),canonicalBytes:Buffer.from(known.validated.canonicalBytes)}:validateDocument(documentBytes,{blobs,limits:op.limits,check:op.check});
   ensure(documentBytes.equals(validated.canonicalBytes),'INVALID','RDX Document Entry Must Use Canonical JSON.');
   ensure(manifest.documentRevision===validated.document.revision,'INVALID','RDX Manifest and Document Revisions Differ.');
   return {...validated,manifest,documentBytes,blobs,containerSha256:sha(bytes)};

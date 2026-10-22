@@ -1,0 +1,12 @@
+{
+  "name": "windows_x86_64_gnullvm",
+  "version": "0.48.5",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "0b7b52767868a23d5bab768e390dc5f5c55825b6d30b86c844ff2dc7414044cc",
+  "license": "MIT OR Apache-2.0",
+  "noticeFiles": [
+    "license-apache-2.0",
+    "license-mit"
+  ],
+  "status": "notices-retained"
+}

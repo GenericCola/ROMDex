@@ -1,11 +1,14 @@
+import {verifiedJSON} from './verified-json.mjs';
+import {ORGANIZATION_CAPABILITY,historicalMaps} from './organization-contract.mjs';
 import {parseJSON,canonical,sha,unique,verifyDigest,validateGraph,same,conforms} from '../content/contracts.mjs';
 import {checkImageBounds} from '../content/image-bounds.mjs';
 import {validateViews} from '../content/view-contract.mjs';
 import {validateShape} from './schema.mjs';
 import {bounds,ensure} from './limits.mjs';
 import {validateUpdateMetadata,UPDATE_CAPABILITY} from '../rom/update-contract.mjs';
+import {validateMapFeatures,CONDITION_CAPABILITY,PREVIEW_CAPABILITY} from './features.mjs';
 
-export const CAPABILITIES=Object.freeze(['org.romdex.rdx.container-v1','org.romdex.rdx.map-v1','org.romdex.rdx.plan-v1','org.romdex.npcdex.content-v1','org.romdex.npcdex.nested-zones-v1',UPDATE_CAPABILITY]);
+export const CAPABILITIES=Object.freeze(['org.romdex.rdx.container-v1','org.romdex.rdx.map-v1','org.romdex.rdx.plan-v1','org.romdex.npcdex.content-v1','org.romdex.npcdex.nested-zones-v1',UPDATE_CAPABILITY,CONDITION_CAPABILITY,PREVIEW_CAPABILITY,ORGANIZATION_CAPABILITY]);
 export function requireCapabilities(required){
  ensure(Array.isArray(required),'INVALID','Missing RDX Capabilities.');
  const missing=required.filter(x=>!CAPABILITIES.includes(x));
@@ -14,10 +17,10 @@ export function requireCapabilities(required){
 export function documentRevision(doc){const body={...doc};delete body.revision;return sha(canonical(body));}
 const ref=r=>r.recordId+':'+r.revisionId;
 function singleMapPayload(value,doc){
- const map=doc.scope.mapRecordId,record=doc.content.records.find(r=>r.recordId===map),view=doc.content.views.find(v=>v.recordId===map),allowed=new Set([map,record?.legacyData?.legacyTownId,view?.payload.fields?.id].filter(Boolean)),todo=[value];
+ const former=historicalMaps(doc);const map=doc.scope.mapRecordId,record=doc.content.records.find(r=>r.recordId===map),view=doc.content.views.find(v=>v.recordId===map),allowed=new Set([map,record?.legacyData?.legacyTownId,view?.payload.fields?.id].filter(Boolean)),todo=[value];
  while(todo.length){const v=todo.pop();if(!v||typeof v!=='object')continue;
-  if(v.schema==='NPCDexContentRevision/1'&&v.kind==='map')ensure(v.recordId===map,'INVALID','An RDX Map Cannot Contain Another Map Payload.');
-  if(v.format==='RDXDocument/1'&&v.kind==='map')ensure(v.scope?.mapRecordId===map,'INVALID','An RDX Map Cannot Contain Another Map Document.');
+  if(v.schema==='NPCDexContentRevision/1'&&v.kind==='map')ensure(v.recordId===map||former.has(v.recordId)&&v.revisionId!==doc.content.recordHeads.find(h=>h.recordId===v.recordId)?.revisionId,'INVALID','An RDX Map Cannot Contain Another Map Payload.');
+  if(v.format==='RDXDocument/1'&&v.kind==='map')ensure(v.scope?.mapRecordId===map||v!==doc&&former.has(v.scope?.mapRecordId),'INVALID','An RDX Map Cannot Contain Another Map Document.');
   const town=x=>x&&typeof x==='object'&&Array.isArray(x.areas)&&Array.isArray(x.characters);
   if(Array.isArray(v.towns)&&v.towns.some(town))ensure(v.towns.length===1&&allowed.has(v.towns[0]?.id),'INVALID','An RDX Map Cannot Embed a Multi-Map Save or Another Map.');
   if(town(v)&&typeof v.id==='string')ensure(allowed.has(v.id),'INVALID','An RDX Map Cannot Embed Another Map.');
@@ -49,6 +52,7 @@ function mapModel(doc,history){
  }
  for(const r of records)for(const parent of r.parents)ensure(revisions.has(r.recordId+':'+parent),'INVALID','Missing RDX Record Ancestry.');
  const mappings=new Map([...c.mappings,...history.filter(a=>a.schema==='NPCDexROMMapping/1')].map(a=>[a.digest,a]));
+ validateMapFeatures(doc,heads,[...mappings.values()]);
  for(const m of mappings.values())for(const locator of m.locators)ensure(!/^(?:[a-z]+:|[\\/])/i.test(locator.path)&&!locator.path.split(/[\\/]/).includes('..')&&!locator.path.includes('\0'),'INVALID','Unsafe RDX Project-Relative ROM Locator.');
  for(const r of records)for(const h of r.mappingRefs)ensure(mappings.get(h)?.recordId===r.recordId,'INVALID','Missing RDX ROM Mapping.');
  for(const p of c.plans)for(const r of [p.baseline,...p.readSet])ensure(revisions.has(ref(r)),'INVALID','Missing RDX Plan Baseline or Read.');
@@ -92,19 +96,19 @@ export function validateDocument(bytes,{blobs=new Map(),limits:overrides,check=(
  ensure(!doc.parents.includes(doc.revision),'INVALID','RDX Document Is Its Own Parent.');
  ensure(Number.isFinite(Date.parse(doc.createdAt))&&new Date(doc.createdAt).toISOString()===doc.createdAt,'INVALID','Invalid RDX Creation Time.');
  unique(doc.assetInventory.map(a=>a.assetId),'RDX Asset Identity');
- const hashes=new Set(),history=[],historyTypes=new Map();
+ const hashes=new Set(),history=[],historyTypes=new Map(),scopeProof=sha(canonical({dataset:doc.datasetId,kind:doc.kind,map:doc.scope?.mapRecordId||null,organization:doc.extensions?.['org.romdex.npcdex.organization']||null,capabilities:doc.capabilities.required,legacyTown:doc.content.records?.find(r=>r.recordId===doc.scope?.mapRecordId)?.legacyData?.legacyTownId||null,viewTown:doc.content.views?.find(v=>v.recordId===doc.scope?.mapRecordId)?.payload.fields?.id||null,formerHeads:(doc.extensions?.['org.romdex.npcdex.organization']?.formerMaps||[]).map(m=>doc.content.recordHeads.find(h=>h.recordId===m.recordId))}));
  for(const a of doc.assetInventory){
   check();const data=blobs.get(a.sha256);ensure(Buffer.isBuffer(data)&&data.length===a.bytes&&sha(data)===a.sha256,'INVALID','Missing or Corrupt RDX Blob: '+a.sha256);
   ensure(data.length<=limits.blob,'LIMIT','RDX Binary Entry Limit Exceeded.');hashes.add(a.sha256);
   if(a.purpose==='image')image(data,a.mime);
   if(a.purpose==='history'||a.mime==='application/json'){
-   const old=parseJSON(data,{maxBytes:limits.json,maxDepth:limits.depth,maxNodes:limits.nodes});
-   if(doc.kind==='map')singleMapPayload(old,doc);
+   const parsed=verifiedJSON(data,a.sha256,{maxBytes:limits.json,maxDepth:limits.depth,maxNodes:limits.nodes}),old=parsed.value,verified=parsed.checks.has(scopeProof+':'+a.purpose);
+   if(doc.kind==='map'&&!verified)singleMapPayload(old,doc);
    if(a.purpose==='history'){
     historyTypes.set(a.sha256,old.format||old.schema);
-    if(old.format==='RDXDocument/1'){requireCapabilities(old.capabilities?.required);validateShape(old,old.kind==='map'?'mapDocument':'planDocument');ensure(old.revision===documentRevision(old)&&old.datasetId===doc.datasetId,'INVALID','RDX History Document Differs.');const artifacts=[...(old.content.records||[]),...(old.content.mappings||[]),...(old.content.views||[])];for(const value of artifacts){verifyDigest(value);ensure(value.workspaceId===doc.datasetId,'INVALID','RDX History Dataset Differs.');}history.push(...artifacts);}
-    else {ensure(conforms(old),'INVALID','Unsupported RDX History Artifact.');verifyDigest(old);ensure(old.workspaceId===doc.datasetId,'INVALID','RDX History Dataset Differs.');history.push(old);}
-   }
+    if(old.format==='RDXDocument/1'){if(!verified){requireCapabilities(old.capabilities?.required);validateShape(old,old.kind==='map'?'mapDocument':'planDocument');ensure(old.revision===documentRevision(old)&&old.datasetId===doc.datasetId,'INVALID','RDX History Document Differs.');}const artifacts=[...(old.content.records||[]),...(old.content.mappings||[]),...(old.content.views||[])];if(!verified)for(const value of artifacts){verifyDigest(value);ensure(value.workspaceId===doc.datasetId,'INVALID','RDX History Dataset Differs.');}history.push(...artifacts);}
+    else {if(!verified){ensure(conforms(old),'INVALID','Unsupported RDX History Artifact.');verifyDigest(old);ensure(old.workspaceId===doc.datasetId,'INVALID','RDX History Dataset Differs.');}history.push(old);}
+   }if(parsed.checks.size>=8)parsed.checks.clear();parsed.checks.add(scopeProof+':'+a.purpose);
   }
  }
  ensure(blobs.size===hashes.size&&[...blobs.keys()].every(h=>hashes.has(h)),'INVALID','Unlisted RDX Blob.');

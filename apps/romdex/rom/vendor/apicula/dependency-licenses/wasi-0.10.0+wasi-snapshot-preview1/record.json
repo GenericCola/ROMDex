@@ -1,0 +1,13 @@
+{
+  "name": "wasi",
+  "version": "0.10.0+wasi-snapshot-preview1",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "1a143597ca7c7793eff794def352d41792a93c481eb1042423ff7ff72ba2c31f",
+  "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-Apache-2.0_WITH_LLVM-exception",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

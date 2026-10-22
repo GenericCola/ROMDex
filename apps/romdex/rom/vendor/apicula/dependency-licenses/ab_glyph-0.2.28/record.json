@@ -1,0 +1,11 @@
+{
+  "name": "ab_glyph",
+  "version": "0.2.28",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "79faae4620f45232f599d9bc7b290f88247a0834162c4495ab2f02d60004adfb",
+  "license": "Apache-2.0",
+  "noticeFiles": [
+    "LICENSE"
+  ],
+  "status": "notices-retained"
+}

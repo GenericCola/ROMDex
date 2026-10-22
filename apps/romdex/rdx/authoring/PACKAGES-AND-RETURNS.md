@@ -64,3 +64,6 @@ The versioned `contract-reference` folder contains an exact map, four requests i
 ## U23A Authorization and Return Context
 
 See [Agent File Transfer](../AGENT-FILE-TRANSFER.md) for the source implementation. Verified delivery now includes a separate RDXReturnContext/1 JSON supplement supplying required immutable content ancestry/mappings. It excludes private plans/reviews/views and whole-document history; the original JSON package is not rewritten. Exact-version authorization is application-owned private metadata, independent of any actor claim in a file. The fixed Copy Agent Instructions template and downloadable RDXAgentHandoff/1 manifest identify verified task files for the deterministic CLI. Context baselines are execution material, not replacement imports. U24 discovery and U25 application remain disabled.
+
+
+The Phase 11E [bound return tools](BOUND-RETURNS.md) construct and validate a task-bound result from the pinned baseline and implementation outcomes. Typed fields remain exact; prose results require private exact-difference owner approval before application. Both paths require human testing and leave the task open.

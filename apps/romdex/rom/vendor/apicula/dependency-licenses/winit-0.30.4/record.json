@@ -1,0 +1,11 @@
+{
+  "name": "winit",
+  "version": "0.30.4",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "4225ddd8ab67b8b59a2fee4b34889ebf13c0460c1c3fa297c58e21eb87801b33",
+  "license": "Apache-2.0",
+  "noticeFiles": [
+    "LICENSE"
+  ],
+  "status": "notices-retained"
+}

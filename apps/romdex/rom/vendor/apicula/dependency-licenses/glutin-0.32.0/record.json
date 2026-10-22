@@ -1,0 +1,11 @@
+{
+  "name": "glutin",
+  "version": "0.32.0",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "2491aa3090f682ddd920b184491844440fdd14379c7eef8f5bc10ef7fb3242fd",
+  "license": "Apache-2.0",
+  "noticeFiles": [
+    "LICENSE"
+  ],
+  "status": "notices-retained"
+}

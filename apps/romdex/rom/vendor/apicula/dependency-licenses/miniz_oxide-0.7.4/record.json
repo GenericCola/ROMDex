@@ -1,0 +1,14 @@
+{
+  "name": "miniz_oxide",
+  "version": "0.7.4",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "b8a240ddb74feaf34a79a7add65a741f3167852fba007066dcac1ca548d89c08",
+  "license": "MIT OR Zlib OR Apache-2.0",
+  "noticeFiles": [
+    "LICENSE",
+    "LICENSE-APACHE.md",
+    "LICENSE-MIT.md",
+    "LICENSE-ZLIB.md"
+  ],
+  "status": "notices-retained"
+}

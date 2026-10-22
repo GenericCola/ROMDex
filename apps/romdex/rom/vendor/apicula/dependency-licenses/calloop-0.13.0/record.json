@@ -1,0 +1,11 @@
+{
+  "name": "calloop",
+  "version": "0.13.0",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "b99da2f8558ca23c71f4fd15dc57c906239752dd27ff3c00a1d56b685b7cbfec",
+  "license": "MIT",
+  "noticeFiles": [
+    "LICENSE.txt"
+  ],
+  "status": "notices-retained"
+}

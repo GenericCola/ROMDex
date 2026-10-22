@@ -37,15 +37,22 @@ export class ReturnDiscovery{
    let checked=0,downloaded=0,budget=CYCLE;for(const [key,entry]of queue.slice(0,4)){
     this.check(manual);const previous=this.get('return_tasks',key)||{checkedAt:0,attempts:0};this.put('return_tasks',key,{...previous,status:'checking',attempts:previous.attempts+1});
     try{
-     const list=await this.inventory(entry,this.controller.signal);this.check(manual);
+     let list=await this.inventory(entry,this.controller.signal);this.check(manual);
      const expected={...entry.binding.task};delete expected.attachmentId;ensure(same(list.target,expected),'AUTH','Linked Task Identity Changed.');
-     ensure(Array.isArray(list.attachments)&&list.attachments.length<=10000,'INTEGRITY','Incomplete Return Inventory.');const ids=new Set(),all=list.attachments.map(returnMetadata);for(const a of all){ensure(!ids.has(a.id),'INTEGRITY','Repeated Return Inventory Entry.');ids.add(a.id);}
+     ensure(Array.isArray(list.attachments)&&list.attachments.length<=10000,'INTEGRITY','Incomplete Return Inventory.');let all=list.attachments.map(returnMetadata);const taskEntries=linked.filter(e=>taskKey(e)===key),pins=taskEntries.flatMap(e=>e.uploads||[]).filter(f=>f.verified),match=f=>all.find(a=>a.id===f.receipt?.id);
+     // YouTrack may finish image metadata after the original upload response.
+     // Re-pin only identical, hash-verified bytes via the package owner; missing,
+     // renamed or resized files retain their ordinary hard review boundary.
+     if(typeof this.packages.finalInventory==='function'&&pins.every(f=>{const a=match(f);return a&&a.name===f.name&&a.size===f.bytes;})&&pins.some(f=>Number.isSafeInteger((f.verifiedReceipt||f.receipt).updated)&&match(f).updated!==(f.verifiedReceipt||f.receipt).updated)){
+      for(const e of taskEntries)await this.packages.finalInventory(e);this.check(manual);const fresh=await this.inventory(entry,this.controller.signal);ensure(same(fresh.target,expected)&&fresh.actor?.id===list.actor?.id&&Array.isArray(fresh.attachments)&&fresh.attachments.length<=10000,'AUTH','The Task Changed During Pinned File Verification.');list=fresh;all=fresh.attachments.map(returnMetadata);
+     }
+     const ids=new Set();for(const a of all){ensure(!ids.has(a.id),'INTEGRITY','Repeated Return Inventory Entry.');ids.add(a.id);}
      const selected=all.filter(candidate);ensure(selected.length<=512,'LIMIT','Too Many Returned File Candidates on This Task.');const present=new Set(selected.map(m=>observation(key,m))),prior=this.files(key),newCount=selected.filter(m=>!prior.some(r=>r.id===observation(key,m))).length;
      ensure(this.maps.store.db.prepare('SELECT count(*) AS n FROM return_files').get().n+newCount<=MAX_ROWS,'LIMIT','Return Discovery Journal Is Full; No Evidence Was Discarded.');
      this.maps.store.transaction(()=>{
       for(const row of prior)if(!present.has(row.id))this.put('return_files',row.id,{...row,present:false,missingAt:row.missingAt||this.now()},key);
       for(const meta of selected){const id=observation(key,meta),old=this.get('return_files',id);this.put('return_files',id,{...old,meta,present:true,missingAt:old?.missingAt||null,firstSeen:old?.firstSeen||this.now(),status:old?.status||'pending',nextAt:old?.nextAt||0,actor:list.actor?.id||null},key);}
-      const pinIssues={};for(const e of linked.filter(e=>taskKey(e)===key))for(const file of e.uploads||[]){if(!file.verified)continue;const actual=all.find(a=>a.id===file.receipt?.id);if(!actual||actual.size!==file.bytes||actual.name!==file.name||Number.isSafeInteger(file.receipt.updated)&&actual.updated!==file.receipt.updated)pinIssues[e.id]='A Pinned Package, Context or Asset Attachment Is Missing or Changed.';}
+      const pinIssues={};for(const original of linked.filter(e=>taskKey(e)===key)){const e=this.packages.entries().find(e=>e.id===original.id)||original;for(const file of e.uploads||[]){if(!file.verified)continue;const actual=all.find(a=>a.id===file.receipt?.id),pin=file.verifiedReceipt||file.receipt;if(!actual||actual.size!==file.bytes||actual.name!==file.name||Number.isSafeInteger(pin.updated)&&actual.updated!==pin.updated)pinIssues[e.id]='A Pinned Package, Context or Asset Attachment Is Missing or Changed.';}}
       this.put('return_tasks',key,{checkedAt:this.now(),nextAt:this.now()+60000,status:'checked',attempts:0,candidates:selected.length,pinIssues,error:null});
      });checked++;
      // Oldest unfinished/recheck-due observations run first, so a large task

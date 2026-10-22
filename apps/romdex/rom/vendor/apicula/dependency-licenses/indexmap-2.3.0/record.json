@@ -1,0 +1,12 @@
+{
+  "name": "indexmap",
+  "version": "2.3.0",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "de3fc2e30ba82dd1b3911c8de1ffc143c74a914a14e99514d7637e3099df5ea0",
+  "license": "Apache-2.0 OR MIT",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

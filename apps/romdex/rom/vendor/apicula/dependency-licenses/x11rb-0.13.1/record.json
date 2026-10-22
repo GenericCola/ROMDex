@@ -1,0 +1,12 @@
+{
+  "name": "x11rb",
+  "version": "0.13.1",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "5d91ffca73ee7f68ce055750bf9f6eca0780b8c85eff9bc046a3b0da41755e12",
+  "license": "MIT OR Apache-2.0",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

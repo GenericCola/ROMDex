@@ -1,0 +1,12 @@
+{
+  "name": "wasm-bindgen-macro",
+  "version": "0.2.92",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "a1f8823de937b71b9460c0c34e25f3da88250760bec0ebac694b49997550d726",
+  "license": "MIT OR Apache-2.0",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "cgmath",
+  "version": "0.16.1",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "64a4b57c8f4e3a2e9ac07e0f6abc9c24b6fc9e1b54c3478cfb598f3d0023e51c",
+  "license": "Apache-2.0",
+  "noticeFiles": [
+    "LICENSE"
+  ],
+  "status": "notices-retained"
+}

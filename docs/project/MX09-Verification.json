@@ -1,0 +1,197 @@
+{
+  "task": "MX09",
+  "status": "complete-source-and-isolated-candidate",
+  "date": "2026-10-21",
+  "candidate": "0.5.26-11e.1",
+  "installedVersion": "0.5.26",
+  "focusedDistinctCasesPassed": 108,
+  "live": {
+    "task": "MX09",
+    "scope": "Real ROM-copy changes with actual Node CLI task-file transfer, bound return construction, typed application and exact prose review",
+    "checks": [
+      "Remembered credential opens only uniquely marked, owner-private QA task destinations",
+      "Two separately authorized fixed packages contain only their selected typed/prose request; both target the actual same NPC without conflating its dialogue variants",
+      "Separate Windows Node CLI downloaded actual pinned binaries, built/validated both bound RDX returns from real ROM files, uploaded/read back exact bytes and reused each attachment on replay",
+      "Six real-source content records plus registry publish to fresh private NPCD issues; existing map records are not reused",
+      "Real typed return applies automatically once to NPCD/RDX while the prose result stays held; the task remains open and testing is unreviewed",
+      "Reviewed prose updates both shared-message sites, preserves the earlier typed edit and reconstructs exact RDX/images/history from fresh YouTrack reads",
+      "Replay creates no new map revision or readiness comment; both tasks remain open with Needs Testing and unreviewed obligations"
+    ],
+    "existingTasksChanged": false,
+    "productionSavesChanged": false,
+    "cleanup": [
+      {
+        "id": "3-1019",
+        "status": "verified-absent"
+      },
+      {
+        "id": "3-1018",
+        "status": "verified-absent"
+      },
+      {
+        "id": "3-1017",
+        "status": "verified-absent"
+      },
+      {
+        "id": "3-1016",
+        "status": "verified-absent"
+      },
+      {
+        "id": "3-1015",
+        "status": "verified-absent"
+      },
+      {
+        "id": "3-1014",
+        "status": "verified-absent"
+      },
+      {
+        "id": "3-1013",
+        "status": "verified-absent"
+      },
+      {
+        "id": "3-1012",
+        "status": "verified-absent"
+      },
+      {
+        "id": "3-1011",
+        "status": "verified-absent"
+      }
+    ],
+    "source": {
+      "beforeSHA256": "cb743eb01fe18f8599e54911faa28701474b84a6b9d9764a9478bf8a7be1babd",
+      "afterSHA256": "54b822a467a1cdaebc35393a6ab65bc565c252f64928f0d41cf48f0c1bb72cff",
+      "changedBytes": 15,
+      "originalUnchanged": true,
+      "scope": "One real New Bark outdoor NPC, two message-bank entries, three displayed text fields; not full-map/in-game acceptance"
+    },
+    "authorizationMetadata": "Isolated trusted metadata readiness and private local readback harness, reusing existing private-provider contract evidence; no production/GitHub metadata writes or external-agent dispatch",
+    "results": [
+      {
+        "mode": "typed",
+        "task": "PMON-338",
+        "resultSHA256": "b7cba9a07a836a0b4004c93060509bab0c19b4681f8123911c233e359d6ebc1e",
+        "source": {
+          "repositoryId": "rom-project:8e78e0bf-909e-4a86-b75e-95c709408b08",
+          "beforeRevision": "sha256:cb743eb01fe18f8599e54911faa28701474b84a6b9d9764a9478bf8a7be1babd",
+          "afterRevision": "sha256:54b822a467a1cdaebc35393a6ab65bc565c252f64928f0d41cf48f0c1bb72cff",
+          "beforeArtifactSha256": "cb743eb01fe18f8599e54911faa28701474b84a6b9d9764a9478bf8a7be1babd",
+          "afterArtifactSha256": "54b822a467a1cdaebc35393a6ab65bc565c252f64928f0d41cf48f0c1bb72cff",
+          "verification": "reported"
+        }
+      },
+      {
+        "mode": "prose",
+        "task": "PMON-339",
+        "resultSHA256": "0c7b269d295bc7523682248459ae251b93444eb1de2927db91513416e78074c7",
+        "source": {
+          "repositoryId": "rom-project:8e78e0bf-909e-4a86-b75e-95c709408b08",
+          "beforeRevision": "sha256:cb743eb01fe18f8599e54911faa28701474b84a6b9d9764a9478bf8a7be1babd",
+          "afterRevision": "sha256:54b822a467a1cdaebc35393a6ab65bc565c252f64928f0d41cf48f0c1bb72cff",
+          "beforeArtifactSha256": "cb743eb01fe18f8599e54911faa28701474b84a6b9d9764a9478bf8a7be1babd",
+          "afterArtifactSha256": "54b822a467a1cdaebc35393a6ab65bc565c252f64928f0d41cf48f0c1bb72cff",
+          "verification": "reported"
+        }
+      }
+    ],
+    "status": "passed",
+    "rememberedConnectionUnchanged": true
+  },
+  "native": {
+    "status": "passed",
+    "checks": [
+      "Packaged client reads both actual ROM-copy dialogue changes from the reopened managed RDX",
+      "Affected NPCDex items retain pending human-testing indicators",
+      "Packaged delivery/testing controls fit a 620px window and one Escape closes them",
+      "Candidate saves and quits normally with accepted results and testing obligations"
+    ],
+    "productionChanged": false,
+    "tokensCopied": false,
+    "installerRun": false,
+    "profile": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\work\\mx09\\native-3lYePg",
+    "quitMilliseconds": 503,
+    "visualObservation": "Native short-window screenshot reviewed. A transient isolated-profile startup notice overlays part of the footer in the capture; the modal scroll region and footer are separate. U29 should verify shell notices do not obscure modal actions. This is not counted as a clean unobscured-footer visual acceptance."
+  },
+  "standaloneToolSmoke": {
+    "status": "passed",
+    "networkUsed": false,
+    "checks": [
+      {
+        "mode": "typed",
+        "validated": true,
+        "groups": [
+          {
+            "groupId": "package:work-03cfa2e8690d7522f830457894a36d12",
+            "state": "implemented",
+            "reconciliation": "typed-after-validation",
+            "records": 1,
+            "requiresHumanTesting": true
+          }
+        ],
+        "requiresHumanTesting": true,
+        "taskClosed": false,
+        "npcdWrites": false,
+        "privateAuthorityGranted": false
+      },
+      {
+        "mode": "prose",
+        "validated": true,
+        "groups": [
+          {
+            "groupId": "package:work-22ac1dfc603e390a921f4c2704a2ae27",
+            "state": "implemented",
+            "reconciliation": "exact-review-required",
+            "records": 1,
+            "requiresHumanTesting": true
+          }
+        ],
+        "requiresHumanTesting": true,
+        "taskClosed": false,
+        "npcdWrites": false,
+        "privateAuthorityGranted": false
+      },
+      {
+        "mode": "unfinished",
+        "validated": true,
+        "groups": [
+          {
+            "groupId": "package:work-03cfa2e8690d7522f830457894a36d12",
+            "state": "unfinished",
+            "applicationValidated": false,
+            "requiresHumanTesting": true
+          }
+        ],
+        "requiresHumanTesting": true,
+        "taskClosed": false,
+        "npcdWrites": false,
+        "privateAuthorityGranted": false
+      }
+    ]
+  },
+  "toolkit": {
+    "path": "C:\\Users\\mrgen\\Documents\\Codex\\2026-10-13\\can\\outputs\\RDX-Reference\\Phase-11E-Agent-Tools.zip",
+    "sha256": "8b6e4c4699b6a41cd64e96e86673cf5e130adee71c5bc92d6a53df182df88c27",
+    "bytes": 122156,
+    "files": 46
+  },
+  "audit": {
+    "at": "2026-10-21T19:48:14.177Z",
+    "status": "passed",
+    "sourceFilesCompared": 1217,
+    "mirrorTestsCompared": 148,
+    "candidateFiles": 1289,
+    "mismatches": [],
+    "forbidden": [],
+    "runtimeChanges": [],
+    "syntaxChecks": 15,
+    "syntaxFailures": [],
+    "gitDiffCheck": {
+      "passed": true,
+      "output": ""
+    },
+    "productionChanged": false,
+    "installerCreated": false
+  },
+  "productionChanged": false,
+  "installerRun": false,
+  "gameplayVerified": false
+}

@@ -1,0 +1,18 @@
+{
+  "stackedTrays": true,
+  "inlineIdentity": true,
+  "nameSaved": true,
+  "oneEscape": true,
+  "shortWindow": true,
+  "workspace": "MAPDex",
+  "source": "isolated prepared ROM-derived New Bark Town",
+  "knownConditions": 46,
+  "unresolvedFilter": true,
+  "sourceRequirementsVisible": true,
+  "pageErrors": [],
+  "networkWrites": false,
+  "focusedChecks": 33,
+  "npcdexInline": true,
+  "productionChanged": false,
+  "nativeAcceptance": "LP03"
+}

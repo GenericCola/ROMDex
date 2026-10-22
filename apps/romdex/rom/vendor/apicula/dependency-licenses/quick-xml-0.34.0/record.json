@@ -1,0 +1,11 @@
+{
+  "name": "quick-xml",
+  "version": "0.34.0",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "6f24d770aeca0eacb81ac29dfbc55ebcc09312fdd1f8bbecdc7e4a84e000e3b4",
+  "license": "MIT",
+  "noticeFiles": [
+    "LICENSE-MIT.md"
+  ],
+  "status": "notices-retained"
+}

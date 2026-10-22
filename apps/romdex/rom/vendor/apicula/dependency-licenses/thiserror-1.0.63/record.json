@@ -1,0 +1,12 @@
+{
+  "name": "thiserror",
+  "version": "1.0.63",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "c0342370b38b6a11b6cc11d6a805569958d54cfa061a29969c3b5ce2ea405724",
+  "license": "MIT OR Apache-2.0",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

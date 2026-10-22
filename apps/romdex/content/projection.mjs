@@ -1,3 +1,5 @@
+import {associateSnapshotEvents} from './event-associations.mjs';
+import {applyLocationPreviews} from './location-previews.mjs';
 import {requireThat,validateGraph,sha} from './contracts.mjs';
 import {projectLegacyNPCDex} from './legacy-projection.mjs';
 import {hasNativeViews,projectNativeNPCDex} from './native-projection.mjs';
@@ -20,7 +22,7 @@ export function projectNPCDex(domain,{revision=1,assetBytes=()=>null,gender='mal
  const towns=[];
  for(const map of domain.records.filter(r=>r.kind==='map')){
   const p=map.current.payload,town={id:map.recordId,name:p.name,subtitle:records.get(p.regionId).current.payload.name,areas:[],locations:[],characters:[],archived:map.current.lifecycle==='archived',contentRecordId:map.recordId};
-  for(const id of p.subzoneIds){const zone=records.get(id),z=zone.current.payload,area={id:zone.recordId,name:zonePath(zone,records),parentAreaId:zone.parentRecordId===map.recordId?null:zone.parentRecordId,elements:[],archived:zone.current.lifecycle==='archived',contentRecordId:zone.recordId};town.areas.push(area);town.locations.push({id:zone.recordId,name:zonePath(zone,records),parentLocationId:zone.parentRecordId===map.recordId?null:zone.parentRecordId,areaIds:descendantZones(zone,records),archived:area.archived});
+  for(const id of p.subzoneIds){const zone=records.get(id),z=zone.current.payload,area={id:zone.recordId,name:zonePath(zone,records),parentAreaId:zone.parentRecordId===map.recordId?null:zone.parentRecordId,floor:z.name.match(/ — (B?\d+F)$/)?.[1]||null,elements:[],archived:zone.current.lifecycle==='archived',contentRecordId:zone.recordId};town.areas.push(area);town.locations.push({id:zone.recordId,name:z.name,parentLocationId:zone.parentRecordId===map.recordId?null:zone.parentRecordId,areaIds:descendantZones(zone,records),archived:area.archived});
    for(const rid of [...z.appearanceIds,...z.sceneIds,...z.interactiveIds]){const record=records.get(rid),payload=record.current.payload,planned=record.current.lifecycle==='planned';
     const profile=record.kind==='appearance'?records.get(payload.profileByPlayerGender[gender]||payload.profileId):null;
     const name=payload.overrides?.displayName||profile?.current.payload.name||payload.name;
@@ -33,5 +35,5 @@ export function projectNPCDex(domain,{revision=1,assetBytes=()=>null,gender='mal
  }
  requireThat(towns.length>0,'No Map Content Is Available for NPCDex.');
  const reviews=heads(domain.reviews,'reviewId'),reviewStates=reviews.map(r=>({digest:r.digest,status:records.get(r.target.recordId).revisionId===r.baseline.revisionId?r.testStatus:'unreviewed',stale:records.get(r.target.recordId).revisionId!==r.baseline.revisionId}));
- return applySnapshotTimelines({version:2,revision,savedAt:null,contentRevision:0,towns,stages:[],annotations:{},characterImages:{},characterNames:{},preferences:{gender,sortBySubArea:false},changePlans:{},history:[],implementationReceipts:[],liveMappings:{},romReversalResolutions:[],legacyChangePlans:{},decisionConflicts:[],promptStatusUnset:{},sourceBaselines:{},reconciliations:[],sources:[],index:{},contentPreview:{readOnly:true,records:domain.records.map(r=>({id:r.recordId,kind:r.kind,lifecycle:r.current.lifecycle,revisionId:r.revisionId,legacyRefs:r.legacyRefs,legacyData:r.legacyData})),plans:heads(domain.plans,'planId'),reviews,reviewStates,mappingCount:domain.mappings.length}},domain.records);
+ return associateSnapshotEvents(applyLocationPreviews(applySnapshotTimelines({version:2,revision,savedAt:null,contentRevision:0,towns,stages:[],annotations:{},characterImages:{},characterNames:{},preferences:{gender,sortBySubArea:false},changePlans:{},history:[],implementationReceipts:[],liveMappings:{},romReversalResolutions:[],legacyChangePlans:{},decisionConflicts:[],promptStatusUnset:{},sourceBaselines:{},reconciliations:[],sources:[],index:{},contentPreview:{readOnly:true,records:domain.records.map(r=>({id:r.recordId,kind:r.kind,lifecycle:r.current.lifecycle,revisionId:r.revisionId,legacyRefs:r.legacyRefs,legacyData:r.legacyData})),plans:heads(domain.plans,'planId'),reviews,reviewStates,mappingCount:domain.mappings.length}},domain.records),domain,assetBytes),domain.records);
 }

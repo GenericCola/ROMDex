@@ -1,0 +1,12 @@
+{
+  "name": "time",
+  "version": "0.1.45",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "1b797afad3f312d1c66a56d11d0316f916356d11bd158fbc6ca6389ff6bf805a",
+  "license": "MIT/Apache-2.0",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

@@ -1,0 +1,17 @@
+{
+  "tool": "Apicula",
+  "version": "0.1.1-dev",
+  "commit": "3d4e91e14045392a49c89e86dab8cb936225588c",
+  "license": "0BSD",
+  "platform": "win32-x64",
+  "bytes": 1874944,
+  "sha256": "b546d35960a9b48514457d9998a1ae8b214019fcbd2406c782cb7a15d98597d8",
+  "source": "https://github.com/scurest/apicula",
+  "binary": "https://github.com/scurest/apicula/releases/download/continuous/apicula-latest-windows.zip",
+  "dependencyNotices": "dependency-licenses",
+  "notes": [
+    "Pinned upstream binary, unmodified.",
+    "dispatch is macOS-only; Windows GNU import notices include winapi terms.",
+    "ROM/game assets are not distributed."
+  ]
+}

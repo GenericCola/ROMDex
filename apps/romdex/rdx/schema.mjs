@@ -5,7 +5,8 @@ import {parseJSON, canonical, requireThat} from '../content/contracts.mjs';
 // JSON Schema engine. Imported schema URLs are never resolved or downloaded.
 export const schema=parseJSON(fs.readFileSync(new URL('./contracts.schema.json',import.meta.url)));
 const native=parseJSON(fs.readFileSync(new URL('../content/contracts.schema.json',import.meta.url)));
-const resources=new Map([[schema.$id,schema],[native.$id,native]]);
+const features=parseJSON(fs.readFileSync(new URL('./features.schema.json',import.meta.url)));
+const resources=new Map([[schema.$id,schema],[native.$id,native],[features.$id,features]]);
 requireThat(canonical(schema.$defs.native)===canonical(native),'Native RDX Contract Changed Without Compatibility Review.');
 const keywords=new Set(['$schema','$id','$defs','$ref','title','description','type','properties','required','additionalProperties','propertyNames','items','minItems','uniqueItems','minLength','minimum','maximum','pattern','enum','const','oneOf','anyOf','allOf','if','then']);
 function resolve(ref,resource){
@@ -21,7 +22,7 @@ function lint(rule,resource){
  for(const key of ['allOf','oneOf','anyOf'])for(const child of rule[key]||[])lint(child,resource);
  for(const key of ['if','then','items','propertyNames','additionalProperties'])if(rule[key]&&typeof rule[key]==='object')lint(rule[key],resource);
 }
-lint(schema,schema);lint(native,native);
+lint(schema,schema);lint(native,native);lint(features,features);
 const equal=(a,b)=>canonical(a)===canonical(b);
 function conforms(v,s,resource,budget){
  requireThat(--budget.left>=0,'RDX Schema Work Limit Exceeded.');
@@ -50,3 +51,4 @@ export function validateShape(value,definition){
  requireThat(Object.hasOwn(schema.$defs,definition),'Unknown RDX Contract.');
  requireThat(conforms(value,schema.$defs[definition],schema,{left:2000000}),'Invalid RDX '+definition+' Structure.');return value;
 }
+export function validateFeatureShape(value,definition){requireThat(Object.hasOwn(features.$defs,definition),'Unknown Map Feature Contract.');requireThat(conforms(value,features.$defs[definition],features,{left:2000000}),'Invalid Map '+definition+' Structure.');return value;}

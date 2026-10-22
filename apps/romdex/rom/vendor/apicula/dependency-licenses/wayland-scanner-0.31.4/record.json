@@ -1,0 +1,11 @@
+{
+  "name": "wayland-scanner",
+  "version": "0.31.4",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "d7b56f89937f1cf2ee1f1259cf2936a17a1f45d8f0aa1019fae6d470d304cfa6",
+  "license": "MIT",
+  "noticeFiles": [
+    "LICENSE.txt"
+  ],
+  "status": "notices-retained"
+}

@@ -1,0 +1,684 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:romdex:npcdex:mx01-features:1",
+  "title": "NPCDex source condition and portable location preview features",
+  "description": "Pinned local feature schemas; cross-references and asset integrity require runtime validation.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/conditionIndex"
+    },
+    {
+      "$ref": "#/$defs/locationPreviews"
+    },
+    {
+      "$ref": "#/$defs/featureBindings"
+    }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9:._-]{0,159}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "featureBindings": {
+      "type": "object",
+      "required": [
+        "schema",
+        "conditionIndexRecordId",
+        "locationPreviewViewIds"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": "NPCDexFeatureBindings/1"
+        },
+        "conditionIndexRecordId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "locationPreviewViewIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/id"
+          }
+        }
+      }
+    },
+    "sourceRef": {
+      "type": "object",
+      "required": [
+        "mappingDigest",
+        "locatorKey"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "mappingDigest": {
+          "$ref": "#/$defs/hash"
+        },
+        "locatorKey": {
+          "$ref": "#/$defs/text"
+        }
+      }
+    },
+    "sourceRefs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/sourceRef"
+      }
+    },
+    "expr": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "op",
+            "value"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "op": {
+              "const": "constant"
+            },
+            "value": {
+              "type": "boolean"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "op",
+            "flagId",
+            "state"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "op": {
+              "const": "flag"
+            },
+            "flagId": {
+              "$ref": "#/$defs/text"
+            },
+            "state": {
+              "enum": [
+                "set",
+                "unset"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "op",
+            "variableId",
+            "compare",
+            "value"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "op": {
+              "const": "variable"
+            },
+            "variableId": {
+              "$ref": "#/$defs/text"
+            },
+            "compare": {
+              "enum": [
+                "eq",
+                "ne",
+                "lt",
+                "lte",
+                "gt",
+                "gte"
+              ]
+            },
+            "value": {
+              "type": "integer"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "op",
+            "check",
+            "arguments",
+            "compare",
+            "value"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "op": {
+              "const": "runtime"
+            },
+            "check": {
+              "enum": [
+                "time",
+                "gender",
+                "badge",
+                "party",
+                "choice"
+              ]
+            },
+            "arguments": {
+              "type": "object"
+            },
+            "compare": {
+              "enum": [
+                "eq",
+                "ne",
+                "lt",
+                "lte",
+                "gt",
+                "gte"
+              ]
+            },
+            "value": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "op",
+            "args"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "op": {
+              "enum": [
+                "all",
+                "any"
+              ]
+            },
+            "args": {
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "$ref": "#/$defs/expr"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "op",
+            "arg"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "op": {
+              "const": "not"
+            },
+            "arg": {
+              "$ref": "#/$defs/expr"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "op",
+            "reason",
+            "sourceRefs"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "op": {
+              "const": "unknown"
+            },
+            "reason": {
+              "$ref": "#/$defs/text"
+            },
+            "sourceRefs": {
+              "$ref": "#/$defs/sourceRefs"
+            }
+          }
+        }
+      ]
+    },
+    "target": {
+      "type": "object",
+      "required": [
+        "recordId",
+        "pointId",
+        "blockIds",
+        "promptKey",
+        "gender"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "recordId": {
+          "$ref": "#/$defs/id"
+        },
+        "pointId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "blockIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "promptKey": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/text"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "gender": {
+          "enum": [
+            null,
+            "both",
+            "male",
+            "female"
+          ]
+        }
+      }
+    },
+    "condition": {
+      "type": "object",
+      "required": [
+        "id",
+        "label",
+        "labelOrigin",
+        "expression",
+        "sourceRefs"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "label": {
+          "$ref": "#/$defs/text"
+        },
+        "labelOrigin": {
+          "enum": [
+            "source",
+            "owner",
+            "raw-id"
+          ]
+        },
+        "expression": {
+          "$ref": "#/$defs/expr"
+        },
+        "sourceRefs": {
+          "$ref": "#/$defs/sourceRefs"
+        }
+      }
+    },
+    "effect": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "target",
+        "variantId",
+        "requires",
+        "conditionIds",
+        "sourceRefs"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "kind": {
+          "enum": [
+            "dialogue",
+            "presence",
+            "scene",
+            "script"
+          ]
+        },
+        "target": {
+          "$ref": "#/$defs/target"
+        },
+        "variantId": {
+          "$ref": "#/$defs/id"
+        },
+        "requires": {
+          "$ref": "#/$defs/expr"
+        },
+        "conditionIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "sourceRefs": {
+          "$ref": "#/$defs/sourceRefs"
+        }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "required": [
+        "recordId",
+        "status",
+        "reason",
+        "sourceRefs"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "recordId": {
+          "$ref": "#/$defs/id"
+        },
+        "status": {
+          "enum": [
+            "complete",
+            "partial",
+            "unsupported"
+          ]
+        },
+        "reason": {
+          "type": "string"
+        },
+        "sourceRefs": {
+          "$ref": "#/$defs/sourceRefs"
+        }
+      }
+    },
+    "conditionIndex": {
+      "type": "object",
+      "required": [
+        "schema",
+        "mapRecordId",
+        "sourceRomSha256",
+        "conditions",
+        "displayOrder",
+        "effects",
+        "coverage"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": "NPCDexConditionIndex/1"
+        },
+        "mapRecordId": {
+          "$ref": "#/$defs/id"
+        },
+        "sourceRomSha256": {
+          "$ref": "#/$defs/hash"
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/condition"
+          }
+        },
+        "displayOrder": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "effects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/effect"
+          }
+        },
+        "coverage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/coverage"
+          }
+        }
+      }
+    },
+    "crop": {
+      "type": "object",
+      "required": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "x": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000000
+        },
+        "y": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000000
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000000
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000000
+        }
+      }
+    },
+    "image": {
+      "type": "object",
+      "required": [
+        "format",
+        "assetId"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "format": {
+          "const": "NPCDexViewImage/1"
+        },
+        "assetId": {
+          "$ref": "#/$defs/id"
+        }
+      }
+    },
+    "dependency": {
+      "type": "object",
+      "required": [
+        "locatorKey",
+        "sha256"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "locatorKey": {
+          "$ref": "#/$defs/text"
+        },
+        "sha256": {
+          "$ref": "#/$defs/hash"
+        }
+      }
+    },
+    "renderer": {
+      "type": "object",
+      "required": [
+        "id",
+        "version",
+        "settings"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/text"
+        },
+        "version": {
+          "$ref": "#/$defs/text"
+        },
+        "settings": {
+          "type": "object"
+        }
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "required": [
+        "id",
+        "origin",
+        "viewKind",
+        "sourceRecordId",
+        "image",
+        "sourceRomSha256",
+        "dependencies",
+        "renderer",
+        "crop"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "origin": {
+          "enum": [
+            "generated",
+            "manual"
+          ]
+        },
+        "viewKind": {
+          "enum": [
+            "overview",
+            "exterior",
+            "interior",
+            "floor",
+            "manual"
+          ]
+        },
+        "sourceRecordId": {
+          "$ref": "#/$defs/id"
+        },
+        "image": {
+          "$ref": "#/$defs/image"
+        },
+        "sourceRomSha256": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/hash"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/dependency"
+          }
+        },
+        "renderer": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/renderer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "crop": {
+          "$ref": "#/$defs/crop"
+        }
+      }
+    },
+    "locationPreviews": {
+      "type": "object",
+      "required": [
+        "schema",
+        "mapRecordId",
+        "targetRecordId",
+        "status",
+        "reason",
+        "candidates",
+        "selectedCandidateId",
+        "ownerOverride"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": "NPCDexLocationPreviews/1"
+        },
+        "mapRecordId": {
+          "$ref": "#/$defs/id"
+        },
+        "targetRecordId": {
+          "$ref": "#/$defs/id"
+        },
+        "status": {
+          "enum": [
+            "ready",
+            "pending",
+            "unsupported",
+            "unresolved"
+          ]
+        },
+        "reason": {
+          "type": "string"
+        },
+        "candidates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/candidate"
+          }
+        },
+        "selectedCandidateId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ownerOverride": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

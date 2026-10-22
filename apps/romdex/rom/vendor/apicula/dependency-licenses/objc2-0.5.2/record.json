@@ -1,0 +1,16 @@
+{
+  "name": "objc2",
+  "version": "0.5.2",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "46a785d4eeff09c14c487497c162e92766fbb3e4059a71840cecc03d9a50b804",
+  "license": "MIT",
+  "noticeFiles": [
+    "source-notice-README.md",
+    "LICENSE.txt"
+  ],
+  "status": "notices-retained",
+  "noticeSource": {
+    "repository": "madsmtm/objc2",
+    "revision": "4fc083f1c6d6784577e38b0ee8dbd344481e2fd2"
+  }
+}

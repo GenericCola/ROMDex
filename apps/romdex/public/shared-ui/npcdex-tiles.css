@@ -1,0 +1,68 @@
+/* Web NPCDex tile rules, extracted by exact selector. */
+.tile{position:relative;min-width:0;background:var(--screen-light);border:1px solid var(--line);border-radius:7px;overflow:hidden}
+.tile-select[aria-pressed=true]{background:transparent;color:var(--ink);border-color:transparent}
+.tile.selected{outline:2px solid var(--yellow);outline-offset:-2px}
+.tile-select{display:flex;flex-direction:column;padding:0;width:100%;border:0;background:transparent;border-radius:0;color:var(--ink);text-align:left}
+.tile-select:hover{filter:none}
+.tile:hover{background:#2a483d}
+.tile-picture{width:100%;aspect-ratio:1.5;object-fit:cover;object-position:center;background:linear-gradient(135deg,#142d27,#2a4434);display:block}
+.placeholder{width:100%;aspect-ratio:1.5;display:flex;align-items:center;justify-content:center;color:#95b59a;font-size:34px;font-weight:600;letter-spacing:2px;background:linear-gradient(135deg,#142d27,#2a4434)}
+.tile-label{padding:9px 11px;width:100%}
+.tile-label strong{font-size:13px;font-weight:650;display:block}
+.tile-label small{font-size:10px;display:block;margin-top:3px}
+.tile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(116px,1fr));gap:10px}
+.tile-grid .tile{max-width:230px}
+.tile-grid .tile-picture,.tile-grid .placeholder{aspect-ratio:1.65}
+.tile-grid .placeholder{font-size:24px}
+.tile-grid .tile-label{padding:7px 9px}
+.tile-grid .tile-label strong{font-size:12px}
+.tile-intent{display:block;margin-top:auto;padding-top:6px}
+.tile-intent .intent-tag{margin:0 6px 0 0}
+.category{margin:12px 0 18px}
+.category-head{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin:0 0 8px}
+.tile-select{height:100%}.tile-label{display:flex;flex-direction:column;flex:1}
+@media(min-width:1600px){.tile-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}}
+@media(max-width:1000px){.tile-grid{grid-template-columns:repeat(auto-fill,minmax(105px,1fr))}}
+@media(max-width:700px){.tile-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr))}}
+.mapdex-entity-select{text-align:left;gap:0;justify-content:flex-start}.mapdex-entity-select .tile-label{padding:7px 9px}.mapdex-entity-select .tile-label strong{font-size:12px}
+#mapdex-entity-list .tile-picture{aspect-ratio:1.65;margin:0;border:0;padding:0;border-radius:0;height:auto;max-width:none}
+#map-list button.tile-select,#map-list button.tile-select[aria-pressed=true]{display:flex;flex-direction:column;padding:0;border:0;border-radius:0;background:transparent;color:var(--ink)}
+#map-list .tile-label{padding:9px 11px}#map-list .map-tile .tile-label{padding-right:38px}#map-list .tile-label strong{padding:0;font-size:13px}#map-list .tile-label small{font-size:10px;margin-top:3px}
+#map-list .map-expand{top:auto;left:auto;bottom:7px;right:6px;width:28px;height:28px;background:transparent;border:0;border-radius:0;font-size:20px;line-height:1}
+#map-list .map-tile:has(.map-expand)>[data-map]>strong{padding:0}
+.mapdex-zone-tree{gap:7px;padding:4px 0 8px 13px;border-left:2px solid #d06c70;margin:0 0 11px 8px}.mapdex-zone-tree .tile-label{padding:6px 9px!important}.mapdex-zone-tree .tile-label strong{font-size:11px!important}
+.import-layout,.import-layout.expanded,.import-layout.collapsed{grid-template-columns:220px minmax(0,1fr)}@media(min-width:1600px){.import-layout,.import-layout.expanded,.import-layout.collapsed{grid-template-columns:250px minmax(0,1fr)}}@media(max-width:1000px){.import-layout,.import-layout.expanded,.import-layout.collapsed{grid-template-columns:175px minmax(0,1fr)}}
+
+/* Location frames retain the web cover behavior; no fixed-height inset image. */
+#map-list .tile-picture{display:block;width:100%;height:auto;max-width:none;aspect-ratio:1.5;object-fit:cover;object-position:center;margin:0;padding:0;border:0;border-radius:0}
+#map-list .mapdex-zone-tree .tile-picture{aspect-ratio:2.4}
+.local-managed-map .tile{padding:0;min-height:0}.local-managed-map .tile-select{text-align:left}
+
+/* Reuse the existing Tray 2 settings asset and its exact 18px / 12px geometry. */
+.tile button.cog,#map-list button.map-settings,#mapdex-item-settings{width:18px;height:18px;min-width:18px;min-height:18px;max-width:18px;max-height:18px;box-sizing:border-box;padding:0;margin:0;display:grid;place-items:center;line-height:0;border:1px solid #718773;border-radius:50%;background:#101d1de6;flex:none}
+.tile button.cog{top:7px;right:7px}
+.tile button.cog>img,#map-list button.map-settings>img,#mapdex-item-settings>img{display:block;width:12px;height:12px;min-width:12px;min-height:12px;max-width:12px;max-height:12px;margin:0;padding:0;border:0;border-radius:0;background:none;aspect-ratio:1;object-fit:contain;image-rendering:pixelated}
+#map-list .map-tile-menu{position:fixed;inset:auto;margin:0}
+
+/* NPC/element sprites use half the pane in each direction, with the whole image contained. */
+.tile-picture-frame{display:flex;align-items:center;justify-content:center;width:100%;aspect-ratio:1.65;background:linear-gradient(135deg,#142d27,#2a4434);overflow:hidden;flex:none}
+.tile-grid .sprite-frame>.tile-picture,#mapdex-entity-list .sprite-frame>.tile-picture{display:block;width:50%;height:50%;max-width:50%;max-height:50%;min-width:0;aspect-ratio:auto;object-fit:contain;object-position:center;background:none;padding:0;margin:0;border:0;border-radius:0}
+
+/* The web disclosure lives inside the label corner; child branches remain outside the card. */
+.map-expand span{display:block;font-size:20px;line-height:1;transition:transform .22s ease-in-out}
+.map-expand[aria-expanded=true] span{transform:rotate(90deg)}
+.map-reveal{display:grid;grid-template-rows:0fr;transition:grid-template-rows .36s ease-in-out .12s}
+.map-reveal.expanded{grid-template-rows:1fr}.map-reveal-body{min-height:0;overflow:hidden}
+.mapdex-map-branch>.map-tile{margin-bottom:0}.mapdex-zone-node{margin-left:0}
+#map-list button.map-settings{top:7px;right:7px}
+@media(prefers-reduced-motion:reduce){.map-reveal,.map-expand span{transition:none}}
+
+.category-head{text-transform:none!important}
+/* Match the web sidebar: controls stay in place while only the map list scrolls. */
+.import-selector{min-height:0;display:flex;flex-direction:column;overflow:hidden;padding:10px}
+.import-selector>h1{font-size:11px;font-weight:400;letter-spacing:2px;color:#ffe0ba;margin:0 0 9px}
+.import-selector>:not(#map-list){flex:none}
+#map-list{flex:1;min-height:0;overflow:auto;padding-right:3px;scrollbar-color:var(--line) var(--screen);scrollbar-width:thin;align-content:start}
+
+/* A location is a cropped viewport; intrinsic source dimensions never add a matte. */
+.tile-select>.tile-picture{flex:none;min-height:0;object-fit:cover;object-position:center}

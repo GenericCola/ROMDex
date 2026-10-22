@@ -1,0 +1,12 @@
+{
+  "name": "web-sys",
+  "version": "0.3.69",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "77afa9a11836342370f4817622a2f0f418b134426d91a82dfb48f532d2ec13ef",
+  "license": "MIT OR Apache-2.0",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

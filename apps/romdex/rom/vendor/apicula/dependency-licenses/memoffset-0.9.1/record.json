@@ -1,0 +1,11 @@
+{
+  "name": "memoffset",
+  "version": "0.9.1",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "488016bfae457b036d996092f6cb448677611ce4449e970ceaf42695203f218a",
+  "license": "MIT",
+  "noticeFiles": [
+    "LICENSE"
+  ],
+  "status": "notices-retained"
+}

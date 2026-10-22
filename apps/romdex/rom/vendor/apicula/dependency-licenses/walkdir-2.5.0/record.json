@@ -1,0 +1,13 @@
+{
+  "name": "walkdir",
+  "version": "2.5.0",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "29790946404f91d9c5d06f9874efddea1dc06c5efe94541a7d6863108e3a5e4b",
+  "license": "Unlicense/MIT",
+  "noticeFiles": [
+    "COPYING",
+    "LICENSE-MIT",
+    "UNLICENSE"
+  ],
+  "status": "notices-retained"
+}

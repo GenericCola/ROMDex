@@ -1,3 +1,6 @@
+import {upgradeBuildingHierarchy} from './building-hierarchy.mjs';
+import {restrictConditionScope} from './condition-upgrade.mjs';
+import {prepareGroupedDocument} from './grouped-document.mjs';
 import {canonical,seal,sha,parseJSON} from '../content/contracts.mjs';
 import {documentRevision,validateDocument} from '../rdx/document.mjs';
 import {mapDomain,previewMapImport,retainDocument} from '../rdx/map-import.mjs';
@@ -32,6 +35,7 @@ export function selectPreparedAreas(value,headers){
   if(n.kind==='subzone')for(const key of ['appearanceIds','interactiveIds','sceneIds'])p[key]=p[key].filter(id=>keep.has(id));
   return seal(n);
  });
+ restrictConditionScope(chosen);
  d.content.records=chosen;d.content.recordHeads=chosen.map(r=>({recordId:r.recordId,revisionId:r.revisionId}));
  const refs=new Set(chosen.flatMap(r=>r.mappingRefs));d.content.mappings=d.content.mappings.filter(m=>refs.has(m.digest));
  d.scope.ownedRecordIds=d.scope.ownedRecordIds.filter(id=>keep.has(id));d.scope.contextRecordIds=d.scope.contextRecordIds.filter(id=>keep.has(id));
@@ -43,7 +47,12 @@ export function selectPreparedAreas(value,headers){
 export function preparationToken(value){return sha(canonical({revision:value.document.revision,source:value.document.extensions?.['org.romdex.rom-source']}));}
 
 export function mergePreparation(incoming,local){
+ incoming=upgradeBuildingHierarchy(incoming);local=upgradeBuildingHierarchy(local);
  requireRom(recoverSourceIdentities(incoming).digest===recoverSourceIdentities(local).digest,'REVIEW_REQUIRED','Changed ROM Source Identities Need Review Before Repreparation.');
+ if(mapDomain(incoming).records.some(r=>r.current.payload.definitions?.conditionIndex)){
+  const grouping=incoming.document.extensions['org.romdex.map-groups']||local.document.extensions['org.romdex.map-groups'],rootId=grouping?.rootId||'prepared-map',nodes=grouping?.nodes||[{id:rootId,name:'Prepared Map',parentId:null,ownHeaders:incoming.document.extensions['org.romdex.import-preparation']?.selectedHeaderIds||recoverSourceIdentities(incoming).headerIds}];
+  const result=prepareGroupedDocument(incoming,local,{rootId,nodes});if(!grouping){delete result.document.extensions['org.romdex.map-groups'];result.document.revision=documentRevision(result.document);result.documentBytes=Buffer.from(canonical(result.document));validateDocument(result.documentBytes,{blobs:result.blobs});}return result;
+ }
  incoming={...incoming,document:structuredClone(incoming.document),blobs:new Map([...incoming.blobs,...local.blobs])};
  const priorMap=mapDomain(local).records.find(r=>r.kind==='map'),sourceMap=mapDomain(incoming).records.find(r=>r.kind==='map');
  if(canonical(priorMap.current.payload.subzoneIds)!==canonical(sourceMap.current.payload.subzoneIds)){

@@ -1,0 +1,37 @@
+{
+  "schema":"NPCDexConditionIndex/1",
+  "mapRecordId":"map:example-a",
+  "sourceRomSha256":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "conditions":[
+    {"id":"condition:example-a:flag-a","label":"Example flag A","labelOrigin":"raw-id","expression":{"op":"flag","flagId":"0x0012","state":"set"},"sourceRefs":[{"mappingDigest":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","locatorKey":"script:entry:guard-a"}]},
+    {"id":"condition:example-a:flag-b","label":"Example flag B","labelOrigin":"raw-id","expression":{"op":"flag","flagId":"0x0013","state":"set"},"sourceRefs":[{"mappingDigest":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","locatorKey":"script:entry:guard-b"}]}
+  ],
+  "displayOrder":["condition:example-a:flag-a","condition:example-a:flag-b"],
+  "effects":[
+    {
+      "id":"effect:example-a:before","kind":"dialogue",
+      "target":{"recordId":"appearance:example-a:assistant","pointId":"point:example-a:welcome","blockIds":["block:example-a:before"],"promptKey":"prompt:example-a:before","gender":"both"},
+      "variantId":"variant:example-a:before",
+      "requires":{"op":"all","args":[{"op":"not","arg":{"op":"flag","flagId":"0x0012","state":"set"}},{"op":"unknown","reason":"Fictional placement presence check is unresolved.","sourceRefs":[{"mappingDigest":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","locatorKey":"script:entry:presence-check"}]}]},
+      "conditionIds":["condition:example-a:flag-a"],
+      "sourceRefs":[{"mappingDigest":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","locatorKey":"script:entry:before"}]
+    },
+    {
+      "id":"effect:example-a:after","kind":"dialogue",
+      "target":{"recordId":"appearance:example-a:assistant","pointId":"point:example-a:welcome","blockIds":["block:example-a:after"],"promptKey":"prompt:example-a:after","gender":"both"},
+      "variantId":"variant:example-a:after",
+      "requires":{"op":"all","args":[{"op":"flag","flagId":"0x0012","state":"set"},{"op":"flag","flagId":"0x0013","state":"unset"},{"op":"unknown","reason":"Fictional placement presence check is unresolved.","sourceRefs":[{"mappingDigest":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","locatorKey":"script:entry:presence-check"}]}]},
+      "conditionIds":["condition:example-a:flag-a","condition:example-a:flag-b"],
+      "sourceRefs":[{"mappingDigest":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","locatorKey":"script:entry:after"}]
+    },
+    {
+      "id":"effect:example-a:unknown","kind":"presence",
+      "target":{"recordId":"appearance:example-a:assistant","pointId":null,"blockIds":[],"promptKey":null,"gender":"both"},
+      "variantId":"variant:example-a:presence",
+      "requires":{"op":"unknown","reason":"Fictional native check has no verified adapter semantics.","sourceRefs":[{"mappingDigest":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","locatorKey":"script:entry:presence-check"}]},
+      "conditionIds":[],
+      "sourceRefs":[{"mappingDigest":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","locatorKey":"script:entry:presence-check"}]
+    }
+  ],
+  "coverage":[{"recordId":"appearance:example-a:assistant","status":"partial","reason":"Presence check unresolved; dialogue guards are illustrative only.","sourceRefs":[{"mappingDigest":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","locatorKey":"script:entry"}]}]
+}

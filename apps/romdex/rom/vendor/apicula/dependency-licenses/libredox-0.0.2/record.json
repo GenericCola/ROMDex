@@ -1,0 +1,11 @@
+{
+  "name": "libredox",
+  "version": "0.0.2",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "3af92c55d7d839293953fcd0fda5ecfe93297cfde6ffbdec13b41d99c0ba6607",
+  "license": "MIT",
+  "noticeFiles": [
+    "LICENSE"
+  ],
+  "status": "notices-retained"
+}

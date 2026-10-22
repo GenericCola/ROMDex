@@ -1,0 +1,3 @@
+# Apicula location decoder
+
+Unmodified Apicula 0.1.1-dev, commit 3d4e91e14045392a49c89e86dab8cb936225588c. Apicula is 0BSD; see LICENSE. Dependency license declarations, available upstream notices and full applicable terms are retained in dependency-licenses. The pinned Glium fork is Apache-2.0. Windows GNU import libraries retain the winapi-rs copyright notice and MIT/Apache terms. dispatch is macOS-only and is not part of this Windows executable. Rust standard library components are distributed under the applicable MIT/Apache terms; see rust-standard-library for the retained Rust copyright and full terms. No ROM assets or AGPL DSPRE implementation are included.

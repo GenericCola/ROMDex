@@ -6,11 +6,16 @@ import {parseJSON} from '../content/contracts.mjs';
 import {readBoundedFile} from './container.mjs';
 import {AgentTaskFiles} from './agent-files.mjs';
 import {ensure,LIMITS} from './limits.mjs';
+import {buildAgentResult,localAgentBundle,validateBoundResult} from './agent-result-builder.mjs';
+import {readRdxFile} from './container.mjs';
 
-const usage='Usage: node rdx/agent-cli.mjs fetch HANDOFF.json NEW_DIRECTORY | return HANDOFF.json RESULT.rdx --confirm-upload. Configure ROMDEX_YOUTRACK_TOKEN securely in the agent environment, never in arguments or chat.';
+const usage='Usage: node rdx/agent-cli.mjs fetch HANDOFF.json NEW_DIRECTORY | template HANDOFF.json FETCHED_DIRECTORY NEW_IMPLEMENTATION.json | build HANDOFF.json FETCHED_DIRECTORY IMPLEMENTATION.json NEW_RESULT.rdx | validate HANDOFF.json FETCHED_DIRECTORY RESULT.rdx | return HANDOFF.json RESULT.rdx --confirm-upload. Only fetch/return require ROMDEX_YOUTRACK_TOKEN, configured securely; never pass it in arguments or chat.';
 export async function main(args,{client=new AgentTaskFiles({credential:()=>process.env.ROMDEX_YOUTRACK_TOKEN})}={}){
  const [command,manifestPath,destination,confirm]=args;ensure(manifestPath&&destination,'INVALID',usage);
  const manifest=parseJSON(await readBoundedFile(manifestPath,64*1024));
+ if(command==='template'&&args.length===4){const bundle=await localAgentBundle(manifest,destination),pkg=JSON.parse(bundle.packageBytes),input={format:'RDXImplementationInput/1',resultId:'rdx:agent-'+randomUUID(),beforeROM:'SET_INPUT_ROM_PATH.nds',afterROM:'SET_SEPARATE_OUTPUT_ROM_PATH.nds',groups:pkg.groups.filter(g=>g.writeRecordIds.length).map(g=>({groupId:g.groupId,outcomes:g.planDigests.map(d=>({planDigest:d,outcome:'not-attempted',reason:'Not implemented. Replace this with the actual outcome.',checks:[],changes:[]}))})),readinessNotice:'Ready for Human Review and Testing; leave the task open.'};ensure(input.groups.length,'INVALID','Context-Only Packages Authorize No ROM Changes.');await fs.writeFile(args[3],JSON.stringify(input,null,2)+'\n',{flag:'wx'});return {template:true,output:path.resolve(args[3]),groups:input.groups.length,backendWrites:false,sourceFilesChanged:false};}
+ if(command==='build'&&args.length===5)return buildAgentResult(manifest,destination,args[3],args[4]);
+ if(command==='validate'&&args.length===4)return validateBoundResult(await readRdxFile(args[3]),await localAgentBundle(manifest,destination),manifest);
  if(command==='fetch'&&args.length===3){
   try{await fs.lstat(destination);throw Error('Choose a New Agent Output Directory.');}catch(e){if(e.code!=='ENOENT')throw e;}
   const bundle=await client.fetchBundle(manifest);await fs.mkdir(destination);await fs.mkdir(path.join(destination,'blobs'));

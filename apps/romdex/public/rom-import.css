@@ -20,3 +20,94 @@
 .stage-context{margin:0 0 1.1rem 2rem;padding:.5rem .7rem;border-left:2px solid var(--line,#577461)}.stage-context .source-text{white-space:pre-wrap}.stage-row input{min-width:0}#character-link-controls{margin-top:1.2rem}#character-link-controls label:not(.checkrow){display:block;margin-top:.6rem}#character-link-controls select,#character-link-controls input:not([type=checkbox]){width:100%}
 
 .stage-row textarea{width:100%;min-width:0;box-sizing:border-box;min-height:5rem;resize:vertical;padding:.55rem .7rem;border:1px solid #577461;border-radius:5px;background:#102820;color:#fff0b9;font:inherit;line-height:1.35}#character-link-controls{padding:.5rem 0}#character-link-controls summary{font-size:1em}
+
+/* Suite layout: selector, entities, contextual detail, map conditions. */
+.import-layout,.import-layout.expanded,.import-layout.collapsed{grid-template-columns:minmax(200px,22%) minmax(0,1fr);grid-template-rows:minmax(320px,43fr) minmax(160px,57fr) auto;gap:10px;height:100%;overflow:hidden}
+.import-selector{grid-column:1;grid-row:1/4}.mapdex-entities{grid-column:2;grid-row:1;min-height:0;min-width:0;overflow:auto;padding:16px}.import-preview{grid-column:2;grid-row:2;min-height:0;min-width:0}.mapdex-condition-strip{grid-column:2;grid-row:3;max-height:145px;min-height:76px;overflow:auto;padding:10px 16px}
+.import-layout.expanded{grid-template-rows:minmax(120px,24fr) minmax(180px,76fr) auto}.import-layout.collapsed{grid-template-rows:minmax(180px,1fr) 52px auto}.collapsed .preview-heading{display:flex}.collapsed .preview-heading h2{writing-mode:horizontal-tb;margin:0;font-size:16px}.collapsed .import-preview{padding:12px 16px}
+.mapdex-map-heading,.mapdex-item-heading,.mapdex-condition-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}.mapdex-map-heading h2,.mapdex-item-heading h3{margin:0}.map-output-actions{margin:0}.map-output-actions>button{flex:1 1 0;min-width:132px}.mapdex-map-heading .map-output-actions{min-width:292px}.mapdex-browser-tools{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);column-gap:14px}.mapdex-browser-tools label:first-child{grid-column:1;grid-row:1}.mapdex-browser-tools input{grid-column:1;grid-row:2}.mapdex-browser-tools label[for=mapdex-area-filter]{grid-column:2;grid-row:1}.mapdex-browser-tools select{grid-column:2;grid-row:2}
+.mapdex-entity-list h3{margin:14px 0 8px}.mapdex-tile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}.mapdex-entity-tile{position:relative;min-width:0}.mapdex-entity-select{width:100%;height:100%;display:flex;align-items:center;flex-direction:column;gap:6px;padding:12px 24px 12px 12px;background:var(--screen-light);border:1px solid var(--line);border-radius:8px;text-align:center;overflow-wrap:anywhere}.mapdex-entity-select[aria-pressed=true]{outline:2px solid var(--yellow);outline-offset:-2px}.mapdex-entity-select small{font-size:11px}.mapdex-tile-image{height:52px;max-width:100%;object-fit:contain;image-rendering:pixelated}.mapdex-tile-placeholder{font-size:11px;color:var(--muted);min-height:26px;display:grid;place-items:center}
+.suite-settings-circle.mapdex-entity-settings,.suite-settings-circle.mapdex-item-settings{display:grid;place-items:center;width:24px;height:24px;min-width:24px;min-height:24px;padding:3px;background:#101d1d;border:1px solid var(--line);border-radius:50%}.mapdex-entity-settings img,.mapdex-item-settings img{width:16px;height:16px;padding:0;background:none;border-radius:0}.mapdex-entity-settings{position:absolute;right:6px;top:6px;opacity:0;pointer-events:none}.mapdex-entity-tile:hover .mapdex-entity-settings,.mapdex-entity-tile:focus-within .mapdex-entity-settings{opacity:1;pointer-events:auto}
+#item-detail>h3:first-child{display:none}#display-cleanup{border:1px solid var(--line);border-radius:7px;padding:10px 14px;margin:12px 0}#display-cleanup>summary{color:var(--ink)}#display-cleanup>button{margin-top:10px}.suite-condition-list{display:flex;gap:8px;overflow:auto;padding:5px 2px}.suite-condition-button{display:flex;gap:8px;align-items:center;flex:none;max-width:320px;padding:8px 12px;border:1px solid var(--line);background:var(--screen-light);border-radius:7px;text-align:left}.suite-condition-button span{max-width:260px;white-space:normal}.suite-condition-button b{color:var(--yellow)}.suite-condition-button[aria-pressed=true],.mapdex-condition-heading button[aria-pressed=true]{outline:2px solid var(--yellow);outline-offset:-2px}.mapdex-condition-heading p{margin:0;flex:1;font-size:12px}.mapdex-condition-heading>button{flex:none}
+.mapdex-setup-dialog{color:var(--ink);background:var(--screen);border:5px solid var(--line);border-radius:12px;padding:0;width:min(780px,94vw);max-width:94vw;max-height:90dvh;overflow:hidden}.mapdex-setup-dialog[open]{display:grid;grid-template-rows:auto minmax(0,1fr) auto}.mapdex-setup-dialog::backdrop{background:#0009}.mapdex-setup-dialog>h2,.mapdex-setup-dialog>footer{padding:14px 18px;margin:0}.mapdex-setup-dialog>footer{border-top:1px solid var(--line);display:flex;justify-content:flex-end;background:var(--screen)}.mapdex-setup-dialog .import-setup{overflow:auto;min-height:0;padding:0 18px 16px}
+@media(max-width:760px){.import-layout,.import-layout.expanded,.import-layout.collapsed{grid-template-columns:170px minmax(0,1fr);height:100dvh}.mapdex-map-heading{align-items:stretch;flex-direction:column}.mapdex-map-heading .map-output-actions{min-width:0}.map-output-actions>button{min-width:0}.mapdex-condition-heading{flex-wrap:wrap}.mapdex-condition-heading p{flex-basis:100%}.mapdex-browser-tools{display:block}.import-selector,.import-preview{overflow:auto}.mapdex-entities{padding:12px}.mapdex-condition-strip{max-height:150px}.import-layout.collapsed #preview-body{display:none}}
+.mapdex-map-heading{position:sticky;top:-16px;z-index:3;background:var(--screen);padding:10px 0}.mapdex-entity-select strong{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.mapdex-entity-select small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#item-detail>[data-source-sprite]{float:right;height:64px;width:64px;margin:0 0 8px 12px}#item-detail:after{content:"";display:block;clear:both}
+.mapdex-catalog-image{display:block;width:100%;height:90px;object-fit:cover;image-rendering:pixelated;margin-bottom:8px}.mapdex-location-preview h4{margin:8px 0}.mapdex-location-preview>p{font-size:12px}
+.import-preview>.preview-heading{position:sticky;top:-17px;background:var(--screen);z-index:4;padding:6px 0}.mapdex-item-heading{position:sticky;top:16px;background:var(--screen);z-index:3}.mapdex-location-preview{scroll-margin-top:55px}
+
+.character-organization{margin-block:14px;padding:12px;border:1px solid var(--line,#52694e);border-radius:7px}.character-organization label{display:block;margin-block:10px}.character-organization button{padding:9px 12px;margin-block:8px}.character-organization .checkrow{display:flex;gap:10px;align-items:center}.character-scope-review{padding:12px;border:1px solid var(--line,#52694e);margin-top:12px}.character-organization p{white-space:pre-wrap;overflow-wrap:anywhere}
+
+/* Identity review keeps source dialogue visible in its own scroll area. */
+.import-preview{display:flex;flex-direction:column;overflow:hidden}.import-preview>.preview-heading{flex:none;position:static}#preview-body{min-height:0;flex:1;overflow:auto}
+
+.mapdex-source-warnings{flex:none;max-height:28%;overflow:auto;margin-top:8px}.mapdex-source-warnings:not([open]){max-height:none}.mapdex-source-warnings summary{padding:8px 0}
+/* RI03C-C01: the selected-item heading covers the scroll edge completely. */
+#preview-body .mapdex-item-heading{top:0;padding-block:8px;background:var(--screen);isolation:isolate}
+/* RI03C-C02: match the suite's full-width image-pane treatment. */
+.mapdex-entity-select{padding:0;gap:0;overflow:hidden;justify-content:flex-start}
+.mapdex-entity-select>.mapdex-tile-image{display:block;width:100%;max-width:none;height:auto;aspect-ratio:1.5;object-fit:cover;padding:0;margin:0;border:0;border-radius:0;background:var(--screen)}
+.mapdex-entity-select>strong{display:block;width:100%;padding:9px 11px 0}
+.mapdex-entity-select>small{display:block;width:100%;padding:4px 11px 10px}
+.mapdex-tile-placeholder{width:100%;aspect-ratio:1.5}
+
+/* RI03C-C03: event nodes use the same item-light vocabulary as NPCDex. */
+.suite-condition-button{display:grid;grid-template-columns:auto 1fr;align-content:start}.suite-condition-button .mapdex-event-marks{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:4px;min-height:8px}.mapdex-event-marks .content-light{display:inline-block;flex:none;width:8px;height:8px;border-radius:50%;background:#87908b;border:1px solid #b6c2b9}
+
+/* RI03C-C04: a tray-corner menu, with modal tools outside the scrolling content. */
+.import-preview>.preview-heading{position:relative;top:0;min-height:32px;padding-right:38px;margin-bottom:8px}
+.import-preview>.preview-heading>.mapdex-item-settings{position:absolute;right:0;top:0;opacity:0;pointer-events:none}
+.import-preview:hover>.preview-heading>.mapdex-item-settings,.import-preview:focus-within>.preview-heading>.mapdex-item-settings,.mapdex-item-settings[aria-expanded=true]{opacity:1;pointer-events:auto}
+.mapdex-item-menu{position:fixed;inset:auto;margin:0;width:240px;padding:10px;background:var(--screen);color:var(--ink);border:1px solid var(--line);border-radius:8px}
+.mapdex-item-menu:popover-open{display:grid;gap:8px}.mapdex-item-menu button{width:100%;padding:10px 12px;text-align:left}
+.mapdex-identity-dialog{color:var(--ink);background:var(--screen);border:5px solid var(--line);border-radius:12px;padding:0;width:min(700px,94vw);max-height:88dvh;overflow:hidden}
+.mapdex-identity-dialog[open]{display:grid;grid-template-rows:auto minmax(0,1fr) auto}.mapdex-identity-dialog::backdrop{background:#0009}
+.mapdex-identity-dialog>h2,.mapdex-identity-dialog>footer{padding:14px 18px;margin:0}.mapdex-identity-dialog>footer{border-top:1px solid var(--line);display:flex;justify-content:flex-end;background:var(--screen)}
+.mapdex-identity-dialog>#display-cleanup{overflow:auto;min-height:0;border:0;margin:0;padding:0 18px 18px}.mapdex-identity-dialog>#display-cleanup>summary{display:none}
+
+.mapdex-detail-back{flex:none;padding:8px 12px}.mapdex-item-heading{justify-content:flex-start;flex-wrap:wrap}.mapdex-item-heading>h3{flex:1;min-width:0}
+
+/* RI03C-C09: nested location navigation belongs to the map tray. */
+.mapdex-browser-tools{grid-template-columns:minmax(0,1fr)}.mapdex-browser-tools label:first-child,.mapdex-browser-tools input{grid-column:1}
+#map-list .map-expand{position:absolute;left:8px;top:8px;width:24px;height:24px;min-width:24px;padding:0;text-align:center;background:#101d1de6;z-index:2}
+#map-list .map-tile:has(.map-expand)>[data-map]>strong{padding-left:24px}
+.mapdex-zone-tree{display:grid;gap:8px;padding-left:12px;border-left:1px solid var(--line);margin-left:8px}
+.mapdex-zone-node{min-width:0;margin-left:calc(var(--zone-depth,0)*10px)}#map-list .mapdex-zone-select{width:100%;padding:0;overflow:hidden}#map-list .mapdex-zone-select strong{padding:8px 10px}#map-list .mapdex-zone-select[aria-pressed=true]{padding:0}.mapdex-zone-select .mapdex-catalog-image{margin:0;height:auto;aspect-ratio:1.5}
+
+.rom-source-actions{display:flex;align-items:stretch;gap:8px;margin-bottom:8px}.rom-source-actions>button{flex:1;min-width:0;padding:9px 10px;white-space:nowrap}
+
+/* RI03C-C13: distinct, padded map context actions. */
+#map-list .map-tile-menu:not([hidden]){display:grid;gap:8px;padding:10px;min-width:184px;max-width:calc(100vw - 32px)}#map-list .map-tile-menu button{display:block;width:100%;margin:0;min-height:38px;padding:10px 12px;white-space:normal;line-height:1.4}
+
+/* A saved/paused map needs one status line; only active publication needs a meter. */
+#publication{margin:6px 0;padding:0;font-size:12px;line-height:1.4}
+#publication>h3{display:none}#publication p{margin:4px 0;font-size:inherit}
+#publication.is-active{padding:8px 10px;border:1px solid var(--line);border-radius:7px}
+#publication progress{display:block;width:100%;height:10px;margin:5px 0}
+#publication progress[hidden],#publication p[hidden]{display:none}
+#preparation-status,#import-message{margin:5px 0;font-size:12px;line-height:1.4}
+#mapdex-item-search{margin:4px 0}
+
+.mapdex-map-heading{padding-block:4px}
+.mapdex-browser-tools label[for=mapdex-item-search]{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+#mapdex-entity-list h3{margin:8px 0}
+/* Keep a visible row of entity tiles in the default layout on short windows. TAB can still prioritize dialogue. */
+@media(max-height:700px){.import-layout:not(.expanded):not(.collapsed){grid-template-rows:minmax(200px,43fr) minmax(120px,57fr) auto}.mapdex-condition-strip{max-height:96px;min-height:76px}}
+
+.mapdex-map-heading>h2{flex:0 1 220px;min-width:0}
+.mapdex-map-heading>.mapdex-browser-tools{flex:1;min-width:120px;max-width:380px}
+.mapdex-map-heading .mapdex-browser-tools input{margin:0}
+@media(max-width:760px){.mapdex-map-heading>h2{flex:none}.mapdex-map-heading>.mapdex-browser-tools{max-width:none;width:100%;flex:none}}
+
+/* MAPDex has a map selector and one full-height content tray. No dialogue tray. */
+.import-layout,.import-layout.expanded,.import-layout.collapsed{grid-template-rows:minmax(0,1fr) 104px}
+.import-selector{grid-row:1/3}.mapdex-entities{grid-column:2;grid-row:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+#mapdex-entity-list{flex:1;min-height:0;overflow:auto}.mapdex-condition-strip{grid-column:2;grid-row:2}
+.mapdex-review-dialog{width:min(1100px,calc(100vw - 32px));max-height:90dvh;box-sizing:border-box;overflow:hidden;padding:20px;background:var(--screen);color:var(--ink);border:5px solid #79383e;border-radius:12px}
+.mapdex-review-dialog[open]{display:flex;flex-direction:column;gap:12px}.mapdex-review-body{min-height:0;overflow:auto;padding:4px 12px 12px 4px}.mapdex-review-dialog footer{flex:none;border-top:1px solid var(--line);padding-top:12px;display:flex;justify-content:flex-end;gap:10px}
+#mapdex-identity-dialog #item-detail>[data-source-sprite]{display:block;width:80px;height:80px;object-fit:contain;margin:0 auto 12px;image-rendering:pixelated}
+#mapdex-auxiliary[hidden]{display:none!important}
+
+.mapdex-condition-strip.timeline{max-height:none;min-height:0;overflow:visible;padding:8px 10px}
+.mapdex-condition-strip .timeline-stages{min-height:0}
+@media(max-height:700px){.import-layout:not(.expanded):not(.collapsed){grid-template-rows:minmax(0,1fr) 104px}}

@@ -1,0 +1,11 @@
+{
+  "name": "approx",
+  "version": "0.1.1",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "08abcc3b4e9339e33a3d0a5ed15d84a687350c05689d825e0f6655eef9e76a94",
+  "license": "Apache-2.0",
+  "noticeFiles": [
+    "LICENSE"
+  ],
+  "status": "notices-retained"
+}

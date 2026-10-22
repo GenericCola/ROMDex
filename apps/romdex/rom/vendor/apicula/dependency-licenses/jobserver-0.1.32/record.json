@@ -1,0 +1,12 @@
+{
+  "name": "jobserver",
+  "version": "0.1.32",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "48d1dbcbbeb6a7fec7e059840aa538bd62aaccf972c7346c4d9d2059312853d0",
+  "license": "MIT OR Apache-2.0",
+  "noticeFiles": [
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

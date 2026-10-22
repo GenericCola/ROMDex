@@ -1,0 +1,11 @@
+{
+  "name": "wayland-cursor",
+  "version": "0.31.5",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "6ef9489a8df197ebf3a8ce8a7a7f0a2320035c3743f3c1bd0bdbccf07ce64f95",
+  "license": "MIT",
+  "noticeFiles": [
+    "LICENSE.txt"
+  ],
+  "status": "notices-retained"
+}

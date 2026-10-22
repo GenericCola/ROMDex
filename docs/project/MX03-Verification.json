@@ -1,0 +1,193 @@
+{
+  "status": "source-complete",
+  "installedVersionUnchanged": "0.5.26",
+  "productionDataChanged": false,
+  "liveYouTrackChecks": false,
+  "nativeInstallerChecks": false,
+  "verification": {
+    "focusedIntegrationAndAdjacent": 56,
+    "conditionCloudFreshReader": true,
+    "managedCrashRecovery": "passed; task-owned scratch directory",
+    "workspaceRegressions": "checked; failed cases corrected and focused rechecks passed",
+    "realROMMapKnownConditions": {
+      "new-bark-town": 46,
+      "route-29": 8
+    },
+    "realLegacyUpgrade": {
+      "source": "local isolated pre-MX03 New Bark Town RDX",
+      "originalRdxSha256": "7f7f62f34f527c8906eba2b00d689c3236e9e65f7a8f8604845ed87e5936be9e",
+      "upgradedDocument": "322ecea75c41b8a60b5a0b6a6d9aaa450ec2fb616542936c072e95178af442d4",
+      "recordIdsPreserved": 95,
+      "exactTextBlocksPreserved": 336,
+      "assetEntriesPreserved": 171,
+      "plansPreserved": 0,
+      "reviewsPreserved": 0,
+      "knownConditions": 46,
+      "portableReadback": true,
+      "productionDataChanged": false
+    },
+    "MAPDexBrowser": {
+      "workspace": "MAPDex",
+      "source": "isolated prepared ROM-derived New Bark Town",
+      "knownConditions": 46,
+      "unresolvedFilter": true,
+      "sourceRequirementsVisible": true,
+      "pageErrors": [],
+      "networkWrites": false
+    },
+    "NPCDexBrowser": {
+      "maps": 2,
+      "knownConditions": [
+        46,
+        8
+      ],
+      "mapSwitchReset": true,
+      "unresolvedReachable": true,
+      "sourceRequirementsVisible": true,
+      "pageErrors": []
+    }
+  },
+  "requiredFeature": "org.romdex.npcdex.condition-effects-v1",
+  "files": [
+    {
+      "file": "content/condition-core.js",
+      "sha256": "c1cf3fd55ad41d8e5a230addc8fc27cd0c440522a355f0adc2dc313fdfa3a38d"
+    },
+    {
+      "file": "content/desktop-assets.mjs",
+      "sha256": "41fa09fda33037d6cd4c6dfc71dc9cea4633672f05305dec95a0c2acf7a81afb"
+    },
+    {
+      "file": "content/edits.mjs",
+      "sha256": "4ac0f11461e711a88666329059289925c9b7812ef3272db2a4012d42eb140b25"
+    },
+    {
+      "file": "content/native.css",
+      "sha256": "9170f93a6ed5430dfc5abcef64fb2f6dd2a77a978437e1c80db2853f91bd1dfd"
+    },
+    {
+      "file": "content/preview-server.mjs",
+      "sha256": "f6d8d7c397abfc36ae95be83532abe8642692107b01161ec582e0008332d2a10"
+    },
+    {
+      "file": "content/timeline-core.js",
+      "sha256": "86fd4dfe07f6d90d6159b01168eaebade2dc4538c44598bf6f24d5cd6a2753ba"
+    },
+    {
+      "file": "content/timelines.mjs",
+      "sha256": "aadaca9bd5dc4788f976525f5ca185746a0d875b5f8997e28cdefc2dbb28e0e9"
+    },
+    {
+      "file": "content/workspace-runtime.js",
+      "sha256": "4f3ddcd9ca9e714d0017ac3bf33e37f54ad65d5d6323d26792ddc6840fb4ac80"
+    },
+    {
+      "file": "public/shared-ui/condition-core.js",
+      "sha256": "bbbfc2eda8663d86d91e990fb84c5d04a6de4a94fc98426c19c80cf4b3eafa75"
+    },
+    {
+      "file": "public/mapdex-preview.mjs",
+      "sha256": "baf570bb06dd100d308f882720b0b776752e19e3659d076f0c11a7cf0d6bfaae"
+    },
+    {
+      "file": "public/rom-import.mjs",
+      "sha256": "37a4b8790d12563abb0d2428def1bbcbbe3d08cfbaafd748b0e79a3e3cdf8e04"
+    },
+    {
+      "file": "rdx/cloud-features.mjs",
+      "sha256": "551082b86299f675d4c1012ec5d10aa70472df2e651a6be1608b8e5233864ac3"
+    },
+    {
+      "file": "rdx/cloud-parts.mjs",
+      "sha256": "f4c0f183084b1a98d89ed3f492cb0d013049ae7d17d71bbee0aa0f74f22c00ed"
+    },
+    {
+      "file": "rdx/container.mjs",
+      "sha256": "996556a0a836ea05f85e27d0124dbff3411748c29771ab7c7b08e7b3da5ea49e"
+    },
+    {
+      "file": "rdx/document-cloud.mjs",
+      "sha256": "ec70aa0575b69354fc4e88ba681fb617b8d0c1faf4836ad93d06f210e59eaa99"
+    },
+    {
+      "file": "rdx/document.mjs",
+      "sha256": "c19819531b281daf281a8320f6280d0094a0c227889f8a7c4942749118c3c873"
+    },
+    {
+      "file": "rdx/features.mjs",
+      "sha256": "48be840d53ddeafc67966adb7f902762b9788a521d5937662e81804b18837eeb"
+    },
+    {
+      "file": "rdx/features.schema.json",
+      "sha256": "5a383b4db5b4102a21b68abdef3a6823c93ede7098b2a1927d3b94f86d042932"
+    },
+    {
+      "file": "rdx/managed-store.mjs",
+      "sha256": "dd6edf965de2e9040bc6a9ebe14601c91c67f6836ed45120366c3f72ea90f599"
+    },
+    {
+      "file": "rdx/schema.mjs",
+      "sha256": "f1daca9c4150616df1a2e4f287a28d92e38a99f9458e86beb134cad25be69f1f"
+    },
+    {
+      "file": "rdx/youtrack-store.mjs",
+      "sha256": "ac14dd4cec3dc12185b22fe2f38249637aef41ceaeecbf4f8aa77f1015b25ad1"
+    },
+    {
+      "file": "rom/condition-compilation.mjs",
+      "sha256": "56cbf60eee5472001779c2fc3ce466d2aeaf833ec56223377b5acd8baa0cab42"
+    },
+    {
+      "file": "rom/condition-upgrade.mjs",
+      "sha256": "760a6632ca46db9235e4252a5079bc1e31374316ae1e41c4ed0ce812373a8f9e"
+    },
+    {
+      "file": "rom/compile-map.mjs",
+      "sha256": "16ae51d1978d177f94ece150294629ebe814c47d967076ce183fcba9dbb989b7"
+    },
+    {
+      "file": "rom/grouped-document.mjs",
+      "sha256": "a9f25bdcddb56fdfe35a28f77f4528a7c5daee6bd3bbf007fd56e311469a1c90"
+    },
+    {
+      "file": "rom/staging-document.mjs",
+      "sha256": "17c3320b9dbd8b9ac77a249bdee4a23bfc87afdd96d4f0675b8327d5565ebe06"
+    },
+    {
+      "file": "rom/workspace.mjs",
+      "sha256": "c598150563abc8e1932868bc59f6d2f117e7d9f79f12c8025e6c570321db7618"
+    },
+    {
+      "file": "rom/map-update.mjs",
+      "sha256": "abbcc889164c7d9d60df94c68771733a81a4af34a862221ebaa2dae8db9ca45a"
+    },
+    {
+      "file": "rom/update-conditions.mjs",
+      "sha256": "c57c584a027ff383b7a9efbf2f03e50a882756b4270fb72dff32496efdbbf551"
+    },
+    {
+      "file": "tests/rom-map-update.test.mjs",
+      "sha256": "9219896e6bd8426c9abe178fa8bd0fb0d6924d8843078234bc03296be2e30259"
+    },
+    {
+      "file": "tests/condition-rdx.test.mjs",
+      "sha256": "234fa11189cc2d35b18b8a6679a2541f51a24b528aaa170e308c3b94b225f76a"
+    },
+    {
+      "file": "tests/condition-integration.test.mjs",
+      "sha256": "4e1698599f9603a2a3988b7ed69f19ce4b0c7bffeacd8cef4118cb655a1cda88"
+    },
+    {
+      "file": "tests/map-timelines.test.mjs",
+      "sha256": "786d65d08e6b094c1286e1e135fd98e60caea0e719c7ff43b5d0f50de02763b6"
+    },
+    {
+      "file": "tests/rdx-cloud.test.mjs",
+      "sha256": "ab085f97c77ffa38a1d79f0458eab9481642bf846fea10fa0f763786b1cf944d"
+    },
+    {
+      "file": "tests/rom-workspace.test.mjs",
+      "sha256": "2d047defa2933b8b7282ae7a873be00d053253dd5e53559f4f7abd8d8fd2ebef"
+    }
+  ]
+}

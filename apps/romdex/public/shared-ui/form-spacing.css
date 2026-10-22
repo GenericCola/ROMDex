@@ -14,3 +14,5 @@ dialog :is(.actions,.dialog-actions,.image-actions,footer)>button,dialog form>bu
 #character-link-controls label.checkrow{display:flex;align-items:flex-start;gap:var(--form-control-gap);padding-block:10px}
 #character-link-controls label.checkrow>span{flex:1;min-width:0}
 #character-link-controls .import-actions{margin-block:12px 4px}
+
+.character-link-picker{display:grid;gap:10px;margin:12px 0}.character-link-picker h4,.character-link-picker p{margin:0}.character-link-members,.character-link-available{max-height:260px;overflow:auto;border:1px solid var(--line,#52694e);padding:10px;border-radius:6px}.character-link-members details{margin:6px 0}.character-link-members summary{padding:6px 0}.character-link-members p{white-space:pre-wrap;padding:6px 0;font-size:12px}.character-link-picker .checkrow{display:flex;align-items:center;gap:10px;padding:9px 0;margin:0}.character-link-picker input[type=checkbox]{margin:0;flex:none}.character-link-picker>label{display:grid;gap:6px}

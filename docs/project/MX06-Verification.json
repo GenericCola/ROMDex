@@ -1,0 +1,33 @@
+{
+  "task": "MX06",
+  "status": "complete-source-and-isolated-candidate",
+  "productionChanged": false,
+  "regressionPasses": 36,
+  "focusedRechecks": 5,
+  "live": {
+    "task": "MX06",
+    "status": "passed",
+    "synthetic": true,
+    "productionChanged": false,
+    "checks": [
+      "Fresh native title edit automatically reaches the managed RDX without changing dialogue",
+      "Owner-authored correction attachment waits for exact review and then updates NPCDex and portable RDX",
+      "Reviewed native parent move preserves issue IDs and repairs both inverse memberships",
+      "Fresh second profile recovers exact accepted names, text, memberships, images and history"
+    ],
+    "cleanup": "verified 10 exact test issues absent",
+    "records": 9
+  },
+  "native": {
+    "status": "passed",
+    "checks": [
+      "Native mapping view distinguishes physical, shared and system kinds with stable record/revision identities",
+      "Correction-template controls and Close remain reachable at 620px without hiding the footer",
+      "Mapping view closes and the candidate quits normally"
+    ],
+    "productionChanged": false,
+    "tokensCopied": false,
+    "installerRun": false
+  },
+  "installerRun": false
+}

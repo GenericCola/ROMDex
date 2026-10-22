@@ -1,0 +1,13 @@
+{
+  "name": "core-graphics",
+  "version": "0.23.2",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "c07782be35f9e1140080c6b96f0d44b739e2278479f64e02fdab4e32dfd8b081",
+  "license": "MIT OR Apache-2.0",
+  "noticeFiles": [
+    "COPYRIGHT",
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ],
+  "status": "notices-retained"
+}

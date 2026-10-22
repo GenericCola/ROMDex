@@ -1,0 +1,11 @@
+{
+  "name": "owned_ttf_parser",
+  "version": "0.24.0",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "490d3a563d3122bf7c911a59b0add9389e5ec0f5f0c3ac6b91ff235a0e6a7f90",
+  "license": "Apache-2.0",
+  "noticeFiles": [
+    "LICENSE"
+  ],
+  "status": "notices-retained"
+}

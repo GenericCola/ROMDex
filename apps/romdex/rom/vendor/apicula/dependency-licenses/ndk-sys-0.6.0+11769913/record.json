@@ -1,0 +1,17 @@
+{
+  "name": "ndk-sys",
+  "version": "0.6.0+11769913",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "ee6cda3051665f1fb8d9e08fc35c96d5a244fb1be711a03b71118828afc9a873",
+  "license": "MIT OR Apache-2.0",
+  "noticeFiles": [
+    "source-notice-README.md",
+    "LICENSE-MIT",
+    "LICENSE-APACHE"
+  ],
+  "status": "notices-retained",
+  "noticeSource": {
+    "repository": "rust-mobile/ndk",
+    "revision": "49bbbba16c58ff63cb8a0ad0eca5a9fb7ecaec25"
+  }
+}

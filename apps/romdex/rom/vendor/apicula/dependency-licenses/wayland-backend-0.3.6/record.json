@@ -1,0 +1,11 @@
+{
+  "name": "wayland-backend",
+  "version": "0.3.6",
+  "source": "registry+https://github.com/rust-lang/crates.io-index",
+  "sha256": "f90e11ce2ca99c97b940ee83edbae9da2d56a08f9ea8158550fd77fa31722993",
+  "license": "MIT",
+  "noticeFiles": [
+    "LICENSE.txt"
+  ],
+  "status": "notices-retained"
+}
