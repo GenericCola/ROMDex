@@ -1,0 +1,9 @@
+from pathlib import Path
+p=Path('outputs/ROMDex/public/rom-catalog.mjs');s=p.read_text().replace('a.name.localeCompare(b.name)',"a.name.localeCompare(b.name,undefined,{numeric:true})");p.write_text(s)
+p=Path('outputs/ROMDex/rom/workspace.mjs');s=p.read_text();old="this.state.selected=selectedCatalogGroup(this.state.source,input.id).id;this.state.headers=selectedCatalogGroup(this.state.source,input.id).headers;await this.persist();return this.view();"
+new="""const group=selectedCatalogGroup(this.state.source,input.id);this.state.positions??={};if(this.state.selected)this.state.positions[this.state.selected]=this.state.position||null;this.state.selected=group.id;this.state.position=this.state.positions[group.id]||null;this.state.headers=group.headers;const staged=(await this.lineages()).filter(l=>l.key.startsWith('stage:'));if(staged.length===1){const key=staged[0].key.slice(6),v=await this.stage.store.view(key);this.state.headers=v.document.extensions?.['org.romdex.import-preparation']?.selectedHeaderIds||group.headers;this.state.prepared={key,sourceSHA256:this.state.source.source.sha256,headers:this.state.headers};this.stage.active=key;this.stage.set('active',key);}await this.persist();return this.view();"""
+assert old in s;s=s.replace(old,new);p.write_text(s)
+p=Path('outputs/ROMDex/public/rom-import.mjs');s=p.read_text().replace("state=await call('select',{id:g.id});render();", "await call('select',{id:g.id});detail=null;detailHead=null;selected=null;drafts={};pendingStages=null;stageSelection='all';await refresh();")
+p.write_text(s)
+p=Path('work/mapdex-general/prove-ui.mjs');s=p.read_text().replace("assert.equal(await frame.locator('#map-name-heading').innerText(),'Route 29');", "await frame.waitForFunction(()=>document.getElementById('item-detail').querySelector('h3'));assert.equal(await frame.locator('#map-name-heading').innerText(),'Route 29');")
+p.write_text(s)

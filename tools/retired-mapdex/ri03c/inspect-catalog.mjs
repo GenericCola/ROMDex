@@ -1,0 +1,2 @@
+import fs from 'node:fs/promises';import {catalogGroups} from '../../outputs/ROMDex/public/rom-catalog.mjs';
+const x=JSON.parse(await fs.readFile('work/lp01/inventory.json'));const maps=x.maps.map(m=>({headerId:m.headerId,section:m.locationSection,name:m.internalName,label:m.locationName,regionId:m.regionId}));console.log(JSON.stringify({keys:Object.keys(x.maps[0]),groups:catalogGroups({maps}).filter(g=>/New Bark|Route 29|Violet|Sprout/.test(g.name)),sample:maps.filter(m=>[60,73,110,157,134].includes(m.headerId))},null,2));

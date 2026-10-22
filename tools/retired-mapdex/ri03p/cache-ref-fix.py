@@ -1,0 +1,2 @@
+from pathlib import Path
+p=Path('outputs/ROMDex/rdx/document-cloud.mjs');s=p.read_text(encoding='utf-8');a='if(fileCache.has(identity))return fileCache.get(identity);';b="if(fileCache.has(identity)){const prior=fileCache.get(identity);ensure(same(prior.ref,p),'INTEGRITY','Conflicting Cloud Pack Attachment Descriptors.');return prior.bytes;}";assert a in s;s=s.replace(a,b).replace('fileCache.set(identity,bytes);return bytes;','fileCache.set(identity,{ref:p,bytes});return bytes;');p.write_bytes(s.encode('utf-8'))

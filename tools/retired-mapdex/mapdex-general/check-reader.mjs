@@ -1,0 +1,3 @@
+import fs from 'node:fs/promises';import {RomReader} from '../../outputs/ROMDex/rom/reader.mjs';
+const file='C:/Users/mrgen/OneDrive/Apps/melonDS/melonDS-1.1-windows-x86_64/TEST/0.6.3_noduplicates.nds';
+const keys=['size','mtimeNs','ctimeNs','ino','dev'],stat=async()=>{const s=await fs.stat(file,{bigint:true});return Object.fromEntries(keys.map(k=>[k,String(s[k])]))};const before=await stat();let r;try{r=await RomReader.open(file);const f=await r.fingerprint();console.log(JSON.stringify({status:'opened',source:f,before,after:await stat()}));}catch(e){console.log(JSON.stringify({error:e.message,code:e.code,before,after:await stat()}));}finally{await r?.close()}

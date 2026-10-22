@@ -1,0 +1,76 @@
+from pathlib import Path
+import json
+root=Path.cwd();w=root/'work/ri03p';out=root/'outputs';app=out/'ROMDex';history=out/'Documentation/History/RI03P';evidence=history/'RI03P-Evidence'
+live=json.loads((w/'live-proof.json').read_text());ui=json.loads((w/'progress-ui.json').read_text());layout=json.loads((w/'layout.json').read_text());model=json.loads((w/'real-model-proof.json').read_text());runtime=json.loads((w/'package-check.json').read_text())
+assert live['status']=='passed' and live['cleanup']['status']=='passed';assert ui['passed'] and model['passed'] and runtime['passed']
+def write(p,s):p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(s.encode('utf-8'))
+def js(p,v):write(p,json.dumps(v,indent=2)+'\n')
+for name,data in [('delivery-layout',layout),('real-model-proof',model),('runtime',runtime),('publication-ui',ui)]:js(evidence/(name+'.json'),data)
+for name,p in [('full-map-live-proof',live)]:js(evidence/(name+'.json'),{'status':p['status'],'measurements':p['measurements'],'finalMeasurements':p.get('finalMeasurements'),'finalLocalSaveMilliseconds':p.get('finalLocalSaveMilliseconds'),'harnessCorrection':p.get('harnessCorrection'),'records':len(p['records']),'cleanup':p['cleanup'],'initialAttempt':p.get('initialAttempt'),'checks':p.get('checks'),'purpose':p.get('purpose'),'productionChanged':False})
+js(evidence/'targeted-checks.json',{'distinctPassed':61,'breakdown':{'MAPDex':18,'cloud':30,'deliveryAndTransport':9,'progress':4},'syntaxChecks':10,'sourceUIBehaviors':5,'broadSuiteRepeated':False,'note':'The first status expectation incorrectly required a successful check timestamp after an interrupted checkpoint. Corrected expectation and one targeted recheck passed. New cache, context-prefetch, publication API and loading-bar cases were checked as added; valid prior checks were reused.'})
+def table(measurements,labels):
+ text='| Operation | Wall time | Requests | Writes | Uploaded bytes | Downloaded bytes |\n| --- | ---: | ---: | ---: | ---: | ---: |\n'
+ for key,label in labels:
+  m=measurements[key];text+=f"| {label} | {m['milliseconds']/1000:.1f} s | {m['requests']} | {m['writes']} | {m['uploadedBytes']:,} | {m['downloadedBytes']:,} |\n"
+ return text
+noteLabel='Local note/flag delivery' if live['measurements']['localNoteDelta']['writes'] else 'Existing local note / idempotent check'
+fullTable=table(live['measurements'],[('verifiedUploadResume','Resume verified queued delivery'),('localNoteDelta',noteLabel),('unchangedSync','Unchanged synchronization'),('reviewedNativeDelta','Reviewed native title delivery'),('secondProfileRecovery','Second-profile recovery')])
+finalTable=table(live['finalMeasurements'],[('unchangedSync','Unchanged synchronization'),('localNoteDelta','New local note/flag delivery'),('secondProfileDelta','Incoming update on second instance')])
+report=f'''# RI03P — Map Cloud-Delivery Performance
+
+Completed in source on October 20, 2026 under the user's PASSKEY. MAPDex retains its approved name. No installer or production Data/queue/credential change is part of this task; the explicit NPCDex cloud sync pause remains in force.
+
+## Result
+
+The same verified 1,001,582-byte ROM-only Violet City RDX requires **600 old-layout object attachments / 8,347,287 payload bytes**, versus **209 new-layout attachments / 2,926,272 payload bytes**: about **65% fewer files and payload bytes** before the commit. Two compressed registry deliveries replace hundreds of small uploads. Record/mapping artifacts stay on their native tickets, with the same stable identities and hierarchy. Prior immutable objects remain at their original references; maps are not combined.
+
+This is a deterministic same-input comparison. RI02C's earlier 604-chunk figure included extra local edits/history. No old-layout live reupload or repeated ROM extraction was performed. A local full-map model reconstructed every source/image/history byte exactly; its complete commit is 305,820 bytes, within the existing 512 KiB bound.
+
+Record discovery is reused within each cycle. Native metadata snapshots are freshly batched, with complete comment evidence and shared-record fallbacks. Attachment metadata is fetched at most eight requests concurrently, for both document reconstruction and shared-context pin checks; at most 256 inventories are prefetched, with remaining required inventories using the existing lazy route. Current identity/author/size/update checks, private ownership, native review and conflict/ancestry guards remain mandatory. No budget is raised.
+
+## Full-map proof and recovery
+
+The initial helper delivered all 595 logical objects for all 134 records but hit its cycle time limit in serial attachment verification. That older reader was stopped only after its durable checkpoint was inspected. The existing Windows host resumed the same uploaded files with bounded parallel verification. It did not repeat map publication or create a second set of 134 records.
+
+The resumed full-map run verified exact data, local note/flag preservation, a reviewed native title edit and human-testing obligations. An initial helper assertion incorrectly required identical top-level revision hashes after a valid import merge. The final checker compared current records, feedback, mappings, views and every retained asset/history byte instead; all were preserved in the independent profile. All {live['cleanup']['verifiedAbsent']} exact owned proof IDs were then confirmed absent. The initial attempt plus diagnostics/restart reached recovery after {live['initialAttempt']['observedTotalMilliseconds']/1000:.1f} seconds measured from the first helper launch; this includes interruption and human launch wait and is **not** a clean cold-publication benchmark. Initial HTTP totals were not persisted before restart and are not invented.
+
+{fullTable}
+These measurements used parallel reconstruction checks; the separate shared-context path was subsequently given the same bounded prefetch. A row with zero writes is an idempotency/no-change check, not a claimed fresh update.
+
+## Final-code routine-sync check
+
+The final shared-context correction was measured on the same complete 134-record map and existing backend tree. The host checked unchanged synchronization, persisted a fresh note/critical flag, delivered it, and accepted the resulting update on the second instance. No new map or repeated full-map publication was used. All 135 exact owned test IDs were confirmed absent after these final checks.
+
+{finalTable}
+These are full-map final-code measurements, not guaranteed response times. The editor-read plus local-checkpoint preparation measured {live['finalLocalSaveMilliseconds']/1000:.1f} seconds separately; this is not a native typing/render-latency measurement. Wall times include validation, local checkpointing and backend latency. Counts cover each listed cycle, excluding initial binding preview, the helper's deliberate native title write and cleanup. Unchanged synchronization sends no writes. Further full-map/native concurrency acceptance remains U28–U29; real network latency is not guaranteed.
+
+## Loading bar and honest state
+
+The user clarified that initial setup may take longer if a loading bar is visible, while routine synchronization should be agile. MAPDex now shows an indeterminate bar immediately during local handoff, then counted record/object publication progress with a separate final verified-commit step. Queued, manual, paused, review and remote-confirmed states remain distinct. Pausing cloud sync does not prevent the local handoff bar from working. Polling only publication status preserves editor focus and existing selector nodes.
+
+Five source-UI behaviors passed at normal and short window sizes; screenshots were inspected locally and excluded from Git. Progress/state tests also cover local handoff, paused/manual waiting, errors, unbound staging and final confirmation. A failed attempt does not become a last-successful-sync timestamp. Native installed-window/installer acceptance is not claimed here.
+
+## Preservation, compatibility and checks
+
+- New intents use cloud commit version 2, while version-1 commits remain readable and frozen version-1 intents finish unchanged. Old clients must be upgraded before sharing a version-2 cloud head. Portable `.rdx` formats do not change.
+- Packs are bounded to 512 KiB encoded and 4 MiB decoded, with encoded/decoded/object hashes, exact lengths/offsets and trailing-byte checks. Warm-cache missing/changed attachments and conflicting references still block acceptance.
+- Durable slots, uncertain-response review, commit-last readback, cancellation, three-no-progress holds, concurrent branches and stale-review guards remain in force. No history is pruned; no unsent file is silently declared delivered.
+- **61 distinct targeted tests**, ten source/test syntax checks, the full-map exact-byte model, five source-UI behaviors and the curated bundled-runtime check passed. Electron 44.7.2 / Node 24.21.0 loaded the source payload and pack decoder. A corrected test-only timestamp expectation was rechecked in isolation. No broad regression suite was repeated.
+- Source extraction coverage remains the supplied ROM/Violet City proof. Installed 0.5.15 and its repairs, saved connections, local saving and paused NPCDex production queue are unchanged. RI03C owns broader/build/identity feature acceptance; U28–U30 retain integrated/native acceptance and release.
+
+Next: **RI03C — Coverage and Integrated Feature Acceptance, Sol / High**, requiring a separate PASSKEY.
+'''
+write(history/'RI03P-Completion-Report.md',report)
+for name in ['NPCDex-ROMDex-Action-Checklist.md','NPCDex-ROMDex-Unified-App-Action-Plan.md']:
+ p=out/name;s=p.read_text(encoding='utf-8').replace('RI03A design is user-approved and RI03B/MAPDex is complete in source. Remaining: RI03P → RI03C → U28 → U29 → U30.','RI03A design is user-approved; RI03B/MAPDex and RI03P are complete in source. Remaining: RI03C → U28 → U29 → U30.')
+ s=s.replace('**Added by user decision October 20; after RI03B and before RI03C.** Reduce cold-publication','**Complete in source October 20; [report](Documentation/History/RI03P/RI03P-Completion-Report.md).** About 65% fewer object files/payload bytes, bounded metadata prefetch, visible handoff/publication bar, exact-data round trip and final-code routine-sync measurements. Production stays paused. Reduce cold-publication').replace('- [ ] **RI03P —','- [x] **RI03P —')
+ if name.endswith('Checklist.md'):
+  a=s.index('**Current:**');b=s.index('\n',a);s=s[:a]+'**Current:** **RI03P — Map Cloud-Delivery Performance is complete in source, October 20, 2026.** [Completion report](Documentation/History/RI03P/RI03P-Completion-Report.md). Compressed delivery, bounded metadata checks and MAPDex publication progress passed targeted/live checks; exact owned QA records are absent. Installed production and its NPCDex pause/queue are unchanged. **Next: RI03C — Coverage and Integrated Feature Acceptance, Sol / High, awaiting a separate PASSKEY**, then U28–U30.'+s[b:]
+ else:s=s.replace('**next: RI03P — Sol / High, awaiting a new PASSKEY**, then RI03C;', '**RI03P is complete in source** ([report](Documentation/History/RI03P/RI03P-Completion-Report.md)); **next: RI03C — Sol / High, awaiting a new PASSKEY**;')
+ write(p,s)
+p=app/'README.md';s=p.read_text(encoding='utf-8').replace('Next: RI03P cloud-delivery performance, then RI03C and U28–U30 acceptance/release.','[RI03P cloud delivery](rdx/CLOUD-DELIVERY.md) is source-complete, with fewer delivery files, bounded metadata prefetch, measured routine updates and MAPDex handoff/publication progress. Next: RI03C and U28–U30 acceptance/release.');write(p,s)
+p=app/'CHANGELOG.md';s=p.read_text(encoding='utf-8');marker='## Unreleased — RI03P Map Cloud Delivery';entry=marker+'\n\n- Compress new immutable registry objects while preserving native tickets, prior references, exact bytes/history and one logical map per RDX.\n- Reuse dataset discovery, freshly batch native snapshots and prefetch document/shared-context attachment metadata eight at a time.\n- Add immediate local handoff and counted publication bars; preserve focus while polling and distinguish queued/paused/verified states.\n- Separate successful synchronization from attempted checks; preserve legacy intents, conflict/cancellation/recovery guards and the production pause. Source-only, with isolated live performance/recovery proof.\n\n';write(p,s if marker in s else entry+s)
+p=app/'rdx/CLOUD-SYNC.md';s=p.read_text(encoding='utf-8').replace('RD07 is implemented in source and has passed the real, isolated YouTrack proof. It is not installed in ROMDex 0.5.14. Existing production maps remain in their accepted native provider. RD08 handles Windows integration; RD10 separately adopts current maps after a fresh backup and accepted preview.','RD07 introduced this adapter; RD10 subsequently adopted existing maps. [RI03P cloud delivery](CLOUD-DELIVERY.md) is complete in source, with real map round-trip and routine-update measurements. Installed production remains 0.5.15 plus its repairs, with NPCDex cloud sync explicitly paused. Historical RD07 acceptance notes below are not a fresh migration requirement.').replace('RDX binding of current production maps is still RD10. That task must preserve their existing NPCD issue identities through an explicitly reviewed adoption adapter; the new-map creation route is not a migration shortcut.','Current production maps were adopted through RD10 with their NPCD identities preserved. The new-map creation route is not a migration shortcut.');write(p,s)
+p=out/'Documentation/Project/NPCDex-ROMDex-Decision-Log.md';s=p.read_text(encoding='utf-8');marker='## October 20 — RI03P Cloud Delivery Complete in Source';entry='\n\n'+marker+'\n\nUnder the user\'s PASSKEY, add bounded compressed delivery and parallel metadata checks without changing record tickets, exact data/history, frozen legacy intents or one-map RDX files. The same Violet City input uses 600 old-layout object files versus 209 new-layout files, about 65% fewer payload bytes. A serial verification timeout was recovered from verified uploads; final reconstruction and shared-context reads are bounded to eight concurrent requests. The user accepts longer initial publication provided a loading bar is visible and subsequent sync is agile. MAPDex now shows local-handoff and publication bars with honest queued/paused/verified states. Full-map round trip, targeted final-code routine checks, owned QA cleanup and 61 focused tests passed; no production install, queue reset, credential change or sync resumption. Next RI03C — Sol / High, separate PASSKEY. [Report](../History/RI03P/RI03P-Completion-Report.md).\n';write(p,s if marker in s else s+entry)
+js(w/'checkpoint.json',{'task':'RI03P','status':'complete_in_source_pending_private_backup','authorized':'PASSKEY','workspaceName':'MAPDex','productionChanged':False,'npcdexSyncPauseChanged':False,'distinctFocusedTests':61,'syntaxChecks':10,'sourceUIBehaviors':5,'cleanup':live['cleanup'],'finalMeasurements':live['finalMeasurements'],'nextTask':'RI03C','nextModelEffort':'Sol / High','nextRequiresPASSKEY':True})
+print('Completion/evidence/checklist written after both live proofs and cleanup passed')

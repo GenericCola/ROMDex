@@ -1,0 +1,3 @@
+import fs from 'node:fs/promises';import path from 'node:path';import {secureDirectory} from '../../outputs/ROMDex/desktop/migration.mjs';
+const w=path.resolve('work/mapdex-0518');await secureDirectory(path.join(w,'private-profile'));await fs.mkdir(path.join(w,'private-profile/session'),{recursive:true});const state=JSON.parse(await fs.readFile('C:/Users/mrgen/AppData/Local/ROMDexDesktop/Data/Runtime/thegobindsingh-PMON/Local State'));if(!state.os_crypt?.encrypted_key)throw Error('Credential context missing');await fs.writeFile(path.join(w,'private-profile/session/Local State'),JSON.stringify(state));
+await import('../mapdex-0518/package.mjs');await import('../mapdex-0518/run-msi-check.mjs');await import('../mapdex-0518/run-verify.mjs');

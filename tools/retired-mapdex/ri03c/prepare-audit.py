@@ -1,0 +1,2 @@
+from pathlib import Path
+s=Path('work/phase11e/final-audit.mjs').read_text(encoding='utf-8-sig').replace("work/phase11e/candidate","work/ri03c/candidate2").replace("work/phase11d/build.json","work/phase11e/build.json").replace("work/phase11e/final-audit.json","work/ri03c/final-audit.json").replace("work/phase11e/build.json',JSON.stringify","work/ri03c/build.json',JSON.stringify").replace("version:'0.5.26-11e.1'","version:'0.5.26-11f.2'");Path('work/ri03c/final-audit.mjs').write_text(s,encoding='utf-8')

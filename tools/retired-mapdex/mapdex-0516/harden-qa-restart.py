@@ -1,0 +1,8 @@
+from pathlib import Path
+import json,hashlib,time
+w=Path('work/mapdex-0516');p=w/'run-finish-verify.mjs';s=p.read_text()
+s=s.replace("await app.evaluate(({dialog})=>{global.qaMessages=[];dialog.showMessageBox=async(_w,o)=>{global.qaMessages.push({title:o.title,message:o.message});return{response:0}}});", """const endpoint=await app.evaluate(({dialog},traceFile)=>{const f=process.getBuiltinModule('fs');global.qaMessages=[];global.qaTrace=[];const trace=(value)=>{global.qaTrace.push(value);f.writeFileSync(traceFile,JSON.stringify({messages:global.qaMessages,trace:global.qaTrace}));};dialog.showMessageBox=async(_w,o)=>{global.qaMessages.push({title:o.title,message:o.message});trace({message:true});return{response:0}};const service=global.romdexQA.service,call=service.call.bind(service);service.call=(command,args)=>{trace({command,state:'begin'});return call(command,args).then(v=>{trace({command,state:'done'});return v},e=>{trace({command,state:'error',message:e.message});throw e})};return process.getBuiltinModule('inspector').url();},path.join(work,'quit-diagnostics.json'));await fs.writeFile(path.join(work,'qa-main-inspector.json'),JSON.stringify({endpoint}));""")
+s=s.replace("finally{clearTimeout(timer);await fs.writeFile", "finally{if(app){try{await app.evaluate(()=>{global.romdexQA.forceExit();})}catch{}}clearTimeout(timer);await fs.writeFile")
+p.write_text(s)
+f=p.resolve();(w/'job.json').write_text(json.dumps({'id':'native-quit-recovery-only','file':str(f),'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'at':int(time.time()*1000)}))
+print('QA-only diagnostic capture and bounded failure cleanup are ready; no application source changed.')

@@ -1,0 +1,2 @@
+from pathlib import Path
+p=Path('outputs/ROMDex/rom/workspace.mjs');s=p.read_text();old="merged=previewMapImport(incoming,local);requireRom(!merged.preview.conflicts.length,'REVIEW_REQUIRED','Reprepared Content Conflicts With Saved Preparation. The Previous Map Is Preserved.');";assert old in s;s=s.replace(old,'merged=mergePreparation(incoming,local);');s=s.replace("label:'Frame '+f.frame+' · '+(f.paletteBinding||'Source palette')","label:'Frame '+f.textureIndex+' · '+(f.paletteName||f.paletteBinding||'Source palette')");p.write_text(s)

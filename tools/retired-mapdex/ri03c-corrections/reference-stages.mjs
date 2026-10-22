@@ -1,0 +1,1 @@
+import fs from 'node:fs/promises';const s=await fs.readFile('outputs/ROMDex/public/addons/npcdex/workspace.js','utf8'),start=s.indexOf('const ORIGINAL=')+15,end=s.indexOf(';\n',start),d=JSON.parse(s.slice(start,end));console.log(JSON.stringify({keys:Object.keys(d),stages:d.stages,timelines:d.timelines,towns:d.towns.map(t=>({name:t.name,keys:Object.keys(t)}))},null,2));

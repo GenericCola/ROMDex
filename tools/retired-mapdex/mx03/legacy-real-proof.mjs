@@ -1,0 +1,10 @@
+import fs from 'node:fs/promises';import assert from 'node:assert/strict';
+import {readRdxFile,packRdx,unpackRdx} from '../../outputs/ROMDex/rdx/container.mjs';
+import {upgradeMapConditions} from '../../outputs/ROMDex/rom/condition-upgrade.mjs';
+import {mapDomain} from '../../outputs/ROMDex/rdx/map-import.mjs';import {conditionIndex} from '../../outputs/ROMDex/rdx/features.mjs';import {sha} from '../../outputs/ROMDex/content/contracts.mjs';
+const old=await readRdxFile(new URL('../mapdex-general/NewBarkTown.rdx',import.meta.url)),before=mapDomain(old),out=upgradeMapConditions(old),after=mapDomain(out);
+assert(conditionIndex(after.records));assert.deepEqual(after.records.map(r=>r.recordId),before.records.map(r=>r.recordId));assert.deepEqual(out.document.assetInventory,old.document.assetInventory);assert.deepEqual(out.document.content.plans,old.document.content.plans);assert.deepEqual(out.document.content.reviews,old.document.content.reviews);
+let blocks=0;for(const r of after.records){const previous=before.records.find(x=>x.recordId===r.recordId);for(const p of Object.values(r.current.payload.points||{}))for(const b of Object.values(p.blocks)){assert.equal(b.text,previous.current.payload.points[p.id].blocks[b.id].text);blocks++;}}
+const portable=await unpackRdx(await packRdx(out.documentBytes,out.blobs));assert.equal(portable.document.revision,out.document.revision);
+const proof={source:'local isolated pre-MX03 New Bark Town RDX',originalRdxSha256:old.containerSha256,upgradedDocument:out.document.revision,recordIdsPreserved:after.records.length,exactTextBlocksPreserved:blocks,assetEntriesPreserved:old.document.assetInventory.length,plansPreserved:old.document.content.plans.length,reviewsPreserved:old.document.content.reviews.length,knownConditions:globalThis.romdexConditions.stages(conditionIndex(after.records)).length,portableReadback:true,productionDataChanged:false};
+await fs.writeFile(new URL('legacy-real-proof.json',import.meta.url),JSON.stringify(proof,null,2));console.log(JSON.stringify(proof));

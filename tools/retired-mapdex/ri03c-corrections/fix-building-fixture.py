@@ -1,0 +1,2 @@
+from pathlib import Path
+p=Path('outputs/ROMDex/tests/building-hierarchy.test.mjs');s=p.read_text(encoding='utf-8-sig');s=s.replace("import {fixture}","import {selectPreparedAreas} from '../rom/staging-document.mjs';\nimport {fixture}");s=s.replace("v=await compileMapExtraction(f.x,f.assets,f.inventory)","v=selectPreparedAreas(await compileMapExtraction(f.x,f.assets,f.inventory),[1])");p.write_text(s,encoding='utf-8',newline='\n')

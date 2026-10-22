@@ -1,0 +1,26 @@
+from pathlib import Path
+import json,hashlib,re
+root=Path(__file__).resolve().parents[2];out=root/'outputs';repo=root/'work/u13b/repository'
+files=['content/condition-core.js','content/desktop-assets.mjs','content/edits.mjs','content/native.css','content/preview-server.mjs','content/timeline-core.js','content/timelines.mjs','content/workspace-runtime.js','public/shared-ui/condition-core.js','public/mapdex-preview.mjs','public/rom-import.mjs','rdx/cloud-features.mjs','rdx/cloud-parts.mjs','rdx/container.mjs','rdx/document-cloud.mjs','rdx/document.mjs','rdx/features.mjs','rdx/features.schema.json','rdx/managed-store.mjs','rdx/schema.mjs','rdx/youtrack-store.mjs','rom/condition-compilation.mjs','rom/condition-upgrade.mjs','rom/compile-map.mjs','rom/grouped-document.mjs','rom/staging-document.mjs','rom/workspace.mjs','rom/map-update.mjs','rom/update-conditions.mjs','tests/rom-map-update.test.mjs','tests/condition-rdx.test.mjs','tests/condition-integration.test.mjs','tests/map-timelines.test.mjs','tests/rdx-cloud.test.mjs','tests/rom-workspace.test.mjs']
+evidence={'status':'source-complete','installedVersionUnchanged':'0.5.26','productionDataChanged':False,'liveYouTrackChecks':False,'nativeInstallerChecks':False,'verification':{'focusedIntegrationAndAdjacent':56,'conditionCloudFreshReader':True,'managedCrashRecovery':'passed; task-owned scratch directory','workspaceRegressions':'checked; failed cases corrected and focused rechecks passed','realROMMapKnownConditions':{'new-bark-town':46,'route-29':8},'realLegacyUpgrade':json.loads((root/'work/mx03/legacy-real-proof.json').read_text()),'MAPDexBrowser':json.loads((root/'work/mx03/mapdex-ui-proof.json').read_text()),'NPCDexBrowser':{'maps':2,'knownConditions':[46,8],'mapSwitchReset':True,'unresolvedReachable':True,'sourceRequirementsVisible':True,'pageErrors':[]}},'requiredFeature':'org.romdex.npcdex.condition-effects-v1','files':[]}
+for name in files:
+ source=out/'ROMDex'/name;target=repo/'apps/romdex'/name;target.parent.mkdir(parents=True,exist_ok=True)
+ target.write_text(source.read_text(encoding='utf-8'),encoding='utf-8',newline='\n')
+ evidence['files'].append({'file':name,'sha256':hashlib.sha256(source.read_bytes()).hexdigest()})
+(out/'Documentation/Project/MX03-Verification.json').write_text(json.dumps(evidence,indent=2)+'\n',encoding='utf-8')
+p=out/'NPCDex-ROMDex-Action-Checklist.md';s=p.read_text(encoding='utf-8')
+s=s.replace('MX02 is complete in source; MX03 integration is active.','**MX02 and MX03 are complete in source**; [MX03 report](Documentation/Project/MX03-Completion-Report.md). Next is LP01, requiring a separate PASSKEY.')
+start=s.index('- [ ] **MX03 —') if '- [ ] **MX03 —' in s else s.index('- [x] **MX03 —');end=s.index('\n### 11C',start);section=s[start:end].replace('- [ ]','- [x]')
+if 'Complete in source October 21' not in section:section=section.replace('**MX03 — Condition RDX and Timeline Integration** — Sol / High.','**MX03 — Condition RDX and Timeline Integration** — Sol / High. Complete in source October 21; [report](Documentation/Project/MX03-Completion-Report.md), [evidence](Documentation/Project/MX03-Verification.json). Installed 0.5.26 and live Data unchanged; local/isolated backend and browser checks are distinguished from later native/live acceptance.')
+s=s[:start]+section+s[end:];p.write_text(s,encoding='utf-8',newline='\n')
+p=out/'NPCDex-ROMDex-Unified-App-Action-Plan.md';s=p.read_text(encoding='utf-8')
+s=s.replace('MX02 is complete in source and MX03 is active.','**MX02 and MX03 are complete in source**; [MX03 report](Documentation/Project/MX03-Completion-Report.md). LP01 is next and requires its own PASSKEY.')
+s=s.replace('Active task: **MX03 — Condition RDX and Timeline Integration**, Sol / High; MX01 and MX02 are complete.','Completed in this authorization: **MX01 approval recorded, MX02 and MX03 source implementation**. Next: **LP01 — Prove Static Location Rendering**, Sol / High; not yet authorized.')
+p.write_text(s,encoding='utf-8',newline='\n')
+for name in ['MX01-Completion-Report.md','MX01-Design-Review.md','MX01-Final-Review.md','MX02-Completion-Report.md','MX02-Verification.json','MX03-Completion-Report.md','MX03-Verification.json']:
+ source=out/'Documentation/Project'/name;text=source.read_text(encoding='utf-8').replace('../../RDX-Reference/MX01-Contracts/','MX01-Contracts/');(repo/'docs/project'/name).write_text(text,encoding='utf-8',newline='\n')
+for source in (out/'RDX-Reference/MX01-Contracts').glob('*'):
+ if source.is_file():target=repo/'docs/project/MX01-Contracts'/source.name;target.parent.mkdir(parents=True,exist_ok=True);target.write_text(source.read_text(encoding='utf-8'),encoding='utf-8',newline='\n')
+for name in ['NPCDex-ROMDex-Action-Checklist.md','NPCDex-ROMDex-Unified-App-Action-Plan.md']:
+ text=(out/name).read_text(encoding='utf-8').replace('Documentation/Project/','').replace('RDX-Reference/MX01-Contracts/','MX01-Contracts/');text=re.sub(r'(?:\.\./)*(?:Documentation/)?(?:Project/|History/[^/]+/)','',text);text=re.sub(r'(?m)^(\*\*Plans:\*\*[^\n]*?)[ \t]+$',r'\1',text);(repo/'docs/project'/name).write_text(text,encoding='utf-8',newline='\n')
+print(json.dumps({'MX01':'complete, owner-approved','MX02':'source-complete','MX03':'source-complete','next':'LP01; separate authorization required','mirroredSourceFiles':len(files),'productionChanged':False}))

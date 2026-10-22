@@ -1,0 +1,2 @@
+from pathlib import Path
+p=Path('work/ri03c-corrections/verify-third-final.mjs');s=p.read_text(encoding='utf-8-sig');a=s.index('const mother=');b=s.index('assert(mother)',a);s=s[:a]+"const identity=JSON.parse(await fs.readFile(root+'/mother-native-identity.json'));const mother=await npc.evaluate(id=>town().characters.find(c=>c.id===id),identity.characterId);"+s[b:];s=s.replace("assert(mother);", "assert(mother);console.log('Checking Player House source actor '+identity.recordId);");p.write_text(s,encoding='utf-8',newline='\n')

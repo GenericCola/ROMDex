@@ -1,0 +1,16 @@
+from pathlib import Path
+root=Path('outputs/ROMDex')
+def patch(f,a,b):
+ p=root/f;s=p.read_text(encoding='utf-8')
+ if b in s:return
+ assert a in s,(f,a[:80]);p.write_text(s.replace(a,b,1),encoding='utf-8',newline='\n')
+patch('content/desktop-assets.mjs','<script src="content-timelines.js"></script>','<script src="content-conditions.js"></script><script src="content-timelines.js"></script>')
+patch('content/desktop-assets.mjs',"assets=new Map([[prefix+'content-timelines.js'", "assets=new Map([[prefix+'content-conditions.js',{bytes:await local('./condition-core.js'),type:'text/javascript'}],[prefix+'content-timelines.js'")
+patch('rdx/managed-store.mjs',"import fs from 'node:fs/promises';", "import {upgradeMapConditions} from '../rom/condition-upgrade.mjs';\nimport fs from 'node:fs/promises';")
+patch('rdx/managed-store.mjs','doc=parseJSON(documentBytes),nextBlobs=new Map(blobs||[]);','draft=parseJSON(documentBytes),nextBlobs=new Map(blobs||[]);let doc=draft;')
+patch('rdx/managed-store.mjs','const unchanged={...doc,revision:before.document.revision};',"if(!nativeCheckpoint&&!row.needs_testing){const upgraded=upgradeMapConditions({document:doc,documentBytes:Buffer.from(canonical(doc)),blobs:nextBlobs});doc=upgraded.document;}\n  const unchanged={...doc,revision:before.document.revision};")
+patch('rom/staging-document.mjs',"import {canonical,seal,sha,parseJSON}","import {restrictConditionScope} from './condition-upgrade.mjs';\nimport {canonical,seal,sha,parseJSON}")
+patch('rom/staging-document.mjs','d.content.records=chosen;','restrictConditionScope(chosen);\n d.content.records=chosen;')
+patch('rom/grouped-document.mjs',"import {canonical,seal,sha}","import {preserveConditionLabels,restrictConditionScope} from './condition-upgrade.mjs';\nimport {FEATURE_EXTENSION} from '../rdx/features.mjs';\nimport {canonical,seal,sha}")
+patch('rom/grouped-document.mjs','const keep=new Set(records.map',"if(rawTimeline?.current.payload.definitions?.conditionIndex){const replacement=structuredClone(rawTimeline);preserveConditionLabels(replacement,timeline);timeline.current.payload.definitions=structuredClone(replacement.current.payload.definitions);timeline.mappingRefs=[...new Set([...timeline.mappingRefs,...replacement.mappingRefs])];for(const r of records){const source=byRaw.get(r.recordId);if(!source)continue;for(const p of Object.values(r.current.payload.points||{})){const q=source.current.payload.points?.[p.id];if(q?.legacyData?.conditionModel){p.stageIds=structuredClone(q.stageIds);p.legacyData.conditionModel=true;for(const b of Object.values(p.blocks))if(q.blocks[b.id])b.legacyData.conditionEffectIds=structuredClone(q.blocks[b.id].legacyData.conditionEffectIds);}}}restrictConditionScope(records);}\n const keep=new Set(records.map")
+patch('rom/grouped-document.mjs',"for(const key of ['org.romdex.rom-source','org.romdex.import-preparation'])", "document.capabilities.required=[...new Set([...document.capabilities.required,...incoming.document.capabilities.required])];if(incoming.document.extensions[FEATURE_EXTENSION])document.extensions[FEATURE_EXTENSION]=structuredClone(incoming.document.extensions[FEATURE_EXTENSION]);\n for(const key of ['org.romdex.rom-source','org.romdex.import-preparation'])")

@@ -1,0 +1,26 @@
+const {app,safeStorage}=require('electron'),fs=require('original-fs').promises,path=require('node:path'),assert=require('node:assert/strict'),{pathToFileURL}=require('node:url');
+const root=path.resolve(__dirname,'../..'),work=path.join(root,'work/ri02c'),profile=path.join(work,'private-profile'),load=f=>import(pathToFileURL(path.join(root,'outputs/ROMDex',f)));app.setPath('userData',path.join(profile,'session'));app.disableHardwareAcceleration();
+app.whenReady().then(async()=>{let token;const opened=[],clouds=[];let report={task:'RI02C',status:'needs-review'};
+try{
+ let old;try{old=JSON.parse(await fs.readFile(path.join(work,'live-proof.json')));await fs.copyFile(path.join(work,'live-proof.json'),path.join(work,'live-proof-before-final-status-recheck.json'));}catch(e){if(e.code!=='ENOENT')throw e;old=JSON.parse(await fs.readFile(path.join(work,'status-handoff.json')));}
+ assert(old.checks.length>=3,'The original real-map publication, native review and reopen must have passed');report={...old,status:'needs-review',cleanup:'Pending ownership-verified cleanup'};delete report.error;
+ const {YouTrackRDXStore}=await load('rdx/youtrack-store.mjs'),{MapWorkspace}=await load('rdx/map-workspace.mjs'),{DocumentCloud}=await load('rdx/document-cloud.mjs'),{sha,canonical}=await load('content/contracts.mjs'),{unpackRdx}=await load('rdx/container.mjs'),{mapDomain}=await load('rdx/map-import.mjs');
+ const identity=JSON.parse(await fs.readFile(path.join(work,'identity.json'))),key=identity.key;assert.equal(report.documentKey,key);assert.equal(report.records.length,134);
+ let envelope=JSON.parse(await fs.readFile('C:/Users/mrgen/AppData/Local/ROMDexDesktop/Data/thegobindsingh-PMON/service/connection.encrypted'));while(typeof envelope==='string')envelope=JSON.parse(envelope);token=safeStorage.decryptString(Buffer.from(envelope.bytes,'base64'));
+ class ReadOnlyTransport extends YouTrackRDXStore{async request(route,options={}){assert.equal(options.body,undefined,'Final recovery recheck must not write');assert(!options.method||options.method==='GET');return super.request(route,options);}}
+ const maps=new MapWorkspace({dataDirectory:path.join(profile,'live-proof-data')}),second=new MapWorkspace({dataDirectory:path.join(profile,'second-live-profile')});await maps.open();opened.push(maps);await second.open();opened.push(second);
+ for(const instance of [maps,second]){
+  instance.active=key;const cloud=new DocumentCloud({maps:instance,transport:new ReadOnlyTransport({credential:async()=>token}),enabled:()=>false});clouds.push(cloud);const before=cloud.get(key);assert(!before.intent&&!before.review&&!before.held);assert.equal(before.publishedRevision,instance.store.row(key).head,'The previous read must already have accepted the remote head');
+  await cloud.cycle(true);const after=cloud.get(key);assert.equal(after.error,null,'Recovered connection error must clear');assert.equal(after.connection,'connected');assert(!after.intent&&!after.review&&!after.held);assert.deepEqual(after.records,report.records);
+ }
+ const original=await unpackRdx(await fs.readFile(path.join(work,'compiled/VioletCityMap.rdx'))),main=await maps.store.view(key),recovered=await second.store.view(key),name='RI02C Reviewed Violet Object';
+ for(const value of [main,recovered]){
+  const domain=mapDomain(value);assert.deepEqual(domain.records.map(r=>r.recordId).sort(),mapDomain(original).records.map(r=>r.recordId).sort());assert.equal(domain.records.find(r=>r.recordId===identity.selected.recordId).current.payload.name,name);
+  assert(value.document.content.reviews.some(r=>r.note==='RI02C local note with trailing space '&&r.flag==='critical'));assert(value.document.content.plans.some(p=>p.planId==='content:ri02c-local-plan'&&p.changes.length===1));
+  for(const [hash,bytes]of original.blobs)assert(value.blobs.get(hash).equals(bytes));
+ }
+ assert.equal((await maps.view()).status.requiresHumanTesting,true);assert.equal((await second.view()).status.requiresHumanTesting,true);
+ await fs.copyFile(maps.store.file(key),path.join(work,'VioletCity-Verified-YouTrack.rdx'));report.exportedRevision=main.document.revision;report.exportSHA256=sha(await fs.readFile(path.join(work,'VioletCity-Verified-YouTrack.rdx')));
+ report.checks.push('The separate profile recovered the accepted backend correction, exact assets, notes, critical flag, proposal and human-testing obligation without duplicate records');
+ report.checks.push('Fresh read-only cycles using the corrected source clear a recovered connection error in both profiles without any remote writes');report.status='passed';report.finalRecheckRemoteWrites=false;
+}catch(e){report.status='needs-review';report.error=e.stack;}finally{token=null;for(const cloud of clouds)await cloud.stop().catch(()=>{});for(const maps of opened.reverse())await maps.close().catch(()=>{});report.finishedAt=new Date().toISOString();await fs.writeFile(path.join(work,'live-proof.json'),JSON.stringify(report,null,2));if(report.status==='passed'){const file=path.join(work,'verify-cleanup.cjs'),bytes=await fs.readFile(file),sha256=require('node:crypto').createHash('sha256').update(bytes).digest('hex');await fs.writeFile(path.join(work,'job.json'),JSON.stringify({id:'ri02c-owned-cleanup-'+Date.now(),task:'RI02C',file,sha256,at:Date.now()}));}app.exit(report.status==='passed'?0:1);}});

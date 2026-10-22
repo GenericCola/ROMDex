@@ -1,0 +1,1 @@
+import fs from 'node:fs/promises';const x=JSON.parse(await fs.readFile('outputs/Documentation/Project/MAPDex-NPCDex-Pipeline-Audit-2026-10-21-Evidence.json'));for(const [k,v]of Object.entries(x)){console.log(k,typeof v,Array.isArray(v)?v.length:Object.keys(v||{}).slice(0,15));}console.log(JSON.stringify(x.comparison||x.summary||{},null,2));

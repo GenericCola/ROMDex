@@ -1,0 +1,3 @@
+from pathlib import Path
+p=Path('outputs/ROMDex/rom/workspace.mjs');s=p.read_text(encoding='utf-8');s="import {upgradeMapConditions} from './condition-upgrade.mjs';\n"+s;s=s.replace('next=preparePresentation(value);','next=upgradeMapConditions(preparePresentation(value));');p.write_text(s,encoding='utf-8',newline='\n')
+p=Path('outputs/ROMDex/tests/rom-workspace.test.mjs');s=p.read_text(encoding='utf-8');s="import {upgradeMapConditions} from '../rom/condition-upgrade.mjs';\n"+s;s=s.replace('mapDomain(value).records.find(r=>r.kind===\'appearance\').current.payload.points','mapDomain(upgradeMapConditions(value)).records.find(r=>r.kind===\'appearance\').current.payload.points');p.write_text(s,encoding='utf-8',newline='\n')

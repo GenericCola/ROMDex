@@ -1,0 +1,18 @@
+from pathlib import Path
+p=Path('outputs/ROMDex/content/workspace-runtime.js');s=p.read_text(encoding='utf-8-sig');a=s.index('function conditionItemMarks(');b=s.index('\nfunction renderTimeline()',a)
+s=s[:a]+'''function conditionItemMarks(id){const index=conditionIndex(),elements=town().areas.flatMap(a=>a.elements),seen=new Set(),items=[];const add=(type,item)=>{const key=type+':'+item.id;if(seen.has(key))return;seen.add(key);items.push({type,item});};for(const effect of index.effects.filter(e=>globalThis.romdexConditions.includesSelection(index,e.conditionIds,id))){const element=elements.find(e=>e.contentRecordId===effect.target.recordId||e.id===effect.target.recordId);if(!element||!elementInScope(element)||!visible(element))continue;const owners=town().characters.filter(c=>visible(c)&&(c.elementIds.includes(element.id)||(c.sourceEvents||[]).some(link=>link.elementId===element.id&&(!effect.target.pointId||link.pointId===effect.target.pointId))));if(owners.length)owners.forEach(c=>add('character',c));else add('element',element);}return items.map(({type,item})=>{const color=statusFor(type,item.id).color,label=name(item)+' · '+(color==='amber'?'Needs Testing':color==='green'?'Final and Reviewed':color==='red'?'Remove or Critical Attention':color==='grey'?'Status Not Set':'In Progress');return '<span class="content-light timeline-light '+color+'" data-affected-item="'+esc(item.id)+'" role="img" aria-label="'+esc(label)+'" title="'+esc(label)+'"></span>';}).join('');}
+''' +s[b:];p.write_text(s,encoding='utf-8',newline='\n')
+p=Path('work/ri03c-corrections/verify-third-native.mjs');s=p.read_text(encoding='utf-8-sig');s=s.replace("npc.locator('.room-locations .tile-label strong').getByText(floor,{exact:true})", "nlab.locator('..').locator('..').locator('.room-locations .tile-label strong').getByText(floor,{exact:true})")
+s=s.replace('review-control-f16.json','review-control-f17.json')
+# Reuse the already verified, unchanged isolated RDX conversion; avoid redoing the upgrade work.
+a=s.index(' report.upgraded=[];');b=s.index(" const {_electron}",a)
+old=s[a:b]
+s=s[:a]+''' const marker=root+'/third-profile-hierarchy.json';let saved;try{saved=JSON.parse(await fs.readFile(marker));}catch(e){if(e.code!=='ENOENT')throw e;}
+ const fingerprint=async()=>{const out=[];for(const sub of ['RDX','ROMImport/RDX'])for(const file of await fs.readdir(path.join(profile,sub,'working'))){if(file.endsWith('.rdx')){const bytes=await fs.readFile(path.join(profile,sub,'working',file));out.push({path:sub+'/working/'+file,sha256:(await import('node:crypto')).createHash('sha256').update(bytes).digest('hex')});}}return out;};
+ if(saved){assert.deepEqual(await fingerprint(),saved.files);report.upgraded=saved.upgraded;report.reusedHierarchyEvidence=saved.evidence;await check('Verified unchanged isolated working files; reused the completed hierarchy-preservation proof');}else{
+''' +old+''' await fs.writeFile(marker,JSON.stringify({files:await fingerprint(),upgraded:report.upgraded,evidence:'third-native14-proof.json'}));}
+''' +s[b:]
+p.write_text(s,encoding='utf-8',newline='\n')
+p=Path('work/ri03c-corrections/build-candidate16.mjs');s=p.read_text(encoding='utf-8-sig').replace("previous=path.resolve('work/ri03c/candidate15')", "previous=path.resolve('work/ri03c/candidate16')").replace("candidate=path.resolve('work/ri03c/candidate16')", "candidate=path.resolve('work/ri03c/candidate17')").replace('0.5.26-11f.16','0.5.26-11f.17');Path('work/ri03c-corrections/build-candidate17.mjs').write_text(s,encoding='utf-8',newline='\n')
+import shutil
+shutil.copyfile('work/ri03c-corrections/third-native-proof.json','work/ri03c-corrections/third-native16-proof.json')

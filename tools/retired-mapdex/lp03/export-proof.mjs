@@ -1,0 +1,18 @@
+import fs from 'node:fs/promises';
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+import {readRdxFile} from './candidate/resources/app/rdx/container.mjs';
+import {mapDomain} from './candidate/resources/app/rdx/map-import.mjs';
+import {projectNPCDex} from './candidate/resources/app/content/projection.mjs';
+import {splitDocument,joinDocument} from './candidate/resources/app/rdx/cloud-parts.mjs';
+const value=await readRdxFile(new URL('Native-Export.rdx',import.meta.url));
+const domain=mapDomain(value);const snapshot=projectNPCDex(domain,{assetBytes:h=>value.blobs.get(h)});
+assert.equal(snapshot.locationPreviews.length,7);
+assert(snapshot.locationPreviews.some(p=>p.targetRecordId.includes('group-')));
+assert(snapshot.locationPreviews.every(p=>p.image?.startsWith('data:image/png;base64,')));
+assert(snapshot.locationPreviews.flatMap(p=>p.candidates).every(c=>value.blobs.has(domain.assets.find(a=>a.assetId===c.image.assetId)?.sha256)));
+const parts=splitDocument(value),recovered=await joinDocument(parts,async hash=>parts.objects.get(hash));
+assert.deepEqual(recovered.document,value.document);
+for(const [hash,bytes]of value.blobs)assert(recovered.blobs.get(hash).equals(bytes));
+const report={status:'passed',process:'fresh Node process using exact packaged modules',fileSha256:createHash('sha256').update(await fs.readFile(new URL('Native-Export.rdx',import.meta.url))).digest('hex'),portableLocationTargets:snapshot.locationPreviews.length,nestedGroupRetained:true,allImageBytesVerified:true,backendArtifactReconstruction:'exact document and all blobs; isolated in-memory object store, no live YouTrack',backendObjects:parts.objects.size,romOpened:false,productionChanged:false};
+await fs.writeFile(new URL('export-proof.json',import.meta.url),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));

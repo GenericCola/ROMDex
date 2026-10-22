@@ -1,0 +1,1 @@
+import fs from 'node:fs/promises';const x=JSON.parse(await fs.readFile('work/ri03c/preparation-proof.json'));console.log(JSON.stringify(x.maps.map(m=>({name:m.name,ready:m.locationTargets.filter(p=>p.status==='ready').length,unsupported:m.locationTargets.filter(p=>p.status!=='ready')})),null,2));

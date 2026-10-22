@@ -1,0 +1,4 @@
+from pathlib import Path
+p=Path('outputs/ROMDex/public/rom-import.mjs');s=p.read_text(encoding='utf-8-sig');s="import './shared-ui/tile-images.js';\n"+s;p.write_text(s,encoding='utf-8')
+p=Path('outputs/ROMDex/content/desktop-assets.mjs');s=p.read_text(encoding='utf-8-sig').replace('<script src="../../shared-ui/location-preview.js"></script>','<script src="../../shared-ui/location-preview.js"></script><script src="../../shared-ui/tile-images.js"></script>');p.write_text(s,encoding='utf-8')
+p=Path('outputs/ROMDex/content/preview-server.mjs');s=p.read_text(encoding='utf-8-sig');s=s.replace('<script src="../../shared-ui/location-preview.js"></script>','<script src="../../shared-ui/location-preview.js"></script><script src="../../shared-ui/tile-images.js"></script>');p.write_text(s,encoding='utf-8')

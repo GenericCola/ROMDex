@@ -1,0 +1,1 @@
+import fs from 'node:fs/promises';const x=JSON.parse(await fs.readFile('outputs/Documentation/Project/MAPDex-NPCDex-Pipeline-Audit-2026-10-21-Evidence.json'));console.log(JSON.stringify(Object.fromEntries(['archive','current'].map(k=>[k,x[k].map(({map,records,points,stagedPoints,stageCount,entityKinds})=>({map,records,points,stagedPoints,stageCount,entityKinds}))])),null,2));

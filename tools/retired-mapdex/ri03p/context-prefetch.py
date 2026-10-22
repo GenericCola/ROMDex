@@ -1,0 +1,2 @@
+from pathlib import Path
+p=Path('outputs/ROMDex/rdx/document-cloud.mjs');s=p.read_text(encoding='utf-8');a="pins=[];for(const r of records||[])if(contexts.has(r.recordId))pins.push";b="pins=[],selected=(records||[]).filter(r=>contexts.has(r.recordId));await this.transport.prefetchInventories?.(selected.map(r=>r.issueId));for(const r of selected)pins.push";assert a in s;s=s.replace(a,b);p.write_bytes(s.encode('utf-8'))

@@ -1,0 +1,2 @@
+from pathlib import Path
+p=Path('outputs/ROMDex/public/rom-import.mjs');s=p.read_text(encoding='utf-8-sig');needle="condition:value=>run(async()=>{stageSelection=value;$('preview-stage').value=value;await loadDetail();";assert needle in s;s=s.replace(needle,"condition:value=>run(async()=>{stageSelection=value;$('preview-stage').value=value;layout.conditionChanged(value);await loadDetail();");p.write_text(s,encoding='utf-8',newline='\n')

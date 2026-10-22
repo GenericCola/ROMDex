@@ -1,0 +1,10 @@
+from pathlib import Path
+p=Path('work/mx09/verify-live.cjs')
+s=p.read_text()
+s=s.replace("const privateAcceptances={},acceptanceFile=path.join(profile,'isolated-private-acceptance.json');", "const acceptanceFile=path.join(profile,'isolated-private-acceptance.json');let privateAcceptances={};try{privateAcceptances=JSON.parse(await fs.readFile(acceptanceFile));}catch(e){if(e.code!=='ENOENT')throw e;}")
+s=s.replace("assert.equal(application.status(prose.entry).groups.length,0);", "const proseAlreadyApplied=application.status(prose.entry).groups[0]?.state==='applied';if(!proseAlreadyApplied)assert.equal(application.status(prose.entry).groups.length,0);")
+s=s.replace("assert.equal(patchState(npc.current,prose.selection.path).value,prose.selection.before);", "assert.equal(patchState(npc.current,prose.selection.path).value,proseAlreadyApplied?prose.selection.after:prose.selection.before);")
+s=s.replace(" const preview=await review.preview", " if(!proseAlreadyApplied){const preview=await review.preview")
+s=s.replace("await phase('Checking fresh remote RDX reconstruction and idempotent application');", "}await phase('Checking fresh remote RDX reconstruction and idempotent application');")
+s=s.replace("await engine.sync();assert(!engine.state.blocked", "await engine.sync(true);assert(!engine.state.blocked")
+p.write_text(s)

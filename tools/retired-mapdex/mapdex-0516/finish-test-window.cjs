@@ -1,0 +1,2 @@
+const {chromium}=require('C:/Users/mrgen/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+(async()=>{const b=await chromium.connectOverCDP('http://127.0.0.1:54828');const p=b.contexts()[0].pages()[0];console.log(await p.evaluate(async()=>{try{return await window.romdexShell.desktopCheckpoint(true)}catch(e){return{error:e.message}}}));const s=await b.newBrowserCDPSession();console.log(await s.send('Browser.close'));await b.close();})().catch(e=>{console.error(e.message);process.exitCode=1});

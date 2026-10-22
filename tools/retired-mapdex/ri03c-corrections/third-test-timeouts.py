@@ -1,0 +1,2 @@
+from pathlib import Path
+p=Path('work/ri03c-corrections/third-03-proof.mjs');s=p.read_text(encoding='utf-8-sig');s=s.replace("const{page}=b;","const{page}=b;page.setDefaultTimeout(15000);console.log('Opened MAPDex');");s=s.replace("await page.locator('#send-map').click();","console.log('Identity popup passed');await page.locator('#send-map').click();");p.write_text(s,encoding='utf-8',newline='\n')

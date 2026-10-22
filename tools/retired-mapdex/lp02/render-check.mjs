@@ -1,0 +1,3 @@
+import fs from 'node:fs/promises';import {RomReader} from '../../outputs/ROMDex/rom/reader.mjs';import {renderSourceLocation} from '../../outputs/ROMDex/rom/location-renderer.mjs';
+const inventory=JSON.parse(await fs.readFile(new URL('../lp01/inventory.json',import.meta.url))),rom=await RomReader.open('C:/Users/mrgen/OneDrive/Apps/melonDS/melonDS-1.1-windows-x86_64/TEST/0.6.3_noduplicates.nds');
+try{const result=await renderSourceLocation(rom,inventory,73,{cacheDirectory:new URL('./cache/',import.meta.url).pathname.replace(/^\/([A-Z]:)/,'$1')});await fs.writeFile(new URL('city.png',import.meta.url),result.png);console.log(JSON.stringify({triangles:result.stats.triangles,markers:result.markers.length}));}finally{await rom.close();}

@@ -1,0 +1,8 @@
+from pathlib import Path
+p=Path('outputs/ROMDex/public/shell.mjs');s=p.read_text(encoding='utf-8');s=s.replace("const error=host.views.get('rom-import')?.win.romdexWorkspace.status().localError||native.romImportStatus?.localError;if(error)throw Error(error);await host.views.get('rom-import')?.win.romdexWorkspace.flush?.();", "if(native.romImportStatus?.localError)throw Error(native.romImportStatus.localError);await host.views.get('rom-import')?.win.romdexWorkspace.flush?.();const error=host.views.get('rom-import')?.win.romdexWorkspace.status().localError;if(error)throw Error(error);")
+p.write_text(s,encoding='utf-8')
+p=Path('work/ri03b/verify-ui.mjs');s=p.read_text(encoding='utf-8');s=s.replace("await frame.evaluate(()=>window.romdexWorkspace.flush());await page.waitForFunction(()=>!window.romdexShell.coordinator.snapshot().providers['rom-import'].localError);", "const saved=await page.evaluate(()=>window.romdexShell.coordinator.providers.get('rom-import').save());assert.equal(saved.ok,true);await page.waitForFunction(()=>!window.romdexShell.coordinator.snapshot().providers['rom-import'].localError);")
+marker=" if(reuse)await step('Local save failure"
+insert=""" if(reuse)await step('Contextual stage filtering keeps unknown conditions accessible',async()=>{assert.equal(await frame.locator('#preview-stage option').count(),6);await frame.locator('#preview-stage').selectOption('other');await frame.locator('#preview-stage').selectOption({index:2});await frame.locator('#preview-stage').selectOption('all');assert.equal(await frame.locator('#preview-stage').inputValue(),'all');});
+"""
+assert marker in s;s=s.replace(marker,insert+marker);p.write_text(s,encoding='utf-8')

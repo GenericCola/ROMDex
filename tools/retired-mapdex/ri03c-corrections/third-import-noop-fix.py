@@ -1,0 +1,2 @@
+from pathlib import Path
+p=Path('outputs/ROMDex/rdx/map-workspace.mjs');s=p.read_text(encoding='utf-8-sig');s="import {upgradeBuildingHierarchy} from '../rom/building-hierarchy.mjs';\n"+s;s=s.replace("const incoming=await readRdxFile(u.file),key=", "const incoming=upgradeBuildingHierarchy(await readRdxFile(u.file)),key=");s=s.replace("if(result.document.revision!==savedHead)await this.store.save", "if((!existing||incoming.document.revision!==existing.head)&&result.document.revision!==savedHead)await this.store.save");p.write_text(s,encoding='utf-8',newline='\n')

@@ -1,0 +1,5 @@
+from pathlib import Path
+p=Path('work/ri03b/verify-ui.mjs');s=p.read_text(encoding='utf-8');marker=" if(reuse)await step('Contextual stage filtering"
+insert=""" if(reuse)await step('Rapid item selection cannot apply an older preview to the newer item',async()=>{const view=await service.handle('romImport',['status']),items=view.prepared.records.filter(r=>r.kind==='appearance');await page.evaluate(()=>{const api=window.romdexApplication.romImport,original=api.call;let delayed=false;api.call=async(action,input)=>{const result=await original(action,input);if(action==='detail'&&!delayed){delayed=true;await new Promise(r=>setTimeout(r,150));}return result;};});await frame.locator('#item-select').selectOption(items[1].id);await frame.locator('#item-select').selectOption(items[2].id);await frame.waitForFunction(name=>document.getElementById('item-name').value===name,items[2].name);assert.equal(await frame.locator('#item-select').inputValue(),items[2].id);});
+"""
+assert marker in s;s=s.replace(marker,insert+marker);p.write_text(s,encoding='utf-8')
