@@ -1,4 +1,4 @@
-> **2026-10-22 owner-directed rollback:** MAPDex is retired and archived. RI03C was not accepted. Restore pre-MAPDex NPCDex and its archived save; keep cloud delivery paused pending replacement design. Do not start U28 from the abandoned MAPDex roadmap.
+> **2026-10-22 current state:** MAPDex is retired and archived; RI03C was not accepted. Pre-MAPDex ROMDex 0.5.15 and the saved NPCDex content are restored. The authorized synchronization repair rebuilt and verified NPCD, retired 133 obsolete delivery attempts, and resumed NPCDex cloud sync with zero pending operations. Local saves, tasks and credentials are preserved. Do not start U28 from the abandoned MAPDex roadmap.
 
 # ROMDex — Desktop and Add-on Action Checklist
 
@@ -6,7 +6,7 @@
 **Plans:** [Unified Action Plan](NPCDex-ROMDex-Unified-App-Action-Plan.md), [ROMDex Enhancements](Documentation/History/Earlier-Plans-and-Releases/ROMDex-Pre-Launcher-Enhancement-Plan.md).  
 **Rule:** One approved task at a time. Check off only verified completion, report the result, name the next recommended model/effort, and await a new PASSKEY. Approval of U01 does not approve R01 or any later task.
 
-**Current:** **U27 is complete in source**; [report](Documentation/History/U27/U27-Completion-Report.md). Next is **U28 — Integrated Failure and Concurrency Review, Astra / High**, awaiting a new PASSKEY. Installed production remains 0.5.15 with NPCDex cloud sync paused, local saves enabled and all 133 queued entries preserved. No production reset is authorized.
+**Current:** Owner-directed rollback and NPCDex synchronization repair are complete. Installed 0.5.15 has the restored four-map dataset, 44 plans, 145 history entries and 85 annotations; 133 obsolete operations are archived, with zero pending delivery and no stale editor drafts. Automatic sync is enabled and connected. [Repair evidence](Documentation/Project/NPCDex-Synchronization-Repair-2026-10-22.json). Future implementation requires fresh scope/PASSKEY.
 
 ## Completed Foundation
 

@@ -1,0 +1,98 @@
+{
+  "task": "NPCDex synchronization repair after pre-MAPDex restoration",
+  "completedAt": "2026-10-22T14:49:52.443Z",
+  "status": "complete",
+  "installedVersion": "0.5.15",
+  "cause": "Restoration retained 133 paused delivery operations whose former NPCD destination records had been deleted during the earlier reset. The local effects remained saved.",
+  "resolution": "Rebuilt the empty private NPCD store from the exact local domain, independently downloaded and verified it, then activated the new binding and retired obsolete attempts without replaying them.",
+  "verification": {
+    "remoteReadback": {
+      "records": 211,
+      "plans": 212,
+      "reviews": 100,
+      "assets": 40,
+      "views": 198,
+      "exactDomain": true
+    },
+    "preservedDomainSHA256": "1f025d21bf5bebb9456a2f674eefc8507b1bac0ce82958993e272ff18d16362e",
+    "registryIssueId": "3-1020",
+    "bootstrap": "b0f3e361e81df37c08345abfcbc76afa5088738a0e26bef1837e9a70d77bff50",
+    "head": "1fe77f4128fc49f0b73dcf98c013bf356adc9dfa1c3b2708125d036e25d377de",
+    "retiredOperations": 133,
+    "pendingOperations": 0,
+    "editor": {
+      "operations": 0,
+      "draft": null
+    },
+    "sync": {
+      "pending": 0,
+      "paused": false,
+      "automatic": true,
+      "connection": "connected",
+      "syncing": false,
+      "message": "Content Is Up to Date.",
+      "review": false,
+      "localCheckpoint": true,
+      "towns": [
+        "New Bark Town",
+        "Route 29",
+        "Cherrygrove City",
+        "Global Dialogue"
+      ],
+      "plans": 44,
+      "history": 145,
+      "annotations": 85
+    },
+    "ui": {
+      "attention": false,
+      "saving": false,
+      "automatic": true,
+      "providers": {
+        "youtrack": {
+          "pending": 0,
+          "dirty": false,
+          "attention": false,
+          "connection": "connected",
+          "message": "Synchronizing with YouTrack…"
+        },
+        "npcdex": {
+          "pending": 0,
+          "pendingWrites": 0,
+          "dirty": false,
+          "attention": false,
+          "connection": "connected",
+          "message": "Content Is Up to Date."
+        },
+        "romdex-metadata": {
+          "pending": 0,
+          "attention": false,
+          "connection": "connected",
+          "message": "ROMDex Metadata Cloud Copy Is Current."
+        }
+      },
+      "saveButtons": [
+        {
+          "label": "Save Changes",
+          "disabled": false,
+          "classes": "save"
+        }
+      ]
+    },
+    "tasks": 299,
+    "currentTasksAndCredentialsPreserved": true
+  },
+  "staleDrafts": "One draft exactly duplicated an already-saved plan; the other was an empty new-plan form. Both original remnants are archived in recovery receipts and the complete backup.",
+  "installedCorrection": "Publication record discovery now searches by both operation identity and record identity, avoiding unstable broad paginated searches while preserving duplicate and ownership checks.",
+  "checks": [
+    "Lossless reconstruction of all record, plan, review, mapping, presentation and asset revisions",
+    "Complete independent cloud readback and exact domain hash",
+    "Original export hash verification",
+    "Offline managed RDX reload/checkpoint with zero pending writes",
+    "Exact record lookup and duplicate-creation regression",
+    "Bounded publication checkpoint/restart regression",
+    "Real installed application: automatic synchronization connected, zero pending, no stale draft or save attention, all 299 tasks present"
+  ],
+  "backup": "outputs/Protected/Before-NPCDex-Sync-Repair-2026-10-22/Data.zip",
+  "repairedBaselineBackup": "outputs/Protected/Before-NPCDex-Sync-Repair-2026-10-22/Verified-Reconnected-NPCDex.zip",
+  "note": "MAPDex remains retired. No new installer or release was published. Original retired queues, drafts and RDX checkpoints remain in protected recovery storage."
+}
