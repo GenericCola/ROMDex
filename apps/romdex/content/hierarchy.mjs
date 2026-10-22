@@ -1,4 +1,0 @@
-// Physical nesting is independent of the task manager's display tiers.
-export function owningMap(record,records){let r=record;const seen=new Set();while(r&&!seen.has(r.recordId)){if(r.kind==='map')return r;seen.add(r.recordId);r=records.get(r.parentRecordId);}return null;}
-export function zonePath(record,records){const names=[],seen=new Set();let r=record;while(r?.kind==='subzone'&&!seen.has(r.recordId)){seen.add(r.recordId);names.unshift(r.current.payload.name);r=records.get(r.parentRecordId);}return names.join(' / ');}
-export function descendantZones(record,records){const ids=[],todo=[record.recordId],seen=new Set();while(todo.length){const id=todo.shift();if(seen.has(id))throw Error('Nested Area Cycle.');seen.add(id);ids.push(id);todo.push(...(records.get(id)?.current.payload.subzoneIds||[]));}return ids;}

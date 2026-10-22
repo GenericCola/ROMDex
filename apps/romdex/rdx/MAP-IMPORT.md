@@ -31,10 +31,3 @@ Portable testing claims are historical claims, not authenticated human verificat
 Local documents are deliberately **unbound**. There is no implicit NPCD publication, task creation or agent dispatch. The existing connected content provider continues independently and is unchanged when a local map is open. Task-plan files are routed away from the map importer; RD06 supplies their workflow. Agent-result files are held for the later task-bound reconciliation/testing workflow.
 
 RD07 has now passed real, isolated two-way YouTrack binding. See [binding, review and recovery controls](CLOUD-SYNC.md). RD08 adds Windows file association. RD09 supplies the agent extraction/production guide. RD10 still requires a fresh production preview and acceptance before replacing current maps with RDX working documents. RD05 itself did not perform existing-map adoption or live synchronization.
-
-
-## Nested areas in MAPDex 0.5.21
-
-One logical map remains one RDX. A grouped tower/building can be a `subzone` containing other `subzone` floors, recursively. Each zone’s `mapId` points to the owning map. The map’s `subzoneIds` indexes all owned zones; a container’s optional `subzoneIds` lists its immediate child zones. Every child’s `parentRecordId` points back to that container. Entities remain children of their own floor/area. Include the required capability `org.romdex.npcdex.nested-zones-v1` when using this structure. Keep stable identities, source mappings and existing testing/history records; never fabricate new IDs for the same source entity merely because it moved under a group.
-
-Agents should use the compiler/validator shipped with this version or later. A frozen older authoring kit may reject nested-zone capabilities; do not remove the capability or flatten the data to bypass that check. Update the kit instead. The human-facing MAPDex entry points are map-tile Settings → Prepare Map / Assign to Parent. Group assignment previews the entire moved subtree. Already independent or published datasets require migration review rather than silent joining.

@@ -173,7 +173,7 @@ U05 was authorized with PASSKEY. The [layout proposal](U05-Shared-Header-and-Con
 
 ## U05 Revision — Footer Workspace Menu, October 15, 2026
 
-The user rejected Direct Switch and Compact Menu and specified a small unlabeled red circular button at the bottom-left of the window, in the red shell footer. It opens a pop-up listing **ROMDex** and **NPCDex**; selection or ESC closes it. Preserve each workspace's selections/settings/view/navigation/drafts while switching. The user explicitly clarified **between workspaces in this app**, not across computers. No header switcher should be implemented. The [revised proposal](U05-Shared-Header-and-Control-Layout-Proposal.md) and [footer verification](U05-Footer-Layout-Verification.json) record this direction; [open-menu image](../../U05-Footer-Switch-Open.png). U05 remains in final visual review; no application change or S01/U06 work has begun. Next gated implementation remains **S01, Sol / High**, then **U06, Sol / Medium**, each with its own PASSKEY.
+The user rejected Direct Switch and Compact Menu and specified a small unlabeled red circular button at the bottom-left of the window, in the red shell footer. It opens a pop-up listing **ROMDex** and **NPCDex**; selection or ESC closes it. Preserve each workspace's selections/settings/view/navigation/drafts while switching. The user explicitly clarified **between workspaces in this app**, not across computers. No header switcher should be implemented. The [revised proposal](U05-Shared-Header-and-Control-Layout-Proposal.md) and [footer verification](U05-Footer-Layout-Verification.json) record this direction; [open-menu image](U05-Footer-Switch-Open.png). U05 remains in final visual review; no application change or S01/U06 work has begun. Next gated implementation remains **S01, Sol / High**, then **U06, Sol / Medium**, each with its own PASSKEY.
 
 
 ## U05 — Approved Development Placeholder and Circle Order, October 15, 2026
@@ -394,7 +394,7 @@ The user requested a planning revision before implementation. [Revised phases an
 
 ## October 18, 2026 — RD01 Contract Design Prepared
 
-The user authorized RD01 with PASSKEY. [Proposed contracts](../../RDX-Reference/RD01-Contracts/README.md) and [review report](RD01-Review-Report.md) define the map/plan envelope, internal namespace/version routing, portable identity versus backend bindings, lossless container proposal, exact asset references, local checkpoint recovery, previewed updates/removals, fixed JSON package v2, returned map provenance and mandatory human testing. Six workflow walkthroughs and 70 isolated design checks pass. The new schema embeds the pinned native schema without rewriting its identities; legacy migration and current JSON import retain dedicated routes. Compression defaults and final resource limits remain measured RD03 decisions, not untested performance claims.
+The user authorized RD01 with PASSKEY. [Proposed contracts](RD01-Contracts/README.md) and [review report](RD01-Review-Report.md) define the map/plan envelope, internal namespace/version routing, portable identity versus backend bindings, lossless container proposal, exact asset references, local checkpoint recovery, previewed updates/removals, fixed JSON package v2, returned map provenance and mandatory human testing. Six workflow walkthroughs and 70 isolated design checks pass. The new schema embeds the pinned native schema without rewriting its identities; legacy migration and current JSON import retain dedicated routes. Compression defaults and final resource limits remain measured RD03 decisions, not untested performance claims.
 
 RD01 is at its planned user-acceptance gate. Application source, installed 0.5.14, live saves/queues and all credentials are unchanged. No compressed RDX, real backend import or ROM extractor was implemented. After acceptance, RD02 is next, Sol / High, under a new PASSKEY; later tasks remain separately gated.
 
@@ -479,116 +479,3 @@ Whole-map/sub-zone entries start selected. The user chooses an existing PMON des
 ## U22 — Exact Navigation and Truthful Progress, October 19, 2026
 
 Completed under its own PASSKEY. Add reciprocal task/map/fixed-version links, individual content targets, immutable item/group rows and durable delivery counts/recovery states. Checkpoint before switching managed documents, preserve editors and reject unavailable exact targets rather than matching names. A task's native Complete state and portable implementation/testing claims cannot authenticate accepted results. Until U23–U27 establish those events, implementation remains Not Reported and human testing Not Verified. This task needs no new installer or live writes; 77 focused regression tests and eight real-source interface checks pass. Installed 0.5.15 remains unchanged. U23 requires a new PASSKEY, Sol / High.
-
-
-## October 19, 2026 — ROM Import and Extraction Promoted to Core
-
-The user approved moving former Phase 11 ahead of Phase 9 final acceptance/release. This supersedes the earlier post-release deferral. Preserve existing phase/task identifiers for traceability; execution is RI01 (evidence-based scoping) → RI02 (real one-map ROM/JSON/RDX proof) → RI03 (reviewed deterministic ROM Import workspace) → U28/U29/U30 (integrated review, guided acceptance, installer). Notifications remain after U30. Initial coverage is bounded to the supported ROM/game and agreed content, with uncertainties and additional task breakdown resolved during RI01. Reuse valid prior verification; check changed boundaries and the real extraction workflow before final acceptance.
-
-This is approval of the roadmap change only. RI01 needs its own PASSKEY with Sol / High; no ROM has been inspected, no extraction or production replacement authorized, and no saves/sync policy changed. Keep ROM bytes out of Git/releases and read-only.
-
-
-## RI01 — ROM-only Input Requirement, October 19, 2026
-
-The user clarified that the proof must succeed using the supplied ROM alone; editable project files and another coding agent's prepared JSON are not acceptable dependencies. Open-source tools such as DSPRE may be incorporated, subject to pinned compatibility and redistribution review. Public format references are permitted; the ROM remains the content authority. Investigation has established a structurally readable New Bark candidate and a relocated sprite table. The proposed scope and RI02A–RI03C task breakdown await RI01 acceptance; a completed portable-file/cloud proof has not been claimed. Existing production data and NPCDex pause remain untouched.
-
-
-## RI01 — Per-Map Timelines and Roman-Numeral Stages, October 19, 2026
-
-The user requires every map/zone RDX to define its own clearly specified timeline from changes/stages relevant to that map, instead of imposing a universal timeline. Stage labels use Roman numerals, preserving the current visible convention. Existing internal A–J IDs are legacy references, not a mandatory stage vocabulary or count. Separate stable stage identity from ordinal/label; preserve contextual notes, plans, flags, source mappings and testing when stage names/order change. Shared world predicates can be referenced without importing unrelated stages; conditional branches remain explicit rather than being forced into an invented linear chronology.
-
-Source inspection found the current native projection and legacy validation still require ten stages. The revised RI01 proposal adds RI02T, before RI02C, to implement per-map storage/projection/filtering/validation and portable mapping, with differing-count/order and legacy-preservation checks. No runtime code or live timeline was changed. RI01's overall scope acceptance remains pending; this clarification is recorded as a required design correction.
-
-
-## RI01 — Revised Scope Accepted, October 19, 2026
-
-The user explicitly approved the revised ROM-only New Bark proof scope and RI02A/RI02B/RI02T/RI02C/RI03A/RI03B/RI03C sequence, including per-map timelines displayed with Roman numerals. RI01 is complete and checked off. Earlier pending-approval entries above are historical checkpoints. The next separately authorized task is RI02A — ROM Reader and Source Mapping, Sol / High. This acceptance does not start implementation, replace maps or resume production NPCDex sync.
-
-
-## RI02A — Source Reader and Mappings Complete
-
-Completed under its own PASSKEY. The reader inventories the supplied .nds directly without editable project/agent-prepared content. All 540 physical map headers and their event resources are validated; New Bark's scoped identities and native source mappings preserve exact bytes and reopen unchanged in another process. Known ambiguous object IDs/unresolved warp references remain explicit rather than being repaired or silently trusted. Seventeen focused tests and eight real-ROM proof checks pass. No production or runtime deployment changed. Next separately gated task: RI02B — Dialogue, Events and Appearance Extraction, Sol / High. Per-map Roman-numeral timelines remain RI02T, and the decisive actual RDX/native round trip remains RI02C.
-
-
-## October 20 — Violet City ROM-only testbed
-
-The user authorized RI02B and replaced the active New Bark proof with Violet City to avoid conflating it with existing data. ROM location section 128 determines its eight physical areas; Sprout Tower stays separate. Earlier New Bark evidence remains historical. RI02B is source-complete; RI02T and RI02C continue with Violet City. Static/runtime ambiguity stays visible, and production saves, queues and the sync pause remain untouched.
-
-
-## October 20 — Map-specific timeline source support
-
-RI02T is complete in source. Maps select their own referenced progression; stable stage IDs remain separate from names, order and Roman labels. Legacy A–J identities, original recovery bytes and current review/proposal data are preserved. Violet City source-state evidence is local to the proof and does not establish a complete gameplay chronology. RI02C remains the real one-map RDX/native round-trip gate. No production sync, queue or installed application was changed.
-
-
-## October 20 — RI03A ROM Import Design Approved
-
-The user approved the concrete three-tray design: read-only ROM catalog/maps in Tray 1; locally saved selected-map setup/preparation in Tray 2; contextual content, source evidence, per-map Roman stages, warnings and inline handoff review in Tray 3. Suggested area groups remain adjustable; every prepared/exported RDX contains one logical map. Optional cleanup changes display metadata while retaining source content, stable identities and uncertainty. Semantic warnings may proceed with review; broken structure/unusable mappings block output.
-
-Preparation remains local and recoverable. Export RDX produces a portable copy; Send to NPCDex is an explicit reviewed handoff that keeps the workspace open. Shared Auto-Sync applies after handoff and cannot override the explicit NPCDex pause. Existing-map updates preserve newer edits and recheck their baseline. Bounded worker cancellation/checkpoints and shutdown independent of cloud backlogs are accepted.
-
-At the user's request, add RI03P — Map Cloud-Delivery Performance after RI03B and before RI03C to reduce cold-publication/later-sync request overhead without losing exact data, stable hierarchy or conflict safety. Final sequence: RI03B → RI03P → RI03C → U28–U30. RI03A is complete; each following task still needs its own PASSKEY. No production saves, queue, credentials, sync pause or installed build changed.
-
-
-## October 20 — MAPDex Workspace Name
-
-During authorized RI03B implementation, the user named the ROM/map import-preparation workspace **MAPDex**. Use MAPDex in the workspace switcher, shared header and Windows tray menu. Internal module/storage identifiers may retain rom-import for compatibility; this is a display name correction, not a new provider or sync change.
-
-
-## October 20 — RI03B MAPDex Complete in Source
-
-Completed the authorized offline workspace: separate managed staging, embedded source-identity recovery, bounded worker, contextual preview and presentation cleanup, per-map Roman stages, explicit reviewed NPCDex handoff and recoverable local publication intent. Cloud preflight stays in the existing cancellable owner and honors the explicit pause. Display/lineage summaries are cached by immutable heads while writes/export/handoff verify current bytes. Failed local saves are visible and retryable; unknown staging formats remain untouched without preventing healthy task work or safe Quit.
-
-106 distinct focused checks passed, plus the ROM-only/source UI/payload proofs. Final selected-area repair was replayed from the completed extraction rather than repeating ROM decoding. This is source completion, not an installation, production reset or sync resumption. Next is RI03P — Sol / High, under a separate PASSKEY; RI03C and U28–U30 remain later gates.
-
-
-## October 20 — RI03P Cloud Delivery Complete in Source
-
-Under the user's PASSKEY, add bounded compressed delivery and parallel metadata checks without changing record tickets, exact data/history, frozen legacy intents or one-map RDX files. The same Violet City input uses 600 old-layout object files versus 209 new-layout files, about 65% fewer payload bytes. A serial verification timeout was recovered from verified uploads; final reconstruction and shared-context reads are bounded to eight concurrent requests. The user accepts longer initial publication provided a loading bar is visible and subsequent sync is agile. MAPDex now shows local-handoff and publication bars with honest queued/paused/verified states. Full-map round trip, targeted final-code routine checks, owned QA cleanup and 61 focused tests passed; no production install, queue reset, credential change or sync resumption. Next RI03C — Sol / High, separate PASSKEY. [Report](RI03P-Completion-Report.md).
-
-## Clean NPCDex Dataset and RDX User Test — October 20, 2026
-
-The user explicitly authorized archiving existing NPCDex data, clearing its YouTrack content and reconnecting for a fresh RDX trial. After complete verified local/backend backups, 224 exact app-owned NPCD records were removed; the old provider, maps and queued legacy work were retired. NPCDex-only cloud sync was re-enabled, with all remembered credentials, PMON task stores and metadata retained. The user test order is RDX import/local editing, reviewed NPCD publication and hierarchy mapping, accepted incoming YouTrack edits reflected in the working/exported RDX, then MAPDex ROM extraction/another map after packaged acceptance. The reset does not implicitly authorize deleting future test content or complete RI03C. [Report](NPCDex-Clean-RDX-Test-Preparation.md).
-
-## October 20 — MAPDex Evaluation Delivery
-
-The user requested the actual MAPDex build instead of a source-only empty NPCDex screen. Deliver 0.5.16 with functional import actions and Violet City ROM extraction after 29 focused tests, ten packaged/native checks, verified backup/restoration and installed connection checks. Preserve the freshly reset dataset and all future test work; do not silently import a map or clear Data again. Extraction of other catalog groups remains blocked until supported; broader RI03C remains a separate gate. [Report](MAPDex-0.5.16-Delivery-Report.md).
-
-## October 20 — Proof Scope Is Not a Product Restriction
-
-The user rejected being locked to Violet City and required the map catalog to come from the ROM. Correct 0.5.18 accordingly: neutral Tray 2 title, complete catalog, selected-map area/compiler scope and local source-derived stages. Preserve old identities, map-specific preparations/drafts and saved connections. The provided ROM passed the source/UI/native/installed loading proofs. A hidden unchanged Connection Details dialog was also corrected: it no longer blocks Quit; genuine input remains protected and its workspace is revealed. Additional Pokémon ROM layouts remain explicit RI03C work rather than being represented as implemented universal compatibility. [Report](MAPDex-0.5.18-Completion-Report.md).
-
-## October 20 — One Map File, Readable Sub-Areas
-
-The user clarified that New Bark Town is the RDX and buildings/floors are contained sub-areas. Inspection confirmed that the existing file already has one map and eight children; the confusing technical labels/wording were the defect. 0.5.19 adds an explicit one-file summary, readable reference labels with user-name precedence, collapsed source IDs and a named native export. Keep the portable format and source mappings unchanged. Modified building purposes remain reviewable rather than inferred from their ID alone. [Report](MAPDex-0.5.19-Completion-Report.md).
-
-
-## October 20 — Readable Entity Presentation and Nested Map Groups
-
-Use deterministic source-derived labels, with no runtime AI requirement, and front-standing thumbnails for recognized source layouts. Store presentation in the prepared map RDX with exact source/history preservation and user-override precedence. The next MAPDex task must let the user choose parent and child (Violet City → Sprout Tower → floors/areas → entities), preserving all descendant relationships rather than flattening them. Review existing prepared/imported maps and extend the nested sub-zone contract as needed. Location previews must be recognizable ROM-derived images with entrance/entity markers; validate rendering feasibility before implementation. NPCD currently links parent/child records but its Milestone/Task/Subtask Type values do not yet implement the intended tier labels; track this gap explicitly.
-
-
-## October 20 — Contextual Parent/Child Grouping and Cross-ROM Continuity Gap
-
-0.5.21 puts Prepare Map and Assign to Parent in each map tile’s standard settings menu. Grouping moves the full subtree into one parent-map RDX. Child groups remain indented in the catalog; independently saved/published maps are protected for migration review. The live nested tree and second-profile recovery passed with 16 temporary records subsequently removed. Dialogue is expanded with readable headings; TAB cycles pane mode, output options share equal visual weight, and disclosure typography matches. Location preview rendering is scoped as LP01–LP03.
-
-The user clarified the repeated lifecycle: prepare a map from one ROM, plan/execute changes, then re-prepare the same logical map from a newer ROM. Current fresh extraction keys source lineage by fingerprint, so this does not yet guarantee reconciliation to the same map. RI03U must add explicit existing-map update/rebase with stable identities, deterministic reviewed matching, retained planning/history/testing and actual two-version acceptance. Record the gap; do not silently claim that a new fingerprint merges by name or start this task before its PASSKEY.
-
-
-## October 20 — Correct Tile Settings Placement
-
-The map settings cog belongs inside the top-right corner of its tile and appears on hover, with equivalent keyboard-visible focus access. Persistent cogs beside tiles were incorrect. Corrected 0.5.22 verifies interior bounds and hide-on-leave behavior, including after mouse selection. All grouping/backend logic and the user’s current Data/connections are preserved.
-
-
-## October 20 — RI03U Cross-ROM Update Decisions and Delivery
-
-Approved: explicitly link builds to a persistent ROM project; use Update Existing Map in the standard hover cog; compare uncertain entity/passage identity side by side; review the whole map before applying; preserve unmatched annotations/history and current planning; confirm exact structured fulfillment with human testing still required; one current map per project with reviewed rollback. No new ROM exists yet, so controlled cases and actual 0.6.3 extraction support implementation delivery while actual two-build acceptance stays unchecked. Portable project/update metadata preserves lineage, while trusted testing evidence stays private. Verified 0.5.23 preserves the complete Data folder and three remembered credentials. The added background connection-dialog correction prevents retry-driven reopening. [Report](RI03U-Completion-Report.md).
-
-
-## October 20 — Preparation Feedback and Shared Characters
-
-The owner chose one character tile containing linked placements. MAPDex and NPCDex now expose explicit reviewed linking while retaining each placement's source mapping and local content/history. Sprite selection previews immediately and commits explicitly; generated regions use the HGSS enum. Stage descriptions show ROM evidence without claiming a completed narrative timeline. The first installed startup exposed the 30-second service deadline being exceeded by a saved-map presentation checkpoint; final 0.5.25 defers it until MAPDex loading and passed actual saved-data cold-start checks. Full narrative-phase acceptance remains open in RI03C. [Report](MAPDex-0.5.25-Completion-Report.md).
-
-
-## Form Spacing Before MAPDex Evaluation
-
-The owner requested consistent checkbox/text gaps and proper button padding, then evaluation before a broader MAPDex overhaul. 0.5.26 corrects the overridden character-link checkbox layout and shared form/action spacing, including wrapped Updates buttons, without changing header geometry or backend behavior. The reviewed correction is installed with complete Data/credential preservation. The broader redesign remains to be scoped after evaluation. [Report](UI-Spacing-0.5.26-Completion-Report.md).

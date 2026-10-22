@@ -6,7 +6,6 @@ if(process.isMainFrame){
   trayState:state=>ipcRenderer.invoke('romdex:tray-state',state),
   profileInfo:()=>ipcRenderer.invoke('romdex:profile-info'),
   rdxOpen:(action,value)=>ipcRenderer.invoke('romdex:rdx-open',action,value),
-  romImport:action=>ipcRenderer.invoke('romdex:rom-import',action),
   storage:(mode,key,value)=>ipcRenderer.invoke('romdex:storage',mode,key,value),
   chooseAttachments:id=>ipcRenderer.invoke('romdex:attach',id),
   dropAttachments:(id,files)=>{

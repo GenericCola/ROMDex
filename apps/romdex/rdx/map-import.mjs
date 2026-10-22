@@ -3,7 +3,6 @@ import {validateDomain} from '../content/materialize.mjs';
 import {viewHeads} from '../content/view-contract.mjs';
 import {documentRevision,validateDocument} from './document.mjs';
 import {ensure} from './limits.mjs';
-import {validateUpdateMetadata} from '../rom/update-contract.mjs';
 
 const hash=a=>a.revisionId||a.digest;
 const union=(a,b,key=hash)=>[...new Map([...a,...b].map(v=>[key(v),v])).values()];
@@ -35,7 +34,7 @@ function revision(template,parents,current,operation){return seal({...template,o
 // A pure preview: no filesystem, transport, publication or authority is acquired.
 // Choices select observed alternatives; every original remains in portable history.
 export function previewMapImport(incoming,local=null,{choices={},archive=[]}={}){
- const source=incoming.document,sourceUpdate=validateUpdateMetadata(source,incoming.blobs);ensure(source.kind==='map','WORKSPACE','This File Contains a ROMDex Plan. Use the Task Plan Importer.');
+ const source=incoming.document;ensure(source.kind==='map','WORKSPACE','This File Contains a ROMDex Plan. Use the Task Plan Importer.');
  ensure(source.origin.role!=='agent-result','REVIEW_REQUIRED','Agent Results Require the Task Reconciliation Workflow and Human Testing. This File Was Not Applied.');
  const keyOf=d=>d.datasetId+':'+d.documentId;
  if(local)ensure(keyOf(local.document)===keyOf(source)&&local.document.scope.mapRecordId===source.scope.mapRecordId,'CONFLICT','This File Refers to a Different Map Identity.');
@@ -47,14 +46,12 @@ export function previewMapImport(incoming,local=null,{choices={},archive=[]}={})
  doc.content.history=union(doc.content.history,source.content.history,a=>a.sha256);retainDocument(doc,blobs,incoming);
  const revisions=union(here.revisions,remote.revisions),all=new Map(revisions.map(r=>[r.revisionId,r])),heads=new Map(here.records.map(r=>[r.recordId,r])),context=new Set(source.scope.contextRecordIds);
  const choose=(id,l,r,reason)=>{const selected=choices[id];ensure(selected===undefined||['local','incoming'].includes(selected),'INVALID','Invalid Import Choice.');conflicts.push({id,reason,local:l,incoming:r,choice:selected||null});return selected==='incoming'?r:l;};
- const reviewedBase=sourceUpdate?parseJSON(incoming.blobs.get(source.assetInventory.find(a=>a.assetId===sourceUpdate.baselineDocumentAsset).sha256)):null;
- for(const [id,value]of Object.entries(source.extensions)){if(!Object.hasOwn(doc.extensions,id))doc.extensions[id]=value;else if(!same(doc.extensions[id],value))doc.extensions[id]=reviewedBase&&Object.hasOwn(reviewedBase.extensions,id)&&same(doc.extensions[id],reviewedBase.extensions[id])?value:choose('extensions:'+id,doc.extensions[id],value,'Workspace Extension Has Different Values');}
+ for(const [id,value]of Object.entries(source.extensions)){if(!Object.hasOwn(doc.extensions,id))doc.extensions[id]=value;else if(!same(doc.extensions[id],value))doc.extensions[id]=choose('extensions:'+id,doc.extensions[id],value,'Workspace Extension Has Different Values');}
  for(const key of ['required','optional'])doc.capabilities[key]=[...new Set([...doc.capabilities[key],...source.capabilities[key]])];
  for(const r of remote.records){const l=heads.get(r.recordId);let next=r,action='Add';
-  if(l){ensure(l.kind===r.kind&&(l.parentRecordId===r.parentRecordId||sourceUpdate&&ancestor(all,l.revisionId,r.revisionId)),'CONFLICT','An Existing Record Cannot Change Kind or Parent Without Reviewed ROM Update Ancestry.');
+  if(l){ensure(l.kind===r.kind&&l.parentRecordId===r.parentRecordId,'CONFLICT','An Existing Record Cannot Change Kind or Parent Through Map Import.');
    if(l.revisionId===r.revisionId){next=l;action='Unchanged';}
    else if(ancestor(all,r.revisionId,l.revisionId)){next=l;action='Keep Newer Local';}
-   else if(sourceUpdate&&ancestor(all,l.revisionId,r.revisionId)){next=r;action='Reviewed ROM Update';}
    else if(context.has(r.recordId)){next=choose(r.recordId,l,r,'Shared Context Requires an Explicit Choice');action='Review Context';}
    else if(ancestor(all,l.revisionId,r.revisionId)){next=r;action='Update';}
    else {const bases=revisions.filter(b=>b.recordId===r.recordId&&ancestor(all,b.revisionId,l.revisionId)&&ancestor(all,b.revisionId,r.revisionId)),latest=bases.filter(b=>!bases.some(a=>a.revisionId!==b.revisionId&&ancestor(all,b.revisionId,a.revisionId)));const base=latest.length===1?latest[0]:null;
@@ -74,8 +71,8 @@ export function previewMapImport(incoming,local=null,{choices={},archive=[]}={})
  ensure(archive.every(id=>candidates.some(c=>c.recordId===id)),'CONFLICT','Archival Choice Is Not an Observed, Unchanged Candidate.');
  // Omissions never remove graph members. Selecting a candidate records a proposal,
  // leaving current ROM content intact until implementation is confirmed.
- for(const r of [...heads.values()]){const fields=r.kind==='map'?['subzoneIds']:r.kind==='subzone'?['appearanceIds','sceneIds','interactiveIds',...(r.current.payload.subzoneIds?['subzoneIds']:[])]:[];const current=structuredClone(r.current);let changed=false;
-  for(const field of fields){const kind={subzoneIds:'subzone',appearanceIds:'appearance',sceneIds:'scene',interactiveIds:'interactive'}[field];for(const child of heads.values())if(child.kind===kind&&(child.parentRecordId===r.recordId||r.kind==='map'&&kind==='subzone'&&child.current.payload.mapId===r.recordId)&&!current.payload[field].includes(child.recordId)){current.payload[field].push(child.recordId);changed=true;}}
+ for(const r of [...heads.values()]){const fields=r.kind==='map'?['subzoneIds']:r.kind==='subzone'?['appearanceIds','sceneIds','interactiveIds']:[];const current=structuredClone(r.current);let changed=false;
+  for(const field of fields){const kind={subzoneIds:'subzone',appearanceIds:'appearance',sceneIds:'scene',interactiveIds:'interactive'}[field];for(const child of heads.values())if(child.kind===kind&&child.parentRecordId===r.recordId&&!current.payload[field].includes(child.recordId)){current.payload[field].push(child.recordId);changed=true;}}
   if(changed){const next=revision(r,[r.revisionId],current,operation+':membership-'+sha(r.recordId).slice(0,16));revisions.push(next);heads.set(r.recordId,next);}
  }
  for(const key of ['plans','reviews','views']){

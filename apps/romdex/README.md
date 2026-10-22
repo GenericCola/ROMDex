@@ -2,8 +2,6 @@
 
 Installed production remains **0.5.15 with targeted U26B repairs**, local saving enabled and NPCDex cloud sync explicitly paused. **U21–U27 are complete in source and await integrated review and a later packaged release.** [Package Map Changes](rdx/MAP-PACKAGES.md), [navigation](rdx/PACKAGE-NAVIGATION.md), returned-file review and [human testing/history](rdx/HUMAN-TESTING.md) preserve explicit package authorization and human-only completion. U27 adds flashing-amber Needs Testing and reversal evidence; it does not install source changes, resume the preserved queue or automatically complete tasks.
 
-**RI02A–RI03B are complete in source:** [MAPDex](rom/MAPDEX.md) provides local ROM/map preparation, metadata cleanup, source previews, portable RDX export and an explicit reviewed NPCDex handoff. It preserves identities and source evidence and honors the NPCDex cloud pause. Current extraction is the reviewed ROM and Violet City; other catalog groups remain unverified. [RI03P cloud delivery](rdx/CLOUD-DELIVERY.md) is source-complete, with fewer delivery files, bounded metadata prefetch, measured routine updates and MAPDex handoff/publication progress. Next: RI03C and U28–U30 acceptance/release. These source features are not installed yet.
-
 Use the installed Windows ROMDex shortcut for current work. Saves and remembered connections live in its application Data folder. See [desktop storage/upgrade guidance](U13A-Desktop-Guide.md), [RDX authoring](rdx/authoring/README.md) and [package/return boundaries](rdx/authoring/PACKAGES-AND-RETURNS.md). U23–U27 returned-file automation is not enabled by U21.
 
 The remaining text below is historical web-build documentation; its browser launch/profile instructions do not describe the current installed desktop.

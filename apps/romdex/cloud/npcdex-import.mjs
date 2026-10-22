@@ -1,4 +1,3 @@
-import {validateSnapshot as validateTimelines,snapshotStages} from '../content/timelines.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {randomUUID} from 'node:crypto';
@@ -14,10 +13,10 @@ const encode=x=>Buffer.from(JSON.stringify(x));
 function decode(bytes){try{return JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(bytes));}catch{throw Error('NPCDex Source Is Not Valid UTF-8 JSON.');}}
 export function inspectNPC(bytes){
  requireThat(Buffer.isBuffer(bytes)&&bytes.length>0&&bytes.length<=MAX_SOURCE_BYTES,'NPCDex Source Exceeds the Desktop Save Limit.');const d=decode(bytes);
- requireThat(d?.version===2&&Array.isArray(d.towns)&&d.towns.length>0&&Array.isArray(d.stages)&&d.stages.length<=256&&d.annotations&&typeof d.annotations==='object'&&!Array.isArray(d.annotations)&&Number.isSafeInteger(d.revision)&&d.revision>=0,'The NPCDex Save Is Unsupported.');
+ requireThat(d?.version===2&&Array.isArray(d.towns)&&d.towns.length>0&&Array.isArray(d.stages)&&d.stages.length===10&&d.annotations&&typeof d.annotations==='object'&&!Array.isArray(d.annotations)&&Number.isSafeInteger(d.revision)&&d.revision>=0,'The NPCDex Save Is Unsupported.');
  const summary={revision:d.revision,towns:d.towns.length,areas:0,elements:0,points:0,blocks:0,characters:0,plans:Object.keys(d.changePlans||{}).length,history:d.history?.length||0,receipts:d.implementationReceipts?.length||0,requests:d.changeRequests?.length||0,annotations:Object.keys(d.annotations).length,embeddedImages:0,imageBytes:0};
  function ids(array,kind){requireThat(Array.isArray(array),'Missing NPCDex '+kind+' Collection.');const seen=new Set();for(const value of array){requireThat(value&&typeof value.id==='string'&&value.id&&!seen.has(value.id),'Duplicate or Invalid NPCDex '+kind+' Identity.');seen.add(value.id);}return seen;}
- ids(d.towns,'Town');ids(d.stages,'Stage');validateTimelines(d,{inspection:true});
+ ids(d.towns,'Town');ids(d.stages,'Stage');requireThat(d.stages.every((s,i)=>s.id===String.fromCharCode(65+i)),'NPCDex Story Stages Changed.');
  for(const t of d.towns){ids(t.areas,'Area');ids(t.characters,'Character');ids(t.locations,'Location');summary.characters+=t.characters.length;const elements=new Set(),points=new Set(),blocks=new Set();for(const a of t.areas){summary.areas++;ids(a.elements,'Element');for(const e of a.elements){requireThat(!elements.has(e.id),'Duplicate NPCDex Element Identity.');elements.add(e.id);summary.elements++;ids(e.points,'Point');for(const p of e.points){requireThat(!points.has(p.id),'Duplicate NPCDex Point Identity.');points.add(p.id);summary.points++;ids(p.blocks,'Block');for(const b of p.blocks){requireThat(!blocks.has(b.id),'Duplicate NPCDex Block Identity.');blocks.add(b.id);summary.blocks++;}}}}}
  // Inspection never normalizes JSON, images, receipt hashes or legacy request fields.
  let count=0;function inspect(value){requireThat(++count<=1000000,'NPCDex Source Is Too Complex.');if(typeof value==='string'){

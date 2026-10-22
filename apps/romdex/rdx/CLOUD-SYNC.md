@@ -1,6 +1,6 @@
 # RDX Document Bindings and Two-Way Sync
 
-RD07 introduced this adapter; RD10 subsequently adopted existing maps. [RI03P cloud delivery](CLOUD-DELIVERY.md) is complete in source, with real map round-trip and routine-update measurements. Installed production remains 0.5.15 plus its repairs, with NPCDex cloud sync explicitly paused. Historical RD07 acceptance notes below are not a fresh migration requirement.
+RD07 is implemented in source and has passed the real, isolated YouTrack proof. It is not installed in ROMDex 0.5.14. Existing production maps remain in their accepted native provider. RD08 handles Windows integration; RD10 separately adopts current maps after a fresh backup and accepted preview.
 
 ## NPCDex Maps
 
@@ -35,5 +35,5 @@ Working files still use `Data/RDX/working/<document-key>.rdx`. Export contains c
 - Native plan reconciliation processes ten changed tasks at a time, at most 100 files on one task, with 50 MiB/file and 64 MiB of newly read file data per cycle. Verified cached files permit resumed reads. Larger or unsupported scopes stop visibly. An unchanged unresolved plan conflict does not trigger another automatic download loop.
 - Shared-context attachment changes made through another document stop publication for coordinated review. Different native pins across concurrent branches and record rebinding also stop; they are not silently selected or duplicated. This is not a general cross-map conflict-resolution UI.
 - Existing task bindings recover through the normal save-review mechanisms. An uncertain/missing task or a discarded operation is never guessed or blindly recreated.
-- Current production maps were adopted through RD10 with their NPCD identities preserved. The new-map creation route is not a migration shortcut.
+- RDX binding of current production maps is still RD10. That task must preserve their existing NPCD issue identities through an explicitly reviewed adoption adapter; the new-map creation route is not a migration shortcut.
 - This task proves fictional map data on the real backend. It does not prove ROM extraction or authorize agent execution, human-test completion, an installer update or production adoption.

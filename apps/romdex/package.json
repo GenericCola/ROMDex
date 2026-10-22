@@ -1,6 +1,6 @@
 {
   "name": "romdex",
-  "version": "0.5.26",
+  "version": "0.5.15",
   "private": true,
   "type": "module",
   "scripts": {
@@ -23,5 +23,5 @@
   },
   "productName": "ROMDex",
   "author": "ROMDex Project",
-  "description": "ROMDex with NPCDex and MAPDex Workspaces"
+  "description": "ROMDex Workspace with NPCDex Add-On"
 }

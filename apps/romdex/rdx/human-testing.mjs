@@ -25,7 +25,7 @@ export class HumanTesting{
  }
  taskId(acceptance){return this.packages.entries().find(e=>e.binding?.digest===acceptance.binding.digest)?.issueId||(this.engine.state?.remote||[]).find(r=>r.dbId===acceptance.binding.task.issueId)?.id||null;}
  indicators(){
-  const tasks={...this.sourceUpdates?.tasks(this.packages)};
+  const tasks={};
   for(const acceptance of Object.values(this.acceptances())){const id=this.taskId(acceptance);if(!id)continue;const intent=this.intent(acceptance.key),entry=this.packages.entries().find(e=>e.binding?.digest===acceptance.binding.digest),verified=this.verified(acceptance,intent,entry);tasks[id]??={pending:false,total:0,verified:0};tasks[id].total++;tasks[id].verified+=Number(verified);tasks[id].pending||=!verified;}
   const parents=new Map((this.engine.state?.remote||[]).map(r=>[r.id,r.parentId]));for(const [id,value]of Object.entries({...tasks})){let parent=parents.get(id),seen=new Set([id]);while(parent&&!seen.has(parent)){seen.add(parent);tasks[parent]??={pending:false,total:0,verified:0};tasks[parent].pending||=value.pending;parent=parents.get(parent);}}
   return tasks;
@@ -36,7 +36,7 @@ export class HumanTesting{
   if(native?.dbId)for(const acceptance of Object.values(this.acceptances()).filter(a=>a.binding.task.issueId===native.dbId)){const entry=this.packages.entries().find(e=>e.binding?.digest===acceptance.binding.digest);if(!this.verified(acceptance,this.intent(acceptance.key),entry))guardTestingCompletion(id,patch,{[id]:{pending:true}});}
   for(const entry of this.packages.entries().filter(e=>e.issueId===id))if(this.packages.authorization(entry).state==='authorized'){
    const groups=this.packages.frozen(entry.id).prepared.groups.filter(g=>g.writeRecordIds.length);
-   ensure(groups.every(g=>this.intent(digest({binding:entry.binding.digest,group:g.groupId}))?.state==='applied'||this.sourceUpdates?.covers(entry,g.planDigests)),'TESTING_REQUIRED','Authorized Map Work Remains Unimplemented. Keep This Task Open.');
+   ensure(groups.every(g=>this.intent(digest({binding:entry.binding.digest,group:g.groupId}))?.state==='applied'),'TESTING_REQUIRED','Authorized Map Work Remains Unimplemented. Keep This Task Open.');
   }
  }
  async beforeCompletion(operations,refresh){
@@ -71,7 +71,7 @@ export class HumanTesting{
     for(const id of ids){merge(indicators,id,verified);merge(byTown[townId],id,verified);const record=domain.records.find(r=>r.recordId===id);for(const v of views.filter(v=>v.recordId===id))merge(byTown[townId],v.payload.fields?.id,verified);merge(byTown[townId],record?.legacyData?.legacyElementId,verified);for(const area of record?.kind==='subzone'?record.current.payload.sourceAreaKeys:[])merge(byTown[townId],area,verified);}
    }
   }
-  const decorated={...view,testingRevision:digest({indicators,byTown}),snapshot:{...view.snapshot,testingIndicators:indicators,testingIndicatorsByTown:byTown}};return this.sourceUpdates?this.sourceUpdates.decorate(decorated):decorated;
+  return {...view,testingRevision:digest({indicators,byTown}),snapshot:{...view.snapshot,testingIndicators:indicators,testingIndicatorsByTown:byTown}};
  }
 
  reversalReference(input){const p=this.preview(input),intent=this.intent(input.key),pkg=JSON.parse(intent.receipt.packageJSON),group=pkg.groups.find(g=>g.groupId===intent.groupId),changes=pkg.requests.filter(r=>group.planDigests.includes(r.digest)).flatMap(r=>r.changes);if(input.token)ensure(input.token===p.token,'CONFLICT','The Result History Changed. Refresh Before Exporting.');return {format:'ROMDexReversalReference/1',task:p.task,acceptedReceipt:p.receiptDigest,returnedFileSHA256:p.returnSHA256,source:p.source,groupId:p.groupId,affected:p.affected,implementedChanges:changes,testingHistory:this.history(input.key)?.events||[],inverseChanges:changes.map(c=>({...c,before:c.after,after:c.before})),dispatch:'none',instructions:'Reference Only. Current NPCDex/ROM Content Has Not Been Reversed. Compare With Current ROM and NPCDex, Stage a New Change Plan, Review and Attach a New JSON Map Package, Then Explicitly Authorize It. Preserve Original Result and Testing History.'};}

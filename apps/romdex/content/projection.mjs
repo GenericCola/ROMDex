@@ -1,10 +1,7 @@
 import {requireThat,validateGraph,sha} from './contracts.mjs';
 import {projectLegacyNPCDex} from './legacy-projection.mjs';
 import {hasNativeViews,projectNativeNPCDex} from './native-projection.mjs';
-import {zonePath,descendantZones} from './hierarchy.mjs';
-import {applySnapshotTimelines} from './timelines.mjs';
-import {groupCharacterTiles} from './character-tiles.mjs';
-export const PROJECTION_VERSION='NPCDexContentProjection/4';
+export const PROJECTION_VERSION='NPCDexContentProjection/3';
 const heads=(values,identity)=>{const parents=new Set(values.flatMap(x=>x.parents||[]));const visible=values.filter(x=>!parents.has(x.digest));const groups=new Map();for(const a of visible){const id=a[identity];if(!groups.has(id))groups.set(id,[]);groups.get(id).push(a);}return [...groups.values()].flat();};
 
 // Explicit adapter to NPCDex v2 presentation. No embedded baseline or YouTrack task State.
@@ -20,7 +17,7 @@ export function projectNPCDex(domain,{revision=1,assetBytes=()=>null,gender='mal
  const towns=[];
  for(const map of domain.records.filter(r=>r.kind==='map')){
   const p=map.current.payload,town={id:map.recordId,name:p.name,subtitle:records.get(p.regionId).current.payload.name,areas:[],locations:[],characters:[],archived:map.current.lifecycle==='archived',contentRecordId:map.recordId};
-  for(const id of p.subzoneIds){const zone=records.get(id),z=zone.current.payload,area={id:zone.recordId,name:zonePath(zone,records),parentAreaId:zone.parentRecordId===map.recordId?null:zone.parentRecordId,elements:[],archived:zone.current.lifecycle==='archived',contentRecordId:zone.recordId};town.areas.push(area);town.locations.push({id:zone.recordId,name:zonePath(zone,records),parentLocationId:zone.parentRecordId===map.recordId?null:zone.parentRecordId,areaIds:descendantZones(zone,records),archived:area.archived});
+  for(const id of p.subzoneIds){const zone=records.get(id),z=zone.current.payload,area={id:zone.recordId,name:z.name,elements:[],archived:zone.current.lifecycle==='archived',contentRecordId:zone.recordId};town.areas.push(area);town.locations.push({id:zone.recordId,name:z.name,areaIds:[zone.recordId],archived:area.archived});
    for(const rid of [...z.appearanceIds,...z.sceneIds,...z.interactiveIds]){const record=records.get(rid),payload=record.current.payload,planned=record.current.lifecycle==='planned';
     const profile=record.kind==='appearance'?records.get(payload.profileByPlayerGender[gender]||payload.profileId):null;
     const name=payload.overrides?.displayName||profile?.current.payload.name||payload.name;
@@ -29,9 +26,12 @@ export function projectNPCDex(domain,{revision=1,assetBytes=()=>null,gender='mal
     if(profile)town.characters.push({id:rid,name:element.name,gender:'both',elementIds:[rid],sceneIds:[...payload.sceneIds],image:image(payload.overrides.imageAssetId||profile.current.payload.baseImageId),archived:element.archived,profileId:profile.recordId,contentRecordId:rid});
    }
   }
-  towns.push(groupCharacterTiles(town,domain.records,gender));
+  towns.push(town);
  }
  requireThat(towns.length>0,'No Map Content Is Available for NPCDex.');
+ const progression=domain.records.find(r=>r.kind==='shared'&&r.current.payload.sharedType==='progression');const definitions=progression?.current.payload.definitions;
+ const stages=Array.from({length:10},(_,i)=>({id:String.fromCharCode(65+i),name:'Stage '+String.fromCharCode(65+i),event:'Timeline Definition Not Yet Supplied'}));
+ if(definitions?.stages){requireThat(Array.isArray(definitions.stages)&&definitions.stages.length===10,'Unsupported Timeline Projection.');for(let i=0;i<10;i++){const s=definitions.stages[i];requireThat(s.id===stages[i].id&&typeof s.name==='string'&&typeof s.event==='string','Invalid Timeline Stage.');stages[i]={...s};}}
  const reviews=heads(domain.reviews,'reviewId'),reviewStates=reviews.map(r=>({digest:r.digest,status:records.get(r.target.recordId).revisionId===r.baseline.revisionId?r.testStatus:'unreviewed',stale:records.get(r.target.recordId).revisionId!==r.baseline.revisionId}));
- return applySnapshotTimelines({version:2,revision,savedAt:null,contentRevision:0,towns,stages:[],annotations:{},characterImages:{},characterNames:{},preferences:{gender,sortBySubArea:false},changePlans:{},history:[],implementationReceipts:[],liveMappings:{},romReversalResolutions:[],legacyChangePlans:{},decisionConflicts:[],promptStatusUnset:{},sourceBaselines:{},reconciliations:[],sources:[],index:{},contentPreview:{readOnly:true,records:domain.records.map(r=>({id:r.recordId,kind:r.kind,lifecycle:r.current.lifecycle,revisionId:r.revisionId,legacyRefs:r.legacyRefs,legacyData:r.legacyData})),plans:heads(domain.plans,'planId'),reviews,reviewStates,mappingCount:domain.mappings.length}},domain.records);
+ return {version:2,revision,savedAt:null,contentRevision:0,towns,stages,annotations:{},characterImages:{},characterNames:{},preferences:{gender,sortBySubArea:false},changePlans:{},history:[],implementationReceipts:[],liveMappings:{},romReversalResolutions:[],legacyChangePlans:{},decisionConflicts:[],promptStatusUnset:{},sourceBaselines:{},reconciliations:[],sources:[],index:{},contentPreview:{readOnly:true,records:domain.records.map(r=>({id:r.recordId,kind:r.kind,lifecycle:r.current.lifecycle,revisionId:r.revisionId,legacyRefs:r.legacyRefs,legacyData:r.legacyData})),plans:heads(domain.plans,'planId'),reviews,reviewStates,mappingCount:domain.mappings.length}};
 }

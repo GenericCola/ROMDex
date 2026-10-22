@@ -1,9 +1,0 @@
-{
-  "passed": true,
-  "distinct": 106,
-  "affectedBaselinePassed": 98,
-  "finalMAPDexTestsPassed": 17,
-  "existingTestsOutsideMAPDex": 88,
-  "newNativePolicyTests": 1,
-  "broadApplicationSuiteRepeated": false
-}

@@ -35,7 +35,6 @@
  function classicSettings(type,id){originalSettings(type,id);if(!$('settings-dialog').open)return;
   for(const key of ['image-fields','npc-name-fields'])$(key).classList.add('hidden');
   if(!$('content-correct-recorded')){const button=document.createElement('button');button.id='content-correct-recorded';button.type='button';button.textContent='Edit Recorded Content';button.onclick=()=>{const target={type:settingsTarget.type,id:settingsTarget.id};closeSettings();window.romdexContentEditor.open('definition',{legacy:target});};$('settings-apply').before(button);}
-  if(!$('content-link-character')){const link=document.createElement('button');link.id='content-link-character';link.type='button';link.textContent='Link Character Placements';link.onclick=()=>{const first=selectedElements()[0];closeSettings();window.romdexContentEditor.open('linkCharacters',first?.contentRecordId?{recordId:first.contentRecordId}:null);};$('settings-apply').before(link);}$('content-link-character').hidden=settingsTarget.type!=='character';
   $('settings-apply').onclick=async()=>{try{flushNote();flushSettingDescription();await chain;if(failure)throw failure;$('settings-dialog').close();await window.romdexContentPreview.refresh(true);}catch(e){settingsStatus(e.message,true);}};
  }
  openSettings=classicSettings;

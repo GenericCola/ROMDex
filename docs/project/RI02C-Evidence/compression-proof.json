@@ -1,8 +1,0 @@
-{
-  "fileBytes": 1001582,
-  "decodedBytes": 8333571,
-  "entries": 388,
-  "codec": "bounded RDX deflate-raw/store, deduplicated assets",
-  "oneLogicalMap": true,
-  "fullLocalEvidenceSHA256": "f3b5a90ec64a3b103273cb4b308bc6b2ca05c030aa8150e540e5009dfc51ed02"
-}

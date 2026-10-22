@@ -1,7 +1,6 @@
 // The original verified bytes preserve unknown fields and historical hash semantics.
 // Changed current records overlay those bytes; the original is never rewritten in place.
 import {requireThat,sha,pointPayload} from './contracts.mjs';import {recoverLegacyOriginal} from './migration.mjs';
-import {applySnapshotTimelines} from './timelines.mjs';
 export function projectLegacyNPCDex(domain,{revision,gender='male',assetBytes}={}){
  const {bytes,manifest}=recoverLegacyOriginal(domain,assetBytes),document=JSON.parse(bytes),byId=new Map(domain.records.map(r=>[r.recordId,r]));
  requireThat(Object.keys(manifest.baselineRevisions).every(id=>byId.has(id)),'A Migrated Content Identity Is Missing.');
@@ -21,7 +20,7 @@ export function projectLegacyNPCDex(domain,{revision,gender='male',assetBytes}={
  const planHeads=heads(domain.plans,'planId'),reviewHeads=heads(domain.reviews,'reviewId');
  for(const p of planHeads){const legacy=p.legacyRefs.find(r=>r.kind==='plan');if(planHeads.filter(x=>x.planId===p.planId).length!==1)continue;if(legacy&&p.parents.length&&document.changePlans[legacy.id])document.changePlans[legacy.id]={...document.changePlans[legacy.id],intent:p.intent,instructions:p.instructions,proposedDialogue:p.proposedDialogue,workflow:p.workflow};}
  const reviewStates=[];for(const r of reviewHeads){const match=manifest.reviewIndex.find(x=>x.reviewId===r.reviewId),stale=byId.get(r.target.recordId)?.revisionId!==r.baseline.revisionId;reviewStates.push({digest:r.digest,status:stale?'unreviewed':r.testStatus,stale});if(reviewHeads.filter(x=>x.reviewId===r.reviewId).length!==1)continue;if(match&&(r.parents.length||stale)){const a=document.annotations[match.legacyKey];document.annotations[match.legacyKey]={...a,flag:r.flag!=='none',critical:r.flag==='critical',note:r.note,testStatus:stale?'unreviewed':r.testStatus};}}
- applySnapshotTimelines(document,domain.records);document.revision=Math.max(document.revision,revision||0);document.preferences={...document.preferences,gender};
+ document.revision=Math.max(document.revision,revision||0);document.preferences={...document.preferences,gender};
  document.contentPreview={readOnly:true,migrationSource:manifest.source.sha256,records:domain.records.map(r=>({id:r.recordId,kind:r.kind,lifecycle:r.current.lifecycle,revisionId:r.revisionId,legacyRefs:r.legacyRefs,legacyData:r.legacyData})),plans:heads(domain.plans,'planId'),reviews:heads(domain.reviews,'reviewId'),reviewStates,mappingCount:domain.mappings.length};
  return document;
 }

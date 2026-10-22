@@ -49,7 +49,7 @@ export class RendererRecovery {
 export function trayTemplate({active='romdex',enabled=true,ready=false,busy=false,quitBusy=false,updates=null,run,quit}){
  return [
   {label:'Show ROMDex',click:()=>run('show')},
-  {label:'Open Workspace',enabled:ready,submenu:['romdex','npcdex','rom-import'].map(id=>({label:id==='romdex'?'ROMDex':id==='npcdex'?'NPCDex':'MAPDex',type:'radio',checked:active===id,click:()=>run('workspace',id)}))},
+  {label:'Open Workspace',enabled:ready,submenu:['romdex','npcdex'].map(id=>({label:id==='romdex'?'ROMDex':'NPCDex',type:'radio',checked:active===id,click:()=>run('workspace',id)}))},
   {type:'separator'},
   {label:'Save Changes',enabled:ready&&!busy,click:()=>run('save')},
   {label:'Auto-Sync Data',type:'checkbox',checked:enabled,enabled:ready&&!busy,click:item=>run('automatic',item.checked)},

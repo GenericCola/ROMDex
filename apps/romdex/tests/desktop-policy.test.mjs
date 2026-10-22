@@ -21,8 +21,3 @@ test('desktop external links and content policies keep privileges scoped to pack
  const shell=contentPolicy('romdex-app://shell/'),npc=contentPolicy('romdex-app://shell/addons/npcdex/index.html');
  assert(shell.includes("script-src 'self'"));assert(!shell.includes('unsafe-eval'));assert(shell.includes("frame-ancestors 'none'"));assert(npc.includes("frame-ancestors 'self'"));assert(npc.includes("connect-src 'self' http: https:"));
 });
-test('MAPDex has one bounded domain bridge; native file selection/export are not renderer domain commands',()=>{
- assert.doesNotThrow(()=>validateCall('romImport',['status']));
- for(const method of ['romImportSource','romImportExport'])assert.throws(()=>validateCall(method,['C:/private/file.nds']));
- const policy=contentPolicy('romdex-app://shell/rom-import.html');assert(policy.includes("frame-ancestors 'self'"));assert(!policy.includes("connect-src 'self' http:"));
-});

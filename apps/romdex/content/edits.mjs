@@ -3,7 +3,6 @@ import {checkImageBounds} from './image-bounds.mjs';
 import {seal,sha,same,conforms,requireThat,validateArtifact,pointPayload} from './contracts.mjs';
 import {applyPublication,resolvePublication,versionHeads} from './materialize.mjs';
 import {workspaceAllowed} from './authorization.mjs';
-import {characterLinkUpdates} from './character-links.mjs';
 import {viewHeads} from './view-contract.mjs';
 import {membershipResolution} from './membership-resolution.mjs';
 const uid=kind=>'content:'+kind+'-'+randomUUID();
@@ -18,10 +17,7 @@ export function buildEdit(domain,command,ctx){
  const byId=new Map(domain.records.map(r=>[r.recordId,r])),r=byId.get(command.recordId);const assets=[],artifacts=[];let kind='planning',resultDigest=null;
  const get=()=>{requireThat(r,'The Selected Content Record Is Missing.');requireThat(r.current.payload.definitions?.migration?.format!=='ROMDexLegacyMigration/1','Original Migration Evidence Is Read-Only.');if(command.expectedRevision)requireThat(r.revisionId===command.expectedRevision,'The Selected Content Has Changed. Review the Latest Version.');return r;};
  const asset=image(command.image);if(asset)assets.push(asset);const pointPath=record=>record.kind==='shared'?'/payload/definitions/points/':'/payload/points/';
- if(command.type==='linkCharacters'){
-  get();requireThat(!asset&&command.documentationCorrection===true&&command.approved===true,'Review the Shared Character Link Explicitly.');const updates=characterLinkUpdates(domain,command,ctx);kind='correction';
-  const correction=seal({...base('NPCDexDocumentationCorrection/1',ctx,'correction'),correctionId:ctx.operationId,reason:'Owner-confirmed shared character identity; placements and ROM mappings retained',evidence:[{label:'Owner Character Identity Review',sourceId:actor(ctx),excerpt:'Linked the selected placements as '+command.name,locator:null}],readSet:updates.map(u=>u.before),recordUpdates:updates,romChangeRequested:false});artifacts.push(correction,...updates.map(u=>u.after));resultDigest=correction.digest;
- }else if(command.type==='plan'||command.type==='review'){
+ if(command.type==='plan'||command.type==='review'){
   get();requireThat(!asset||command.type==='plan','Use a Plan or Definition for an Image.');if(command.blockIds!==undefined)requireThat(Array.isArray(command.blockIds)&&command.blockIds.length<=512&&new Set(command.blockIds).size===command.blockIds.length&&command.blockIds.every(id=>typeof id==='string'&&pointPayload(r)?.points?.[command.pointId]?.blocks?.[id])&&(!command.blockId||command.blockIds.length===1&&command.blockIds[0]===command.blockId),'The Selected Passage Scope Disagrees with Its Blocks.');const t=target(r,command);const identity=command.type==='plan'?'planId':'reviewId',key=command.type==='plan'?'plans':'reviews',id=command[identity]||uid(command.type),heads=versionHeads(domain[key],identity,id);
   requireThat(same(heads.map(h=>h.digest).sort(),[...(command.expectedParents||[])].sort()),'This Draft Has Newer or Conflicting Versions.');
   if(heads.length>1)requireThat(command.reviewedHeads===true,'Review All Conflicting Draft Versions Before Saving.');
@@ -56,10 +52,10 @@ export function buildEdit(domain,command,ctx){
   if(command.type==='archivePlanned'){requireThat(r.current.lifecycle==='planned','Existing ROM Content Needs a Removal Proposal or Explicit Documentation Correction.');after.current.lifecycle='archived';}
   else{
    requireThat(command.documentationCorrection===true||r.current.lifecycle==='planned','Choose Documentation Correction Explicitly.');
-   const p=after.current.payload;if(command.timelineStages!==undefined){requireThat(r.kind==='shared'&&p.sharedType==='progression'&&command.documentationCorrection===true,'Timeline Edits Need an Explicit Documentation Correction.');p.definitions={...p.definitions,stages:structuredClone(command.timelineStages)};}if(command.stageIds!==undefined||command.condition!==undefined){const point=pointPayload(after)?.points?.[command.pointId];requireThat(point,'The Selected Dialogue Point Is Missing.');if(command.stageIds!==undefined)point.stageIds=structuredClone(command.stageIds);if(command.condition!==undefined)point.condition=text(command.condition,'Condition');}if(command.name!==undefined){const name=text(command.name,'Name',1024);requireThat(name.trim(),'Enter a Name.');if(r.kind==='appearance')p.overrides.displayName=name;else p.name=name;}
+   const p=after.current.payload;if(command.name!==undefined){const name=text(command.name,'Name',1024);requireThat(name.trim(),'Enter a Name.');if(r.kind==='appearance')p.overrides.displayName=name;else p.name=name;}
    if(command.clearOverride===true){requireThat(r.kind==='appearance','Only a Local Appearance Has Overrides.');p.overrides={displayName:null,imageAssetId:null};}
    if(asset){if(r.kind==='profile')p.baseImageId=asset.assetId;else{requireThat(r.kind==='appearance','An Image Requires a Profile or Local Appearance.');p.overrides.imageAssetId=asset.assetId;}}
-   if(command.profileId!==undefined||command.profileByPlayerGender!==undefined){requireThat(r.kind==='appearance','Profile Links Belong to an Appearance.');if(command.profileId!==undefined){p.profileId=command.profileId;if(p.profileId!==r.current.payload.profileId)for(const point of Object.values(p.points))for(const block of Object.values(point.blocks))if(block.speaker===r.current.payload.profileId)block.speaker=p.profileId;}if(command.profileByPlayerGender!==undefined)p.profileByPlayerGender=structuredClone(command.profileByPlayerGender);}
+   if(command.profileId!==undefined||command.profileByPlayerGender!==undefined){requireThat(r.kind==='appearance','Profile Links Belong to an Appearance.');if(command.profileId!==undefined)p.profileId=command.profileId;if(command.profileByPlayerGender!==undefined)p.profileByPlayerGender=structuredClone(command.profileByPlayerGender);}
    if(command.dialogue!==undefined){requireThat(pointPayload(after)?.points[command.pointId]?.blocks?.[command.blockId],'The Selected Dialogue Block Is Missing.');pointPayload(after).points[command.pointId].blocks[command.blockId].text=text(command.dialogue,'Dialogue');}
    if(command.lifecycle!==undefined){requireThat(command.documentationCorrection===true,'Lifecycle Corrections Need Explicit Documentation Intent.');after.current.lifecycle=command.lifecycle;}
    if(r.kind==='profile')requireThat(command.sharedAcknowledged===true,'Acknowledge That This Corrects Every Appearance Using This Profile.');

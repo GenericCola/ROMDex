@@ -1,8 +1,6 @@
 import fs from 'node:fs';
 import {createHash} from 'node:crypto';
 import {TextDecoder} from 'node:util';
-import {timelineCatalog,collectionTimeline} from './timelines.mjs';
-import {owningMap} from './hierarchy.mjs';
 
 // Full-data bootstrap is ~266 KiB: use the already proved 512 KiB upload bound.
 // Keep manifests single-chunk; no unbounded JSON or upload increase is enabled.
@@ -67,22 +65,17 @@ export function unique(values,label){requireThat(new Set(values).size===values.l
 export const pointPayload=record=>record.current.payload.points?record.current.payload:record.kind==='shared'&&record.current.payload.sharedType==='global-dialogue'&&record.current.payload.definitions?.points?record.current.payload.definitions:null;
 export function validateGraph(records){
  unique(records.map(r=>r.recordId),'Content Record');const byId=new Map(records.map(r=>[r.recordId,r]));
- const timelines=timelineCatalog(records);
  const get=(id,kind)=>{const r=byId.get(id);requireThat(r&&(!kind||r.kind===kind),'Missing or Mismatched Content Reference.');return r;};
  for(const record of records){
   requireThat(conforms(record),'Invalid Content Record.');verifyDigest(record);const p=record.current.payload;let cursor=record;const visited=new Set([record.recordId]);
   while(cursor.parentRecordId){requireThat(!visited.has(cursor.parentRecordId),'Content Hierarchy Cycle.');visited.add(cursor.parentRecordId);cursor=get(cursor.parentRecordId);}
   if(['region','profile','shared'].includes(record.kind))requireThat(record.parentRecordId===null,'Registry Record Has a Physical Parent.');
-  if(record.kind==='map'){get(record.parentRecordId,'region');requireThat(p.regionId===record.parentRecordId,'Map Region Differs.');requireThat(get(p.timelineRef,'shared').current.payload.sharedType==='progression','Map Needs Its Own Referenced Timeline.');for(const id of p.subzoneIds){const zone=get(id,'subzone');requireThat(zone.current.payload.mapId===record.recordId&&owningMap(zone,byId)?.recordId===record.recordId,'Map Membership Differs.');}}
-  if(record.kind==='subzone'){const parent=get(record.parentRecordId),map=owningMap(record,byId);requireThat(['map','subzone'].includes(parent.kind)&&map&&p.mapId===map.recordId&&map.current.payload.subzoneIds.includes(record.recordId),'Sub-Zone Membership Differs.');if(parent.kind==='subzone')requireThat(parent.current.payload.subzoneIds?.includes(record.recordId),'Nested Sub-Zone Membership Differs.');for(const id of p.subzoneIds||[])requireThat(get(id,'subzone').parentRecordId===record.recordId,'Nested Area Parent Differs.');for(const [key,kind]of [['appearanceIds','appearance'],['sceneIds','scene'],['interactiveIds','interactive']])for(const id of p[key])requireThat(get(id,kind).parentRecordId===record.recordId,'Verse Membership Differs.');}
+  if(record.kind==='map'){get(record.parentRecordId,'region');requireThat(p.regionId===record.parentRecordId,'Map Region Differs.');get(p.timelineRef,'shared');for(const id of p.subzoneIds)requireThat(get(id,'subzone').parentRecordId===record.recordId,'Map Membership Differs.');}
+  if(record.kind==='subzone'){const parent=get(record.parentRecordId,'map');requireThat(p.mapId===parent.recordId&&parent.current.payload.subzoneIds.includes(record.recordId),'Sub-Zone Membership Differs.');for(const [key,kind]of [['appearanceIds','appearance'],['sceneIds','scene'],['interactiveIds','interactive']])for(const id of p[key])requireThat(get(id,kind).parentRecordId===record.recordId,'Verse Membership Differs.');}
   if(['appearance','scene','interactive'].includes(record.kind)){const parent=get(record.parentRecordId,'subzone');requireThat(parent.current.payload[{appearance:'appearanceIds',scene:'sceneIds',interactive:'interactiveIds'}[record.kind]].includes(record.recordId),'Inverse Verse Membership Missing.');}
   if(record.kind==='appearance'){for(const id of [p.profileId,...Object.values(p.profileByPlayerGender)].filter(Boolean))get(id,'profile');for(const id of p.sceneIds)get(id,'scene');}
   if(p.participantIds)for(const id of p.participantIds){const participant=get(id,'appearance');if(record.current.lifecycle==='active')requireThat(participant.current.lifecycle==='active','Active Scene Has an Inactive Participant.');}
-  const points=pointPayload(record);if(points){
-   // Physical entities inherit their map through the sub-zone, before its region.
-   const map=owningMap(record,byId);
-   const timeline=map?collectionTimeline(map,timelines):record.kind==='shared'?collectionTimeline(record,timelines):null,known=new Set(['all',...(timeline?timelines.timelines[timeline].stages.map(s=>s.id):[])]);
-   unique(points.pointOrder,'Point Order');requireThat(same(Object.keys(points.points).sort(),[...points.pointOrder].sort()),'Point Order Differs.');for(const [id,point]of Object.entries(points.points)){requireThat(conforms(point,schema.$defs.point)&&point.id===id,'Point Identity or Shape Differs.');requireThat(point.stageIds.every(id=>known.has(id)),'Point References a Stage Outside Its Map Timeline.');for(const participant of point.participantIds)get(participant,'appearance');unique(point.blockOrder,'Block Order');requireThat(same(Object.keys(point.blocks).sort(),[...point.blockOrder].sort()),'Block Order Differs.');for(const [key,block]of Object.entries(point.blocks)){requireThat(key===block.id,'Block Identity Differs.');if(block.speaker)get(block.speaker,'profile');}}}
+  const points=pointPayload(record);if(points){unique(points.pointOrder,'Point Order');requireThat(same(Object.keys(points.points).sort(),[...points.pointOrder].sort()),'Point Order Differs.');for(const [id,point]of Object.entries(points.points)){requireThat(conforms(point,schema.$defs.point)&&point.id===id,'Point Identity or Shape Differs.');for(const participant of point.participantIds)get(participant,'appearance');unique(point.blockOrder,'Block Order');requireThat(same(Object.keys(point.blocks).sort(),[...point.blockOrder].sort()),'Block Order Differs.');for(const [key,block]of Object.entries(point.blocks)){requireThat(key===block.id,'Block Identity Differs.');if(block.speaker)get(block.speaker,'profile');}}}
  }
  return byId;
 }
